@@ -60,6 +60,12 @@ namespace AdvDAS
         private void btnSave_Click(object sender, EventArgs e)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER,10,10,42,35);
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Add Logo";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string s = ofd.FileName;
+            }
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Test Trend File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
@@ -70,7 +76,8 @@ namespace AdvDAS
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();//Open Document To Write
                 //Insert image
-
+                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(ofd.FileName);
+                doc.Add(PNG);
                 //Write Some Content
                 Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
                 //Adds above created text using different class object to our pdf document.
@@ -123,7 +130,7 @@ namespace AdvDAS
                 doc.Add(Chart_image);
 
                 doc.Close();//Closes Document
-
+                System.Diagnostics.Process.Start(sfd.FileName);
             }
         }
     }

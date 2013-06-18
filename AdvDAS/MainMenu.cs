@@ -22,10 +22,12 @@ namespace AdvDAS
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         private List<double> num =new List<double>();
         private ToolTip tp = new ToolTip();
-        private bool thisState = false;
+        //private bool thisState = false;
         private Thread t;
         private Trend viewTrend = new Trend();
         public static List<Label> lblList = new List<Label>();
+        DateTime testTime = new DateTime();
+        public DateTime startTime = DateTime.Now;
         private DateTime running = new DateTime();
         public MainMenu()
         {
@@ -199,11 +201,11 @@ namespace AdvDAS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.recordingProgressBar1.Increment(1);
+            this.recordingProgressBar.Increment(1);
             
             running = running.AddSeconds(1);
   
-            this.recordTimeLabel.Text = running.ToString("HH:mm:ss");
+            this.recordTimeLabel.Text = "REC = ("+testTime.ToString("HH:mm:ss")+") "+running.ToString("HH:mm:ss");
  
         }
 

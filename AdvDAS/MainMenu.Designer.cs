@@ -79,7 +79,7 @@ namespace AdvDAS
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.recordStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.recordingProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.recordingProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -439,7 +439,7 @@ namespace AdvDAS
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.recordStatusLabel,
             this.recordTimeLabel,
-            this.recordingProgressBar1,
+            this.recordingProgressBar,
             this.clock_lbl});
             this.statusStrip1.Location = new System.Drawing.Point(0, 491);
             this.statusStrip1.Name = "statusStrip1";
@@ -467,10 +467,11 @@ namespace AdvDAS
             this.recordTimeLabel.Size = new System.Drawing.Size(88, 19);
             this.recordTimeLabel.Text = "REC = 00:00:00";
             // 
-            // recordingProgressBar1
+            // recordingProgressBar
             // 
-            this.recordingProgressBar1.Name = "recordingProgressBar1";
-            this.recordingProgressBar1.Size = new System.Drawing.Size(200, 18);
+            this.recordingProgressBar.Maximum = 12;
+            this.recordingProgressBar.Name = "recordingProgressBar";
+            this.recordingProgressBar.Size = new System.Drawing.Size(200, 18);
             // 
             // clock_lbl
             // 
@@ -1913,7 +1914,7 @@ namespace AdvDAS
         private System.Windows.Forms.ToolStripMenuItem resetAllAveragesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar recordingProgressBar1;
+        private System.Windows.Forms.ToolStripProgressBar recordingProgressBar;
         private System.Windows.Forms.ToolStripStatusLabel recordTimeLabel;
         private System.Windows.Forms.ToolStripStatusLabel recordStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel clock_lbl;
