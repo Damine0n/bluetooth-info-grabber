@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
 
 namespace AdvDAS
@@ -47,11 +48,7 @@ namespace AdvDAS
             //elements.Add(new Facts ("NOx(mass)",0, "ppm" ));
             for (int i = 0; i < elements.Count; i++)
             {
-                //List<ListViewItem> listItems= new List<ListViewItem>();
-                ListViewItem listItem = new ListViewItem(elements[i].Name);
-                listItem.SubItems.Add((elements[i].Value.ToString()));
-                listItem.SubItems.Add((elements[i].Unit));
-                elementTable.Items.Add(listItem);
+                elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
             }
         }
         private void elementTable_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -86,50 +83,45 @@ namespace AdvDAS
                 list.Add("Five");
                 list.Add("Six");
                 //list.Add(new ListItem("One"));
-                doc.Add(list);
-                
-                //PdfPTable table = new PdfPTable(3);
-                //PdfPCell cell = new PdfPCell(new Phrase("Header Spanning 3 Columns",
-                //    new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,
-                //    20f,iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
-                //cell.Colspan = 3;
-                //cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
-                //table.AddCell(cell);
+                doc.Add(list);                
+                PdfPCell cell = new PdfPCell(new Phrase("Trend Table",
+                    new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,
+                    20f,iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
+                cell.Colspan = 3;
+                cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
+                PdfPTable dgTable = new PdfPTable(elementTable.ColumnCount-1);
+                dgTable.AddCell(cell);
 
-                //table.AddCell("Col 1 Row 1");
-                //table.AddCell("Col 2 Row 1");
-                //table.AddCell("Col 3 Row 1");
-
-                //table.AddCell("Col 1 Row 2");
-                //table.AddCell("Col 2 Row 2");
-                //table.AddCell("Col 3 Row 2");
-                //doc.Add(table);
-                PdfPTable dgTable = new PdfPTable(elementTable.Columns.Count);
- 
                 //Add headers fromthe DGV to the table
-                //for (int i = 0; i < elementTable.Columns.Count; i++)
-                //{
-                //    dgTable.AddCell(new Phrase(elementTable.Columns[i].));
-                //}
+                for (int i = 0; i < elementTable.ColumnCount-1; i++)
+                {
+                    dgTable.AddCell(new Phrase(elementTable.Columns[i].HeaderText));
+                }
 
-                ////Flag First Row as Header
-                //dgTable.HeaderRows = 1;
+                //Flag First Row as Header
+                dgTable.HeaderRows = 1;
 
-                ////Add actual rows from DGV to the table
-                //ListView tab = new ListView();
-                //tab.Columns;
-                //for (int j = 0; j < elementTable.Rows.Count; j++)
-                //{
-                //    for (int k = 0; k < elementTable.Columns.Count; k++)
-                //    {
-                //        if (elementTable[k, j].Value != null)
-                //        {
-                //            dgTable.AddCell(new Phrase(elementTable[k, j].Value.ToString()));
-                //        }
-                //    }
-                //}
+                //Add actual rows from DGV to the table
+                for (int j = 0; j < elementTable.Rows.Count; j++)
+                {
+                    for (int k = 0; k < elementTable.Columns.Count; k++)
+                    {
+                        if (elementTable[k, j].Value != null)
+                        {
+                            dgTable.AddCell(new Phrase(elementTable[k, j].Value.ToString()));
+                        }
+                    }
+                }
                 //Adds table to pdf
                 doc.Add(dgTable);
+
+                //Adds chart to PDF
+                var chartimage = new MemoryStream();
+                trendChart.SaveImage(chartimage, ChartImageFormat.Png);
+                iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartimage.GetBuffer());
+                Chart_image.ScalePercent(75f);
+                doc.Add(Chart_image);
+
                 doc.Close();//Closes Document
 
             }

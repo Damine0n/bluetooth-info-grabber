@@ -63,51 +63,64 @@
             System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trend));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.trendBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.elementTable = new System.Windows.Forms.DataGridView();
+            this.trendChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGraph = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgColor = new System.Windows.Forms.DataGridViewImageColumn();
+            this.trendBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trendChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trendBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.76064F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.23936F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chart1, 1, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.1039F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.8961F));
+            this.tableLayoutPanel1.Controls.Add(this.elementTable, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.trendChart, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(752, 374);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(770, 400);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // chart1
+            // elementTable
+            // 
+            this.elementTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.elementTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgName,
+            this.dgValue,
+            this.dgUnit,
+            this.dgGraph});
+            this.elementTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementTable.Location = new System.Drawing.Point(3, 3);
+            this.elementTable.Name = "elementTable";
+            this.elementTable.Size = new System.Drawing.Size(272, 394);
+            this.elementTable.TabIndex = 5;
+            // 
+            // trendChart
             // 
             chartArea1.AxisX.LabelStyle.IsEndLabelVisible = false;
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.trendBindingSource, "Tag", true));
-            this.chart1.DataSource = this.trendBindingSource;
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trendChart.ChartAreas.Add(chartArea1);
+            this.trendChart.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.trendBindingSource, "Tag", true));
+            this.trendChart.DataSource = this.trendBindingSource;
+            this.trendChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(302, 3);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            this.trendChart.Legends.Add(legend1);
+            this.trendChart.Location = new System.Drawing.Point(281, 3);
+            this.trendChart.Name = "trendChart";
+            this.trendChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
@@ -193,35 +206,31 @@
             series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series18.Legend = "Legend1";
             series18.Name = "Series18";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
-            this.chart1.Series.Add(series13);
-            this.chart1.Series.Add(series14);
-            this.chart1.Series.Add(series15);
-            this.chart1.Series.Add(series16);
-            this.chart1.Series.Add(series17);
-            this.chart1.Series.Add(series18);
-            this.chart1.Size = new System.Drawing.Size(447, 368);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "trendChart";
-            // 
-            // trendBindingSource
-            // 
-            this.trendBindingSource.DataSource = typeof(AdvDAS.Trend);
+            this.trendChart.Series.Add(series1);
+            this.trendChart.Series.Add(series2);
+            this.trendChart.Series.Add(series3);
+            this.trendChart.Series.Add(series4);
+            this.trendChart.Series.Add(series5);
+            this.trendChart.Series.Add(series6);
+            this.trendChart.Series.Add(series7);
+            this.trendChart.Series.Add(series8);
+            this.trendChart.Series.Add(series9);
+            this.trendChart.Series.Add(series10);
+            this.trendChart.Series.Add(series11);
+            this.trendChart.Series.Add(series12);
+            this.trendChart.Series.Add(series13);
+            this.trendChart.Series.Add(series14);
+            this.trendChart.Series.Add(series15);
+            this.trendChart.Series.Add(series16);
+            this.trendChart.Series.Add(series17);
+            this.trendChart.Series.Add(series18);
+            this.trendChart.Size = new System.Drawing.Size(486, 394);
+            this.trendChart.TabIndex = 1;
+            this.trendChart.Text = "trendChart";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(455, 380);
+            this.btnSave.Location = new System.Drawing.Point(473, 403);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
@@ -232,7 +241,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(565, 380);
+            this.btnCancel.Location = new System.Drawing.Point(583, 403);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -242,60 +251,47 @@
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(674, 380);
+            this.btnAccept.Location = new System.Drawing.Point(692, 403);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 4;
             this.btnAccept.Text = "ACCEPT";
             this.btnAccept.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgName,
-            this.dgValue,
-            this.dgUnit,
-            this.dgGraph,
-            this.dgColor});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(293, 368);
-            this.dataGridView1.TabIndex = 5;
-            // 
             // dgName
             // 
-            this.dgName.Frozen = true;
+            this.dgName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgName.HeaderText = "Name";
             this.dgName.Name = "dgName";
             this.dgName.ReadOnly = true;
+            this.dgName.Width = 60;
             // 
             // dgValue
             // 
-            this.dgValue.Frozen = true;
+            this.dgValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgValue.HeaderText = "Value";
             this.dgValue.Name = "dgValue";
             this.dgValue.ReadOnly = true;
+            this.dgValue.Width = 59;
             // 
             // dgUnit
             // 
-            this.dgUnit.Frozen = true;
+            this.dgUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgUnit.HeaderText = "Unit";
             this.dgUnit.Name = "dgUnit";
             this.dgUnit.ReadOnly = true;
+            this.dgUnit.Width = 51;
             // 
             // dgGraph
             // 
-            this.dgGraph.Frozen = true;
+            this.dgGraph.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgGraph.HeaderText = "Graph";
             this.dgGraph.Name = "dgGraph";
+            this.dgGraph.Width = 42;
             // 
-            // dgColor
+            // trendBindingSource
             // 
-            this.dgColor.Frozen = true;
-            this.dgColor.HeaderText = "Color";
-            this.dgColor.Name = "dgColor";
+            this.trendBindingSource.DataSource = typeof(AdvDAS.Trend);
             // 
             // Trend
             // 
@@ -303,7 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(752, 405);
+            this.ClientSize = new System.Drawing.Size(770, 428);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -314,9 +310,9 @@
             this.Name = "Trend";
             this.Text = "Trend";
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trendChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trendBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,16 +320,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart trendChart;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.BindingSource trendBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView elementTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgUnit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgGraph;
-        private System.Windows.Forms.DataGridViewImageColumn dgColor;
     }
 }
