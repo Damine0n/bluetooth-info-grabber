@@ -25,22 +25,34 @@ namespace AdvDAS
         //private bool thisState = false;
         private Thread t;
         private Trend viewTrend = new Trend();
-        public static List<Label> lblList = new List<Label>();
+        public List<Label> lblList = new List<Label>();
+        
         DateTime testTime = new DateTime();
         public DateTime startTime = DateTime.Now;
         private DateTime running = new DateTime();
         public MainMenu()
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 10; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(this,i));
             }
+            lblList.Add(this.label1);
+            lblList.Add(this.label2);
+            lblList.Add(this.label3);
+            lblList.Add(this.label4);
+            lblList.Add(this.label5);
+            lblList.Add(this.label6);
+            lblList.Add(this.label7);
+            lblList.Add(this.label8);
+            lblList.Add(this.label9);
+            lblList.Add(this.label10);
             InitializeComponent();
             timer2.Start();
         }
         private void btnSnapShot_Click(object sender, EventArgs e)
         {
             screenShotBox.Image = ScreenShot();
+           
             screenShotBox.SizeMode = PictureBoxSizeMode.Zoom;
             String fileName = "Screenshots/ScreenShot "+DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss")+ ".jpg";
             screenShotBox.Image.Save(fileName, ImageFormat.Jpeg);

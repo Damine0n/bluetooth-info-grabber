@@ -14,11 +14,13 @@ namespace AdvDAS
     public partial class ScaleDisplay : Form
     {
         private MainMenu mainMenu;
+        private int index;
         public ScaleDisplay(MainMenu mainMenu, int index)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.mainMenu = mainMenu;
+            this.index = index;
             this.elementComboBox.SelectedIndex = index + 1;
         }
         private void btnAccept_Click(object sender, EventArgs e)
@@ -41,54 +43,60 @@ namespace AdvDAS
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    this.mainMenu."O2",
+                    this.mainMenu.lblList[this.index].Text = "O2";  
+                    break;
+                case 2:
+                    this.mainMenu.lblList[this.index].Text = "CO";
+                    break;
+                case 3:
+                    this.mainMenu.lblList[this.index].Text = "CO2";
+                    break;
+                case 4:
+                    this.mainMenu.lblList[this.index].Text = "NO";
+                    break;
+                case 5:
+                    this.mainMenu.lblList[this.index].Text = "NO2";
+                    break;
+                case 6:
+                    this.mainMenu.lblList[this.index].Text = "NOx";
+                    break;
+                case 7: 
+                    this.mainMenu.lblList[this.index].Text = "SO2";
+                    break;
+                case 8:
+                    this.mainMenu.lblList[this.index].Text = "CxHy";
+            
+                    break;
+                case 9:
+                    this.mainMenu.lblList[this.index].Text = "T(gas)";
+            
+                    break;
+                case 10:
+                    this.mainMenu.lblList[this.index].Text = "T(amb)";
+            
+                    break;
+                case 11:
+                    this.mainMenu.lblList[this.index].Text = "Temp 1 ?";
            
                     break;
-                case 2: "CO",
+                case 12: 
+                    this.mainMenu.lblList[this.index].Text = "Temp 2 ?";
             
                     break;
-                case 3:"CO2",
+                case 13:
+                    this.mainMenu.lblList[this.index].Text = "T(cell)";
             
                     break;
-                case 4:"NO",
-            
-                    break;
-                case 5:"NO2",
-            
-                    break;
-                case 6:"NOx",
-           
-                    break;
-                case 7: "SO2",
-            
-                    break;
-                case 8:"CxHy",
-            
-                    break;
-                case 9:"T(gas)",
-            
-                    break;
-                case 10:"T(amb)",
-            
-                    break;
-                case 11:"Temp 1 ?",
-           
-                    break;
-                case 12: "Temp 2 ?",
-            
-                    break;
-                case 13:"T(cell)",
-            
-                    break;
-                case 14:"Efficiency",
+                case 14:
+                    this.mainMenu.lblList[this.index].Text = "Efficiency";
             
                     break;
                 case 15:
-                    "Flow",
+                    this.mainMenu.lblList[this.index].Text = "Flow";
             
                     break;
                 case 16:
-                    "NH3"
+                    this.mainMenu.lblList[this.index].Text = "NH3";
                     break;
                 default:
                     MessageBox.Show("I'm not sure how to do that yet.");
