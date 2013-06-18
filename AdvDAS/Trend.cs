@@ -73,10 +73,13 @@ namespace AdvDAS
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = sfd.FileName;
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Trend/Test", FileMode.Create));
                 doc.Open();//Open Document To Write
                 //Insert image
                 iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(ofd.FileName);
+                PNG.ScaleToFit(100f,150f);
+                PNG.Border = iTextSharp.text.Rectangle.BOX;
+                //PNG.SetAbsolutePosition();
                 doc.Add(PNG);
                 //Write Some Content
                 Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
@@ -130,8 +133,13 @@ namespace AdvDAS
                 doc.Add(Chart_image);
 
                 doc.Close();//Closes Document
-                System.Diagnostics.Process.Start(sfd.FileName);
+                System.Diagnostics.Process.Start("Trend/Test");
             }
+        }
+
+        private void elementTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show(e.ToString());
         }
     }
 }

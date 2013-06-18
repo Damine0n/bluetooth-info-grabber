@@ -96,6 +96,8 @@
             // 
             // elementTable
             // 
+            this.elementTable.AllowUserToAddRows = false;
+            this.elementTable.AllowUserToDeleteRows = false;
             this.elementTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.elementTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgName,
@@ -107,6 +109,7 @@
             this.elementTable.Name = "elementTable";
             this.elementTable.Size = new System.Drawing.Size(272, 394);
             this.elementTable.TabIndex = 5;
+            this.elementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elementTable_CellContentClick);
             // 
             // trendChart
             // 
@@ -260,11 +263,10 @@
             // 
             // dgName
             // 
-            this.dgName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgName.HeaderText = "Name";
             this.dgName.Name = "dgName";
             this.dgName.ReadOnly = true;
-            this.dgName.Width = 60;
             // 
             // dgValue
             // 

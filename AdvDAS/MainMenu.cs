@@ -33,7 +33,7 @@ namespace AdvDAS
         {
             for (int i = 0; i < 8; i++)
             {
-                scaleDisplays.Add(new ScaleDisplay(i));
+                scaleDisplays.Add(new ScaleDisplay(this,i));
             }
             InitializeComponent();
             timer2.Start();
@@ -82,10 +82,10 @@ namespace AdvDAS
 
             return screenShotBMP;
         }
-        private void ThreadProc(object num)
-        {
-            Application.Run(scaleDisplays[Convert.ToInt32(num)]);
-        }
+        //private void ThreadProc(object num)
+        //{
+        //    Application.Run(scaleDisplays[Convert.ToInt32(num)]);
+        //}
         private void menuRecording_Click(object sender, EventArgs e)
         {
             if (menuRecordingItem.Text.Equals("Start Recording"))
@@ -168,7 +168,7 @@ namespace AdvDAS
         private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             scaleDisplays[2].ShowDialog();
-            scaleDisplays[2].elementComboBox.SelectedIndex=4;
+            //scaleDisplays[2].elementComboBox.SelectedIndex=4;
         }
         private void viewTrendToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -13,9 +13,12 @@ namespace AdvDAS
 {
     public partial class ScaleDisplay : Form
     {
-        public ScaleDisplay(int index)
+        private MainMenu mainMenu;
+        public ScaleDisplay(MainMenu mainMenu, int index)
         {
+            // TODO: Complete member initialization
             InitializeComponent();
+            this.mainMenu = mainMenu;
             this.elementComboBox.SelectedIndex = index + 1;
         }
         private void btnAccept_Click(object sender, EventArgs e)
@@ -37,8 +40,58 @@ namespace AdvDAS
         {
             switch (elementComboBox.SelectedIndex)
             {
-                case 0:
-                    //sTile0;
+                case 1:
+                    this.mainMenu."O2",
+           
+                    break;
+                case 2: "CO",
+            
+                    break;
+                case 3:"CO2",
+            
+                    break;
+                case 4:"NO",
+            
+                    break;
+                case 5:"NO2",
+            
+                    break;
+                case 6:"NOx",
+           
+                    break;
+                case 7: "SO2",
+            
+                    break;
+                case 8:"CxHy",
+            
+                    break;
+                case 9:"T(gas)",
+            
+                    break;
+                case 10:"T(amb)",
+            
+                    break;
+                case 11:"Temp 1 ?",
+           
+                    break;
+                case 12: "Temp 2 ?",
+            
+                    break;
+                case 13:"T(cell)",
+            
+                    break;
+                case 14:"Efficiency",
+            
+                    break;
+                case 15:
+                    "Flow",
+            
+                    break;
+                case 16:
+                    "NH3"
+                    break;
+                default:
+                    MessageBox.Show("I'm not sure how to do that yet.");
                     break;
             }
         }
