@@ -22,9 +22,7 @@ namespace AdvDAS
         public Trend()
         {
             InitializeComponent();
-            filltable();
-           
-            
+            filltable();  
         }
         void filltable()
         {
@@ -139,7 +137,12 @@ namespace AdvDAS
 
         private void elementTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(e.ToString());
+            //This condition will make sure that this code execute if and only if checkbox cell is clicked.
+            if (e.ColumnIndex == elementTable.Columns["dgGraph"].Index)  //Checking index of checkbox column is equal to clickable cell index.
+            {
+                elementTable.EndEdit();  //Stop editing of cell.
+                MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+            }
         }
     }
 }

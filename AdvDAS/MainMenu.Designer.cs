@@ -87,6 +87,7 @@ namespace AdvDAS
             this.tilePopUpMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hidePanelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label23 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -172,7 +173,7 @@ namespace AdvDAS
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.getSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -557,7 +558,7 @@ namespace AdvDAS
             this.hidePanelMenuItem,
             this.getSourceToolStripMenuItem});
             this.tilePopUpMenu.Name = "panelPopUpMenu";
-            this.tilePopUpMenu.Size = new System.Drawing.Size(166, 92);
+            this.tilePopUpMenu.Size = new System.Drawing.Size(166, 70);
             // 
             // editDisplayToolStripMenuItem
             // 
@@ -572,6 +573,13 @@ namespace AdvDAS
             this.hidePanelMenuItem.Size = new System.Drawing.Size(165, 22);
             this.hidePanelMenuItem.Text = "Hide This Display";
             this.hidePanelMenuItem.Click += new System.EventHandler(this.hidePanelMenuItem_Click);
+            // 
+            // getSourceToolStripMenuItem
+            // 
+            this.getSourceToolStripMenuItem.Name = "getSourceToolStripMenuItem";
+            this.getSourceToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.getSourceToolStripMenuItem.Text = "GetSource";
+            this.getSourceToolStripMenuItem.Click += new System.EventHandler(this.getSourceToolStripMenuItem_Click);
             // 
             // label23
             // 
@@ -661,9 +669,9 @@ namespace AdvDAS
             this.label3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(26, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 26);
+            this.label3.Size = new System.Drawing.Size(105, 26);
             this.label3.TabIndex = 0;
-            this.label3.Text = "LABEL";
+            this.label3.Text = "LABEL3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // sTile9
@@ -779,10 +787,10 @@ namespace AdvDAS
             this.label10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(30, 3);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 26);
+            this.label10.Size = new System.Drawing.Size(117, 26);
             this.label10.TabIndex = 0;
-            this.label10.Text = "LABEL";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label10.Text = "LABEL10";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile8
             // 
@@ -886,9 +894,9 @@ namespace AdvDAS
             this.label9.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(26, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 26);
+            this.label9.Size = new System.Drawing.Size(105, 26);
             this.label9.TabIndex = 0;
-            this.label9.Text = "LABEL";
+            this.label9.Text = "LABEL9";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // checkBox8
@@ -1000,9 +1008,9 @@ namespace AdvDAS
             this.label8.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(26, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 26);
+            this.label8.Size = new System.Drawing.Size(105, 26);
             this.label8.TabIndex = 0;
-            this.label8.Text = "LABEL";
+            this.label8.Text = "LABEL8";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label28
@@ -1120,9 +1128,9 @@ namespace AdvDAS
             this.label7.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(26, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 26);
+            this.label7.Size = new System.Drawing.Size(105, 26);
             this.label7.TabIndex = 0;
-            this.label7.Text = "LABEL";
+            this.label7.Text = "LABEL7";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // checkBox6
@@ -1226,6 +1234,7 @@ namespace AdvDAS
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 29);
             this.checkBox1.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.checkBox1, "Stops From Displaying in Report");
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -1236,9 +1245,9 @@ namespace AdvDAS
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 26);
+            this.label2.Size = new System.Drawing.Size(105, 26);
             this.label2.TabIndex = 0;
-            this.label2.Text = "LABEL";
+            this.label2.Text = "LABEL2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label22
@@ -1281,6 +1290,7 @@ namespace AdvDAS
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Enabled = false;
@@ -1354,9 +1364,9 @@ namespace AdvDAS
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(30, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 26);
+            this.label1.Size = new System.Drawing.Size(105, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "LABEL";
+            this.label1.Text = "LABEL1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
@@ -1486,9 +1496,9 @@ namespace AdvDAS
             this.label5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(30, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 26);
+            this.label5.Size = new System.Drawing.Size(105, 26);
             this.label5.TabIndex = 0;
-            this.label5.Text = "LABEL";
+            this.label5.Text = "LABEL5";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // sTile3
@@ -1591,9 +1601,9 @@ namespace AdvDAS
             this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(26, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 26);
+            this.label4.Size = new System.Drawing.Size(105, 26);
             this.label4.TabIndex = 0;
-            this.label4.Text = "LABEL";
+            this.label4.Text = "LABEL4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label24
@@ -1767,9 +1777,9 @@ namespace AdvDAS
             this.label6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(30, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 26);
+            this.label6.Size = new System.Drawing.Size(105, 26);
             this.label6.TabIndex = 0;
-            this.label6.Text = "LABEL";
+            this.label6.Text = "LABEL6";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer1
@@ -1780,13 +1790,6 @@ namespace AdvDAS
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // getSourceToolStripMenuItem
-            // 
-            this.getSourceToolStripMenuItem.Name = "getSourceToolStripMenuItem";
-            this.getSourceToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.getSourceToolStripMenuItem.Text = "GetSource";
-            this.getSourceToolStripMenuItem.Click += new System.EventHandler(this.getSourceToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -2014,6 +2017,7 @@ namespace AdvDAS
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private ToolStripMenuItem getSourceToolStripMenuItem;
+        private ToolTip toolTip1;
 
 
 

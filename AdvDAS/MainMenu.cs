@@ -42,7 +42,7 @@ namespace AdvDAS
             lblList.Add(this.label8);
             lblList.Add(this.label9);
             lblList.Add(this.label10);
-            for (int i = 0; i < 10; i++)
+            for (int i = 1; i <= 10; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(this, i));
             }
@@ -113,43 +113,50 @@ namespace AdvDAS
                 menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
             }
         }
-        private void checkBoxHover(object sender, EventArgs e)
-        {
-            this.tp.SetToolTip(this.checkBox0, "Your text here :) ");
-            this.tp.ShowAlways = true;
-        }
-
         private void hidePanelMenuItem_Click(object sender, EventArgs e)
         {
-            List<Panel> panelList = new List<Panel>();
-            panelList.Add(sTile1);
-            panelList.Add(sTile0);
-            MessageBox.Show(Cursor.Position.X+","+Cursor.Position.Y);
-            ToolStripMenuItem thisPanel;
-            if (sender is ToolStripMenuItem)
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
             {
-                thisPanel = (ToolStripMenuItem)sender;
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    sourceControl.Visible = false;
+                }
             }
-            else
-            {
-                MessageBox.Show("THIS IS A " + sender.GetType().Name);
-                return;
-            }            
+            //List<Panel> panelList = new List<Panel>();
+            //panelList.Add(sTile1);
+            //panelList.Add(sTile0);
+            //MessageBox.Show(Cursor.Position.X+","+Cursor.Position.Y);
+            //ToolStripMenuItem thisPanel;
+            //if (sender is ToolStripMenuItem)
+            //{
+            //    thisPanel = (ToolStripMenuItem)sender;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("THIS IS A " + sender.GetType().Name);
+            //    return;
+            //}            
 
 
-                //string p = "sTile" + i;
-                //sende
-                foreach(Panel p in panelList) {
-                    Control masterControl = MasterParent(p);
-                    int pX0 = masterControl.Left;
-                    int pX1 = masterControl.Right;
-                    int pY0 = masterControl.Top;
-                    int pY1 = masterControl.Bottom;
+            //    //string p = "sTile" + i;
+            //    //sende
+            //    foreach(Panel p in panelList) {
+            //        Control masterControl = MasterParent(p);
+            //        int pX0 = masterControl.Left;
+            //        int pX1 = masterControl.Right;
+            //        int pY0 = masterControl.Top;
+            //        int pY1 = masterControl.Bottom;
 
-                    if ((pX0 <= Cursor.Position.X && Cursor.Position.X <= pX1) && (pY0 <= Cursor.Position.Y && Cursor.Position.Y <= pY1))
-                        p.Visible = false;
-                        return;
-                    }
+            //        if ((pX0 <= Cursor.Position.X && Cursor.Position.X <= pX1) && (pY0 <= Cursor.Position.Y && Cursor.Position.Y <= pY1))
+            //            p.Visible = false;
+            //            return;
+            //        }
                 
 
                 /*this.hidePanelMenuItem.Text = "Hide This Display";
@@ -179,8 +186,61 @@ namespace AdvDAS
 
         private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scaleDisplays[2].ShowDialog();
-            //scaleDisplays[2].elementComboBox.SelectedIndex=4;
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    switch(sourceControl.Name)
+                    {
+                        case "sTile0":
+                            scaleDisplays[0].elementComboBox.SelectionStart=1;
+                            scaleDisplays[0].ShowDialog();
+                            break;
+                        case "sTile1":
+                            scaleDisplays[2].elementComboBox.SelectedIndex = 2;
+                            scaleDisplays[1].ShowDialog();
+                            break;
+                        case "sTile2":
+                            scaleDisplays[2].elementComboBox.SelectedIndex = 3;
+                            scaleDisplays[2].ShowDialog();
+                            break;
+                        case "sTile3":
+                            scaleDisplays[3].elementComboBox.SelectedIndex = 4;
+                            scaleDisplays[3].ShowDialog();
+                            break;
+                        case "sTile4":
+                            scaleDisplays[4].elementComboBox.SelectedIndex = 5;
+                            scaleDisplays[4].ShowDialog();
+                            break;
+                        case "sTile5":
+                            scaleDisplays[5].elementComboBox.SelectedIndex = 6;
+                            scaleDisplays[5].ShowDialog();
+                            break;
+                        case "sTile6":
+                            scaleDisplays[6].elementComboBox.SelectedIndex = 7;
+                            scaleDisplays[6].ShowDialog();
+                            break;
+                        case "sTile7":
+                            scaleDisplays[7].elementComboBox.SelectedIndex = 8;
+                            scaleDisplays[7].ShowDialog();
+                            break;
+                        case "sTile8":
+                            scaleDisplays[8].elementComboBox.SelectedIndex = 9;
+                            scaleDisplays[8].ShowDialog();
+                            break;
+                        case "sTile9":
+                            scaleDisplays[9].elementComboBox.SelectedIndex = 10;
+                            scaleDisplays[9].ShowDialog();
+                            break;
+                    }
+                }
+            }
         }
         private void viewTrendToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -202,14 +262,19 @@ namespace AdvDAS
         }
         private void sTile4_MouseClick(object sender, MouseEventArgs e)
         {
-            //lblList[1].Text = "sup";
-            MessageBox.Show(sender.ToString());
-            if (sTile4.Visible.Equals(true))
-                sTile4.Hide();
-            //sTile4.Visible = false;
-            else
-                sTile4.Show();
-                //sTile4.Visible = true;
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    (sender as TableLayoutPanel).ContextMenu = null;
+            //    (sender as TableLayoutPanel).ContextMenu.Show(sender as TableLayoutPanel, e.Location);
+            //}
+            ////lblList[1].Text = "sup";
+            //MessageBox.Show(sender.ToString());
+            //if (sTile4.Visible.Equals(true))
+            //    sTile4.Hide();
+            ////sTile4.Visible = false;
+            //else
+            //    sTile4.Show();
+            //    //sTile4.Visible = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -244,6 +309,19 @@ namespace AdvDAS
 
         private void getSourceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    MessageBox.Show(sourceControl.Name);
+                }
+            }
             MessageBox.Show(sender.ToString()+" / "+e.ToString());
         }
     }

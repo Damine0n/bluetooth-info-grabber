@@ -21,7 +21,7 @@ namespace AdvDAS
             InitializeComponent();
             this.mainMenu = mainMenu;
             this.index = index;
-            this.elementComboBox.SelectionStart = index + 1;
+            //this.elementComboBox.SelectedItem = index;
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace AdvDAS
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "O2";  
+                    MessageBox.Show(this.mainMenu.label1.Text = "O2");  
                     break;
                 case 2:
                     MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "CO";
