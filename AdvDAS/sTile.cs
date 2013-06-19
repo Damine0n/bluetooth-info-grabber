@@ -21,7 +21,7 @@ namespace AdvDAS
             InitializeComponent();
             this.mainMenu = mainMenu;
             this.index = index;
-            this.elementComboBox.SelectedIndex = index + 1;
+            this.elementComboBox.SelectionStart = index + 1;
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -43,60 +43,52 @@ namespace AdvDAS
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    this.mainMenu.lblList[this.index].Text = "O2";  
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "O2";  
                     break;
                 case 2:
-                    this.mainMenu.lblList[this.index].Text = "CO";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "CO";
                     break;
                 case 3:
-                    this.mainMenu.lblList[this.index].Text = "CO2";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "CO2";
                     break;
                 case 4:
-                    this.mainMenu.lblList[this.index].Text = "NO";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "NO";
                     break;
                 case 5:
-                    this.mainMenu.lblList[this.index].Text = "NO2";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "NO2";
                     break;
                 case 6:
-                    this.mainMenu.lblList[this.index].Text = "NOx";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "NOx";
                     break;
                 case 7: 
-                    this.mainMenu.lblList[this.index].Text = "SO2";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "SO2";
                     break;
                 case 8:
-                    this.mainMenu.lblList[this.index].Text = "CxHy";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "CxHy";
                     break;
                 case 9:
-                    this.mainMenu.lblList[this.index].Text = "T(gas)";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "T(gas)";
                     break;
                 case 10:
-                    this.mainMenu.lblList[this.index].Text = "T(amb)";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "T(amb)";
                     break;
                 case 11:
-                    this.mainMenu.lblList[this.index].Text = "Temp 1 ?";
-           
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "Temp 1 ?";
                     break;
                 case 12: 
-                    this.mainMenu.lblList[this.index].Text = "Temp 2 ?";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "Temp 2 ?";
                     break;
                 case 13:
-                    this.mainMenu.lblList[this.index].Text = "T(cell)";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "T(cell)";
                     break;
                 case 14:
-                    this.mainMenu.lblList[this.index].Text = "Efficiency";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "Efficiency";
                     break;
                 case 15:
-                    this.mainMenu.lblList[this.index].Text = "Flow";
-            
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "Flow";
                     break;
                 case 16:
-                    this.mainMenu.lblList[this.index].Text = "NH3";
+                    MessageBox.Show(this.mainMenu.lblList[this.index].Text);// = "NH3";
                     break;
                 default:
                     MessageBox.Show("I'm not sure how to do that yet.");

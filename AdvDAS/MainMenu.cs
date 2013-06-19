@@ -32,10 +32,6 @@ namespace AdvDAS
         private DateTime running = new DateTime();
         public MainMenu()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                scaleDisplays.Add(new ScaleDisplay(this,i));
-            }
             lblList.Add(this.label1);
             lblList.Add(this.label2);
             lblList.Add(this.label3);
@@ -46,6 +42,10 @@ namespace AdvDAS
             lblList.Add(this.label8);
             lblList.Add(this.label9);
             lblList.Add(this.label10);
+            for (int i = 0; i < 10; i++)
+            {
+                scaleDisplays.Add(new ScaleDisplay(this, i));
+            }
             InitializeComponent();
             timer2.Start();
         }
@@ -76,7 +76,7 @@ namespace AdvDAS
                 //Adds above created text using different class object to our pdf document.
                 doc.Add(paragraph);
                 doc.Close();//Closes Document
-
+                
             }
             
         }
@@ -202,6 +202,7 @@ namespace AdvDAS
         }
         private void sTile4_MouseClick(object sender, MouseEventArgs e)
         {
+            //lblList[1].Text = "sup";
             MessageBox.Show(sender.ToString());
             if (sTile4.Visible.Equals(true))
                 sTile4.Hide();
@@ -239,6 +240,11 @@ namespace AdvDAS
                 Application.ExitThread();
             else
                 e.Cancel = true;
+        }
+
+        private void getSourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(sender.ToString()+" / "+e.ToString());
         }
     }
 }

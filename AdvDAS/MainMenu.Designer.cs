@@ -172,6 +172,7 @@ namespace AdvDAS
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.getSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -553,9 +554,10 @@ namespace AdvDAS
             // 
             this.tilePopUpMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editDisplayToolStripMenuItem,
-            this.hidePanelMenuItem});
+            this.hidePanelMenuItem,
+            this.getSourceToolStripMenuItem});
             this.tilePopUpMenu.Name = "panelPopUpMenu";
-            this.tilePopUpMenu.Size = new System.Drawing.Size(166, 48);
+            this.tilePopUpMenu.Size = new System.Drawing.Size(166, 92);
             // 
             // editDisplayToolStripMenuItem
             // 
@@ -1779,6 +1781,13 @@ namespace AdvDAS
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // getSourceToolStripMenuItem
+            // 
+            this.getSourceToolStripMenuItem.Name = "getSourceToolStripMenuItem";
+            this.getSourceToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.getSourceToolStripMenuItem.Text = "GetSource";
+            this.getSourceToolStripMenuItem.Click += new System.EventHandler(this.getSourceToolStripMenuItem_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2004,6 +2013,7 @@ namespace AdvDAS
         private System.Windows.Forms.Button btnSnapShot;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private ToolStripMenuItem getSourceToolStripMenuItem;
 
 
 
