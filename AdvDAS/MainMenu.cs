@@ -11,6 +11,7 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Microsoft.VisualBasic;
 using System.IO;
 
 
@@ -23,12 +24,10 @@ namespace AdvDAS
         private List<double> num =new List<double>();
         private ToolTip tp = new ToolTip();
         //private bool thisState = false;
-        private Thread t;
+        //private Thread t;
         private Trend viewTrend = new Trend();
         public List<Label> lblList = new List<Label>();
-        
         DateTime testTime = new DateTime();
-        public DateTime startTime = DateTime.Now;
         private DateTime running = new DateTime();
         public MainMenu()
         {
@@ -44,7 +43,7 @@ namespace AdvDAS
             lblList.Add(this.label10);
             for (int i = 1; i <= 10; i++)
             {
-                scaleDisplays.Add(new ScaleDisplay(this, i));
+                scaleDisplays.Add(new ScaleDisplay(i));
             }
             InitializeComponent();
             timer2.Start();
@@ -57,6 +56,8 @@ namespace AdvDAS
             String fileName = "Screenshots/ScreenShot "+DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss")+ ".jpg";
             screenShotBox.Image.Save(fileName, ImageFormat.Jpeg);
             count++;
+
+            //DialogResult notes = ShowDialog();
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
@@ -113,6 +114,22 @@ namespace AdvDAS
                 menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
             }
         }
+        //public void ShowMyDialogBox()
+        //{
+        //    NotesForm testDialog = new NotesForm();
+
+        //    // Show testDialog as a modal dialog and determine if DialogResult = OK.
+        //    if (testDialog.ShowDialog(this) == DialogResult.OK)
+        //    {
+        //        // Read the contents of testDialog's TextBox.
+        //        this.txtResult.Text = testDialog.TextBox1.Text;
+        //    }
+        //    else
+        //    {
+        //        this.txtResult.Text = "Cancelled";
+        //    }
+        //    testDialog.Dispose();
+        //}
         private void hidePanelMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
@@ -125,7 +142,7 @@ namespace AdvDAS
                 {
                     // Get the control that is displaying this context menu
                     Control sourceControl = owner.SourceControl;
-                    sourceControl.Visible = false;
+                    sourceControl.Hide();
                 }
             }
             //List<Panel> panelList = new List<Panel>();
@@ -171,18 +188,18 @@ namespace AdvDAS
            
         }
 
-        private Control MasterParent(Control control)
-        {
-            Control returnValue;
-            Point locationOnForm = control.FindForm().PointToClient(
-                control.Parent.PointToScreen(control.Location));
-            for (returnValue = control; control.Parent != null; control = control.Parent)
-            {
-                returnValue = (control.Parent);
-            }
+        //private Control MasterParent(Control control)
+        //{
+        //    Control returnValue;
+        //    Point locationOnForm = control.FindForm().PointToClient(
+        //        control.Parent.PointToScreen(control.Location));
+        //    for (returnValue = control; control.Parent != null; control = control.Parent)
+        //    {
+        //        returnValue = (control.Parent);
+        //    }
 
-            return returnValue;
-        }
+        //    return returnValue;
+        //}
 
         private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -200,43 +217,43 @@ namespace AdvDAS
                     {
                         case "sTile0":
                             scaleDisplays[0].elementComboBox.SelectionStart=1;
-                            scaleDisplays[0].ShowDialog();
+                            scaleDisplays[0].ShowDialog(this);
                             break;
                         case "sTile1":
                             scaleDisplays[2].elementComboBox.SelectedIndex = 2;
-                            scaleDisplays[1].ShowDialog();
+                            scaleDisplays[1].ShowDialog(this);
                             break;
                         case "sTile2":
                             scaleDisplays[2].elementComboBox.SelectedIndex = 3;
-                            scaleDisplays[2].ShowDialog();
+                            scaleDisplays[2].ShowDialog(this);
                             break;
                         case "sTile3":
                             scaleDisplays[3].elementComboBox.SelectedIndex = 4;
-                            scaleDisplays[3].ShowDialog();
+                            scaleDisplays[3].ShowDialog(this);
                             break;
                         case "sTile4":
                             scaleDisplays[4].elementComboBox.SelectedIndex = 5;
-                            scaleDisplays[4].ShowDialog();
+                            scaleDisplays[4].ShowDialog(this);
                             break;
                         case "sTile5":
                             scaleDisplays[5].elementComboBox.SelectedIndex = 6;
-                            scaleDisplays[5].ShowDialog();
+                            scaleDisplays[5].ShowDialog(this);
                             break;
                         case "sTile6":
                             scaleDisplays[6].elementComboBox.SelectedIndex = 7;
-                            scaleDisplays[6].ShowDialog();
+                            scaleDisplays[6].ShowDialog(this);
                             break;
                         case "sTile7":
                             scaleDisplays[7].elementComboBox.SelectedIndex = 8;
-                            scaleDisplays[7].ShowDialog();
+                            scaleDisplays[7].ShowDialog(this);
                             break;
                         case "sTile8":
                             scaleDisplays[8].elementComboBox.SelectedIndex = 9;
-                            scaleDisplays[8].ShowDialog();
+                            scaleDisplays[8].ShowDialog(this);
                             break;
                         case "sTile9":
                             scaleDisplays[9].elementComboBox.SelectedIndex = 10;
-                            scaleDisplays[9].ShowDialog();
+                            scaleDisplays[9].ShowDialog(this);
                             break;
                     }
                 }

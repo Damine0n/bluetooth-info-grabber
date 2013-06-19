@@ -1362,7 +1362,7 @@ namespace AdvDAS
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 3);
+            this.label1.Location = new System.Drawing.Point(23, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 26);
             this.label1.TabIndex = 0;
@@ -1775,7 +1775,7 @@ namespace AdvDAS
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 3);
+            this.label6.Location = new System.Drawing.Point(23, 4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 26);
             this.label6.TabIndex = 0;
@@ -1803,7 +1803,7 @@ namespace AdvDAS
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "ECOM America: Adv DAS";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -2019,6 +2019,7 @@ namespace AdvDAS
         private ToolStripMenuItem getSourceToolStripMenuItem;
         private ToolTip toolTip1;
 
+        public DateTime startTime = DateTime.Now;
 
 
     }

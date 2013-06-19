@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Threading;
 using System.IO;
 
 namespace AdvDAS
@@ -18,7 +19,7 @@ namespace AdvDAS
     {
         List<Facts> elements = new List<Facts>();
         char degree = '°';
-        
+        Thread t;
         public Trend()
         {
             InitializeComponent();
@@ -100,7 +101,7 @@ namespace AdvDAS
                 PdfPTable dgTable = new PdfPTable(elementTable.ColumnCount-1);
                 dgTable.AddCell(cell);
 
-                //Add headers fromthe DGV to the table
+                //Add headers from the DGV to the table
                 for (int i = 0; i < elementTable.ColumnCount-1; i++)
                 {
                     dgTable.AddCell(new Phrase(elementTable.Columns[i].HeaderText));
@@ -141,8 +142,17 @@ namespace AdvDAS
             if (e.ColumnIndex == elementTable.Columns["dgGraph"].Index)  //Checking index of checkbox column is equal to clickable cell index.
             {
                 elementTable.EndEdit();  //Stop editing of cell.
+                t = new Thread(ThreadProc);
+                trendChart.Series[0].Points.DataBindY((DataView)elementTable.DataSource, "Value");
                 MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+                //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
             }
+        }
+
+        private void ThreadProc(object obj)
+        {
+            for (int i = 0; i < 1000; i++ )
+                elementTable.Rows[3].Cells[1].Value = i;
         }
     }
 }
