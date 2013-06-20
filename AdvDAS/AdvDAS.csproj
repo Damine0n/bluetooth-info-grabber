@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EquipmentSite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipmentSite.Designer.cs">
+      <DependentUpon>EquipmentSite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facts.cs" />
     <Compile Include="GasAnalysis.cs" />
     <Compile Include="MainMenu.cs">
@@ -92,6 +98,9 @@
     <Compile Include="Trend.Designer.cs">
       <DependentUpon>Trend.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EquipmentSite.resx">
+      <DependentUpon>EquipmentSite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

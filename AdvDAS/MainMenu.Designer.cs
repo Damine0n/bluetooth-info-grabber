@@ -72,7 +72,6 @@ namespace AdvDAS
             this.viewAnalyzerStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startPeristalticPumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRecordingItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetAllAveragesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,7 +79,6 @@ namespace AdvDAS
             this.recordStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordingProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.sTile2 = new System.Windows.Forms.TableLayoutPanel();
@@ -161,7 +159,6 @@ namespace AdvDAS
             this.label24 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.screenShotBox = new System.Windows.Forms.PictureBox();
             this.btnSnapShot = new System.Windows.Forms.Button();
             this.sTile5 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -174,6 +171,12 @@ namespace AdvDAS
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.screenShotBox = new System.Windows.Forms.PictureBox();
+            this.menuRecordingItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -197,9 +200,9 @@ namespace AdvDAS
             this.sTile3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).BeginInit();
             this.sTile5.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -405,15 +408,6 @@ namespace AdvDAS
             this.startPeristalticPumpToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.startPeristalticPumpToolStripMenuItem.Text = "Start Peristaltic Pump";
             // 
-            // menuRecordingItem
-            // 
-            this.menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
-            this.menuRecordingItem.Name = "menuRecordingItem";
-            this.menuRecordingItem.Size = new System.Drawing.Size(116, 20);
-            this.menuRecordingItem.Tag = "";
-            this.menuRecordingItem.Text = "Start Recording";
-            this.menuRecordingItem.Click += new System.EventHandler(this.menuRecording_Click);
-            // 
             // viewTrendToolStripMenuItem
             // 
             this.viewTrendToolStripMenuItem.Name = "viewTrendToolStripMenuItem";
@@ -431,6 +425,9 @@ namespace AdvDAS
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkUpgradeToolStripMenuItem,
+            this.aboutAdvDASToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -439,6 +436,7 @@ namespace AdvDAS
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectionStatusLabel,
             this.recordStatusLabel,
             this.recordTimeLabel,
             this.recordingProgressBar,
@@ -474,11 +472,6 @@ namespace AdvDAS
             this.recordingProgressBar.Maximum = 12;
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(200, 18);
-            // 
-            // clock_lbl
-            // 
-            this.clock_lbl.Name = "clock_lbl";
-            this.clock_lbl.Size = new System.Drawing.Size(0, 19);
             // 
             // button1
             // 
@@ -1642,15 +1635,6 @@ namespace AdvDAS
             this.panel4.Size = new System.Drawing.Size(124, 113);
             this.panel4.TabIndex = 10;
             // 
-            // screenShotBox
-            // 
-            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
-            this.screenShotBox.Name = "screenShotBox";
-            this.screenShotBox.Size = new System.Drawing.Size(124, 90);
-            this.screenShotBox.TabIndex = 1;
-            this.screenShotBox.TabStop = false;
-            // 
             // btnSnapShot
             // 
             this.btnSnapShot.AutoSize = true;
@@ -1791,6 +1775,47 @@ namespace AdvDAS
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // screenShotBox
+            // 
+            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
+            this.screenShotBox.Name = "screenShotBox";
+            this.screenShotBox.Size = new System.Drawing.Size(124, 90);
+            this.screenShotBox.TabIndex = 1;
+            this.screenShotBox.TabStop = false;
+            // 
+            // menuRecordingItem
+            // 
+            this.menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
+            this.menuRecordingItem.Name = "menuRecordingItem";
+            this.menuRecordingItem.Size = new System.Drawing.Size(116, 20);
+            this.menuRecordingItem.Tag = "";
+            this.menuRecordingItem.Text = "Start Recording";
+            this.menuRecordingItem.Click += new System.EventHandler(this.menuRecording_Click);
+            // 
+            // checkUpgradeToolStripMenuItem
+            // 
+            this.checkUpgradeToolStripMenuItem.Name = "checkUpgradeToolStripMenuItem";
+            this.checkUpgradeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.checkUpgradeToolStripMenuItem.Text = "Check Upgrade";
+            // 
+            // aboutAdvDASToolStripMenuItem
+            // 
+            this.aboutAdvDASToolStripMenuItem.Name = "aboutAdvDASToolStripMenuItem";
+            this.aboutAdvDASToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.aboutAdvDASToolStripMenuItem.Text = "About AdvDAS";
+            // 
+            // connectionStatusLabel
+            // 
+            this.connectionStatusLabel.Name = "connectionStatusLabel";
+            this.connectionStatusLabel.Size = new System.Drawing.Size(88, 19);
+            this.connectionStatusLabel.Text = "Not Connected";
+            // 
+            // clock_lbl
+            // 
+            this.clock_lbl.Name = "clock_lbl";
+            this.clock_lbl.Size = new System.Drawing.Size(0, 19);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1849,11 +1874,11 @@ namespace AdvDAS
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).EndInit();
             this.sTile5.ResumeLayout(false);
             this.sTile5.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1929,7 +1954,6 @@ namespace AdvDAS
         private System.Windows.Forms.ToolStripProgressBar recordingProgressBar;
         private System.Windows.Forms.ToolStripStatusLabel recordTimeLabel;
         private System.Windows.Forms.ToolStripStatusLabel recordStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel clock_lbl;
         private System.Windows.Forms.ToolStripMenuItem hidePanelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editDisplayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectSiteEquipmentToolStripMenuItem;
@@ -2020,6 +2044,10 @@ namespace AdvDAS
         private ToolTip toolTip1;
 
         public DateTime startTime = DateTime.Now;
+        private ToolStripMenuItem checkUpgradeToolStripMenuItem;
+        private ToolStripMenuItem aboutAdvDASToolStripMenuItem;
+        private ToolStripStatusLabel connectionStatusLabel;
+        private ToolStripStatusLabel clock_lbl;
 
 
     }

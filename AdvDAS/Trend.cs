@@ -23,7 +23,7 @@ namespace AdvDAS
         public Trend()
         {
             InitializeComponent();
-            filltable();  
+            filltable();
         }
         void filltable()
         {
@@ -52,13 +52,13 @@ namespace AdvDAS
         }
         private void elementTable_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            if (e.Item.Checked==true)
+            if (e.Item.Checked == true)
                 MessageBox.Show(e.Item.SubItems[1].Text);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER,10,10,42,35);
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Add Logo";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -76,7 +76,7 @@ namespace AdvDAS
                 doc.Open();//Open Document To Write
                 //Insert image
                 iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(ofd.FileName);
-                PNG.ScaleToFit(100f,150f);
+                PNG.ScaleToFit(100f, 150f);
                 PNG.Border = iTextSharp.text.Rectangle.BOX;
                 //PNG.SetAbsolutePosition();
                 doc.Add(PNG);
@@ -92,17 +92,17 @@ namespace AdvDAS
                 list.Add("Five");
                 list.Add("Six");
                 //list.Add(new ListItem("One"));
-                doc.Add(list);                
+                doc.Add(list);
                 PdfPCell cell = new PdfPCell(new Phrase("Trend Table",
                     new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,
-                    20f,iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
+                    20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
                 cell.Colspan = 3;
                 cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
-                PdfPTable dgTable = new PdfPTable(elementTable.ColumnCount-1);
+                PdfPTable dgTable = new PdfPTable(elementTable.ColumnCount - 1);
                 dgTable.AddCell(cell);
 
                 //Add headers from the DGV to the table
-                for (int i = 0; i < elementTable.ColumnCount-1; i++)
+                for (int i = 0; i < elementTable.ColumnCount - 1; i++)
                 {
                     dgTable.AddCell(new Phrase(elementTable.Columns[i].HeaderText));
                 }
@@ -143,7 +143,12 @@ namespace AdvDAS
             {
                 elementTable.EndEdit();  //Stop editing of cell.
                 t = new Thread(ThreadProc);
-                trendChart.Series[0].Points.DataBindY((DataView)elementTable.DataSource, "Value");
+                t.Start();
+                while (t.IsAlive)
+                {
+                    trendChart.Series[2].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+                    Thread.Sleep(0);
+                }
                 MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
                 //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
             }
@@ -151,8 +156,11 @@ namespace AdvDAS
 
         private void ThreadProc(object obj)
         {
-            for (int i = 0; i < 1000; i++ )
+            for (int i = 0; i < 1000; i++)
+            {
+//                Thread.Sleep(1000);
                 elementTable.Rows[3].Cells[1].Value = i;
+            }
         }
     }
 }
