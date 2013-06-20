@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigureReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureReport.Designer.cs">
+      <DependentUpon>ConfigureReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="EquipmentSite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,7 @@
     <Compile Include="NotesForm.Designer.cs">
       <DependentUpon>NotesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintDoc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -104,6 +111,9 @@
     <Compile Include="Trend.Designer.cs">
       <DependentUpon>Trend.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfigureReport.resx">
+      <DependentUpon>ConfigureReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EquipmentSite.resx">
       <DependentUpon>EquipmentSite.cs</DependentUpon>
     </EmbeddedResource>

@@ -69,11 +69,11 @@
             this.dgUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGraph = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.trendChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.trendBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.trendBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trendChart)).BeginInit();
@@ -261,10 +261,6 @@
             this.trendChart.TabIndex = 1;
             this.trendChart.Text = "trendChart";
             // 
-            // trendBindingSource
-            // 
-            this.trendBindingSource.DataSource = typeof(AdvDAS.Trend);
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(473, 403);
@@ -299,6 +295,10 @@
             // 
             this.timer1.Interval = 1000;
             // 
+            // trendBindingSource
+            // 
+            this.trendBindingSource.DataSource = typeof(AdvDAS.Trend);
+            // 
             // Trend
             // 
             this.AcceptButton = this.btnAccept;
@@ -326,16 +326,16 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart trendChart;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.BindingSource trendBindingSource;
-        private System.Windows.Forms.DataGridView elementTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgUnit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgGraph;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.DataVisualization.Charting.Chart trendChart;
+        public System.Windows.Forms.DataGridView elementTable;
     }
 }
