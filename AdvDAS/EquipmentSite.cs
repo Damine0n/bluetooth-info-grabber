@@ -12,6 +12,7 @@ namespace AdvDAS
 {
     public partial class EquipmentSite : Form
     {
+        private MassEBC mass = new MassEBC();
         public EquipmentSite()
         {
             InitializeComponent();
@@ -33,6 +34,11 @@ namespace AdvDAS
                 return;
             else
                 return;
+        }
+
+        private void btnMassECB_Click(object sender, EventArgs e)
+        {
+            mass.ShowDialog();
         }
     }
 }

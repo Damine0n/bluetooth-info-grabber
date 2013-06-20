@@ -47,7 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMassCB = new System.Windows.Forms.Button();
+            this.btnMassECB = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnAccept = new System.Windows.Forms.Button();
@@ -251,7 +251,7 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.btnMassCB);
+            this.tabPage1.Controls.Add(this.btnMassECB);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -305,15 +305,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Unit #:";
             // 
-            // btnMassCB
+            // btnMassECB
             // 
-            this.btnMassCB.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMassCB.Location = new System.Drawing.Point(3, 138);
-            this.btnMassCB.Name = "btnMassCB";
-            this.btnMassCB.Size = new System.Drawing.Size(601, 23);
-            this.btnMassCB.TabIndex = 0;
-            this.btnMassCB.Text = "Mass Calculation Basis";
-            this.btnMassCB.UseVisualStyleBackColor = true;
+            this.btnMassECB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMassECB.Location = new System.Drawing.Point(3, 138);
+            this.btnMassECB.Name = "btnMassECB";
+            this.btnMassECB.Size = new System.Drawing.Size(601, 23);
+            this.btnMassECB.TabIndex = 0;
+            this.btnMassECB.Text = "Mass Emission Calculation Basis";
+            this.btnMassECB.UseVisualStyleBackColor = true;
+            this.btnMassECB.Click += new System.EventHandler(this.btnMassECB_Click);
             // 
             // tabPage2
             // 
@@ -629,7 +630,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnMassCB;
+        private System.Windows.Forms.Button btnMassECB;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox17;
