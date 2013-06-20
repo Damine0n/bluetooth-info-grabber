@@ -46,8 +46,6 @@ namespace AdvDAS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectSiteEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.browseReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,6 +175,7 @@ namespace AdvDAS
             this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.setupEquipmentSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -209,6 +208,7 @@ namespace AdvDAS
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.setupEquipmentSiteToolStripMenuItem,
             this.configureToolStripMenuItem,
             this.menuCalibrationItem,
             this.analyzeToolStripMenuItem,
@@ -225,8 +225,6 @@ namespace AdvDAS
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectSiteEquipmentToolStripMenuItem,
-            this.toolStripSeparator1,
             this.browseReportsToolStripMenuItem,
             this.advancedFunctionsToolStripMenuItem,
             this.saveReportToolStripMenuItem});
@@ -234,33 +232,22 @@ namespace AdvDAS
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // selectSiteEquipmentToolStripMenuItem
-            // 
-            this.selectSiteEquipmentToolStripMenuItem.Name = "selectSiteEquipmentToolStripMenuItem";
-            this.selectSiteEquipmentToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.selectSiteEquipmentToolStripMenuItem.Text = "Select Site/Equipment";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(187, 6);
-            // 
             // browseReportsToolStripMenuItem
             // 
             this.browseReportsToolStripMenuItem.Name = "browseReportsToolStripMenuItem";
-            this.browseReportsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.browseReportsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.browseReportsToolStripMenuItem.Text = "Browse Reports";
             // 
             // advancedFunctionsToolStripMenuItem
             // 
             this.advancedFunctionsToolStripMenuItem.Name = "advancedFunctionsToolStripMenuItem";
-            this.advancedFunctionsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.advancedFunctionsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.advancedFunctionsToolStripMenuItem.Text = "Advanced Functions";
             // 
             // saveReportToolStripMenuItem
             // 
             this.saveReportToolStripMenuItem.Name = "saveReportToolStripMenuItem";
-            this.saveReportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.saveReportToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.saveReportToolStripMenuItem.Text = "Save Report";
             // 
             // configureToolStripMenuItem
@@ -870,8 +857,8 @@ namespace AdvDAS
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.label9);
             this.panel10.Controls.Add(this.checkBox8);
+            this.panel10.Controls.Add(this.label9);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
@@ -1104,8 +1091,8 @@ namespace AdvDAS
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.checkBox6);
+            this.panel8.Controls.Add(this.label7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
@@ -1807,14 +1794,30 @@ namespace AdvDAS
             // 
             // connectionStatusLabel
             // 
+            this.connectionStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.connectionStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.connectionStatusLabel.Name = "connectionStatusLabel";
-            this.connectionStatusLabel.Size = new System.Drawing.Size(88, 19);
+            this.connectionStatusLabel.Size = new System.Drawing.Size(92, 19);
             this.connectionStatusLabel.Text = "Not Connected";
             // 
             // clock_lbl
             // 
+            this.clock_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.clock_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.clock_lbl.Name = "clock_lbl";
-            this.clock_lbl.Size = new System.Drawing.Size(0, 19);
+            this.clock_lbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.clock_lbl.Size = new System.Drawing.Size(4, 19);
+            // 
+            // setupEquipmentSiteToolStripMenuItem
+            // 
+            this.setupEquipmentSiteToolStripMenuItem.Name = "setupEquipmentSiteToolStripMenuItem";
+            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
+            this.setupEquipmentSiteToolStripMenuItem.Text = "Setup Equipment/Site";
+            this.setupEquipmentSiteToolStripMenuItem.Click += new System.EventHandler(this.setupEquipmentSiteToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -1956,8 +1959,6 @@ namespace AdvDAS
         private System.Windows.Forms.ToolStripStatusLabel recordStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem hidePanelMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editDisplayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem selectSiteEquipmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem browseReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem advancedFunctionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configureRecordingToolStripMenuItem;
@@ -2048,6 +2049,7 @@ namespace AdvDAS
         private ToolStripMenuItem aboutAdvDASToolStripMenuItem;
         private ToolStripStatusLabel connectionStatusLabel;
         private ToolStripStatusLabel clock_lbl;
+        private ToolStripMenuItem setupEquipmentSiteToolStripMenuItem;
 
 
     }

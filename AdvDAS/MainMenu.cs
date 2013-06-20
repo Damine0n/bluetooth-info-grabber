@@ -26,6 +26,7 @@ namespace AdvDAS
         //private bool thisState = false;
         //private Thread t;
         private Trend viewTrend = new Trend();
+        private EquipmentSite eSite = new EquipmentSite();
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
         private DateTime running = new DateTime();
@@ -340,6 +341,11 @@ namespace AdvDAS
                 }
             }
             MessageBox.Show(sender.ToString()+" / "+e.ToString());
+        }
+
+        private void setupEquipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eSite.ShowDialog();
         }
     }
 }
