@@ -56,27 +56,27 @@ namespace AdvDAS
             String fileName = "Screenshots/ScreenShot "+DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss")+ ".jpg";
             screenShotBox.Image.Save(fileName, ImageFormat.Jpeg);
             count++;
-            pDoc.printSnapShot(fileName);
-            //Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            //SaveFileDialog sfd = new SaveFileDialog();
-            //sfd.Filter = "PDF File|*.pdf";
-            //sfd.FileName = "Test SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            //sfd.Title = "Save SnapShot";
-            //if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    string path = sfd.FileName;
-            //    PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
-            //    doc.Open();//Open Document To Write
-            //    //Insert Image
-            //    iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(fileName);
-            //    PNG.ScalePercent(50f);
-            //    doc.Add(PNG);
-            //    //Write Some Content
-            //    Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
-            //    //Adds above created text using different class object to our pdf document.
-            //    doc.Add(paragraph);
-            //    doc.Close();//Closes Document
-            //}
+            //pDoc.printSnapShot(fileName);
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PDF File|*.pdf";
+            sfd.FileName = "Test SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save SnapShot";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = sfd.FileName;
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+                doc.Open();//Open Document To Write
+                //Insert Image
+                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(fileName);
+                PNG.ScalePercent(50f);
+                doc.Add(PNG);
+                //Write Some Content
+                Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
+                //Adds above created text using different class object to our pdf document.
+                doc.Add(paragraph);
+                doc.Close();//Closes Document
+            }
         }
         public Bitmap ScreenShot()
         {
@@ -311,13 +311,24 @@ namespace AdvDAS
             }
             MessageBox.Show(sender.ToString()+" / "+e.ToString());
         }
-        private void setupEquipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            eSite.ShowDialog();
-        }
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configReport.ShowDialog();
+        }
+
+        private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personalData.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void equipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eSite.ShowDialog();
         }
     }
 }

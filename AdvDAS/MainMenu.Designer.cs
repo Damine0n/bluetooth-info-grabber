@@ -50,6 +50,9 @@ namespace AdvDAS
             this.advancedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupEquipmentSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equipmentSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -252,10 +255,34 @@ namespace AdvDAS
             // 
             // setupEquipmentSiteToolStripMenuItem
             // 
+            this.setupEquipmentSiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.personalDataToolStripMenuItem,
+            this.customerToolStripMenuItem,
+            this.equipmentSiteToolStripMenuItem});
             this.setupEquipmentSiteToolStripMenuItem.Name = "setupEquipmentSiteToolStripMenuItem";
-            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
-            this.setupEquipmentSiteToolStripMenuItem.Text = "Setup Equipment/Site";
-            this.setupEquipmentSiteToolStripMenuItem.Click += new System.EventHandler(this.setupEquipmentSiteToolStripMenuItem_Click);
+            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.setupEquipmentSiteToolStripMenuItem.Text = "Setup";
+            // 
+            // personalDataToolStripMenuItem
+            // 
+            this.personalDataToolStripMenuItem.Name = "personalDataToolStripMenuItem";
+            this.personalDataToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.personalDataToolStripMenuItem.Text = "Personal Data";
+            this.personalDataToolStripMenuItem.Click += new System.EventHandler(this.personalDataToolStripMenuItem_Click);
+            // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.customerToolStripMenuItem.Text = "Customer";
+            this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
+            // equipmentSiteToolStripMenuItem
+            // 
+            this.equipmentSiteToolStripMenuItem.Name = "equipmentSiteToolStripMenuItem";
+            this.equipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.equipmentSiteToolStripMenuItem.Text = "Equipment/Site";
+            this.equipmentSiteToolStripMenuItem.Click += new System.EventHandler(this.equipmentSiteToolStripMenuItem_Click);
             // 
             // configureToolStripMenuItem
             // 
@@ -2050,6 +2077,9 @@ namespace AdvDAS
         private ToolStripStatusLabel clock_lbl;
         private ToolStripMenuItem setupEquipmentSiteToolStripMenuItem;
         public PictureBox screenShotBox;
+        private ToolStripMenuItem personalDataToolStripMenuItem;
+        private ToolStripMenuItem customerToolStripMenuItem;
+        private ToolStripMenuItem equipmentSiteToolStripMenuItem;
 
 
     }

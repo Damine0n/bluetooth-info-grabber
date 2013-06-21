@@ -36,10 +36,11 @@ namespace AdvDAS
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    mainMenu.label1.Text = "Daymen";  
+                    mainMenu.label1.Text = "Daymen";
+                    mainMenu.lblList[0].Text.ToString();
                     break;
                 case 2:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "CO";
+                    MessageBox.Show(mainMenu.lblList[2].Text);// = "CO";
                     break;
                 case 3:
                     MessageBox.Show(mainMenu.lblList[this.index].Text);// = "CO2";

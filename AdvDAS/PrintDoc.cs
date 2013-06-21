@@ -36,7 +36,6 @@ namespace AdvDAS
             iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(OFD.FileName);
             LOGO.ScaleToFit(100f, 150f);
             LOGO.Border = iTextSharp.text.Rectangle.BOX;
-            //PNG.SetAbsolutePosition();
             doc.Add(LOGO);
             //Write Some Content
             Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
