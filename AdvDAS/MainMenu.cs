@@ -20,12 +20,12 @@ namespace AdvDAS
     public partial class MainMenu : Form
     {
         private int count = 0;
+        public static PrintDoc pDoc = new PrintDoc();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         private List<double> num =new List<double>();
         private ToolTip tp = new ToolTip();
-        //private bool thisState = false;
-        //private Thread t;
-        private Trend viewTrend = new Trend();
+        private Trend viewTrend = new Trend(pDoc);
+        private ConfigureReport configReport = new ConfigureReport(pDoc);
         private EquipmentSite eSite = new EquipmentSite();
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
@@ -52,37 +52,32 @@ namespace AdvDAS
         private void btnSnapShot_Click(object sender, EventArgs e)
         {
             screenShotBox.Image = ScreenShot();
-           
             screenShotBox.SizeMode = PictureBoxSizeMode.Zoom;
             String fileName = "Screenshots/ScreenShot "+DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss")+ ".jpg";
             screenShotBox.Image.Save(fileName, ImageFormat.Jpeg);
             count++;
-
-            //DialogResult notes = ShowDialog();
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "PDF File|*.pdf";
-            sfd.FileName = "Test SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save SnapShot";
-            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string path = sfd.FileName;
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
-                doc.Open();//Open Document To Write
-                //Insert Image
-                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(fileName);
-                PNG.ScalePercent(50f);
-                doc.Add(PNG);
-                //Write Some Content
-                Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
-                //Adds above created text using different class object to our pdf document.
-                doc.Add(paragraph);
-                doc.Close();//Closes Document
-                
-            }
-            
+            pDoc.printSnapShot(fileName);
+            //Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            //SaveFileDialog sfd = new SaveFileDialog();
+            //sfd.Filter = "PDF File|*.pdf";
+            //sfd.FileName = "Test SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            //sfd.Title = "Save SnapShot";
+            //if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //{
+            //    string path = sfd.FileName;
+            //    PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+            //    doc.Open();//Open Document To Write
+            //    //Insert Image
+            //    iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(fileName);
+            //    PNG.ScalePercent(50f);
+            //    doc.Add(PNG);
+            //    //Write Some Content
+            //    Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
+            //    //Adds above created text using different class object to our pdf document.
+            //    doc.Add(paragraph);
+            //    doc.Close();//Closes Document
+            //}
         }
-
         public Bitmap ScreenShot()
         {
             Bitmap screenShotBMP = new Bitmap(this.Bounds.Width,
@@ -96,10 +91,6 @@ namespace AdvDAS
 
             return screenShotBMP;
         }
-        //private void ThreadProc(object num)
-        //{
-        //    Application.Run(scaleDisplays[Convert.ToInt32(num)]);
-        //}
         private void menuRecording_Click(object sender, EventArgs e)
         {
             if (menuRecordingItem.Text.Equals("Start Recording"))
@@ -217,7 +208,7 @@ namespace AdvDAS
                     switch(sourceControl.Name)
                     {
                         case "sTile0":
-                            scaleDisplays[0].elementComboBox.SelectionStart=1;
+                            scaleDisplays[0].elementComboBox.SelectionStart = 1;
                             scaleDisplays[0].ShowDialog(this);
                             break;
                         case "sTile1":
@@ -268,7 +259,6 @@ namespace AdvDAS
         {
             doAverage(-1);
         }
-
         private double doAverage(double p)
         {
             if (p == -1)
@@ -278,23 +268,6 @@ namespace AdvDAS
             return num.Average();
             throw new NotImplementedException();
         }
-        private void sTile4_MouseClick(object sender, MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    (sender as TableLayoutPanel).ContextMenu = null;
-            //    (sender as TableLayoutPanel).ContextMenu.Show(sender as TableLayoutPanel, e.Location);
-            //}
-            ////lblList[1].Text = "sup";
-            //MessageBox.Show(sender.ToString());
-            //if (sTile4.Visible.Equals(true))
-            //    sTile4.Hide();
-            ////sTile4.Visible = false;
-            //else
-            //    sTile4.Show();
-            //    //sTile4.Visible = true;
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.recordingProgressBar.Increment(1);
@@ -304,18 +277,15 @@ namespace AdvDAS
             this.recordTimeLabel.Text = "REC = ("+testTime.ToString("HH:mm:ss")+") "+running.ToString("HH:mm:ss");
  
         }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
             this.clock_lbl.Text = now.ToString();
         }
-
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you want to close this program?","Exit",MessageBoxButtons.YesNo);
@@ -324,7 +294,6 @@ namespace AdvDAS
             else
                 e.Cancel = true;
         }
-
         private void getSourceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
@@ -342,10 +311,13 @@ namespace AdvDAS
             }
             MessageBox.Show(sender.ToString()+" / "+e.ToString());
         }
-
         private void setupEquipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             eSite.ShowDialog();
+        }
+        private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configReport.ShowDialog();
         }
     }
 }

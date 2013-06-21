@@ -15,29 +15,29 @@ using System.IO;
 
 namespace AdvDAS
 {
-    class PrintDoc
+    public class PrintDoc
     {
-        private OpenFileDialog ofd;
-        private SaveFileDialog sfd;
-        private Trend trend;
         public PrintDoc()
         {
         }
         public OpenFileDialog OFD { get; set; }
-        public SaveFileDialog SFD { get; set; }
         public Trend Trend { get; set; }
-        public void print()
+        public MainMenu MainMenu { get; set; }
+        public void printTrend()
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            string path = sfd.FileName;
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Trend/Test", FileMode.Create));
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PDF File|*.pdf";
+            sfd.FileName = "Test Trend File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save Trend Summary"; 
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
             doc.Open();//Open Document To Write
             //Insert image
-            iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(ofd.FileName);
-            PNG.ScaleToFit(100f, 150f);
-            PNG.Border = iTextSharp.text.Rectangle.BOX;
+            iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(OFD.FileName);
+            LOGO.ScaleToFit(100f, 150f);
+            LOGO.Border = iTextSharp.text.Rectangle.BOX;
             //PNG.SetAbsolutePosition();
-            doc.Add(PNG);
+            doc.Add(LOGO);
             //Write Some Content
             Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
             //Adds above created text using different class object to our pdf document.
@@ -47,26 +47,26 @@ namespace AdvDAS
                 20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
             cell.Colspan = 3;
             cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
-            PdfPTable dgTable = new PdfPTable(trend.elementTable.ColumnCount - 1);
+            PdfPTable dgTable = new PdfPTable(Trend.elementTable.ColumnCount - 1);
             dgTable.AddCell(cell);
 
             //Add headers from the DGV to the table
-            for (int i = 0; i < trend.elementTable.ColumnCount - 1; i++)
+            for (int i = 0; i < Trend.elementTable.ColumnCount - 1; i++)
             {
-                dgTable.AddCell(new Phrase(trend.elementTable.Columns[i].HeaderText));
+                dgTable.AddCell(new Phrase(Trend.elementTable.Columns[i].HeaderText));
             }
 
             //Flag First Row as Header
             dgTable.HeaderRows = 1;
 
             //Add actual rows from DGV to the table
-            for (int j = 0; j < trend.elementTable.Rows.Count; j++)
+            for (int j = 0; j < Trend.elementTable.Rows.Count; j++)
             {
-                for (int k = 0; k < trend.elementTable.Columns.Count; k++)
+                for (int k = 0; k < Trend.elementTable.Columns.Count; k++)
                 {
-                    if (trend.elementTable[k, j].Value != null)
+                    if (Trend.elementTable[k, j].Value != null)
                     {
-                        dgTable.AddCell(new Phrase(trend.elementTable[k, j].Value.ToString()));
+                        dgTable.AddCell(new Phrase(Trend.elementTable[k, j].Value.ToString()));
                     }
                 }
             }
@@ -75,12 +75,37 @@ namespace AdvDAS
 
             //Adds chart to PDF
             var chartimage = new MemoryStream();
-            trend.trendChart.SaveImage(chartimage, ChartImageFormat.Png);
+            Trend.trendChart.SaveImage(chartimage, ChartImageFormat.Png);
             iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartimage.GetBuffer());
             Chart_image.ScalePercent(75f);
             doc.Add(Chart_image);
 
             doc.Close();//Closes Document
+            System.Diagnostics.Process.Start(sfd.FileName);
+        }
+        public void printSnapShot(string fileName)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PDF File|*.pdf";
+            sfd.FileName = "Test SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save SnapShot";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = sfd.FileName;
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+                doc.Open();//Open Document To Write
+                //Insert Image
+                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(fileName);
+                PNG.ScalePercent(50f);
+                doc.Add(PNG);
+                //Write Some Content
+                Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
+                //Adds above created text using different class object to our pdf document.
+                doc.Add(paragraph);
+                doc.Close();//Closes Document
+                System.Diagnostics.Process.Start(sfd.FileName);
+            }
         }
     }
 }

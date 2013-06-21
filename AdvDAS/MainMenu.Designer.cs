@@ -49,6 +49,7 @@ namespace AdvDAS
             this.browseReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupEquipmentSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,13 +71,18 @@ namespace AdvDAS
             this.viewAnalyzerStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startPeristalticPumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRecordingItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetAllAveragesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordingProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.sTile2 = new System.Windows.Forms.TableLayoutPanel();
@@ -105,8 +111,8 @@ namespace AdvDAS
             this.label29 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.sTile7 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -121,8 +127,8 @@ namespace AdvDAS
             this.label17 = new System.Windows.Forms.Label();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.sTile1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -157,6 +163,7 @@ namespace AdvDAS
             this.label24 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.screenShotBox = new System.Windows.Forms.PictureBox();
             this.btnSnapShot = new System.Windows.Forms.Button();
             this.sTile5 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -169,13 +176,6 @@ namespace AdvDAS
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.screenShotBox = new System.Windows.Forms.PictureBox();
-            this.menuRecordingItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
-            this.setupEquipmentSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -199,9 +199,9 @@ namespace AdvDAS
             this.sTile3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).BeginInit();
             this.sTile5.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -250,6 +250,13 @@ namespace AdvDAS
             this.saveReportToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.saveReportToolStripMenuItem.Text = "Save Report";
             // 
+            // setupEquipmentSiteToolStripMenuItem
+            // 
+            this.setupEquipmentSiteToolStripMenuItem.Name = "setupEquipmentSiteToolStripMenuItem";
+            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
+            this.setupEquipmentSiteToolStripMenuItem.Text = "Setup Equipment/Site";
+            this.setupEquipmentSiteToolStripMenuItem.Click += new System.EventHandler(this.setupEquipmentSiteToolStripMenuItem_Click);
+            // 
             // configureToolStripMenuItem
             // 
             this.configureToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -274,6 +281,7 @@ namespace AdvDAS
             this.configureReportToolStripMenuItem.Name = "configureReportToolStripMenuItem";
             this.configureReportToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.configureReportToolStripMenuItem.Text = "Configure Report";
+            this.configureReportToolStripMenuItem.Click += new System.EventHandler(this.configureReportToolStripMenuItem_Click);
             // 
             // performPreAndPostCalibrationToolStripMenuItem
             // 
@@ -395,6 +403,15 @@ namespace AdvDAS
             this.startPeristalticPumpToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.startPeristalticPumpToolStripMenuItem.Text = "Start Peristaltic Pump";
             // 
+            // menuRecordingItem
+            // 
+            this.menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
+            this.menuRecordingItem.Name = "menuRecordingItem";
+            this.menuRecordingItem.Size = new System.Drawing.Size(116, 20);
+            this.menuRecordingItem.Tag = "";
+            this.menuRecordingItem.Text = "Start Recording";
+            this.menuRecordingItem.Click += new System.EventHandler(this.menuRecording_Click);
+            // 
             // viewTrendToolStripMenuItem
             // 
             this.viewTrendToolStripMenuItem.Name = "viewTrendToolStripMenuItem";
@@ -420,6 +437,18 @@ namespace AdvDAS
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
+            // checkUpgradeToolStripMenuItem
+            // 
+            this.checkUpgradeToolStripMenuItem.Name = "checkUpgradeToolStripMenuItem";
+            this.checkUpgradeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.checkUpgradeToolStripMenuItem.Text = "Check Upgrade";
+            // 
+            // aboutAdvDASToolStripMenuItem
+            // 
+            this.aboutAdvDASToolStripMenuItem.Name = "aboutAdvDASToolStripMenuItem";
+            this.aboutAdvDASToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.aboutAdvDASToolStripMenuItem.Text = "About AdvDAS";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -433,6 +462,16 @@ namespace AdvDAS
             this.statusStrip1.Size = new System.Drawing.Size(804, 24);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // connectionStatusLabel
+            // 
+            this.connectionStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.connectionStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.connectionStatusLabel.Name = "connectionStatusLabel";
+            this.connectionStatusLabel.Size = new System.Drawing.Size(92, 19);
+            this.connectionStatusLabel.Text = "Not Connected";
             // 
             // recordStatusLabel
             // 
@@ -459,6 +498,16 @@ namespace AdvDAS
             this.recordingProgressBar.Maximum = 12;
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(200, 18);
+            // 
+            // clock_lbl
+            // 
+            this.clock_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.clock_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.clock_lbl.Name = "clock_lbl";
+            this.clock_lbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.clock_lbl.Size = new System.Drawing.Size(4, 19);
             // 
             // button1
             // 
@@ -866,6 +915,17 @@ namespace AdvDAS
             this.panel10.Size = new System.Drawing.Size(140, 30);
             this.panel10.TabIndex = 7;
             // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox8.Location = new System.Drawing.Point(125, 0);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(15, 30);
+            this.checkBox8.TabIndex = 2;
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -878,17 +938,6 @@ namespace AdvDAS
             this.label9.TabIndex = 0;
             this.label9.Text = "LABEL9";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox8.Location = new System.Drawing.Point(125, 0);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 30);
-            this.checkBox8.TabIndex = 2;
-            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // sTile7
             // 
@@ -1100,6 +1149,17 @@ namespace AdvDAS
             this.panel8.Size = new System.Drawing.Size(140, 30);
             this.panel8.TabIndex = 7;
             // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox6.Location = new System.Drawing.Point(125, 0);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(15, 30);
+            this.checkBox6.TabIndex = 4;
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -1112,17 +1172,6 @@ namespace AdvDAS
             this.label7.TabIndex = 0;
             this.label7.Text = "LABEL7";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox6.Location = new System.Drawing.Point(125, 0);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 30);
-            this.checkBox6.TabIndex = 4;
-            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // sTile1
             // 
@@ -1386,7 +1435,6 @@ namespace AdvDAS
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.27F));
             this.sTile4.Size = new System.Drawing.Size(144, 151);
             this.sTile4.TabIndex = 13;
-            this.sTile4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sTile4_MouseClick);
             // 
             // textBox5
             // 
@@ -1622,6 +1670,15 @@ namespace AdvDAS
             this.panel4.Size = new System.Drawing.Size(124, 113);
             this.panel4.TabIndex = 10;
             // 
+            // screenShotBox
+            // 
+            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
+            this.screenShotBox.Name = "screenShotBox";
+            this.screenShotBox.Size = new System.Drawing.Size(124, 90);
+            this.screenShotBox.TabIndex = 1;
+            this.screenShotBox.TabStop = false;
+            // 
             // btnSnapShot
             // 
             this.btnSnapShot.AutoSize = true;
@@ -1762,63 +1819,6 @@ namespace AdvDAS
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // screenShotBox
-            // 
-            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
-            this.screenShotBox.Name = "screenShotBox";
-            this.screenShotBox.Size = new System.Drawing.Size(124, 90);
-            this.screenShotBox.TabIndex = 1;
-            this.screenShotBox.TabStop = false;
-            // 
-            // menuRecordingItem
-            // 
-            this.menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
-            this.menuRecordingItem.Name = "menuRecordingItem";
-            this.menuRecordingItem.Size = new System.Drawing.Size(116, 20);
-            this.menuRecordingItem.Tag = "";
-            this.menuRecordingItem.Text = "Start Recording";
-            this.menuRecordingItem.Click += new System.EventHandler(this.menuRecording_Click);
-            // 
-            // checkUpgradeToolStripMenuItem
-            // 
-            this.checkUpgradeToolStripMenuItem.Name = "checkUpgradeToolStripMenuItem";
-            this.checkUpgradeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.checkUpgradeToolStripMenuItem.Text = "Check Upgrade";
-            // 
-            // aboutAdvDASToolStripMenuItem
-            // 
-            this.aboutAdvDASToolStripMenuItem.Name = "aboutAdvDASToolStripMenuItem";
-            this.aboutAdvDASToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.aboutAdvDASToolStripMenuItem.Text = "About AdvDAS";
-            // 
-            // connectionStatusLabel
-            // 
-            this.connectionStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.connectionStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            this.connectionStatusLabel.Name = "connectionStatusLabel";
-            this.connectionStatusLabel.Size = new System.Drawing.Size(92, 19);
-            this.connectionStatusLabel.Text = "Not Connected";
-            // 
-            // clock_lbl
-            // 
-            this.clock_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.clock_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            this.clock_lbl.Name = "clock_lbl";
-            this.clock_lbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.clock_lbl.Size = new System.Drawing.Size(4, 19);
-            // 
-            // setupEquipmentSiteToolStripMenuItem
-            // 
-            this.setupEquipmentSiteToolStripMenuItem.Name = "setupEquipmentSiteToolStripMenuItem";
-            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
-            this.setupEquipmentSiteToolStripMenuItem.Text = "Setup Equipment/Site";
-            this.setupEquipmentSiteToolStripMenuItem.Click += new System.EventHandler(this.setupEquipmentSiteToolStripMenuItem_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1877,11 +1877,11 @@ namespace AdvDAS
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).EndInit();
             this.sTile5.ResumeLayout(false);
             this.sTile5.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1892,7 +1892,6 @@ namespace AdvDAS
 
 
         private System.Windows.Forms.ContextMenuStrip tilePopUpMenu;
-        private System.Windows.Forms.PictureBox screenShotBox;
         
 
 
@@ -2050,6 +2049,7 @@ namespace AdvDAS
         private ToolStripStatusLabel connectionStatusLabel;
         private ToolStripStatusLabel clock_lbl;
         private ToolStripMenuItem setupEquipmentSiteToolStripMenuItem;
+        public PictureBox screenShotBox;
 
 
     }

@@ -17,10 +17,12 @@ namespace AdvDAS
 {
     public partial class ConfigureReport : Form
     {
-        public PrintDoc print1 = new PrintDoc();
-        public ConfigureReport()
+        private PrintDoc pDoc;
+        public ConfigureReport(PrintDoc pDoc)
         {
+            // TODO: Complete member initialization
             InitializeComponent();
+            this.pDoc = pDoc;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -29,8 +31,10 @@ namespace AdvDAS
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string s = ofd.FileName;
+                this.pDoc.OFD = ofd;
+                this.textBox1.Text = s;
             }
-            print1.OFD = ofd;
+            
         }
     }
 }

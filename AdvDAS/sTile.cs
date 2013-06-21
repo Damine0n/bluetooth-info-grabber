@@ -30,19 +30,13 @@ namespace AdvDAS
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
-        private void ScaleDisplay_FormClosing(object sender, FormClosingEventArgs e)
-        {
-           
-        }
-
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             MainMenu mainMenu = (MainMenu)this.Owner;
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    MessageBox.Show(mainMenu.label1.Text);  
+                    mainMenu.label1.Text = "Daymen";  
                     break;
                 case 2:
                     MessageBox.Show(mainMenu.lblList[this.index].Text);// = "CO";
