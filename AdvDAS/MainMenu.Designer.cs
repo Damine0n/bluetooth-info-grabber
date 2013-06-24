@@ -260,8 +260,8 @@ namespace AdvDAS
             this.customerToolStripMenuItem,
             this.equipmentSiteToolStripMenuItem});
             this.setupEquipmentSiteToolStripMenuItem.Name = "setupEquipmentSiteToolStripMenuItem";
-            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.setupEquipmentSiteToolStripMenuItem.Text = "Setup";
+            this.setupEquipmentSiteToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.setupEquipmentSiteToolStripMenuItem.Text = "Edit";
             // 
             // personalDataToolStripMenuItem
             // 

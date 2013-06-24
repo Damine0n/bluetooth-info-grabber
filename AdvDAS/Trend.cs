@@ -136,24 +136,30 @@ namespace AdvDAS
             if (e.ColumnIndex == elementTable.Columns["dgGraph"].Index)  //Checking index of checkbox column is equal to clickable cell index.
             {
                 elementTable.EndEdit();  //Stop editing of cell.
-                t = new Thread(ThreadProc);
-                t.Start();
-                while (t.IsAlive)
+                if ((bool)elementTable.Rows[e.RowIndex].Cells[3].Value)//only activates on check
                 {
-                    trendChart.Series[2].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
-                    Thread.Sleep(0);
+                    t = new Thread(ThreadProc);
+                    t.Start();
+                    //Thread.Sleep(50);
+                    while (t.IsAlive)
+                    {
+                        t.Join();
+                        trendChart.Series[2].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+                        
+                    }
+                    MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+                    //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
                 }
-                MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
-                //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
             }
         }
 
         private void ThreadProc(object obj)
         {
-            for (int i = 0; i < 1000; i++)
+            Random ran = new Random();
+            for (int i = 0; i < 100; i++)
             {
-//                Thread.Sleep(1000);
-                elementTable.Rows[3].Cells[1].Value = i;
+                //Thread.Sleep(100);
+                elementTable.Rows[3].Cells[1].Value = ran.Next(0,100);
             }
         }
     }

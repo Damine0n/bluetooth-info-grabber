@@ -27,6 +27,7 @@ namespace AdvDAS
         private Trend viewTrend = new Trend(pDoc);
         private ConfigureReport configReport = new ConfigureReport(pDoc);
         private EquipmentSite eSite = new EquipmentSite();
+        private PersonalData personalData = new PersonalData();
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
         private DateTime running = new DateTime();
