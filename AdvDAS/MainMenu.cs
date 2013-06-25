@@ -28,6 +28,7 @@ namespace AdvDAS
         private ConfigureReport configReport = new ConfigureReport(pDoc);
         private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
+        private Customer customer = new Customer();
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
         private DateTime running = new DateTime();
@@ -107,22 +108,7 @@ namespace AdvDAS
                 menuRecordingItem.Image = global::AdvDAS.Properties.Resources.play;
             }
         }
-        //public void ShowMyDialogBox()
-        //{
-        //    NotesForm testDialog = new NotesForm();
 
-        //    // Show testDialog as a modal dialog and determine if DialogResult = OK.
-        //    if (testDialog.ShowDialog(this) == DialogResult.OK)
-        //    {
-        //        // Read the contents of testDialog's TextBox.
-        //        this.txtResult.Text = testDialog.TextBox1.Text;
-        //    }
-        //    else
-        //    {
-        //        this.txtResult.Text = "Cancelled";
-        //    }
-        //    testDialog.Dispose();
-        //}
         private void hidePanelMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
@@ -324,7 +310,7 @@ namespace AdvDAS
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            customer.ShowDialog();
         }
 
         private void equipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)

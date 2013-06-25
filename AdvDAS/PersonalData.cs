@@ -41,5 +41,10 @@ namespace AdvDAS
             textBox8.Clear();
             textBox9.Clear();
         }
+
+        private void PersonalData_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
