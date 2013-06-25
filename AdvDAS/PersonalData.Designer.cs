@@ -49,7 +49,6 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 239);
+            this.label1.Location = new System.Drawing.Point(49, 239);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
@@ -69,16 +68,16 @@
             this.pictureBox1.Location = new System.Drawing.Point(104, 239);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // btnLogo
             // 
-            this.btnLogo.Location = new System.Drawing.Point(9, 288);
+            this.btnLogo.Location = new System.Drawing.Point(14, 288);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(75, 23);
-            this.btnLogo.TabIndex = 2;
+            this.btnLogo.TabIndex = 21;
             this.btnLogo.Text = "Browse";
             this.btnLogo.UseVisualStyleBackColor = true;
             this.btnLogo.Click += new System.EventHandler(this.button1_Click);
@@ -227,18 +226,15 @@
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 20;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(9, 323);
+            this.btnClear.Location = new System.Drawing.Point(14, 323);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 21;
+            this.btnClear.TabIndex = 22;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAccept
             // 
@@ -246,7 +242,7 @@
             this.btnAccept.Location = new System.Drawing.Point(104, 323);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 22;
+            this.btnAccept.TabIndex = 23;
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             // 
@@ -312,7 +308,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAccept;
     }
