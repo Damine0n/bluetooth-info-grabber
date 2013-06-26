@@ -50,14 +50,9 @@ namespace AdvDAS
             for (int i = 0; i < elements.Count; i++)
             {
                 elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
+                trendChart.Series[i].Enabled = false;
             }
         }
-        private void elementTable_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            if (e.Item.Checked == true)
-                MessageBox.Show(e.Item.SubItems[1].Text);
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -138,17 +133,37 @@ namespace AdvDAS
                 elementTable.EndEdit();  //Stop editing of cell.
                 if ((bool)elementTable.Rows[e.RowIndex].Cells[3].Value)//only activates on check
                 {
-                    t = new Thread(ThreadProc);
-                    t.Start();
-                    //Thread.Sleep(50);
-                    while (t.IsAlive)
+                    DialogResult dialogResult = MessageBox.Show("If you select yes your chart's data will restart.", "Are you sure? ", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        t.Join();
-                        trendChart.Series[2].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
-                        
+                        foreach (var series in trendChart.Series)
+                        {
+                            series.Points.Clear();
+                        }
+                        trendChart.Series[e.RowIndex].Enabled = true;
+                        t = new Thread(ThreadProc);
+                        t.Start(e.RowIndex.ToString());
+                        //Thread.Sleep(50);
+                        while (t.IsAlive)
+                        {
+                            //t.Join();
+
+                            // Group by "Name" column, bind X values to "Year", Y values to "Sales",
+                            // and Label property to "Commissions.
+                            //trendChart.DataBindCrossTable(elementTable, "dgName", "dgValue","","");
+                            trendChart.Series[e.RowIndex].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+
+                        }
+                        MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+                        //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
                     }
-                    MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
-                    //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do nothing
+                    } 
+                }else
+                {
+                    trendChart.Series[e.RowIndex].Enabled=false;
                 }
             }
         }
@@ -159,7 +174,7 @@ namespace AdvDAS
             for (int i = 0; i < 100; i++)
             {
                 //Thread.Sleep(100);
-                elementTable.Rows[3].Cells[1].Value = ran.Next(0,100);
+                elementTable.Rows[int.Parse(obj.ToString())].Cells[1].Value = ran.Next(0,100);
             }
         }
     }
