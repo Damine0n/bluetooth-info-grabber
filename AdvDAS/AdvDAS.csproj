@@ -70,7 +70,7 @@
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerInfo.cs" />
-    <Compile Include="PersonalInformation.cs" />
+    <Compile Include="PersonalInfo.cs" />
     <Compile Include="ConfigureReport.cs">
       <SubType>Form</SubType>
     </Compile>
