@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.btnCreateSite = new System.Windows.Forms.Button();
@@ -50,8 +51,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -81,6 +80,15 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnAccept = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -218,6 +226,14 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.Controls.Add(this.textBox20);
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.textBox21);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.textBox11);
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.textBox12);
             this.tabPage1.Controls.Add(this.textBox19);
             this.tabPage1.Controls.Add(this.textBox18);
             this.tabPage1.Controls.Add(this.textBox17);
@@ -226,8 +242,6 @@
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.textBox11);
-            this.tabPage1.Controls.Add(this.textBox12);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.textBox15);
@@ -324,37 +338,25 @@
             this.label15.TabIndex = 36;
             this.label15.Text = "A/F Controller Make:";
             // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(310, 89);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(74, 20);
-            this.textBox11.TabIndex = 35;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(310, 63);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(74, 20);
-            this.textBox12.TabIndex = 34;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(200, 94);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(113, 13);
+            this.label12.Size = new System.Drawing.Size(59, 13);
             this.label12.TabIndex = 33;
-            this.label12.Text = "Intake Manifold Temp:";
+            this.label12.Text = "Intake MT:";
+            this.toolTip1.SetToolTip(this.label12, "Intake Manifold Temp");
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(200, 66);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(112, 13);
+            this.label13.Size = new System.Drawing.Size(59, 13);
             this.label13.TabIndex = 32;
-            this.label13.Text = "Intake Manifold Press:";
+            this.label13.Text = "Intake MP:";
+            this.toolTip1.SetToolTip(this.label13, "Intake Manifold Press:");
             // 
             // textBox15
             // 
@@ -582,6 +584,70 @@
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(357, 92);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(32, 13);
+            this.label19.TabIndex = 47;
+            this.label19.Text = "Right";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(324, 89);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(32, 20);
+            this.textBox11.TabIndex = 46;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(300, 92);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(25, 13);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "Left";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(265, 89);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(32, 20);
+            this.textBox12.TabIndex = 44;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(357, 67);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(32, 13);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "Right";
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(324, 64);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(32, 20);
+            this.textBox20.TabIndex = 50;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(300, 67);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(25, 13);
+            this.label22.TabIndex = 49;
+            this.label22.Text = "Left";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(265, 64);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(32, 20);
+            this.textBox21.TabIndex = 48;
+            // 
             // EquipmentSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,8 +703,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox15;
@@ -660,5 +724,14 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -18,5 +18,8 @@ namespace AdvDAS
         public int FAX { get; set; }
         public int CELLPHONE { get; set; }
         public string EMAIL { get; set; }
+        public string NOTES { get; set; }
+        public string LOGO { get; set; }
+
     }
 }

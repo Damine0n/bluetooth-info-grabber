@@ -11,8 +11,8 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Microsoft.VisualBasic;
 using System.IO;
+using Finisar.SQLite;
 
 
 namespace AdvDAS
@@ -29,9 +29,13 @@ namespace AdvDAS
         private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
         private Customer customer = new Customer();
+        private Form2 forming = new Form2();
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
         private DateTime running = new DateTime();
+        private SQLiteConnection sqlite_conn;
+        private SQLiteCommand sqlite_cmd;
+        private SQLiteDataReader sqlite_datareader;
         public MainMenu()
         {
             lblList.Add(this.label1);
@@ -50,6 +54,22 @@ namespace AdvDAS
             }
             InitializeComponent();
             timer2.Start();
+            //startDataBase();
+        }
+        private void startDataBase()
+        {
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+
+            sqlite_conn.Open();
+
+            // create a new SQL command:
+            sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Let the SQLiteCommand object know our SQL-Query:
+            sqlite_cmd.CommandText = "CREATE TABLE Customers (CustomerNumber integer primary key, Company VARCHAR(255), Contact VARCHAR(255), Phone integer, Street VARCHAR(255), Zip integer, City VARCHAR(255), Fax integer, CellPhone integer, Email VARCHAR(255)), Notes VARCHAR(2000));";
+
+            // Now lets execute the SQL ;D
+            sqlite_cmd.ExecuteNonQuery();
         }
         private void btnSnapShot_Click(object sender, EventArgs e)
         {
@@ -271,7 +291,7 @@ namespace AdvDAS
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            forming.ShowDialog();
         }
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {

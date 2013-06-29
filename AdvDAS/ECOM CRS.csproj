@@ -44,11 +44,9 @@
     <Reference Include="itextsharp.xtra">
       <HintPath>.\itextsharp.xtra.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\SQLite.NET.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2012\Projects\SQLite_test\SQLite_test\bin\Debug\SQLite.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,6 +68,12 @@
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerInfo.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalInfo.cs" />
     <Compile Include="ConfigureReport.cs">
       <SubType>Form</SubType>
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EquipmentSite.resx">
       <DependentUpon>EquipmentSite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

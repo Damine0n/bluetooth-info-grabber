@@ -11,7 +11,9 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
+using Finisar.SQLite;
 using System.IO;
+
 
 namespace AdvDAS
 {
@@ -21,11 +23,37 @@ namespace AdvDAS
         char degree = '°';
         Thread t;
         private PrintDoc pDoc;
+        private SQLiteConnection sqlite_conn;
+        private SQLiteCommand sqlite_cmd;
+        private SQLiteDataReader sqlite_datareader;
         public Trend(PrintDoc pDoc)
         {
             InitializeComponent();
             filltable();
+            //load_table();
             this.pDoc = pDoc;
+        }
+        private void load_table()
+        {
+            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
+
+
+            // create a new database connection:
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+
+
+            try
+            {
+                DataSet ds = new DataSet();
+                var da = new SQLiteDataAdapter("SELECT * FROM test;", sqlite_conn);
+                da.Fill(ds);
+                elementTable.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlite_conn.Close();
         }
         void filltable()
         {
@@ -70,7 +98,7 @@ namespace AdvDAS
                 //pDoc.printTrend();
                 Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
                 string path = sfd.FileName;
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Trend/Test", FileMode.Create));
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();//Open Document To Write
                 //Insert image
                 iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(ofd.FileName);
@@ -146,16 +174,9 @@ namespace AdvDAS
                         //Thread.Sleep(50);
                         while (t.IsAlive)
                         {
-                            //t.Join();
-
-                            // Group by "Name" column, bind X values to "Year", Y values to "Sales",
-                            // and Label property to "Commissions.
-                            //trendChart.DataBindCrossTable(elementTable, "dgName", "dgValue","","");
                             trendChart.Series[e.RowIndex].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
-
                         }
                         MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
-                        //trendChart.DataBindTable(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()), "SalesName");
                     }
                     else if (dialogResult == DialogResult.No)
                     {
