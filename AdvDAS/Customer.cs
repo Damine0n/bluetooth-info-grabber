@@ -14,20 +14,21 @@ namespace AdvDAS
 {
     public partial class Customer : Form
     {
-        private SQLiteConnection sqlite_conn;
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
-        private SQLiteDataReader sqlite_datareader;
+        private SQLiteDataReader sqlite_datareader; 
+        DataSet ds = new DataSet();
         public Customer()
         {
             InitializeComponent();
-            load_table();
+            load_table(); 
+            
         }
         private void load_table()
         {
             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
             // We use these three SQLite objects:
-            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
             sqlite_conn.Open();
 
             // create a new SQL command:
@@ -41,10 +42,25 @@ namespace AdvDAS
 
             try
             {
-                DataSet ds = new DataSet();
                 var da = new SQLiteDataAdapter("SELECT * FROM Customers;", sqlite_conn);
                 da.Fill(ds);
+                bindingSource1.DataSource = ds.Tables[0];
+                //ds.
+                //bindingSource1.DataMember = "Customers";
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
+                
+                
+                tbCustomerID.DataBindings.Add("Text", bindingSource1, "CustomerNumber");
+                tbCompany.DataBindings.Add("Text", bindingSource1, "Company");
+                tbContact.DataBindings.Add("Text", bindingSource1, "Contact");
+                tbPhone.DataBindings.Add("Text", bindingSource1, "Phone");
+                tbStreet.DataBindings.Add("Text", bindingSource1, "Street");
+                tbZip.DataBindings.Add("Text", bindingSource1, "Zip");
+                tbCity.DataBindings.Add("Text", bindingSource1, "City");
+                tbFax.DataBindings.Add("Text", bindingSource1, "Fax");
+                tbCellPhone.DataBindings.Add("Text", bindingSource1, "CellPhone");
+                tbEmail.DataBindings.Add("Text", bindingSource1, "Email");
+                tbNotes.DataBindings.Add("Text", bindingSource1, "Notes");
             }
             catch (Exception ex)
             {
@@ -80,22 +96,65 @@ namespace AdvDAS
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            sqlite_cmd.ExecuteNonQuery();
-            if (tbCustomerID.Text!="")
-            // Lets insert something into our new table:
-            sqlite_cmd.CommandText = "INSERT INTO Customers (CustomerNumber, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES ("+
-                int.Parse(tbCustomerID.Text)+","+tbCompany.Text+","+tbContact.Text+","+int.Parse(tbPhone.Text)+","+tbStreet.Text+","+
-                int.Parse(tbZip.Text)+","+tbCity.Text+","+int.Parse(tbFax.Text)+","+int.Parse(tbCellPhone.Text)+","+tbEmail.Text+","+
-                tbNotes.Text+");";
+            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
-            // And execute this again ;D
-            sqlite_cmd.ExecuteNonQuery();
+            // We use these three SQLite objects:
+            sqlite_conn.Open();
+
+            if (tbCustomerID.Text != "")
+            {
+                // Lets insert something into our new table:
+                sqlite_cmd.CommandText = "INSERT INTO Customers (CustomerNumber, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES (" +
+                    tbCustomerID.Text + "," + tbCompany.Text + "," + tbContact.Text + "," + int.Parse(tbPhone.Text) + "," + tbStreet.Text + "," +
+                    int.Parse(tbZip.Text) + "," + tbCity.Text + "," + int.Parse(tbFax.Text) + "," + int.Parse(tbCellPhone.Text) + "," + tbEmail.Text + "," +
+                    tbNotes.Text + ");";
+
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
-        private void btnAccept_Click(object sender, EventArgs e)
+        private void btnApply_Click(object sender, EventArgs e)
         {
+            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
+            // We use these three SQLite objects:
+            //sqlite_conn.Open();
+
+            // create a new SQL command:
+            sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Let the SQLiteCommand object know our SQL-Query:
+            sqlite_cmd.CommandText = "Update Customers SET CustomerNumber =, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES (" +
+                    tbCustomerID.Text + "," + tbCompany.Text + "," + tbContact.Text + "," + int.Parse(tbPhone.Text) + "," + tbStreet.Text + "," +
+                    int.Parse(tbZip.Text) + "," + tbCity.Text + "," + int.Parse(tbFax.Text) + "," + int.Parse(tbCellPhone.Text) + "," + tbEmail.Text + "," +
+                    tbNotes.Text + ");";
+            // Now lets execute the SQL ;D
+            sqlite_cmd.ExecuteNonQuery();
+
+            try
+            {
+                DataSet ds = new DataSet();
+                var da = new SQLiteDataAdapter("SELECT * FROM Customers;", sqlite_conn);
+                da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0].DefaultView;
+                bindingSource1.DataSource = ds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
         //Change Data
     }
 }
