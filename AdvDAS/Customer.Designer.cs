@@ -87,7 +87,6 @@
             // btnApply
             // 
             this.btnApply.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnApply.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnApply.Location = new System.Drawing.Point(588, 331);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(95, 23);

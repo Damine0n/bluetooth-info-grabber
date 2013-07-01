@@ -35,7 +35,7 @@ namespace AdvDAS
             sqlite_cmd = sqlite_conn.CreateCommand();
 
             // Let the SQLiteCommand object know our SQL-Query:
-            //sqlite_cmd.CommandText = "CREATE TABLE Customers (CustomerNumber integer primary key, Company VARCHAR(255), Contact VARCHAR(255), Phone integer, Street VARCHAR(255), Zip integer, City VARCHAR(255), Fax integer, CellPhone integer, Email VARCHAR(255), Notes VARCHAR(2000));";
+            //sqlite_cmd.CommandText = "CREATE TABLE Customers (CustomerID integer primary key, Company VARCHAR(255), Contact VARCHAR(255), Phone integer, Street VARCHAR(255), Zip integer, City VARCHAR(255), Fax integer, CellPhone integer, Email VARCHAR(255), Notes VARCHAR(2000));";
 
             // Now lets execute the SQL ;D
             sqlite_cmd.ExecuteNonQuery();
@@ -99,22 +99,26 @@ namespace AdvDAS
             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
             // We use these three SQLite objects:
-            sqlite_conn.Open();
+            //sqlite_conn.Open();
 
-            if (tbCustomerID.Text != "")
-            {
-                // Lets insert something into our new table:
-                sqlite_cmd.CommandText = "INSERT INTO Customers (CustomerNumber, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES (" +
-                    tbCustomerID.Text + "," + tbCompany.Text + "," + tbContact.Text + "," + int.Parse(tbPhone.Text) + "," + tbStreet.Text + "," +
-                    int.Parse(tbZip.Text) + "," + tbCity.Text + "," + int.Parse(tbFax.Text) + "," + int.Parse(tbCellPhone.Text) + "," + tbEmail.Text + "," +
-                    tbNotes.Text + ");";
-
-                // And execute this again ;D
-                sqlite_cmd.ExecuteNonQuery();
-            }
+            
             try
             {
-                
+                if (tbCustomerID.Text != "")
+                {
+                    // Lets insert something into our new table:
+                    sqlite_cmd.CommandText = "INSERT INTO Customers (CustomerID, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES ('" 
+                        + tbCustomerID.Text + "','" + tbCompany.Text + "','" + tbContact.Text + "','" + tbPhone.Text + "','" 
+                        + tbStreet.Text + "','" + tbZip.Text + "','" + tbCity.Text + "','" + tbFax.Text + "','" 
+                        + tbCellPhone.Text + "','" + tbEmail.Text + "','" + tbNotes.Text + "');";
+
+                    // And execute this again ;D
+                    sqlite_cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("You must have a value in Customer ID.");
+                }
             }
             catch (Exception ex)
             {
@@ -132,27 +136,22 @@ namespace AdvDAS
 
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "Update Customers SET CustomerNumber =, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES (" +
-                    tbCustomerID.Text + "," + tbCompany.Text + "," + tbContact.Text + "," + int.Parse(tbPhone.Text) + "," + tbStreet.Text + "," +
-                    int.Parse(tbZip.Text) + "," + tbCity.Text + "," + int.Parse(tbFax.Text) + "," + int.Parse(tbCellPhone.Text) + "," + tbEmail.Text + "," +
-                    tbNotes.Text + ");";
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
-
             try
             {
-                DataSet ds = new DataSet();
-                var da = new SQLiteDataAdapter("SELECT * FROM Customers;", sqlite_conn);
-                da.Fill(ds);
-                dataGridView1.DataSource = ds.Tables[0].DefaultView;
-                bindingSource1.DataSource = ds;
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text + "', Contact = '" + this.tbContact.Text
+                    + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '"
+                    + this.tbZip.Text + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text
+                    + "', CellPhone = '" + this.tbCellPhone.Text + "', Email = '" + this.tbEmail.Text + "', Notes = '"
+                    + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
+                // Now lets execute the SQL ;D
+                sqlite_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         //Change Data
