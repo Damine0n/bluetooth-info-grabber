@@ -34,7 +34,7 @@ namespace AdvDAS
             try
             {
                 DataSet ds = new DataSet();
-                var da = new SQLiteDataAdapter("SELECT * FROM test", sqlite_conn);
+                var da = new SQLiteDataAdapter("SELECT * FROM candy", sqlite_conn);
                 da.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
@@ -82,7 +82,7 @@ namespace AdvDAS
             try
             {
                 DataSet ds = new DataSet();
-                var da = new SQLiteDataAdapter("SELECT * FROM test", sqlite_conn);
+                var da = new SQLiteDataAdapter("SELECT * FROM candy", sqlite_conn);
                 da.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }

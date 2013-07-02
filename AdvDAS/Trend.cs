@@ -23,14 +23,13 @@ namespace AdvDAS
         char degree = '°';
         Thread t;
         private PrintDoc pDoc;
-        private SQLiteConnection sqlite_conn;
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         public Trend(PrintDoc pDoc)
         {
             InitializeComponent();
             filltable();
-            //load_table();
             this.pDoc = pDoc;
         }
         private void load_table()
@@ -83,12 +82,6 @@ namespace AdvDAS
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Add Logo";
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string s = ofd.FileName;
-            }
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Test Trend File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
@@ -100,13 +93,13 @@ namespace AdvDAS
                 string path = sfd.FileName;
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();//Open Document To Write
-                //Insert image
-                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(ofd.FileName);
-                PNG.ScaleToFit(100f, 150f);
-                PNG.Border = iTextSharp.text.Rectangle.BOX;
+                ////Insert image
+                //iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance();
+                //PNG.ScaleToFit(100f, 150f);
+                //PNG.Border = iTextSharp.text.Rectangle.BOX;
                 //PNG.SetAbsolutePosition();
-                doc.Add(PNG);
-                //Write Some Content
+                //doc.Add(PNG);
+                ////Write Some Content
                 Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
                 //Adds above created text using different class object to our pdf document.
                 doc.Add(paragraph);

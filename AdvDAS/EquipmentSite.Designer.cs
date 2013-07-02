@@ -43,6 +43,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -81,14 +89,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -119,6 +119,7 @@
             this.btnCreateSite.TabIndex = 2;
             this.btnCreateSite.Text = "Create";
             this.btnCreateSite.UseVisualStyleBackColor = true;
+            this.btnCreateSite.Click += new System.EventHandler(this.btnCreateSite_Click);
             // 
             // btnDeleteSite
             // 
@@ -273,6 +274,70 @@
             this.tabPage1.Size = new System.Drawing.Size(607, 149);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Equipment Info";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(357, 67);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(32, 13);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "Right";
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(324, 64);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(32, 20);
+            this.textBox20.TabIndex = 50;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(300, 67);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(25, 13);
+            this.label22.TabIndex = 49;
+            this.label22.Text = "Left";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(265, 64);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(32, 20);
+            this.textBox21.TabIndex = 48;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(357, 92);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(32, 13);
+            this.label19.TabIndex = 47;
+            this.label19.Text = "Right";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(324, 89);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(32, 20);
+            this.textBox11.TabIndex = 46;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(300, 92);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(25, 13);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "Left";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(265, 89);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(32, 20);
+            this.textBox12.TabIndex = 44;
             // 
             // textBox19
             // 
@@ -584,70 +649,6 @@
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(357, 92);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(32, 13);
-            this.label19.TabIndex = 47;
-            this.label19.Text = "Right";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(324, 89);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(32, 20);
-            this.textBox11.TabIndex = 46;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(300, 92);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(25, 13);
-            this.label20.TabIndex = 45;
-            this.label20.Text = "Left";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(265, 89);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(32, 20);
-            this.textBox12.TabIndex = 44;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(357, 67);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(32, 13);
-            this.label21.TabIndex = 51;
-            this.label21.Text = "Right";
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(324, 64);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(32, 20);
-            this.textBox20.TabIndex = 50;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(300, 67);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(25, 13);
-            this.label22.TabIndex = 49;
-            this.label22.Text = "Left";
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(265, 64);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(32, 20);
-            this.textBox21.TabIndex = 48;
-            // 
             // EquipmentSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,6 +662,7 @@
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.Name = "EquipmentSite";
             this.Text = "Setup Equipment & Site";
+            this.Load += new System.EventHandler(this.EquipmentSite_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

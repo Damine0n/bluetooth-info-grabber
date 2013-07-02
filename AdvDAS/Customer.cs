@@ -50,7 +50,7 @@ namespace AdvDAS
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
                 
                 
-                tbCustomerID.DataBindings.Add("Text", bindingSource1, "CustomerNumber");
+                tbCustomerID.DataBindings.Add("Text", bindingSource1, "CustomerID");
                 tbCompany.DataBindings.Add("Text", bindingSource1, "Company");
                 tbContact.DataBindings.Add("Text", bindingSource1, "Contact");
                 tbPhone.DataBindings.Add("Text", bindingSource1, "Phone");
@@ -152,6 +152,22 @@ namespace AdvDAS
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            try
+            {
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "DELETE FROM Customers WHERE CustomerID= '"+this.tbCustomerID.Text+"';";
+                // Now lets execute the SQL ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //Change Data

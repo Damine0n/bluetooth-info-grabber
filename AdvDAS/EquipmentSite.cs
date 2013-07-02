@@ -16,6 +16,7 @@ namespace AdvDAS
         public EquipmentSite()
         {
             InitializeComponent();
+            EquipmentSite_Load();
         }
 
         private void btnDeleteSite_Click(object sender, EventArgs e)
@@ -39,6 +40,20 @@ namespace AdvDAS
         private void btnMassECB_Click(object sender, EventArgs e)
         {
             mass.ShowDialog();
+        }
+
+        private void btnCreateSite_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EquipmentSite_Load()
+        {
+            //CREATE TABLE EquipmentSite (owner TEXT, site TEXT, equipment TEXT, unitNum INTEGER, model TEXT, serialNum INTEGER,
+            //service TEXT, ignitionTiming REAL, stackFlow REAL, stackTemp REAL, intakeMPL REAL, intakeMPR REAL, intakeMTL REAL,
+            //intakeMTR REAL, stackHeightFT REAL, stackHeightIN REAL, fuelSG REAL, RPM REAL, AFControllerMake TEXT,
+            //AFControllerModel TEXT, catalyticConverterMake TEXT, catalyticConverterModel TEXT, PRIMARY KEY (site, equipment),
+            //FOREIGN KEY(owner) REFERENCES Customers(CustomerID) ON DELETE CASCADE);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace AdvDAS
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
         private DateTime running = new DateTime();
-        private SQLiteConnection sqlite_conn;
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         public MainMenu()
@@ -58,7 +58,6 @@ namespace AdvDAS
         }
         private void startDataBase()
         {
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
 
             sqlite_conn.Open();
 

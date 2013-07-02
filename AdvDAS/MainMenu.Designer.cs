@@ -715,6 +715,7 @@ namespace AdvDAS
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 29);
             this.checkBox2.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.checkBox2, "Click To Disable in Report");
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -833,6 +834,7 @@ namespace AdvDAS
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(15, 30);
             this.checkBox9.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.checkBox9, "Click To Disable in Report");
             this.checkBox9.UseVisualStyleBackColor = true;
             // 
             // label10
@@ -951,6 +953,7 @@ namespace AdvDAS
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(15, 30);
             this.checkBox8.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.checkBox8, "Click To Disable in Report");
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // label9
@@ -1054,6 +1057,7 @@ namespace AdvDAS
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(15, 30);
             this.checkBox7.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.checkBox7, "Click To Disable in Report");
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // label8
@@ -1185,6 +1189,7 @@ namespace AdvDAS
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(15, 30);
             this.checkBox6.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.checkBox6, "Click To Disable in Report");
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // label7
@@ -1290,7 +1295,7 @@ namespace AdvDAS
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 29);
             this.checkBox1.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.checkBox1, "Stops From Displaying in Report");
+            this.toolTip1.SetToolTip(this.checkBox1, "Click To Disable in Report");
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -1410,6 +1415,7 @@ namespace AdvDAS
             this.checkBox0.Name = "checkBox0";
             this.checkBox0.Size = new System.Drawing.Size(15, 29);
             this.checkBox0.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.checkBox0, "Click To Disable in Report");
             this.checkBox0.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -1541,6 +1547,7 @@ namespace AdvDAS
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(15, 29);
             this.checkBox4.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.checkBox4, "Click To Disable in Report");
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -1646,6 +1653,7 @@ namespace AdvDAS
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(15, 29);
             this.checkBox3.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.checkBox3, "Click To Disable in Report");
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -1822,6 +1830,7 @@ namespace AdvDAS
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(15, 30);
             this.checkBox5.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.checkBox5, "Click To Disable in Report");
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // label6

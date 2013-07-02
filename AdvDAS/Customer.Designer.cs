@@ -45,7 +45,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -91,7 +91,7 @@
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(95, 23);
             this.btnApply.TabIndex = 48;
-            this.btnApply.Text = "Apply";
+            this.btnApply.Text = "Update";
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
@@ -145,6 +145,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.ToolTipText = "Create New Customer";
             // 
             // bindingNavigatorCountItem
             // 
@@ -222,16 +223,17 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // button1
+            // btnDeleteCustomer
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(105, 331);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Delete Customer";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDeleteCustomer.AutoSize = true;
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(105, 331);
+            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(95, 23);
+            this.btnDeleteCustomer.TabIndex = 53;
+            this.btnDeleteCustomer.Text = "Delete Customer";
+            this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage2
             // 
@@ -303,6 +305,7 @@
             this.tbNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbNotes.Size = new System.Drawing.Size(365, 219);
             this.tbNotes.TabIndex = 76;
+            this.tbNotes.Text = "Remember to add Customer if putting in info for the first time";
             // 
             // tbContact
             // 
@@ -515,7 +518,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 382);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnAddCustomer);
@@ -554,7 +557,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage1;
