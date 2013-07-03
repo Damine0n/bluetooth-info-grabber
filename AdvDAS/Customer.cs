@@ -160,9 +160,10 @@ namespace AdvDAS
             try
             {
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "DELETE FROM Customers WHERE CustomerID= '"+this.tbCustomerID.Text+"';";
+                sqlite_cmd.CommandText = "DELETE FROM Customers WHERE CustomerID = '"+this.tbCustomerID.Text+"';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {

@@ -566,7 +566,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 118);
+            this.label5.Location = new System.Drawing.Point(10, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 5;
@@ -648,6 +648,7 @@
             this.btnAccept.TabIndex = 9;
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // EquipmentSite
             // 
@@ -660,9 +661,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EquipmentSite";
             this.Text = "Setup Equipment & Site";
-            this.Load += new System.EventHandler(this.EquipmentSite_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -55,5 +55,10 @@ namespace AdvDAS
             //AFControllerModel TEXT, catalyticConverterMake TEXT, catalyticConverterModel TEXT, PRIMARY KEY (site, equipment),
             //FOREIGN KEY(owner) REFERENCES Customers(CustomerID) ON DELETE CASCADE);
         }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

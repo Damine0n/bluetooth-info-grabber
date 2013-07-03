@@ -86,7 +86,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApply.Location = new System.Drawing.Point(588, 331);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(95, 23);
@@ -97,7 +97,7 @@
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddCustomer.AutoSize = true;
             this.btnAddCustomer.Location = new System.Drawing.Point(4, 331);
             this.btnAddCustomer.Name = "btnAddCustomer";
@@ -225,7 +225,7 @@
             // 
             // btnDeleteCustomer
             // 
-            this.btnDeleteCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDeleteCustomer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDeleteCustomer.AutoSize = true;
             this.btnDeleteCustomer.Location = new System.Drawing.Point(105, 331);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
@@ -487,9 +487,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 56;
-            this.label2.Text = "Company:*";
+            this.label2.Text = "Company:";
             // 
             // label1
             // 
@@ -522,6 +522,7 @@
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnAddCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

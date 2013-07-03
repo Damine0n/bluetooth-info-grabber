@@ -37,6 +37,13 @@ namespace AdvDAS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         public MainMenu()
+        {            
+            InitializeComponent();
+            createScaleDisplays();
+            timer2.Start();
+            //startDataBase();
+        }
+        void createScaleDisplays()
         {
             lblList.Add(this.label1);
             lblList.Add(this.label2);
@@ -48,13 +55,10 @@ namespace AdvDAS
             lblList.Add(this.label8);
             lblList.Add(this.label9);
             lblList.Add(this.label10);
-            for (int i = 1; i <= 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                scaleDisplays.Add(new ScaleDisplay(i));
+                scaleDisplays.Add(new ScaleDisplay(lblList[i]));
             }
-            InitializeComponent();
-            timer2.Start();
-            //startDataBase();
         }
         private void startDataBase()
         {
@@ -143,61 +147,7 @@ namespace AdvDAS
                     sourceControl.Hide();
                 }
             }
-            //List<Panel> panelList = new List<Panel>();
-            //panelList.Add(sTile1);
-            //panelList.Add(sTile0);
-            //MessageBox.Show(Cursor.Position.X+","+Cursor.Position.Y);
-            //ToolStripMenuItem thisPanel;
-            //if (sender is ToolStripMenuItem)
-            //{
-            //    thisPanel = (ToolStripMenuItem)sender;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("THIS IS A " + sender.GetType().Name);
-            //    return;
-            //}            
-
-
-            //    //string p = "sTile" + i;
-            //    //sende
-            //    foreach(Panel p in panelList) {
-            //        Control masterControl = MasterParent(p);
-            //        int pX0 = masterControl.Left;
-            //        int pX1 = masterControl.Right;
-            //        int pY0 = masterControl.Top;
-            //        int pY1 = masterControl.Bottom;
-
-            //        if ((pX0 <= Cursor.Position.X && Cursor.Position.X <= pX1) && (pY0 <= Cursor.Position.Y && Cursor.Position.Y <= pY1))
-            //            p.Visible = false;
-            //            return;
-            //        }
-                
-
-                /*this.hidePanelMenuItem.Text = "Hide This Display";
-                (sender as Panel).Visible = false;*/
-                //this.sTile0.Visible = thisState;
-            //else 
-            //{
-            //    this.hidePanelMenuItem.Text = "Show This Display";
-            //    (sender as Panel).Visible = thisState;
-            //    //this.sTile0.Visible = thisState;
-            //}
-           
         }
-
-        //private Control MasterParent(Control control)
-        //{
-        //    Control returnValue;
-        //    Point locationOnForm = control.FindForm().PointToClient(
-        //        control.Parent.PointToScreen(control.Location));
-        //    for (returnValue = control; control.Parent != null; control = control.Parent)
-        //    {
-        //        returnValue = (control.Parent);
-        //    }
-
-        //    return returnValue;
-        //}
 
         private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -214,43 +164,53 @@ namespace AdvDAS
                     switch(sourceControl.Name)
                     {
                         case "sTile0":
-                            scaleDisplays[0].elementComboBox.SelectionStart = 1;
+                            scaleDisplays[0].elementComboBox.SelectedIndex = 1;
+                            scaleDisplays[0].source = sourceControl;
                             scaleDisplays[0].ShowDialog(this);
                             break;
                         case "sTile1":
-                            scaleDisplays[2].elementComboBox.SelectedIndex = 2;
+                            scaleDisplays[1].elementComboBox.SelectedIndex = 2;
+                            scaleDisplays[1].source = sourceControl;
                             scaleDisplays[1].ShowDialog(this);
                             break;
                         case "sTile2":
                             scaleDisplays[2].elementComboBox.SelectedIndex = 3;
+                            scaleDisplays[2].source = sourceControl;
                             scaleDisplays[2].ShowDialog(this);
                             break;
                         case "sTile3":
                             scaleDisplays[3].elementComboBox.SelectedIndex = 4;
+                            scaleDisplays[3].source = sourceControl;
                             scaleDisplays[3].ShowDialog(this);
                             break;
                         case "sTile4":
                             scaleDisplays[4].elementComboBox.SelectedIndex = 5;
+                            scaleDisplays[4].source = sourceControl;
                             scaleDisplays[4].ShowDialog(this);
                             break;
                         case "sTile5":
                             scaleDisplays[5].elementComboBox.SelectedIndex = 6;
+                            scaleDisplays[5].source = sourceControl;
                             scaleDisplays[5].ShowDialog(this);
                             break;
                         case "sTile6":
                             scaleDisplays[6].elementComboBox.SelectedIndex = 7;
+                            scaleDisplays[6].source = sourceControl;
                             scaleDisplays[6].ShowDialog(this);
                             break;
                         case "sTile7":
                             scaleDisplays[7].elementComboBox.SelectedIndex = 8;
+                            scaleDisplays[7].source = sourceControl;
                             scaleDisplays[7].ShowDialog(this);
                             break;
                         case "sTile8":
                             scaleDisplays[8].elementComboBox.SelectedIndex = 9;
+                            scaleDisplays[8].source = sourceControl;
                             scaleDisplays[8].ShowDialog(this);
                             break;
                         case "sTile9":
                             scaleDisplays[9].elementComboBox.SelectedIndex = 10;
+                            scaleDisplays[9].source = sourceControl;
                             scaleDisplays[9].ShowDialog(this);
                             break;
                     }
@@ -335,6 +295,29 @@ namespace AdvDAS
         private void equipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             eSite.ShowDialog();
+        }
+        private void sTile3_DoubleClick_1(object sender, EventArgs e)
+        {
+            sTile3.Hide();
+            MessageBox.Show(sTile2.Parent.Name);
+        }
+        private void isSoSelected(object sender, EventArgs e)
+        {
+             ToolStripItem menuItem = sender as ToolStripItem;
+             if (menuItem != null)
+             {
+                 // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                 ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                 if (owner != null)
+                 {
+                     // Get the control that is displaying this context menu
+                     Control sourceControl = owner.SourceControl;
+                     MessageBox.Show(sourceControl.Name);
+                     sourceControl.Enabled = false;
+                 }
+             }
+             
+
         }
     }
 }

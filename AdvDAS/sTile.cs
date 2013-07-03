@@ -13,13 +13,14 @@ namespace AdvDAS
 {
     public partial class ScaleDisplay : Form
     {
-        private int index;
-        public ScaleDisplay(int index)
+        private Label lbl;
+        public Control source;
+
+        public ScaleDisplay(Label lbl)
         {
             // TODO: Complete member initialization
             InitializeComponent();
-            this.index = index;
-            //this.elementComboBox.SelectedItem = index;
+            this.lbl = lbl;
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -36,56 +37,56 @@ namespace AdvDAS
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    mainMenu.label1.Text = "Daymen";
-                    mainMenu.lblList[0].Text.ToString();
+                    lbl.Text = "O2";
                     break;
                 case 2:
-                    MessageBox.Show(mainMenu.lblList[2].Text);// = "CO";
+                    lbl.Text = "CO";
                     break;
                 case 3:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "CO2";
+                    lbl.Text = "CO2";
                     break;
                 case 4:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "NO";
+                    lbl.Text = "NO";
                     break;
                 case 5:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "NO2";
+                    lbl.Text = "NO2";
                     break;
                 case 6:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "NOx";
+                    lbl.Text = "NOx";
                     break;
-                case 7: 
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "SO2";
+                case 7:
+                    lbl.Text = "SO2";
                     break;
                 case 8:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "CxHy";
+                    lbl.Text = "CxHy";
                     break;
                 case 9:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "T(gas)";
+                    lbl.Text = "T(gas)";
                     break;
                 case 10:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "T(amb)";
+                    lbl.Text = "T(amb)";
                     break;
                 case 11:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "Temp 1 ?";
+                    lbl.Text = "Temp 1 ?";
                     break;
-                case 12: 
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "Temp 2 ?";
+                case 12:
+                    lbl.Text = "Temp 2 ?";
                     break;
                 case 13:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "T(cell)";
+                    lbl.Text = "T(cell)";
                     break;
                 case 14:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "Efficiency";
+                    lbl.Text = "Efficiency";
                     break;
                 case 15:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "Flow";
+                    lbl.Text = "Flow";
                     break;
                 case 16:
-                    MessageBox.Show(mainMenu.lblList[this.index].Text);// = "NH3";
+                    lbl.Text = "NH3";
                     break;
                 default:
-                    MessageBox.Show("I'm not sure how to do that yet.");
+                    source.Hide();
+                    this.Close();
                     break;
             }
         }
