@@ -139,6 +139,7 @@
             this.btnCreateEquip.TabIndex = 4;
             this.btnCreateEquip.Text = "Create";
             this.btnCreateEquip.UseVisualStyleBackColor = true;
+            this.btnCreateEquip.Click += new System.EventHandler(this.btnCreateEquip_Click);
             // 
             // btnDeleteEquip
             // 

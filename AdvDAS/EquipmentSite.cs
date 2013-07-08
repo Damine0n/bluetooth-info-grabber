@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace AdvDAS
 {
     public partial class EquipmentSite : Form
     {
-        private MassEBC mass = new MassEBC();
         public EquipmentSite()
         {
             InitializeComponent();
@@ -36,17 +36,17 @@ namespace AdvDAS
             else
                 return;
         }
-
-        private void btnMassECB_Click(object sender, EventArgs e)
-        {
-            mass.ShowDialog();
-        }
-
         private void btnCreateSite_Click(object sender, EventArgs e)
         {
-
+            string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
+            MessageBox.Show(x);
         }
 
+        private void btnCreateEquip_Click(object sender, EventArgs e)
+        {
+            string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new equipment.", "New Equipment", "");
+            MessageBox.Show(x);
+        }
         private void EquipmentSite_Load()
         {
             //CREATE TABLE EquipmentSite (owner TEXT, site TEXT, equipment TEXT, unitNum INTEGER, model TEXT, serialNum INTEGER,
@@ -60,5 +60,6 @@ namespace AdvDAS
         {
             
         }
+
     }
 }

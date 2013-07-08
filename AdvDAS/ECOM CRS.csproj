@@ -7,8 +7,8 @@
     <ProjectGuid>{E141BA80-2CD2-4453-8402-AFDC6A7B7D3B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdvDAS</RootNamespace>
-    <AssemblyName>AdvDAS</AssemblyName>
+    <RootNamespace>CRS</RootNamespace>
+    <AssemblyName>CRS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,6 +44,7 @@
     <Reference Include="itextsharp.xtra">
       <HintPath>.\itextsharp.xtra.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Documents\Visual Studio 2012\Projects\SQLite_test\SQLite_test\bin\Debug\SQLite.NET.dll</HintPath>
