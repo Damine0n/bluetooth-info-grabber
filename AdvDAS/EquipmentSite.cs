@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Finisar.SQLite;
 
-namespace AdvDAS
+namespace CRS
 {
     public partial class EquipmentSite : Form
     {
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+        private SQLiteCommand sqlite_cmd;
+        private SQLiteDataReader sqlite_datareader;
         public EquipmentSite()
         {
             InitializeComponent();
@@ -58,7 +62,30 @@ namespace AdvDAS
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            try
+            {
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "Update EquipmentSite SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '" 
+                    + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '" 
+                    + this.tbStackFlow.Text + "', stackTemp = '" + this.tbStackTemp.Text + "', intakeMPL = '" + this.tbIntakeMPL.Text + "', intakeMPR = '" 
+                    + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '" 
+                    + this.tbStackHeightFT.Text + "', stackHeightIN = '" + this.tbStackHeightIN.Text + "', fuelSG = '" + this.tbFuelSG.Text + "', RPM = '" 
+                    + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '" 
+                    + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text
+                    + "'  WHERE equipment = '"+this.equipBox.SelectedText+"';";
+                // Now lets execute the SQL ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void siteBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //this.siteBox.SelectedText;
         }
 
     }

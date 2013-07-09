@@ -1,4 +1,4 @@
-﻿namespace AdvDAS
+﻿namespace CRS
 {
     partial class Customer
     {

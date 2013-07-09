@@ -15,7 +15,7 @@ using Finisar.SQLite;
 using System.IO;
 
 
-namespace AdvDAS
+namespace CRS
 {
     public partial class Trend : Form
     {

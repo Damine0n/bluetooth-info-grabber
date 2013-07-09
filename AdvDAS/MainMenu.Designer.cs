@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-namespace AdvDAS
+namespace CRS
 {
     partial class MainMenu
     {
@@ -294,24 +294,28 @@ namespace AdvDAS
             this.manageDisplayToolStripMenuItem,
             this.setupCommunictaionPortsToolStripMenuItem});
             this.configureToolStripMenuItem.Name = "configureToolStripMenuItem";
-            this.configureToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.configureToolStripMenuItem.Text = "Configure";
+            this.configureToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.configureToolStripMenuItem.Text = "Procedures";
             // 
             // configureRecordingToolStripMenuItem
             // 
             this.configureRecordingToolStripMenuItem.Name = "configureRecordingToolStripMenuItem";
             this.configureRecordingToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.configureRecordingToolStripMenuItem.Text = "Configure Recording";
+            this.configureRecordingToolStripMenuItem.Text = "Set-Up Procedure";
+            this.configureRecordingToolStripMenuItem.Click += new System.EventHandler(this.configureRecordingToolStripMenuItem_Click);
             // 
             // configureReportToolStripMenuItem
             // 
             this.configureReportToolStripMenuItem.Name = "configureReportToolStripMenuItem";
             this.configureReportToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.configureReportToolStripMenuItem.Text = "Configure Report";
+            this.configureReportToolStripMenuItem.Text = "Set-Up Report";
             this.configureReportToolStripMenuItem.Click += new System.EventHandler(this.configureReportToolStripMenuItem_Click);
             // 
             // performPreAndPostCalibrationToolStripMenuItem
             // 
+            this.performPreAndPostCalibrationToolStripMenuItem.Checked = true;
+            this.performPreAndPostCalibrationToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.performPreAndPostCalibrationToolStripMenuItem.Enabled = false;
             this.performPreAndPostCalibrationToolStripMenuItem.Name = "performPreAndPostCalibrationToolStripMenuItem";
             this.performPreAndPostCalibrationToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.performPreAndPostCalibrationToolStripMenuItem.Text = "Perform Pre and Post Calibration Procedures";
@@ -373,6 +377,7 @@ namespace AdvDAS
             // 
             // postTestCalibrationToolStripMenuItem
             // 
+            this.postTestCalibrationToolStripMenuItem.Enabled = false;
             this.postTestCalibrationToolStripMenuItem.Name = "postTestCalibrationToolStripMenuItem";
             this.postTestCalibrationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.postTestCalibrationToolStripMenuItem.Text = "Post-Test Calibration";
@@ -585,7 +590,7 @@ namespace AdvDAS
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(15, 33);
             this.checkBox5.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.checkBox5, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox5, "Click to disable in report");
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // checkBox3
@@ -597,7 +602,7 @@ namespace AdvDAS
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(15, 32);
             this.checkBox3.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.checkBox3, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox3, "Click to disable in report");
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox4
@@ -609,7 +614,7 @@ namespace AdvDAS
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(15, 32);
             this.checkBox4.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.checkBox4, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox4, "Click to disable in report");
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox0
@@ -621,7 +626,7 @@ namespace AdvDAS
             this.checkBox0.Name = "checkBox0";
             this.checkBox0.Size = new System.Drawing.Size(15, 32);
             this.checkBox0.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.checkBox0, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox0, "Click to disable in report");
             this.checkBox0.UseVisualStyleBackColor = true;
             // 
             // checkBox1
@@ -633,7 +638,7 @@ namespace AdvDAS
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 32);
             this.checkBox1.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.checkBox1, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox1, "Click to disable in report");
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox6
@@ -645,7 +650,7 @@ namespace AdvDAS
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(15, 33);
             this.checkBox6.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.checkBox6, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox6, "Click to disable in report");
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // checkBox7
@@ -657,7 +662,7 @@ namespace AdvDAS
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(15, 33);
             this.checkBox7.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.checkBox7, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox7, "Click to disable in report");
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // checkBox8
@@ -667,9 +672,9 @@ namespace AdvDAS
             this.checkBox8.Dock = System.Windows.Forms.DockStyle.Right;
             this.checkBox8.Location = new System.Drawing.Point(125, 0);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 30);
+            this.checkBox8.Size = new System.Drawing.Size(15, 33);
             this.checkBox8.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.checkBox8, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox8, "Click to disable in report");
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // checkBox9
@@ -681,7 +686,7 @@ namespace AdvDAS
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(15, 33);
             this.checkBox9.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.checkBox9, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox9, "Click to disable in report");
             this.checkBox9.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -693,7 +698,7 @@ namespace AdvDAS
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 29);
             this.checkBox2.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.checkBox2, "Click To Disable in Report");
+            this.toolTip1.SetToolTip(this.checkBox2, "Click to disable in report");
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // sTile5
@@ -1498,7 +1503,7 @@ namespace AdvDAS
             this.textBox9.Enabled = false;
             this.textBox9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox9.Location = new System.Drawing.Point(3, 33);
+            this.textBox9.Location = new System.Drawing.Point(3, 36);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(134, 29);
@@ -1542,7 +1547,7 @@ namespace AdvDAS
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(140, 30);
+            this.panel10.Size = new System.Drawing.Size(140, 33);
             this.panel10.TabIndex = 7;
             // 
             // label9

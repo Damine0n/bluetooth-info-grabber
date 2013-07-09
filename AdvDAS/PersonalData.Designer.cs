@@ -1,4 +1,4 @@
-﻿namespace AdvDAS
+﻿namespace CRS
 {
     partial class PersonalData
     {
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,15 +65,6 @@
             this.label1.Size = new System.Drawing.Size(56, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "LOGO:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(103, 255);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 116);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // btnLogo
             // 
@@ -248,6 +239,7 @@
             this.btnAccept.TabIndex = 23;
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // textBox10
             // 
@@ -264,6 +256,15 @@
             this.label11.Size = new System.Drawing.Size(25, 13);
             this.label11.TabIndex = 24;
             this.label11.Text = "Zip:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(103, 255);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 116);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // PersonalData
             // 

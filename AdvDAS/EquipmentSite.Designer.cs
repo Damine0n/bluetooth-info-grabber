@@ -1,4 +1,4 @@
-﻿namespace AdvDAS
+﻿namespace CRS
 {
     partial class EquipmentSite
     {
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.siteBox = new System.Windows.Forms.ComboBox();
+            this.equipBox = new System.Windows.Forms.ComboBox();
             this.btnCreateSite = new System.Windows.Forms.Button();
             this.btnDeleteSite = new System.Windows.Forms.Button();
             this.btnCreateEquip = new System.Windows.Forms.Button();
@@ -44,41 +44,41 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.tbIntakeMPR = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.tbIntakeMPL = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tbIntakeMTR = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.tbIntakeMTL = new System.Windows.Forms.TextBox();
+            this.tbCatalyticConverterModel = new System.Windows.Forms.TextBox();
+            this.tbCatalyticConverterMake = new System.Windows.Forms.TextBox();
+            this.AFControllerModel = new System.Windows.Forms.TextBox();
+            this.AFControllerMake = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.tbStackTemp = new System.Windows.Forms.TextBox();
+            this.tbRPM = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.tbStackHeightIN = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tbStackHeightFT = new System.Windows.Forms.TextBox();
+            this.tbStackFlow = new System.Windows.Forms.TextBox();
+            this.tbFuelSG = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbIgnitionTiming = new System.Windows.Forms.TextBox();
+            this.tbService = new System.Windows.Forms.TextBox();
+            this.tbSerialNum = new System.Windows.Forms.TextBox();
+            this.tbModel = new System.Windows.Forms.TextBox();
+            this.tbUnitNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -89,27 +89,37 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbFuelType = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // siteBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 21);
-            this.comboBox1.TabIndex = 0;
+            this.siteBox.FormattingEnabled = true;
+            this.siteBox.Location = new System.Drawing.Point(6, 14);
+            this.siteBox.Name = "siteBox";
+            this.siteBox.Size = new System.Drawing.Size(193, 21);
+            this.siteBox.TabIndex = 0;
+            this.siteBox.SelectedIndexChanged += new System.EventHandler(this.siteBox_SelectedIndexChanged);
             // 
-            // comboBox2
+            // equipBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 14);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(193, 21);
-            this.comboBox2.TabIndex = 1;
+            this.equipBox.FormattingEnabled = true;
+            this.equipBox.Location = new System.Drawing.Point(6, 14);
+            this.equipBox.Name = "equipBox";
+            this.equipBox.Size = new System.Drawing.Size(193, 21);
+            this.equipBox.TabIndex = 1;
             // 
             // btnCreateSite
             // 
@@ -157,7 +167,7 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.lblFacility);
             this.groupBox1.Controls.Add(this.lblArea);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.siteBox);
             this.groupBox1.Controls.Add(this.btnCreateSite);
             this.groupBox1.Controls.Add(this.btnDeleteSite);
             this.groupBox1.Location = new System.Drawing.Point(2, 4);
@@ -203,7 +213,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.equipBox);
             this.groupBox2.Controls.Add(this.btnCreateEquip);
             this.groupBox2.Controls.Add(this.btnDeleteEquip);
             this.groupBox2.Location = new System.Drawing.Point(2, 80);
@@ -229,41 +239,41 @@
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.label21);
-            this.tabPage1.Controls.Add(this.textBox20);
+            this.tabPage1.Controls.Add(this.tbIntakeMPR);
             this.tabPage1.Controls.Add(this.label22);
-            this.tabPage1.Controls.Add(this.textBox21);
+            this.tabPage1.Controls.Add(this.tbIntakeMPL);
             this.tabPage1.Controls.Add(this.label19);
-            this.tabPage1.Controls.Add(this.textBox11);
+            this.tabPage1.Controls.Add(this.tbIntakeMTR);
             this.tabPage1.Controls.Add(this.label20);
-            this.tabPage1.Controls.Add(this.textBox12);
-            this.tabPage1.Controls.Add(this.textBox19);
-            this.tabPage1.Controls.Add(this.textBox18);
-            this.tabPage1.Controls.Add(this.textBox17);
-            this.tabPage1.Controls.Add(this.textBox16);
+            this.tabPage1.Controls.Add(this.tbIntakeMTL);
+            this.tabPage1.Controls.Add(this.tbCatalyticConverterModel);
+            this.tabPage1.Controls.Add(this.tbCatalyticConverterMake);
+            this.tabPage1.Controls.Add(this.AFControllerModel);
+            this.tabPage1.Controls.Add(this.AFControllerMake);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.textBox15);
-            this.tabPage1.Controls.Add(this.textBox14);
+            this.tabPage1.Controls.Add(this.tbStackTemp);
+            this.tabPage1.Controls.Add(this.tbRPM);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.textBox13);
+            this.tabPage1.Controls.Add(this.tbStackHeightIN);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.textBox8);
-            this.tabPage1.Controls.Add(this.textBox9);
-            this.tabPage1.Controls.Add(this.textBox10);
+            this.tabPage1.Controls.Add(this.tbStackHeightFT);
+            this.tabPage1.Controls.Add(this.tbStackFlow);
+            this.tabPage1.Controls.Add(this.tbFuelSG);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.textBox7);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.tbIgnitionTiming);
+            this.tabPage1.Controls.Add(this.tbService);
+            this.tabPage1.Controls.Add(this.tbSerialNum);
+            this.tabPage1.Controls.Add(this.tbModel);
+            this.tabPage1.Controls.Add(this.tbUnitNum);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
@@ -285,12 +295,12 @@
             this.label21.TabIndex = 51;
             this.label21.Text = "Right";
             // 
-            // textBox20
+            // tbIntakeMPR
             // 
-            this.textBox20.Location = new System.Drawing.Point(324, 64);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(32, 20);
-            this.textBox20.TabIndex = 50;
+            this.tbIntakeMPR.Location = new System.Drawing.Point(324, 64);
+            this.tbIntakeMPR.Name = "tbIntakeMPR";
+            this.tbIntakeMPR.Size = new System.Drawing.Size(32, 20);
+            this.tbIntakeMPR.TabIndex = 50;
             // 
             // label22
             // 
@@ -301,12 +311,12 @@
             this.label22.TabIndex = 49;
             this.label22.Text = "Left";
             // 
-            // textBox21
+            // tbIntakeMPL
             // 
-            this.textBox21.Location = new System.Drawing.Point(265, 64);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(32, 20);
-            this.textBox21.TabIndex = 48;
+            this.tbIntakeMPL.Location = new System.Drawing.Point(265, 64);
+            this.tbIntakeMPL.Name = "tbIntakeMPL";
+            this.tbIntakeMPL.Size = new System.Drawing.Size(32, 20);
+            this.tbIntakeMPL.TabIndex = 48;
             // 
             // label19
             // 
@@ -317,12 +327,12 @@
             this.label19.TabIndex = 47;
             this.label19.Text = "Right";
             // 
-            // textBox11
+            // tbIntakeMTR
             // 
-            this.textBox11.Location = new System.Drawing.Point(324, 89);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(32, 20);
-            this.textBox11.TabIndex = 46;
+            this.tbIntakeMTR.Location = new System.Drawing.Point(324, 89);
+            this.tbIntakeMTR.Name = "tbIntakeMTR";
+            this.tbIntakeMTR.Size = new System.Drawing.Size(32, 20);
+            this.tbIntakeMTR.TabIndex = 46;
             // 
             // label20
             // 
@@ -333,40 +343,40 @@
             this.label20.TabIndex = 45;
             this.label20.Text = "Left";
             // 
-            // textBox12
+            // tbIntakeMTL
             // 
-            this.textBox12.Location = new System.Drawing.Point(265, 89);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(32, 20);
-            this.textBox12.TabIndex = 44;
+            this.tbIntakeMTL.Location = new System.Drawing.Point(265, 89);
+            this.tbIntakeMTL.Name = "tbIntakeMTL";
+            this.tbIntakeMTL.Size = new System.Drawing.Size(32, 20);
+            this.tbIntakeMTL.TabIndex = 44;
             // 
-            // textBox19
+            // tbCatalyticConverterModel
             // 
-            this.textBox19.Location = new System.Drawing.Point(520, 115);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(81, 20);
-            this.textBox19.TabIndex = 43;
+            this.tbCatalyticConverterModel.Location = new System.Drawing.Point(520, 115);
+            this.tbCatalyticConverterModel.Name = "tbCatalyticConverterModel";
+            this.tbCatalyticConverterModel.Size = new System.Drawing.Size(81, 20);
+            this.tbCatalyticConverterModel.TabIndex = 43;
             // 
-            // textBox18
+            // tbCatalyticConverterMake
             // 
-            this.textBox18.Location = new System.Drawing.Point(520, 89);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(81, 20);
-            this.textBox18.TabIndex = 42;
+            this.tbCatalyticConverterMake.Location = new System.Drawing.Point(520, 89);
+            this.tbCatalyticConverterMake.Name = "tbCatalyticConverterMake";
+            this.tbCatalyticConverterMake.Size = new System.Drawing.Size(81, 20);
+            this.tbCatalyticConverterMake.TabIndex = 42;
             // 
-            // textBox17
+            // AFControllerModel
             // 
-            this.textBox17.Location = new System.Drawing.Point(500, 63);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(101, 20);
-            this.textBox17.TabIndex = 41;
+            this.AFControllerModel.Location = new System.Drawing.Point(500, 63);
+            this.AFControllerModel.Name = "AFControllerModel";
+            this.AFControllerModel.Size = new System.Drawing.Size(101, 20);
+            this.AFControllerModel.TabIndex = 41;
             // 
-            // textBox16
+            // AFControllerMake
             // 
-            this.textBox16.Location = new System.Drawing.Point(500, 38);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(101, 20);
-            this.textBox16.TabIndex = 40;
+            this.AFControllerMake.Location = new System.Drawing.Point(500, 38);
+            this.AFControllerMake.Name = "AFControllerMake";
+            this.AFControllerMake.Size = new System.Drawing.Size(101, 20);
+            this.AFControllerMake.TabIndex = 40;
             // 
             // label18
             // 
@@ -424,19 +434,19 @@
             this.label13.Text = "Intake MP:";
             this.toolTip1.SetToolTip(this.label13, "Intake Manifold Press:");
             // 
-            // textBox15
+            // tbStackTemp
             // 
-            this.textBox15.Location = new System.Drawing.Point(274, 38);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(110, 20);
-            this.textBox15.TabIndex = 31;
+            this.tbStackTemp.Location = new System.Drawing.Point(274, 38);
+            this.tbStackTemp.Name = "tbStackTemp";
+            this.tbStackTemp.Size = new System.Drawing.Size(110, 20);
+            this.tbStackTemp.TabIndex = 31;
             // 
-            // textBox14
+            // tbRPM
             // 
-            this.textBox14.Location = new System.Drawing.Point(536, 10);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(65, 20);
-            this.textBox14.TabIndex = 30;
+            this.tbRPM.Location = new System.Drawing.Point(536, 10);
+            this.tbRPM.Name = "tbRPM";
+            this.tbRPM.Size = new System.Drawing.Size(65, 20);
+            this.tbRPM.TabIndex = 30;
             // 
             // label14
             // 
@@ -465,12 +475,12 @@
             this.label8.TabIndex = 27;
             this.label8.Text = "IN";
             // 
-            // textBox13
+            // tbStackHeightIN
             // 
-            this.textBox13.Location = new System.Drawing.Point(337, 115);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(32, 20);
-            this.textBox13.TabIndex = 26;
+            this.tbStackHeightIN.Location = new System.Drawing.Point(337, 115);
+            this.tbStackHeightIN.Name = "tbStackHeightIN";
+            this.tbStackHeightIN.Size = new System.Drawing.Size(32, 20);
+            this.tbStackHeightIN.TabIndex = 26;
             // 
             // label7
             // 
@@ -481,26 +491,26 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "FT";
             // 
-            // textBox8
+            // tbStackHeightFT
             // 
-            this.textBox8.Location = new System.Drawing.Point(278, 115);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(32, 20);
-            this.textBox8.TabIndex = 24;
+            this.tbStackHeightFT.Location = new System.Drawing.Point(278, 115);
+            this.tbStackHeightFT.Name = "tbStackHeightFT";
+            this.tbStackHeightFT.Size = new System.Drawing.Size(32, 20);
+            this.tbStackHeightFT.TabIndex = 24;
             // 
-            // textBox9
+            // tbStackFlow
             // 
-            this.textBox9.Location = new System.Drawing.Point(274, 10);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(110, 20);
-            this.textBox9.TabIndex = 23;
+            this.tbStackFlow.Location = new System.Drawing.Point(274, 10);
+            this.tbStackFlow.Name = "tbStackFlow";
+            this.tbStackFlow.Size = new System.Drawing.Size(110, 20);
+            this.tbStackFlow.TabIndex = 23;
             // 
-            // textBox10
+            // tbFuelSG
             // 
-            this.textBox10.Location = new System.Drawing.Point(437, 10);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(65, 20);
-            this.textBox10.TabIndex = 22;
+            this.tbFuelSG.Location = new System.Drawing.Point(437, 10);
+            this.tbFuelSG.Name = "tbFuelSG";
+            this.tbFuelSG.Size = new System.Drawing.Size(65, 20);
+            this.tbFuelSG.TabIndex = 22;
             // 
             // label6
             // 
@@ -509,7 +519,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Stack Hieght:";
+            this.label6.Text = "Stack Height:";
             // 
             // label10
             // 
@@ -529,40 +539,40 @@
             this.label11.TabIndex = 17;
             this.label11.Text = "Fuel sg:";
             // 
-            // textBox7
+            // tbIgnitionTiming
             // 
-            this.textBox7.Location = new System.Drawing.Point(94, 115);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 14;
+            this.tbIgnitionTiming.Location = new System.Drawing.Point(94, 115);
+            this.tbIgnitionTiming.Name = "tbIgnitionTiming";
+            this.tbIgnitionTiming.Size = new System.Drawing.Size(100, 20);
+            this.tbIgnitionTiming.TabIndex = 14;
             // 
-            // textBox6
+            // tbService
             // 
-            this.textBox6.Location = new System.Drawing.Point(55, 89);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(139, 20);
-            this.textBox6.TabIndex = 13;
+            this.tbService.Location = new System.Drawing.Point(55, 89);
+            this.tbService.Name = "tbService";
+            this.tbService.Size = new System.Drawing.Size(139, 20);
+            this.tbService.TabIndex = 13;
             // 
-            // textBox5
+            // tbSerialNum
             // 
-            this.textBox5.Location = new System.Drawing.Point(55, 63);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(139, 20);
-            this.textBox5.TabIndex = 12;
+            this.tbSerialNum.Location = new System.Drawing.Point(55, 63);
+            this.tbSerialNum.Name = "tbSerialNum";
+            this.tbSerialNum.Size = new System.Drawing.Size(139, 20);
+            this.tbSerialNum.TabIndex = 12;
             // 
-            // textBox4
+            // tbModel
             // 
-            this.textBox4.Location = new System.Drawing.Point(55, 38);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(139, 20);
-            this.textBox4.TabIndex = 11;
+            this.tbModel.Location = new System.Drawing.Point(55, 38);
+            this.tbModel.Name = "tbModel";
+            this.tbModel.Size = new System.Drawing.Size(139, 20);
+            this.tbModel.TabIndex = 11;
             // 
-            // textBox3
+            // tbUnitNum
             // 
-            this.textBox3.Location = new System.Drawing.Point(55, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(139, 20);
-            this.textBox3.TabIndex = 10;
+            this.tbUnitNum.Location = new System.Drawing.Point(55, 10);
+            this.tbUnitNum.Name = "tbUnitNum";
+            this.tbUnitNum.Size = new System.Drawing.Size(139, 20);
+            this.tbUnitNum.TabIndex = 10;
             // 
             // label5
             // 
@@ -632,6 +642,7 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.groupBox3);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -650,6 +661,82 @@
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbFuelType);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.checkBox2);
+            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Controls.Add(this.checkedListBox1);
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(595, 137);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Emmisions Values Included In Report ";
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "g/bhp-hr",
+            "lb/hr",
+            "TPY",
+            "lb/MMBTU"});
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 19);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(131, 79);
+            this.checkedListBox1.TabIndex = 0;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(155, 20);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(256, 20);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(376, 20);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 3;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(194, 74);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Edit/View ";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // cbFuelType
+            // 
+            this.cbFuelType.FormattingEnabled = true;
+            this.cbFuelType.Location = new System.Drawing.Point(404, 74);
+            this.cbFuelType.Name = "cbFuelType";
+            this.cbFuelType.Size = new System.Drawing.Size(121, 21);
+            this.cbFuelType.TabIndex = 5;
             // 
             // EquipmentSite
             // 
@@ -671,14 +758,17 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox siteBox;
+        private System.Windows.Forms.ComboBox equipBox;
         private System.Windows.Forms.Button btnCreateSite;
         private System.Windows.Forms.Button btnDeleteSite;
         private System.Windows.Forms.Button btnCreateEquip;
@@ -699,43 +789,50 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox tbCatalyticConverterModel;
+        private System.Windows.Forms.TextBox tbCatalyticConverterMake;
+        private System.Windows.Forms.TextBox AFControllerModel;
+        private System.Windows.Forms.TextBox AFControllerMake;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox tbStackTemp;
+        private System.Windows.Forms.TextBox tbRPM;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox tbStackHeightIN;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tbStackHeightFT;
+        private System.Windows.Forms.TextBox tbStackFlow;
+        private System.Windows.Forms.TextBox tbFuelSG;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbIgnitionTiming;
+        private System.Windows.Forms.TextBox tbService;
+        private System.Windows.Forms.TextBox tbSerialNum;
+        private System.Windows.Forms.TextBox tbModel;
+        private System.Windows.Forms.TextBox tbUnitNum;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox tbIntakeMPR;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox tbIntakeMPL;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tbIntakeMTR;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox tbIntakeMTL;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ComboBox cbFuelType;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

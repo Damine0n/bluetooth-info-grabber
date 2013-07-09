@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdvDAS
+namespace CRS
 {
     public partial class PersonalData : Form
     {
@@ -43,6 +43,11 @@ namespace AdvDAS
         }
 
         private void PersonalData_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
         {
 
         }

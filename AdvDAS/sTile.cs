@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
-namespace AdvDAS
+namespace CRS
 {
     public partial class ScaleDisplay : Form
     {

@@ -16,7 +16,7 @@ using Finisar.SQLite;
 using System.Drawing.Drawing2D;
 
 
-namespace AdvDAS
+namespace CRS
 {
     public partial class MainMenu : Form
     {
@@ -27,6 +27,7 @@ namespace AdvDAS
         private ToolTip tp = new ToolTip();
         private Trend viewTrend = new Trend(pDoc);
         private ConfigureReport configReport = new ConfigureReport(pDoc);
+        private ConfigureProcedure configProcedure = new ConfigureProcedure();
         private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
         private Customer customer = new Customer();
@@ -283,6 +284,11 @@ namespace AdvDAS
             configReport.ShowDialog();
         }
 
+        private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configProcedure.ShowDialog();
+        }
+
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             personalData.ShowDialog();
@@ -320,6 +326,8 @@ namespace AdvDAS
 
 
         }
+
+
 
 
         //private void sTile0_Paint(object sender, PaintEventArgs e)

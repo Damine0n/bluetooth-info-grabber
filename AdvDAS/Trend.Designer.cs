@@ -1,4 +1,4 @@
-﻿namespace AdvDAS
+﻿namespace CRS
 {
     partial class Trend
     {
@@ -275,7 +275,7 @@
             // 
             // trendBindingSource
             // 
-            this.trendBindingSource.DataSource = typeof(AdvDAS.Trend);
+            this.trendBindingSource.DataSource = typeof(CRS.Trend);
             // 
             // Trend
             // 

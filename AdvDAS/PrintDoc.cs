@@ -13,7 +13,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
 using System.IO;
 
-namespace AdvDAS
+namespace CRS
 {
     public class PrintDoc
     {
