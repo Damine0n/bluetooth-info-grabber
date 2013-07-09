@@ -34,7 +34,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -105,7 +105,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.groupBox6);
@@ -116,18 +116,6 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Measurement Cycle Options";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox3.Location = new System.Drawing.Point(297, 176);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(59, 23);
-            this.textBox3.TabIndex = 11;
-            this.textBox3.Text = "00:00:00";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.WordWrap = false;
             // 
             // label5
             // 
@@ -160,6 +148,7 @@
             this.textBox6.TabIndex = 7;
             this.textBox6.Text = "00:00:00";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // label3
             // 
@@ -202,6 +191,7 @@
             this.textBox4.Text = "00:00:00";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox4.WordWrap = false;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // checkBox4
             // 
@@ -257,6 +247,7 @@
             this.textBox2.Text = "00:00:00";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.WordWrap = false;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // checkBox3
             // 
@@ -341,6 +332,16 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "All time frames are measured as \r\n                  HH:MM:SS";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(297, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "00:00:00";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ConfigureProcedure
             // 
             this.AcceptButton = this.button1;
@@ -358,7 +359,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigureProcedure";
-            this.Text = "ConfigureProcedure";
+            this.Text = "Configure Procedure";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -389,7 +390,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
@@ -404,5 +404,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label4;
     }
 }

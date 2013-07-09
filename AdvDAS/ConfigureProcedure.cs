@@ -81,7 +81,15 @@ namespace CRS
             rampUp = Convert.ToDateTime(textBox2.Text);
             testData = Convert.ToDateTime(textBox6.Text);
             purge = Convert.ToDateTime(textBox4.Text);
-            //totalCycle = Convert.ToDateTime();
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            rampUp = Convert.ToDateTime(textBox2.Text);
+            testData = Convert.ToDateTime(textBox6.Text);
+            purge = Convert.ToDateTime(textBox4.Text);
+            totalCycle = rampUp.Add(testData.Add(purge.Date);
+
         }
     }
 }
