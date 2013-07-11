@@ -26,14 +26,8 @@ namespace CRS
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Add Logo";
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string s = ofd.FileName;
-                this.pDoc.OFD = ofd;
-                this.textBox1.Text = s;
-            }
+            
+           
             
         }
     }

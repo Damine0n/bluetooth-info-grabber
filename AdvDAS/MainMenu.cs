@@ -219,7 +219,7 @@ namespace CRS
                 }
             }
         }
-        private void viewTrendToolStripMenuItem_Click(object sender, EventArgs e)
+        private void graphToolStripMenuItem_Click(object sender, EventArgs e)
         {
             viewTrend.ShowDialog();
         }

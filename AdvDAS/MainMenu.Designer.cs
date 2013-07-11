@@ -75,7 +75,7 @@ namespace CRS
             this.beepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startPeristalticPumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRecordingItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetAllAveragesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -216,7 +216,7 @@ namespace CRS
             this.menuCalibrationItem,
             this.analyzeToolStripMenuItem,
             this.menuRecordingItem,
-            this.viewTrendToolStripMenuItem,
+            this.graphToolStripMenuItem,
             this.resetAllAveragesToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -444,12 +444,12 @@ namespace CRS
             this.menuRecordingItem.Text = "Start Recording";
             this.menuRecordingItem.Click += new System.EventHandler(this.menuRecording_Click);
             // 
-            // viewTrendToolStripMenuItem
+            // graphToolStripMenuItem
             // 
-            this.viewTrendToolStripMenuItem.Name = "viewTrendToolStripMenuItem";
-            this.viewTrendToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.viewTrendToolStripMenuItem.Text = "View Trend";
-            this.viewTrendToolStripMenuItem.Click += new System.EventHandler(this.viewTrendToolStripMenuItem_Click);
+            this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
+            this.graphToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.graphToolStripMenuItem.Text = "Graph";
+            this.graphToolStripMenuItem.Click += new System.EventHandler(this.graphToolStripMenuItem_Click);
             // 
             // resetAllAveragesToolStripMenuItem
             // 
@@ -522,8 +522,8 @@ namespace CRS
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.recordTimeLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.recordTimeLabel.Name = "recordTimeLabel";
-            this.recordTimeLabel.Size = new System.Drawing.Size(88, 19);
-            this.recordTimeLabel.Text = "REC = 00:00:00";
+            this.recordTimeLabel.Size = new System.Drawing.Size(141, 19);
+            this.recordTimeLabel.Text = "REC = (00:00:00) 00:00:00";
             // 
             // recordingProgressBar
             // 
@@ -1877,6 +1877,7 @@ namespace CRS
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "ECOM America: CRS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -1949,7 +1950,7 @@ namespace CRS
         private System.Windows.Forms.ToolStripMenuItem configureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuCalibrationItem;
         private System.Windows.Forms.ToolStripMenuItem menuRecordingItem;
-        private System.Windows.Forms.ToolStripMenuItem viewTrendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graphToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetAllAveragesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;

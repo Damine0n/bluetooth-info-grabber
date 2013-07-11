@@ -31,22 +31,13 @@ namespace CRS
             // We use these three SQLite objects:
             sqlite_conn.Open();
 
-            // create a new SQL command:
-            sqlite_cmd = sqlite_conn.CreateCommand();
 
-            // Let the SQLiteCommand object know our SQL-Query:
-            //sqlite_cmd.CommandText = "CREATE TABLE Customers (CustomerID integer primary key, Company VARCHAR(255), Contact VARCHAR(255), Phone integer, Street VARCHAR(255), Zip integer, City VARCHAR(255), Fax integer, CellPhone integer, Email VARCHAR(255), Notes VARCHAR(2000));";
-
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
 
             try
             {
                 var da = new SQLiteDataAdapter("SELECT * FROM Customers;", sqlite_conn);
                 da.Fill(ds);
                 bindingSource1.DataSource = ds.Tables[0];
-                //ds.
-                //bindingSource1.DataMember = "Customers";
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
                 
                 

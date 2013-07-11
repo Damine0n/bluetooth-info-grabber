@@ -109,19 +109,19 @@ namespace CRS
 
             if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(true)) 
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(false))
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(false) && checkBox4.Checked.Equals(true))
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
             }
             else
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
             }
         }
     }
