@@ -87,21 +87,23 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbFuelType = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbFuelType = new System.Windows.Forms.ComboBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // siteBox
@@ -119,14 +121,14 @@
             this.equipBox.Location = new System.Drawing.Point(6, 14);
             this.equipBox.Name = "equipBox";
             this.equipBox.Size = new System.Drawing.Size(193, 21);
-            this.equipBox.TabIndex = 1;
+            this.equipBox.TabIndex = 5;
             // 
             // btnCreateSite
             // 
             this.btnCreateSite.Location = new System.Drawing.Point(205, 12);
             this.btnCreateSite.Name = "btnCreateSite";
             this.btnCreateSite.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateSite.TabIndex = 2;
+            this.btnCreateSite.TabIndex = 1;
             this.btnCreateSite.Text = "Create";
             this.btnCreateSite.UseVisualStyleBackColor = true;
             this.btnCreateSite.Click += new System.EventHandler(this.btnCreateSite_Click);
@@ -136,7 +138,7 @@
             this.btnDeleteSite.Location = new System.Drawing.Point(205, 41);
             this.btnDeleteSite.Name = "btnDeleteSite";
             this.btnDeleteSite.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteSite.TabIndex = 3;
+            this.btnDeleteSite.TabIndex = 2;
             this.btnDeleteSite.Text = "Delete";
             this.btnDeleteSite.UseVisualStyleBackColor = true;
             this.btnDeleteSite.Click += new System.EventHandler(this.btnDeleteSite_Click);
@@ -146,7 +148,7 @@
             this.btnCreateEquip.Location = new System.Drawing.Point(205, 12);
             this.btnCreateEquip.Name = "btnCreateEquip";
             this.btnCreateEquip.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateEquip.TabIndex = 4;
+            this.btnCreateEquip.TabIndex = 6;
             this.btnCreateEquip.Text = "Create";
             this.btnCreateEquip.UseVisualStyleBackColor = true;
             this.btnCreateEquip.Click += new System.EventHandler(this.btnCreateEquip_Click);
@@ -156,7 +158,7 @@
             this.btnDeleteEquip.Location = new System.Drawing.Point(205, 41);
             this.btnDeleteEquip.Name = "btnDeleteEquip";
             this.btnDeleteEquip.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteEquip.TabIndex = 5;
+            this.btnDeleteEquip.TabIndex = 7;
             this.btnDeleteEquip.Text = "Delete";
             this.btnDeleteEquip.UseVisualStyleBackColor = true;
             this.btnDeleteEquip.Click += new System.EventHandler(this.btnDeleteEquip_Click);
@@ -182,14 +184,14 @@
             this.textBox2.Location = new System.Drawing.Point(348, 43);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(261, 20);
-            this.textBox2.TabIndex = 7;
+            this.textBox2.TabIndex = 4;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(348, 14);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBox1.TabIndex = 3;
             // 
             // lblFacility
             // 
@@ -300,7 +302,7 @@
             this.tbIntakeMPR.Location = new System.Drawing.Point(324, 64);
             this.tbIntakeMPR.Name = "tbIntakeMPR";
             this.tbIntakeMPR.Size = new System.Drawing.Size(32, 20);
-            this.tbIntakeMPR.TabIndex = 50;
+            this.tbIntakeMPR.TabIndex = 17;
             // 
             // label22
             // 
@@ -316,7 +318,7 @@
             this.tbIntakeMPL.Location = new System.Drawing.Point(265, 64);
             this.tbIntakeMPL.Name = "tbIntakeMPL";
             this.tbIntakeMPL.Size = new System.Drawing.Size(32, 20);
-            this.tbIntakeMPL.TabIndex = 48;
+            this.tbIntakeMPL.TabIndex = 16;
             // 
             // label19
             // 
@@ -332,7 +334,7 @@
             this.tbIntakeMTR.Location = new System.Drawing.Point(324, 89);
             this.tbIntakeMTR.Name = "tbIntakeMTR";
             this.tbIntakeMTR.Size = new System.Drawing.Size(32, 20);
-            this.tbIntakeMTR.TabIndex = 46;
+            this.tbIntakeMTR.TabIndex = 19;
             // 
             // label20
             // 
@@ -348,35 +350,35 @@
             this.tbIntakeMTL.Location = new System.Drawing.Point(265, 89);
             this.tbIntakeMTL.Name = "tbIntakeMTL";
             this.tbIntakeMTL.Size = new System.Drawing.Size(32, 20);
-            this.tbIntakeMTL.TabIndex = 44;
+            this.tbIntakeMTL.TabIndex = 18;
             // 
             // tbCatalyticConverterModel
             // 
             this.tbCatalyticConverterModel.Location = new System.Drawing.Point(520, 115);
             this.tbCatalyticConverterModel.Name = "tbCatalyticConverterModel";
             this.tbCatalyticConverterModel.Size = new System.Drawing.Size(81, 20);
-            this.tbCatalyticConverterModel.TabIndex = 43;
+            this.tbCatalyticConverterModel.TabIndex = 27;
             // 
             // tbCatalyticConverterMake
             // 
             this.tbCatalyticConverterMake.Location = new System.Drawing.Point(520, 89);
             this.tbCatalyticConverterMake.Name = "tbCatalyticConverterMake";
             this.tbCatalyticConverterMake.Size = new System.Drawing.Size(81, 20);
-            this.tbCatalyticConverterMake.TabIndex = 42;
+            this.tbCatalyticConverterMake.TabIndex = 26;
             // 
             // AFControllerModel
             // 
             this.AFControllerModel.Location = new System.Drawing.Point(500, 63);
             this.AFControllerModel.Name = "AFControllerModel";
             this.AFControllerModel.Size = new System.Drawing.Size(101, 20);
-            this.AFControllerModel.TabIndex = 41;
+            this.AFControllerModel.TabIndex = 25;
             // 
             // AFControllerMake
             // 
             this.AFControllerMake.Location = new System.Drawing.Point(500, 38);
             this.AFControllerMake.Name = "AFControllerMake";
             this.AFControllerMake.Size = new System.Drawing.Size(101, 20);
-            this.AFControllerMake.TabIndex = 40;
+            this.AFControllerMake.TabIndex = 24;
             // 
             // label18
             // 
@@ -439,14 +441,14 @@
             this.tbStackTemp.Location = new System.Drawing.Point(274, 38);
             this.tbStackTemp.Name = "tbStackTemp";
             this.tbStackTemp.Size = new System.Drawing.Size(110, 20);
-            this.tbStackTemp.TabIndex = 31;
+            this.tbStackTemp.TabIndex = 15;
             // 
             // tbRPM
             // 
             this.tbRPM.Location = new System.Drawing.Point(536, 10);
             this.tbRPM.Name = "tbRPM";
             this.tbRPM.Size = new System.Drawing.Size(65, 20);
-            this.tbRPM.TabIndex = 30;
+            this.tbRPM.TabIndex = 23;
             // 
             // label14
             // 
@@ -480,7 +482,7 @@
             this.tbStackHeightIN.Location = new System.Drawing.Point(337, 115);
             this.tbStackHeightIN.Name = "tbStackHeightIN";
             this.tbStackHeightIN.Size = new System.Drawing.Size(32, 20);
-            this.tbStackHeightIN.TabIndex = 26;
+            this.tbStackHeightIN.TabIndex = 21;
             // 
             // label7
             // 
@@ -496,14 +498,14 @@
             this.tbStackHeightFT.Location = new System.Drawing.Point(278, 115);
             this.tbStackHeightFT.Name = "tbStackHeightFT";
             this.tbStackHeightFT.Size = new System.Drawing.Size(32, 20);
-            this.tbStackHeightFT.TabIndex = 24;
+            this.tbStackHeightFT.TabIndex = 20;
             // 
             // tbStackFlow
             // 
             this.tbStackFlow.Location = new System.Drawing.Point(274, 10);
             this.tbStackFlow.Name = "tbStackFlow";
             this.tbStackFlow.Size = new System.Drawing.Size(110, 20);
-            this.tbStackFlow.TabIndex = 23;
+            this.tbStackFlow.TabIndex = 14;
             // 
             // tbFuelSG
             // 
@@ -544,35 +546,35 @@
             this.tbIgnitionTiming.Location = new System.Drawing.Point(94, 115);
             this.tbIgnitionTiming.Name = "tbIgnitionTiming";
             this.tbIgnitionTiming.Size = new System.Drawing.Size(100, 20);
-            this.tbIgnitionTiming.TabIndex = 14;
+            this.tbIgnitionTiming.TabIndex = 13;
             // 
             // tbService
             // 
             this.tbService.Location = new System.Drawing.Point(55, 89);
             this.tbService.Name = "tbService";
             this.tbService.Size = new System.Drawing.Size(139, 20);
-            this.tbService.TabIndex = 13;
+            this.tbService.TabIndex = 12;
             // 
             // tbSerialNum
             // 
             this.tbSerialNum.Location = new System.Drawing.Point(55, 63);
             this.tbSerialNum.Name = "tbSerialNum";
             this.tbSerialNum.Size = new System.Drawing.Size(139, 20);
-            this.tbSerialNum.TabIndex = 12;
+            this.tbSerialNum.TabIndex = 11;
             // 
             // tbModel
             // 
             this.tbModel.Location = new System.Drawing.Point(55, 38);
             this.tbModel.Name = "tbModel";
             this.tbModel.Size = new System.Drawing.Size(139, 20);
-            this.tbModel.TabIndex = 11;
+            this.tbModel.TabIndex = 10;
             // 
             // tbUnitNum
             // 
             this.tbUnitNum.Location = new System.Drawing.Point(55, 10);
             this.tbUnitNum.Name = "tbUnitNum";
             this.tbUnitNum.Size = new System.Drawing.Size(139, 20);
-            this.tbUnitNum.TabIndex = 10;
+            this.tbUnitNum.TabIndex = 9;
             // 
             // label5
             // 
@@ -650,18 +652,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Mass Emission Calculation Basis";
             // 
-            // btnAccept
-            // 
-            this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(542, 335);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 9;
-            this.btnAccept.Text = "OK";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbFuelType);
@@ -677,6 +667,53 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emmisions Values Included In Report ";
             // 
+            // cbFuelType
+            // 
+            this.cbFuelType.FormattingEnabled = true;
+            this.cbFuelType.Location = new System.Drawing.Point(404, 74);
+            this.cbFuelType.Name = "cbFuelType";
+            this.cbFuelType.Size = new System.Drawing.Size(121, 21);
+            this.cbFuelType.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(194, 74);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Edit/View ";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(376, 20);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 3;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(256, 20);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(155, 20);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
@@ -691,52 +728,17 @@
             this.checkedListBox1.Size = new System.Drawing.Size(131, 79);
             this.checkedListBox1.TabIndex = 0;
             // 
-            // checkBox1
+            // btnAccept
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(155, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(256, 20);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(376, 20);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(194, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Edit/View ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cbFuelType
-            // 
-            this.cbFuelType.FormattingEnabled = true;
-            this.cbFuelType.Location = new System.Drawing.Point(404, 74);
-            this.cbFuelType.Name = "cbFuelType";
-            this.cbFuelType.Size = new System.Drawing.Size(121, 21);
-            this.cbFuelType.TabIndex = 5;
+            this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnAccept.Location = new System.Drawing.Point(542, 335);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnAccept.TabIndex = 9;
+            this.btnAccept.Text = "OK";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // EquipmentSite
             // 
@@ -761,6 +763,7 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -834,5 +837,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

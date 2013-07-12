@@ -75,6 +75,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -92,6 +93,7 @@
             this.btnApply.Size = new System.Drawing.Size(95, 23);
             this.btnApply.TabIndex = 48;
             this.btnApply.Text = "Update";
+            this.toolTip1.SetToolTip(this.btnApply, "Update a Previously Added Customer ");
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
@@ -104,6 +106,7 @@
             this.btnAddCustomer.Size = new System.Drawing.Size(95, 23);
             this.btnAddCustomer.TabIndex = 47;
             this.btnAddCustomer.Text = "Add Customer";
+            this.toolTip1.SetToolTip(this.btnAddCustomer, "Add Customer to Database");
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
@@ -232,6 +235,7 @@
             this.btnDeleteCustomer.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteCustomer.TabIndex = 53;
             this.btnDeleteCustomer.Text = "Delete Customer";
+            this.toolTip1.SetToolTip(this.btnDeleteCustomer, "Delete Selected Customer");
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -589,5 +593,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
