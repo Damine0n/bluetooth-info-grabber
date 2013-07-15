@@ -23,38 +23,28 @@ namespace CRS
             InitializeComponent();
             sqlite_conn.Open();
             Fillcombo();
-            EquipmentSite_Load();
         }
         void Fillcombo()
         {
-            
-
-            // create a new SQL command:
-           // sqlite_cmd = sqlite_conn.CreateCommand();
-
-           
-
-            // Now lets execute the SQL ;D
-            //sqlite_cmd.ExecuteNonQuery();
-
+            siteBox.Items.Clear();
             try
             {
-                
+                int i=0;
                 sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites;", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
-                //bindingSource1.DataSource = ds.Tables[0];
                 while (sqlite_datareader.Read())
                 {
                     string sites = sqlite_datareader[0].ToString();
                     siteBox.Items.Add(sites);
+                    i++;
                 }
-                
+                sqlite_datareader.Close();
+                siteBox.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Personal Data: " + ex.Message);
             }
-        
         }
 
         private void btnDeleteSite_Click(object sender, EventArgs e)
@@ -94,54 +84,54 @@ namespace CRS
                     siteBox.Items.Clear();
                     Fillcombo();
                     siteBox.SelectedIndex = 0;
+                    sqlite_conn.Close();
                 }
             else
                 return;
         }
         private void btnCreateSite_Click(object sender, EventArgs e)
         {
-            // create a new SQL command:
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-
-
-            // Now lets execute the SQL ;D
-            //sqlite_cmd.ExecuteNonQuery();
             string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
             sqlite_cmd.CommandText = "INSERT INTO Sites (Site) VALUES ('" + x + "');";
-
-            // And execute this again ;D
             sqlite_cmd.ExecuteNonQuery();
+            CreateEquipment(x);           
             siteBox.Items.Clear();
             Fillcombo();
         }
 
+        private void CreateEquipment(string x)
+        {
+            string y = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new equipment.", "New Equipment", "");
+            try
+            {
+                sqlite_cmd.CommandText = "INSERT INTO Equipment (owner, equipment) VALUES ('" + x + "','" + y + "');";
+
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnCreateEquip_Click(object sender, EventArgs e)
         {
-            string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new equipment.", "New Equipment", "");
-            sqlite_cmd.CommandText = "INSERT INTO Equipment (equipment) VALUES ('" + x + "');";
-
-            // And execute this again ;D
-            sqlite_cmd.ExecuteNonQuery();
-            equipBox.Items.Clear();
-            Fillcombo();
+            if (siteBox.Text.ToString() != "")
+            {
+                CreateEquipment(this.siteBox.Text.ToString());
+                equipBox.Items.Clear();
+                Fillcombo();
+            }
+            else
+                MessageBox.Show("You must select a site first.");
         }
-        private void EquipmentSite_Load()
-        {
-            //CREATE TABLE EquipmentSite (owner TEXT, site TEXT, equipment TEXT, unitNum INTEGER, model TEXT, serialNum INTEGER,
-            //service TEXT, ignitionTiming REAL, stackFlow REAL, stackTemp REAL, intakeMPL REAL, intakeMPR REAL, intakeMTL REAL,
-            //intakeMTR REAL, stackHeightFT REAL, stackHeightIN REAL, fuelSG REAL, RPM REAL, AFControllerMake TEXT,
-            //AFControllerModel TEXT, catalyticConverterMake TEXT, catalyticConverterModel TEXT, PRIMARY KEY (site, equipment),
-            //FOREIGN KEY(owner) REFERENCES Customers(CustomerID) ON DELETE CASCADE);
-        }
-
         private void btnAccept_Click(object sender, EventArgs e)
         {
             sqlite_cmd = sqlite_conn.CreateCommand();
             try
             {
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "Update EquipmentSite SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '" 
+                sqlite_cmd.CommandText = "Update Equipment SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '" 
                     + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '" 
                     + this.tbStackFlow.Text + "', stackTemp = '" + this.tbStackTemp.Text + "', intakeMPL = '" + this.tbIntakeMPL.Text + "', intakeMPR = '" 
                     + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '" 
@@ -153,7 +143,8 @@ namespace CRS
                 sqlite_cmd.ExecuteNonQuery();
 
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='" + this.textBox2.Text + "' ;";
+                sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='" 
+                    + this.textBox2.Text + "' Where site = '"+this.siteBox.Text.ToString()+"' ;";
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
             }
@@ -165,15 +156,24 @@ namespace CRS
 
         private void siteBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
-                var da = new SQLiteDataAdapter("SELECT * FROM Sites WHERE Site = '" + this.siteBox.SelectedItem.ToString() + "';", sqlite_conn);
-                da.Fill(ds);
-                bindingSource1.DataSource = ds.Tables[0];
-
-                textBox1.DataBindings.Add("Text", bindingSource1, "Area");
-                textBox2.DataBindings.Add("Text", bindingSource1, "Facility");
+                equipBox.Items.Clear();
+                equipBox.SelectedItem = 1;
+                sqlite_cmd = new SQLiteCommand("SELECT Sites.area, Sites.facility, Equipment.equipment FROM Sites INNER JOIN Equipment ON Sites.site"
+                    + " = Equipment.owner WHERE Site = '" + this.siteBox.Text.ToString() + "';", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                    
+                while (sqlite_datareader.Read())
+                {
+                    string area = sqlite_datareader[0].ToString();
+                    textBox1.Text = area;
+                    string facility = sqlite_datareader[1].ToString();
+                    textBox2.Text = facility;
+                    string equipments = sqlite_datareader[2].ToString();
+                    equipBox.Items.Add(equipments);
+                }
+                sqlite_datareader.Close();
             }
             catch (Exception ex)
             {
