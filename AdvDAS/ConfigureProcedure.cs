@@ -18,14 +18,14 @@ using System.Drawing.Drawing2D;
 
 namespace CRS
 {
-    public partial class ConfigureProcedure : Form
+    public partial class SetUpProcedure : Form
     {
         public DateTime rampUp;
         public DateTime testData;
         public DateTime purge;
         public DateTime totalCycle;
         public int sampleRate;
-        public ConfigureProcedure()
+        public SetUpProcedure()
         {
             InitializeComponent();
             DateTime now = DateTime.Now;

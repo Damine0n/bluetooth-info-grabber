@@ -14,7 +14,8 @@ namespace CRS
     public partial class Form2 : Form
     {
         // We use these three SQLite objects:
-        private SQLiteConnection sqlite_conn;
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         public Form2()
@@ -25,7 +26,6 @@ namespace CRS
        void load_table()
         {
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
 
 
 
@@ -52,7 +52,6 @@ namespace CRS
             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
             sqlite_conn.Open();
 
             // create a new SQL command:
@@ -98,7 +97,30 @@ namespace CRS
 
         private void button2_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Add Logo";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string s = ofd.FileName;
+                pictureBox1.ImageLocation = s;
+                //byte[] logo = File.ReadAllBytes(ofd.FileName);
+            }
+            try
+            {
+                sqlite_cmd = sqlite_conn.CreateCommand();
 
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = String.Format("INSERT INTO test (logo) VALUES (@0)");
+                SQLiteParameter parameter = new SQLiteParameter("@0", System.Data.DbType.Binary);
+                //parameter.Value = logo;
+                sqlite_cmd.Parameters.Add(parameter);
+                sqlite_cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

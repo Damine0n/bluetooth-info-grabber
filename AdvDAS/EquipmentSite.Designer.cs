@@ -122,6 +122,7 @@
             this.equipBox.Name = "equipBox";
             this.equipBox.Size = new System.Drawing.Size(193, 21);
             this.equipBox.TabIndex = 5;
+            this.equipBox.SelectedIndexChanged += new System.EventHandler(this.equipBox_SelectedIndexChanged);
             // 
             // btnCreateSite
             // 
@@ -679,9 +680,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(194, 74);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(142, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Edit/View ";
+            this.button1.Text = "Edit/View Mass Emissions ";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // checkBox3
@@ -723,7 +724,7 @@
             "lb/hr",
             "TPY",
             "lb/MMBTU"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 19);
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 36);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(131, 79);
             this.checkedListBox1.TabIndex = 0;

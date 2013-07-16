@@ -26,8 +26,8 @@ namespace CRS
         private List<double> num =new List<double>();
         private ToolTip tp = new ToolTip();
         private Trend viewTrend = new Trend(pDoc);
-        private ConfigureReport configReport = new ConfigureReport(pDoc);
-        private ConfigureProcedure configProcedure = new ConfigureProcedure();
+        private SetUpReport configReport = new SetUpReport(pDoc);
+        private SetUpProcedure configProcedure = new SetUpProcedure();
         private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
         private Customer customer = new Customer();
