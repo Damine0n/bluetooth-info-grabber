@@ -23,7 +23,7 @@ namespace CRS
         private int count = 0;
         public static PrintDoc pDoc = new PrintDoc();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
-        private List<double> num =new List<double>();
+        private List<double> num = new List<double>();
         private ToolTip tp = new ToolTip();
         private Trend viewTrend = new Trend(pDoc);
         private SetUpReport configReport = new SetUpReport(pDoc);
@@ -39,7 +39,7 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         public MainMenu()
-        {            
+        {
             InitializeComponent();
             createScaleDisplays();
             timer2.Start();
@@ -80,7 +80,7 @@ namespace CRS
         {
             screenShotBox.Image = ScreenShot();
             screenShotBox.SizeMode = PictureBoxSizeMode.Zoom;
-            String fileName = "Screenshots/ScreenShot "+DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss")+ ".jpg";
+            String fileName = "Screenshots/ScreenShot " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss") + ".jpg";
             screenShotBox.Image.Save(fileName, ImageFormat.Jpeg);
             count++;
             //pDoc.printSnapShot(fileName);
@@ -118,22 +118,6 @@ namespace CRS
 
             return screenShotBMP;
         }
-        private void menuRecording_Click(object sender, EventArgs e)
-        {
-            if (menuRecordingItem.Text.Equals("Start Recording"))
-            {
-                this.timer1.Start();
-                menuRecordingItem.Text = "Stop Recording";
-                menuRecordingItem.Image = global::CRS.Properties.Resources.stop;
-            }
-            else
-            {
-                this.timer1.Stop();
-                menuRecordingItem.Text = "Start Recording";
-                menuRecordingItem.Image = global::CRS.Properties.Resources.play;
-            }
-        }
-
         private void hidePanelMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
@@ -163,7 +147,7 @@ namespace CRS
                 {
                     // Get the control that is displaying this context menu
                     Control sourceControl = owner.SourceControl;
-                    switch(sourceControl.Name)
+                    switch (sourceControl.Name)
                     {
                         case "sTile0":
                             scaleDisplays[0].elementComboBox.SelectedIndex = 1;
@@ -239,11 +223,11 @@ namespace CRS
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.recordingProgressBar.Increment(1);
-            
+
             running = running.AddSeconds(1);
-  
-            this.recordTimeLabel.Text = "REC = ("+testTime.ToString("HH:mm:ss")+") "+running.ToString("HH:mm:ss");
- 
+
+            this.recordTimeLabel.Text = "REC = (" + testTime.ToString("HH:mm:ss") + ") " + running.ToString("HH:mm:ss");
+
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -256,7 +240,7 @@ namespace CRS
         }
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you want to close this program?","Exit",MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Do you want to close this program?", "Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
                 Application.ExitThread();
             else
@@ -277,7 +261,7 @@ namespace CRS
                     MessageBox.Show(sourceControl.Name);
                 }
             }
-            MessageBox.Show(sender.ToString()+" / "+e.ToString());
+            MessageBox.Show(sender.ToString() + " / " + e.ToString());
         }
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -303,55 +287,57 @@ namespace CRS
         {
             eSite.ShowDialog();
         }
-        private void sTile3_DoubleClick_1(object sender, EventArgs e)
-        {
-            sTile3.Hide();
-            MessageBox.Show(sTile2.Parent.Name);
-        }
+
         private void isSoSelected(object sender, EventArgs e)
         {
-             ToolStripItem menuItem = sender as ToolStripItem;
-             if (menuItem != null)
-             {
-                 // Retrieve the ContextMenuStrip that owns this ToolStripItem
-                 ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                 if (owner != null)
-                 {
-                     // Get the control that is displaying this context menu
-                     Control sourceControl = owner.SourceControl;
-                     MessageBox.Show(sourceControl.Name);
-                     sourceControl.Enabled = false;
-                 }
-             }
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    MessageBox.Show(sourceControl.Name);
+                    sourceControl.Enabled = false;
+                }
+            }
 
 
         }
 
+        private void menuRecordingItem_Click(object sender, EventArgs e)
+        {
+            this.timer1.Start();
+            this.startRecordingItem.Enabled = false;
+            this.pauseRecordingItem.Enabled = true;
+            this.stopRecordingItem.Enabled = true;
+        }
 
+        private void pauseRecordingItem_Click(object sender, EventArgs e)
+        {
+            this.timer1.Stop();
+            this.startRecordingItem.Enabled = true;
+            this.pauseRecordingItem.Enabled = false;
+            this.stopRecordingItem.Enabled = true;
+        }
 
+        private void stopRecordingItem_Click(object sender, EventArgs e)
+        {            
+            recordingProgressBar.Value = 0;
+            running = new DateTime();
+            this.timer1.Stop();
+            this.startRecordingItem.Enabled = true;
+            this.pauseRecordingItem.Enabled = false;
+            this.stopRecordingItem.Enabled = false;
 
-        //private void sTile0_Paint(object sender, PaintEventArgs e)
-        //{
-        //    Graphics v = e.Graphics;
-        //    DrawRoundRect(v, Pens.Blue, e.ClipRectangle.Left, e.ClipRectangle.Top, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1, 10);
-        //    //Without rounded corners
-        //    //e.Graphics.DrawRectangle(Pens.Blue, e.ClipRectangle.Left, e.ClipRectangle.Top, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1);
-        //    base.OnPaint(e);
-        //}
-        //public void DrawRoundRect(Graphics g, Pen p, float X, float Y, float width, float height, float radius)
-        //{
-        //    GraphicsPath gp = new GraphicsPath();
-        //    gp.AddLine(X + radius, Y, X + width - (radius * 2), Y);
-        //    gp.AddArc(X + width - (radius * 2), Y, radius * 2, radius * 2, 270, 90);
-        //    gp.AddLine(X + width, Y + radius, X + width, Y + height - (radius * 2));
-        //    gp.AddArc(X + width - (radius * 2), Y + height - (radius * 2), radius * 2, radius * 2, 0, 90);
-        //    gp.AddLine(X + width - (radius * 2), Y + height, X + radius, Y + height);
-        //    gp.AddArc(X, Y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
-        //    gp.AddLine(X, Y + height - (radius * 2), X, Y + radius);
-        //    gp.AddArc(X, Y, radius * 2, radius * 2, 180, 90);
-        //    gp.CloseFigure();
-        //    g.DrawPath(p, gp);
-        //    gp.Dispose();
-        //}
+        }
+
+        private void btnSnapShot_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -90,13 +90,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbFuelType = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -655,11 +655,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.cbFuelType);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.checkedListBox1);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
@@ -671,49 +671,23 @@
             // cbFuelType
             // 
             this.cbFuelType.FormattingEnabled = true;
-            this.cbFuelType.Location = new System.Drawing.Point(404, 74);
+            this.cbFuelType.Items.AddRange(new object[] {
+            "Boiler",
+            "Engine"});
+            this.cbFuelType.Location = new System.Drawing.Point(181, 20);
             this.cbFuelType.Name = "cbFuelType";
-            this.cbFuelType.Size = new System.Drawing.Size(121, 21);
+            this.cbFuelType.Size = new System.Drawing.Size(142, 21);
             this.cbFuelType.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(194, 74);
+            this.button1.Location = new System.Drawing.Point(181, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Edit/View Mass Emissions ";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(376, 20);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(256, 20);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(155, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkedListBox1
             // 
@@ -724,9 +698,9 @@
             "lb/hr",
             "TPY",
             "lb/MMBTU"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 36);
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 20);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(131, 79);
+            this.checkedListBox1.Size = new System.Drawing.Size(131, 64);
             this.checkedListBox1.TabIndex = 0;
             // 
             // btnAccept
@@ -740,6 +714,44 @@
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Coal: Anthracite",
+            "Coal: Bituminus",
+            "Coal: Lignite",
+            "Residual Oil",
+            "Distillate Oil",
+            "Diesel",
+            "Gas: Natural",
+            "Gas: Propane",
+            "Gas: Butane",
+            "Wood",
+            "Wood Bark"});
+            this.comboBox1.Location = new System.Drawing.Point(181, 63);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(142, 21);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(148, 23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(37, 13);
+            this.label23.TabIndex = 7;
+            this.label23.Text = "Equip:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(148, 66);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(30, 13);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "Fuel:";
             // 
             // EquipmentSite
             // 
@@ -835,9 +847,9 @@
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ComboBox cbFuelType;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

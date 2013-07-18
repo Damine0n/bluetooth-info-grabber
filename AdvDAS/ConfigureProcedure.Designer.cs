@@ -56,6 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -135,7 +136,7 @@
             this.groupBox2.Size = new System.Drawing.Size(494, 208);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Measurement Cycle Options";
+            this.groupBox2.Text = "Set-Up Test Cycle";
             // 
             // label4
             // 
@@ -160,6 +161,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.dateTimePicker2);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Location = new System.Drawing.Point(6, 74);
@@ -235,9 +237,9 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(6, 20);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(153, 17);
+            this.checkBox4.Size = new System.Drawing.Size(138, 17);
             this.checkBox4.TabIndex = 8;
-            this.checkBox4.Text = "No Purge After Each Cycle";
+            this.checkBox4.Text = "No Purge Measurement";
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.measurementOptions_CheckedChanged);
             // 
@@ -303,9 +305,9 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(6, 20);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(170, 17);
+            this.checkBox2.Size = new System.Drawing.Size(189, 17);
             this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "No Ramp-Up After Each Cycle";
+            this.checkBox2.Text = "No Ramp-Up Before Measurement";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.measurementOptions_CheckedChanged);
             // 
@@ -356,9 +358,9 @@
             // label2
             // 
             this.label2.AutoEllipsis = true;
-            this.label2.Location = new System.Drawing.Point(24, 9);
+            this.label2.Location = new System.Drawing.Point(95, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(467, 26);
+            this.label2.Size = new System.Drawing.Size(324, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "This screen allows the user to set up automated test cycles, including Ramp-Up Ti" +
     "me Measurement Time and Purge Time";
@@ -375,6 +377,16 @@
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(367, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 40);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Measurement Time Automatically Recorded";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SetUpProcedure
             // 
@@ -439,5 +451,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label9;
     }
 }

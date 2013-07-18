@@ -33,7 +33,7 @@ namespace CRS
 
         private void checkBox10_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.checkBox10.Checked.Equals(true))
+            if (this.checkBox10.Checked.Equals(false))
             {
                 this.checkBox12.Enabled = false;
                 this.checkBox13.Enabled = false;

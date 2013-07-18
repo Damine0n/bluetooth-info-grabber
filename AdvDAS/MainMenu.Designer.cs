@@ -57,8 +57,6 @@ namespace CRS
             this.configureRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.performPreAndPostCalibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.technichianCompanyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupCommunictaionPortsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCalibrationItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCalibrationInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +72,6 @@ namespace CRS
             this.viewAnalyzerStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startPeristalticPumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRecordingItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetAllAveragesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,9 +173,16 @@ namespace CRS
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bigPanel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.screenShotBox = new System.Windows.Forms.PictureBox();
             this.btnSnapShot = new System.Windows.Forms.Button();
             this.bigPanel2 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.screenShotBox = new System.Windows.Forms.PictureBox();
+            this.snapShot = new System.Windows.Forms.Button();
+            this.stopRecordingItem = new System.Windows.Forms.Button();
+            this.pauseRecordingItem = new System.Windows.Forms.Button();
+            this.startRecordingItem = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
@@ -204,24 +208,25 @@ namespace CRS
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.setupEquipmentSiteToolStripMenuItem,
             this.configureToolStripMenuItem,
             this.menuCalibrationItem,
             this.analyzeToolStripMenuItem,
-            this.menuRecordingItem,
             this.graphToolStripMenuItem,
             this.resetAllAveragesToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(856, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -290,8 +295,6 @@ namespace CRS
             this.configureRecordingToolStripMenuItem,
             this.configureReportToolStripMenuItem,
             this.performPreAndPostCalibrationToolStripMenuItem,
-            this.technichianCompanyToolStripMenuItem,
-            this.manageDisplayToolStripMenuItem,
             this.setupCommunictaionPortsToolStripMenuItem});
             this.configureToolStripMenuItem.Name = "configureToolStripMenuItem";
             this.configureToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
@@ -319,18 +322,6 @@ namespace CRS
             this.performPreAndPostCalibrationToolStripMenuItem.Name = "performPreAndPostCalibrationToolStripMenuItem";
             this.performPreAndPostCalibrationToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.performPreAndPostCalibrationToolStripMenuItem.Text = "Perform Pre and Post Calibration Procedures";
-            // 
-            // technichianCompanyToolStripMenuItem
-            // 
-            this.technichianCompanyToolStripMenuItem.Name = "technichianCompanyToolStripMenuItem";
-            this.technichianCompanyToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.technichianCompanyToolStripMenuItem.Text = "Technician/Company";
-            // 
-            // manageDisplayToolStripMenuItem
-            // 
-            this.manageDisplayToolStripMenuItem.Name = "manageDisplayToolStripMenuItem";
-            this.manageDisplayToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.manageDisplayToolStripMenuItem.Text = "Manage Display";
             // 
             // setupCommunictaionPortsToolStripMenuItem
             // 
@@ -435,15 +426,6 @@ namespace CRS
             this.startPeristalticPumpToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.startPeristalticPumpToolStripMenuItem.Text = "Start Peristaltic Pump";
             // 
-            // menuRecordingItem
-            // 
-            this.menuRecordingItem.Image = global::CRS.Properties.Resources.play;
-            this.menuRecordingItem.Name = "menuRecordingItem";
-            this.menuRecordingItem.Size = new System.Drawing.Size(116, 20);
-            this.menuRecordingItem.Tag = "";
-            this.menuRecordingItem.Text = "Start Recording";
-            this.menuRecordingItem.Click += new System.EventHandler(this.menuRecording_Click);
-            // 
             // graphToolStripMenuItem
             // 
             this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
@@ -487,11 +469,13 @@ namespace CRS
             this.connectionStatusLabel,
             this.recordStatusLabel,
             this.recordTimeLabel,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1,
             this.recordingProgressBar,
             this.clock_lbl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 491);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 495);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(804, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(856, 24);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -522,8 +506,8 @@ namespace CRS
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.recordTimeLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.recordTimeLabel.Name = "recordTimeLabel";
-            this.recordTimeLabel.Size = new System.Drawing.Size(141, 19);
-            this.recordTimeLabel.Text = "REC = (00:00:00) 00:00:00";
+            this.recordTimeLabel.Size = new System.Drawing.Size(152, 19);
+            this.recordTimeLabel.Text = "Total Test Time =  00:00:00";
             // 
             // recordingProgressBar
             // 
@@ -586,9 +570,9 @@ namespace CRS
             this.checkBox5.AutoSize = true;
             this.checkBox5.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox5.Location = new System.Drawing.Point(125, 0);
+            this.checkBox5.Location = new System.Drawing.Point(136, 0);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 33);
+            this.checkBox5.Size = new System.Drawing.Size(15, 29);
             this.checkBox5.TabIndex = 6;
             this.toolTip1.SetToolTip(this.checkBox5, "Click to disable in report");
             this.checkBox5.UseVisualStyleBackColor = true;
@@ -598,9 +582,9 @@ namespace CRS
             this.checkBox3.AutoSize = true;
             this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox3.Location = new System.Drawing.Point(125, 0);
+            this.checkBox3.Location = new System.Drawing.Point(136, 0);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 32);
+            this.checkBox3.Size = new System.Drawing.Size(15, 29);
             this.checkBox3.TabIndex = 8;
             this.toolTip1.SetToolTip(this.checkBox3, "Click to disable in report");
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -610,9 +594,9 @@ namespace CRS
             this.checkBox4.AutoSize = true;
             this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox4.Location = new System.Drawing.Point(129, 0);
+            this.checkBox4.Location = new System.Drawing.Point(137, 0);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 32);
+            this.checkBox4.Size = new System.Drawing.Size(15, 29);
             this.checkBox4.TabIndex = 7;
             this.toolTip1.SetToolTip(this.checkBox4, "Click to disable in report");
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -622,9 +606,9 @@ namespace CRS
             this.checkBox0.AutoSize = true;
             this.checkBox0.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox0.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox0.Location = new System.Drawing.Point(125, 0);
+            this.checkBox0.Location = new System.Drawing.Point(136, 0);
             this.checkBox0.Name = "checkBox0";
-            this.checkBox0.Size = new System.Drawing.Size(15, 32);
+            this.checkBox0.Size = new System.Drawing.Size(15, 29);
             this.checkBox0.TabIndex = 1;
             this.toolTip1.SetToolTip(this.checkBox0, "Click to disable in report");
             this.checkBox0.UseVisualStyleBackColor = true;
@@ -634,9 +618,9 @@ namespace CRS
             this.checkBox1.AutoSize = true;
             this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox1.Location = new System.Drawing.Point(125, 0);
+            this.checkBox1.Location = new System.Drawing.Point(136, 0);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 32);
+            this.checkBox1.Size = new System.Drawing.Size(15, 29);
             this.checkBox1.TabIndex = 10;
             this.toolTip1.SetToolTip(this.checkBox1, "Click to disable in report");
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -646,9 +630,9 @@ namespace CRS
             this.checkBox6.AutoSize = true;
             this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox6.Location = new System.Drawing.Point(125, 0);
+            this.checkBox6.Location = new System.Drawing.Point(136, 0);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 33);
+            this.checkBox6.Size = new System.Drawing.Size(15, 29);
             this.checkBox6.TabIndex = 4;
             this.toolTip1.SetToolTip(this.checkBox6, "Click to disable in report");
             this.checkBox6.UseVisualStyleBackColor = true;
@@ -658,9 +642,9 @@ namespace CRS
             this.checkBox7.AutoSize = true;
             this.checkBox7.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox7.Location = new System.Drawing.Point(125, 0);
+            this.checkBox7.Location = new System.Drawing.Point(136, 0);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(15, 33);
+            this.checkBox7.Size = new System.Drawing.Size(15, 29);
             this.checkBox7.TabIndex = 5;
             this.toolTip1.SetToolTip(this.checkBox7, "Click to disable in report");
             this.checkBox7.UseVisualStyleBackColor = true;
@@ -670,9 +654,9 @@ namespace CRS
             this.checkBox8.AutoSize = true;
             this.checkBox8.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox8.Location = new System.Drawing.Point(125, 0);
+            this.checkBox8.Location = new System.Drawing.Point(136, 0);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 33);
+            this.checkBox8.Size = new System.Drawing.Size(15, 29);
             this.checkBox8.TabIndex = 2;
             this.toolTip1.SetToolTip(this.checkBox8, "Click to disable in report");
             this.checkBox8.UseVisualStyleBackColor = true;
@@ -682,9 +666,9 @@ namespace CRS
             this.checkBox9.AutoSize = true;
             this.checkBox9.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox9.Location = new System.Drawing.Point(129, 0);
+            this.checkBox9.Location = new System.Drawing.Point(137, 0);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(15, 33);
+            this.checkBox9.Size = new System.Drawing.Size(15, 29);
             this.checkBox9.TabIndex = 3;
             this.toolTip1.SetToolTip(this.checkBox9, "Click to disable in report");
             this.checkBox9.UseVisualStyleBackColor = true;
@@ -694,9 +678,9 @@ namespace CRS
             this.checkBox2.AutoSize = true;
             this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox2.Location = new System.Drawing.Point(125, 0);
+            this.checkBox2.Location = new System.Drawing.Point(136, 0);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 29);
+            this.checkBox2.Size = new System.Drawing.Size(15, 26);
             this.checkBox2.TabIndex = 9;
             this.toolTip1.SetToolTip(this.checkBox2, "Click to disable in report");
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -714,7 +698,7 @@ namespace CRS
             this.sTile5.Controls.Add(this.panel5, 0, 0);
             this.sTile5.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile5.Location = new System.Drawing.Point(10, 181);
+            this.sTile5.Location = new System.Drawing.Point(10, 214);
             this.sTile5.Margin = new System.Windows.Forms.Padding(10);
             this.sTile5.Name = "sTile5";
             this.sTile5.RowCount = 5;
@@ -723,7 +707,7 @@ namespace CRS
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67671F));
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67068F));
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33936F));
-            this.sTile5.Size = new System.Drawing.Size(140, 153);
+            this.sTile5.Size = new System.Drawing.Size(151, 136);
             this.sTile5.TabIndex = 11;
             // 
             // textBox6
@@ -733,10 +717,10 @@ namespace CRS
             this.textBox6.Enabled = false;
             this.textBox6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox6.Location = new System.Drawing.Point(3, 36);
+            this.textBox6.Location = new System.Drawing.Point(3, 32);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(134, 29);
+            this.textBox6.Size = new System.Drawing.Size(145, 29);
             this.textBox6.TabIndex = 1;
             this.textBox6.TabStop = false;
             this.textBox6.Text = "TEST";
@@ -748,10 +732,10 @@ namespace CRS
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 125);
+            this.label16.Location = new System.Drawing.Point(3, 110);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label16.Size = new System.Drawing.Size(134, 28);
+            this.label16.Size = new System.Drawing.Size(145, 26);
             this.label16.TabIndex = 4;
             this.label16.Text = "AVERAGE";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -762,9 +746,9 @@ namespace CRS
             this.label26.BackColor = System.Drawing.Color.Transparent;
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label26.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(3, 66);
+            this.label26.Location = new System.Drawing.Point(3, 58);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(134, 25);
+            this.label26.Size = new System.Drawing.Size(145, 22);
             this.label26.TabIndex = 13;
             this.label26.Text = "CURRENT";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -775,10 +759,10 @@ namespace CRS
             this.textBox16.Enabled = false;
             this.textBox16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox16.Location = new System.Drawing.Point(3, 94);
+            this.textBox16.Location = new System.Drawing.Point(3, 83);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(134, 29);
+            this.textBox16.Size = new System.Drawing.Size(145, 29);
             this.textBox16.TabIndex = 3;
             this.textBox16.TabStop = false;
             this.textBox16.Text = "20.8%";
@@ -792,7 +776,7 @@ namespace CRS
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(140, 33);
+            this.panel5.Size = new System.Drawing.Size(151, 29);
             this.panel5.TabIndex = 7;
             // 
             // label6
@@ -822,7 +806,7 @@ namespace CRS
             this.sTile3.Controls.Add(this.label24, 0, 2);
             this.sTile3.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile3.Location = new System.Drawing.Point(490, 10);
+            this.sTile3.Location = new System.Drawing.Point(523, 60);
             this.sTile3.Margin = new System.Windows.Forms.Padding(10);
             this.sTile3.Name = "sTile3";
             this.sTile3.RowCount = 5;
@@ -831,7 +815,7 @@ namespace CRS
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67671F));
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67068F));
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33936F));
-            this.sTile3.Size = new System.Drawing.Size(140, 151);
+            this.sTile3.Size = new System.Drawing.Size(151, 134);
             this.sTile3.TabIndex = 12;
             // 
             // textBox4
@@ -841,10 +825,10 @@ namespace CRS
             this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox4.Location = new System.Drawing.Point(3, 35);
+            this.textBox4.Location = new System.Drawing.Point(3, 32);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(134, 29);
+            this.textBox4.Size = new System.Drawing.Size(145, 29);
             this.textBox4.TabIndex = 1;
             this.textBox4.TabStop = false;
             this.textBox4.Text = "TEST";
@@ -856,10 +840,10 @@ namespace CRS
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 123);
+            this.label14.Location = new System.Drawing.Point(3, 110);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label14.Size = new System.Drawing.Size(134, 28);
+            this.label14.Size = new System.Drawing.Size(145, 24);
             this.label14.TabIndex = 4;
             this.label14.Text = "AVERAGE";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -870,10 +854,10 @@ namespace CRS
             this.textBox14.Enabled = false;
             this.textBox14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox14.Location = new System.Drawing.Point(3, 92);
+            this.textBox14.Location = new System.Drawing.Point(3, 83);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(134, 29);
+            this.textBox14.Size = new System.Drawing.Size(145, 29);
             this.textBox14.TabIndex = 3;
             this.textBox14.TabStop = false;
             this.textBox14.Text = "20.8%";
@@ -887,7 +871,7 @@ namespace CRS
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(140, 32);
+            this.panel6.Size = new System.Drawing.Size(151, 29);
             this.panel6.TabIndex = 7;
             // 
             // label4
@@ -910,9 +894,9 @@ namespace CRS
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(3, 64);
+            this.label24.Location = new System.Drawing.Point(3, 58);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(134, 25);
+            this.label24.Size = new System.Drawing.Size(145, 22);
             this.label24.TabIndex = 11;
             this.label24.Text = "CURRENT";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -930,7 +914,7 @@ namespace CRS
             this.sTile4.Controls.Add(this.panel7, 0, 0);
             this.sTile4.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile4.Location = new System.Drawing.Point(650, 10);
+            this.sTile4.Location = new System.Drawing.Point(694, 60);
             this.sTile4.Margin = new System.Windows.Forms.Padding(10);
             this.sTile4.Name = "sTile4";
             this.sTile4.RowCount = 5;
@@ -939,7 +923,7 @@ namespace CRS
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67671F));
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67068F));
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33936F));
-            this.sTile4.Size = new System.Drawing.Size(144, 151);
+            this.sTile4.Size = new System.Drawing.Size(152, 134);
             this.sTile4.TabIndex = 13;
             // 
             // textBox5
@@ -949,10 +933,10 @@ namespace CRS
             this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox5.Location = new System.Drawing.Point(3, 35);
+            this.textBox5.Location = new System.Drawing.Point(3, 32);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(138, 29);
+            this.textBox5.Size = new System.Drawing.Size(146, 29);
             this.textBox5.TabIndex = 1;
             this.textBox5.TabStop = false;
             this.textBox5.Text = "TEST";
@@ -964,10 +948,10 @@ namespace CRS
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 123);
+            this.label15.Location = new System.Drawing.Point(3, 110);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label15.Size = new System.Drawing.Size(138, 28);
+            this.label15.Size = new System.Drawing.Size(146, 24);
             this.label15.TabIndex = 4;
             this.label15.Text = "AVERAGE";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -978,10 +962,10 @@ namespace CRS
             this.textBox15.Enabled = false;
             this.textBox15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox15.Location = new System.Drawing.Point(3, 92);
+            this.textBox15.Location = new System.Drawing.Point(3, 83);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(138, 29);
+            this.textBox15.Size = new System.Drawing.Size(146, 29);
             this.textBox15.TabIndex = 3;
             this.textBox15.TabStop = false;
             this.textBox15.Text = "20.8%";
@@ -993,9 +977,9 @@ namespace CRS
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 64);
+            this.label25.Location = new System.Drawing.Point(3, 58);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(138, 25);
+            this.label25.Size = new System.Drawing.Size(146, 22);
             this.label25.TabIndex = 12;
             this.label25.Text = "CURRENT";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1008,7 +992,7 @@ namespace CRS
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(144, 32);
+            this.panel7.Size = new System.Drawing.Size(152, 29);
             this.panel7.TabIndex = 7;
             // 
             // label5
@@ -1038,7 +1022,7 @@ namespace CRS
             this.sTile0.Controls.Add(this.label21, 0, 2);
             this.sTile0.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile0.Location = new System.Drawing.Point(10, 10);
+            this.sTile0.Location = new System.Drawing.Point(10, 60);
             this.sTile0.Margin = new System.Windows.Forms.Padding(10);
             this.sTile0.Name = "sTile0";
             this.sTile0.RowCount = 5;
@@ -1047,7 +1031,7 @@ namespace CRS
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67274F));
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67493F));
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33965F));
-            this.sTile0.Size = new System.Drawing.Size(140, 151);
+            this.sTile0.Size = new System.Drawing.Size(151, 134);
             this.sTile0.TabIndex = 14;
             // 
             // textBox1
@@ -1058,10 +1042,10 @@ namespace CRS
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox1.Location = new System.Drawing.Point(3, 35);
+            this.textBox1.Location = new System.Drawing.Point(3, 32);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(134, 29);
+            this.textBox1.Size = new System.Drawing.Size(145, 29);
             this.textBox1.TabIndex = 1;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "TEST";
@@ -1073,10 +1057,10 @@ namespace CRS
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 123);
+            this.label11.Location = new System.Drawing.Point(3, 110);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label11.Size = new System.Drawing.Size(134, 28);
+            this.label11.Size = new System.Drawing.Size(145, 24);
             this.label11.TabIndex = 4;
             this.label11.Text = "AVERAGE";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1087,10 +1071,10 @@ namespace CRS
             this.textBox11.Enabled = false;
             this.textBox11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox11.Location = new System.Drawing.Point(3, 92);
+            this.textBox11.Location = new System.Drawing.Point(3, 83);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(134, 29);
+            this.textBox11.Size = new System.Drawing.Size(145, 29);
             this.textBox11.TabIndex = 3;
             this.textBox11.TabStop = false;
             this.textBox11.Text = "20.8%";
@@ -1104,7 +1088,7 @@ namespace CRS
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(140, 32);
+            this.panel1.Size = new System.Drawing.Size(151, 29);
             this.panel1.TabIndex = 7;
             // 
             // label1
@@ -1127,9 +1111,9 @@ namespace CRS
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 64);
+            this.label21.Location = new System.Drawing.Point(3, 58);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(134, 25);
+            this.label21.Size = new System.Drawing.Size(145, 22);
             this.label21.TabIndex = 8;
             this.label21.Text = "CURRENT";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1147,7 +1131,7 @@ namespace CRS
             this.sTile1.Controls.Add(this.label22, 0, 2);
             this.sTile1.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile1.Location = new System.Drawing.Point(170, 10);
+            this.sTile1.Location = new System.Drawing.Point(181, 60);
             this.sTile1.Margin = new System.Windows.Forms.Padding(10);
             this.sTile1.Name = "sTile1";
             this.sTile1.RowCount = 5;
@@ -1156,7 +1140,7 @@ namespace CRS
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67339F));
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67379F));
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.34236F));
-            this.sTile1.Size = new System.Drawing.Size(140, 151);
+            this.sTile1.Size = new System.Drawing.Size(151, 134);
             this.sTile1.TabIndex = 15;
             // 
             // textBox2
@@ -1166,10 +1150,10 @@ namespace CRS
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox2.Location = new System.Drawing.Point(3, 35);
+            this.textBox2.Location = new System.Drawing.Point(3, 32);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(134, 29);
+            this.textBox2.Size = new System.Drawing.Size(145, 29);
             this.textBox2.TabIndex = 1;
             this.textBox2.TabStop = false;
             this.textBox2.Text = "TEST";
@@ -1181,10 +1165,10 @@ namespace CRS
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 123);
+            this.label12.Location = new System.Drawing.Point(3, 110);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label12.Size = new System.Drawing.Size(134, 28);
+            this.label12.Size = new System.Drawing.Size(145, 24);
             this.label12.TabIndex = 4;
             this.label12.Text = "AVERAGE";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1195,10 +1179,10 @@ namespace CRS
             this.textBox12.Enabled = false;
             this.textBox12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox12.Location = new System.Drawing.Point(3, 92);
+            this.textBox12.Location = new System.Drawing.Point(3, 83);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(134, 29);
+            this.textBox12.Size = new System.Drawing.Size(145, 29);
             this.textBox12.TabIndex = 3;
             this.textBox12.TabStop = false;
             this.textBox12.Text = "20.8%";
@@ -1212,7 +1196,7 @@ namespace CRS
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(140, 32);
+            this.panel2.Size = new System.Drawing.Size(151, 29);
             this.panel2.TabIndex = 7;
             // 
             // label2
@@ -1235,9 +1219,9 @@ namespace CRS
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 64);
+            this.label22.Location = new System.Drawing.Point(3, 58);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(134, 25);
+            this.label22.Size = new System.Drawing.Size(145, 22);
             this.label22.TabIndex = 9;
             this.label22.Text = "CURRENT";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1255,7 +1239,7 @@ namespace CRS
             this.sTile6.Controls.Add(this.panel8, 0, 0);
             this.sTile6.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile6.Location = new System.Drawing.Point(170, 181);
+            this.sTile6.Location = new System.Drawing.Point(181, 214);
             this.sTile6.Margin = new System.Windows.Forms.Padding(10);
             this.sTile6.Name = "sTile6";
             this.sTile6.RowCount = 5;
@@ -1264,7 +1248,7 @@ namespace CRS
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67671F));
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67068F));
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33936F));
-            this.sTile6.Size = new System.Drawing.Size(140, 153);
+            this.sTile6.Size = new System.Drawing.Size(151, 136);
             this.sTile6.TabIndex = 16;
             // 
             // textBox7
@@ -1274,10 +1258,10 @@ namespace CRS
             this.textBox7.Enabled = false;
             this.textBox7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox7.Location = new System.Drawing.Point(3, 36);
+            this.textBox7.Location = new System.Drawing.Point(3, 32);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(134, 29);
+            this.textBox7.Size = new System.Drawing.Size(145, 29);
             this.textBox7.TabIndex = 1;
             this.textBox7.TabStop = false;
             this.textBox7.Text = "TEST";
@@ -1289,9 +1273,9 @@ namespace CRS
             this.label27.BackColor = System.Drawing.Color.Transparent;
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label27.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(3, 66);
+            this.label27.Location = new System.Drawing.Point(3, 58);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(134, 25);
+            this.label27.Size = new System.Drawing.Size(145, 22);
             this.label27.TabIndex = 14;
             this.label27.Text = "CURRENT";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1302,10 +1286,10 @@ namespace CRS
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 125);
+            this.label17.Location = new System.Drawing.Point(3, 110);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label17.Size = new System.Drawing.Size(134, 28);
+            this.label17.Size = new System.Drawing.Size(145, 26);
             this.label17.TabIndex = 4;
             this.label17.Text = "AVERAGE";
             this.label17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1316,10 +1300,10 @@ namespace CRS
             this.textBox17.Enabled = false;
             this.textBox17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox17.Location = new System.Drawing.Point(3, 94);
+            this.textBox17.Location = new System.Drawing.Point(3, 83);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(134, 29);
+            this.textBox17.Size = new System.Drawing.Size(145, 29);
             this.textBox17.TabIndex = 3;
             this.textBox17.TabStop = false;
             this.textBox17.Text = "20.8%";
@@ -1333,7 +1317,7 @@ namespace CRS
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(140, 33);
+            this.panel8.Size = new System.Drawing.Size(151, 29);
             this.panel8.TabIndex = 7;
             // 
             // label7
@@ -1363,7 +1347,7 @@ namespace CRS
             this.sTile7.Controls.Add(this.label28, 0, 2);
             this.sTile7.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile7.Location = new System.Drawing.Point(330, 181);
+            this.sTile7.Location = new System.Drawing.Point(352, 214);
             this.sTile7.Margin = new System.Windows.Forms.Padding(10);
             this.sTile7.Name = "sTile7";
             this.sTile7.RowCount = 5;
@@ -1372,7 +1356,7 @@ namespace CRS
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67671F));
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67068F));
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33936F));
-            this.sTile7.Size = new System.Drawing.Size(140, 153);
+            this.sTile7.Size = new System.Drawing.Size(151, 136);
             this.sTile7.TabIndex = 17;
             // 
             // textBox8
@@ -1382,10 +1366,10 @@ namespace CRS
             this.textBox8.Enabled = false;
             this.textBox8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox8.Location = new System.Drawing.Point(3, 36);
+            this.textBox8.Location = new System.Drawing.Point(3, 32);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(134, 29);
+            this.textBox8.Size = new System.Drawing.Size(145, 29);
             this.textBox8.TabIndex = 1;
             this.textBox8.TabStop = false;
             this.textBox8.Text = "TEST";
@@ -1397,10 +1381,10 @@ namespace CRS
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 125);
+            this.label18.Location = new System.Drawing.Point(3, 110);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label18.Size = new System.Drawing.Size(134, 28);
+            this.label18.Size = new System.Drawing.Size(145, 26);
             this.label18.TabIndex = 4;
             this.label18.Text = "AVERAGE";
             this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1409,10 +1393,10 @@ namespace CRS
             // 
             this.textBox18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.Location = new System.Drawing.Point(3, 94);
+            this.textBox18.Location = new System.Drawing.Point(3, 83);
             this.textBox18.Name = "textBox18";
             this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(134, 29);
+            this.textBox18.Size = new System.Drawing.Size(145, 29);
             this.textBox18.TabIndex = 3;
             this.textBox18.TabStop = false;
             this.textBox18.Text = "20.8%";
@@ -1426,7 +1410,7 @@ namespace CRS
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(140, 33);
+            this.panel9.Size = new System.Drawing.Size(151, 29);
             this.panel9.TabIndex = 7;
             // 
             // label8
@@ -1449,9 +1433,9 @@ namespace CRS
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label28.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 66);
+            this.label28.Location = new System.Drawing.Point(3, 58);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(134, 25);
+            this.label28.Size = new System.Drawing.Size(145, 22);
             this.label28.TabIndex = 15;
             this.label28.Text = "CURRENT";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1469,7 +1453,7 @@ namespace CRS
             this.sTile8.Controls.Add(this.panel10, 0, 0);
             this.sTile8.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile8.Location = new System.Drawing.Point(490, 181);
+            this.sTile8.Location = new System.Drawing.Point(523, 214);
             this.sTile8.Margin = new System.Windows.Forms.Padding(10);
             this.sTile8.Name = "sTile8";
             this.sTile8.RowCount = 5;
@@ -1478,7 +1462,8 @@ namespace CRS
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.70071F));
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.60276F));
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.36431F));
-            this.sTile8.Size = new System.Drawing.Size(140, 153);
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.sTile8.Size = new System.Drawing.Size(151, 136);
             this.sTile8.TabIndex = 18;
             // 
             // textBox19
@@ -1487,10 +1472,10 @@ namespace CRS
             this.textBox19.Enabled = false;
             this.textBox19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox19.Location = new System.Drawing.Point(3, 94);
+            this.textBox19.Location = new System.Drawing.Point(3, 83);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(134, 29);
+            this.textBox19.Size = new System.Drawing.Size(145, 29);
             this.textBox19.TabIndex = 3;
             this.textBox19.TabStop = false;
             this.textBox19.Text = "20.8%";
@@ -1503,10 +1488,10 @@ namespace CRS
             this.textBox9.Enabled = false;
             this.textBox9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox9.Location = new System.Drawing.Point(3, 36);
+            this.textBox9.Location = new System.Drawing.Point(3, 32);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(134, 29);
+            this.textBox9.Size = new System.Drawing.Size(145, 29);
             this.textBox9.TabIndex = 1;
             this.textBox9.TabStop = false;
             this.textBox9.Text = "TEST";
@@ -1518,9 +1503,9 @@ namespace CRS
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 66);
+            this.label29.Location = new System.Drawing.Point(3, 58);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(134, 25);
+            this.label29.Size = new System.Drawing.Size(145, 22);
             this.label29.TabIndex = 16;
             this.label29.Text = "CURRENT";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1531,10 +1516,10 @@ namespace CRS
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(3, 125);
+            this.label19.Location = new System.Drawing.Point(3, 110);
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label19.Size = new System.Drawing.Size(134, 28);
+            this.label19.Size = new System.Drawing.Size(145, 26);
             this.label19.TabIndex = 4;
             this.label19.Text = "AVERAGE";
             this.label19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1547,7 +1532,7 @@ namespace CRS
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(140, 33);
+            this.panel10.Size = new System.Drawing.Size(151, 29);
             this.panel10.TabIndex = 7;
             // 
             // label9
@@ -1577,7 +1562,7 @@ namespace CRS
             this.sTile9.Controls.Add(this.panel11, 0, 0);
             this.sTile9.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile9.Location = new System.Drawing.Point(650, 181);
+            this.sTile9.Location = new System.Drawing.Point(694, 214);
             this.sTile9.Margin = new System.Windows.Forms.Padding(10);
             this.sTile9.Name = "sTile9";
             this.sTile9.RowCount = 5;
@@ -1586,7 +1571,7 @@ namespace CRS
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67717F));
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.67131F));
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.33983F));
-            this.sTile9.Size = new System.Drawing.Size(144, 153);
+            this.sTile9.Size = new System.Drawing.Size(152, 136);
             this.sTile9.TabIndex = 19;
             // 
             // textBox10
@@ -1596,10 +1581,10 @@ namespace CRS
             this.textBox10.Enabled = false;
             this.textBox10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox10.Location = new System.Drawing.Point(3, 36);
+            this.textBox10.Location = new System.Drawing.Point(3, 32);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(138, 29);
+            this.textBox10.Size = new System.Drawing.Size(146, 29);
             this.textBox10.TabIndex = 1;
             this.textBox10.TabStop = false;
             this.textBox10.Text = "TEST";
@@ -1611,9 +1596,9 @@ namespace CRS
             this.label30.BackColor = System.Drawing.Color.Transparent;
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(3, 66);
+            this.label30.Location = new System.Drawing.Point(3, 58);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(138, 25);
+            this.label30.Size = new System.Drawing.Size(146, 22);
             this.label30.TabIndex = 17;
             this.label30.Text = "CURRENT";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1624,10 +1609,10 @@ namespace CRS
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(3, 125);
+            this.label20.Location = new System.Drawing.Point(3, 110);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label20.Size = new System.Drawing.Size(138, 28);
+            this.label20.Size = new System.Drawing.Size(146, 26);
             this.label20.TabIndex = 4;
             this.label20.Text = "AVERAGE";
             this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1638,10 +1623,10 @@ namespace CRS
             this.textBox20.Enabled = false;
             this.textBox20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox20.Location = new System.Drawing.Point(3, 94);
+            this.textBox20.Location = new System.Drawing.Point(3, 83);
             this.textBox20.Name = "textBox20";
             this.textBox20.ReadOnly = true;
-            this.textBox20.Size = new System.Drawing.Size(138, 29);
+            this.textBox20.Size = new System.Drawing.Size(146, 29);
             this.textBox20.TabIndex = 3;
             this.textBox20.TabStop = false;
             this.textBox20.Text = "20.8%";
@@ -1655,7 +1640,7 @@ namespace CRS
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(144, 33);
+            this.panel11.Size = new System.Drawing.Size(152, 29);
             this.panel11.TabIndex = 7;
             // 
             // label10
@@ -1685,7 +1670,7 @@ namespace CRS
             this.sTile2.Controls.Add(this.panel3, 0, 0);
             this.sTile2.Cursor = System.Windows.Forms.Cursors.Default;
             this.sTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile2.Location = new System.Drawing.Point(330, 10);
+            this.sTile2.Location = new System.Drawing.Point(352, 60);
             this.sTile2.Margin = new System.Windows.Forms.Padding(10);
             this.sTile2.Name = "sTile2";
             this.sTile2.RowCount = 5;
@@ -1694,7 +1679,7 @@ namespace CRS
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.60777F));
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.58455F));
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.2741F));
-            this.sTile2.Size = new System.Drawing.Size(140, 151);
+            this.sTile2.Size = new System.Drawing.Size(151, 134);
             this.sTile2.TabIndex = 4;
             // 
             // label23
@@ -1703,9 +1688,9 @@ namespace CRS
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 65);
+            this.label23.Location = new System.Drawing.Point(3, 58);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(134, 25);
+            this.label23.Size = new System.Drawing.Size(145, 22);
             this.label23.TabIndex = 10;
             this.label23.Text = "CURRENT";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1717,10 +1702,10 @@ namespace CRS
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox3.Location = new System.Drawing.Point(3, 32);
+            this.textBox3.Location = new System.Drawing.Point(3, 29);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(134, 29);
+            this.textBox3.Size = new System.Drawing.Size(145, 29);
             this.textBox3.TabIndex = 1;
             this.textBox3.TabStop = false;
             this.textBox3.Text = "TEST";
@@ -1732,10 +1717,10 @@ namespace CRS
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 124);
+            this.label13.Location = new System.Drawing.Point(3, 110);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label13.Size = new System.Drawing.Size(134, 27);
+            this.label13.Size = new System.Drawing.Size(145, 24);
             this.label13.TabIndex = 4;
             this.label13.Text = "AVERAGE";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1746,10 +1731,10 @@ namespace CRS
             this.textBox13.Enabled = false;
             this.textBox13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox13.Location = new System.Drawing.Point(3, 93);
+            this.textBox13.Location = new System.Drawing.Point(3, 83);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(134, 29);
+            this.textBox13.Size = new System.Drawing.Size(145, 29);
             this.textBox13.TabIndex = 3;
             this.textBox13.TabStop = false;
             this.textBox13.Text = "20.8%";
@@ -1763,7 +1748,7 @@ namespace CRS
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(140, 29);
+            this.panel3.Size = new System.Drawing.Size(151, 26);
             this.panel3.TabIndex = 7;
             // 
             // label3
@@ -1789,29 +1774,30 @@ namespace CRS
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.bigPanel1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.sTile2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.sTile9, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.sTile8, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.sTile7, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.sTile6, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.sTile1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.sTile0, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.sTile4, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.sTile3, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.sTile5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.bigPanel2, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.bigPanel1, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.sTile2, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sTile9, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.sTile8, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.sTile7, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.sTile6, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.sTile1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sTile0, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sTile4, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sTile3, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sTile5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.bigPanel2, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 0, 0);
             this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.6167F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.04497F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(804, 467);
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.79482F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.77488F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.15821F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.27208F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 471);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // bigPanel1
@@ -1820,9 +1806,9 @@ namespace CRS
             this.tableLayoutPanel1.SetColumnSpan(this.bigPanel1, 2);
             this.bigPanel1.ContextMenuStrip = this.tilePopUpMenu;
             this.bigPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bigPanel1.Location = new System.Drawing.Point(3, 347);
+            this.bigPanel1.Location = new System.Drawing.Point(3, 363);
             this.bigPanel1.Name = "bigPanel1";
-            this.bigPanel1.Size = new System.Drawing.Size(314, 117);
+            this.bigPanel1.Size = new System.Drawing.Size(336, 105);
             this.bigPanel1.TabIndex = 22;
             // 
             // panel4
@@ -1830,45 +1816,124 @@ namespace CRS
             this.panel4.Controls.Add(this.screenShotBox);
             this.panel4.Controls.Add(this.btnSnapShot);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(323, 347);
+            this.panel4.Location = new System.Drawing.Point(345, 363);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(154, 117);
+            this.panel4.Size = new System.Drawing.Size(165, 105);
             this.panel4.TabIndex = 20;
-            // 
-            // screenShotBox
-            // 
-            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
-            this.screenShotBox.Name = "screenShotBox";
-            this.screenShotBox.Size = new System.Drawing.Size(154, 94);
-            this.screenShotBox.TabIndex = 1;
-            this.screenShotBox.TabStop = false;
             // 
             // btnSnapShot
             // 
             this.btnSnapShot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSnapShot.Location = new System.Drawing.Point(0, 94);
+            this.btnSnapShot.Location = new System.Drawing.Point(0, 82);
             this.btnSnapShot.Name = "btnSnapShot";
-            this.btnSnapShot.Size = new System.Drawing.Size(154, 23);
+            this.btnSnapShot.Size = new System.Drawing.Size(165, 23);
             this.btnSnapShot.TabIndex = 0;
             this.btnSnapShot.Text = "Snap Shot";
             this.btnSnapShot.UseVisualStyleBackColor = true;
+            this.btnSnapShot.Click += new System.EventHandler(this.btnSnapShot_Click_1);
             // 
             // bigPanel2
             // 
             this.bigPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLayoutPanel1.SetColumnSpan(this.bigPanel2, 2);
             this.bigPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bigPanel2.Location = new System.Drawing.Point(483, 347);
+            this.bigPanel2.Location = new System.Drawing.Point(516, 363);
             this.bigPanel2.Name = "bigPanel2";
-            this.bigPanel2.Size = new System.Drawing.Size(318, 117);
+            this.bigPanel2.Size = new System.Drawing.Size(337, 105);
             this.bigPanel2.TabIndex = 21;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel12, 3);
+            this.panel12.Controls.Add(this.snapShot);
+            this.panel12.Controls.Add(this.stopRecordingItem);
+            this.panel12.Controls.Add(this.pauseRecordingItem);
+            this.panel12.Controls.Add(this.startRecordingItem);
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(474, 44);
+            this.panel12.TabIndex = 23;
+            // 
+            // screenShotBox
+            // 
+            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
+            this.screenShotBox.Name = "screenShotBox";
+            this.screenShotBox.Size = new System.Drawing.Size(165, 82);
+            this.screenShotBox.TabIndex = 1;
+            this.screenShotBox.TabStop = false;
+            // 
+            // snapShot
+            // 
+            this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Ahmadhania_Spherical_Camera;
+            this.snapShot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.snapShot.Location = new System.Drawing.Point(167, 3);
+            this.snapShot.Name = "snapShot";
+            this.snapShot.Size = new System.Drawing.Size(49, 38);
+            this.snapShot.TabIndex = 7;
+            this.snapShot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.snapShot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.snapShot.UseVisualStyleBackColor = true;
+            // 
+            // stopRecordingItem
+            // 
+            this.stopRecordingItem.BackgroundImage = global::CRS.Properties.Resources.stop;
+            this.stopRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.stopRecordingItem.Enabled = false;
+            this.stopRecordingItem.Location = new System.Drawing.Point(113, 3);
+            this.stopRecordingItem.Name = "stopRecordingItem";
+            this.stopRecordingItem.Size = new System.Drawing.Size(49, 38);
+            this.stopRecordingItem.TabIndex = 6;
+            this.stopRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stopRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.stopRecordingItem.UseVisualStyleBackColor = true;
+            this.stopRecordingItem.Click += new System.EventHandler(this.stopRecordingItem_Click);
+            // 
+            // pauseRecordingItem
+            // 
+            this.pauseRecordingItem.BackgroundImage = global::CRS.Properties.Resources.Deleket_Soft_Scraps_Button_Pause;
+            this.pauseRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pauseRecordingItem.Enabled = false;
+            this.pauseRecordingItem.Location = new System.Drawing.Point(58, 3);
+            this.pauseRecordingItem.Name = "pauseRecordingItem";
+            this.pauseRecordingItem.Size = new System.Drawing.Size(49, 38);
+            this.pauseRecordingItem.TabIndex = 5;
+            this.pauseRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.pauseRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.pauseRecordingItem.UseVisualStyleBackColor = true;
+            this.pauseRecordingItem.Click += new System.EventHandler(this.pauseRecordingItem_Click);
+            // 
+            // startRecordingItem
+            // 
+            this.startRecordingItem.BackgroundImage = global::CRS.Properties.Resources.play;
+            this.startRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.startRecordingItem.Location = new System.Drawing.Point(3, 3);
+            this.startRecordingItem.Name = "startRecordingItem";
+            this.startRecordingItem.Size = new System.Drawing.Size(49, 38);
+            this.startRecordingItem.TabIndex = 4;
+            this.startRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.startRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.startRecordingItem.UseVisualStyleBackColor = true;
+            this.startRecordingItem.Click += new System.EventHandler(this.menuRecordingItem_Click);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 19);
+            this.toolStripStatusLabel1.Text = "00:00:00";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 19);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 515);
+            this.ClientSize = new System.Drawing.Size(856, 519);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -1925,6 +1990,7 @@ namespace CRS
             this.panel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1949,7 +2015,6 @@ namespace CRS
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuCalibrationItem;
-        private System.Windows.Forms.ToolStripMenuItem menuRecordingItem;
         private System.Windows.Forms.ToolStripMenuItem graphToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetAllAveragesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -1964,8 +2029,6 @@ namespace CRS
         private System.Windows.Forms.ToolStripMenuItem configureRecordingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configureReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem performPreAndPostCalibrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem technichianCompanyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageDisplayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupCommunictaionPortsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewCalibrationInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enterCalGasInfoToolStripMenuItem;
@@ -2055,7 +2118,6 @@ namespace CRS
         public Label label7;
         private TableLayoutPanel sTile7;
         private TextBox textBox8;
-        private Label label18;
         private TextBox textBox18;
         private Panel panel9;
         private CheckBox checkBox7;
@@ -2091,6 +2153,14 @@ namespace CRS
         private Panel bigPanel2;
         private PictureBox screenShotBox;
         private Button btnSnapShot;
+        private Label label18;
+        private Panel panel12;
+        private Button startRecordingItem;
+        private Button snapShot;
+        private Button stopRecordingItem;
+        private Button pauseRecordingItem;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel toolStripStatusLabel2;
 
 
     }

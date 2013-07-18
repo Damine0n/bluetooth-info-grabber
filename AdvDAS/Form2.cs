@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finisar.SQLite;
+using System.IO;
 
 namespace CRS
 {
@@ -21,6 +22,7 @@ namespace CRS
         public Form2()
         {
             InitializeComponent();
+            sqlite_conn.Open();
         }
 
        void load_table()
@@ -52,7 +54,7 @@ namespace CRS
             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
             // create a new database connection:
-            sqlite_conn.Open();
+            //sqlite_conn.Open();
 
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
@@ -81,7 +83,7 @@ namespace CRS
             try
             {
                 DataSet ds = new DataSet();
-                var da = new SQLiteDataAdapter("SELECT * FROM test", sqlite_conn);
+                SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM test", sqlite_conn);
                 da.Fill(ds);
                 //ds.Tables[0].Columns[2].DefaultValue;
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
@@ -92,7 +94,6 @@ namespace CRS
             }
 
             // We are ready, now lets cleanup and close our connection:
-            sqlite_conn.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -104,23 +105,51 @@ namespace CRS
                 string s = ofd.FileName;
                 pictureBox1.ImageLocation = s;
                 //byte[] logo = File.ReadAllBytes(ofd.FileName);
-            }
-            try
-            {
-                sqlite_cmd = sqlite_conn.CreateCommand();
+            
+                SQLiteDataAdapter da = new SQLiteDataAdapter("Select * From MyImages", sqlite_conn);
+                SQLiteCommandBuilder MyCB = new SQLiteCommandBuilder(da);
+                DataSet ds = new DataSet("MyImages");
 
-                // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = String.Format("INSERT INTO test (logo) VALUES (@0)");
-                SQLiteParameter parameter = new SQLiteParameter("@0", System.Data.DbType.Binary);
-                //parameter.Value = logo;
-                sqlite_cmd.Parameters.Add(parameter);
-                sqlite_cmd.ExecuteNonQuery();
+                da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                FileStream fs = new FileStream(s, FileMode.OpenOrCreate, FileAccess.Read);
 
+                byte[] MyData = new byte[fs.Length];
+                fs.Read(MyData, 0, System.Convert.ToInt32(fs.Length));
+
+                fs.Close();
+
+                da.Fill(ds, "MyImages");
+
+                DataRow myRow = ds.Tables["MyImages"].NewRow();
+
+                myRow["Description"] = "This would be description text";
+                myRow["imgField"] = MyData;
+                ds.Tables["MyImages"].Rows.Add(myRow);
+                da.Update(ds, "MyImages");
+
+                //sqlite_conn.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SQLiteDataAdapter da = new SQLiteDataAdapter("Select * From MyImages", sqlite_conn);
+            SQLiteCommandBuilder MyCB = new SQLiteCommandBuilder(da);
+            DataSet ds = new DataSet("MyImages");
+
+            byte[] MyData= new byte[0];
+			
+            da.Fill(ds, "MyImages");
+            DataRow myRow;
+            myRow=ds.Tables["MyImages"].Rows[0];
+           
+            MyData =  (byte[])myRow["imgField"];
+            int ArraySize = new int();
+            ArraySize = MyData.GetUpperBound(0); 
+
+            FileStream fs = new FileStream(@"C:\winnt\Gone Fishing2.BMP", FileMode.OpenOrCreate, FileAccess.Write);
+            fs.Write(MyData, 0,ArraySize);
+            fs.Close();
         }
     }
 }

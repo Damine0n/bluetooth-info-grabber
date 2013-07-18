@@ -18,6 +18,7 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
+        private MassEBC ebc = new MassEBC();
         public EquipmentSite()
         {
             InitializeComponent();
@@ -253,6 +254,11 @@ namespace CRS
             {
                 MessageBox.Show("Personal Data: " + ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ebc.ShowDialog();
         }
     }
 }

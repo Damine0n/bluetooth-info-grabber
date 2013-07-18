@@ -84,12 +84,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.8961F));
             this.tableLayoutPanel1.Controls.Add(this.elementTable, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.trendChart, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(770, 400);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(770, 428);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // elementTable
@@ -104,8 +105,9 @@
             this.dgGraph});
             this.elementTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementTable.Location = new System.Drawing.Point(3, 3);
+            this.elementTable.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.elementTable.Name = "elementTable";
-            this.elementTable.Size = new System.Drawing.Size(272, 394);
+            this.elementTable.Size = new System.Drawing.Size(272, 398);
             this.elementTable.TabIndex = 5;
             this.elementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elementTable_CellContentClick);
             // 
@@ -245,12 +247,13 @@
             this.trendChart.Series.Add(series14);
             this.trendChart.Series.Add(series15);
             this.trendChart.Series.Add(series16);
-            this.trendChart.Size = new System.Drawing.Size(486, 394);
+            this.trendChart.Size = new System.Drawing.Size(486, 420);
             this.trendChart.TabIndex = 1;
             this.trendChart.Text = "trendChart";
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(593, 403);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -261,6 +264,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(683, 403);
             this.btnCancel.Name = "btnCancel";
