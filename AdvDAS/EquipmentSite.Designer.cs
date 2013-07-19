@@ -88,15 +88,15 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbFuelType = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -668,20 +668,58 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emmisions Values Included In Report ";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(148, 66);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(30, 13);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "Fuel:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(148, 23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(37, 13);
+            this.label23.TabIndex = 7;
+            this.label23.Text = "Equip:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Coal: Anthracite",
+            "Coal: Bituminus",
+            "Coal: Lignite",
+            "Residual Oil",
+            "Distillate Oil",
+            "Diesel",
+            "Gas: Natural",
+            "Gas: Propane",
+            "Gas: Butane",
+            "Wood",
+            "Wood Bark"});
+            this.comboBox1.Location = new System.Drawing.Point(189, 63);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(142, 21);
+            this.comboBox1.TabIndex = 6;
+            // 
             // cbFuelType
             // 
             this.cbFuelType.FormattingEnabled = true;
             this.cbFuelType.Items.AddRange(new object[] {
             "Boiler",
             "Engine"});
-            this.cbFuelType.Location = new System.Drawing.Point(181, 20);
+            this.cbFuelType.Location = new System.Drawing.Point(189, 20);
             this.cbFuelType.Name = "cbFuelType";
             this.cbFuelType.Size = new System.Drawing.Size(142, 21);
             this.cbFuelType.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(181, 108);
+            this.button1.Location = new System.Drawing.Point(189, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 23);
             this.button1.TabIndex = 4;
@@ -714,44 +752,6 @@
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Coal: Anthracite",
-            "Coal: Bituminus",
-            "Coal: Lignite",
-            "Residual Oil",
-            "Distillate Oil",
-            "Diesel",
-            "Gas: Natural",
-            "Gas: Propane",
-            "Gas: Butane",
-            "Wood",
-            "Wood Bark"});
-            this.comboBox1.Location = new System.Drawing.Point(181, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(148, 23);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 13);
-            this.label23.TabIndex = 7;
-            this.label23.Text = "Equip:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(148, 66);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(30, 13);
-            this.label24.TabIndex = 8;
-            this.label24.Text = "Fuel:";
             // 
             // EquipmentSite
             // 

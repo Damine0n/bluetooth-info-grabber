@@ -81,6 +81,8 @@ namespace CRS
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.recordingProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.clock_lbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.tilePopUpMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -173,16 +175,14 @@ namespace CRS
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bigPanel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.screenShotBox = new System.Windows.Forms.PictureBox();
             this.btnSnapShot = new System.Windows.Forms.Button();
             this.bigPanel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.screenShotBox = new System.Windows.Forms.PictureBox();
             this.snapShot = new System.Windows.Forms.Button();
             this.stopRecordingItem = new System.Windows.Forms.Button();
             this.pauseRecordingItem = new System.Windows.Forms.Button();
             this.startRecordingItem = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
@@ -208,8 +208,8 @@ namespace CRS
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).BeginInit();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -509,6 +509,18 @@ namespace CRS
             this.recordTimeLabel.Size = new System.Drawing.Size(152, 19);
             this.recordTimeLabel.Text = "Total Test Time =  00:00:00";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 19);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 19);
+            this.toolStripStatusLabel1.Text = "00:00:00";
+            // 
             // recordingProgressBar
             // 
             this.recordingProgressBar.Maximum = 20;
@@ -788,7 +800,7 @@ namespace CRS
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 31);
+            this.label6.Size = new System.Drawing.Size(67, 31);
             this.label6.TabIndex = 0;
             this.label6.Text = "NOx";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -883,7 +895,7 @@ namespace CRS
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 31);
+            this.label4.Size = new System.Drawing.Size(54, 31);
             this.label4.TabIndex = 0;
             this.label4.Text = "NO";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1004,7 +1016,7 @@ namespace CRS
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 31);
+            this.label5.Size = new System.Drawing.Size(68, 31);
             this.label5.TabIndex = 0;
             this.label5.Text = "NO2";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1208,7 +1220,7 @@ namespace CRS
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 31);
+            this.label2.Size = new System.Drawing.Size(54, 31);
             this.label2.TabIndex = 0;
             this.label2.Text = "CO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1422,7 +1434,7 @@ namespace CRS
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 31);
+            this.label8.Size = new System.Drawing.Size(80, 31);
             this.label8.TabIndex = 0;
             this.label8.Text = "CxHy";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1760,7 +1772,7 @@ namespace CRS
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 31);
+            this.label3.Size = new System.Drawing.Size(68, 31);
             this.label3.TabIndex = 0;
             this.label3.Text = "CO2";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1821,6 +1833,15 @@ namespace CRS
             this.panel4.Size = new System.Drawing.Size(165, 105);
             this.panel4.TabIndex = 20;
             // 
+            // screenShotBox
+            // 
+            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
+            this.screenShotBox.Name = "screenShotBox";
+            this.screenShotBox.Size = new System.Drawing.Size(165, 82);
+            this.screenShotBox.TabIndex = 1;
+            this.screenShotBox.TabStop = false;
+            // 
             // btnSnapShot
             // 
             this.btnSnapShot.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1855,15 +1876,6 @@ namespace CRS
             this.panel12.Size = new System.Drawing.Size(474, 44);
             this.panel12.TabIndex = 23;
             // 
-            // screenShotBox
-            // 
-            this.screenShotBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.screenShotBox.Location = new System.Drawing.Point(0, 0);
-            this.screenShotBox.Name = "screenShotBox";
-            this.screenShotBox.Size = new System.Drawing.Size(165, 82);
-            this.screenShotBox.TabIndex = 1;
-            this.screenShotBox.TabStop = false;
-            // 
             // snapShot
             // 
             this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Ahmadhania_Spherical_Camera;
@@ -1874,6 +1886,7 @@ namespace CRS
             this.snapShot.TabIndex = 7;
             this.snapShot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.snapShot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.snapShot, "Take Snap Shot");
             this.snapShot.UseVisualStyleBackColor = true;
             // 
             // stopRecordingItem
@@ -1887,6 +1900,7 @@ namespace CRS
             this.stopRecordingItem.TabIndex = 6;
             this.stopRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.stopRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.stopRecordingItem, "Stop Recording");
             this.stopRecordingItem.UseVisualStyleBackColor = true;
             this.stopRecordingItem.Click += new System.EventHandler(this.stopRecordingItem_Click);
             // 
@@ -1901,6 +1915,7 @@ namespace CRS
             this.pauseRecordingItem.TabIndex = 5;
             this.pauseRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.pauseRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.pauseRecordingItem, "Pause Recording");
             this.pauseRecordingItem.UseVisualStyleBackColor = true;
             this.pauseRecordingItem.Click += new System.EventHandler(this.pauseRecordingItem_Click);
             // 
@@ -1914,20 +1929,9 @@ namespace CRS
             this.startRecordingItem.TabIndex = 4;
             this.startRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.startRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.startRecordingItem, "Start Recording");
             this.startRecordingItem.UseVisualStyleBackColor = true;
             this.startRecordingItem.Click += new System.EventHandler(this.menuRecordingItem_Click);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 19);
-            this.toolStripStatusLabel1.Text = "00:00:00";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 19);
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // MainMenu
             // 
@@ -1990,8 +1994,8 @@ namespace CRS
             this.panel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.screenShotBox)).EndInit();
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

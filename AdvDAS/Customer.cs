@@ -87,12 +87,7 @@ namespace CRS
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
-
-            // We use these three SQLite objects:
-            //sqlite_conn.Open();
-
-            
+            sqlite_cmd = sqlite_conn.CreateCommand();
             try
             {
                 if (tbCustomerID.Text != "")

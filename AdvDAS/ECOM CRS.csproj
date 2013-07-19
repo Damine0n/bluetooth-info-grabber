@@ -178,8 +178,6 @@
     <EmbeddedResource Include="Trend.resx">
       <DependentUpon>Trend.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\ScaleDisplay.datasource" />
-    <None Include="Properties\DataSources\Trend.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -203,6 +201,9 @@
     <None Include="Deleket-Soft-Scraps-Button-Pause.ico" />
     <None Include="Ahmadhania-Spherical-Camera.ico" />
     <Content Include="Ecom.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

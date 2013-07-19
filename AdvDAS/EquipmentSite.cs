@@ -157,7 +157,6 @@ namespace CRS
             try
             {
                 equipBox.Items.Clear();
-                equipBox.SelectedItem = 0;
                 sqlite_cmd = new SQLiteCommand("SELECT Sites.area, Sites.facility, Equipments.equipment FROM Sites INNER JOIN Equipments ON Sites.site"
                     + " = Equipments.owner WHERE Site = '" + this.siteBox.Text.ToString() + "';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
@@ -172,6 +171,7 @@ namespace CRS
                     equipBox.Items.Add(equipments);
                 }
                 sqlite_datareader.Close();
+                equipBox.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -183,8 +183,7 @@ namespace CRS
         {
             try
             {
-                //equipBox.Items.Clear();
-                //equipBox.SelectedItem = 0;
+
                 sqlite_cmd = new SQLiteCommand("SELECT * FROM Equipments WHERE owner = '" + this.siteBox.Text.ToString() 
                     + "' AND equipment = '" + this.equipBox.Text.ToString() + "';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
@@ -260,5 +259,6 @@ namespace CRS
         {
             ebc.ShowDialog();
         }
+
     }
 }
