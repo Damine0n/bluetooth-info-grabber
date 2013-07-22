@@ -102,6 +102,10 @@ namespace CRS
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.snapShot = new System.Windows.Forms.Button();
+            this.stopRecordingItem = new System.Windows.Forms.Button();
+            this.pauseRecordingItem = new System.Windows.Forms.Button();
+            this.startRecordingItem = new System.Windows.Forms.Button();
             this.sTile5 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -179,10 +183,6 @@ namespace CRS
             this.btnSnapShot = new System.Windows.Forms.Button();
             this.bigPanel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.snapShot = new System.Windows.Forms.Button();
-            this.stopRecordingItem = new System.Windows.Forms.Button();
-            this.pauseRecordingItem = new System.Windows.Forms.Button();
-            this.startRecordingItem = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
@@ -696,6 +696,63 @@ namespace CRS
             this.checkBox2.TabIndex = 9;
             this.toolTip1.SetToolTip(this.checkBox2, "Click to disable in report");
             this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // snapShot
+            // 
+            this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Ahmadhania_Spherical_Camera;
+            this.snapShot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.snapShot.Location = new System.Drawing.Point(167, 3);
+            this.snapShot.Name = "snapShot";
+            this.snapShot.Size = new System.Drawing.Size(49, 38);
+            this.snapShot.TabIndex = 7;
+            this.snapShot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.snapShot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.snapShot, "Take Snap Shot");
+            this.snapShot.UseVisualStyleBackColor = true;
+            // 
+            // stopRecordingItem
+            // 
+            this.stopRecordingItem.BackgroundImage = global::CRS.Properties.Resources.stop;
+            this.stopRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.stopRecordingItem.Enabled = false;
+            this.stopRecordingItem.Location = new System.Drawing.Point(113, 3);
+            this.stopRecordingItem.Name = "stopRecordingItem";
+            this.stopRecordingItem.Size = new System.Drawing.Size(49, 38);
+            this.stopRecordingItem.TabIndex = 6;
+            this.stopRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stopRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.stopRecordingItem, "Stop Recording");
+            this.stopRecordingItem.UseVisualStyleBackColor = true;
+            this.stopRecordingItem.Click += new System.EventHandler(this.stopRecordingItem_Click);
+            // 
+            // pauseRecordingItem
+            // 
+            this.pauseRecordingItem.BackgroundImage = global::CRS.Properties.Resources.Deleket_Soft_Scraps_Button_Pause;
+            this.pauseRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pauseRecordingItem.Enabled = false;
+            this.pauseRecordingItem.Location = new System.Drawing.Point(58, 3);
+            this.pauseRecordingItem.Name = "pauseRecordingItem";
+            this.pauseRecordingItem.Size = new System.Drawing.Size(49, 38);
+            this.pauseRecordingItem.TabIndex = 5;
+            this.pauseRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.pauseRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.pauseRecordingItem, "Pause Recording");
+            this.pauseRecordingItem.UseVisualStyleBackColor = true;
+            this.pauseRecordingItem.Click += new System.EventHandler(this.pauseRecordingItem_Click);
+            // 
+            // startRecordingItem
+            // 
+            this.startRecordingItem.BackgroundImage = global::CRS.Properties.Resources.play;
+            this.startRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.startRecordingItem.Location = new System.Drawing.Point(3, 3);
+            this.startRecordingItem.Name = "startRecordingItem";
+            this.startRecordingItem.Size = new System.Drawing.Size(49, 38);
+            this.startRecordingItem.TabIndex = 4;
+            this.startRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.startRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.startRecordingItem, "Start Recording");
+            this.startRecordingItem.UseVisualStyleBackColor = true;
+            this.startRecordingItem.Click += new System.EventHandler(this.menuRecordingItem_Click);
             // 
             // sTile5
             // 
@@ -1875,63 +1932,6 @@ namespace CRS
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(474, 44);
             this.panel12.TabIndex = 23;
-            // 
-            // snapShot
-            // 
-            this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Ahmadhania_Spherical_Camera;
-            this.snapShot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.snapShot.Location = new System.Drawing.Point(167, 3);
-            this.snapShot.Name = "snapShot";
-            this.snapShot.Size = new System.Drawing.Size(49, 38);
-            this.snapShot.TabIndex = 7;
-            this.snapShot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.snapShot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.snapShot, "Take Snap Shot");
-            this.snapShot.UseVisualStyleBackColor = true;
-            // 
-            // stopRecordingItem
-            // 
-            this.stopRecordingItem.BackgroundImage = global::CRS.Properties.Resources.stop;
-            this.stopRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.stopRecordingItem.Enabled = false;
-            this.stopRecordingItem.Location = new System.Drawing.Point(113, 3);
-            this.stopRecordingItem.Name = "stopRecordingItem";
-            this.stopRecordingItem.Size = new System.Drawing.Size(49, 38);
-            this.stopRecordingItem.TabIndex = 6;
-            this.stopRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.stopRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.stopRecordingItem, "Stop Recording");
-            this.stopRecordingItem.UseVisualStyleBackColor = true;
-            this.stopRecordingItem.Click += new System.EventHandler(this.stopRecordingItem_Click);
-            // 
-            // pauseRecordingItem
-            // 
-            this.pauseRecordingItem.BackgroundImage = global::CRS.Properties.Resources.Deleket_Soft_Scraps_Button_Pause;
-            this.pauseRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pauseRecordingItem.Enabled = false;
-            this.pauseRecordingItem.Location = new System.Drawing.Point(58, 3);
-            this.pauseRecordingItem.Name = "pauseRecordingItem";
-            this.pauseRecordingItem.Size = new System.Drawing.Size(49, 38);
-            this.pauseRecordingItem.TabIndex = 5;
-            this.pauseRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.pauseRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.pauseRecordingItem, "Pause Recording");
-            this.pauseRecordingItem.UseVisualStyleBackColor = true;
-            this.pauseRecordingItem.Click += new System.EventHandler(this.pauseRecordingItem_Click);
-            // 
-            // startRecordingItem
-            // 
-            this.startRecordingItem.BackgroundImage = global::CRS.Properties.Resources.play;
-            this.startRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.startRecordingItem.Location = new System.Drawing.Point(3, 3);
-            this.startRecordingItem.Name = "startRecordingItem";
-            this.startRecordingItem.Size = new System.Drawing.Size(49, 38);
-            this.startRecordingItem.TabIndex = 4;
-            this.startRecordingItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.startRecordingItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.startRecordingItem, "Start Recording");
-            this.startRecordingItem.UseVisualStyleBackColor = true;
-            this.startRecordingItem.Click += new System.EventHandler(this.menuRecordingItem_Click);
             // 
             // MainMenu
             // 
