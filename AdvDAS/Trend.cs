@@ -32,28 +32,7 @@ namespace CRS
             filltable();
             this.pDoc = pDoc;
         }
-        private void load_table()
-        {
-            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
-
-
-            // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-
-
-            try
-            {
-                DataSet ds = new DataSet();
-                var da = new SQLiteDataAdapter("SELECT * FROM test;", sqlite_conn);
-                da.Fill(ds);
-                elementTable.DataSource = ds.Tables[0].DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            sqlite_conn.Close();
-        }
+        
         void filltable()
         {
             elements.Add(new Facts("O2", 0, "%"));

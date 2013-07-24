@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer));
-            this.btnApply = new System.Windows.Forms.Button();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -84,18 +83,6 @@
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnApply
-            // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(588, 331);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(95, 23);
-            this.btnApply.TabIndex = 48;
-            this.btnApply.Text = "Update";
-            this.toolTip1.SetToolTip(this.btnApply, "Update a Previously Added Customer ");
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnAddCustomer
             // 
@@ -237,7 +224,7 @@
             this.btnDeleteCustomer.Text = "Delete Customer";
             this.toolTip1.SetToolTip(this.btnDeleteCustomer, "Delete Selected Customer");
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
-            this.btnDeleteCustomer.Click += new System.EventHandler(this.button1_Click);
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tabPage2
             // 
@@ -317,6 +304,7 @@
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(155, 20);
             this.tbContact.TabIndex = 67;
+            this.tbContact.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbEmail
             // 
@@ -324,6 +312,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(155, 20);
             this.tbEmail.TabIndex = 74;
+            this.tbEmail.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbCellPhone
             // 
@@ -332,6 +321,7 @@
             this.tbCellPhone.Name = "tbCellPhone";
             this.tbCellPhone.Size = new System.Drawing.Size(155, 20);
             this.tbCellPhone.TabIndex = 73;
+            this.tbCellPhone.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbFax
             // 
@@ -340,6 +330,7 @@
             this.tbFax.Name = "tbFax";
             this.tbFax.Size = new System.Drawing.Size(155, 20);
             this.tbFax.TabIndex = 72;
+            this.tbFax.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbCity
             // 
@@ -347,6 +338,7 @@
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(155, 20);
             this.tbCity.TabIndex = 71;
+            this.tbCity.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbZip
             // 
@@ -355,6 +347,7 @@
             this.tbZip.Name = "tbZip";
             this.tbZip.Size = new System.Drawing.Size(155, 20);
             this.tbZip.TabIndex = 70;
+            this.tbZip.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbStreet
             // 
@@ -362,6 +355,7 @@
             this.tbStreet.Name = "tbStreet";
             this.tbStreet.Size = new System.Drawing.Size(155, 20);
             this.tbStreet.TabIndex = 69;
+            this.tbStreet.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbPhone
             // 
@@ -370,6 +364,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(155, 20);
             this.tbPhone.TabIndex = 68;
+            this.tbPhone.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbCompany
             // 
@@ -377,6 +372,7 @@
             this.tbCompany.Name = "tbCompany";
             this.tbCompany.Size = new System.Drawing.Size(155, 20);
             this.tbCompany.TabIndex = 66;
+            this.tbCompany.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // tbCustomerID
             // 
@@ -384,6 +380,7 @@
             this.tbCustomerID.Name = "tbCustomerID";
             this.tbCustomerID.Size = new System.Drawing.Size(155, 20);
             this.tbCustomerID.TabIndex = 65;
+            this.tbCustomerID.Leave += new System.EventHandler(this.customerUpdate_Leave);
             // 
             // label12
             // 
@@ -517,14 +514,12 @@
             // 
             // Customer
             // 
-            this.AcceptButton = this.btnApply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 382);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.bindingNavigator1);
-            this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnAddCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -532,6 +527,7 @@
             this.MinimizeBox = false;
             this.Name = "Customer";
             this.Text = "Customer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -548,7 +544,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;

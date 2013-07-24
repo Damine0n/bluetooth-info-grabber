@@ -139,16 +139,42 @@ namespace CRS
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to delete this customer from the Database?", "Delete Customer", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                try
+                {
+                    // Let the SQLiteCommand object know our SQL-Query:
+                    sqlite_cmd.CommandText = "DELETE FROM Customers WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
+                    // Now lets execute the SQL ;D
+                    sqlite_cmd.ExecuteNonQuery();
+                    load_table();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+                return;
+            
+        }
+
+        private void customerUpdate_Leave(object sender, EventArgs e)
         {
             sqlite_cmd = sqlite_conn.CreateCommand();
             try
             {
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "DELETE FROM Customers WHERE CustomerID = '"+this.tbCustomerID.Text+"';";
+                sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text + "', Contact = '" + this.tbContact.Text
+                    + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text
+                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text + "', CellPhone = '" + this.tbCellPhone.Text
+                    + "', Email = '" + this.tbEmail.Text + "', Notes = '" + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
-
             }
             catch (Exception ex)
             {
@@ -156,6 +182,24 @@ namespace CRS
             }
         }
 
-        //Change Data
+        private void Customer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            try
+            {
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text + "', Contact = '" + this.tbContact.Text
+                    + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text
+                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text + "', CellPhone = '" + this.tbCellPhone.Text
+                    + "', Email = '" + this.tbEmail.Text + "', Notes = '" + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
+                // Now lets execute the SQL ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

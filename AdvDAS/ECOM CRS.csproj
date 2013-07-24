@@ -200,6 +200,7 @@
   <ItemGroup>
     <None Include="Deleket-Soft-Scraps-Button-Pause.ico" />
     <None Include="Ahmadhania-Spherical-Camera.ico" />
+    <None Include="Camera-Android-shutter.png" />
     <Content Include="Ecom.ico" />
   </ItemGroup>
   <ItemGroup>

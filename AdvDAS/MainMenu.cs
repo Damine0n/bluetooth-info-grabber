@@ -34,7 +34,9 @@ namespace CRS
         private Form2 forming = new Form2();
         public List<Label> lblList = new List<Label>();
         DateTime testTime = new DateTime();
+        Thread t;
         private DateTime running = new DateTime();
+        List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
@@ -42,8 +44,40 @@ namespace CRS
         {
             InitializeComponent();
             createScaleDisplays();
+            filltable();
             timer2.Start();
+            int a = textBox1.Size.Height;
+            float c = textBox1.Font.Height;
+            a = a - this.textBox1.Lines.Length * (int)c;
+            for (int i = 0; i < (int)(a / c) / 2; i++)
+            {
+                textBox1.Text += "\r\n";
+            }
+            textBox1.Text += "hai";
             //startDataBase();
+        }
+
+        private void load_table()
+        {
+            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
+
+
+            // create a new database connection:
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+
+
+            try
+            {
+                DataSet ds = new DataSet();
+                var da = new SQLiteDataAdapter("SELECT * FROM test;", sqlite_conn);
+                da.Fill(ds);
+                elementTable.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlite_conn.Close();
         }
         void createScaleDisplays()
         {
@@ -226,7 +260,13 @@ namespace CRS
 
             running = running.AddSeconds(1);
 
-            this.recordTimeLabel.Text = "REC = (" + testTime.ToString("HH:mm:ss") + ") " + running.ToString("HH:mm:ss");
+            this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
+            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
+            if (this.recordingProgressBar.Value == this.recordingProgressBar.Maximum)
+            {
+                this.recordingProgressBar.Value = 0;
+            }
+                
 
         }
         private void timer2_Tick(object sender, EventArgs e)
@@ -246,23 +286,7 @@ namespace CRS
             else
                 e.Cancel = true;
         }
-        private void getSourceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Try to cast the sender to a ToolStripItem
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
-            {
-                // Retrieve the ContextMenuStrip that owns this ToolStripItem
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    // Get the control that is displaying this context menu
-                    Control sourceControl = owner.SourceControl;
-                    MessageBox.Show(sourceControl.Name);
-                }
-            }
-            MessageBox.Show(sender.ToString() + " / " + e.ToString());
-        }
+
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configReport.ShowDialog();
@@ -307,14 +331,14 @@ namespace CRS
 
         }
 
-        private void menuRecordingItem_Click(object sender, EventArgs e)
+        private void startRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Start();
             this.startRecordingItem.Enabled = false;
             this.pauseRecordingItem.Enabled = true;
             this.stopRecordingItem.Enabled = true;
         }
-
+        
         private void pauseRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Stop();
@@ -327,17 +351,91 @@ namespace CRS
         {            
             recordingProgressBar.Value = 0;
             running = new DateTime();
+            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
             this.timer1.Stop();
             this.startRecordingItem.Enabled = true;
             this.pauseRecordingItem.Enabled = false;
             this.stopRecordingItem.Enabled = false;
-
         }
 
-        private void btnSnapShot_Click_1(object sender, EventArgs e)
+        /////////////////////////////////////////////////////////////////TAB-NUMBER-2/////////////////////////////////////////////////////////
+        void filltable()
+        {
+            elements.Add(new Facts("O2", 0, "%"));
+            elements.Add(new Facts("CO", 0, "ppm"));
+            elements.Add(new Facts("CO2", 0, "ppm"));
+            elements.Add(new Facts("NO", 0, "ppm"));
+            elements.Add(new Facts("NO2", 0, "ppm"));
+            elements.Add(new Facts("NOx", 0, "ppm"));
+            elements.Add(new Facts("SO2", 0, "ppm"));
+            elements.Add(new Facts("CxHy", 0, "ppm"));
+            elements.Add(new Facts("T(gas)", 0, "°F"));
+            elements.Add(new Facts("T(amb)", 0, "°F"));
+            elements.Add(new Facts("Temp 1", 0, "°F"));
+            elements.Add(new Facts("Temp 2", 0, "°F"));
+            elements.Add(new Facts("T(cell)", 0, "°F"));
+            elements.Add(new Facts("Efficiency", 0, "%"));
+            elements.Add(new Facts("Flow", 0, "L/Min"));
+            elements.Add(new Facts("NH3", 0, "ppm"));
+            //elements.Add(new Facts ("CO(mass)",0, "ppm" ));
+            //elements.Add(new Facts ("NOx(mass)",0, "ppm" ));
+            for (int i = 0; i < elements.Count; i++)
+            {
+                elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
+                trendGraph.Series[i].Enabled = false;
+            }
+        }
+        private void elementTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //This condition will make sure that this code execute if and only if checkbox cell is clicked.
+            if (e.ColumnIndex == elementTable.Columns["dgGraph"].Index)  //Checking index of checkbox column is equal to clickable cell index.
+            {
+                elementTable.EndEdit();  //Stop editing of cell.
+                if ((bool)elementTable.Rows[e.RowIndex].Cells[3].Value)//only activates on check
+                {
+                    //DialogResult dialogResult = MessageBox.Show("If you select yes your chart's data will restart.", "Are you sure? ", MessageBoxButtons.YesNo);
+                    //if (dialogResult == DialogResult.Yes)
+                    //{
+                    //    foreach (var series in trendGraph.Series)
+                    //    {
+                    //        series.Points.Clear();
+                    //    }
+                        trendGraph.Series[e.RowIndex].Enabled = true;
+                    //    t = new Thread(ThreadProc);
+                    //    t.Start(e.RowIndex.ToString());
+                    //    //Thread.Sleep(50);
+                    //    while (t.IsAlive)
+                    //    {
+                    //        trendGraph.Series[e.RowIndex].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+                    //    }
+                    //    MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+                    //}
+                    //else if (dialogResult == DialogResult.No)
+                    //{
+                    //    //do nothing
+                    //}
+                }
+                else
+                {
+                    trendGraph.Series[e.RowIndex].Enabled = false;
+                }
+            }
+        }
+        private void ThreadProc(object obj)
+        {
+            Random ran = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                //Thread.Sleep(100);
+                elementTable.Rows[int.Parse(obj.ToString())].Cells[1].Value = ran.Next(0, 100);
+            }
+        }
+
+        private void snapShot_Click(object sender, EventArgs e)
         {
 
         }
+
 
     }
 }
