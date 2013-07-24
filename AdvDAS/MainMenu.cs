@@ -436,6 +436,28 @@ namespace CRS
 
         }
 
+        private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            colorDialog.AllowFullOpen = false;
+            // Allows the user to get help. (The default is false.)
+            colorDialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            colorDialog.Color = textBox1.ForeColor;
+
+            // Update the text box color if the user clicks OK  
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+                textBox1.ForeColor = colorDialog.Color;
+
+        }
+
+        private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }
