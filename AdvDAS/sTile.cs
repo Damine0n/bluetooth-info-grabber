@@ -33,11 +33,11 @@ namespace CRS
         }
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainMenu mainMenu = (MainMenu)this.Owner;
+            //MainMenu mainMenu = (MainMenu)this.Owner;
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    lbl.Text = "O2";
+                    this.lbl.Text = "O2";
                     break;
                 case 2:
                     lbl.Text = "CO";

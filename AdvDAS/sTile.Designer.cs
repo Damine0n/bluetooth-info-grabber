@@ -82,7 +82,6 @@
             this.elementComboBox.Name = "elementComboBox";
             this.elementComboBox.Size = new System.Drawing.Size(208, 21);
             this.elementComboBox.TabIndex = 1;
-            this.elementComboBox.SelectedIndexChanged += new System.EventHandler(this.elementComboBox_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 

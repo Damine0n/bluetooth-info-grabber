@@ -23,6 +23,8 @@ namespace CRS
         private int count = 0;
         public static PrintDoc pDoc = new PrintDoc();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
+        public Color textColor = Color.Black;
+        public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
         private ToolTip tp = new ToolTip();
         private Trend viewTrend = new Trend(pDoc);
@@ -33,19 +35,22 @@ namespace CRS
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
         public List<Label> lblList = new List<Label>();
-        DateTime testTime = new DateTime();
-        Thread t;
+        public static DateTime testTime;
         private DateTime running = new DateTime();
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
+        public static int dgInterval;
         public MainMenu()
         {
             InitializeComponent();
+            this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
             createScaleDisplays();
             filltable();
             timer2.Start();
+            dgInterval = 1000;
+            dataGridTimer.Start();
             int a = textBox1.Size.Height;
             float c = textBox1.Font.Height;
             a = a - this.textBox1.Lines.Length * (int)c;
@@ -81,36 +86,50 @@ namespace CRS
         }
         void createScaleDisplays()
         {
-            lblList.Add(this.label1);
-            lblList.Add(this.label2);
-            lblList.Add(this.label3);
-            lblList.Add(this.label4);
-            lblList.Add(this.label5);
-            lblList.Add(this.label6);
-            lblList.Add(this.label7);
-            lblList.Add(this.label8);
-            lblList.Add(this.label9);
-            lblList.Add(this.label10);
+            lblList.Add(this.tileLabel1);
+            lblList.Add(this.tileLabel2);
+            lblList.Add(this.tileLabel3);
+            lblList.Add(this.tileLabel4);
+            lblList.Add(this.tileLabel5);
+            lblList.Add(this.tileLabel6);
+            lblList.Add(this.tileLabel7);
+            lblList.Add(this.tileLabel8);
+            lblList.Add(this.tileLabel9);
+            lblList.Add(this.tileLabel10);
             for (int i = 0; i < 10; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(lblList[i]));
             }
         }
-        private void startDataBase()
+
+        private void startRecordingItem_Click(object sender, EventArgs e)
         {
-
-            sqlite_conn.Open();
-
-            // create a new SQL command:
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "CREATE TABLE Customers (CustomerNumber integer primary key, Company VARCHAR(255), Contact VARCHAR(255), Phone integer, Street VARCHAR(255), Zip integer, City VARCHAR(255), Fax integer, CellPhone integer, Email VARCHAR(255)), Notes VARCHAR(2000));";
-
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
+            this.timer1.Start();
+            this.startRecordingItem.Enabled = false;
+            this.pauseRecordingItem.Enabled = true;
+            this.stopRecordingItem.Enabled = true;
         }
-        private void btnSnapShot_Click(object sender, EventArgs e)
+
+        private void pauseRecordingItem_Click(object sender, EventArgs e)
+        {
+            this.timer1.Stop();
+            this.startRecordingItem.Enabled = true;
+            this.pauseRecordingItem.Enabled = false;
+            this.stopRecordingItem.Enabled = true;
+        }
+
+        private void stopRecordingItem_Click(object sender, EventArgs e)
+        {
+            recordingProgressBar.Value = 0;
+            running = new DateTime();
+            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
+            this.timer1.Stop();
+            this.startRecordingItem.Enabled = true;
+            this.pauseRecordingItem.Enabled = false;
+            this.stopRecordingItem.Enabled = false;
+        }
+
+        private void snapShot_Click(object sender, EventArgs e)
         {
             screenShotBox.Image = ScreenShot();
             screenShotBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -152,122 +171,17 @@ namespace CRS
 
             return screenShotBMP;
         }
-        private void hidePanelMenuItem_Click(object sender, EventArgs e)
-        {
-            // Try to cast the sender to a ToolStripItem
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
-            {
-                // Retrieve the ContextMenuStrip that owns this ToolStripItem
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    // Get the control that is displaying this context menu
-                    Control sourceControl = owner.SourceControl;
-                    sourceControl.Hide();
-                }
-            }
-        }
-
-        private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Try to cast the sender to a ToolStripItem
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
-            {
-                // Retrieve the ContextMenuStrip that owns this ToolStripItem
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    // Get the control that is displaying this context menu
-                    Control sourceControl = owner.SourceControl;
-                    switch (sourceControl.Name)
-                    {
-                        case "sTile0":
-                            scaleDisplays[0].elementComboBox.SelectedIndex = 1;
-                            scaleDisplays[0].source = sourceControl;
-                            scaleDisplays[0].ShowDialog(this);
-                            break;
-                        case "sTile1":
-                            scaleDisplays[1].elementComboBox.SelectedIndex = 2;
-                            scaleDisplays[1].source = sourceControl;
-                            scaleDisplays[1].ShowDialog(this);
-                            break;
-                        case "sTile2":
-                            scaleDisplays[2].elementComboBox.SelectedIndex = 3;
-                            scaleDisplays[2].source = sourceControl;
-                            scaleDisplays[2].ShowDialog(this);
-                            break;
-                        case "sTile3":
-                            scaleDisplays[3].elementComboBox.SelectedIndex = 4;
-                            scaleDisplays[3].source = sourceControl;
-                            scaleDisplays[3].ShowDialog(this);
-                            break;
-                        case "sTile4":
-                            scaleDisplays[4].elementComboBox.SelectedIndex = 5;
-                            scaleDisplays[4].source = sourceControl;
-                            scaleDisplays[4].ShowDialog(this);
-                            break;
-                        case "sTile5":
-                            scaleDisplays[5].elementComboBox.SelectedIndex = 6;
-                            scaleDisplays[5].source = sourceControl;
-                            scaleDisplays[5].ShowDialog(this);
-                            break;
-                        case "sTile6":
-                            scaleDisplays[6].elementComboBox.SelectedIndex = 7;
-                            scaleDisplays[6].source = sourceControl;
-                            scaleDisplays[6].ShowDialog(this);
-                            break;
-                        case "sTile7":
-                            scaleDisplays[7].elementComboBox.SelectedIndex = 8;
-                            scaleDisplays[7].source = sourceControl;
-                            scaleDisplays[7].ShowDialog(this);
-                            break;
-                        case "sTile8":
-                            scaleDisplays[8].elementComboBox.SelectedIndex = 9;
-                            scaleDisplays[8].source = sourceControl;
-                            scaleDisplays[8].ShowDialog(this);
-                            break;
-                        case "sTile9":
-                            scaleDisplays[9].elementComboBox.SelectedIndex = 10;
-                            scaleDisplays[9].source = sourceControl;
-                            scaleDisplays[9].ShowDialog(this);
-                            break;
-                    }
-                }
-            }
-        }
-        private void graphToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            viewTrend.ShowDialog();
-        }
-        private void resetAllAveragesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            doAverage(-1);
-        }
-        private double doAverage(double p)
-        {
-            if (p == -1)
-                num.Clear();
-            else
-                num.Add(p);
-            return num.Average();
-            throw new NotImplementedException();
-        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.recordingProgressBar.Increment(1);
 
             running = running.AddSeconds(1);
-
-            this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
             this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
             if (this.recordingProgressBar.Value == this.recordingProgressBar.Maximum)
             {
                 this.recordingProgressBar.Value = 0;
             }
-                
-
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -312,8 +226,28 @@ namespace CRS
             eSite.ShowDialog();
         }
 
-        private void isSoSelected(object sender, EventArgs e)
+        private void graphToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            viewTrend.ShowDialog();
+        }
+        private void resetAllAveragesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            doAverage(-1);
+        }
+        private double doAverage(double p)
+        {
+            if (p == -1)
+                num.Clear();
+            else
+                num.Add(p);
+            return num.Average();
+            throw new NotImplementedException();
+        }
+        /////////////////////////////////////////////////////////////////TAB-NUMBER-1/////////////////////////////////////////////////////////
+
+        private void hidePanelMenuItem_Click(object sender, EventArgs e)
+        {
+            // Try to cast the sender to a ToolStripItem
             ToolStripItem menuItem = sender as ToolStripItem;
             if (menuItem != null)
             {
@@ -323,40 +257,81 @@ namespace CRS
                 {
                     // Get the control that is displaying this context menu
                     Control sourceControl = owner.SourceControl;
-                    MessageBox.Show(sourceControl.Name);
-                    sourceControl.Enabled = false;
+                    sourceControl.Hide();
                 }
             }
-
-
         }
 
-        private void startRecordingItem_Click(object sender, EventArgs e)
+        private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.timer1.Start();
-            this.startRecordingItem.Enabled = false;
-            this.pauseRecordingItem.Enabled = true;
-            this.stopRecordingItem.Enabled = true;
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    switch (sourceControl.Name)
+                    {
+                        case "sTile0":
+                            scaleDisplays[0].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[0].source = sourceControl;
+                            scaleDisplays[0].ShowDialog(this);
+                            break;
+                        case "sTile1":
+                            scaleDisplays[1].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[1].source = sourceControl;
+                            scaleDisplays[1].ShowDialog(this);
+                            break;
+                        case "sTile2":
+                            scaleDisplays[2].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[2].source = sourceControl;
+                            scaleDisplays[2].ShowDialog(this);
+                            break;
+                        case "sTile3":
+                            scaleDisplays[3].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[3].source = sourceControl;
+                            scaleDisplays[3].ShowDialog(this);
+                            break;
+                        case "sTile4":
+                            scaleDisplays[4].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[4].source = sourceControl;
+                            scaleDisplays[4].ShowDialog(this);
+                            break;
+                        case "sTile5":
+                            scaleDisplays[5].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[5].source = sourceControl;
+                            scaleDisplays[5].ShowDialog(this);
+                            break;
+                        case "sTile6":
+                            scaleDisplays[6].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[6].source = sourceControl;
+                            scaleDisplays[6].ShowDialog(this);
+                            break;
+                        case "sTile7":
+                            scaleDisplays[7].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[7].source = sourceControl;
+                            scaleDisplays[7].ShowDialog(this);
+                            break;
+                        case "sTile8":
+                            scaleDisplays[8].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[8].source = sourceControl;
+                            scaleDisplays[8].ShowDialog(this);
+                            break;
+                        case "sTile9":
+                            scaleDisplays[9].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[9].source = sourceControl;
+                            scaleDisplays[9].ShowDialog(this);
+                            break;
+                    }
+                }
+            }
         }
         
-        private void pauseRecordingItem_Click(object sender, EventArgs e)
-        {
-            this.timer1.Stop();
-            this.startRecordingItem.Enabled = true;
-            this.pauseRecordingItem.Enabled = false;
-            this.stopRecordingItem.Enabled = true;
-        }
-
-        private void stopRecordingItem_Click(object sender, EventArgs e)
-        {            
-            recordingProgressBar.Value = 0;
-            running = new DateTime();
-            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
-            this.timer1.Stop();
-            this.startRecordingItem.Enabled = true;
-            this.pauseRecordingItem.Enabled = false;
-            this.stopRecordingItem.Enabled = false;
-        }
+        
 
         /////////////////////////////////////////////////////////////////TAB-NUMBER-2/////////////////////////////////////////////////////////
         void filltable()
@@ -393,27 +368,22 @@ namespace CRS
                 elementTable.EndEdit();  //Stop editing of cell.
                 if ((bool)elementTable.Rows[e.RowIndex].Cells[3].Value)//only activates on check
                 {
-                    //DialogResult dialogResult = MessageBox.Show("If you select yes your chart's data will restart.", "Are you sure? ", MessageBoxButtons.YesNo);
-                    //if (dialogResult == DialogResult.Yes)
-                    //{
-                    //    foreach (var series in trendGraph.Series)
-                    //    {
-                    //        series.Points.Clear();
-                    //    }
+                    DialogResult dialogResult = MessageBox.Show("If you select yes your chart's data will restart.", "Are you sure? ", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        foreach (var series in trendGraph.Series)
+                        {
+                            series.Points.Clear();
+                        }
                         trendGraph.Series[e.RowIndex].Enabled = true;
-                    //    t = new Thread(ThreadProc);
-                    //    t.Start(e.RowIndex.ToString());
-                    //    //Thread.Sleep(50);
-                    //    while (t.IsAlive)
-                    //    {
-                    //        trendGraph.Series[e.RowIndex].Points.AddY(Double.Parse(elementTable.Rows[e.RowIndex].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
-                    //    }
-                    //    MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
-                    //}
-                    //else if (dialogResult == DialogResult.No)
-                    //{
-                    //    //do nothing
-                    //}
+
+                        
+                        MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do nothing
+                    }
                 }
                 else
                 {
@@ -421,41 +391,46 @@ namespace CRS
                 }
             }
         }
-        private void ThreadProc(object obj)
+
+        private void dataGridTimer_Tick(object sender, EventArgs e)
         {
             Random ran = new Random();
-            for (int i = 0; i < 100; i++)
+            int i = 0;
+            foreach (var row in elementTable.Rows)
             {
-                //Thread.Sleep(100);
-                elementTable.Rows[int.Parse(obj.ToString())].Cells[1].Value = ran.Next(0, 100);
+                this.dataGridTimer.Interval = dgInterval;
+                elementTable.Rows[i].Cells[1].Value = double.Parse(ran.Next(0, 100).ToString());
+                trendGraph.Series[i].Points.AddY(Double.Parse(elementTable.Rows[i].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+                i++;
             }
         }
-
-        private void snapShot_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
-            // Allows the user to get help. (The default is false.)
-            colorDialog.ShowHelp = true;
             // Sets the initial color select to the current text color.
             colorDialog.Color = textBox1.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
-                textBox1.ForeColor = colorDialog.Color;
+                textColor = colorDialog.Color;
 
         }
 
         private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ColorDialog colorDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            colorDialog.AllowFullOpen = false;
+            // Sets the initial color select to the current text color.
+            colorDialog.Color = textBox1.ForeColor;
 
+            // Update the text box color if the user clicks OK  
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+                backgroundColor = colorDialog.Color;
         }
+
 
 
 

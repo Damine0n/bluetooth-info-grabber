@@ -28,7 +28,6 @@ namespace CRS
         public SetUpProcedure()
         {
             InitializeComponent();
-            DateTime now = DateTime.Now;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -97,6 +96,7 @@ namespace CRS
             rampUp = this.dateTimePicker1.Value;
             testData = this.dateTimePicker2.Value;
             purge = this.dateTimePicker3.Value;
+            MainMenu.testTime=Convert.ToDateTime(label4.Text);
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -109,20 +109,25 @@ namespace CRS
 
             if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(true)) 
             {
-                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(false))
             {
-                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(false) && checkBox4.Checked.Equals(true))
             {
-                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
             }
             else
             {
-                label4.Text += totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
             }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            MainMenu.dgInterval = Convert.ToInt32(numericUpDown2.Value)*1000;
         }
     }
 }
