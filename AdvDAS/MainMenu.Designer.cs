@@ -346,6 +346,7 @@ namespace CRS
             this.panel12 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridTimer = new System.Windows.Forms.Timer(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
@@ -892,7 +893,7 @@ namespace CRS
             // snapShot
             // 
             this.snapShot.BackColor = System.Drawing.Color.Transparent;
-            this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Camera_Android_shutter;
+            this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Ahmadhania_Spherical_Camera;
             this.snapShot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.snapShot.Location = new System.Drawing.Point(167, 3);
             this.snapShot.Name = "snapShot";
@@ -1073,6 +1074,7 @@ namespace CRS
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 50);
             this.tabControl1.Name = "tabControl1";
@@ -2408,7 +2410,7 @@ namespace CRS
             this.trendGraph.Legends.Add(legend1);
             this.trendGraph.Location = new System.Drawing.Point(281, 3);
             this.trendGraph.Name = "trendGraph";
-            this.trendGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            this.trendGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series1.Legend = "Legend1";
@@ -3604,6 +3606,16 @@ namespace CRS
             this.dataGridTimer.Interval = 1000;
             this.dataGridTimer.Tick += new System.EventHandler(this.dataGridTimer_Tick);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(906, 457);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3976,6 +3988,7 @@ namespace CRS
         private Label label7;
         private Label label35;
         private Label label34;
+        private TabPage tabPage4;
 
 
     }
