@@ -13,31 +13,28 @@ namespace CRS
 {
     public partial class ScaleDisplay : Form
     {
-        private Label lbl;
         public Control source;
-
+        private Label lbl;
+        private Form mainForm = null;
+        private int index;
         public ScaleDisplay(Label lbl)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.lbl = lbl;
         }
+        public int Index
+        {
+            get { return index; }
+            set { index = value; }
+        }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-        }
-        private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //MainMenu mainMenu = (MainMenu)this.Owner;
             switch (elementComboBox.SelectedIndex)
             {
                 case 1:
-                    this.lbl.Text = "O2";
+                    lbl.Text = "O2";
+                    mainForm.Refresh();
                     break;
                 case 2:
                     lbl.Text = "CO";
@@ -89,8 +86,15 @@ namespace CRS
                     this.Close();
                     break;
             }
+            this.DialogResult = DialogResult.OK;
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            elementComboBox.SelectedIndex = index;
+            this.DialogResult = DialogResult.Cancel;
+        }
+        
         private void ScaleDisplay_HelpButtonClicked(object sender, CancelEventArgs e)
         {
 

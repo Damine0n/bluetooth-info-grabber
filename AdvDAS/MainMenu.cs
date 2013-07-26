@@ -34,7 +34,7 @@ namespace CRS
         private PersonalData personalData = new PersonalData();
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
-        public List<Label> lblList = new List<Label>();
+        public static List<Label> lblList = new List<Label>();
         public static DateTime testTime;
         private DateTime running = new DateTime();
         List<Facts> elements = new List<Facts>();
@@ -51,14 +51,7 @@ namespace CRS
             timer2.Start();
             dgInterval = 1000;
             dataGridTimer.Start();
-            int a = textBox1.Size.Height;
-            float c = textBox1.Font.Height;
-            a = a - this.textBox1.Lines.Length * (int)c;
-            for (int i = 0; i < (int)(a / c) / 2; i++)
-            {
-                textBox1.Text += "\r\n";
-            }
-            textBox1.Text += "hai";
+            
             //startDataBase();
         }
 
@@ -99,6 +92,7 @@ namespace CRS
             for (int i = 0; i < 10; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(lblList[i]));
+                scaleDisplays[i].elementComboBox.SelectedIndex = i + 1;
             }
         }
 
@@ -277,52 +271,52 @@ namespace CRS
                     switch (sourceControl.Name)
                     {
                         case "sTile0":
-                            scaleDisplays[0].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[0].Index = scaleDisplays[0].elementComboBox.SelectedIndex;
                             scaleDisplays[0].source = sourceControl;
                             scaleDisplays[0].ShowDialog(this);
                             break;
                         case "sTile1":
-                            scaleDisplays[1].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[1].Index = scaleDisplays[1].elementComboBox.SelectedIndex;
                             scaleDisplays[1].source = sourceControl;
                             scaleDisplays[1].ShowDialog(this);
                             break;
                         case "sTile2":
-                            scaleDisplays[2].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[2].Index = scaleDisplays[2].elementComboBox.SelectedIndex;
                             scaleDisplays[2].source = sourceControl;
                             scaleDisplays[2].ShowDialog(this);
                             break;
                         case "sTile3":
-                            scaleDisplays[3].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[3].Index = scaleDisplays[3].elementComboBox.SelectedIndex;
                             scaleDisplays[3].source = sourceControl;
                             scaleDisplays[3].ShowDialog(this);
                             break;
                         case "sTile4":
-                            scaleDisplays[4].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[4].Index = scaleDisplays[4].elementComboBox.SelectedIndex;
                             scaleDisplays[4].source = sourceControl;
                             scaleDisplays[4].ShowDialog(this);
                             break;
                         case "sTile5":
-                            scaleDisplays[5].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[5].Index = scaleDisplays[5].elementComboBox.SelectedIndex;
                             scaleDisplays[5].source = sourceControl;
                             scaleDisplays[5].ShowDialog(this);
                             break;
                         case "sTile6":
-                            scaleDisplays[6].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[6].Index = scaleDisplays[6].elementComboBox.SelectedIndex;
                             scaleDisplays[6].source = sourceControl;
                             scaleDisplays[6].ShowDialog(this);
                             break;
                         case "sTile7":
-                            scaleDisplays[7].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[7].Index = scaleDisplays[7].elementComboBox.SelectedIndex;
                             scaleDisplays[7].source = sourceControl;
                             scaleDisplays[7].ShowDialog(this);
                             break;
                         case "sTile8":
-                            scaleDisplays[8].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[8].Index = scaleDisplays[8].elementComboBox.SelectedIndex;
                             scaleDisplays[8].source = sourceControl;
                             scaleDisplays[8].ShowDialog(this);
                             break;
                         case "sTile9":
-                            scaleDisplays[9].elementComboBox.SelectedIndex = Convert.ToInt32(sourceControl.Name.Remove(0,5))+1;
+                            scaleDisplays[9].Index = scaleDisplays[9].elementComboBox.SelectedIndex;
                             scaleDisplays[9].source = sourceControl;
                             scaleDisplays[9].ShowDialog(this);
                             break;
@@ -375,10 +369,7 @@ namespace CRS
                         {
                             series.Points.Clear();
                         }
-                        trendGraph.Series[e.RowIndex].Enabled = true;
-
-                        
-                        MessageBox.Show("Value = " + elementTable.Rows[e.RowIndex].Cells[1].Value.ToString());  //Displaying value of that cell which is either true or false in this case.
+                        trendGraph.Series[e.RowIndex].Enabled = true;                        
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -397,7 +388,7 @@ namespace CRS
             Random ran = new Random();
             int i = 0;
             foreach (var row in elementTable.Rows)
-            {
+            { 
                 this.dataGridTimer.Interval = dgInterval;
                 elementTable.Rows[i].Cells[1].Value = double.Parse(ran.Next(0, 100).ToString());
                 trendGraph.Series[i].Points.AddY(Double.Parse(elementTable.Rows[i].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
@@ -410,7 +401,7 @@ namespace CRS
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
             // Sets the initial color select to the current text color.
-            colorDialog.Color = textBox1.ForeColor;
+            colorDialog.Color = label1.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -424,15 +415,12 @@ namespace CRS
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
             // Sets the initial color select to the current text color.
-            colorDialog.Color = textBox1.ForeColor;
+            colorDialog.Color = label2.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
                 backgroundColor = colorDialog.Color;
         }
-
-
-
 
     }
 }
