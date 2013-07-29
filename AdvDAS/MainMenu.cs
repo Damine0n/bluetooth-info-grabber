@@ -22,14 +22,14 @@ namespace CRS
     {
         private int count = 0;
         public static PrintDoc pDoc = new PrintDoc();
-        public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
+        public static List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         public Color textColor = Color.Black;
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
         private ToolTip tp = new ToolTip();
         private Trend viewTrend = new Trend(pDoc);
         private SetUpReport configReport = new SetUpReport(pDoc);
-        private SetUpProcedure configProcedure = new SetUpProcedure();
+        private SetUpProcedure configProcedure;
         private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
         private Customer customer = new Customer();
@@ -198,11 +198,14 @@ namespace CRS
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configReport.ShowDialog();
+            
         }
 
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            configProcedure = new SetUpProcedure(testTime);
             configProcedure.ShowDialog();
+            
         }
 
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -421,5 +424,6 @@ namespace CRS
             if (colorDialog.ShowDialog() == DialogResult.OK)
                 backgroundColor = colorDialog.Color;
         }
+
     }
 }

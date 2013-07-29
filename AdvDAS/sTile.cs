@@ -15,7 +15,6 @@ namespace CRS
     {
         public Control source;
         private Label lbl;
-        private Form mainForm = null;
         private int index;
         public ScaleDisplay(Label lbl)
         {
@@ -30,61 +29,7 @@ namespace CRS
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            switch (elementComboBox.SelectedIndex)
-            {
-                case 1:
-                    lbl.Text = "O2";
-                    break;
-                case 2:
-                    lbl.Text = "CO";
-                    break;
-                case 3:
-                    lbl.Text = "CO2";
-                    break;
-                case 4:
-                    lbl.Text = "NO";
-                    break;
-                case 5:
-                    lbl.Text = "NO2";
-                    break;
-                case 6:
-                    lbl.Text = "NOx";
-                    break;
-                case 7:
-                    lbl.Text = "SO2";
-                    break;
-                case 8:
-                    lbl.Text = "CxHy";
-                    break;
-                case 9:
-                    lbl.Text = "T(gas)";
-                    break;
-                case 10:
-                    lbl.Text = "T(amb)";
-                    break;
-                case 11:
-                    lbl.Text = "Temp 1 ?";
-                    break;
-                case 12:
-                    lbl.Text = "Temp 2 ?";
-                    break;
-                case 13:
-                    lbl.Text = "T(cell)";
-                    break;
-                case 14:
-                    lbl.Text = "Efficiency";
-                    break;
-                case 15:
-                    lbl.Text = "Flow";
-                    break;
-                case 16:
-                    lbl.Text = "NH3";
-                    break;
-                default:
-                    source.Hide();
-                    this.Close();
-                    break;
-            }
+            lbl.Text = elementComboBox.Text;
             this.DialogResult = DialogResult.OK;
         }
 

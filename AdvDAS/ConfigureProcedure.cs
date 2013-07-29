@@ -24,10 +24,12 @@ namespace CRS
         public DateTime testData;
         public DateTime purge;
         public DateTime totalCycle;
+        private DateTime test;
         public int sampleRate;
-        public SetUpProcedure()
+        public SetUpProcedure(DateTime test)
         {
             InitializeComponent();
+            this.test = test;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -96,7 +98,8 @@ namespace CRS
             rampUp = this.dateTimePicker1.Value;
             testData = this.dateTimePicker2.Value;
             purge = this.dateTimePicker3.Value;
-            MainMenu.testTime=Convert.ToDateTime(label4.Text);
+            test=Convert.ToDateTime(label4.Text);
+            
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -128,6 +131,7 @@ namespace CRS
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             MainMenu.dgInterval = Convert.ToInt32(numericUpDown2.Value)*1000;
+            
         }
     }
 }

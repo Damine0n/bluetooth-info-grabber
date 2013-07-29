@@ -276,6 +276,15 @@ namespace CRS
             }
         }
 
+        private void checkBoxes_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox src = sender as CheckBox;
+            if (src.Checked==true)
+            {
+                MessageBox.Show("Select " + src.Text + " - Corrected in the tile dropdown menu to view.");
+            }
+        }
+
 
     }
 }
