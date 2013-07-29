@@ -34,7 +34,6 @@ namespace CRS
             {
                 case 1:
                     lbl.Text = "O2";
-                    mainForm.Refresh();
                     break;
                 case 2:
                     lbl.Text = "CO";
