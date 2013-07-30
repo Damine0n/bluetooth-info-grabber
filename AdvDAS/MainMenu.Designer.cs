@@ -86,14 +86,16 @@ namespace CRS
             System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint26 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 22D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint27 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 100D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint28 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 80D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint29 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 12D);
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint30 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint31 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint32 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 34D);
@@ -102,8 +104,6 @@ namespace CRS
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint35 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint36 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint37 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -116,6 +116,8 @@ namespace CRS
             System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,6 +126,7 @@ namespace CRS
             this.saveReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tileBackGroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backGroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupEquipmentSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,17 +175,18 @@ namespace CRS
             this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
             this.snapShot = new System.Windows.Forms.Button();
             this.stopRecordingItem = new System.Windows.Forms.Button();
             this.pauseRecordingItem = new System.Windows.Forms.Button();
             this.startRecordingItem = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.bTile1 = new System.Windows.Forms.TableLayoutPanel();
+            this.hTile0 = new System.Windows.Forms.TableLayoutPanel();
             this.tileLabel11 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -241,15 +245,16 @@ namespace CRS
             this.label34 = new System.Windows.Forms.Label();
             this.tileLabel6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.signalStrength1 = new WindowWidgets.SignalStrength();
-            this.bTile2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileLabel12 = new System.Windows.Forms.Label();
+            this.hTile1 = new System.Windows.Forms.TableLayoutPanel();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
+            this.tileLabel12 = new System.Windows.Forms.Label();
             this.sTile0 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -268,50 +273,53 @@ namespace CRS
             this.dgGraph = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label33 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox27 = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox29 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.label54 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox39 = new System.Windows.Forms.TextBox();
             this.label59 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label60 = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label52 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -322,7 +330,7 @@ namespace CRS
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.bTile1.SuspendLayout();
+            this.hTile0.SuspendLayout();
             this.sTile2.SuspendLayout();
             this.sTile9.SuspendLayout();
             this.sTile8.SuspendLayout();
@@ -333,7 +341,7 @@ namespace CRS
             this.sTile3.SuspendLayout();
             this.sTile5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.bTile2.SuspendLayout();
+            this.hTile1.SuspendLayout();
             this.sTile0.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -342,6 +350,12 @@ namespace CRS
             ((System.ComponentModel.ISupportInitialize)(this.elementTable)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel14.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -352,15 +366,9 @@ namespace CRS
             this.panel19.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.panel20.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
-            this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel13.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel12.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -415,6 +423,7 @@ namespace CRS
             // 
             this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.textColorToolStripMenuItem,
+            this.tileBackGroundColorToolStripMenuItem,
             this.backGroundColorToolStripMenuItem,
             this.resetColorToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
@@ -427,6 +436,13 @@ namespace CRS
             this.textColorToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.textColorToolStripMenuItem.Text = "Text Color";
             this.textColorToolStripMenuItem.Click += new System.EventHandler(this.textColorToolStripMenuItem_Click);
+            // 
+            // tileBackGroundColorToolStripMenuItem
+            // 
+            this.tileBackGroundColorToolStripMenuItem.Name = "tileBackGroundColorToolStripMenuItem";
+            this.tileBackGroundColorToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.tileBackGroundColorToolStripMenuItem.Text = "Tile Color";
+            this.tileBackGroundColorToolStripMenuItem.Click += new System.EventHandler(this.tileBackGroundColorToolStripMenuItem_Click);
             // 
             // backGroundColorToolStripMenuItem
             // 
@@ -765,9 +781,9 @@ namespace CRS
             this.checkBox10.AutoSize = true;
             this.checkBox10.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox10.Location = new System.Drawing.Point(145, 0);
+            this.checkBox10.Location = new System.Drawing.Point(120, 0);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(15, 47);
+            this.checkBox10.Size = new System.Drawing.Size(15, 31);
             this.checkBox10.TabIndex = 9;
             this.toolTip1.SetToolTip(this.checkBox10, "Click to disable in report");
             this.checkBox10.UseVisualStyleBackColor = true;
@@ -777,9 +793,9 @@ namespace CRS
             this.checkBox13.AutoSize = true;
             this.checkBox13.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox13.Location = new System.Drawing.Point(145, 0);
+            this.checkBox13.Location = new System.Drawing.Point(120, 0);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(15, 53);
+            this.checkBox13.Size = new System.Drawing.Size(15, 33);
             this.checkBox13.TabIndex = 5;
             this.toolTip1.SetToolTip(this.checkBox13, "Click to disable in report");
             this.checkBox13.UseVisualStyleBackColor = true;
@@ -789,9 +805,9 @@ namespace CRS
             this.checkBox14.AutoSize = true;
             this.checkBox14.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox14.Location = new System.Drawing.Point(145, 0);
+            this.checkBox14.Location = new System.Drawing.Point(120, 0);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(15, 53);
+            this.checkBox14.Size = new System.Drawing.Size(15, 33);
             this.checkBox14.TabIndex = 4;
             this.toolTip1.SetToolTip(this.checkBox14, "Click to disable in report");
             this.checkBox14.UseVisualStyleBackColor = true;
@@ -801,9 +817,9 @@ namespace CRS
             this.checkBox15.AutoSize = true;
             this.checkBox15.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox15.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox15.Location = new System.Drawing.Point(145, 0);
+            this.checkBox15.Location = new System.Drawing.Point(120, 0);
             this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(15, 52);
+            this.checkBox15.Size = new System.Drawing.Size(15, 31);
             this.checkBox15.TabIndex = 10;
             this.toolTip1.SetToolTip(this.checkBox15, "Click to disable in report");
             this.checkBox15.UseVisualStyleBackColor = true;
@@ -813,45 +829,21 @@ namespace CRS
             this.checkBox16.AutoSize = true;
             this.checkBox16.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox16.Location = new System.Drawing.Point(145, 0);
+            this.checkBox16.Location = new System.Drawing.Point(120, 0);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(15, 31);
             this.checkBox16.TabIndex = 1;
             this.toolTip1.SetToolTip(this.checkBox16, "Click to disable in report");
             this.checkBox16.UseVisualStyleBackColor = true;
             // 
-            // checkBox17
-            // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox17.Location = new System.Drawing.Point(145, 0);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(15, 52);
-            this.checkBox17.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.checkBox17, "Click to disable in report");
-            this.checkBox17.UseVisualStyleBackColor = true;
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox18.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox18.Location = new System.Drawing.Point(145, 0);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(15, 52);
-            this.checkBox18.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.checkBox18, "Click to disable in report");
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
             // checkBox19
             // 
             this.checkBox19.AutoSize = true;
             this.checkBox19.CheckAlign = System.Drawing.ContentAlignment.TopRight;
             this.checkBox19.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox19.Location = new System.Drawing.Point(145, 0);
+            this.checkBox19.Location = new System.Drawing.Point(120, 0);
             this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(15, 53);
+            this.checkBox19.Size = new System.Drawing.Size(15, 31);
             this.checkBox19.TabIndex = 6;
             this.toolTip1.SetToolTip(this.checkBox19, "Click to disable in report");
             this.checkBox19.UseVisualStyleBackColor = true;
@@ -914,6 +906,42 @@ namespace CRS
             this.startRecordingItem.UseVisualStyleBackColor = true;
             this.startRecordingItem.Click += new System.EventHandler(this.startRecordingItem_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox1.Location = new System.Drawing.Point(120, 0);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 31);
+            this.checkBox1.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.checkBox1, "Click to disable in report");
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox2.Location = new System.Drawing.Point(120, 0);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 31);
+            this.checkBox2.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.checkBox2, "Click to disable in report");
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox3.Location = new System.Drawing.Point(120, 0);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 31);
+            this.checkBox3.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.checkBox3, "Click to disable in report");
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -926,6 +954,7 @@ namespace CRS
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(914, 483);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -947,7 +976,7 @@ namespace CRS
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.bTile1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.hTile0, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.sTile2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.sTile9, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.sTile8, 3, 1);
@@ -958,7 +987,7 @@ namespace CRS
             this.tableLayoutPanel1.Controls.Add(this.sTile3, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.sTile5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.bTile2, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.hTile1, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.sTile0, 0, 0);
             this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -972,36 +1001,37 @@ namespace CRS
             this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 451);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // bTile1
+            // hTile0
             // 
-            this.bTile1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bTile1.ColumnCount = 4;
-            this.tableLayoutPanel1.SetColumnSpan(this.bTile1, 2);
-            this.bTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
-            this.bTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.bTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.bTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
-            this.bTile1.Controls.Add(this.tileLabel11, 1, 0);
-            this.bTile1.Controls.Add(this.label36, 0, 1);
-            this.bTile1.Controls.Add(this.label37, 3, 1);
-            this.bTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bTile1.Location = new System.Drawing.Point(3, 335);
-            this.bTile1.Name = "bTile1";
-            this.bTile1.RowCount = 2;
-            this.bTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bTile1.Size = new System.Drawing.Size(354, 113);
-            this.bTile1.TabIndex = 24;
+            this.hTile0.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.hTile0.ColumnCount = 4;
+            this.tableLayoutPanel1.SetColumnSpan(this.hTile0, 2);
+            this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.hTile0.ContextMenuStrip = this.tilePopUpMenu;
+            this.hTile0.Controls.Add(this.tileLabel11, 0, 0);
+            this.hTile0.Controls.Add(this.label36, 0, 1);
+            this.hTile0.Controls.Add(this.label37, 3, 1);
+            this.hTile0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hTile0.Location = new System.Drawing.Point(3, 335);
+            this.hTile0.Name = "hTile0";
+            this.hTile0.RowCount = 2;
+            this.hTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.hTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.hTile0.Size = new System.Drawing.Size(354, 113);
+            this.hTile0.TabIndex = 24;
             // 
             // tileLabel11
             // 
             this.tileLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tileLabel11.AutoSize = true;
-            this.bTile1.SetColumnSpan(this.tileLabel11, 2);
+            this.hTile0.SetColumnSpan(this.tileLabel11, 4);
             this.tileLabel11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileLabel11.Location = new System.Drawing.Point(102, 0);
+            this.tileLabel11.Location = new System.Drawing.Point(3, 0);
             this.tileLabel11.Name = "tileLabel11";
-            this.tileLabel11.Size = new System.Drawing.Size(148, 31);
+            this.tileLabel11.Size = new System.Drawing.Size(348, 31);
             this.tileLabel11.TabIndex = 0;
             this.tileLabel11.Text = "COx(mass)";
             this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1052,9 +1082,9 @@ namespace CRS
             this.sTile2.Name = "sTile2";
             this.sTile2.RowCount = 5;
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.88801F));
-            this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.32F));
-            this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.792F));
+            this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.42237F));
+            this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.57763F));
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile2.Size = new System.Drawing.Size(160, 145);
             this.sTile2.TabIndex = 4;
@@ -1062,11 +1092,10 @@ namespace CRS
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(3, 119);
+            this.button5.Location = new System.Drawing.Point(3, 120);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(154, 23);
+            this.button5.Size = new System.Drawing.Size(154, 21);
             this.button5.TabIndex = 14;
             this.button5.Text = "AVERAGE";
             this.button5.UseVisualStyleBackColor = false;
@@ -1077,9 +1106,9 @@ namespace CRS
             this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 85);
+            this.label6.Location = new System.Drawing.Point(3, 83);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 31);
+            this.label6.Size = new System.Drawing.Size(154, 34);
             this.label6.TabIndex = 12;
             this.label6.Text = "0.0";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1090,9 +1119,9 @@ namespace CRS
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 63);
+            this.label23.Location = new System.Drawing.Point(3, 68);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(154, 22);
+            this.label23.Size = new System.Drawing.Size(154, 15);
             this.label23.TabIndex = 10;
             this.label23.Text = "CURRENT";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1105,7 +1134,7 @@ namespace CRS
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 31);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 32);
+            this.label5.Size = new System.Drawing.Size(154, 37);
             this.label5.TabIndex = 11;
             this.label5.Text = "0.0";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1141,10 +1170,10 @@ namespace CRS
             this.sTile9.Name = "sTile9";
             this.sTile9.RowCount = 5;
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.64194F));
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.28706F));
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.9381F));
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.13289F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.1174F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.7641F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.11849F));
             this.sTile9.Size = new System.Drawing.Size(160, 147);
             this.sTile9.TabIndex = 19;
             // 
@@ -1153,9 +1182,9 @@ namespace CRS
             this.button12.BackColor = System.Drawing.Color.Transparent;
             this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button12.Location = new System.Drawing.Point(3, 123);
+            this.button12.Location = new System.Drawing.Point(3, 121);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(154, 21);
+            this.button12.Size = new System.Drawing.Size(154, 23);
             this.button12.TabIndex = 21;
             this.button12.Text = "AVERAGE";
             this.button12.UseVisualStyleBackColor = false;
@@ -1166,9 +1195,9 @@ namespace CRS
             this.label69.BackColor = System.Drawing.SystemColors.Control;
             this.label69.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(3, 87);
+            this.label69.Location = new System.Drawing.Point(3, 81);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(154, 33);
+            this.label69.Size = new System.Drawing.Size(154, 37);
             this.label69.TabIndex = 19;
             this.label69.Text = "0.0";
             this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1179,9 +1208,9 @@ namespace CRS
             this.label30.BackColor = System.Drawing.Color.Transparent;
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(3, 63);
+            this.label30.Location = new System.Drawing.Point(3, 66);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(154, 24);
+            this.label30.Size = new System.Drawing.Size(154, 15);
             this.label30.TabIndex = 17;
             this.label30.Text = "CURRENT";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1194,7 +1223,7 @@ namespace CRS
             this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label68.Location = new System.Drawing.Point(3, 31);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(154, 32);
+            this.label68.Size = new System.Drawing.Size(154, 35);
             this.label68.TabIndex = 18;
             this.label68.Text = "0.0";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1230,9 +1259,9 @@ namespace CRS
             this.sTile8.Name = "sTile8";
             this.sTile8.RowCount = 5;
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.53593F));
-            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.39187F));
-            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.0722F));
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.94208F));
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.05792F));
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile8.Size = new System.Drawing.Size(160, 147);
             this.sTile8.TabIndex = 18;
@@ -1242,9 +1271,9 @@ namespace CRS
             this.button11.BackColor = System.Drawing.Color.Transparent;
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button11.Location = new System.Drawing.Point(3, 119);
+            this.button11.Location = new System.Drawing.Point(3, 122);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(154, 25);
+            this.button11.Size = new System.Drawing.Size(154, 22);
             this.button11.TabIndex = 20;
             this.button11.Text = "AVERAGE";
             this.button11.UseVisualStyleBackColor = false;
@@ -1255,9 +1284,9 @@ namespace CRS
             this.label67.BackColor = System.Drawing.SystemColors.Control;
             this.label67.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(3, 84);
+            this.label67.Location = new System.Drawing.Point(3, 82);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(154, 32);
+            this.label67.Size = new System.Drawing.Size(154, 37);
             this.label67.TabIndex = 18;
             this.label67.Text = "0.0";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1268,9 +1297,9 @@ namespace CRS
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 61);
+            this.label29.Location = new System.Drawing.Point(3, 67);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(154, 23);
+            this.label29.Size = new System.Drawing.Size(154, 15);
             this.label29.TabIndex = 16;
             this.label29.Text = "CURRENT";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1283,7 +1312,7 @@ namespace CRS
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label66.Location = new System.Drawing.Point(3, 31);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(154, 30);
+            this.label66.Size = new System.Drawing.Size(154, 36);
             this.label66.TabIndex = 17;
             this.label66.Text = "0.0";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1319,9 +1348,9 @@ namespace CRS
             this.sTile7.Name = "sTile7";
             this.sTile7.RowCount = 5;
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50034F));
-            this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33707F));
-            this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16259F));
+            this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85619F));
+            this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14381F));
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile7.Size = new System.Drawing.Size(160, 147);
             this.sTile7.TabIndex = 17;
@@ -1329,11 +1358,10 @@ namespace CRS
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button10.Location = new System.Drawing.Point(3, 121);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(154, 23);
+            this.button10.Size = new System.Drawing.Size(154, 22);
             this.button10.TabIndex = 19;
             this.button10.Text = "AVERAGE";
             this.button10.UseVisualStyleBackColor = false;
@@ -1344,9 +1372,9 @@ namespace CRS
             this.label65.BackColor = System.Drawing.SystemColors.Control;
             this.label65.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(3, 86);
+            this.label65.Location = new System.Drawing.Point(3, 81);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(154, 32);
+            this.label65.Size = new System.Drawing.Size(154, 37);
             this.label65.TabIndex = 17;
             this.label65.Text = "0.0";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1357,9 +1385,9 @@ namespace CRS
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label28.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 62);
+            this.label28.Location = new System.Drawing.Point(3, 66);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(154, 24);
+            this.label28.Size = new System.Drawing.Size(154, 15);
             this.label28.TabIndex = 15;
             this.label28.Text = "CURRENT";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1372,7 +1400,7 @@ namespace CRS
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.Location = new System.Drawing.Point(3, 31);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(154, 31);
+            this.label64.Size = new System.Drawing.Size(154, 35);
             this.label64.TabIndex = 16;
             this.label64.Text = "0.0";
             this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1408,9 +1436,9 @@ namespace CRS
             this.sTile6.Name = "sTile6";
             this.sTile6.RowCount = 5;
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50034F));
-            this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33707F));
-            this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16259F));
+            this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85619F));
+            this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14381F));
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile6.Size = new System.Drawing.Size(160, 147);
             this.sTile6.TabIndex = 16;
@@ -1418,11 +1446,10 @@ namespace CRS
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button9.Location = new System.Drawing.Point(3, 121);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(154, 23);
+            this.button9.Size = new System.Drawing.Size(154, 22);
             this.button9.TabIndex = 18;
             this.button9.Text = "AVERAGE";
             this.button9.UseVisualStyleBackColor = false;
@@ -1433,9 +1460,9 @@ namespace CRS
             this.label63.BackColor = System.Drawing.SystemColors.Control;
             this.label63.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(3, 86);
+            this.label63.Location = new System.Drawing.Point(3, 81);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(154, 32);
+            this.label63.Size = new System.Drawing.Size(154, 37);
             this.label63.TabIndex = 16;
             this.label63.Text = "0.0";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1446,9 +1473,9 @@ namespace CRS
             this.label27.BackColor = System.Drawing.Color.Transparent;
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label27.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(3, 62);
+            this.label27.Location = new System.Drawing.Point(3, 66);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(154, 24);
+            this.label27.Size = new System.Drawing.Size(154, 15);
             this.label27.TabIndex = 14;
             this.label27.Text = "CURRENT";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1461,7 +1488,7 @@ namespace CRS
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label62.Location = new System.Drawing.Point(3, 31);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(154, 31);
+            this.label62.Size = new System.Drawing.Size(154, 35);
             this.label62.TabIndex = 15;
             this.label62.Text = "0.0";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1497,9 +1524,9 @@ namespace CRS
             this.sTile1.Name = "sTile1";
             this.sTile1.RowCount = 5;
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.49897F));
-            this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33234F));
-            this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16868F));
+            this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85114F));
+            this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14886F));
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile1.Size = new System.Drawing.Size(160, 145);
             this.sTile1.TabIndex = 15;
@@ -1507,11 +1534,10 @@ namespace CRS
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(3, 118);
+            this.button4.Location = new System.Drawing.Point(3, 120);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(154, 24);
+            this.button4.Size = new System.Drawing.Size(154, 21);
             this.button4.TabIndex = 13;
             this.button4.Text = "AVERAGE";
             this.button4.UseVisualStyleBackColor = false;
@@ -1522,9 +1548,9 @@ namespace CRS
             this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 84);
+            this.label4.Location = new System.Drawing.Point(3, 81);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 31);
+            this.label4.Size = new System.Drawing.Size(154, 36);
             this.label4.TabIndex = 11;
             this.label4.Text = "0.0";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1537,7 +1563,7 @@ namespace CRS
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 30);
+            this.label3.Size = new System.Drawing.Size(154, 35);
             this.label3.TabIndex = 10;
             this.label3.Text = "0.0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1548,9 +1574,9 @@ namespace CRS
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 61);
+            this.label22.Location = new System.Drawing.Point(3, 66);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(154, 23);
+            this.label22.Size = new System.Drawing.Size(154, 15);
             this.label22.TabIndex = 9;
             this.label22.Text = "CURRENT";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1586,9 +1612,9 @@ namespace CRS
             this.sTile4.Name = "sTile4";
             this.sTile4.RowCount = 5;
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50034F));
-            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33707F));
-            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16259F));
+            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85619F));
+            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14381F));
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile4.Size = new System.Drawing.Size(160, 145);
             this.sTile4.TabIndex = 13;
@@ -1598,9 +1624,9 @@ namespace CRS
             this.button7.BackColor = System.Drawing.Color.Transparent;
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Location = new System.Drawing.Point(3, 118);
+            this.button7.Location = new System.Drawing.Point(3, 121);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(154, 24);
+            this.button7.Size = new System.Drawing.Size(154, 21);
             this.button7.TabIndex = 16;
             this.button7.Text = "AVERAGE";
             this.button7.UseVisualStyleBackColor = false;
@@ -1611,9 +1637,9 @@ namespace CRS
             this.label10.BackColor = System.Drawing.SystemColors.Control;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 84);
+            this.label10.Location = new System.Drawing.Point(3, 81);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(154, 31);
+            this.label10.Size = new System.Drawing.Size(154, 37);
             this.label10.TabIndex = 14;
             this.label10.Text = "0.0";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1624,9 +1650,9 @@ namespace CRS
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 61);
+            this.label25.Location = new System.Drawing.Point(3, 66);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(154, 23);
+            this.label25.Size = new System.Drawing.Size(154, 15);
             this.label25.TabIndex = 12;
             this.label25.Text = "CURRENT";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1639,7 +1665,7 @@ namespace CRS
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 31);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(154, 30);
+            this.label9.Size = new System.Drawing.Size(154, 35);
             this.label9.TabIndex = 13;
             this.label9.Text = "0.0";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1675,9 +1701,9 @@ namespace CRS
             this.sTile3.Name = "sTile3";
             this.sTile3.RowCount = 5;
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50034F));
-            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33707F));
-            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16259F));
+            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85619F));
+            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14381F));
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile3.Size = new System.Drawing.Size(160, 145);
             this.sTile3.TabIndex = 12;
@@ -1687,9 +1713,9 @@ namespace CRS
             this.button6.BackColor = System.Drawing.Color.Transparent;
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(3, 118);
+            this.button6.Location = new System.Drawing.Point(3, 122);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(154, 24);
+            this.button6.Size = new System.Drawing.Size(154, 20);
             this.button6.TabIndex = 15;
             this.button6.Text = "AVERAGE";
             this.button6.UseVisualStyleBackColor = false;
@@ -1700,9 +1726,9 @@ namespace CRS
             this.label8.BackColor = System.Drawing.SystemColors.Control;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 84);
+            this.label8.Location = new System.Drawing.Point(3, 82);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 31);
+            this.label8.Size = new System.Drawing.Size(154, 37);
             this.label8.TabIndex = 13;
             this.label8.Text = "0.0";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1713,9 +1739,9 @@ namespace CRS
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(3, 61);
+            this.label24.Location = new System.Drawing.Point(3, 67);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(154, 23);
+            this.label24.Size = new System.Drawing.Size(154, 15);
             this.label24.TabIndex = 11;
             this.label24.Text = "CURRENT";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1728,7 +1754,7 @@ namespace CRS
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 30);
+            this.label7.Size = new System.Drawing.Size(154, 36);
             this.label7.TabIndex = 12;
             this.label7.Text = "0.0";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1764,9 +1790,9 @@ namespace CRS
             this.sTile5.Name = "sTile5";
             this.sTile5.RowCount = 5;
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50034F));
-            this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33707F));
-            this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16259F));
+            this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85619F));
+            this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14381F));
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile5.Size = new System.Drawing.Size(160, 147);
             this.sTile5.TabIndex = 11;
@@ -1774,11 +1800,10 @@ namespace CRS
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button8.Location = new System.Drawing.Point(3, 121);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(154, 23);
+            this.button8.Size = new System.Drawing.Size(154, 22);
             this.button8.TabIndex = 17;
             this.button8.Text = "AVERAGE";
             this.button8.UseVisualStyleBackColor = false;
@@ -1789,9 +1814,9 @@ namespace CRS
             this.label35.BackColor = System.Drawing.SystemColors.Control;
             this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(3, 86);
+            this.label35.Location = new System.Drawing.Point(3, 81);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(154, 32);
+            this.label35.Size = new System.Drawing.Size(154, 37);
             this.label35.TabIndex = 15;
             this.label35.Text = "0.0";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1802,9 +1827,9 @@ namespace CRS
             this.label26.BackColor = System.Drawing.Color.Transparent;
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label26.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(3, 62);
+            this.label26.Location = new System.Drawing.Point(3, 66);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(154, 24);
+            this.label26.Size = new System.Drawing.Size(154, 15);
             this.label26.TabIndex = 13;
             this.label26.Text = "CURRENT";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1817,7 +1842,7 @@ namespace CRS
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(3, 31);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(154, 31);
+            this.label34.Size = new System.Drawing.Size(154, 35);
             this.label34.TabIndex = 14;
             this.label34.Text = "0.0";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1837,6 +1862,7 @@ namespace CRS
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.button13);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.label12);
@@ -1847,6 +1873,16 @@ namespace CRS
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(174, 113);
             this.panel4.TabIndex = 20;
+            // 
+            // button13
+            // 
+            this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button13.Location = new System.Drawing.Point(0, 90);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(174, 23);
+            this.button13.TabIndex = 7;
+            this.button13.Text = "Reset All Averages";
+            this.button13.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -1895,7 +1931,7 @@ namespace CRS
             this.signalStrength1.EmptyBarColor = System.Drawing.Color.Gray;
             this.signalStrength1.GoodSignalColor = System.Drawing.Color.Green;
             this.signalStrength1.GoodSignalThreshold = 0.8F;
-            this.signalStrength1.Location = new System.Drawing.Point(102, 65);
+            this.signalStrength1.Location = new System.Drawing.Point(102, 39);
             this.signalStrength1.MaximumValue = 1F;
             this.signalStrength1.MinimumValue = 0F;
             this.signalStrength1.Name = "signalStrength1";
@@ -1914,39 +1950,27 @@ namespace CRS
             this.signalStrength1.XIfNoSignal = true;
             this.signalStrength1.XWidth = 1.5F;
             // 
-            // bTile2
+            // hTile1
             // 
-            this.bTile2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bTile2.ColumnCount = 4;
-            this.tableLayoutPanel1.SetColumnSpan(this.bTile2, 2);
-            this.bTile2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
-            this.bTile2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.bTile2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.bTile2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
-            this.bTile2.Controls.Add(this.tileLabel12, 1, 0);
-            this.bTile2.Controls.Add(this.label39, 0, 1);
-            this.bTile2.Controls.Add(this.label38, 3, 1);
-            this.bTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bTile2.Location = new System.Drawing.Point(543, 335);
-            this.bTile2.Name = "bTile2";
-            this.bTile2.RowCount = 2;
-            this.bTile2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bTile2.Size = new System.Drawing.Size(354, 113);
-            this.bTile2.TabIndex = 23;
-            // 
-            // tileLabel12
-            // 
-            this.tileLabel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tileLabel12.AutoSize = true;
-            this.bTile2.SetColumnSpan(this.tileLabel12, 2);
-            this.tileLabel12.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileLabel12.Location = new System.Drawing.Point(102, 0);
-            this.tileLabel12.Name = "tileLabel12";
-            this.tileLabel12.Size = new System.Drawing.Size(148, 31);
-            this.tileLabel12.TabIndex = 0;
-            this.tileLabel12.Text = "NOx(mass)";
-            this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.hTile1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.hTile1.ColumnCount = 4;
+            this.tableLayoutPanel1.SetColumnSpan(this.hTile1, 2);
+            this.hTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.hTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.hTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.hTile1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.hTile1.ContextMenuStrip = this.tilePopUpMenu;
+            this.hTile1.Controls.Add(this.label39, 0, 1);
+            this.hTile1.Controls.Add(this.label38, 3, 1);
+            this.hTile1.Controls.Add(this.tileLabel12, 0, 0);
+            this.hTile1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hTile1.Location = new System.Drawing.Point(543, 335);
+            this.hTile1.Name = "hTile1";
+            this.hTile1.RowCount = 2;
+            this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.hTile1.Size = new System.Drawing.Size(354, 113);
+            this.hTile1.TabIndex = 23;
             // 
             // label39
             // 
@@ -1976,6 +2000,19 @@ namespace CRS
             this.label38.Text = "TEst";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tileLabel12
+            // 
+            this.tileLabel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tileLabel12.AutoSize = true;
+            this.hTile1.SetColumnSpan(this.tileLabel12, 4);
+            this.tileLabel12.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileLabel12.Location = new System.Drawing.Point(3, 0);
+            this.tileLabel12.Name = "tileLabel12";
+            this.tileLabel12.Size = new System.Drawing.Size(348, 31);
+            this.tileLabel12.TabIndex = 0;
+            this.tileLabel12.Text = "NOx(mass)";
+            this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // sTile0
             // 
             this.sTile0.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1994,9 +2031,9 @@ namespace CRS
             this.sTile0.Name = "sTile0";
             this.sTile0.RowCount = 5;
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.49986F));
-            this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33057F));
-            this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16957F));
+            this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85116F));
+            this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14884F));
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile0.Size = new System.Drawing.Size(160, 145);
             this.sTile0.TabIndex = 14;
@@ -2007,9 +2044,9 @@ namespace CRS
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 84);
+            this.label2.Location = new System.Drawing.Point(3, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 31);
+            this.label2.Size = new System.Drawing.Size(154, 36);
             this.label2.TabIndex = 10;
             this.label2.Text = "0.0";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2020,9 +2057,9 @@ namespace CRS
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 61);
+            this.label21.Location = new System.Drawing.Point(3, 66);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(154, 23);
+            this.label21.Size = new System.Drawing.Size(154, 15);
             this.label21.TabIndex = 8;
             this.label21.Text = "CURRENT";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2035,7 +2072,7 @@ namespace CRS
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 30);
+            this.label1.Size = new System.Drawing.Size(154, 35);
             this.label1.TabIndex = 9;
             this.label1.Text = "0.0";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2056,12 +2093,11 @@ namespace CRS
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(3, 118);
+            this.button3.Location = new System.Drawing.Point(3, 120);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 24);
+            this.button3.Size = new System.Drawing.Size(154, 21);
             this.button3.TabIndex = 12;
             this.button3.Text = "AVERAGE";
             this.button3.UseVisualStyleBackColor = false;
@@ -2177,27 +2213,35 @@ namespace CRS
             series11.ChartArea = "ChartArea1";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series11.Legend = "Legend1";
-            series11.Name = "Temp1";
+            series11.Name = "T(cell)";
             series12.ChartArea = "ChartArea1";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series12.Legend = "Legend1";
-            series12.Name = "Temp2";
+            series12.Name = "Efficiency";
             series13.ChartArea = "ChartArea1";
             series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series13.Legend = "Legend1";
-            series13.Name = "T(cell)";
+            series13.Name = "I.Flow";
             series14.ChartArea = "ChartArea1";
             series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series14.Legend = "Legend1";
-            series14.Name = "Efficiency";
+            series14.Name = "Draft";
             series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series15.Legend = "Legend1";
-            series15.Name = "Flow";
+            series15.Name = "Losses";
             series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series16.Legend = "Legend1";
-            series16.Name = "NH3";
+            series16.Name = "Excess Air";
+            series17.ChartArea = "ChartArea1";
+            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series17.Legend = "Legend1";
+            series17.Name = "CO(mass)";
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series18.Legend = "Legend1";
+            series18.Name = "NOx(mass)";
             this.trendGraph.Series.Add(series1);
             this.trendGraph.Series.Add(series2);
             this.trendGraph.Series.Add(series3);
@@ -2214,6 +2258,8 @@ namespace CRS
             this.trendGraph.Series.Add(series14);
             this.trendGraph.Series.Add(series15);
             this.trendGraph.Series.Add(series16);
+            this.trendGraph.Series.Add(series17);
+            this.trendGraph.Series.Add(series18);
             this.trendGraph.Size = new System.Drawing.Size(615, 443);
             this.trendGraph.TabIndex = 1;
             this.trendGraph.Text = "trendChart";
@@ -2254,8 +2300,9 @@ namespace CRS
             this.elementTable.Location = new System.Drawing.Point(0, 0);
             this.elementTable.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.elementTable.Name = "elementTable";
-            this.elementTable.Size = new System.Drawing.Size(272, 345);
+            this.elementTable.Size = new System.Drawing.Size(272, 392);
             this.elementTable.TabIndex = 6;
+            this.elementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elementTable_CellContentClick);
             // 
             // dgName
             // 
@@ -2302,43 +2349,259 @@ namespace CRS
             // 
             this.tableLayoutPanel3.AutoSize = true;
             this.tableLayoutPanel3.ColumnCount = 5;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.panel13, 0, 2);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel15, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.panel13, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel8, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel9, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel10, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel11, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel12, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel13, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.panel24, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.chart1, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.chart1, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel13, 0, 2);
             this.tableLayoutPanel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.74101F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.17073F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.08826F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.85661F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.73301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.58061F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.82977F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(900, 451);
             this.tableLayoutPanel3.TabIndex = 5;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel15.ColumnCount = 1;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.ContextMenuStrip = this.tilePopUpMenu;
+            this.tableLayoutPanel15.Controls.Add(this.label19, 0, 2);
+            this.tableLayoutPanel15.Controls.Add(this.panel5, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.label54, 0, 1);
+            this.tableLayoutPanel15.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(320, 224);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 3;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(135, 90);
+            this.tableLayoutPanel15.TabIndex = 14;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(3, 75);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(129, 15);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "CURRENT";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.checkBox3);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(135, 31);
+            this.panel5.TabIndex = 7;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.label20.Location = new System.Drawing.Point(0, 0);
+            this.label20.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(67, 31);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "NOx";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.BackColor = System.Drawing.SystemColors.Control;
+            this.label54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(3, 31);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(129, 44);
+            this.label54.TabIndex = 14;
+            this.label54.Text = "0.0";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ContextMenuStrip = this.tilePopUpMenu;
+            this.tableLayoutPanel6.Controls.Add(this.label17, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label53, 0, 1);
+            this.tableLayoutPanel6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(165, 224);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(135, 90);
+            this.tableLayoutPanel6.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(3, 75);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(129, 15);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "CURRENT";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.checkBox2);
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(135, 31);
+            this.panel3.TabIndex = 7;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(0, 0);
+            this.label18.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(67, 31);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "NOx";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.SystemColors.Control;
+            this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(3, 31);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(129, 44);
+            this.label53.TabIndex = 14;
+            this.label53.Text = "0.0";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ContextMenuStrip = this.tilePopUpMenu;
+            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label44, 0, 1);
+            this.tableLayoutPanel5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(10, 117);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(135, 87);
+            this.tableLayoutPanel5.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 72);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(129, 15);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "CURRENT";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(135, 31);
+            this.panel2.TabIndex = 7;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(67, 31);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "NOx";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.SystemColors.Control;
+            this.label44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(3, 31);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(129, 41);
+            this.label44.TabIndex = 14;
+            this.label44.Text = "0.0";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLayoutPanel3.SetColumnSpan(this.panel13, 2);
             this.panel13.ContextMenuStrip = this.tilePopUpMenu;
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 335);
+            this.panel13.Location = new System.Drawing.Point(10, 334);
+            this.panel13.Margin = new System.Windows.Forms.Padding(10);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(354, 113);
+            this.panel13.Size = new System.Drawing.Size(290, 107);
             this.panel13.TabIndex = 22;
             // 
             // tableLayoutPanel4
@@ -2348,20 +2611,18 @@ namespace CRS
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.ContextMenuStrip = this.tilePopUpMenu;
             this.tableLayoutPanel4.Controls.Add(this.label31, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.textBox21, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.panel14, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label40, 0, 1);
             this.tableLayoutPanel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(370, 10);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(320, 10);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.63387F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.75156F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.61457F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(160, 145);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(135, 87);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // label31
@@ -2370,29 +2631,12 @@ namespace CRS
             this.label31.BackColor = System.Drawing.Color.Transparent;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label31.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(3, 104);
+            this.label31.Location = new System.Drawing.Point(3, 72);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(154, 41);
+            this.label31.Size = new System.Drawing.Size(129, 15);
             this.label31.TabIndex = 10;
             this.label31.Text = "CURRENT";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox21.Enabled = false;
-            this.textBox21.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox21.Location = new System.Drawing.Point(3, 50);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.ReadOnly = true;
-            this.textBox21.Size = new System.Drawing.Size(154, 51);
-            this.textBox21.TabIndex = 1;
-            this.textBox21.TabStop = false;
-            this.textBox21.Text = "TEST";
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel14
             // 
@@ -2402,7 +2646,7 @@ namespace CRS
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(160, 47);
+            this.panel14.Size = new System.Drawing.Size(135, 31);
             this.panel14.TabIndex = 7;
             // 
             // label33
@@ -2419,45 +2663,39 @@ namespace CRS
             this.label33.Text = "CO2";
             this.label33.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.BackColor = System.Drawing.SystemColors.Control;
+            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(3, 31);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(129, 41);
+            this.label40.TabIndex = 11;
+            this.label40.Text = "0.0";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.ContextMenuStrip = this.tilePopUpMenu;
-            this.tableLayoutPanel7.Controls.Add(this.textBox27, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.panel17, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.label42, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.label49, 0, 1);
             this.tableLayoutPanel7.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(370, 175);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(320, 117);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.79917F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(160, 147);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(135, 87);
             this.tableLayoutPanel7.TabIndex = 17;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox27.Enabled = false;
-            this.textBox27.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox27.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox27.Location = new System.Drawing.Point(3, 56);
-            this.textBox27.Multiline = true;
-            this.textBox27.Name = "textBox27";
-            this.textBox27.ReadOnly = true;
-            this.textBox27.Size = new System.Drawing.Size(154, 47);
-            this.textBox27.TabIndex = 1;
-            this.textBox27.TabStop = false;
-            this.textBox27.Text = "TEST";
-            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel17
             // 
@@ -2467,7 +2705,7 @@ namespace CRS
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Margin = new System.Windows.Forms.Padding(0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(160, 53);
+            this.panel17.Size = new System.Drawing.Size(135, 33);
             this.panel17.TabIndex = 7;
             // 
             // label41
@@ -2490,12 +2728,25 @@ namespace CRS
             this.label42.BackColor = System.Drawing.Color.Transparent;
             this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label42.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(3, 106);
+            this.label42.Location = new System.Drawing.Point(3, 72);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(154, 41);
+            this.label42.Size = new System.Drawing.Size(129, 15);
             this.label42.TabIndex = 15;
             this.label42.Text = "CURRENT";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.BackColor = System.Drawing.SystemColors.Control;
+            this.label49.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(3, 33);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(129, 39);
+            this.label49.TabIndex = 16;
+            this.label49.Text = "0.0";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
             // 
@@ -2503,39 +2754,20 @@ namespace CRS
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.ContextMenuStrip = this.tilePopUpMenu;
-            this.tableLayoutPanel8.Controls.Add(this.textBox29, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.label43, 0, 2);
             this.tableLayoutPanel8.Controls.Add(this.panel18, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label46, 0, 1);
             this.tableLayoutPanel8.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(190, 175);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(165, 117);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 3;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.79917F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(160, 147);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(135, 87);
             this.tableLayoutPanel8.TabIndex = 16;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox29.Enabled = false;
-            this.textBox29.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox29.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox29.Location = new System.Drawing.Point(3, 56);
-            this.textBox29.Multiline = true;
-            this.textBox29.Name = "textBox29";
-            this.textBox29.ReadOnly = true;
-            this.textBox29.Size = new System.Drawing.Size(154, 47);
-            this.textBox29.TabIndex = 1;
-            this.textBox29.TabStop = false;
-            this.textBox29.Text = "TEST";
-            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label43
             // 
@@ -2543,9 +2775,9 @@ namespace CRS
             this.label43.BackColor = System.Drawing.Color.Transparent;
             this.label43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label43.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(3, 106);
+            this.label43.Location = new System.Drawing.Point(3, 72);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(154, 41);
+            this.label43.Size = new System.Drawing.Size(129, 15);
             this.label43.TabIndex = 14;
             this.label43.Text = "CURRENT";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2558,7 +2790,7 @@ namespace CRS
             this.panel18.Location = new System.Drawing.Point(0, 0);
             this.panel18.Margin = new System.Windows.Forms.Padding(0);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(160, 53);
+            this.panel18.Size = new System.Drawing.Size(135, 33);
             this.panel18.TabIndex = 7;
             // 
             // label45
@@ -2575,6 +2807,19 @@ namespace CRS
             this.label45.Text = "SO2";
             this.label45.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.BackColor = System.Drawing.SystemColors.Control;
+            this.label46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(3, 33);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(129, 39);
+            this.label46.TabIndex = 15;
+            this.label46.Text = "0.0";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -2583,18 +2828,17 @@ namespace CRS
             this.tableLayoutPanel9.ContextMenuStrip = this.tilePopUpMenu;
             this.tableLayoutPanel9.Controls.Add(this.panel19, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.label48, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.label32, 0, 1);
             this.tableLayoutPanel9.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(190, 10);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(165, 10);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 3;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10177F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10177F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.79646F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(160, 145);
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(135, 87);
             this.tableLayoutPanel9.TabIndex = 15;
             // 
             // panel19
@@ -2605,7 +2849,7 @@ namespace CRS
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(160, 52);
+            this.panel19.Size = new System.Drawing.Size(135, 31);
             this.panel19.TabIndex = 7;
             // 
             // label47
@@ -2628,12 +2872,25 @@ namespace CRS
             this.label48.BackColor = System.Drawing.Color.Transparent;
             this.label48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label48.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(3, 104);
+            this.label48.Location = new System.Drawing.Point(3, 72);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(154, 41);
+            this.label48.Size = new System.Drawing.Size(129, 15);
             this.label48.TabIndex = 9;
             this.label48.Text = "CURRENT";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.SystemColors.Control;
+            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(3, 31);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(129, 41);
+            this.label32.TabIndex = 10;
+            this.label32.Text = "0.0";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel10
             // 
@@ -2653,7 +2910,7 @@ namespace CRS
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(160, 145);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(135, 87);
             this.tableLayoutPanel10.TabIndex = 14;
             // 
             // panel20
@@ -2664,7 +2921,7 @@ namespace CRS
             this.panel20.Location = new System.Drawing.Point(0, 0);
             this.panel20.Margin = new System.Windows.Forms.Padding(0);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(160, 31);
+            this.panel20.Size = new System.Drawing.Size(135, 31);
             this.panel20.TabIndex = 7;
             // 
             // label50
@@ -2688,7 +2945,7 @@ namespace CRS
             this.label51.AutoSize = true;
             this.label51.BackColor = System.Drawing.Color.Transparent;
             this.label51.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(48, 130);
+            this.label51.Location = new System.Drawing.Point(35, 72);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(64, 15);
             this.label51.TabIndex = 8;
@@ -2700,168 +2957,124 @@ namespace CRS
             this.label61.AutoSize = true;
             this.label61.BackColor = System.Drawing.SystemColors.Control;
             this.label61.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label61.Location = new System.Drawing.Point(3, 31);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(154, 99);
+            this.label61.Size = new System.Drawing.Size(129, 41);
             this.label61.TabIndex = 9;
-            this.label61.Text = "label61";
+            this.label61.Text = "0.0";
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel11
+            // chart1
             // 
-            this.tableLayoutPanel11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tableLayoutPanel11.ColumnCount = 1;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.ContextMenuStrip = this.tilePopUpMenu;
-            this.tableLayoutPanel11.Controls.Add(this.textBox35, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.label53, 0, 2);
-            this.tableLayoutPanel11.Controls.Add(this.panel21, 0, 0);
-            this.tableLayoutPanel11.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(730, 10);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 3;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.79917F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(160, 145);
-            this.tableLayoutPanel11.TabIndex = 13;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox35.Enabled = false;
-            this.textBox35.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox35.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox35.Location = new System.Drawing.Point(3, 55);
-            this.textBox35.Multiline = true;
-            this.textBox35.Name = "textBox35";
-            this.textBox35.ReadOnly = true;
-            this.textBox35.Size = new System.Drawing.Size(154, 46);
-            this.textBox35.TabIndex = 1;
-            this.textBox35.TabStop = false;
-            this.textBox35.Text = "TEST";
-            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.Transparent;
-            this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label53.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(3, 104);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(154, 41);
-            this.label53.TabIndex = 12;
-            this.label53.Text = "CURRENT";
-            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.checkBox17);
-            this.panel21.Controls.Add(this.label54);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(0, 0);
-            this.panel21.Margin = new System.Windows.Forms.Padding(0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(160, 52);
-            this.panel21.TabIndex = 7;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.BackColor = System.Drawing.Color.Transparent;
-            this.label54.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label54.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.label54.Location = new System.Drawing.Point(0, 0);
-            this.label54.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(68, 31);
-            this.label54.TabIndex = 0;
-            this.label54.Text = "NO2";
-            this.label54.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tableLayoutPanel12.ColumnCount = 1;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.ContextMenuStrip = this.tilePopUpMenu;
-            this.tableLayoutPanel12.Controls.Add(this.textBox37, 0, 1);
-            this.tableLayoutPanel12.Controls.Add(this.panel22, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.label57, 0, 2);
-            this.tableLayoutPanel12.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(550, 10);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 3;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.10042F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.79917F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(160, 145);
-            this.tableLayoutPanel12.TabIndex = 12;
-            // 
-            // textBox37
-            // 
-            this.textBox37.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox37.Enabled = false;
-            this.textBox37.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox37.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox37.Location = new System.Drawing.Point(3, 55);
-            this.textBox37.Multiline = true;
-            this.textBox37.Name = "textBox37";
-            this.textBox37.ReadOnly = true;
-            this.textBox37.Size = new System.Drawing.Size(154, 46);
-            this.textBox37.TabIndex = 1;
-            this.textBox37.TabStop = false;
-            this.textBox37.Text = "TEST";
-            this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.checkBox18);
-            this.panel22.Controls.Add(this.label56);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(0, 0);
-            this.panel22.Margin = new System.Windows.Forms.Padding(0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(160, 52);
-            this.panel22.TabIndex = 7;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.BackColor = System.Drawing.Color.Transparent;
-            this.label56.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label56.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.label56.Location = new System.Drawing.Point(0, 0);
-            this.label56.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(54, 31);
-            this.label56.TabIndex = 0;
-            this.label56.Text = "NO";
-            this.label56.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.BackColor = System.Drawing.Color.Transparent;
-            this.label57.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label57.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(3, 104);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(154, 41);
-            this.label57.TabIndex = 11;
-            this.label57.Text = "CURRENT";
-            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.ScaleBreakStyle.Enabled = true;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            this.tableLayoutPanel3.SetColumnSpan(this.chart1, 2);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(468, 3);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            this.tableLayoutPanel3.SetRowSpan(this.chart1, 4);
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series19.Legend = "Legend1";
+            series19.Name = "O2";
+            series19.Points.Add(dataPoint26);
+            series19.Points.Add(dataPoint27);
+            series19.Points.Add(dataPoint28);
+            series19.Points.Add(dataPoint29);
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series20.Legend = "Legend1";
+            series20.Name = "CO";
+            series20.Points.Add(dataPoint30);
+            series20.Points.Add(dataPoint31);
+            series20.Points.Add(dataPoint32);
+            series20.Points.Add(dataPoint33);
+            series20.Points.Add(dataPoint34);
+            series20.Points.Add(dataPoint35);
+            series20.Points.Add(dataPoint36);
+            series20.Points.Add(dataPoint37);
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series21.Legend = "Legend1";
+            series21.Name = "CO2";
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series22.Legend = "Legend1";
+            series22.Name = "NO";
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series23.Legend = "Legend1";
+            series23.Name = "NO2";
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series24.Legend = "Legend1";
+            series24.Name = "NOx";
+            series24.YValueMembers = "Tag";
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series25.Legend = "Legend1";
+            series25.Name = "SO2";
+            series26.ChartArea = "ChartArea1";
+            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series26.Legend = "Legend1";
+            series26.Name = "CxHy";
+            series27.ChartArea = "ChartArea1";
+            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series27.Legend = "Legend1";
+            series27.Name = "T(gas)";
+            series28.ChartArea = "ChartArea1";
+            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series28.Legend = "Legend1";
+            series28.Name = "T(amb)";
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series29.Legend = "Legend1";
+            series29.Name = "Temp1";
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series30.Legend = "Legend1";
+            series30.Name = "Temp2";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series31.Legend = "Legend1";
+            series31.Name = "T(cell)";
+            series32.ChartArea = "ChartArea1";
+            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series32.Legend = "Legend1";
+            series32.Name = "Efficiency";
+            series33.ChartArea = "ChartArea1";
+            series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series33.Legend = "Legend1";
+            series33.Name = "Flow";
+            series34.ChartArea = "ChartArea1";
+            series34.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series34.Legend = "Legend1";
+            series34.Name = "NH3";
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
+            this.chart1.Series.Add(series21);
+            this.chart1.Series.Add(series22);
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
+            this.chart1.Series.Add(series25);
+            this.chart1.Series.Add(series26);
+            this.chart1.Series.Add(series27);
+            this.chart1.Series.Add(series28);
+            this.chart1.Series.Add(series29);
+            this.chart1.Series.Add(series30);
+            this.chart1.Series.Add(series31);
+            this.chart1.Series.Add(series32);
+            this.chart1.Series.Add(series33);
+            this.chart1.Series.Add(series34);
+            this.chart1.Size = new System.Drawing.Size(429, 445);
+            this.chart1.TabIndex = 23;
+            this.chart1.Text = "chart1";
             // 
             // tableLayoutPanel13
             // 
@@ -2869,37 +3082,20 @@ namespace CRS
             this.tableLayoutPanel13.ColumnCount = 1;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.ContextMenuStrip = this.tilePopUpMenu;
-            this.tableLayoutPanel13.Controls.Add(this.textBox39, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.label59, 0, 2);
             this.tableLayoutPanel13.Controls.Add(this.panel23, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.label52, 0, 1);
             this.tableLayoutPanel13.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(10, 175);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(10, 224);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 3;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.49554F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.50446F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(160, 147);
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(135, 90);
             this.tableLayoutPanel13.TabIndex = 11;
-            // 
-            // textBox39
-            // 
-            this.textBox39.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox39.Enabled = false;
-            this.textBox39.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox39.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox39.Location = new System.Drawing.Point(3, 56);
-            this.textBox39.Multiline = true;
-            this.textBox39.Name = "textBox39";
-            this.textBox39.ReadOnly = true;
-            this.textBox39.Size = new System.Drawing.Size(154, 47);
-            this.textBox39.TabIndex = 1;
-            this.textBox39.TabStop = false;
-            this.textBox39.Text = "TEST";
-            this.textBox39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label59
             // 
@@ -2907,9 +3103,9 @@ namespace CRS
             this.label59.BackColor = System.Drawing.Color.Transparent;
             this.label59.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label59.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(3, 106);
+            this.label59.Location = new System.Drawing.Point(3, 75);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(154, 41);
+            this.label59.Size = new System.Drawing.Size(129, 15);
             this.label59.TabIndex = 13;
             this.label59.Text = "CURRENT";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2922,7 +3118,7 @@ namespace CRS
             this.panel23.Location = new System.Drawing.Point(0, 0);
             this.panel23.Margin = new System.Windows.Forms.Padding(0);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(160, 53);
+            this.panel23.Size = new System.Drawing.Size(135, 31);
             this.panel23.TabIndex = 7;
             // 
             // label60
@@ -2939,145 +3135,18 @@ namespace CRS
             this.label60.Text = "NOx";
             this.label60.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel24
+            // label52
             // 
-            this.panel24.Controls.Add(this.pictureBox1);
-            this.panel24.Controls.Add(this.button1);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(363, 335);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(174, 113);
-            this.panel24.TabIndex = 20;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(174, 90);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Snap Shot";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // chart1
-            // 
-            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea2.AxisY.ScaleBreakStyle.Enabled = true;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            this.tableLayoutPanel3.SetColumnSpan(this.chart1, 2);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(543, 168);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            this.tableLayoutPanel3.SetRowSpan(this.chart1, 2);
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series17.Legend = "Legend1";
-            series17.Name = "O2";
-            series17.Points.Add(dataPoint26);
-            series17.Points.Add(dataPoint27);
-            series17.Points.Add(dataPoint28);
-            series17.Points.Add(dataPoint29);
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series18.Legend = "Legend1";
-            series18.Name = "CO";
-            series18.Points.Add(dataPoint30);
-            series18.Points.Add(dataPoint31);
-            series18.Points.Add(dataPoint32);
-            series18.Points.Add(dataPoint33);
-            series18.Points.Add(dataPoint34);
-            series18.Points.Add(dataPoint35);
-            series18.Points.Add(dataPoint36);
-            series18.Points.Add(dataPoint37);
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series19.Legend = "Legend1";
-            series19.Name = "CO2";
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series20.Legend = "Legend1";
-            series20.Name = "NO";
-            series21.ChartArea = "ChartArea1";
-            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series21.Legend = "Legend1";
-            series21.Name = "NO2";
-            series22.ChartArea = "ChartArea1";
-            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series22.Legend = "Legend1";
-            series22.Name = "NOx";
-            series22.YValueMembers = "Tag";
-            series23.ChartArea = "ChartArea1";
-            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series23.Legend = "Legend1";
-            series23.Name = "SO2";
-            series24.ChartArea = "ChartArea1";
-            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series24.Legend = "Legend1";
-            series24.Name = "CxHy";
-            series25.ChartArea = "ChartArea1";
-            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series25.Legend = "Legend1";
-            series25.Name = "T(gas)";
-            series26.ChartArea = "ChartArea1";
-            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series26.Legend = "Legend1";
-            series26.Name = "T(amb)";
-            series27.ChartArea = "ChartArea1";
-            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series27.Legend = "Legend1";
-            series27.Name = "Temp1";
-            series28.ChartArea = "ChartArea1";
-            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series28.Legend = "Legend1";
-            series28.Name = "Temp2";
-            series29.ChartArea = "ChartArea1";
-            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series29.Legend = "Legend1";
-            series29.Name = "T(cell)";
-            series30.ChartArea = "ChartArea1";
-            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series30.Legend = "Legend1";
-            series30.Name = "Efficiency";
-            series31.ChartArea = "ChartArea1";
-            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series31.Legend = "Legend1";
-            series31.Name = "Flow";
-            series32.ChartArea = "ChartArea1";
-            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series32.Legend = "Legend1";
-            series32.Name = "NH3";
-            this.chart1.Series.Add(series17);
-            this.chart1.Series.Add(series18);
-            this.chart1.Series.Add(series19);
-            this.chart1.Series.Add(series20);
-            this.chart1.Series.Add(series21);
-            this.chart1.Series.Add(series22);
-            this.chart1.Series.Add(series23);
-            this.chart1.Series.Add(series24);
-            this.chart1.Series.Add(series25);
-            this.chart1.Series.Add(series26);
-            this.chart1.Series.Add(series27);
-            this.chart1.Series.Add(series28);
-            this.chart1.Series.Add(series29);
-            this.chart1.Series.Add(series30);
-            this.chart1.Series.Add(series31);
-            this.chart1.Series.Add(series32);
-            this.chart1.Size = new System.Drawing.Size(354, 280);
-            this.chart1.TabIndex = 23;
-            this.chart1.Text = "chart1";
+            this.label52.AutoSize = true;
+            this.label52.BackColor = System.Drawing.SystemColors.Control;
+            this.label52.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(3, 31);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(129, 44);
+            this.label52.TabIndex = 14;
+            this.label52.Text = "0.0";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage4
             // 
@@ -3145,8 +3214,8 @@ namespace CRS
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.bTile1.ResumeLayout(false);
-            this.bTile1.PerformLayout();
+            this.hTile0.ResumeLayout(false);
+            this.hTile0.PerformLayout();
             this.sTile2.ResumeLayout(false);
             this.sTile2.PerformLayout();
             this.sTile9.ResumeLayout(false);
@@ -3167,8 +3236,8 @@ namespace CRS
             this.sTile5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.bTile2.ResumeLayout(false);
-            this.bTile2.PerformLayout();
+            this.hTile1.ResumeLayout(false);
+            this.hTile1.PerformLayout();
             this.sTile0.ResumeLayout(false);
             this.sTile0.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -3179,6 +3248,18 @@ namespace CRS
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel14.ResumeLayout(false);
@@ -3199,21 +3280,11 @@ namespace CRS
             this.tableLayoutPanel10.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.tableLayoutPanel12.ResumeLayout(false);
-            this.tableLayoutPanel12.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel12.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -3305,18 +3376,15 @@ namespace CRS
         private Panel panel13;
         private TableLayoutPanel tableLayoutPanel4;
         private Label label31;
-        private TextBox textBox21;
         private Panel panel14;
         private CheckBox checkBox10;
         public Label label33;
         private TableLayoutPanel tableLayoutPanel7;
-        private TextBox textBox27;
         private Panel panel17;
         private CheckBox checkBox13;
         public Label label41;
         private Label label42;
         private TableLayoutPanel tableLayoutPanel8;
-        private TextBox textBox29;
         private Label label43;
         private Panel panel18;
         private CheckBox checkBox14;
@@ -3331,27 +3399,11 @@ namespace CRS
         private CheckBox checkBox16;
         public Label label50;
         private Label label51;
-        private TableLayoutPanel tableLayoutPanel11;
-        private TextBox textBox35;
-        private Label label53;
-        private Panel panel21;
-        private CheckBox checkBox17;
-        public Label label54;
-        private TableLayoutPanel tableLayoutPanel12;
-        private TextBox textBox37;
-        private Panel panel22;
-        private CheckBox checkBox18;
-        public Label label56;
-        private Label label57;
         private TableLayoutPanel tableLayoutPanel13;
-        private TextBox textBox39;
         private Label label59;
         private Panel panel23;
         private CheckBox checkBox19;
         public Label label60;
-        private Panel panel24;
-        private PictureBox pictureBox1;
-        private Button button1;
         private TableLayoutPanel tableLayoutPanel14;
         public System.Windows.Forms.DataVisualization.Charting.Chart trendGraph;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
@@ -3377,8 +3429,8 @@ namespace CRS
         private TableLayoutPanel sTile5;
         private Label label26;
         private Panel panel4;
-        private TableLayoutPanel bTile2;
-        private TableLayoutPanel bTile1;
+        private TableLayoutPanel hTile1;
+        private TableLayoutPanel hTile0;
         private Label tileLabel11;
         private Label tileLabel12;
         private Label label36;
@@ -3445,6 +3497,31 @@ namespace CRS
         private Label label11;
         private Label label14;
         private Label label13;
+        private Button button13;
+        private TableLayoutPanel tableLayoutPanel15;
+        private Label label19;
+        private Panel panel5;
+        private CheckBox checkBox3;
+        public Label label20;
+        private Label label54;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Label label17;
+        private Panel panel3;
+        private CheckBox checkBox2;
+        public Label label18;
+        private Label label53;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Label label15;
+        private Panel panel2;
+        private CheckBox checkBox1;
+        public Label label16;
+        private Label label44;
+        private Label label40;
+        private Label label49;
+        private Label label46;
+        private Label label32;
+        private Label label52;
+        private ToolStripMenuItem tileBackGroundColorToolStripMenuItem;
 
 
     }

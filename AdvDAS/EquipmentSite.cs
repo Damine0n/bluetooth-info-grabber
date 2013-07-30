@@ -46,7 +46,7 @@ namespace CRS
                 MessageBox.Show("Personal Data: " + ex.Message);
             }
         }
-
+        
         private void btnDeleteSite_Click(object sender, EventArgs e)
         {
 
@@ -94,7 +94,8 @@ namespace CRS
             sqlite_cmd.ExecuteNonQuery();
             CreateEquipment(x);           
             siteBox.Items.Clear();
-            Fillcombo();
+            siteBox.SelectedItem = x;
+
         }
 
         private void CreateEquipment(string x)
@@ -125,9 +126,10 @@ namespace CRS
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            sqlite_cmd = sqlite_conn.CreateCommand();
             try
             {
+                sqlite_cmd = sqlite_conn.CreateCommand();
+
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "Update Equipments SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '" 
                     + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '" 
@@ -266,13 +268,11 @@ namespace CRS
             {
                 textBox3.Visible = true;
                 label25.Visible = true;
-                groupBox4.Visible = true;
             }
             else
             {
                 textBox3.Visible = false;
                 label25.Visible = false;
-                groupBox4.Visible = false;
             }
         }
 
@@ -281,10 +281,8 @@ namespace CRS
             CheckBox src = sender as CheckBox;
             if (src.Checked==true)
             {
-                MessageBox.Show("Select " + src.Text + " - Corrected in the tile dropdown menu to view.");
+                MessageBox.Show("Select '" + src.Text + " - Corrected' in the tile dropdown menu to view.");
             }
         }
-
-
     }
 }

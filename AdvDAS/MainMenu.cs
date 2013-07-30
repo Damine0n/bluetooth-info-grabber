@@ -20,9 +20,10 @@ namespace CRS
 {
     public partial class MainMenu : Form
     {
-        private int count = 0;
         public static PrintDoc pDoc = new PrintDoc();
         public static List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
+        public static List<hTile> ht = new List<hTile>();
+        public List<TableLayoutPanel> tiles = new List<TableLayoutPanel>();
         public Color textColor = Color.Black;
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
@@ -42,6 +43,7 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         public static int dgInterval;
+        public static string cUnit, nUnit;
         public MainMenu()
         {
             InitializeComponent();
@@ -50,6 +52,8 @@ namespace CRS
             filltable();
             timer2.Start();
             dgInterval = 1000;
+            cUnit = "g/bhp-hr";
+            nUnit = "g/bhp-hr";
             dataGridTimer.Start();
             
             //startDataBase();
@@ -89,11 +93,30 @@ namespace CRS
             lblList.Add(this.tileLabel8);
             lblList.Add(this.tileLabel9);
             lblList.Add(this.tileLabel10);
+            lblList.Add(this.tileLabel11);
+            lblList.Add(this.tileLabel12);
             for (int i = 0; i < 10; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(lblList[i]));
-                scaleDisplays[i].elementComboBox.SelectedIndex = i + 1;
+                scaleDisplays[i].elementComboBox.SelectedItem = lblList[i].Text;
+            } 
+            for (int i = 0; i < 2; i++)
+            {
+                ht.Add(new hTile(lblList[i+10]));
+                ht[i].elementComboBox.SelectedItem = lblList[i+10].Text;
             }
+            tiles.Add(sTile0);
+            tiles.Add(sTile1);
+            tiles.Add(sTile2);
+            tiles.Add(sTile3);
+            tiles.Add(sTile4);
+            tiles.Add(sTile5);
+            tiles.Add(sTile6);
+            tiles.Add(sTile7);
+            tiles.Add(sTile8);
+            tiles.Add(sTile9);
+            tiles.Add(hTile0);
+            tiles.Add(hTile1);
         }
 
         private void startRecordingItem_Click(object sender, EventArgs e)
@@ -198,14 +221,12 @@ namespace CRS
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configReport.ShowDialog();
-            
         }
 
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configProcedure = new SetUpProcedure(testTime);
             configProcedure.ShowDialog();
-            
         }
 
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,6 +260,67 @@ namespace CRS
                 num.Add(p);
             return num.Average();
             throw new NotImplementedException();
+        }
+        private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            colorDialog.AllowFullOpen = false;
+            // Sets the initial color select to the current text color.
+            colorDialog.Color = label1.ForeColor;
+
+            // Update the text box color if the user clicks OK  
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                labelColor(this, colorDialog);
+            }
+
+        }
+
+        private void labelColor(Control ctrl, ColorDialog color)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                labelColor(c,color);
+                if (c is Label)
+                {
+                    c.ForeColor = color.Color;
+                }
+            }
+        }
+        private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            colorDialog.AllowFullOpen = false;
+            // Sets the initial color select to the current text color.
+            colorDialog.Color = label2.ForeColor;
+
+            // Update the text box color if the user clicks OK  
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                //this.BackColor= colorDialog.Color;
+                this.tabPage1.BackColor = colorDialog.Color;
+                this.tabPage2.BackColor = colorDialog.Color;
+                this.tabPage3.BackColor = colorDialog.Color;
+                this.tabPage4.BackColor = colorDialog.Color;
+            }
+        }
+
+        private void tileBackGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            colorDialog.AllowFullOpen = false;
+            // Sets the initial color select to the current text color.
+            colorDialog.Color = label2.ForeColor;
+
+            // Update the text box color if the user clicks OK  
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                foreach (TableLayoutPanel tile in tiles)
+                    tile.BackColor = colorDialog.Color;
+            }
         }
         /////////////////////////////////////////////////////////////////TAB-NUMBER-1/////////////////////////////////////////////////////////
 
@@ -323,6 +405,16 @@ namespace CRS
                             scaleDisplays[9].source = sourceControl;
                             scaleDisplays[9].ShowDialog(this);
                             break;
+                        case "hTile0":
+                            ht[0].Index = ht[0].elementComboBox.SelectedIndex;
+                            ht[0].source = sourceControl;
+                            ht[0].ShowDialog(this);
+                            break;
+                        case "hTile1":
+                            ht[1].Index = ht[1].elementComboBox.SelectedIndex;
+                            ht[1].source = sourceControl;
+                            ht[1].ShowDialog(this);
+                            break;
                     }
                 }
             }
@@ -343,14 +435,14 @@ namespace CRS
             elements.Add(new Facts("CxHy", 0, "ppm"));
             elements.Add(new Facts("T(gas)", 0, "°F"));
             elements.Add(new Facts("T(amb)", 0, "°F"));
-            elements.Add(new Facts("Temp 1", 0, "°F"));
-            elements.Add(new Facts("Temp 2", 0, "°F"));
             elements.Add(new Facts("T(cell)", 0, "°F"));
             elements.Add(new Facts("Efficiency", 0, "%"));
-            elements.Add(new Facts("Flow", 0, "L/Min"));
-            elements.Add(new Facts("NH3", 0, "ppm"));
-            //elements.Add(new Facts ("CO(mass)",0, "ppm" ));
-            //elements.Add(new Facts ("NOx(mass)",0, "ppm" ));
+            elements.Add(new Facts("I.Flow", 0, "L/Min"));
+            elements.Add(new Facts("Draft", 0, "i.w.g."));
+            elements.Add(new Facts("Losses", 0, "%"));
+            elements.Add(new Facts("Excess Air", 0, ""));
+            elements.Add(new Facts ("CO(mass)",0, cUnit ));
+            elements.Add(new Facts ("NOx(mass)",0, nUnit ));
             for (int i = 0; i < elements.Count; i++)
             {
                 elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
@@ -398,32 +490,11 @@ namespace CRS
                 i++;
             }
         }
-        private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            colorDialog.AllowFullOpen = false;
-            // Sets the initial color select to the current text color.
-            colorDialog.Color = label1.ForeColor;
 
-            // Update the text box color if the user clicks OK  
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-                textColor = colorDialog.Color;
-
-        }
-
-        private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            colorDialog.AllowFullOpen = false;
-            // Sets the initial color select to the current text color.
-            colorDialog.Color = label2.ForeColor;
-
-            // Update the text box color if the user clicks OK  
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-                backgroundColor = colorDialog.Color;
-        }
-
+         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+         {
+                    elementTable.Rows[elementTable.RowCount-2].Cells[2].Value = cUnit;
+                    elementTable.Rows[elementTable.RowCount-1].Cells[2].Value = nUnit;
+         }
     }
 }
