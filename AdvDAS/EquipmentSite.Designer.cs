@@ -88,6 +88,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -97,9 +100,6 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -674,6 +674,37 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emmisions Values Included In Report ";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(430, 67);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(80, 13);
+            this.label25.TabIndex = 11;
+            this.label25.Text = "% O2 corrected";
+            this.label25.Visible = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(395, 63);
+            this.textBox3.MaxLength = 2;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(29, 20);
+            this.textBox3.TabIndex = 10;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.Visible = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(395, 24);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(127, 17);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Enable O2 Correction";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -759,39 +790,9 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(430, 67);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(80, 13);
-            this.label25.TabIndex = 11;
-            this.label25.Text = "% O2 corrected";
-            this.label25.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(395, 63);
-            this.textBox3.MaxLength = 2;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(29, 20);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.Visible = false;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(395, 24);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(127, 17);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Enable O2 Correction";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // EquipmentSite
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 360);

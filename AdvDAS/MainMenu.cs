@@ -35,7 +35,7 @@ namespace CRS
         private PersonalData personalData = new PersonalData();
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
-        public static List<Label> lblList = new List<Label>();
+        public List<Label> lblList = new List<Label>();
         public static DateTime testTime;
         private DateTime running = new DateTime();
         List<Facts> elements = new List<Facts>();
@@ -47,9 +47,8 @@ namespace CRS
         public MainMenu()
         {
             InitializeComponent();
-            this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
-            createScaleDisplays();
             filltable();
+            createScaleDisplays();
             timer2.Start();
             dgInterval = 1000;
             cUnit = "g/bhp-hr";
@@ -100,11 +99,12 @@ namespace CRS
                 scaleDisplays.Add(new ScaleDisplay(lblList[i]));
                 scaleDisplays[i].elementComboBox.SelectedItem = lblList[i].Text;
             } 
-            for (int i = 0; i < 2; i++)
-            {
-                ht.Add(new hTile(lblList[i+10]));
-                ht[i].elementComboBox.SelectedItem = lblList[i+10].Text;
-            }
+            ht.Add(new hTile(lblList[10],cUnit));
+            ht[0].elementComboBox.Items.AddRange(new object[] { "CO(mass)", "CO(mass) - correction" });
+            ht[0].elementComboBox.SelectedIndex = 0;
+            ht.Add(new hTile(lblList[11], nUnit));
+            ht[1].elementComboBox.Items.AddRange(new object[] { "NOx(mass)", "NOx(mass) - correction" });
+            ht[1].elementComboBox.SelectedIndex = 0;
             tiles.Add(sTile0);
             tiles.Add(sTile1);
             tiles.Add(sTile2);
@@ -204,11 +204,12 @@ namespace CRS
         {
             DateTime now = DateTime.Now;
             this.clock_lbl.Text = now.ToString();
+            this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
+            this.pTimelbl.Text = "";
+            this.tTimelbl.Text = "";
+            this.rTimelbl.Text = "";
         }
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            forming.ShowDialog();
-        }
+        
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you want to close this program?", "Exit", MessageBoxButtons.YesNo);
@@ -217,7 +218,10 @@ namespace CRS
             else
                 e.Cancel = true;
         }
-
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            forming.ShowDialog();
+        }
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configReport.ShowDialog();
@@ -411,6 +415,7 @@ namespace CRS
                             ht[0].ShowDialog(this);
                             break;
                         case "hTile1":
+
                             ht[1].Index = ht[1].elementComboBox.SelectedIndex;
                             ht[1].source = sourceControl;
                             ht[1].ShowDialog(this);

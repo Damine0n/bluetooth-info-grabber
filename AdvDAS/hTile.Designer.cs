@@ -37,28 +37,27 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataSource = new System.Windows.Forms.GroupBox();
             this.currentValues = new System.Windows.Forms.GroupBox();
+            this.valLabel = new System.Windows.Forms.Label();
+            this.aveLAbel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.recordingSelection = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.dataSource.SuspendLayout();
             this.currentValues.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.recordingSelection.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,11 +65,6 @@
             // elementComboBox
             // 
             this.elementComboBox.FormattingEnabled = true;
-            this.elementComboBox.Items.AddRange(new object[] {
-            "COx(mass)",
-            "COx(mass) - Correction",
-            "NOx(mass)",
-            "NOx(mass) - Correction"});
             this.elementComboBox.Location = new System.Drawing.Point(6, 19);
             this.elementComboBox.Name = "elementComboBox";
             this.elementComboBox.Size = new System.Drawing.Size(188, 21);
@@ -84,16 +78,14 @@
             this.tableLayoutPanel1.Controls.Add(this.dataSource, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.currentValues, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.recordingSelection, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox7, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox7, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.05781F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.61849F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.3237F));
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(579, 337);
@@ -111,32 +103,56 @@
             // 
             // currentValues
             // 
+            this.currentValues.Controls.Add(this.valLabel);
+            this.currentValues.Controls.Add(this.aveLAbel);
             this.currentValues.Controls.Add(this.label2);
             this.currentValues.Controls.Add(this.label1);
-            this.currentValues.Location = new System.Drawing.Point(3, 58);
+            this.currentValues.Location = new System.Drawing.Point(3, 64);
             this.currentValues.Name = "currentValues";
-            this.currentValues.Size = new System.Drawing.Size(200, 60);
+            this.currentValues.Size = new System.Drawing.Size(200, 79);
             this.currentValues.TabIndex = 5;
             this.currentValues.TabStop = false;
             this.currentValues.Text = "Current Values";
             // 
+            // valLabel
+            // 
+            this.valLabel.AutoSize = true;
+            this.valLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valLabel.Location = new System.Drawing.Point(136, 26);
+            this.valLabel.Name = "valLabel";
+            this.valLabel.Size = new System.Drawing.Size(58, 16);
+            this.valLabel.TabIndex = 3;
+            this.valLabel.Text = "g/bhp-hr";
+            // 
+            // aveLAbel
+            // 
+            this.aveLAbel.AutoSize = true;
+            this.aveLAbel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aveLAbel.Location = new System.Drawing.Point(136, 52);
+            this.aveLAbel.Name = "aveLAbel";
+            this.aveLAbel.Size = new System.Drawing.Size(58, 16);
+            this.aveLAbel.TabIndex = 2;
+            this.aveLAbel.Text = "g/bhp-hr";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 37);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
+            this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Current Average =   ppm";
+            this.label2.Text = "Current Average =";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 16);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Current Value     =   ppm";
+            this.label1.Text = "Current Value      =";
             // 
             // panel1
             // 
@@ -144,7 +160,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(209, 3);
             this.panel1.Name = "panel1";
-            this.tableLayoutPanel1.SetRowSpan(this.panel1, 5);
+            this.tableLayoutPanel1.SetRowSpan(this.panel1, 4);
             this.panel1.Size = new System.Drawing.Size(367, 331);
             this.panel1.TabIndex = 11;
             // 
@@ -174,33 +190,13 @@
             title1.Text = "From (startTime) to Now Fix Later";
             this.chart1.Titles.Add(title1);
             // 
-            // recordingSelection
-            // 
-            this.recordingSelection.Controls.Add(this.checkBox1);
-            this.recordingSelection.Location = new System.Drawing.Point(3, 134);
-            this.recordingSelection.Name = "recordingSelection";
-            this.recordingSelection.Size = new System.Drawing.Size(200, 45);
-            this.recordingSelection.TabIndex = 6;
-            this.recordingSelection.TabStop = false;
-            this.recordingSelection.Text = "Recording Selection";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(180, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Include Signal In Recorded File?";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.label4);
             this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Location = new System.Drawing.Point(3, 251);
+            this.groupBox7.Location = new System.Drawing.Point(3, 229);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 82);
+            this.groupBox7.Size = new System.Drawing.Size(200, 105);
             this.groupBox7.TabIndex = 9;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "LEGEND";
@@ -210,7 +206,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(39, 46);
+            this.label4.Location = new System.Drawing.Point(19, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 33);
             this.label4.TabIndex = 1;
@@ -221,7 +217,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(39, 13);
+            this.label3.Location = new System.Drawing.Point(20, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 33);
             this.label3.TabIndex = 0;
@@ -233,12 +229,58 @@
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 185);
+            this.groupBox1.Location = new System.Drawing.Point(3, 149);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 60);
+            this.groupBox1.Size = new System.Drawing.Size(200, 74);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(101, 48);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(46, 17);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.Text = "TPY";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.Click += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(10, 48);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(78, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.Text = "lb/MMBTU";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Click += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(101, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(47, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "lb/hr";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Click += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(10, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(66, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "g/bhp-hr";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Click += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // btnCancel
             // 
@@ -264,50 +306,6 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(10, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "g/bhp-hr";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(101, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "lb/hr";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(10, 37);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(78, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "lb/MMBTU";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(101, 37);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(46, 17);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "TPY";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
             // hTile
             // 
             this.AcceptButton = this.btnAccept;
@@ -332,8 +330,6 @@
             this.currentValues.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.recordingSelection.ResumeLayout(false);
-            this.recordingSelection.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -350,12 +346,10 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox dataSource;
         private System.Windows.Forms.GroupBox currentValues;
-        private System.Windows.Forms.GroupBox recordingSelection;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -364,6 +358,8 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label valLabel;
+        private System.Windows.Forms.Label aveLAbel;
         
     }
 }

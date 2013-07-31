@@ -244,13 +244,6 @@ namespace CRS
             this.label26 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.tileLabel6 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.signalStrength1 = new WindowWidgets.SignalStrength();
             this.hTile1 = new System.Windows.Forms.TableLayoutPanel();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -261,6 +254,15 @@ namespace CRS
             this.label1 = new System.Windows.Forms.Label();
             this.tileLabel1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.button13 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.rTimelbl = new System.Windows.Forms.Label();
+            this.tTimelbl = new System.Windows.Forms.Label();
+            this.pTimelbl = new System.Windows.Forms.Label();
+            this.plbl = new System.Windows.Forms.Label();
+            this.tlbl = new System.Windows.Forms.Label();
+            this.rlbl = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.trendGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -340,9 +342,9 @@ namespace CRS
             this.sTile4.SuspendLayout();
             this.sTile3.SuspendLayout();
             this.sTile5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.hTile1.SuspendLayout();
             this.sTile0.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trendGraph)).BeginInit();
@@ -986,9 +988,9 @@ namespace CRS
             this.tableLayoutPanel1.Controls.Add(this.sTile4, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.sTile3, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.sTile5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.hTile1, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.sTile0, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel11, 2, 2);
             this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -1014,6 +1016,7 @@ namespace CRS
             this.hTile0.Controls.Add(this.tileLabel11, 0, 0);
             this.hTile0.Controls.Add(this.label36, 0, 1);
             this.hTile0.Controls.Add(this.label37, 3, 1);
+            this.hTile0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTile0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hTile0.Location = new System.Drawing.Point(3, 335);
             this.hTile0.Name = "hTile0";
@@ -1033,7 +1036,7 @@ namespace CRS
             this.tileLabel11.Name = "tileLabel11";
             this.tileLabel11.Size = new System.Drawing.Size(348, 31);
             this.tileLabel11.TabIndex = 0;
-            this.tileLabel11.Text = "COx(mass)";
+            this.tileLabel11.Text = "CO(mass)";
             this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
@@ -1047,7 +1050,7 @@ namespace CRS
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(97, 80);
             this.label36.TabIndex = 4;
-            this.label36.Text = "TEst";
+            this.label36.Text = "Value";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label37
@@ -1061,7 +1064,7 @@ namespace CRS
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(99, 80);
             this.label37.TabIndex = 5;
-            this.label37.Text = "TEst";
+            this.label37.Text = "Average";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile2
@@ -1075,7 +1078,7 @@ namespace CRS
             this.sTile2.Controls.Add(this.label23, 0, 2);
             this.sTile2.Controls.Add(this.label5, 0, 1);
             this.sTile2.Controls.Add(this.tileLabel3, 0, 0);
-            this.sTile2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile2.Location = new System.Drawing.Point(370, 10);
             this.sTile2.Margin = new System.Windows.Forms.Padding(10);
@@ -1163,7 +1166,7 @@ namespace CRS
             this.sTile9.Controls.Add(this.label30, 0, 2);
             this.sTile9.Controls.Add(this.label68, 0, 1);
             this.sTile9.Controls.Add(this.tileLabel10, 0, 0);
-            this.sTile9.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile9.Location = new System.Drawing.Point(730, 175);
             this.sTile9.Margin = new System.Windows.Forms.Padding(10);
@@ -1252,7 +1255,7 @@ namespace CRS
             this.sTile8.Controls.Add(this.label29, 0, 2);
             this.sTile8.Controls.Add(this.label66, 0, 1);
             this.sTile8.Controls.Add(this.tileLabel9, 0, 0);
-            this.sTile8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile8.Location = new System.Drawing.Point(550, 175);
             this.sTile8.Margin = new System.Windows.Forms.Padding(10);
@@ -1271,9 +1274,9 @@ namespace CRS
             this.button11.BackColor = System.Drawing.Color.Transparent;
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button11.Location = new System.Drawing.Point(3, 122);
+            this.button11.Location = new System.Drawing.Point(3, 120);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(154, 22);
+            this.button11.Size = new System.Drawing.Size(154, 24);
             this.button11.TabIndex = 20;
             this.button11.Text = "AVERAGE";
             this.button11.UseVisualStyleBackColor = false;
@@ -1284,9 +1287,9 @@ namespace CRS
             this.label67.BackColor = System.Drawing.SystemColors.Control;
             this.label67.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(3, 82);
+            this.label67.Location = new System.Drawing.Point(3, 81);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(154, 37);
+            this.label67.Size = new System.Drawing.Size(154, 36);
             this.label67.TabIndex = 18;
             this.label67.Text = "0.0";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1297,7 +1300,7 @@ namespace CRS
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 67);
+            this.label29.Location = new System.Drawing.Point(3, 66);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(154, 15);
             this.label29.TabIndex = 16;
@@ -1312,7 +1315,7 @@ namespace CRS
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label66.Location = new System.Drawing.Point(3, 31);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(154, 36);
+            this.label66.Size = new System.Drawing.Size(154, 35);
             this.label66.TabIndex = 17;
             this.label66.Text = "0.0";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1341,7 +1344,7 @@ namespace CRS
             this.sTile7.Controls.Add(this.label28, 0, 2);
             this.sTile7.Controls.Add(this.label64, 0, 1);
             this.sTile7.Controls.Add(this.tileLabel8, 0, 0);
-            this.sTile7.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile7.Location = new System.Drawing.Point(370, 175);
             this.sTile7.Margin = new System.Windows.Forms.Padding(10);
@@ -1429,7 +1432,7 @@ namespace CRS
             this.sTile6.Controls.Add(this.label27, 0, 2);
             this.sTile6.Controls.Add(this.label62, 0, 1);
             this.sTile6.Controls.Add(this.tileLabel7, 0, 0);
-            this.sTile6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile6.Location = new System.Drawing.Point(190, 175);
             this.sTile6.Margin = new System.Windows.Forms.Padding(10);
@@ -1517,7 +1520,7 @@ namespace CRS
             this.sTile1.Controls.Add(this.label3, 0, 1);
             this.sTile1.Controls.Add(this.label22, 0, 2);
             this.sTile1.Controls.Add(this.tileLabel2, 0, 0);
-            this.sTile1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile1.Location = new System.Drawing.Point(190, 10);
             this.sTile1.Margin = new System.Windows.Forms.Padding(10);
@@ -1605,7 +1608,7 @@ namespace CRS
             this.sTile4.Controls.Add(this.label25, 0, 2);
             this.sTile4.Controls.Add(this.label9, 0, 1);
             this.sTile4.Controls.Add(this.tileLabel5, 0, 0);
-            this.sTile4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile4.Location = new System.Drawing.Point(730, 10);
             this.sTile4.Margin = new System.Windows.Forms.Padding(10);
@@ -1624,9 +1627,9 @@ namespace CRS
             this.button7.BackColor = System.Drawing.Color.Transparent;
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Location = new System.Drawing.Point(3, 121);
+            this.button7.Location = new System.Drawing.Point(3, 119);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(154, 21);
+            this.button7.Size = new System.Drawing.Size(154, 23);
             this.button7.TabIndex = 16;
             this.button7.Text = "AVERAGE";
             this.button7.UseVisualStyleBackColor = false;
@@ -1637,9 +1640,9 @@ namespace CRS
             this.label10.BackColor = System.Drawing.SystemColors.Control;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 81);
+            this.label10.Location = new System.Drawing.Point(3, 80);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(154, 37);
+            this.label10.Size = new System.Drawing.Size(154, 36);
             this.label10.TabIndex = 14;
             this.label10.Text = "0.0";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1650,7 +1653,7 @@ namespace CRS
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 66);
+            this.label25.Location = new System.Drawing.Point(3, 65);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(154, 15);
             this.label25.TabIndex = 12;
@@ -1665,7 +1668,7 @@ namespace CRS
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 31);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(154, 35);
+            this.label9.Size = new System.Drawing.Size(154, 34);
             this.label9.TabIndex = 13;
             this.label9.Text = "0.0";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1694,7 +1697,7 @@ namespace CRS
             this.sTile3.Controls.Add(this.label24, 0, 2);
             this.sTile3.Controls.Add(this.label7, 0, 1);
             this.sTile3.Controls.Add(this.tileLabel4, 0, 0);
-            this.sTile3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile3.Location = new System.Drawing.Point(550, 10);
             this.sTile3.Margin = new System.Windows.Forms.Padding(10);
@@ -1713,9 +1716,9 @@ namespace CRS
             this.button6.BackColor = System.Drawing.Color.Transparent;
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(3, 122);
+            this.button6.Location = new System.Drawing.Point(3, 120);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(154, 20);
+            this.button6.Size = new System.Drawing.Size(154, 22);
             this.button6.TabIndex = 15;
             this.button6.Text = "AVERAGE";
             this.button6.UseVisualStyleBackColor = false;
@@ -1726,9 +1729,9 @@ namespace CRS
             this.label8.BackColor = System.Drawing.SystemColors.Control;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 82);
+            this.label8.Location = new System.Drawing.Point(3, 81);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 37);
+            this.label8.Size = new System.Drawing.Size(154, 36);
             this.label8.TabIndex = 13;
             this.label8.Text = "0.0";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1739,7 +1742,7 @@ namespace CRS
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(3, 67);
+            this.label24.Location = new System.Drawing.Point(3, 66);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(154, 15);
             this.label24.TabIndex = 11;
@@ -1754,7 +1757,7 @@ namespace CRS
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 36);
+            this.label7.Size = new System.Drawing.Size(154, 35);
             this.label7.TabIndex = 12;
             this.label7.Text = "0.0";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1783,7 +1786,7 @@ namespace CRS
             this.sTile5.Controls.Add(this.label26, 0, 2);
             this.sTile5.Controls.Add(this.label34, 0, 1);
             this.sTile5.Controls.Add(this.tileLabel6, 0, 0);
-            this.sTile5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile5.Location = new System.Drawing.Point(10, 175);
             this.sTile5.Margin = new System.Windows.Forms.Padding(10);
@@ -1860,96 +1863,6 @@ namespace CRS
             this.tileLabel6.Text = "NOx";
             this.tileLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button13);
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.signalStrength1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(363, 335);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(174, 113);
-            this.panel4.TabIndex = 20;
-            // 
-            // button13
-            // 
-            this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button13.Location = new System.Drawing.Point(0, 90);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(174, 23);
-            this.button13.TabIndex = 7;
-            this.button13.Text = "Reset All Averages";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 49);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Purge: 00:00:00";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(28, 32);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Test: 00:00:00";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 14);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Ramp Up: 00:00:00";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(62, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Phase";
-            // 
-            // signalStrength1
-            // 
-            this.signalStrength1.BackgroundStyle = WindowWidgets.SignalStrengthBackgroundStyle.Normal;
-            this.signalStrength1.BarLayout = WindowWidgets.SignalStrengthLayout.LeftToRight;
-            this.signalStrength1.BarSpacing = 2;
-            this.signalStrength1.BarStepSize = 20;
-            this.signalStrength1.CenterGradientColor = System.Drawing.Color.WhiteSmoke;
-            this.signalStrength1.EmptyBarColor = System.Drawing.Color.Gray;
-            this.signalStrength1.GoodSignalColor = System.Drawing.Color.Green;
-            this.signalStrength1.GoodSignalThreshold = 0.8F;
-            this.signalStrength1.Location = new System.Drawing.Point(102, 39);
-            this.signalStrength1.MaximumValue = 1F;
-            this.signalStrength1.MinimumValue = 0F;
-            this.signalStrength1.Name = "signalStrength1";
-            this.signalStrength1.NoSignalColor = System.Drawing.Color.White;
-            this.signalStrength1.NoSignalThreshold = 0F;
-            this.signalStrength1.NumberOfBars = 5;
-            this.signalStrength1.PoorSignalColor = System.Drawing.Color.Yellow;
-            this.signalStrength1.PoorSignalThreshold = 0.5F;
-            this.signalStrength1.Size = new System.Drawing.Size(69, 45);
-            this.signalStrength1.SmallBarHeight = 10;
-            this.signalStrength1.UseSolidBars = false;
-            this.signalStrength1.Value = 0F;
-            this.signalStrength1.WeakSignalColor = System.Drawing.Color.Red;
-            this.signalStrength1.WeakSignalThreshold = 0.2F;
-            this.signalStrength1.XColor = System.Drawing.Color.Red;
-            this.signalStrength1.XIfNoSignal = true;
-            this.signalStrength1.XWidth = 1.5F;
-            // 
             // hTile1
             // 
             this.hTile1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1963,6 +1876,7 @@ namespace CRS
             this.hTile1.Controls.Add(this.label39, 0, 1);
             this.hTile1.Controls.Add(this.label38, 3, 1);
             this.hTile1.Controls.Add(this.tileLabel12, 0, 0);
+            this.hTile1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTile1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hTile1.Location = new System.Drawing.Point(543, 335);
             this.hTile1.Name = "hTile1";
@@ -1983,7 +1897,7 @@ namespace CRS
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(97, 80);
             this.label39.TabIndex = 7;
-            this.label39.Text = "TEst";
+            this.label39.Text = "Value";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
@@ -1997,7 +1911,7 @@ namespace CRS
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(99, 80);
             this.label38.TabIndex = 6;
-            this.label38.Text = "TEst";
+            this.label38.Text = "Average";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tileLabel12
@@ -2024,7 +1938,7 @@ namespace CRS
             this.sTile0.Controls.Add(this.label1, 0, 1);
             this.sTile0.Controls.Add(this.tileLabel1, 0, 0);
             this.sTile0.Controls.Add(this.button3, 0, 4);
-            this.sTile0.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sTile0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sTile0.Location = new System.Drawing.Point(10, 10);
             this.sTile0.Margin = new System.Windows.Forms.Padding(10);
@@ -2101,6 +2015,121 @@ namespace CRS
             this.button3.TabIndex = 12;
             this.button3.Text = "AVERAGE";
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.button13, 0, 5);
+            this.tableLayoutPanel11.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.rTimelbl, 1, 1);
+            this.tableLayoutPanel11.Controls.Add(this.tTimelbl, 1, 2);
+            this.tableLayoutPanel11.Controls.Add(this.pTimelbl, 1, 3);
+            this.tableLayoutPanel11.Controls.Add(this.plbl, 0, 3);
+            this.tableLayoutPanel11.Controls.Add(this.tlbl, 0, 2);
+            this.tableLayoutPanel11.Controls.Add(this.rlbl, 0, 1);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(363, 335);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 6;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(174, 113);
+            this.tableLayoutPanel11.TabIndex = 25;
+            // 
+            // button13
+            // 
+            this.tableLayoutPanel11.SetColumnSpan(this.button13, 2);
+            this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button13.Location = new System.Drawing.Point(3, 87);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(168, 23);
+            this.button13.TabIndex = 25;
+            this.button13.Text = "Reset All Averages";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.tableLayoutPanel11.SetColumnSpan(this.label11, 2);
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(168, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Phase";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rTimelbl
+            // 
+            this.rTimelbl.AutoSize = true;
+            this.rTimelbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rTimelbl.Location = new System.Drawing.Point(90, 13);
+            this.rTimelbl.Name = "rTimelbl";
+            this.rTimelbl.Size = new System.Drawing.Size(81, 13);
+            this.rTimelbl.TabIndex = 26;
+            this.rTimelbl.Text = "00:00:00";
+            this.rTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tTimelbl
+            // 
+            this.tTimelbl.AutoSize = true;
+            this.tTimelbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tTimelbl.Location = new System.Drawing.Point(90, 26);
+            this.tTimelbl.Name = "tTimelbl";
+            this.tTimelbl.Size = new System.Drawing.Size(81, 13);
+            this.tTimelbl.TabIndex = 27;
+            this.tTimelbl.Text = "00:00:00";
+            this.tTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pTimelbl
+            // 
+            this.pTimelbl.AutoSize = true;
+            this.pTimelbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTimelbl.Location = new System.Drawing.Point(90, 39);
+            this.pTimelbl.Name = "pTimelbl";
+            this.pTimelbl.Size = new System.Drawing.Size(81, 13);
+            this.pTimelbl.TabIndex = 28;
+            this.pTimelbl.Text = "00:00:00";
+            this.pTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // plbl
+            // 
+            this.plbl.AutoSize = true;
+            this.plbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plbl.Location = new System.Drawing.Point(3, 39);
+            this.plbl.Name = "plbl";
+            this.plbl.Size = new System.Drawing.Size(81, 13);
+            this.plbl.TabIndex = 23;
+            this.plbl.Text = "Purge:";
+            this.plbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tlbl
+            // 
+            this.tlbl.AutoSize = true;
+            this.tlbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlbl.Location = new System.Drawing.Point(3, 26);
+            this.tlbl.Name = "tlbl";
+            this.tlbl.Size = new System.Drawing.Size(81, 13);
+            this.tlbl.TabIndex = 4;
+            this.tlbl.Text = "Test:";
+            this.tlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // rlbl
+            // 
+            this.rlbl.AutoSize = true;
+            this.rlbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rlbl.Location = new System.Drawing.Point(3, 13);
+            this.rlbl.Name = "rlbl";
+            this.rlbl.Size = new System.Drawing.Size(81, 13);
+            this.rlbl.TabIndex = 2;
+            this.rlbl.Text = "Ramp Up:";
+            this.rlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage2
             // 
@@ -2598,6 +2627,7 @@ namespace CRS
             this.panel13.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLayoutPanel3.SetColumnSpan(this.panel13, 2);
             this.panel13.ContextMenuStrip = this.tilePopUpMenu;
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(10, 334);
             this.panel13.Margin = new System.Windows.Forms.Padding(10);
             this.panel13.Name = "panel13";
@@ -3234,12 +3264,12 @@ namespace CRS
             this.sTile3.PerformLayout();
             this.sTile5.ResumeLayout(false);
             this.sTile5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.hTile1.ResumeLayout(false);
             this.hTile1.PerformLayout();
             this.sTile0.ResumeLayout(false);
             this.sTile0.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trendGraph)).EndInit();
@@ -3428,7 +3458,6 @@ namespace CRS
         private Label label24;
         private TableLayoutPanel sTile5;
         private Label label26;
-        private Panel panel4;
         private TableLayoutPanel hTile1;
         private TableLayoutPanel hTile0;
         private Label tileLabel11;
@@ -3492,12 +3521,6 @@ namespace CRS
         private Button button6;
         private Button button8;
         private Button button3;
-        private WindowWidgets.SignalStrength signalStrength1;
-        private Label label12;
-        private Label label11;
-        private Label label14;
-        private Label label13;
-        private Button button13;
         private TableLayoutPanel tableLayoutPanel15;
         private Label label19;
         private Panel panel5;
@@ -3522,6 +3545,15 @@ namespace CRS
         private Label label32;
         private Label label52;
         private ToolStripMenuItem tileBackGroundColorToolStripMenuItem;
+        private TableLayoutPanel tableLayoutPanel11;
+        private Button button13;
+        private Label label11;
+        private Label rTimelbl;
+        private Label tTimelbl;
+        private Label pTimelbl;
+        private Label plbl;
+        private Label tlbl;
+        private Label rlbl;
 
 
     }

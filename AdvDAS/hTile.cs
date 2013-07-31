@@ -15,12 +15,14 @@ namespace CRS
     {
         public Control source;
         private Label lbl;
+        private string unit;
         private int index;
-        public hTile(Label lbl)
+        public hTile(Label lbl, string unit)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.lbl = lbl;
+            this.unit = unit;
         }
         public int Index
         {
@@ -44,5 +46,18 @@ namespace CRS
 
         }
 
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton src = sender as RadioButton;
+            foreach (var item in elementComboBox.Items)
+            {
+                if (item.Equals("NOx(mass)"))
+                    MainMenu.nUnit = src.Text;
+                else
+                    MainMenu.cUnit = src.Text;
+            }
+            valLabel.Text = src.Text;
+            aveLAbel.Text = src.Text;
+        }
     }
 }
