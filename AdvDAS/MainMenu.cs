@@ -36,13 +36,16 @@ namespace CRS
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
         public List<Label> lblList = new List<Label>();
-        public static DateTime testTime;
         private DateTime running = new DateTime();
+        public static DateTime testTime;
+        public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
+        public static DateTime testData = new DateTime(2000, 2, 1, 0, 0, 0);
+        public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
-        public static int dgInterval;
+        public static int dgInterval, numOfCycles;
         public static string cUnit, nUnit;
         public MainMenu()
         {
@@ -51,6 +54,7 @@ namespace CRS
             createScaleDisplays();
             timer2.Start();
             dgInterval = 1000;
+            numOfCycles = 1;
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
             dataGridTimer.Start();
@@ -191,8 +195,10 @@ namespace CRS
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.recordingProgressBar.Increment(1);
 
+            this.recordingProgressBar.Increment(1);
+            rampUp=rampUp.AddSeconds(-1);
+            rTimelbl.Text = rampUp.ToString("HH:mm:ss");
             running = running.AddSeconds(1);
             this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
             if (this.recordingProgressBar.Value == this.recordingProgressBar.Maximum)
@@ -205,9 +211,9 @@ namespace CRS
             DateTime now = DateTime.Now;
             this.clock_lbl.Text = now.ToString();
             this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
-            this.pTimelbl.Text = "";
-            this.tTimelbl.Text = "";
-            this.rTimelbl.Text = "";
+            this.pTimelbl.Text = purge.ToString("HH:mm:ss");
+            this.tTimelbl.Text = testData.ToString("HH:mm:ss");
+            this.rTimelbl.Text = rampUp.ToString("HH:mm:ss");
         }
         
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -229,10 +235,10 @@ namespace CRS
 
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            configProcedure = new SetUpProcedure(testTime);
+            configProcedure = new SetUpProcedure(rampUp.ToString("HH:mm:ss"), testData.ToString("HH:mm:ss"),purge.ToString("HH:mm:ss"), numOfCycles, dgInterval);
             configProcedure.ShowDialog();
         }
-
+        
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             personalData.ShowDialog();
@@ -501,5 +507,6 @@ namespace CRS
                     elementTable.Rows[elementTable.RowCount-2].Cells[2].Value = cUnit;
                     elementTable.Rows[elementTable.RowCount-1].Cells[2].Value = nUnit;
          }
+
     }
 }

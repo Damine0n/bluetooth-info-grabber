@@ -20,18 +20,41 @@ namespace CRS
 {
     public partial class SetUpProcedure : Form
     {
-        public DateTime rampUp;
-        public DateTime testData;
-        public DateTime purge;
-        public DateTime totalCycle;
-        public int sampleRate;
-        public SetUpProcedure(DateTime totalCycle, DateTime rampUp, DateTime testData, DateTime purge)
+        private DateTime rampUp;
+        private DateTime testData;
+        private DateTime purge;
+        private DateTime totalCycle;
+        private DateTime cycle;
+        private int sampleRate, numOfCycles;
+        public SetUpProcedure(string rampUp, string testData, string purge,int numOfCycles, int sampleRate)
         {
             InitializeComponent();
-            this.totalCycle = totalCycle;
-            this.rampUp = rampUp;
-            this.testData = testData;
-            this.purge = purge;
+            this.rampUp = Convert.ToDateTime(rampUp);
+            this.testData = Convert.ToDateTime(testData);
+            this.purge = Convert.ToDateTime(purge);
+            this.numOfCycles = numOfCycles;
+            this.sampleRate = sampleRate/1000;
+            this.cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(rampUp) + TimeSpan.Parse(testData) + TimeSpan.Parse(purge)).ToString("HH:mm:ss"));
+            populate();
+        }
+
+        //private DateTime findTotal(DateTime totalCycle, int numOfCycles)
+        //{
+        //    DateTime newTotal=totalCycle;
+        //    for (int i = 1; i < numOfCycles; i++)
+        //    {
+        //        newTotal = Convert.ToDateTime(totalCycle.Subtract(Convert.ToDateTime(totalCycle.ToString("HH:mm:ss"))));
+        //    }
+        //    return newTotal;
+        //}
+
+        private void populate()
+        {
+            dateTimePicker1.Value = rampUp;
+            dateTimePicker2.Value = testData;
+            dateTimePicker3.Value = purge;
+            numericUpDown1.Value = numOfCycles;
+            numericUpDown2.Value = sampleRate;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -52,7 +75,7 @@ namespace CRS
 
         private void measurementOptions_CheckedChanged(object sender, EventArgs e)
         {
-            totalCycle = new DateTime();
+            cycle = new DateTime();
             if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(true)) 
             {
                 this.label7.Enabled = false;
@@ -61,7 +84,7 @@ namespace CRS
                 this.label8.Enabled = false;
                 this.dateTimePicker3.Enabled = false;
                 this.checkBox5.Enabled = false;
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(false))
             {
@@ -71,7 +94,7 @@ namespace CRS
                 this.label8.Enabled = true;
                 this.dateTimePicker3.Enabled = true;
                 this.checkBox5.Enabled = true;
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(false) && checkBox4.Checked.Equals(true))
             {
@@ -81,7 +104,7 @@ namespace CRS
                 this.label8.Enabled = false;
                 this.dateTimePicker3.Enabled = false;
                 this.checkBox5.Enabled = false;
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
             }
             else
             {
@@ -91,48 +114,69 @@ namespace CRS
                 this.label8.Enabled = true;
                 this.dateTimePicker3.Enabled = true;
                 this.checkBox5.Enabled = true;
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            rampUp = this.dateTimePicker1.Value;
-            testData = this.dateTimePicker2.Value;
-            purge = this.dateTimePicker3.Value;
-            MainMenu.testTime=Convert.ToDateTime(label4.Text);
-            
+            MainMenu.rampUp = this.dateTimePicker1.Value;
+            MainMenu.testData = this.dateTimePicker2.Value;
+            MainMenu.purge = this.dateTimePicker3.Value;
+            MainMenu.testTime = this.totalCycle;
+            MainMenu.numOfCycles = this.numOfCycles;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            totalCycle = new DateTime();
-            totalCycle.AddHours(1);
+            cycle = new DateTime();
             rampUp = this.dateTimePicker1.Value;
             testData = this.dateTimePicker2.Value;
             purge = this.dateTimePicker3.Value;
 
             if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(true)) 
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(this.testData.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
+                label4.Text = cycle.ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(false))
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(this.testData.ToString("HH:mm:ss")) + TimeSpan.Parse(this.purge.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
+                label4.Text = cycle.ToString("HH:mm:ss");
             }
             else if (checkBox2.Checked.Equals(false) && checkBox4.Checked.Equals(true))
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
+                cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(this.rampUp.ToString("HH:mm:ss")) + TimeSpan.Parse(this.testData.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
+                label4.Text = cycle.ToString("HH:mm:ss");
             }
             else
             {
-                label4.Text = totalCycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
+                cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(this.rampUp.ToString("HH:mm:ss")) + TimeSpan.Parse(this.testData.ToString("HH:mm:ss")) + TimeSpan.Parse(this.purge.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
+                label4.Text = cycle.ToString("HH:mm:ss");
             }
+            Cycles(numOfCycles,cycle);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            MainMenu.dgInterval = Convert.ToInt32(numericUpDown2.Value)*1000;
+            sampleRate = (int)numericUpDown2.Value;
+            MainMenu.dgInterval = sampleRate*1000;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            numOfCycles = (int)numericUpDown1.Value;
+            Cycles(numOfCycles,cycle);
+        }
+        private void Cycles(int x, DateTime cycle)
+        {
+            DateTime newTotal = new DateTime();
+            for (int i = 0; i < x; i++)
+            {
+                newTotal = Convert.ToDateTime(newTotal.Add(TimeSpan.Parse(cycle.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
+            }
+            this.totalCycle = newTotal;
+            //label4.Text = totalCycle.ToString("HH:mm:ss");
         }
     }
 }

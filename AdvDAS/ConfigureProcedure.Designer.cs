@@ -103,6 +103,7 @@
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label6
             // 
@@ -174,7 +175,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(367, 6);
+            this.label9.Location = new System.Drawing.Point(367, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 40);
             this.label9.TabIndex = 10;
