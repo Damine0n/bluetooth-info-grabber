@@ -43,6 +43,7 @@ namespace CRS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -118,7 +119,6 @@ namespace CRS
             System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.browseReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -326,6 +326,8 @@ namespace CRS
             this.panel12 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
@@ -845,7 +847,7 @@ namespace CRS
             // snapShot
             // 
             this.snapShot.BackColor = System.Drawing.Color.Transparent;
-            this.snapShot.BackgroundImage = global::CRS.Properties.Resources.Ahmadhania_Spherical_Camera;
+            this.snapShot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("snapShot.BackgroundImage")));
             this.snapShot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.snapShot.Location = new System.Drawing.Point(167, 3);
             this.snapShot.Name = "snapShot";
@@ -858,7 +860,7 @@ namespace CRS
             // 
             // stopRecordingItem
             // 
-            this.stopRecordingItem.BackgroundImage = global::CRS.Properties.Resources.stop;
+            this.stopRecordingItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stopRecordingItem.BackgroundImage")));
             this.stopRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.stopRecordingItem.Enabled = false;
             this.stopRecordingItem.Location = new System.Drawing.Point(113, 3);
@@ -873,7 +875,7 @@ namespace CRS
             // 
             // pauseRecordingItem
             // 
-            this.pauseRecordingItem.BackgroundImage = global::CRS.Properties.Resources.Deleket_Soft_Scraps_Button_Pause;
+            this.pauseRecordingItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pauseRecordingItem.BackgroundImage")));
             this.pauseRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pauseRecordingItem.Enabled = false;
             this.pauseRecordingItem.Location = new System.Drawing.Point(58, 3);
@@ -888,7 +890,7 @@ namespace CRS
             // 
             // startRecordingItem
             // 
-            this.startRecordingItem.BackgroundImage = global::CRS.Properties.Resources.play;
+            this.startRecordingItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("startRecordingItem.BackgroundImage")));
             this.startRecordingItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.startRecordingItem.Location = new System.Drawing.Point(3, 3);
             this.startRecordingItem.Name = "startRecordingItem";
@@ -1036,13 +1038,13 @@ namespace CRS
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.SystemColors.Control;
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label36.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(1, 32);
             this.label36.Margin = new System.Windows.Forms.Padding(1);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(97, 80);
             this.label36.TabIndex = 4;
-            this.label36.Text = "Value";
+            this.label36.Text = "0.0";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label37
@@ -1050,13 +1052,13 @@ namespace CRS
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.SystemColors.Control;
             this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label37.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.Location = new System.Drawing.Point(254, 32);
             this.label37.Margin = new System.Windows.Forms.Padding(1);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(99, 80);
             this.label37.TabIndex = 5;
-            this.label37.Text = "Average";
+            this.label37.Text = "0.0";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile2
@@ -1101,7 +1103,7 @@ namespace CRS
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(154, 34);
@@ -1127,7 +1129,7 @@ namespace CRS
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 37);
@@ -1166,10 +1168,10 @@ namespace CRS
             this.sTile9.Name = "sTile9";
             this.sTile9.RowCount = 5;
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.1174F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.85458F));
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.7641F));
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.11849F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.14542F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile9.Size = new System.Drawing.Size(160, 147);
             this.sTile9.TabIndex = 19;
             // 
@@ -1178,9 +1180,9 @@ namespace CRS
             this.button12.BackColor = System.Drawing.Color.Transparent;
             this.button12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button12.Location = new System.Drawing.Point(3, 121);
+            this.button12.Location = new System.Drawing.Point(3, 122);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(154, 23);
+            this.button12.Size = new System.Drawing.Size(154, 22);
             this.button12.TabIndex = 21;
             this.button12.Text = "AVERAGE";
             this.button12.UseVisualStyleBackColor = false;
@@ -1190,7 +1192,7 @@ namespace CRS
             this.label69.AutoSize = true;
             this.label69.BackColor = System.Drawing.SystemColors.Control;
             this.label69.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label69.Location = new System.Drawing.Point(3, 81);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(154, 37);
@@ -1216,7 +1218,7 @@ namespace CRS
             this.label68.AutoSize = true;
             this.label68.BackColor = System.Drawing.SystemColors.Control;
             this.label68.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label68.Location = new System.Drawing.Point(3, 31);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(154, 35);
@@ -1265,10 +1267,11 @@ namespace CRS
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.button11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button11.Location = new System.Drawing.Point(3, 118);
+            this.button11.Location = new System.Drawing.Point(3, 122);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(154, 26);
+            this.button11.Size = new System.Drawing.Size(154, 22);
             this.button11.TabIndex = 20;
             this.button11.Text = "AVERAGE";
             this.button11.UseVisualStyleBackColor = false;
@@ -1278,10 +1281,10 @@ namespace CRS
             this.label67.AutoSize = true;
             this.label67.BackColor = System.Drawing.SystemColors.Control;
             this.label67.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(3, 80);
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(3, 81);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(154, 35);
+            this.label67.Size = new System.Drawing.Size(154, 37);
             this.label67.TabIndex = 18;
             this.label67.Text = "0.0";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1292,7 +1295,7 @@ namespace CRS
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 65);
+            this.label29.Location = new System.Drawing.Point(3, 66);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(154, 15);
             this.label29.TabIndex = 16;
@@ -1304,10 +1307,10 @@ namespace CRS
             this.label66.AutoSize = true;
             this.label66.BackColor = System.Drawing.SystemColors.Control;
             this.label66.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label66.Location = new System.Drawing.Point(3, 31);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(154, 34);
+            this.label66.Size = new System.Drawing.Size(154, 35);
             this.label66.TabIndex = 17;
             this.label66.Text = "0.0";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1367,7 +1370,7 @@ namespace CRS
             this.label65.AutoSize = true;
             this.label65.BackColor = System.Drawing.SystemColors.Control;
             this.label65.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.Location = new System.Drawing.Point(3, 81);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(154, 37);
@@ -1393,7 +1396,7 @@ namespace CRS
             this.label64.AutoSize = true;
             this.label64.BackColor = System.Drawing.SystemColors.Control;
             this.label64.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.Location = new System.Drawing.Point(3, 31);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(154, 35);
@@ -1456,7 +1459,7 @@ namespace CRS
             this.label63.AutoSize = true;
             this.label63.BackColor = System.Drawing.SystemColors.Control;
             this.label63.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label63.Location = new System.Drawing.Point(3, 81);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(154, 37);
@@ -1482,7 +1485,7 @@ namespace CRS
             this.label62.AutoSize = true;
             this.label62.BackColor = System.Drawing.SystemColors.Control;
             this.label62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label62.Location = new System.Drawing.Point(3, 31);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(154, 35);
@@ -1545,7 +1548,7 @@ namespace CRS
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 36);
@@ -1558,7 +1561,7 @@ namespace CRS
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 35);
@@ -1620,7 +1623,7 @@ namespace CRS
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7.Location = new System.Drawing.Point(3, 121);
             this.button7.Name = "button7";
@@ -1634,10 +1637,10 @@ namespace CRS
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.Control;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 81);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(154, 37);
+            this.label10.Size = new System.Drawing.Size(154, 36);
             this.label10.TabIndex = 14;
             this.label10.Text = "0.0";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1660,7 +1663,7 @@ namespace CRS
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.Control;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 31);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(154, 35);
@@ -1709,10 +1712,11 @@ namespace CRS
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(3, 121);
+            this.button6.Location = new System.Drawing.Point(3, 120);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(154, 20);
+            this.button6.Size = new System.Drawing.Size(154, 22);
             this.button6.TabIndex = 15;
             this.button6.Text = "AVERAGE";
             this.button6.UseVisualStyleBackColor = false;
@@ -1722,10 +1726,10 @@ namespace CRS
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.Control;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 81);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 37);
+            this.label8.Size = new System.Drawing.Size(154, 36);
             this.label8.TabIndex = 13;
             this.label8.Text = "0.0";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1748,7 +1752,7 @@ namespace CRS
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.Control;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(154, 35);
@@ -1811,7 +1815,7 @@ namespace CRS
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.SystemColors.Control;
             this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(3, 81);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(154, 37);
@@ -1837,7 +1841,7 @@ namespace CRS
             this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.SystemColors.Control;
             this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(3, 31);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(154, 35);
@@ -1871,13 +1875,16 @@ namespace CRS
             this.hTile1.Controls.Add(this.label39, 0, 1);
             this.hTile1.Controls.Add(this.label38, 3, 1);
             this.hTile1.Controls.Add(this.tileLabel12, 0, 0);
+            this.hTile1.Controls.Add(this.button1, 1, 2);
+            this.hTile1.Controls.Add(this.label12, 1, 1);
             this.hTile1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTile1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hTile1.Location = new System.Drawing.Point(543, 335);
             this.hTile1.Name = "hTile1";
-            this.hTile1.RowCount = 2;
+            this.hTile1.RowCount = 3;
             this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.hTile1.Size = new System.Drawing.Size(354, 113);
             this.hTile1.TabIndex = 23;
             // 
@@ -1886,13 +1893,14 @@ namespace CRS
             this.label39.AutoSize = true;
             this.label39.BackColor = System.Drawing.SystemColors.Control;
             this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label39.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(1, 32);
             this.label39.Margin = new System.Windows.Forms.Padding(1);
             this.label39.Name = "label39";
+            this.hTile1.SetRowSpan(this.label39, 2);
             this.label39.Size = new System.Drawing.Size(97, 80);
             this.label39.TabIndex = 7;
-            this.label39.Text = "Value";
+            this.label39.Text = "0.0";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
@@ -1900,13 +1908,14 @@ namespace CRS
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.SystemColors.Control;
             this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label38.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(254, 32);
             this.label38.Margin = new System.Windows.Forms.Padding(1);
             this.label38.Name = "label38";
+            this.hTile1.SetRowSpan(this.label38, 2);
             this.label38.Size = new System.Drawing.Size(99, 80);
             this.label38.TabIndex = 6;
-            this.label38.Text = "Average";
+            this.label38.Text = "0.0";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tileLabel12
@@ -1952,7 +1961,7 @@ namespace CRS
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 36);
@@ -1978,7 +1987,7 @@ namespace CRS
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 35);
@@ -2070,7 +2079,7 @@ namespace CRS
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(168, 13);
             this.label11.TabIndex = 1;
-            this.label11.Text = "Cycle:";
+            this.label11.Text = "Cycle: 1";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rTimelbl
@@ -3235,6 +3244,31 @@ namespace CRS
             this.dataGridTimer.Interval = 1000;
             this.dataGridTimer.Tick += new System.EventHandler(this.dataGridTimer_Tick);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.hTile1.SetColumnSpan(this.button1, 2);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(102, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "RESET AVERAGE";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.hTile1.SetColumnSpan(this.label12, 2);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(102, 31);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 25);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "label12";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3568,6 +3602,8 @@ namespace CRS
         private Label tlbl;
         private Label rlbl;
         private ProgressBar progressBar1;
+        private Button button1;
+        private Label label12;
 
 
     }

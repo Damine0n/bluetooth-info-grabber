@@ -58,7 +58,7 @@ namespace CRS
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
             dataGridTimer.Start();
-            
+            label1.Font = new System.Drawing.Font(label1.Font.FontFamily, this.Font.Height, FontStyle.Regular);
             //startDataBase();
         }
 
@@ -195,16 +195,37 @@ namespace CRS
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-            this.recordingProgressBar.Increment(1);
-            rampUp=rampUp.AddSeconds(-1);
-            rTimelbl.Text = rampUp.ToString("HH:mm:ss");
-            running = running.AddSeconds(1);
-            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
-            if (this.recordingProgressBar.Value == this.recordingProgressBar.Maximum)
+            for (int i = 1; i <= numOfCycles; i++)
             {
-                this.recordingProgressBar.Value = 0;
+                if (rampUp.ToString("HH:mm:ss") != "00:00:00")
+                {
+                    this.recordingProgressBar.Value = 0;
+                    this.recordingProgressBar.Maximum = rampUp.Second;
+                    this.recordingProgressBar.Increment(1);
+                    rampUp = rampUp.AddSeconds(-1);
+                    rTimelbl.Text = rampUp.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                }
+                else if (testData.ToString("HH:mm:ss") != "00:00:00")
+                {
+                    this.recordingProgressBar.Value = 0;
+                    this.recordingProgressBar.Maximum = rampUp.Second;
+                    this.recordingProgressBar.Increment(1);
+                    rampUp = rampUp.AddSeconds(-1);
+                    rTimelbl.Text = rampUp.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                }
+                else if (purge.ToString("HH:mm:ss") != "00:00:00")
+                {
+                    this.recordingProgressBar.Value = 0;
+                    this.recordingProgressBar.Maximum = rampUp.Second;
+                    this.recordingProgressBar.Increment(1);
+                    rampUp = rampUp.AddSeconds(-1);
+                    rTimelbl.Text = rampUp.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                }
             }
+            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -235,7 +256,7 @@ namespace CRS
 
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            configProcedure = new SetUpProcedure(rampUp.ToString("HH:mm:ss"), testData.ToString("HH:mm:ss"),purge.ToString("HH:mm:ss"), numOfCycles, dgInterval);
+            configProcedure = new SetUpProcedure(rampUp, testData,purge, numOfCycles, dgInterval);
             configProcedure.ShowDialog();
         }
         
@@ -421,7 +442,6 @@ namespace CRS
                             ht[0].ShowDialog(this);
                             break;
                         case "hTile1":
-
                             ht[1].Index = ht[1].elementComboBox.SelectedIndex;
                             ht[1].source = sourceControl;
                             ht[1].ShowDialog(this);
@@ -507,6 +527,5 @@ namespace CRS
                     elementTable.Rows[elementTable.RowCount-2].Cells[2].Value = cUnit;
                     elementTable.Rows[elementTable.RowCount-1].Cells[2].Value = nUnit;
          }
-
-    }
+     }
 }
