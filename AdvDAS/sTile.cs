@@ -14,13 +14,15 @@ namespace CRS
     public partial class ScaleDisplay : Form
     {
         public Control source;
-        private Label lbl;
+        private Label lbl1,lbl2;
         private int index;
-        public ScaleDisplay(Label lbl)
+
+        public ScaleDisplay(Tuple<Label, Label> tuple)
         {
             // TODO: Complete member initialization
             InitializeComponent();
-            this.lbl = lbl;
+            this.lbl1 = tuple.Item1;
+            this.lbl2 = tuple.Item2;
         }
         public int Index
         {
@@ -29,7 +31,7 @@ namespace CRS
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            lbl.Text = elementComboBox.Text;
+            this.lbl1.Text = elementComboBox.Text;
             this.DialogResult = DialogResult.OK;
         }
 
@@ -39,11 +41,6 @@ namespace CRS
             this.DialogResult = DialogResult.Cancel;
         }
         
-        private void ScaleDisplay_HelpButtonClicked(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (elementComboBox.SelectedIndex)

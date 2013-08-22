@@ -35,6 +35,10 @@
     <ApplicationIcon>Ecom.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="InTheHand.Net.Personal, Version=3.5.605.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\32feet.NET\NET\InTheHand.Net.Personal.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>.\itextsharp.dll</HintPath>
     </Reference>
@@ -64,6 +68,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BTooth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BTooth.designer.cs">
+      <DependentUpon>BTooth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calibration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calibration.Designer.cs">
+      <DependentUpon>Calibration.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigureProcedure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +105,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="J2KNProtocol.cs" />
     <Compile Include="PersonalInfo.cs" />
     <Compile Include="ConfigureReport.cs">
       <SubType>Form</SubType>
@@ -136,6 +153,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SerialSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerialSearch.designer.cs">
+      <DependentUpon>SerialSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignalStrength.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,12 +171,12 @@
     <Compile Include="sTile.Designer.cs">
       <DependentUpon>sTile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Trend.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trend.Designer.cs">
-      <DependentUpon>Trend.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="BTooth.resx">
+      <DependentUpon>BTooth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calibration.resx">
+      <DependentUpon>Calibration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigureProcedure.resx">
       <DependentUpon>ConfigureProcedure.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,14 +212,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="SerialSearch.resx">
+      <DependentUpon>SerialSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignalStrength.resx">
       <DependentUpon>SignalStrength.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sTile.resx">
       <DependentUpon>sTile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Trend.resx">
-      <DependentUpon>Trend.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

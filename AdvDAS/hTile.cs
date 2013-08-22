@@ -14,14 +14,16 @@ namespace CRS
     public partial class hTile : Form
     {
         public Control source;
-        private Label lbl;
+        private Label lbl1,lbl2,radioLbl;
         private string unit;
         private int index;
-        public hTile(Label lbl, string unit)
+        public hTile(Tuple<Label, Label> tuple, string unit)
         {
             // TODO: Complete member initialization
             InitializeComponent();
-            this.lbl = lbl;
+            this.lbl1 = tuple.Item1;
+            this.lbl2 = tuple.Item2;
+            //this.radioLbl = radioLbl;
             this.unit = unit;
         }
         public int Index
@@ -31,7 +33,7 @@ namespace CRS
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            lbl.Text = elementComboBox.Text;
+            lbl1.Text = elementComboBox.Text;
             this.DialogResult = DialogResult.OK;
         }
 
@@ -58,6 +60,7 @@ namespace CRS
             }
             valLabel.Text = src.Text;
             aveLAbel.Text = src.Text;
+            radioLbl.Text = src.Text;
         }
     }
 }

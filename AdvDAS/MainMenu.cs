@@ -28,20 +28,22 @@ namespace CRS
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
         private ToolTip tp = new ToolTip();
-        private Trend viewTrend = new Trend(pDoc);
+        //private Trend viewTrend = new Trend(pDoc);
         private SetUpReport configReport = new SetUpReport(pDoc);
         private SetUpProcedure configProcedure;
         private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
+        private Calibration caliForm = new Calibration();
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
-        public List<Label> lblList = new List<Label>();
+        private J2KNProtocol protocol = new J2KNProtocol();
+        public List<Tuple<Label,Label>> lblList = new List<Tuple<Label,Label>>();
         private DateTime running = new DateTime();
         public static DateTime testTime;
         public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
         public static DateTime testData = new DateTime(2000, 2, 1, 0, 0, 0);
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
-        List<Facts> elements = new List<Facts>();
+        public List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
@@ -50,18 +52,18 @@ namespace CRS
         public MainMenu()
         {
             InitializeComponent();
-            filltable();
             createScaleDisplays();
             timer2.Start();
+            filltable();
             dgInterval = 1000;
             numOfCycles = 1;
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
             dataGridTimer.Start();
-            label1.Font = new System.Drawing.Font(label1.Font.FontFamily, this.Font.Height, FontStyle.Regular);
             //startDataBase();
         }
 
+        //This method creates the database connection ands populates the element Table on tab2
         private void load_table()
         {
             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
@@ -84,24 +86,28 @@ namespace CRS
             }
             sqlite_conn.Close();
         }
+
+        //This methods creates the popups for the tiles
         void createScaleDisplays()
         {
-            lblList.Add(this.tileLabel1);
-            lblList.Add(this.tileLabel2);
-            lblList.Add(this.tileLabel3);
-            lblList.Add(this.tileLabel4);
-            lblList.Add(this.tileLabel5);
-            lblList.Add(this.tileLabel6);
-            lblList.Add(this.tileLabel7);
-            lblList.Add(this.tileLabel8);
-            lblList.Add(this.tileLabel9);
-            lblList.Add(this.tileLabel10);
-            lblList.Add(this.tileLabel11);
-            lblList.Add(this.tileLabel12);
+            //list of all the labels on the tiles that will change
+            lblList.Add(new Tuple<Label,Label>(this.tileLabel1, this.label1));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel2, this.label2));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel3, this.label3));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel4, this.label4));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel5, this.label5));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel6, this.label6));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel7, this.label7));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel8, this.label8));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel9, this.label9));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel10, this.label10));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel11, this.label11));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel12, this.label12));
+            //this loop adds all the popup displays to a list
             for (int i = 0; i < 10; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(lblList[i]));
-                scaleDisplays[i].elementComboBox.SelectedItem = lblList[i].Text;
+                scaleDisplays[i].elementComboBox.SelectedItem = lblList[i].Item1.Text;
             } 
             ht.Add(new hTile(lblList[10],cUnit));
             ht[0].elementComboBox.Items.AddRange(new object[] { "CO(mass)", "CO(mass) - correction" });
@@ -109,6 +115,7 @@ namespace CRS
             ht.Add(new hTile(lblList[11], nUnit));
             ht[1].elementComboBox.Items.AddRange(new object[] { "NOx(mass)", "NOx(mass) - correction" });
             ht[1].elementComboBox.SelectedIndex = 0;
+            //Creates a list of all the tiles in the main tab
             tiles.Add(sTile0);
             tiles.Add(sTile1);
             tiles.Add(sTile2);
@@ -122,7 +129,7 @@ namespace CRS
             tiles.Add(hTile0);
             tiles.Add(hTile1);
         }
-
+        //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Start();
@@ -130,7 +137,7 @@ namespace CRS
             this.pauseRecordingItem.Enabled = true;
             this.stopRecordingItem.Enabled = true;
         }
-
+        //Pauses recording?
         private void pauseRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Stop();
@@ -138,7 +145,7 @@ namespace CRS
             this.pauseRecordingItem.Enabled = false;
             this.stopRecordingItem.Enabled = true;
         }
-
+        //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
         {
             recordingProgressBar.Value = 0;
@@ -149,7 +156,7 @@ namespace CRS
             this.pauseRecordingItem.Enabled = false;
             this.stopRecordingItem.Enabled = false;
         }
-
+        //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
         //{
         //    //screenShotBox.Image = ScreenShot();
@@ -193,6 +200,8 @@ namespace CRS
         //    return screenShotBMP;
         //}
         
+        //
+        //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
             for (int i = 1; i <= numOfCycles; i++)
@@ -227,16 +236,21 @@ namespace CRS
             }
             this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
         }
+        //Regular time and refreshes all other time
         private void timer2_Tick(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
+            protocol = new J2KNProtocol();
+            
             this.clock_lbl.Text = now.ToString();
             this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
             this.pTimelbl.Text = purge.ToString("HH:mm:ss");
             this.tTimelbl.Text = testData.ToString("HH:mm:ss");
             this.rTimelbl.Text = rampUp.ToString("HH:mm:ss");
+            
         }
-        
+
+        //add question during close
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you want to close this program?", "Exit", MessageBoxButtons.YesNo);
@@ -245,44 +259,45 @@ namespace CRS
             else
                 e.Cancel = true;
         }
+
+        //Opens Help Window
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             forming.ShowDialog();
         }
+
+        //Opens report Window
         private void configureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configReport.ShowDialog();
         }
 
+        //Opens recording Window
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configProcedure = new SetUpProcedure(rampUp, testData,purge, numOfCycles, dgInterval);
             configProcedure.ShowDialog();
         }
         
+        //Opens Personal Data Window
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             personalData.ShowDialog();
         }
 
+        //Opens Custome Window
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             customer.ShowDialog();
         }
 
+        //Opens Equipment/Site Window
         private void equipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             eSite.ShowDialog();
         }
 
-        private void graphToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            viewTrend.ShowDialog();
-        }
-        private void resetAllAveragesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            doAverage(-1);
-        }
+        //Method for reseting all averages
         private double doAverage(double p)
         {
             if (p == -1)
@@ -292,6 +307,8 @@ namespace CRS
             return num.Average();
             throw new NotImplementedException();
         }
+
+        //Changes color of text
         private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
@@ -303,22 +320,24 @@ namespace CRS
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                labelColor(this, colorDialog);
+                labelColor(this, colorDialog.Color);
             }
 
         }
 
-        private void labelColor(Control ctrl, ColorDialog color)
+        //Changes Label color
+        private void labelColor(Control ctrl, Color color)
         {
             foreach (Control c in ctrl.Controls)
             {
                 labelColor(c,color);
                 if (c is Label)
                 {
-                    c.ForeColor = color.Color;
+                    c.ForeColor = color;
                 }
             }
         }
+        // Changes Background color
         private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
@@ -338,6 +357,7 @@ namespace CRS
             }
         }
 
+        //changes background color of tiles
         private void tileBackGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
@@ -352,6 +372,19 @@ namespace CRS
                 foreach (TableLayoutPanel tile in tiles)
                     tile.BackColor = colorDialog.Color;
             }
+            
+        }
+
+        //Resets all colors
+        private void resetColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (TableLayoutPanel tile in tiles)
+                tile.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            labelColor(this, System.Drawing.SystemColors.ControlText);
         }
         /////////////////////////////////////////////////////////////////TAB-NUMBER-1/////////////////////////////////////////////////////////
 
@@ -454,26 +487,27 @@ namespace CRS
         
 
         /////////////////////////////////////////////////////////////////TAB-NUMBER-2/////////////////////////////////////////////////////////
+        //Fills the table in Graph tab
         void filltable()
         {
-            elements.Add(new Facts("O2", 0, "%"));
-            elements.Add(new Facts("CO", 0, "ppm"));
-            elements.Add(new Facts("CO2", 0, "ppm"));
-            elements.Add(new Facts("NO", 0, "ppm"));
-            elements.Add(new Facts("NO2", 0, "ppm"));
-            elements.Add(new Facts("NOx", 0, "ppm"));
-            elements.Add(new Facts("SO2", 0, "ppm"));
-            elements.Add(new Facts("CxHy", 0, "ppm"));
-            elements.Add(new Facts("T(gas)", 0, "°F"));
-            elements.Add(new Facts("T(amb)", 0, "°F"));
-            elements.Add(new Facts("T(cell)", 0, "°F"));
-            elements.Add(new Facts("Efficiency", 0, "%"));
-            elements.Add(new Facts("I.Flow", 0, "L/Min"));
-            elements.Add(new Facts("Draft", 0, "i.w.g."));
-            elements.Add(new Facts("Losses", 0, "%"));
-            elements.Add(new Facts("Excess Air", 0, ""));
-            elements.Add(new Facts ("CO(mass)",0, cUnit ));
-            elements.Add(new Facts ("NOx(mass)",0, nUnit ));
+            elements.Add(new Facts("O2", protocol.vO2, "%"));
+            elements.Add(new Facts("CO", protocol.vCO, "ppm"));
+            elements.Add(new Facts("CO2", protocol.vCO2, "ppm"));
+            elements.Add(new Facts("NO", protocol.vNO, "ppm"));
+            elements.Add(new Facts("NO2", protocol.vNO2, "ppm"));
+            elements.Add(new Facts("NOx", protocol.vNOx, "ppm"));
+            elements.Add(new Facts("SO2", protocol.vSO2, "ppm"));
+            elements.Add(new Facts("CxHy", protocol.vCxHy, "ppm"));
+            elements.Add(new Facts("T(gas)", protocol.vTgas, "°F"));
+            elements.Add(new Facts("T(amb)", protocol.vTamb, "°F"));
+            elements.Add(new Facts("T(cell)", protocol.vTcell, "°F"));
+            elements.Add(new Facts("Efficiency", protocol.vEfficiency, "%"));
+            elements.Add(new Facts("I.Flow", protocol.vIFlow, "L/Min"));
+            elements.Add(new Facts("Draft", protocol.vDraft, "i.w.g."));
+            elements.Add(new Facts("Losses", protocol.vLosses, "%"));
+            elements.Add(new Facts("Excess Air", protocol.vExcessAir, ""));
+            elements.Add(new Facts ("CO(mass)",protocol.vCOmass, cUnit ));
+            elements.Add(new Facts ("NOx(mass)",protocol.vNOxmass, nUnit ));
             for (int i = 0; i < elements.Count; i++)
             {
                 elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
@@ -511,12 +545,13 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            Random ran = new Random();
+            protocol = new J2KNProtocol();
             int i = 0;
+
             foreach (var row in elementTable.Rows)
             { 
                 this.dataGridTimer.Interval = dgInterval;
-                elementTable.Rows[i].Cells[1].Value = double.Parse(ran.Next(0, 100).ToString());
+                elementTable.Rows[i].Cells[1].Value = protocol.vO2;
                 trendGraph.Series[i].Points.AddY(Double.Parse(elementTable.Rows[i].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
                 i++;
             }
@@ -527,5 +562,12 @@ namespace CRS
                     elementTable.Rows[elementTable.RowCount-2].Cells[2].Value = cUnit;
                     elementTable.Rows[elementTable.RowCount-1].Cells[2].Value = nUnit;
          }
+
+         private void viewCalibrationInfoToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             caliForm.ShowDialog();
+         }
+
+         
      }
 }

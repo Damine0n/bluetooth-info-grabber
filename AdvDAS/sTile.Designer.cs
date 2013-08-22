@@ -280,7 +280,6 @@
             this.MinimizeBox = false;
             this.Name = "ScaleDisplay";
             this.Text = "Scale Display";
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.ScaleDisplay_HelpButtonClicked);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.dataSource.ResumeLayout(false);
             this.currentValues.ResumeLayout(false);
