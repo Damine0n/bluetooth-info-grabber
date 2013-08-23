@@ -43,7 +43,7 @@ namespace CRS
         public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
         public static DateTime testData = new DateTime(2000, 2, 1, 0, 0, 0);
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
-        public List<Facts> elements = new List<Facts>();
+        List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
@@ -91,15 +91,15 @@ namespace CRS
         void createScaleDisplays()
         {
             //list of all the labels on the tiles that will change
-            lblList.Add(new Tuple<Label,Label>(this.tileLabel1, this.label1));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel2, this.label2));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel3, this.label3));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel4, this.label4));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel5, this.label5));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel6, this.label6));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel1, this.label1));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel2, this.label2_));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel3, this.label2));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel4, this.label4_));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel5, this.label3));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel6, this.label6_));
             lblList.Add(new Tuple<Label, Label>(this.tileLabel7, this.label7));
             lblList.Add(new Tuple<Label, Label>(this.tileLabel8, this.label8));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel9, this.label9));
+            lblList.Add(new Tuple<Label, Label>(this.tileLabel9, this.label5));
             lblList.Add(new Tuple<Label, Label>(this.tileLabel10, this.label10));
             lblList.Add(new Tuple<Label, Label>(this.tileLabel11, this.label11));
             lblList.Add(new Tuple<Label, Label>(this.tileLabel12, this.label12));
@@ -136,6 +136,9 @@ namespace CRS
             this.startRecordingItem.Enabled = false;
             this.pauseRecordingItem.Enabled = true;
             this.stopRecordingItem.Enabled = true;
+            if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && rampUp.ToString("HH:mm:ss").Equals("00:00:00"))
+            {
+            }
         }
         //Pauses recording?
         private void pauseRecordingItem_Click(object sender, EventArgs e)
@@ -247,7 +250,8 @@ namespace CRS
             this.pTimelbl.Text = purge.ToString("HH:mm:ss");
             this.tTimelbl.Text = testData.ToString("HH:mm:ss");
             this.rTimelbl.Text = rampUp.ToString("HH:mm:ss");
-            
+            //foreach (Label lbl in )
+            //switch()
         }
 
         //add question during close
@@ -344,7 +348,7 @@ namespace CRS
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
             // Sets the initial color select to the current text color.
-            colorDialog.Color = label2.ForeColor;
+            colorDialog.Color = label2_.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -364,7 +368,7 @@ namespace CRS
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
             // Sets the initial color select to the current text color.
-            colorDialog.Color = label2.ForeColor;
+            colorDialog.Color = label2_.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -546,15 +550,11 @@ namespace CRS
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
             protocol = new J2KNProtocol();
-            int i = 0;
-
-            foreach (var row in elementTable.Rows)
-            { 
-                this.dataGridTimer.Interval = dgInterval;
-                elementTable.Rows[i].Cells[1].Value = protocol.vO2;
-                trendGraph.Series[i].Points.AddY(Double.Parse(elementTable.Rows[i].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
-                i++;
-            }
+            this.dataGridTimer.Interval = dgInterval;
+            elementTable.Rows[0].Cells[1].Value = protocol.vO2;
+            trendGraph.Series[0].Points.AddY(Double.Parse(elementTable.Rows[0].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+            elementTable.Rows[1].Cells[1].Value = protocol.vCO;
+            trendGraph.Series[1].Points.AddY(Double.Parse(elementTable.Rows[1].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
         }
 
          private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
