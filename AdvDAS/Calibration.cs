@@ -16,5 +16,16 @@ namespace CRS
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown5_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

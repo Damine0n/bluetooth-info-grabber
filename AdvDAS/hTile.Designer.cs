@@ -74,7 +74,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.dataSource, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.currentValues, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
@@ -88,7 +88,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(579, 337);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(681, 337);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // dataSource
@@ -96,7 +96,7 @@
             this.dataSource.Controls.Add(this.elementComboBox);
             this.dataSource.Location = new System.Drawing.Point(3, 3);
             this.dataSource.Name = "dataSource";
-            this.dataSource.Size = new System.Drawing.Size(200, 49);
+            this.dataSource.Size = new System.Drawing.Size(217, 49);
             this.dataSource.TabIndex = 3;
             this.dataSource.TabStop = false;
             this.dataSource.Text = "Select Data Source";
@@ -109,7 +109,7 @@
             this.currentValues.Controls.Add(this.label1);
             this.currentValues.Location = new System.Drawing.Point(3, 64);
             this.currentValues.Name = "currentValues";
-            this.currentValues.Size = new System.Drawing.Size(200, 79);
+            this.currentValues.Size = new System.Drawing.Size(217, 79);
             this.currentValues.TabIndex = 5;
             this.currentValues.TabStop = false;
             this.currentValues.Text = "Current Values";
@@ -158,10 +158,10 @@
             // 
             this.panel1.Controls.Add(this.chart1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(209, 3);
+            this.panel1.Location = new System.Drawing.Point(226, 3);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 4);
-            this.panel1.Size = new System.Drawing.Size(367, 331);
+            this.panel1.Size = new System.Drawing.Size(452, 331);
             this.panel1.TabIndex = 11;
             // 
             // chart1
@@ -183,7 +183,7 @@
             series2.Name = "cAverage";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(367, 331);
+            this.chart1.Size = new System.Drawing.Size(452, 331);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             title1.Name = "Title1";
@@ -196,7 +196,7 @@
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Location = new System.Drawing.Point(3, 229);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 105);
+            this.groupBox7.Size = new System.Drawing.Size(217, 105);
             this.groupBox7.TabIndex = 9;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "LEGEND";
@@ -231,7 +231,7 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(3, 149);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 74);
+            this.groupBox1.Size = new System.Drawing.Size(217, 74);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -286,7 +286,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(391, 343);
+            this.btnCancel.Location = new System.Drawing.Point(493, 343);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -298,7 +298,7 @@
             // 
             this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(500, 343);
+            this.btnAccept.Location = new System.Drawing.Point(602, 343);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 2;
@@ -313,7 +313,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(579, 368);
+            this.ClientSize = new System.Drawing.Size(681, 368);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);

@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label31.Text" xml:space="preserve">
+    <value>*Always check for air leaks prior to calibration.
+1. Apply cal gas &amp; begin timer.
+2. Once timer stops verify that the sensor response is within the cal error limit.
+    Click 'Capture Cal Response'.
+3. Click 'Calibrate Sensor'.</value>
+  </data>
 </root>

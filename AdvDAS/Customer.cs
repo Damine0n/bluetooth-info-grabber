@@ -16,13 +16,11 @@ namespace CRS
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
-        private SQLiteDataReader sqlite_datareader; 
         DataSet ds = new DataSet();
         public Customer()
         {
             InitializeComponent();
             load_table(); 
-            
         }
         private void load_table()
         {
@@ -30,8 +28,6 @@ namespace CRS
 
             // We use these three SQLite objects:
             sqlite_conn.Open();
-
-
 
             try
             {

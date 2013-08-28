@@ -17,16 +17,14 @@ namespace CRS
         public Control source;
         private Label lbl1,lbl2;
         private int index;
-        private J2KNProtocol protocol;
-        private Thread t;
+        Thread t = new Thread(change);
 
-        public ScaleDisplay(Tuple<Label, Label> tuple)
+        public ScaleDisplay(Tuple<Label, Label, Label> tuple)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.lbl1 = tuple.Item1;
             this.lbl2 = tuple.Item2;
-            t = new Thread(change);
             t.Start();
         }
         public int Index
@@ -45,12 +43,17 @@ namespace CRS
             elementComboBox.SelectedIndex = index;
             this.DialogResult = DialogResult.Cancel;
         }
-        void change()
+        public static void change()
         {
+           J2KNProtocol protocol = new J2KNProtocol();
+        }
+        private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
             switch (elementComboBox.SelectedIndex)
             {
                 case 0:
-                    valLabel.Text = "%";
+                    //valLabel.Text = MainMenu.protocol.vO2+"%";
                     aveLabel.Text = "%";
                     break;
                 case 1:
@@ -66,101 +69,6 @@ namespace CRS
                     aveLabel.Text = "ppm";
                     break;
                 case 4:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 5:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 6:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 7:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 8:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 9:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 10:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 11:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 12:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 13:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 14:
-                    valLabel.Text = "°F";
-                    aveLabel.Text = "°F";
-                    break;
-                case 15:
-                    valLabel.Text = "°F";
-                    aveLabel.Text = "°F";
-                    break;
-                case 16:
-                    valLabel.Text = "°F";
-                    aveLabel.Text = "°F";
-                    break;
-                case 17:
-                    valLabel.Text = "%";
-                    aveLabel.Text = "%";
-                    break;
-                case 18:
-                    valLabel.Text = "L/Min";
-                    aveLabel.Text = "L/Min";
-                    break;
-                case 19:
-                    valLabel.Text = "i.w.g.";
-                    aveLabel.Text = "i.w.g.";
-                    break;
-                case 20:
-                    valLabel.Text = "%";
-                    aveLabel.Text = "%";
-                    break;
-                case 21:
-                    valLabel.Text = "";
-                    aveLabel.Text = "";
-                    break;
-            }
-        }
-        private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            switch (elementComboBox.SelectedIndex)
-            {
-                case 0:
-                    valLabel.Text = "%";
-                    aveLabel.Text = "%";
-                    break;
-                case 1:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 2:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 3:
-                    valLabel.Text = "ppm";
-                    aveLabel.Text = "ppm";
-                    break;
-                case 4: 
                     valLabel.Text = "ppm";
                     aveLabel.Text = "ppm";
                     break;

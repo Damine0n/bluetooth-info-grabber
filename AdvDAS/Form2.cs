@@ -18,7 +18,6 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
 
         private SQLiteCommand sqlite_cmd;
-        private SQLiteDataReader sqlite_datareader;
         public Form2()
         {
             InitializeComponent();

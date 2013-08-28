@@ -36,8 +36,8 @@ namespace CRS
         private Calibration caliForm = new Calibration();
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
-        private J2KNProtocol protocol = new J2KNProtocol();
-        public List<Tuple<Label,Label>> lblList = new List<Tuple<Label,Label>>();
+        public  J2KNProtocol protocol = new J2KNProtocol();
+        public List<Tuple<Label,Label,Label>> lblList = new List<Tuple<Label, Label, Label>>();
         private DateTime running = new DateTime();
         public static DateTime testTime;
         public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
@@ -45,8 +45,7 @@ namespace CRS
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-        private SQLiteCommand sqlite_cmd;
-        private SQLiteDataReader sqlite_datareader;
+
         public static int dgInterval, numOfCycles;
         public static string cUnit, nUnit;
         public MainMenu()
@@ -60,7 +59,7 @@ namespace CRS
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
             dataGridTimer.Start();
-            //startDataBase();
+            //get all values
         }
 
         //This method creates the database connection ands populates the element Table on tab2
@@ -91,18 +90,18 @@ namespace CRS
         void createScaleDisplays()
         {
             //list of all the labels on the tiles that will change
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel1, this.label1));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel2, this.label2_));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel3, this.label2));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel4, this.label4_));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel5, this.label3));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel6, this.label6_));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel7, this.label7));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel8, this.label8));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel9, this.label5));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel10, this.label10));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel11, this.label11));
-            lblList.Add(new Tuple<Label, Label>(this.tileLabel12, this.label12));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel1, this.label1, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel2, this.label2, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel3, this.label3, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel4, this.label4, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel5, this.label5, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel6, this.label6, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel7, this.label7, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel8, this.label8, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel9, this.label9, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel10, this.label10, null));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel11, this.label11, this.rLabel1));
+            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel12, this.label12, this.rLabel2));
             //this loop adds all the popup displays to a list
             for (int i = 0; i < 10; i++)
             {
@@ -133,6 +132,7 @@ namespace CRS
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Start();
+            this.recordSign.Start();
             this.startRecordingItem.Enabled = false;
             this.pauseRecordingItem.Enabled = true;
             this.stopRecordingItem.Enabled = true;
@@ -155,6 +155,7 @@ namespace CRS
             running = new DateTime();
             this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
             this.timer1.Stop();
+            this.recordSign.Stop();
             this.startRecordingItem.Enabled = true;
             this.pauseRecordingItem.Enabled = false;
             this.stopRecordingItem.Enabled = false;
@@ -243,8 +244,6 @@ namespace CRS
         private void timer2_Tick(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            protocol = new J2KNProtocol();
-            
             this.clock_lbl.Text = now.ToString();
             this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
             this.pTimelbl.Text = purge.ToString("HH:mm:ss");
@@ -348,7 +347,7 @@ namespace CRS
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
             // Sets the initial color select to the current text color.
-            colorDialog.Color = label2_.ForeColor;
+            colorDialog.Color = label1_.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -368,7 +367,7 @@ namespace CRS
             // Keeps the user from selecting a custom color.
             colorDialog.AllowFullOpen = false;
             // Sets the initial color select to the current text color.
-            colorDialog.Color = label2_.ForeColor;
+            colorDialog.Color = label1_.ForeColor;
 
             // Update the text box color if the user clicks OK  
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -494,24 +493,24 @@ namespace CRS
         //Fills the table in Graph tab
         void filltable()
         {
-            elements.Add(new Facts("O2", protocol.vO2, "%"));
-            elements.Add(new Facts("CO", protocol.vCO, "ppm"));
-            elements.Add(new Facts("CO2", protocol.vCO2, "ppm"));
-            elements.Add(new Facts("NO", protocol.vNO, "ppm"));
-            elements.Add(new Facts("NO2", protocol.vNO2, "ppm"));
-            elements.Add(new Facts("NOx", protocol.vNOx, "ppm"));
-            elements.Add(new Facts("SO2", protocol.vSO2, "ppm"));
-            elements.Add(new Facts("CxHy", protocol.vCxHy, "ppm"));
-            elements.Add(new Facts("T(gas)", protocol.vTgas, "°F"));
-            elements.Add(new Facts("T(amb)", protocol.vTamb, "°F"));
-            elements.Add(new Facts("T(cell)", protocol.vTcell, "°F"));
-            elements.Add(new Facts("Efficiency", protocol.vEfficiency, "%"));
-            elements.Add(new Facts("I.Flow", protocol.vIFlow, "L/Min"));
-            elements.Add(new Facts("Draft", protocol.vDraft, "i.w.g."));
-            elements.Add(new Facts("Losses", protocol.vLosses, "%"));
-            elements.Add(new Facts("Excess Air", protocol.vExcessAir, ""));
-            elements.Add(new Facts ("CO(mass)",protocol.vCOmass, cUnit ));
-            elements.Add(new Facts ("NOx(mass)",protocol.vNOxmass, nUnit ));
+            elements.Add(new Facts("O2", "", "%"));
+            elements.Add(new Facts("CO", "", "ppm"));
+            elements.Add(new Facts("CO2", "", "ppm"));
+            elements.Add(new Facts("NO", "", "ppm"));
+            elements.Add(new Facts("NO2", "", "ppm"));
+            elements.Add(new Facts("NOx", "", "ppm"));
+            elements.Add(new Facts("SO2", "", "ppm"));
+            elements.Add(new Facts("CxHy", "", "ppm"));
+            elements.Add(new Facts("T(gas)", "", "°F"));
+            elements.Add(new Facts("T(amb)", "", "°F"));
+            elements.Add(new Facts("T(cell)", "", "°F"));
+            elements.Add(new Facts("Efficiency", "", "%"));
+            elements.Add(new Facts("I.Flow", "", "L/Min"));
+            elements.Add(new Facts("Draft", "", "i.w.g."));
+            elements.Add(new Facts("Losses", "", "%"));
+            elements.Add(new Facts("Excess Air", "", ""));
+            elements.Add(new Facts ("CO(mass)","", cUnit ));
+            elements.Add(new Facts ("NOx(mass)","0000", nUnit ));
             for (int i = 0; i < elements.Count; i++)
             {
                 elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
@@ -549,12 +548,53 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            protocol = new J2KNProtocol();
             this.dataGridTimer.Interval = dgInterval;
+            //get all values
+            protocol.processProtocol();
+            //get Serial Number
+            protocol.processProtocol("$0A0514");
+            //get losses number
+            protocol.processProtocol("$0A053D");
+            //get Internal Flow
+            protocol.processProtocol("$0A0531");
+            //get Nox Number
+            protocol.processProtocol("$0A054E");
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
-            trendGraph.Series[0].Points.AddY(Double.Parse(elementTable.Rows[0].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+            trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             elementTable.Rows[1].Cells[1].Value = protocol.vCO;
-            trendGraph.Series[1].Points.AddY(Double.Parse(elementTable.Rows[1].Cells[1].Value.ToString()));//DataBindY((DataView)elementTable.DataSource, "dgValue");
+            trendGraph.Series[1].Points.AddY(elementTable.Rows[1].Cells[1].Value);
+            elementTable.Rows[2].Cells[1].Value = protocol.vCO2;
+            trendGraph.Series[2].Points.AddY(elementTable.Rows[2].Cells[1].Value);
+            elementTable.Rows[3].Cells[1].Value = protocol.vNO;
+            trendGraph.Series[3].Points.AddY(elementTable.Rows[3].Cells[1].Value);
+            elementTable.Rows[4].Cells[1].Value = protocol.vNO2;
+            trendGraph.Series[4].Points.AddY(elementTable.Rows[4].Cells[1].Value);
+            elementTable.Rows[5].Cells[1].Value = protocol.vNOx;
+            trendGraph.Series[5].Points.AddY(elementTable.Rows[5].Cells[1].Value);
+            elementTable.Rows[6].Cells[1].Value = protocol.vSO2;
+            trendGraph.Series[6].Points.AddY(elementTable.Rows[6].Cells[1].Value);
+            elementTable.Rows[7].Cells[1].Value = protocol.vCxHy;
+            trendGraph.Series[7].Points.AddY(elementTable.Rows[7].Cells[1].Value);
+            elementTable.Rows[8].Cells[1].Value = protocol.vTgas;
+            trendGraph.Series[8].Points.AddY(elementTable.Rows[8].Cells[1].Value);
+            elementTable.Rows[9].Cells[1].Value = protocol.vTamb;
+            trendGraph.Series[9].Points.AddY(elementTable.Rows[9].Cells[1].Value);
+            elementTable.Rows[10].Cells[1].Value = protocol.vTcell;
+            trendGraph.Series[10].Points.AddY(elementTable.Rows[10].Cells[1].Value);
+            elementTable.Rows[11].Cells[1].Value = protocol.vEfficiency;
+            trendGraph.Series[11].Points.AddY(elementTable.Rows[11].Cells[1].Value);
+            elementTable.Rows[12].Cells[1].Value = protocol.vIFlow;
+            trendGraph.Series[12].Points.AddY(elementTable.Rows[12].Cells[1].Value);
+            elementTable.Rows[13].Cells[1].Value = protocol.vDraft;
+            trendGraph.Series[13].Points.AddY(elementTable.Rows[13].Cells[1].Value);
+            elementTable.Rows[14].Cells[1].Value = protocol.vLosses;
+            trendGraph.Series[14].Points.AddY(elementTable.Rows[14].Cells[1].Value);
+            elementTable.Rows[15].Cells[1].Value = protocol.vExcessAir;
+            trendGraph.Series[15].Points.AddY(elementTable.Rows[15].Cells[1].Value);
+            elementTable.Rows[16].Cells[1].Value = protocol.vCOmass;
+            trendGraph.Series[16].Points.AddY(elementTable.Rows[16].Cells[1].Value);
+            elementTable.Rows[17].Cells[1].Value = protocol.vNOxmass;
+            trendGraph.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
         }
 
          private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -566,6 +606,14 @@ namespace CRS
          private void viewCalibrationInfoToolStripMenuItem_Click(object sender, EventArgs e)
          {
              caliForm.ShowDialog();
+         }
+
+         private void recordSign_Tick(object sender, EventArgs e)
+         {
+             if (recordingSign.Visible.Equals(false))
+                 recordingSign.Visible = true;
+             else
+                 recordingSign.Visible = false;
          }
 
          
