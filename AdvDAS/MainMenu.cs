@@ -47,6 +47,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
 
         public static int dgInterval, numOfCycles;
+        public static string currentCycle = "\u221e";
         public static string cUnit, nUnit;
         public MainMenu()
         {
@@ -138,6 +139,11 @@ namespace CRS
             this.stopRecordingItem.Enabled = true;
             if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && rampUp.ToString("HH:mm:ss").Equals("00:00:00"))
             {
+                this.cycleLabel.Text = "Cycle: "+currentCycle;
+                //currentCycle++;
+                //if (numOfCycles<currentCycle)
+                this.timer1.Stop();
+                this.recordSign.Stop();
             }
         }
         //Pauses recording?
@@ -615,7 +621,5 @@ namespace CRS
              else
                  recordingSign.Visible = false;
          }
-
-         
      }
 }
