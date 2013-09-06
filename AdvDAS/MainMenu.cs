@@ -36,8 +36,9 @@ namespace CRS
         private Calibration caliForm = new Calibration();
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
-        public  J2KNProtocol protocol = new J2KNProtocol();
-        public List<Tuple<Label,Label,Label>> lblList = new List<Tuple<Label, Label, Label>>();
+        public List<Tuple<Label,Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
+        public List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
+
         private DateTime running = new DateTime();
         public static DateTime testTime;
         public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
@@ -45,10 +46,11 @@ namespace CRS
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-
         public static int dgInterval, numOfCycles;
         public static string currentCycle = "\u221e";
         public static string cUnit, nUnit;
+        public J2KNProtocol protocol = new J2KNProtocol();
+        
         public MainMenu()
         {
             InitializeComponent();
@@ -91,28 +93,28 @@ namespace CRS
         void createScaleDisplays()
         {
             //list of all the labels on the tiles that will change
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel1, this.label1, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel2, this.label2, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel3, this.label3, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel4, this.label4, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel5, this.label5, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel6, this.label6, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel7, this.label7, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel8, this.label8, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel9, this.label9, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel10, this.label10, null));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel11, this.label11, this.rLabel1));
-            lblList.Add(new Tuple<Label, Label, Label>(this.tileLabel12, this.label12, this.rLabel2));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel1, this.label1, this.tileButton1));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel2, this.label2, this.tileButton2));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel3, this.label3, this.tileButton3));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel4, this.label4, this.tileButton4));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel5, this.label5, this.tileButton5));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel6, this.label6, this.tileButton6));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel7, this.label7, this.tileButton7));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel8, this.label8, this.tileButton8));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel9, this.label9, this.tileButton9));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel10, this.label10, this.tileButton10));
+            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel11, this.label11, this.rLabel1, this.tileButton11));
+            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel12, this.label12, this.rLabel2, this.tileButton12));
             //this loop adds all the popup displays to a list
             for (int i = 0; i < 10; i++)
             {
-                scaleDisplays.Add(new ScaleDisplay(lblList[i]));
-                scaleDisplays[i].elementComboBox.SelectedItem = lblList[i].Item1.Text;
+                scaleDisplays.Add(new ScaleDisplay(lblList1[i]));
+                scaleDisplays[i].elementComboBox.SelectedItem = lblList1[i].Item1.Text;
             } 
-            ht.Add(new hTile(lblList[10],cUnit));
+            ht.Add(new hTile(lblList2[0],cUnit));
             ht[0].elementComboBox.Items.AddRange(new object[] { "CO(mass)", "CO(mass) - correction" });
             ht[0].elementComboBox.SelectedIndex = 0;
-            ht.Add(new hTile(lblList[11], nUnit));
+            ht.Add(new hTile(lblList2[1], nUnit));
             ht[1].elementComboBox.Items.AddRange(new object[] { "NOx(mass)", "NOx(mass) - correction" });
             ht[1].elementComboBox.SelectedIndex = 0;
             //Creates a list of all the tiles in the main tab
@@ -137,7 +139,7 @@ namespace CRS
             this.startRecordingItem.Enabled = false;
             this.pauseRecordingItem.Enabled = true;
             this.stopRecordingItem.Enabled = true;
-            if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && rampUp.ToString("HH:mm:ss").Equals("00:00:00"))
+            if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
             {
                 this.cycleLabel.Text = "Cycle: "+currentCycle;
                 //currentCycle++;
@@ -216,28 +218,32 @@ namespace CRS
         {
             for (int i = 1; i <= numOfCycles; i++)
             {
-                if (rampUp.ToString("HH:mm:ss") != "00:00:00")
+                if (!rampUp.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
                     this.recordingProgressBar.Value = 0;
-                    this.recordingProgressBar.Maximum = rampUp.Second;
+                    this.recordingProgressBar.Maximum = rampUp.Hour * (60 * 60) + rampUp.Minute * 60 + rampUp.Second;
                     this.recordingProgressBar.Increment(1);
                     rampUp = rampUp.AddSeconds(-1);
                     rTimelbl.Text = rampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                 }
-                else if (testData.ToString("HH:mm:ss") != "00:00:00")
+                else if (!testData.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
+                    rampUp.ToString("00:00:00");
                     this.recordingProgressBar.Value = 0;
-                    this.recordingProgressBar.Maximum = rampUp.Second;
+                    this.recordingProgressBar.Maximum = testData.Hour * (60 * 60) + testData.Minute * 60 + testData.Second;
                     this.recordingProgressBar.Increment(1);
                     rampUp = rampUp.AddSeconds(-1);
                     rTimelbl.Text = rampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
+                    new GasAnalysis(protocol).newEntry("");
                 }
-                else if (purge.ToString("HH:mm:ss") != "00:00:00")
+                else if (!purge.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
+                    testData.ToString("00:00:00");
+                    protocol.processProtocol("");
                     this.recordingProgressBar.Value = 0;
-                    this.recordingProgressBar.Maximum = rampUp.Second;
+                    this.recordingProgressBar.Maximum = purge.Hour * (60 * 60) + purge.Minute * 60 + purge.Second; ;
                     this.recordingProgressBar.Increment(1);
                     rampUp = rampUp.AddSeconds(-1);
                     rTimelbl.Text = rampUp.ToString("HH:mm:ss");
@@ -245,6 +251,11 @@ namespace CRS
                 }
             }
             this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
+        }
+
+        private void recordTestData()
+        {
+            throw new NotImplementedException();
         }
         //Regular time and refreshes all other time
         private void timer2_Tick(object sender, EventArgs e)
@@ -347,54 +358,54 @@ namespace CRS
             }
         }
         // Changes Background color
-        private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            colorDialog.AllowFullOpen = false;
-            // Sets the initial color select to the current text color.
-            colorDialog.Color = label1_.ForeColor;
+        //private void backGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    ColorDialog colorDialog = new ColorDialog();
+        //    // Keeps the user from selecting a custom color.
+        //    colorDialog.AllowFullOpen = false;
+        //    // Sets the initial color select to the current text color.
+        //    colorDialog.Color = label1_.ForeColor;
 
-            // Update the text box color if the user clicks OK  
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                //this.BackColor= colorDialog.Color;
-                this.tabPage1.BackColor = colorDialog.Color;
-                this.tabPage2.BackColor = colorDialog.Color;
-                this.tabPage3.BackColor = colorDialog.Color;
-                this.tabPage4.BackColor = colorDialog.Color;
-            }
-        }
+        //    // Update the text box color if the user clicks OK  
+        //    if (colorDialog.ShowDialog() == DialogResult.OK)
+        //    {
+        //        //this.BackColor= colorDialog.Color;
+        //        this.tabPage1.BackColor = colorDialog.Color;
+        //        this.tabPage2.BackColor = colorDialog.Color;
+        //        this.tabPage3.BackColor = colorDialog.Color;
+        //        this.tabPage4.BackColor = colorDialog.Color;
+        //    }
+        //}
 
-        //changes background color of tiles
-        private void tileBackGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            colorDialog.AllowFullOpen = false;
-            // Sets the initial color select to the current text color.
-            colorDialog.Color = label1_.ForeColor;
+        ////changes background color of tiles
+        //private void tileBackGroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    ColorDialog colorDialog = new ColorDialog();
+        //    // Keeps the user from selecting a custom color.
+        //    colorDialog.AllowFullOpen = false;
+        //    // Sets the initial color select to the current text color.
+        //    colorDialog.Color = label1_.ForeColor;
 
-            // Update the text box color if the user clicks OK  
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                foreach (TableLayoutPanel tile in tiles)
-                    tile.BackColor = colorDialog.Color;
-            }
+        //    // Update the text box color if the user clicks OK  
+        //    if (colorDialog.ShowDialog() == DialogResult.OK)
+        //    {
+        //        foreach (TableLayoutPanel tile in tiles)
+        //            tile.BackColor = colorDialog.Color;
+        //    }
             
-        }
+        //}
 
-        //Resets all colors
-        private void resetColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (TableLayoutPanel tile in tiles)
-                tile.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
-            labelColor(this, System.Drawing.SystemColors.ControlText);
-        }
+        ////Resets all colors
+        //private void resetColorToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    foreach (TableLayoutPanel tile in tiles)
+        //        tile.BackColor = System.Drawing.SystemColors.ActiveCaption;
+        //    this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+        //    this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+        //    this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+        //    this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+        //    labelColor(this, System.Drawing.SystemColors.ControlText);
+        //}
         /////////////////////////////////////////////////////////////////TAB-NUMBER-1/////////////////////////////////////////////////////////
 
         private void hidePanelMenuItem_Click(object sender, EventArgs e)
@@ -501,7 +512,7 @@ namespace CRS
         {
             elements.Add(new Facts("O2", "", "%"));
             elements.Add(new Facts("CO", "", "ppm"));
-            elements.Add(new Facts("CO2", "", "ppm"));
+            elements.Add(new Facts("CO2", "", "%"));
             elements.Add(new Facts("NO", "", "ppm"));
             elements.Add(new Facts("NO2", "", "ppm"));
             elements.Add(new Facts("NOx", "", "ppm"));
@@ -515,7 +526,7 @@ namespace CRS
             elements.Add(new Facts("Draft", "", "i.w.g."));
             elements.Add(new Facts("Losses", "", "%"));
             elements.Add(new Facts("Excess Air", "", ""));
-            elements.Add(new Facts ("CO(mass)","", cUnit ));
+            elements.Add(new Facts ("CO(mass)","0000", cUnit ));
             elements.Add(new Facts ("NOx(mass)","0000", nUnit ));
             for (int i = 0; i < elements.Count; i++)
             {
@@ -551,55 +562,75 @@ namespace CRS
                 }
             }
         }
+        public int nums = 1;
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            this.dataGridTimer.Interval = dgInterval;
+            switch(nums)
+            {
+                case 1:
+                    connectionStatusLabel.Text = "Connected.  ";
+                    nums++;
+                    break;
+                case 2:
+                    connectionStatusLabel.Text = "Connected.. ";
+                    nums++;
+                    break;
+                case 3:
+                    connectionStatusLabel.Text = "Connected...";
+                    nums=1;
+                    break;
+                default:
+                    connectionStatusLabel.Text = "Not Connected";
+                    break;
+            }
+            
+            dataGridTimer.Interval = dgInterval;
             //get all values
-            protocol.processProtocol();
+            Connection.protocol.processProtocol();
             //get Serial Number
-            protocol.processProtocol("$0A0514");
+            Connection.protocol.processProtocol("$0A0514");
             //get losses number
-            protocol.processProtocol("$0A053D");
+            Connection.protocol.processProtocol("$0A053D");
             //get Internal Flow
-            protocol.processProtocol("$0A0531");
+            Connection.protocol.processProtocol("$0A0531");
             //get Nox Number
-            protocol.processProtocol("$0A054E");
-            elementTable.Rows[0].Cells[1].Value = protocol.vO2;
+            Connection.protocol.processProtocol("$0A054E");
+            elementTable.Rows[0].Cells[1].Value = Connection.protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
-            elementTable.Rows[1].Cells[1].Value = protocol.vCO;
+            elementTable.Rows[1].Cells[1].Value = Connection.protocol.vCO;
             trendGraph.Series[1].Points.AddY(elementTable.Rows[1].Cells[1].Value);
-            elementTable.Rows[2].Cells[1].Value = protocol.vCO2;
+            elementTable.Rows[2].Cells[1].Value = Connection.protocol.vCO2;
             trendGraph.Series[2].Points.AddY(elementTable.Rows[2].Cells[1].Value);
-            elementTable.Rows[3].Cells[1].Value = protocol.vNO;
+            elementTable.Rows[3].Cells[1].Value = Connection.protocol.vNO;
             trendGraph.Series[3].Points.AddY(elementTable.Rows[3].Cells[1].Value);
-            elementTable.Rows[4].Cells[1].Value = protocol.vNO2;
+            elementTable.Rows[4].Cells[1].Value = Connection.protocol.vNO2;
             trendGraph.Series[4].Points.AddY(elementTable.Rows[4].Cells[1].Value);
-            elementTable.Rows[5].Cells[1].Value = protocol.vNOx;
+            elementTable.Rows[5].Cells[1].Value = Connection.protocol.vNOx;
             trendGraph.Series[5].Points.AddY(elementTable.Rows[5].Cells[1].Value);
-            elementTable.Rows[6].Cells[1].Value = protocol.vSO2;
+            elementTable.Rows[6].Cells[1].Value = Connection.protocol.vSO2;
             trendGraph.Series[6].Points.AddY(elementTable.Rows[6].Cells[1].Value);
-            elementTable.Rows[7].Cells[1].Value = protocol.vCxHy;
+            elementTable.Rows[7].Cells[1].Value = Connection.protocol.vCxHy;
             trendGraph.Series[7].Points.AddY(elementTable.Rows[7].Cells[1].Value);
-            elementTable.Rows[8].Cells[1].Value = protocol.vTgas;
+            elementTable.Rows[8].Cells[1].Value = Connection.protocol.vTgas;
             trendGraph.Series[8].Points.AddY(elementTable.Rows[8].Cells[1].Value);
-            elementTable.Rows[9].Cells[1].Value = protocol.vTamb;
+            elementTable.Rows[9].Cells[1].Value = Connection.protocol.vTamb;
             trendGraph.Series[9].Points.AddY(elementTable.Rows[9].Cells[1].Value);
-            elementTable.Rows[10].Cells[1].Value = protocol.vTcell;
+            elementTable.Rows[10].Cells[1].Value = Connection.protocol.vTcell;
             trendGraph.Series[10].Points.AddY(elementTable.Rows[10].Cells[1].Value);
-            elementTable.Rows[11].Cells[1].Value = protocol.vEfficiency;
+            elementTable.Rows[11].Cells[1].Value = Connection.protocol.vEfficiency;
             trendGraph.Series[11].Points.AddY(elementTable.Rows[11].Cells[1].Value);
-            elementTable.Rows[12].Cells[1].Value = protocol.vIFlow;
+            elementTable.Rows[12].Cells[1].Value = Connection.protocol.vIFlow;
             trendGraph.Series[12].Points.AddY(elementTable.Rows[12].Cells[1].Value);
-            elementTable.Rows[13].Cells[1].Value = protocol.vDraft;
+            elementTable.Rows[13].Cells[1].Value = Connection.protocol.vDraft;
             trendGraph.Series[13].Points.AddY(elementTable.Rows[13].Cells[1].Value);
-            elementTable.Rows[14].Cells[1].Value = protocol.vLosses;
+            elementTable.Rows[14].Cells[1].Value = Connection.protocol.vLosses;
             trendGraph.Series[14].Points.AddY(elementTable.Rows[14].Cells[1].Value);
-            elementTable.Rows[15].Cells[1].Value = protocol.vExcessAir;
+            elementTable.Rows[15].Cells[1].Value = Connection.protocol.vExcessAir;
             trendGraph.Series[15].Points.AddY(elementTable.Rows[15].Cells[1].Value);
-            elementTable.Rows[16].Cells[1].Value = protocol.vCOmass;
+            elementTable.Rows[16].Cells[1].Value = Connection.protocol.vCOmass;
             trendGraph.Series[16].Points.AddY(elementTable.Rows[16].Cells[1].Value);
-            elementTable.Rows[17].Cells[1].Value = protocol.vNOxmass;
+            elementTable.Rows[17].Cells[1].Value = Connection.protocol.vNOxmass;
             trendGraph.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
         }
 
@@ -620,6 +651,39 @@ namespace CRS
                  recordingSign.Visible = true;
              else
                  recordingSign.Visible = false;
+         }
+
+         private void setupCommunictaionPortsToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             Connection connectForm = new Connection(this);
+             connectForm.ShowDialog();
+         }
+
+         private void aboutAdvDASToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             CRSAboutBox about = new CRSAboutBox();
+             about.ShowDialog();
+         }
+
+         private void MainMenu_Load(object sender, EventArgs e)
+         {
+            this.WindowState = FormWindowState.Maximized;
+         }
+
+         private void blueWhiteColorToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+              foreach (TableLayoutPanel tile in tiles)
+            {
+                tile.BackgroundImage = CRS.Properties.Resources.dashboardPanel;
+            }
+         }
+
+         private void blackBlueColorToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+              foreach (TableLayoutPanel tile in tiles)
+            {
+                tile.BackgroundImage = CRS.Properties.Resources.black_blue_box;
+            }
          }
      }
 }

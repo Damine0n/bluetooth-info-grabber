@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -37,6 +38,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataSource = new System.Windows.Forms.GroupBox();
             this.currentValues = new System.Windows.Forms.GroupBox();
+            this.aveLabel = new System.Windows.Forms.Label();
+            this.valLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,8 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.valLabel = new System.Windows.Forms.Label();
-            this.aveLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.dataSource.SuspendLayout();
             this.currentValues.SuspendLayout();
@@ -60,27 +62,27 @@
             // 
             this.elementComboBox.FormattingEnabled = true;
             this.elementComboBox.Items.AddRange(new object[] {
-            "O2",
-            "CO",
-            "CO - Corrected",
-            "CO2",
-            "NO",
-            "NO - Correction",
-            "NO2",
-            "NO2 - Correction",
-            "NOx",
-            "NOx - Corrected",
-            "SO2",
-            "SO2 - Corrected",
-            "CxHy",
-            "CxHy - Corrected",
-            "T(gas)",
-            "T(amb)",
-            "T(cell)",
-            "Efficiency",
-            "I.Flow",
-            "Draft",
-            "Losses",
+            "O2%",
+            "CO ppm",
+            "CO ppm - Corrected",
+            "CO2%",
+            "NO ppm",
+            "NO ppm - Correction",
+            "NO2 ppm",
+            "NO2 ppm - Correction",
+            "NOx ppm",
+            "NOx ppm - Corrected",
+            "SO2 ppm",
+            "SO2 ppm - Corrected",
+            "CxHy ppm",
+            "CxHy ppm - Corrected",
+            "T(gas)°F",
+            "T(amb)°F",
+            "T(cell)°F",
+            "Efficiency %",
+            "I.Flow(L/Min)",
+            "Draft(i.w.g.)",
+            "Losses%",
             "Excess Air"});
             this.elementComboBox.Location = new System.Drawing.Point(6, 19);
             this.elementComboBox.Name = "elementComboBox";
@@ -130,6 +132,26 @@
             this.currentValues.TabIndex = 5;
             this.currentValues.TabStop = false;
             this.currentValues.Text = "Current Values";
+            // 
+            // aveLabel
+            // 
+            this.aveLabel.AutoSize = true;
+            this.aveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aveLabel.Location = new System.Drawing.Point(146, 58);
+            this.aveLabel.Name = "aveLabel";
+            this.aveLabel.Size = new System.Drawing.Size(51, 20);
+            this.aveLabel.TabIndex = 3;
+            this.aveLabel.Text = "label6";
+            // 
+            // valLabel
+            // 
+            this.valLabel.AutoSize = true;
+            this.valLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valLabel.Location = new System.Drawing.Point(146, 25);
+            this.valLabel.Name = "valLabel";
+            this.valLabel.Size = new System.Drawing.Size(51, 20);
+            this.valLabel.TabIndex = 2;
+            this.valLabel.Text = "label5";
             // 
             // label2
             // 
@@ -242,25 +264,10 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // valLabel
+            // timer1
             // 
-            this.valLabel.AutoSize = true;
-            this.valLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.valLabel.Location = new System.Drawing.Point(146, 25);
-            this.valLabel.Name = "valLabel";
-            this.valLabel.Size = new System.Drawing.Size(51, 20);
-            this.valLabel.TabIndex = 2;
-            this.valLabel.Text = "label5";
-            // 
-            // aveLabel
-            // 
-            this.aveLabel.AutoSize = true;
-            this.aveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aveLabel.Location = new System.Drawing.Point(146, 58);
-            this.aveLabel.Name = "aveLabel";
-            this.aveLabel.Size = new System.Drawing.Size(51, 20);
-            this.aveLabel.TabIndex = 3;
-            this.aveLabel.Text = "label6";
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ScaleDisplay
             // 
@@ -309,6 +316,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label aveLabel;
         private System.Windows.Forms.Label valLabel;
+        private System.Windows.Forms.Timer timer1;
         
     }
 }

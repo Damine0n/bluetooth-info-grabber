@@ -15,15 +15,17 @@ namespace CRS
     {
         public Control source;
         private Label lbl1,lbl2,radioLbl;
+        private Button btn;
         private string unit;
         private int index;
-        public hTile(Tuple<Label, Label,Label> tuple, string unit)
+        public hTile(Tuple<Label, Label, Label, Button> tuple, string unit)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.lbl1 = tuple.Item1;
             this.lbl2 = tuple.Item2;
             this.radioLbl = tuple.Item3;
+            this.btn = tuple.Item4;
             this.unit = unit;
         }
         public int Index
@@ -34,7 +36,7 @@ namespace CRS
         private void btnAccept_Click(object sender, EventArgs e)
         {
             lbl1.Text = elementComboBox.Text;
-
+            lbl2.Text = valLabel.Text;
             this.DialogResult = DialogResult.OK;
         }
 

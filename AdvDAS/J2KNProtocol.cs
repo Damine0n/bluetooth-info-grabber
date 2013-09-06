@@ -11,26 +11,27 @@ namespace CRS
 {
     public class J2KNProtocol
     {
-        public string vO2 = "             ";
-        public string vCO = "             ";
-        public string vNO = "             ";
-        public string vNO2 = "            ";
-        public string vNOx = "            ";
-        public string vSO2 = "            ";
-        public string vCxHy = "           ";
-        public string vDraft = "          ";
-        public string vTamb = "           ";
-        public string vTgas = "           ";
-        public string vTcell = "          ";
-        public string vIFlow = "          ";
-        public string vLosses = "         ";
-        public string vExcessAir = "      ";
-        public string vEfficiency = "     ";
-        public string vCO2 = "            ";
-        public string vCOmass = "         ";
-        public string vNOxmass = "        ";
-        public string vAccu = "           ";
-        public string vSerialNumber = "   ";
+        public string vO2 = "";
+        public string vCO = "";
+        public string vNO = "";
+        public string vNO2 = "";
+        public string vNOx = "";
+        public string vSO2 = "";
+        public string vCxHy = "";
+        public string vDraft = "";
+        public string vTamb = "";
+        public string vTgas = "";
+        public string vTcell = "";
+        public string vIFlow = "";
+        public string vLosses = "";
+        public string vExcessAir = "";
+        public string vEfficiency = "";
+        public string vCO2 = "";
+        public string vCOmass = "";
+        public string vNOxmass = "";
+        public string vAccu = "";
+        public string vSerialNumber = "";
+        public string ipAddress = "192.168.55.1";
         public J2KNProtocol()
         {
 
@@ -45,7 +46,7 @@ namespace CRS
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
             if (!clientSocket.Connected)
-                clientSocket.Connect(IPAddress.Parse("192.168.55.1"), 4000);
+                clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
             try
             {
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
@@ -54,7 +55,7 @@ namespace CRS
                 clientSocket.Receive(receivedBytes);
                 string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
                 //MessageBox.Show(Convert.ToInt32(arr[13].Substring(2, 4), 16).ToString());
-                iValue = (double)Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
+                iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
                 if (iValue >= 32767 || iValue == 0)
                     vO2 = "0.0";
                 else
@@ -129,7 +130,7 @@ namespace CRS
             catch (Exception ex)
             {
                 //throw ex;
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                //MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
@@ -153,7 +154,7 @@ namespace CRS
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
             if (!clientSocket.Connected)
-                clientSocket.Connect(IPAddress.Parse("192.168.55.1"), 4000);
+                clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
             try
             {
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
@@ -186,7 +187,8 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                //throw ex;
+                //MessageBox.Show(ex.Message + ex.StackTrace);
             }
 
             clientSocket.Close();

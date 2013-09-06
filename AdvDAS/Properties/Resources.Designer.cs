@@ -73,9 +73,29 @@ namespace CRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_blue_box {
+            get {
+                object obj = ResourceManager.GetObject("black-blue-box", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Camera_Android_shutter {
             get {
                 object obj = ResourceManager.GetObject("Camera-Android-shutter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dashboardPanel {
+            get {
+                object obj = ResourceManager.GetObject("dashboardPanel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -86,6 +86,18 @@
     <Compile Include="ConfigureProcedure.Designer.cs">
       <DependentUpon>ConfigureProcedure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connection.Designer.cs">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRSAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRSAboutBox.Designer.cs">
+      <DependentUpon>CRSAboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="hTile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +195,12 @@
     <EmbeddedResource Include="ConfigureReport.resx">
       <DependentUpon>ConfigureReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Connection.resx">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRSAboutBox.resx">
+      <DependentUpon>CRSAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="hTile.resx">
       <DependentUpon>hTile.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,7 +213,13 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.es-CO.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.yo.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MassEBC.resx">
@@ -244,6 +268,8 @@
     <None Include="Deleket-Soft-Scraps-Button-Pause.ico" />
     <None Include="Ahmadhania-Spherical-Camera.ico" />
     <None Include="Camera-Android-shutter.png" />
+    <None Include="dashboardPanel.jpg" />
+    <None Include="black-blue-box.jpg" />
     <Content Include="Ecom.ico" />
   </ItemGroup>
   <ItemGroup>
