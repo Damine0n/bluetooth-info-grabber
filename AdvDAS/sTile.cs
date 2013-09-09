@@ -17,10 +17,10 @@ namespace CRS
         public Control source;
         private Label lbl1,lbl2;
         private Button btn;
-        private String unit; 
         private int index;
-        List<double> average = new List<double>();
-        public static  J2KNProtocol protocol = new J2KNProtocol();
+        private List<double> nums = new List<double>();
+        string average;
+        public J2KNProtocol protocol = new J2KNProtocol();
 
         public ScaleDisplay(Tuple<Label, Label, Button> tuple)
         {
@@ -30,6 +30,8 @@ namespace CRS
             this.lbl2 = tuple.Item2;
             this.btn = tuple.Item3;
             timer1.Start();
+            
+            
         }
         public int Index
         {
@@ -51,147 +53,234 @@ namespace CRS
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            average.Clear();
+            nums.Clear();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             protocol.processProtocol();
+            protocol.processProtocol("$0A0531");
+            protocol.processProtocol("$0A054E");
+            timer1.Interval = MainMenu.dgInterval;
             switch (elementComboBox.SelectedIndex)
             {
                 case 0:
-                    unit="%";
+                    nums.Add(Convert.ToDouble(protocol.vO2));
+                    average = nums.Average().ToString("0.0");
+                    this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vO2;
-                    aveLabel.Text = unit;
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vO2;
-                    chartIt(protocol.vO2);
                     break;
                 case 1:
-                    unit = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCO;
-                    aveLabel.Text = unit;
+                    nums.Add(Convert.ToDouble(protocol.vCO));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vCO;
-                    chartIt(protocol.vCO);
                     break;
                 case 2:
-                    unit = "ppm";
-                    valLabel.Text = protocol.vCO + unit;
-                    aveLabel.Text = unit;
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCO;
+                    nums.Add(Convert.ToDouble(protocol.vCO));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vCO;
-                    chartIt(protocol.vCO);
                     break;
                 case 3:
-                    unit = "ppm";
-                    valLabel.Text = protocol.vCO2 + unit;
-                    aveLabel.Text = unit;
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCO2;
+                    nums.Add(Convert.ToDouble(protocol.vCO2));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vCO2;
-                    chartIt(protocol.vCO2);
                     break;
                 case 4:
-                    unit = "ppm";
-                    valLabel.Text = protocol.vNO + unit;
-                    aveLabel.Text = unit;
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNO;
+                    nums.Add(Convert.ToDouble(protocol.vNO));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNO;
-                    chartIt(protocol.vNO);
                     break;
                 case 5:
-                    unit = "ppm";
-                    valLabel.Text = protocol.vNO + unit;
-                    aveLabel.Text = unit;
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNO;
+                    nums.Add(Convert.ToDouble(protocol.vNO));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNO;
-                    chartIt(protocol.vNO);
                     break;
                 case 6:
-                    unit = "ppm";
-                    valLabel.Text = protocol.vNO2 + unit;
-                    aveLabel.Text = unit;
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNO2;
+                    nums.Add(Convert.ToDouble(protocol.vNO2));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNO2;
                     break;
                 case 7:
-                    unit = "ppm";
-                    valLabel.Text = protocol.vNO2 + unit;
-                    aveLabel.Text = unit;
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNO2;
+                    nums.Add(Convert.ToDouble(protocol.vNO2));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNO2;
                     break;
                 case 8:
-                    valLabel.Text = protocol.vNOx + "ppm";
-                    aveLabel.Text = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNOx;
+                    nums.Add(Convert.ToDouble(protocol.vNOx));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNOx;
                     break;
                 case 9:
-                    valLabel.Text = protocol.vNOx + "ppm";
-                    aveLabel.Text = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNOx;
+                    nums.Add(Convert.ToDouble(protocol.vNOx));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNOx;
                     break;
                 case 10:
-                    valLabel.Text = protocol.vSO2 + "ppm";
-                    aveLabel.Text = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
+                    nums.Add(Convert.ToDouble(protocol.vSO2));
+                    average = nums.Average().ToString("0.0");
+                    valLabel.Text = protocol.vSO2;
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vSO2;
                     break;
                 case 11:
-                    valLabel.Text = protocol.vSO2 + "ppm";
-                    aveLabel.Text = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vSO2;
+                    nums.Add(Convert.ToDouble(protocol.vSO2));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
                     this.lbl2.Text = protocol.vSO2;
                     break;
                 case 12:
-                    valLabel.Text = protocol.vCxHy + "ppm";
-                    aveLabel.Text = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCxHy;
+                    nums.Add(Convert.ToDouble(protocol.vCxHy));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vCxHy;
                     break;
                 case 13:
-                    valLabel.Text = protocol.vCxHy + "ppm";
-                    aveLabel.Text = "ppm";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCxHy;
+                    nums.Add(Convert.ToDouble(protocol.vCxHy));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vCxHy;
                     break;
                 case 14:
-                    valLabel.Text = protocol.vTgas + "°F";
-                    aveLabel.Text = "°F";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vTgas;
+                    nums.Add(Convert.ToDouble(protocol.vTgas));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vTgas;
                     break;
                 case 15:
-                    valLabel.Text = protocol.vTamb + "°F";
-                    aveLabel.Text = "°F";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vTamb;
+                    nums.Add(Convert.ToDouble(protocol.vTamb));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vTamb;
                     break;
                 case 16:
-                    valLabel.Text = protocol.vTcell + "°F";
-                    aveLabel.Text = "°F";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vTcell;
+                    nums.Add(Convert.ToDouble(protocol.vTcell));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vTcell;
                     break;
                 case 17:
-                    valLabel.Text = protocol.vEfficiency + "%";
-                    aveLabel.Text = "%";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vEfficiency;
+                    nums.Add(Convert.ToDouble(protocol.vEfficiency));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vEfficiency;
                     break;
                 case 18:
-                    valLabel.Text = protocol.vIFlow + "L/Min";
-                    aveLabel.Text = "L/Min";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vIFlow;
+                    nums.Add(Convert.ToDouble(protocol.vIFlow));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vIFlow;
                     break;
                 case 19:
-                    valLabel.Text = protocol.vDraft + "i.w.g.";
-                    aveLabel.Text = "i.w.g.";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vDraft;
+                    nums.Add(Convert.ToDouble(protocol.vDraft));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vDraft;
                     break;
                 case 20:
-                    valLabel.Text = protocol.vLosses + "%";
-                    aveLabel.Text = "%";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vLosses;
+                    nums.Add(Convert.ToDouble(protocol.vLosses));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vLosses;
                     break;
                 case 21:
-                    valLabel.Text = protocol.vExcessAir + "";
-                    aveLabel.Text = "";
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vExcessAir;
+                    nums.Add(Convert.ToDouble(protocol.vExcessAir));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vExcessAir;
                     break;
-
             }
+            
+            chartIt(valLabel.Text, average);
         }
 
-        private void chartIt(string data)
+        private void chartIt(string data1, string data2)
         {
-            chart1.Series[0].Points.AddY(data);
-            chart1.Series[1].Points.AddY(data);
+            chart1.Series[0].Points.AddY(data1);
+            //int num=Convert.ToInt32(data) * 2;
+            //MessageBox.Show(num.ToString());
+            //data = num.ToString();
+            chart1.Series[1].Points.AddY(data2);
+        }
+
+        private void elementComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
         }
     }
 }

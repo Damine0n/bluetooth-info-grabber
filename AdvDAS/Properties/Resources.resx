@@ -118,25 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dashboard_black_blue_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\dashboard-black-blue-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dashboard_blue_black_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\dashboard-blue-black-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ahmadhania-Spherical-Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Ahmadhania-Spherical-Camera.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dashboard_blue_white_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\dashboard-blue-white-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Camera-Android-shutter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Camera-Android-shutter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rec_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\rec-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Deleket-Soft-Scraps-Button-Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Deleket-Soft-Scraps-Button-Pause.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rec_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\rec-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dashboardPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\dashboardPanel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="snapshot_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\snapshot-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-blue-box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\black-blue-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="snapshot_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\snapshot-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\start-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\start-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\stop-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\stop-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

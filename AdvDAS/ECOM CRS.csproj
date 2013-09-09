@@ -265,11 +265,24 @@
     <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Panels\dashboard-blue-black-box.jpg" />
+    <None Include="Panels\dashboard-black-blue-box.jpg" />
+    <None Include="Panels\dashboard-blue-white-box.jpg" />
+    <None Include="Panels\dashboard-blu-black-box.jpg" />
+    <None Include="Panels\black-blue-box.jpg" />
     <None Include="Deleket-Soft-Scraps-Button-Pause.ico" />
     <None Include="Ahmadhania-Spherical-Camera.ico" />
     <None Include="Camera-Android-shutter.png" />
     <None Include="dashboardPanel.jpg" />
     <None Include="black-blue-box.jpg" />
+    <None Include="Buttons\rec-A.png" />
+    <None Include="Buttons\rec-B.png" />
+    <None Include="Buttons\snapshot-A.png" />
+    <None Include="Buttons\snapshot-B.png" />
+    <None Include="Buttons\start-A.png" />
+    <None Include="Buttons\start-B.png" />
+    <None Include="Buttons\stop-A.png" />
+    <None Include="Buttons\stop-B.png" />
     <Content Include="Ecom.ico" />
   </ItemGroup>
   <ItemGroup>

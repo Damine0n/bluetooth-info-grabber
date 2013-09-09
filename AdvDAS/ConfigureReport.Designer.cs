@@ -79,6 +79,7 @@
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -334,6 +335,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -354,7 +356,7 @@
             this.groupBox5.Controls.Add(this.checkBox38);
             this.groupBox5.Controls.Add(this.checkBox39);
             this.groupBox5.Controls.Add(this.checkBox40);
-            this.groupBox5.Location = new System.Drawing.Point(6, 177);
+            this.groupBox5.Location = new System.Drawing.Point(6, 197);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(430, 92);
             this.groupBox5.TabIndex = 4;
@@ -463,7 +465,7 @@
             this.groupBox4.Controls.Add(this.checkBox17);
             this.groupBox4.Controls.Add(this.checkBox11);
             this.groupBox4.Controls.Add(this.checkBox6);
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Location = new System.Drawing.Point(6, 26);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(430, 165);
             this.groupBox4.TabIndex = 0;
@@ -650,6 +652,15 @@
             this.checkBox6.Text = "O2";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(114, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "A maximum of ten values can be printed";
+            // 
             // SetUpReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -673,6 +684,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -734,5 +746,6 @@
         private System.Windows.Forms.CheckBox checkBox38;
         private System.Windows.Forms.CheckBox checkBox39;
         private System.Windows.Forms.CheckBox checkBox40;
+        private System.Windows.Forms.Label label2;
     }
 }

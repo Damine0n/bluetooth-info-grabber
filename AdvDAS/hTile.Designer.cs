@@ -64,6 +64,7 @@
             // 
             // elementComboBox
             // 
+            this.elementComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.elementComboBox.FormattingEnabled = true;
             this.elementComboBox.Location = new System.Drawing.Point(6, 19);
             this.elementComboBox.Name = "elementComboBox";

@@ -60,6 +60,7 @@
             // 
             // elementComboBox
             // 
+            this.elementComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.elementComboBox.FormattingEnabled = true;
             this.elementComboBox.Items.AddRange(new object[] {
             "O2%",
@@ -89,6 +90,7 @@
             this.elementComboBox.Size = new System.Drawing.Size(208, 21);
             this.elementComboBox.TabIndex = 1;
             this.elementComboBox.SelectedIndexChanged += new System.EventHandler(this.elementComboBox_SelectedIndexChanged);
+            this.elementComboBox.SelectionChangeCommitted += new System.EventHandler(this.elementComboBox_SelectionChangeCommitted);
             // 
             // tableLayoutPanel1
             // 
@@ -224,23 +226,23 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(28, 83);
+            this.label4.ForeColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(28, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 33);
+            this.label4.Size = new System.Drawing.Size(108, 33);
             this.label4.TabIndex = 1;
-            this.label4.Text = "AVERAGE";
+            this.label4.Text = "VALUE";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(28, 33);
+            this.label3.ForeColor = System.Drawing.Color.Blue;
+            this.label3.Location = new System.Drawing.Point(28, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 33);
+            this.label3.Size = new System.Drawing.Size(147, 33);
             this.label3.TabIndex = 0;
-            this.label3.Text = "VALUE";
+            this.label3.Text = "AVERAGE";
             // 
             // btnCancel
             // 
@@ -266,7 +268,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 3000;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ScaleDisplay

@@ -24,6 +24,8 @@ namespace CRS
         public static List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         public static List<hTile> ht = new List<hTile>();
         public List<TableLayoutPanel> tiles = new List<TableLayoutPanel>();
+        public List<TableLayoutPanel> hTiles = new List<TableLayoutPanel>();
+
         public Color textColor = Color.Black;
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
@@ -128,17 +130,17 @@ namespace CRS
             tiles.Add(sTile7);
             tiles.Add(sTile8);
             tiles.Add(sTile9);
-            tiles.Add(hTile0);
-            tiles.Add(hTile1);
+            hTiles.Add(hTile0);
+            hTiles.Add(hTile1);
         }
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Start();
             this.recordSign.Start();
-            this.startRecordingItem.Enabled = false;
-            this.pauseRecordingItem.Enabled = true;
-            this.stopRecordingItem.Enabled = true;
+            this.startRecordingButton.Enabled = false;
+            this.stopRecordingButton.Enabled = true;
+            this.snapShotButton.Enabled = true;
             if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
             {
                 this.cycleLabel.Text = "Cycle: "+currentCycle;
@@ -152,9 +154,9 @@ namespace CRS
         private void pauseRecordingItem_Click(object sender, EventArgs e)
         {
             this.timer1.Stop();
-            this.startRecordingItem.Enabled = true;
-            this.pauseRecordingItem.Enabled = false;
-            this.stopRecordingItem.Enabled = true;
+            this.startRecordingButton.Enabled = true;
+            this.stopRecordingButton.Enabled = false;
+            this.snapShotButton.Enabled = true;
         }
         //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
@@ -164,9 +166,9 @@ namespace CRS
             this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
             this.timer1.Stop();
             this.recordSign.Stop();
-            this.startRecordingItem.Enabled = true;
-            this.pauseRecordingItem.Enabled = false;
-            this.stopRecordingItem.Enabled = false;
+            this.startRecordingButton.Enabled = true;
+            this.stopRecordingButton.Enabled = false;
+            this.snapShotButton.Enabled = false;
         }
         //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
@@ -672,18 +674,61 @@ namespace CRS
 
          private void blueWhiteColorToolStripMenuItem_Click(object sender, EventArgs e)
          {
-              foreach (TableLayoutPanel tile in tiles)
+            foreach (TableLayoutPanel tile in tiles)
             {
-                tile.BackgroundImage = CRS.Properties.Resources.dashboardPanel;
+                tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_white_box;
             }
+            //foreach (Button btn in )
+            //{
+            //    btn.ForeColor = System.Drawing.Color.Black;
+            //}
          }
 
          private void blackBlueColorToolStripMenuItem_Click(object sender, EventArgs e)
          {
-              foreach (TableLayoutPanel tile in tiles)
+            foreach (TableLayoutPanel tile in tiles)
             {
-                tile.BackgroundImage = CRS.Properties.Resources.black_blue_box;
+                tile.BackgroundImage = CRS.Properties.Resources.dashboard_black_blue_box;
             }
+         }
+
+         
+         private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             foreach (TableLayoutPanel tile in tiles)
+             {
+                 tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_black_box;
+             }
+         }
+         
+         private void startRecordingItem_MouseHover(object sender, EventArgs e)
+         {
+             startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_B;
+         }
+
+         private void startRecordingItem_MouseLeave(object sender, EventArgs e)
+         {
+             startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
+         }
+
+         private void pauseRecordingItem_MouseHover(object sender, EventArgs e)
+         {
+             stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_B;
+         }
+
+         private void pauseRecordingItem_MouseLeave(object sender, EventArgs e)
+         {
+             stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_A;
+         }
+
+         private void stopRecordingItem_MouseHover(object sender, EventArgs e)
+         {
+             snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_B;
+         }
+
+         private void stopRecordingItem_MouseLeave(object sender, EventArgs e)
+         {
+             snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
          }
      }
 }
