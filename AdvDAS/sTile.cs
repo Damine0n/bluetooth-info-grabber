@@ -16,7 +16,7 @@ namespace CRS
     {
         public Control source;
         private Label lbl1,lbl2;
-        private Button btn;
+        public Button btn;
         private int index;
         private List<double> nums = new List<double>();
         string average;
@@ -52,6 +52,11 @@ namespace CRS
         }
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            resetAverage();
+        }
+
+        public void resetAverage()
         {
             nums.Clear();
         }

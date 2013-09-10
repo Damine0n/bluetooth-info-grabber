@@ -38,7 +38,7 @@ namespace CRS
         private Calibration caliForm = new Calibration();
         private Customer customer = new Customer();
         private Form2 forming = new Form2();
-        public List<Tuple<Label,Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
+        public List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
         public List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
 
         private DateTime running = new DateTime();
@@ -52,7 +52,7 @@ namespace CRS
         public static string currentCycle = "\u221e";
         public static string cUnit, nUnit;
         public J2KNProtocol protocol = new J2KNProtocol();
-        
+
         public MainMenu()
         {
             InitializeComponent();
@@ -112,8 +112,8 @@ namespace CRS
             {
                 scaleDisplays.Add(new ScaleDisplay(lblList1[i]));
                 scaleDisplays[i].elementComboBox.SelectedItem = lblList1[i].Item1.Text;
-            } 
-            ht.Add(new hTile(lblList2[0],cUnit));
+            }
+            ht.Add(new hTile(lblList2[0], cUnit));
             ht[0].elementComboBox.Items.AddRange(new object[] { "CO(mass)", "CO(mass) - correction" });
             ht[0].elementComboBox.SelectedIndex = 0;
             ht.Add(new hTile(lblList2[1], nUnit));
@@ -143,7 +143,7 @@ namespace CRS
             this.snapShotButton.Enabled = true;
             if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
             {
-                this.cycleLabel.Text = "Cycle: "+currentCycle;
+                this.cycleLabel.Text = "Cycle: " + currentCycle;
                 //currentCycle++;
                 //if (numOfCycles<currentCycle)
                 this.timer1.Stop();
@@ -213,7 +213,7 @@ namespace CRS
 
         //    return screenShotBMP;
         //}
-        
+
         //
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
@@ -297,10 +297,10 @@ namespace CRS
         //Opens recording Window
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            configProcedure = new SetUpProcedure(rampUp, testData,purge, numOfCycles, dgInterval);
+            configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
             configProcedure.ShowDialog();
         }
-        
+
         //Opens Personal Data Window
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -352,7 +352,7 @@ namespace CRS
         {
             foreach (Control c in ctrl.Controls)
             {
-                labelColor(c,color);
+                labelColor(c, color);
                 if (c is Label)
                 {
                     c.ForeColor = color;
@@ -394,7 +394,7 @@ namespace CRS
         //        foreach (TableLayoutPanel tile in tiles)
         //            tile.BackColor = colorDialog.Color;
         //    }
-            
+
         //}
 
         ////Resets all colors
@@ -503,10 +503,24 @@ namespace CRS
                             break;
                     }
                 }
+
+            }
+
+        }
+        private void tileButton_Click(object sender, EventArgs e)
+        {
+            Button avgBTN = sender as Button;
+            int i = 0;
+            foreach (ScaleDisplay display in scaleDisplays)
+            {
+                if (scaleDisplays[i].btn.Name.Equals(avgBTN.Name))
+                {
+                    scaleDisplays[i].resetAverage();
+                }
+                i++;
             }
         }
-        
-        
+
 
         /////////////////////////////////////////////////////////////////TAB-NUMBER-2/////////////////////////////////////////////////////////
         //Fills the table in Graph tab
@@ -528,8 +542,8 @@ namespace CRS
             elements.Add(new Facts("Draft", "", "i.w.g."));
             elements.Add(new Facts("Losses", "", "%"));
             elements.Add(new Facts("Excess Air", "", ""));
-            elements.Add(new Facts ("CO(mass)","0000", cUnit ));
-            elements.Add(new Facts ("NOx(mass)","0000", nUnit ));
+            elements.Add(new Facts("CO(mass)", "0000", cUnit));
+            elements.Add(new Facts("NOx(mass)", "0000", nUnit));
             for (int i = 0; i < elements.Count; i++)
             {
                 elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
@@ -551,7 +565,7 @@ namespace CRS
                         {
                             series.Points.Clear();
                         }
-                        trendGraph.Series[e.RowIndex].Enabled = true;                        
+                        trendGraph.Series[e.RowIndex].Enabled = true;
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -568,7 +582,7 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            switch(nums)
+            switch (nums)
             {
                 case 1:
                     connectionStatusLabel.Text = "Connected.  ";
@@ -580,13 +594,13 @@ namespace CRS
                     break;
                 case 3:
                     connectionStatusLabel.Text = "Connected...";
-                    nums=1;
+                    nums = 1;
                     break;
                 default:
                     connectionStatusLabel.Text = "Not Connected";
                     break;
             }
-            
+
             dataGridTimer.Interval = dgInterval;
             //get all values
             Connection.protocol.processProtocol();
@@ -636,44 +650,44 @@ namespace CRS
             trendGraph.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
         }
 
-         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-         {
-                    elementTable.Rows[elementTable.RowCount-2].Cells[2].Value = cUnit;
-                    elementTable.Rows[elementTable.RowCount-1].Cells[2].Value = nUnit;
-         }
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            elementTable.Rows[elementTable.RowCount - 2].Cells[2].Value = cUnit;
+            elementTable.Rows[elementTable.RowCount - 1].Cells[2].Value = nUnit;
+        }
 
-         private void viewCalibrationInfoToolStripMenuItem_Click(object sender, EventArgs e)
-         {
-             caliForm.ShowDialog();
-         }
+        private void viewCalibrationInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caliForm.ShowDialog();
+        }
 
-         private void recordSign_Tick(object sender, EventArgs e)
-         {
-             if (recordingSign.Visible.Equals(false))
-                 recordingSign.Visible = true;
-             else
-                 recordingSign.Visible = false;
-         }
+        private void recordSign_Tick(object sender, EventArgs e)
+        {
+            if (recordingSign.Visible.Equals(false))
+                recordingSign.Visible = true;
+            else
+                recordingSign.Visible = false;
+        }
 
-         private void setupCommunictaionPortsToolStripMenuItem_Click(object sender, EventArgs e)
-         {
-             Connection connectForm = new Connection(this);
-             connectForm.ShowDialog();
-         }
+        private void setupCommunictaionPortsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Connection connectForm = new Connection(this);
+            connectForm.ShowDialog();
+        }
 
-         private void aboutAdvDASToolStripMenuItem_Click(object sender, EventArgs e)
-         {
-             CRSAboutBox about = new CRSAboutBox();
-             about.ShowDialog();
-         }
+        private void aboutAdvDASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CRSAboutBox about = new CRSAboutBox();
+            about.ShowDialog();
+        }
 
-         private void MainMenu_Load(object sender, EventArgs e)
-         {
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
             this.WindowState = FormWindowState.Maximized;
-         }
+        }
 
-         private void blueWhiteColorToolStripMenuItem_Click(object sender, EventArgs e)
-         {
+        private void blueWhiteColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             foreach (TableLayoutPanel tile in tiles)
             {
                 tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_white_box;
@@ -682,53 +696,53 @@ namespace CRS
             //{
             //    btn.ForeColor = System.Drawing.Color.Black;
             //}
-         }
+        }
 
-         private void blackBlueColorToolStripMenuItem_Click(object sender, EventArgs e)
-         {
+        private void blackBlueColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             foreach (TableLayoutPanel tile in tiles)
             {
                 tile.BackgroundImage = CRS.Properties.Resources.dashboard_black_blue_box;
             }
-         }
+        }
 
-         
-         private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
-         {
-             foreach (TableLayoutPanel tile in tiles)
-             {
-                 tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_black_box;
-             }
-         }
-         
-         private void startRecordingItem_MouseHover(object sender, EventArgs e)
-         {
-             startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_B;
-         }
 
-         private void startRecordingItem_MouseLeave(object sender, EventArgs e)
-         {
-             startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
-         }
+        private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (TableLayoutPanel tile in tiles)
+            {
+                tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_black_box;
+            }
+        }
 
-         private void pauseRecordingItem_MouseHover(object sender, EventArgs e)
-         {
-             stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_B;
-         }
+        private void startRecordingItem_MouseHover(object sender, EventArgs e)
+        {
+            startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_B;
+        }
 
-         private void pauseRecordingItem_MouseLeave(object sender, EventArgs e)
-         {
-             stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_A;
-         }
+        private void startRecordingItem_MouseLeave(object sender, EventArgs e)
+        {
+            startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
+        }
 
-         private void stopRecordingItem_MouseHover(object sender, EventArgs e)
-         {
-             snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_B;
-         }
+        private void pauseRecordingItem_MouseHover(object sender, EventArgs e)
+        {
+            stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_B;
+        }
 
-         private void stopRecordingItem_MouseLeave(object sender, EventArgs e)
-         {
-             snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
-         }
-     }
+        private void pauseRecordingItem_MouseLeave(object sender, EventArgs e)
+        {
+            stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_A;
+        }
+
+        private void stopRecordingItem_MouseHover(object sender, EventArgs e)
+        {
+            snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_B;
+        }
+
+        private void stopRecordingItem_MouseLeave(object sender, EventArgs e)
+        {
+            snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
+        }
+    }
 }
