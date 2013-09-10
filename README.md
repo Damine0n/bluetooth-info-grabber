@@ -1,3 +1,3 @@
 bluetooth-info-grabber
 ======================
-Hello World!
+This is the software for a portable emissions analyzer.

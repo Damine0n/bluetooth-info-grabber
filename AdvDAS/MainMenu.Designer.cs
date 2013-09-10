@@ -857,7 +857,7 @@ namespace CRS
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 31);
+            this.label6.Size = new System.Drawing.Size(67, 31);
             this.label6.TabIndex = 0;
             this.label6.Text = "NOx";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -952,7 +952,7 @@ namespace CRS
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 31);
+            this.label4.Size = new System.Drawing.Size(54, 31);
             this.label4.TabIndex = 0;
             this.label4.Text = "NO";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1073,7 +1073,7 @@ namespace CRS
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 31);
+            this.label5.Size = new System.Drawing.Size(68, 31);
             this.label5.TabIndex = 0;
             this.label5.Text = "NO2";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1277,7 +1277,7 @@ namespace CRS
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 31);
+            this.label2.Size = new System.Drawing.Size(54, 31);
             this.label2.TabIndex = 0;
             this.label2.Text = "CO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1491,7 +1491,7 @@ namespace CRS
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 31);
+            this.label8.Size = new System.Drawing.Size(80, 31);
             this.label8.TabIndex = 0;
             this.label8.Text = "CxHy";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1829,7 +1829,7 @@ namespace CRS
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 31);
+            this.label3.Size = new System.Drawing.Size(68, 31);
             this.label3.TabIndex = 0;
             this.label3.Text = "CO2";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;

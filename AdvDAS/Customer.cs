@@ -148,7 +148,6 @@ namespace CRS
                 sqlite_cmd.CommandText = "DELETE FROM Customers WHERE CustomerID = '"+this.tbCustomerID.Text+"';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
-
             }
             catch (Exception ex)
             {
