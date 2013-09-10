@@ -265,6 +265,9 @@
     <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Panels\status-box.jpg" />
+    <None Include="Panels\dashboard-mass-blue-white.jpg" />
+    <None Include="Resources\Analyzer control.png" />
     <None Include="Panels\dashboard-blue-black-box.jpg" />
     <None Include="Panels\dashboard-black-blue-box.jpg" />
     <None Include="Panels\dashboard-blue-white-box.jpg" />
@@ -282,6 +285,10 @@
     <None Include="Buttons\start-B.png" />
     <None Include="Buttons\stop-A.png" />
     <None Include="Buttons\stop-B.png" />
+    <None Include="Buttons\pause-A.png" />
+    <None Include="Buttons\pause-B.png" />
+    <None Include="Buttons\recording-A.png" />
+    <None Include="Buttons\recording-B.png" />
     <Content Include="Ecom.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace CRS
 {
+    
     public partial class NotesForm : Form
     {
+        public string snapNote;
         public NotesForm()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace CRS
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            snapNote = textBox1.Text;
         }
     }
 }

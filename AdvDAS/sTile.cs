@@ -234,7 +234,7 @@ namespace CRS
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vIFlow;
                     nums.Add(Convert.ToDouble(protocol.vIFlow));
-                    average = nums.Average().ToString("0.0");
+                    average = nums.Average().ToString("0.00");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vIFlow;

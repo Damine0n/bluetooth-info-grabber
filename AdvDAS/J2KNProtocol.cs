@@ -69,7 +69,7 @@ namespace CRS
                 if (iValue >= 32767 || iValue == 0)
                     vNO = "0.0";
                 else
-                    vNO = (iValue/10).ToString();
+                    vNO = (iValue).ToString();
                 iValue = (Convert.ToInt32(arr[6].Substring(2, arr[6].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
                     vNO2 = "0.0";
@@ -87,24 +87,24 @@ namespace CRS
                     vCxHy = (iValue).ToString();
                 iValue = (Convert.ToInt32(arr[9].Substring(2, arr[9].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vDraft = "0.00";
+                    vDraft = "0.0";
                 else
-                    vDraft = (iValue / 10).ToString("0.00");
+                    vDraft = (iValue / 10).ToString("0.0");
                 iValue = (Convert.ToInt32(arr[10].Substring(2, arr[10].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vTamb = "0.00";
+                    vTamb = "0.0";
                 else
                     vTamb = (iValue / 10).ToString("0.0");
                 iValue = (Convert.ToInt32(arr[11].Substring(2, arr[11].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vTgas = "0.00";
+                    vTgas = "0.0";
                 else
                     vTgas = (iValue / 10).ToString("0.0");
                 iValue = (Convert.ToInt32(arr[12].Substring(2, arr[12].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vTcell = "0.00";
+                    vTcell = "0.0";
                 else
-                    vTcell = (iValue / 10).ToString("0.00");
+                    vTcell = (iValue / 10).ToString("0.0");
                 iValue = (Convert.ToInt32(arr[13].Substring(2, arr[13].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
                     vExcessAir = "0.00";
@@ -112,19 +112,19 @@ namespace CRS
                     vExcessAir = (iValue / 100).ToString("0.00");
                 iValue = (Convert.ToInt32(arr[14].Substring(2, arr[14].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vEfficiency = "0.00";
+                    vEfficiency = "0.0";
                 else
-                    vEfficiency = (iValue / 10).ToString("0.00");
+                    vEfficiency = (iValue / 10).ToString("0.0");
                 iValue = (Convert.ToInt32(arr[15].Substring(2, arr[15].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vCO2 = "0.00";
+                    vCO2 = "0.0";
                 else
-                    vCO2 = (iValue / 10).ToString("0.00");
+                    vCO2 = (iValue / 10).ToString("0.0");
                 iValue = (Convert.ToInt32(arr[16].Substring(2, arr[16].Length - 2), 16));
                 if (iValue >= 32767 || iValue == 0)
-                    vAccu = "0.00";
+                    vAccu = "0.0";
                 else
-                    vAccu = (iValue / 10).ToString("0.00");
+                    vAccu = (iValue / 10).ToString("0.0");
                 clientSocket.Close();
             }
             catch (Exception ex)
@@ -169,9 +169,9 @@ namespace CRS
                 {
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                     if (iValue >= 32767 || iValue ==0)
-                        vLosses = "0.00";
+                        vLosses = "0.0";
                     else
-                        vLosses = (iValue / 10).ToString("0.00");
+                        vLosses = (iValue/10).ToString("0.0");
                 }
                 else if (p.Equals("$0A0531"))
                 {
@@ -182,9 +182,9 @@ namespace CRS
                 {
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                     if (iValue >= 32767 || iValue ==0)
-                        vNOx = "0.00";
+                        vNOx = "0.0";
                     else
-                        vNOx = (iValue / 10).ToString("0.00");
+                        vNOx = (iValue).ToString("0.0");
                 }
 
             }

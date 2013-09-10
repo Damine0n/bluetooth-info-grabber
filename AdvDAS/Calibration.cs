@@ -110,20 +110,41 @@ namespace CRS
         }
         ////////////////////CALIBRATION-TAB2\\\\\\\\\\\\\\\\\\\\\
 
-        private void button9_Click(object sender, EventArgs e)
+        private void capZeroO2_Click(object sender, EventArgs e)
         {
-            button12.Enabled = true;
+            textBox7.Text = cO2lbl.Text;
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void capZeroCO_Click(object sender, EventArgs e)
         {
-            button13.Enabled = true;
+            textBox8.Text = cCOlbl.Text;
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void capZeroNO_Click(object sender, EventArgs e)
         {
-            button14.Enabled = true;
+            textBox11.Text = cNOlbl.Text;
         }
+
+        private void capZeroNO2_Click(object sender, EventArgs e)
+        {
+            textBox12.Text = cNO2lbl.Text;
+        }
+        private void capCalCO_Click(object sender, EventArgs e)
+        {
+            calCO.Enabled = true;
+        }
+
+        private void capCalNO_Click(object sender, EventArgs e)
+        {
+            calNO.Enabled = true;
+        }
+
+        private void capCalNO2_Click(object sender, EventArgs e)
+        {
+            calNO2.Enabled = true;
+        }
+
+
 
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\

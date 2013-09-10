@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calibration));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label48 = new System.Windows.Forms.Label();
+            this.OKbtn = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
@@ -88,6 +90,9 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.capCalNO = new System.Windows.Forms.Button();
+            this.capCalCO = new System.Windows.Forms.Button();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -95,19 +100,17 @@
             this.label47 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.calNO2 = new System.Windows.Forms.Button();
+            this.calNO = new System.Windows.Forms.Button();
+            this.calCO = new System.Windows.Forms.Button();
+            this.capCalNO2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label33 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.capZeroO2 = new System.Windows.Forms.Button();
             this.cO2lbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cNO2lbl = new System.Windows.Forms.Label();
@@ -119,7 +122,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.capZeroNO2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cNOlbl = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -130,7 +133,7 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.capZeroNO = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cCOlbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -141,14 +144,14 @@
             this.label35 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.capZeroCO = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.dcIFlowlbl = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label57 = new System.Windows.Forms.Label();
@@ -192,9 +195,6 @@
             this.button24 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.OKbtn = new System.Windows.Forms.Button();
-            this.label48 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -288,6 +288,26 @@
             this.tabPage1.Size = new System.Drawing.Size(840, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Calibration Gas Info.";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(8, 184);
+            this.label48.MaximumSize = new System.Drawing.Size(250, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(249, 26);
+            this.label48.TabIndex = 36;
+            this.label48.Text = "Click OK to save cal gas concentrations in order to continuing with calibration.";
+            // 
+            // OKbtn
+            // 
+            this.OKbtn.Location = new System.Drawing.Point(9, 217);
+            this.OKbtn.Name = "OKbtn";
+            this.OKbtn.Size = new System.Drawing.Size(75, 23);
+            this.OKbtn.TabIndex = 61;
+            this.OKbtn.Text = "OK";
+            this.OKbtn.UseVisualStyleBackColor = true;
+            this.OKbtn.Click += new System.EventHandler(this.OKbtn_Click);
             // 
             // label46
             // 
@@ -853,18 +873,18 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.capCalNO);
+            this.tabPage2.Controls.Add(this.capCalCO);
             this.tabPage2.Controls.Add(this.dateTimePicker5);
             this.tabPage2.Controls.Add(this.label54);
             this.tabPage2.Controls.Add(this.label53);
             this.tabPage2.Controls.Add(this.tableLayoutPanel5);
             this.tabPage2.Controls.Add(this.label32);
             this.tabPage2.Controls.Add(this.label31);
-            this.tabPage2.Controls.Add(this.button14);
-            this.tabPage2.Controls.Add(this.button13);
-            this.tabPage2.Controls.Add(this.button12);
-            this.tabPage2.Controls.Add(this.button11);
-            this.tabPage2.Controls.Add(this.button10);
-            this.tabPage2.Controls.Add(this.button9);
+            this.tabPage2.Controls.Add(this.calNO2);
+            this.tabPage2.Controls.Add(this.calNO);
+            this.tabPage2.Controls.Add(this.calCO);
+            this.tabPage2.Controls.Add(this.capCalNO2);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Controls.Add(this.tableLayoutPanel4);
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
@@ -875,6 +895,38 @@
             this.tabPage2.Size = new System.Drawing.Size(840, 433);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
+            // 
+            // capCalNO
+            // 
+            this.capCalNO.Location = new System.Drawing.Point(429, 330);
+            this.capCalNO.Name = "capCalNO";
+            this.capCalNO.Size = new System.Drawing.Size(202, 25);
+            this.capCalNO.TabIndex = 17;
+            this.capCalNO.Text = "CAPTURE CAL RESPONSE";
+            this.capCalNO.UseVisualStyleBackColor = true;
+            this.capCalNO.Click += new System.EventHandler(this.capCalNO_Click);
+            // 
+            // capCalCO
+            // 
+            this.capCalCO.Location = new System.Drawing.Point(221, 330);
+            this.capCalCO.Name = "capCalCO";
+            this.capCalCO.Size = new System.Drawing.Size(202, 25);
+            this.capCalCO.TabIndex = 16;
+            this.capCalCO.Text = "CAPTURE CAL RESPONSE";
+            this.capCalCO.UseVisualStyleBackColor = true;
+            this.capCalCO.Click += new System.EventHandler(this.capCalCO_Click);
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.CustomFormat = "mm:ss";
+            this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker5.Location = new System.Drawing.Point(381, 124);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.ShowUpDown = true;
+            this.dateTimePicker5.Size = new System.Drawing.Size(99, 38);
+            this.dateTimePicker5.TabIndex = 15;
+            this.dateTimePicker5.Value = new System.DateTime(2013, 9, 9, 5, 5, 0, 0);
             // 
             // label54
             // 
@@ -955,65 +1007,45 @@
             this.label31.TabIndex = 9;
             this.label31.Text = resources.GetString("label31.Text");
             // 
-            // button14
+            // calNO2
             // 
-            this.button14.Enabled = false;
-            this.button14.Location = new System.Drawing.Point(637, 362);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(197, 34);
-            this.button14.TabIndex = 8;
-            this.button14.Text = "CALIBRATE\r\nNO2";
-            this.button14.UseVisualStyleBackColor = true;
+            this.calNO2.Enabled = false;
+            this.calNO2.Location = new System.Drawing.Point(637, 362);
+            this.calNO2.Name = "calNO2";
+            this.calNO2.Size = new System.Drawing.Size(197, 34);
+            this.calNO2.TabIndex = 8;
+            this.calNO2.Text = "CALIBRATE\r\nNO2";
+            this.calNO2.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // calNO
             // 
-            this.button13.Enabled = false;
-            this.button13.Location = new System.Drawing.Point(429, 362);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(202, 34);
-            this.button13.TabIndex = 7;
-            this.button13.Text = "CALIBRATE\r\nNO";
-            this.button13.UseVisualStyleBackColor = true;
+            this.calNO.Enabled = false;
+            this.calNO.Location = new System.Drawing.Point(429, 362);
+            this.calNO.Name = "calNO";
+            this.calNO.Size = new System.Drawing.Size(202, 34);
+            this.calNO.TabIndex = 7;
+            this.calNO.Text = "CALIBRATE\r\nNO";
+            this.calNO.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // calCO
             // 
-            this.button12.Enabled = false;
-            this.button12.Location = new System.Drawing.Point(221, 362);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(202, 34);
-            this.button12.TabIndex = 6;
-            this.button12.Text = "CALIBRATE\r\nCO";
-            this.button12.UseVisualStyleBackColor = true;
+            this.calCO.Enabled = false;
+            this.calCO.Location = new System.Drawing.Point(221, 362);
+            this.calCO.Name = "calCO";
+            this.calCO.Size = new System.Drawing.Size(202, 34);
+            this.calCO.TabIndex = 6;
+            this.calCO.Text = "CALIBRATE\r\nCO";
+            this.calCO.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // capCalNO2
             // 
-            this.button11.Location = new System.Drawing.Point(637, 330);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(197, 25);
-            this.button11.TabIndex = 5;
-            this.button11.Text = "CAPTURE CAL RESPONSE";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(429, 330);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(202, 25);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "CAPTURE CAL RESPONSE";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(221, 330);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(202, 25);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "CAPTURE CAL RESPONSE";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.capCalNO2.Location = new System.Drawing.Point(637, 330);
+            this.capCalNO2.Name = "capCalNO2";
+            this.capCalNO2.Size = new System.Drawing.Size(197, 25);
+            this.capCalNO2.TabIndex = 5;
+            this.capCalNO2.Text = "CAPTURE CAL RESPONSE";
+            this.capCalNO2.UseVisualStyleBackColor = true;
+            this.capCalNO2.Click += new System.EventHandler(this.capCalNO2_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -1023,7 +1055,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label22, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.capZeroO2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cO2lbl, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 184);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1062,6 +1094,7 @@
             this.textBox7.Location = new System.Drawing.Point(13, 24);
             this.textBox7.MaxLength = 4;
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(48, 20);
             this.textBox7.TabIndex = 1;
             // 
@@ -1086,18 +1119,19 @@
             this.label22.Text = "O2";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button5
+            // capZeroO2
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.button5, 2);
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(2, 111);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(205, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "CAPTURE ZERO";
-            this.button5.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.capZeroO2, 2);
+            this.capZeroO2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.capZeroO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capZeroO2.Location = new System.Drawing.Point(2, 111);
+            this.capZeroO2.Margin = new System.Windows.Forms.Padding(0);
+            this.capZeroO2.Name = "capZeroO2";
+            this.capZeroO2.Size = new System.Drawing.Size(205, 23);
+            this.capZeroO2.TabIndex = 2;
+            this.capZeroO2.Text = "CAPTURE ZERO";
+            this.capZeroO2.UseVisualStyleBackColor = true;
+            this.capZeroO2.Click += new System.EventHandler(this.capZeroO2_Click);
             // 
             // cO2lbl
             // 
@@ -1120,7 +1154,7 @@
             this.tableLayoutPanel4.Controls.Add(this.cNO2lbl, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label29, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button8, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.capZeroNO2, 0, 2);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(634, 184);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
@@ -1172,6 +1206,7 @@
             this.textBox15.Location = new System.Drawing.Point(11, 74);
             this.textBox15.MaxLength = 4;
             this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(48, 20);
             this.textBox15.TabIndex = 7;
             // 
@@ -1198,6 +1233,7 @@
             this.textBox12.Location = new System.Drawing.Point(11, 23);
             this.textBox12.MaxLength = 4;
             this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(48, 20);
             this.textBox12.TabIndex = 4;
             // 
@@ -1222,18 +1258,19 @@
             this.label29.Text = "NO2";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button8
+            // capZeroNO2
             // 
-            this.tableLayoutPanel4.SetColumnSpan(this.button8, 2);
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(2, 111);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(196, 23);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "CAPTURE ZERO";
-            this.button8.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel4.SetColumnSpan(this.capZeroNO2, 2);
+            this.capZeroNO2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.capZeroNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capZeroNO2.Location = new System.Drawing.Point(2, 111);
+            this.capZeroNO2.Margin = new System.Windows.Forms.Padding(0);
+            this.capZeroNO2.Name = "capZeroNO2";
+            this.capZeroNO2.Size = new System.Drawing.Size(196, 23);
+            this.capZeroNO2.TabIndex = 2;
+            this.capZeroNO2.Text = "CAPTURE ZERO";
+            this.capZeroNO2.UseVisualStyleBackColor = true;
+            this.capZeroNO2.Click += new System.EventHandler(this.capZeroNO2_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -1244,7 +1281,7 @@
             this.tableLayoutPanel3.Controls.Add(this.cNOlbl, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label24, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.button7, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.capZeroNO, 0, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(426, 185);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
@@ -1296,6 +1333,7 @@
             this.textBox14.Location = new System.Drawing.Point(14, 74);
             this.textBox14.MaxLength = 4;
             this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(48, 20);
             this.textBox14.TabIndex = 7;
             // 
@@ -1322,6 +1360,7 @@
             this.textBox11.Location = new System.Drawing.Point(14, 23);
             this.textBox11.MaxLength = 4;
             this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(48, 20);
             this.textBox11.TabIndex = 4;
             // 
@@ -1346,18 +1385,19 @@
             this.label24.Text = "NO";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button7
+            // capZeroNO
             // 
-            this.tableLayoutPanel3.SetColumnSpan(this.button7, 2);
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(2, 110);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(203, 23);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "CAPTURE ZERO";
-            this.button7.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel3.SetColumnSpan(this.capZeroNO, 2);
+            this.capZeroNO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.capZeroNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capZeroNO.Location = new System.Drawing.Point(2, 110);
+            this.capZeroNO.Margin = new System.Windows.Forms.Padding(0);
+            this.capZeroNO.Name = "capZeroNO";
+            this.capZeroNO.Size = new System.Drawing.Size(203, 23);
+            this.capZeroNO.TabIndex = 2;
+            this.capZeroNO.Text = "CAPTURE ZERO";
+            this.capZeroNO.UseVisualStyleBackColor = true;
+            this.capZeroNO.Click += new System.EventHandler(this.capZeroNO_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -1368,7 +1408,7 @@
             this.tableLayoutPanel2.Controls.Add(this.cCOlbl, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label23, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button6, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.capZeroCO, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(218, 184);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
@@ -1420,6 +1460,7 @@
             this.textBox13.Location = new System.Drawing.Point(13, 75);
             this.textBox13.MaxLength = 4;
             this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(48, 20);
             this.textBox13.TabIndex = 7;
             // 
@@ -1455,6 +1496,7 @@
             this.textBox8.Location = new System.Drawing.Point(13, 24);
             this.textBox8.MaxLength = 4;
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(48, 20);
             this.textBox8.TabIndex = 4;
             // 
@@ -1470,26 +1512,27 @@
             this.label23.Text = "CO";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button6
+            // capZeroCO
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.button6, 2);
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(2, 111);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(203, 23);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "CAPTURE ZERO";
-            this.button6.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel2.SetColumnSpan(this.capZeroCO, 2);
+            this.capZeroCO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.capZeroCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capZeroCO.Location = new System.Drawing.Point(2, 111);
+            this.capZeroCO.Margin = new System.Windows.Forms.Padding(0);
+            this.capZeroCO.Name = "capZeroCO";
+            this.capZeroCO.Size = new System.Drawing.Size(203, 23);
+            this.capZeroCO.TabIndex = 2;
+            this.capZeroCO.Text = "CAPTURE ZERO";
+            this.capZeroCO.UseVisualStyleBackColor = true;
+            this.capZeroCO.Click += new System.EventHandler(this.capZeroCO_Click);
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.tableLayoutPanel6);
             this.tabPage3.Controls.Add(this.button18);
             this.tabPage3.Controls.Add(this.button19);
-            this.tabPage3.Controls.Add(this.button20);
             this.tabPage3.Controls.Add(this.tableLayoutPanel7);
             this.tabPage3.Controls.Add(this.tableLayoutPanel8);
             this.tabPage3.Controls.Add(this.tableLayoutPanel9);
@@ -1500,6 +1543,15 @@
             this.tabPage3.Size = new System.Drawing.Size(840, 433);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Drift Check";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(220, 213);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(203, 25);
+            this.button5.TabIndex = 24;
+            this.button5.Text = "CAPTURE DRIFT RESPONSE";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel6
             // 
@@ -1553,19 +1605,10 @@
             // 
             this.button19.Location = new System.Drawing.Point(429, 213);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(196, 25);
+            this.button19.Size = new System.Drawing.Size(202, 25);
             this.button19.TabIndex = 18;
             this.button19.Text = "CAPTURE DRIFT RESPONSE";
             this.button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(221, 213);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(196, 25);
-            this.button20.TabIndex = 17;
-            this.button20.Text = "CAPTURE DRIFT RESPONSE";
-            this.button20.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel7
             // 
@@ -1614,6 +1657,7 @@
             this.textBox16.Location = new System.Drawing.Point(13, 24);
             this.textBox16.MaxLength = 4;
             this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(48, 20);
             this.textBox16.TabIndex = 1;
             // 
@@ -1655,7 +1699,7 @@
             // 
             this.dcO2lbl.AutoSize = true;
             this.dcO2lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dcO2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcO2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dcO2lbl.Location = new System.Drawing.Point(5, 2);
             this.dcO2lbl.Name = "dcO2lbl";
             this.dcO2lbl.Size = new System.Drawing.Size(95, 72);
@@ -1686,7 +1730,7 @@
             // 
             this.dcNO2lbl.AutoSize = true;
             this.dcNO2lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dcNO2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcNO2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dcNO2lbl.Location = new System.Drawing.Point(5, 2);
             this.dcNO2lbl.Name = "dcNO2lbl";
             this.dcNO2lbl.Size = new System.Drawing.Size(91, 72);
@@ -1724,6 +1768,7 @@
             this.textBox17.Location = new System.Drawing.Point(11, 74);
             this.textBox17.MaxLength = 4;
             this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(48, 20);
             this.textBox17.TabIndex = 7;
             // 
@@ -1750,6 +1795,7 @@
             this.textBox18.Location = new System.Drawing.Point(11, 23);
             this.textBox18.MaxLength = 4;
             this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
             this.textBox18.Size = new System.Drawing.Size(48, 20);
             this.textBox18.TabIndex = 4;
             // 
@@ -1810,7 +1856,7 @@
             // 
             this.dcNOlbl.AutoSize = true;
             this.dcNOlbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dcNOlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcNOlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dcNOlbl.Location = new System.Drawing.Point(5, 2);
             this.dcNOlbl.Name = "dcNOlbl";
             this.dcNOlbl.Size = new System.Drawing.Size(93, 72);
@@ -1848,6 +1894,7 @@
             this.textBox19.Location = new System.Drawing.Point(14, 74);
             this.textBox19.MaxLength = 4;
             this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
             this.textBox19.Size = new System.Drawing.Size(48, 20);
             this.textBox19.TabIndex = 7;
             // 
@@ -1874,6 +1921,7 @@
             this.textBox20.Location = new System.Drawing.Point(14, 23);
             this.textBox20.MaxLength = 4;
             this.textBox20.Name = "textBox20";
+            this.textBox20.ReadOnly = true;
             this.textBox20.Size = new System.Drawing.Size(48, 20);
             this.textBox20.TabIndex = 4;
             // 
@@ -1934,7 +1982,7 @@
             // 
             this.dcCOlbl.AutoSize = true;
             this.dcCOlbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dcCOlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcCOlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dcCOlbl.Location = new System.Drawing.Point(5, 2);
             this.dcCOlbl.Name = "dcCOlbl";
             this.dcCOlbl.Size = new System.Drawing.Size(95, 72);
@@ -1972,6 +2020,7 @@
             this.textBox21.Location = new System.Drawing.Point(13, 75);
             this.textBox21.MaxLength = 4;
             this.textBox21.Name = "textBox21";
+            this.textBox21.ReadOnly = true;
             this.textBox21.Size = new System.Drawing.Size(48, 20);
             this.textBox21.TabIndex = 7;
             // 
@@ -2007,6 +2056,7 @@
             this.textBox22.Location = new System.Drawing.Point(13, 24);
             this.textBox22.MaxLength = 4;
             this.textBox22.Name = "textBox22";
+            this.textBox22.ReadOnly = true;
             this.textBox22.Size = new System.Drawing.Size(48, 20);
             this.textBox22.TabIndex = 4;
             // 
@@ -2043,43 +2093,11 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(840, 433);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Interface Check";
+            this.tabPage4.Text = "Interference Check";
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // OKbtn
-            // 
-            this.OKbtn.Location = new System.Drawing.Point(9, 217);
-            this.OKbtn.Name = "OKbtn";
-            this.OKbtn.Size = new System.Drawing.Size(75, 23);
-            this.OKbtn.TabIndex = 61;
-            this.OKbtn.Text = "OK";
-            this.OKbtn.UseVisualStyleBackColor = true;
-            this.OKbtn.Click += new System.EventHandler(this.OKbtn_Click);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(8, 184);
-            this.label48.MaximumSize = new System.Drawing.Size(250, 0);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(249, 26);
-            this.label48.TabIndex = 36;
-            this.label48.Text = "Click OK to save cal gas concentrations in order to continuing with calibration.";
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.CustomFormat = "mm:ss";
-            this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker5.Location = new System.Drawing.Point(381, 124);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.ShowUpDown = true;
-            this.dateTimePicker5.Size = new System.Drawing.Size(99, 38);
-            this.dateTimePicker5.TabIndex = 15;
-            this.dateTimePicker5.Value = new System.DateTime(2013, 9, 9, 5, 5, 0, 0);
             // 
             // Calibration
             // 
@@ -2218,30 +2236,28 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button calNO2;
+        private System.Windows.Forms.Button calNO;
+        private System.Windows.Forms.Button calCO;
+        private System.Windows.Forms.Button capCalNO2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button capZeroO2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button capZeroNO2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button capZeroNO;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button capZeroCO;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label44;
@@ -2276,7 +2292,6 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label57;
@@ -2322,5 +2337,8 @@
         private System.Windows.Forms.Button OKbtn;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.Button capCalCO;
+        private System.Windows.Forms.Button capCalNO;
+        private System.Windows.Forms.Button button5;
     }
 }

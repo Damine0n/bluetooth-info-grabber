@@ -95,7 +95,6 @@ namespace CRS
             CreateEquipment(x);           
             siteBox.Items.Clear();
             siteBox.SelectedItem = x;
-
         }
 
         private void CreateEquipment(string x)

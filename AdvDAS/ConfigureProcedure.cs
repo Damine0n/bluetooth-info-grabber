@@ -64,7 +64,7 @@ namespace CRS
                 this.label6.Enabled = false;
                 this.numericUpDown1.Enabled = false;
                 MessageBox.Show("Once the function is initiated, the analyzer will cycle continuously until the user stops the measurement.");
-                this.numOfCycles = -1;
+                this.numOfCycles = 10000;
             }else
             {
                 this.label6.Enabled = true;

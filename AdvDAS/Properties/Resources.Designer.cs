@@ -63,6 +63,16 @@ namespace CRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Analyzer_control {
+            get {
+                object obj = ResourceManager.GetObject("Analyzer control", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard_black_blue_box {
             get {
                 object obj = ResourceManager.GetObject("dashboard_black_blue_box", resourceCulture);
@@ -93,6 +103,36 @@ namespace CRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dashboard_mass_blue_white {
+            get {
+                object obj = ResourceManager.GetObject("dashboard_mass_blue_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pause_A {
+            get {
+                object obj = ResourceManager.GetObject("pause_A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pause_B {
+            get {
+                object obj = ResourceManager.GetObject("pause_B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rec_A {
             get {
                 object obj = ResourceManager.GetObject("rec_A", resourceCulture);
@@ -106,6 +146,26 @@ namespace CRS.Properties {
         internal static System.Drawing.Bitmap rec_B {
             get {
                 object obj = ResourceManager.GetObject("rec_B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recording_A {
+            get {
+                object obj = ResourceManager.GetObject("recording_A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recording_B {
+            get {
+                object obj = ResourceManager.GetObject("recording_B", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +206,16 @@ namespace CRS.Properties {
         internal static System.Drawing.Bitmap start_B {
             get {
                 object obj = ResourceManager.GetObject("start_B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap status_box {
+            get {
+                object obj = ResourceManager.GetObject("status_box", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

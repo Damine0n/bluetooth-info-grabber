@@ -134,6 +134,8 @@ namespace CRS
             this.blueWhiteColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blueBlackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blackBlueColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewTestRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -163,76 +165,80 @@ namespace CRS
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
+            this.checkBox15 = new System.Windows.Forms.CheckBox();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.button13 = new System.Windows.Forms.Button();
             this.snapShotButton = new System.Windows.Forms.Button();
             this.stopRecordingButton = new System.Windows.Forms.Button();
             this.startRecordingButton = new System.Windows.Forms.Button();
+            this.tileButton3 = new System.Windows.Forms.Button();
+            this.tileButton10 = new System.Windows.Forms.Button();
+            this.tileButton9 = new System.Windows.Forms.Button();
+            this.tileButton8 = new System.Windows.Forms.Button();
+            this.tileButton7 = new System.Windows.Forms.Button();
+            this.tileButton2 = new System.Windows.Forms.Button();
+            this.tileButton5 = new System.Windows.Forms.Button();
+            this.tileButton4 = new System.Windows.Forms.Button();
+            this.tileButton6 = new System.Windows.Forms.Button();
+            this.tileButton1 = new System.Windows.Forms.Button();
+            this.dataGridTimer = new System.Windows.Forms.Timer(this.components);
+            this.recordSign = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.hTile0 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileLabel11 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label11_ = new System.Windows.Forms.Label();
             this.tileButton11 = new System.Windows.Forms.Button();
-            this.rLabel1 = new System.Windows.Forms.Label();
+            this.tileLabel11 = new System.Windows.Forms.Label();
+            this.rLabela2 = new System.Windows.Forms.Label();
+            this.rLabela1 = new System.Windows.Forms.Label();
+            this.label11_ = new System.Windows.Forms.Label();
             this.sTile2 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tileLabel3 = new System.Windows.Forms.Label();
-            this.tileButton3 = new System.Windows.Forms.Button();
             this.sTile9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton10 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tileLabel10 = new System.Windows.Forms.Label();
             this.sTile8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton9 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tileLabel9 = new System.Windows.Forms.Label();
             this.sTile7 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton8 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tileLabel8 = new System.Windows.Forms.Label();
             this.sTile6 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tileLabel7 = new System.Windows.Forms.Label();
             this.sTile1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tileLabel2 = new System.Windows.Forms.Label();
             this.sTile4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tileLabel5 = new System.Windows.Forms.Label();
             this.sTile3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tileLabel4 = new System.Windows.Forms.Label();
             this.sTile5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tileLabel6 = new System.Windows.Forms.Label();
             this.hTile1 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.label12_ = new System.Windows.Forms.Label();
             this.tileButton12 = new System.Windows.Forms.Button();
-            this.rLabel2 = new System.Windows.Forms.Label();
             this.tileLabel12 = new System.Windows.Forms.Label();
+            this.rLabelb2 = new System.Windows.Forms.Label();
+            this.rLabelb1 = new System.Windows.Forms.Label();
             this.sTile0 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tileLabel1 = new System.Windows.Forms.Label();
-            this.tileButton1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button13 = new System.Windows.Forms.Button();
+            this.signalStrengthBar = new System.Windows.Forms.ProgressBar();
             this.cycleLabel = new System.Windows.Forms.Label();
             this.rTimelbl = new System.Windows.Forms.Label();
             this.tTimelbl = new System.Windows.Forms.Label();
@@ -240,6 +246,8 @@ namespace CRS
             this.plbl = new System.Windows.Forms.Label();
             this.tlbl = new System.Windows.Forms.Label();
             this.rlbl = new System.Windows.Forms.Label();
+            this.ilbl = new System.Windows.Forms.Label();
+            this.iflowlbl = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -302,15 +310,13 @@ namespace CRS
             this.label60 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panel12 = new System.Windows.Forms.Panel();
             this.recordingSign = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridTimer = new System.Windows.Forms.Timer(this.components);
-            this.recordSign = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
@@ -357,6 +363,8 @@ namespace CRS
             this.tableLayoutPanel13.SuspendLayout();
             this.panel23.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recordingSign)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -368,12 +376,13 @@ namespace CRS
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.setupEquipmentSiteToolStripMenuItem,
+            this.dataToolStripMenuItem,
             this.configureToolStripMenuItem,
             this.menuCalibrationItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1061, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1028, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -488,6 +497,20 @@ namespace CRS
             this.blackBlueColorToolStripMenuItem.Text = "Black-Blue";
             this.blackBlueColorToolStripMenuItem.Click += new System.EventHandler(this.blackBlueColorToolStripMenuItem_Click);
             // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewTestRecordsToolStripMenuItem});
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.dataToolStripMenuItem.Text = "Data";
+            // 
+            // viewTestRecordsToolStripMenuItem
+            // 
+            this.viewTestRecordsToolStripMenuItem.Name = "viewTestRecordsToolStripMenuItem";
+            this.viewTestRecordsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.viewTestRecordsToolStripMenuItem.Text = "View Test Records";
+            // 
             // configureToolStripMenuItem
             // 
             this.configureToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -547,7 +570,7 @@ namespace CRS
             // 
             this.viewCalibrationInfoToolStripMenuItem.Name = "viewCalibrationInfoToolStripMenuItem";
             this.viewCalibrationInfoToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.viewCalibrationInfoToolStripMenuItem.Text = "View Calibration Info";
+            this.viewCalibrationInfoToolStripMenuItem.Text = "Calibration Gas Info";
             this.viewCalibrationInfoToolStripMenuItem.Click += new System.EventHandler(this.viewCalibrationInfoToolStripMenuItem_Click);
             // 
             // enterCalGasInfoToolStripMenuItem
@@ -565,7 +588,7 @@ namespace CRS
             // 
             this.preTestCalibrationToolStripMenuItem.Name = "preTestCalibrationToolStripMenuItem";
             this.preTestCalibrationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.preTestCalibrationToolStripMenuItem.Text = "Pre-Test Calibration";
+            this.preTestCalibrationToolStripMenuItem.Text = "Calibration";
             // 
             // postTestCalibrationToolStripMenuItem
             // 
@@ -620,7 +643,7 @@ namespace CRS
             this.clock_lbl});
             this.statusStrip1.Location = new System.Drawing.Point(0, 659);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1061, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1028, 24);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -721,57 +744,18 @@ namespace CRS
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // checkBox10
+            // checkBox19
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBox10.Location = new System.Drawing.Point(120, 0);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(15, 31);
-            this.checkBox10.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.checkBox10, "Click to disable in report");
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBox13.Location = new System.Drawing.Point(120, 0);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(15, 33);
-            this.checkBox13.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.checkBox13, "Click to disable in report");
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBox14.Location = new System.Drawing.Point(120, 0);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(15, 33);
-            this.checkBox14.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.checkBox14, "Click to disable in report");
-            this.checkBox14.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox15.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBox15.Location = new System.Drawing.Point(120, 0);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(15, 31);
-            this.checkBox15.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.checkBox15, "Click to disable in report");
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.checkBox19.AutoSize = true;
+            this.checkBox19.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox19.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox19.Location = new System.Drawing.Point(120, 0);
+            this.checkBox19.Name = "checkBox19";
+            this.checkBox19.Size = new System.Drawing.Size(15, 31);
+            this.checkBox19.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.checkBox19, "Click to disable in report");
+            this.checkBox19.UseVisualStyleBackColor = true;
             // 
             // checkBox16
             // 
@@ -786,18 +770,57 @@ namespace CRS
             this.toolTip1.SetToolTip(this.checkBox16, "Click to disable in report");
             this.checkBox16.UseVisualStyleBackColor = true;
             // 
-            // checkBox19
+            // checkBox15
             // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.CheckAlign = System.Drawing.ContentAlignment.TopRight;
-            this.checkBox19.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBox19.Location = new System.Drawing.Point(120, 0);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(15, 31);
-            this.checkBox19.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.checkBox19, "Click to disable in report");
-            this.checkBox19.UseVisualStyleBackColor = true;
+            this.checkBox15.AutoSize = true;
+            this.checkBox15.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox15.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox15.Location = new System.Drawing.Point(120, 0);
+            this.checkBox15.Name = "checkBox15";
+            this.checkBox15.Size = new System.Drawing.Size(15, 31);
+            this.checkBox15.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.checkBox15, "Click to disable in report");
+            this.checkBox15.UseVisualStyleBackColor = true;
+            // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox14.Location = new System.Drawing.Point(120, 0);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(15, 33);
+            this.checkBox14.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.checkBox14, "Click to disable in report");
+            this.checkBox14.UseVisualStyleBackColor = true;
+            // 
+            // checkBox13
+            // 
+            this.checkBox13.AutoSize = true;
+            this.checkBox13.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox13.Location = new System.Drawing.Point(120, 0);
+            this.checkBox13.Name = "checkBox13";
+            this.checkBox13.Size = new System.Drawing.Size(15, 33);
+            this.checkBox13.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.checkBox13, "Click to disable in report");
+            this.checkBox13.UseVisualStyleBackColor = true;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.checkBox10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox10.Location = new System.Drawing.Point(120, 0);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(15, 31);
+            this.checkBox10.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.checkBox10, "Click to disable in report");
+            this.checkBox10.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
@@ -838,59 +861,271 @@ namespace CRS
             this.toolTip1.SetToolTip(this.checkBox3, "Click to disable in report");
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel11.SetColumnSpan(this.button13, 2);
+            this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button13.Location = new System.Drawing.Point(3, 261);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(189, 23);
+            this.button13.TabIndex = 25;
+            this.button13.Text = "Reset All Averages";
+            this.toolTip1.SetToolTip(this.button13, "Click to reset all values");
+            this.button13.UseVisualStyleBackColor = false;
+            // 
             // snapShotButton
             // 
             this.snapShotButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("snapShotButton.BackgroundImage")));
             this.snapShotButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.snapShotButton.Enabled = false;
+            this.snapShotButton.FlatAppearance.BorderSize = 0;
+            this.snapShotButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.snapShotButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.snapShotButton.Location = new System.Drawing.Point(223, 0);
+            this.snapShotButton.Location = new System.Drawing.Point(275, 0);
             this.snapShotButton.Name = "snapShotButton";
-            this.snapShotButton.Size = new System.Drawing.Size(105, 41);
+            this.snapShotButton.Size = new System.Drawing.Size(131, 41);
             this.snapShotButton.TabIndex = 6;
             this.snapShotButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.snapShotButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.snapShotButton, "Stop Recording");
             this.snapShotButton.UseVisualStyleBackColor = true;
-            this.snapShotButton.Click += new System.EventHandler(this.stopRecordingItem_Click);
-            this.snapShotButton.MouseLeave += new System.EventHandler(this.stopRecordingItem_MouseLeave);
-            this.snapShotButton.MouseHover += new System.EventHandler(this.stopRecordingItem_MouseHover);
+            this.snapShotButton.Click += new System.EventHandler(this.snapShot_Click);
+            this.snapShotButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.snapShotButton_MouseDown);
+            this.snapShotButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.snapShotButton_MouseUp);
             // 
             // stopRecordingButton
             // 
             this.stopRecordingButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stopRecordingButton.BackgroundImage")));
             this.stopRecordingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.stopRecordingButton.Enabled = false;
+            this.stopRecordingButton.FlatAppearance.BorderSize = 0;
+            this.stopRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stopRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.stopRecordingButton.Location = new System.Drawing.Point(112, 0);
+            this.stopRecordingButton.Location = new System.Drawing.Point(138, 0);
             this.stopRecordingButton.Name = "stopRecordingButton";
-            this.stopRecordingButton.Size = new System.Drawing.Size(105, 41);
+            this.stopRecordingButton.Size = new System.Drawing.Size(131, 41);
             this.stopRecordingButton.TabIndex = 5;
             this.stopRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.stopRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.stopRecordingButton, "Pause Recording");
             this.stopRecordingButton.UseVisualStyleBackColor = true;
-            this.stopRecordingButton.Click += new System.EventHandler(this.pauseRecordingItem_Click);
-            this.stopRecordingButton.MouseLeave += new System.EventHandler(this.pauseRecordingItem_MouseLeave);
-            this.stopRecordingButton.MouseHover += new System.EventHandler(this.pauseRecordingItem_MouseHover);
+            this.stopRecordingButton.Click += new System.EventHandler(this.stopRecordingItem_Click);
+            this.stopRecordingButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.stopRecordingButton_MouseDown);
+            this.stopRecordingButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.stopRecordingButton_MouseUp);
             // 
             // startRecordingButton
             // 
             this.startRecordingButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("startRecordingButton.BackgroundImage")));
             this.startRecordingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startRecordingButton.FlatAppearance.BorderSize = 0;
+            this.startRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startRecordingButton.ForeColor = System.Drawing.Color.Transparent;
             this.startRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.startRecordingButton.Location = new System.Drawing.Point(1, 0);
             this.startRecordingButton.Name = "startRecordingButton";
-            this.startRecordingButton.Size = new System.Drawing.Size(105, 41);
+            this.startRecordingButton.Size = new System.Drawing.Size(131, 41);
             this.startRecordingButton.TabIndex = 4;
             this.startRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.startRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.startRecordingButton, "Start Recording");
             this.startRecordingButton.UseVisualStyleBackColor = true;
             this.startRecordingButton.Click += new System.EventHandler(this.startRecordingItem_Click);
-            this.startRecordingButton.MouseLeave += new System.EventHandler(this.startRecordingItem_MouseLeave);
-            this.startRecordingButton.MouseHover += new System.EventHandler(this.startRecordingItem_MouseHover);
+            this.startRecordingButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.startRecordingButton_MouseDown);
+            this.startRecordingButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.startRecordingButton_MouseUp);
+            // 
+            // tileButton3
+            // 
+            this.tileButton3.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton3.FlatAppearance.BorderSize = 0;
+            this.tileButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton3.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton3.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton3.Location = new System.Drawing.Point(3, 133);
+            this.tileButton3.Name = "tileButton3";
+            this.tileButton3.Size = new System.Drawing.Size(175, 46);
+            this.tileButton3.TabIndex = 2;
+            this.tileButton3.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton3, "Click here to reset average");
+            this.tileButton3.UseVisualStyleBackColor = false;
+            // 
+            // tileButton10
+            // 
+            this.tileButton10.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton10.FlatAppearance.BorderSize = 0;
+            this.tileButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton10.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton10.Location = new System.Drawing.Point(3, 134);
+            this.tileButton10.Name = "tileButton10";
+            this.tileButton10.Size = new System.Drawing.Size(178, 47);
+            this.tileButton10.TabIndex = 21;
+            this.tileButton10.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton10, "Click here to reset average");
+            this.tileButton10.UseVisualStyleBackColor = false;
+            // 
+            // tileButton9
+            // 
+            this.tileButton9.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton9.FlatAppearance.BorderSize = 0;
+            this.tileButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton9.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton9.Location = new System.Drawing.Point(3, 134);
+            this.tileButton9.Name = "tileButton9";
+            this.tileButton9.Size = new System.Drawing.Size(175, 47);
+            this.tileButton9.TabIndex = 20;
+            this.tileButton9.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton9, "Click here to reset average");
+            this.tileButton9.UseVisualStyleBackColor = false;
+            // 
+            // tileButton8
+            // 
+            this.tileButton8.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton8.FlatAppearance.BorderSize = 0;
+            this.tileButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton8.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton8.Location = new System.Drawing.Point(3, 134);
+            this.tileButton8.Name = "tileButton8";
+            this.tileButton8.Size = new System.Drawing.Size(175, 47);
+            this.tileButton8.TabIndex = 19;
+            this.tileButton8.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton8, "Click here to reset average");
+            this.tileButton8.UseVisualStyleBackColor = false;
+            // 
+            // tileButton7
+            // 
+            this.tileButton7.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton7.FlatAppearance.BorderSize = 0;
+            this.tileButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton7.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton7.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton7.Location = new System.Drawing.Point(3, 134);
+            this.tileButton7.Name = "tileButton7";
+            this.tileButton7.Size = new System.Drawing.Size(175, 47);
+            this.tileButton7.TabIndex = 18;
+            this.tileButton7.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton7, "Click here to reset average");
+            this.tileButton7.UseVisualStyleBackColor = false;
+            // 
+            // tileButton2
+            // 
+            this.tileButton2.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton2.FlatAppearance.BorderSize = 0;
+            this.tileButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton2.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton2.Location = new System.Drawing.Point(3, 133);
+            this.tileButton2.Name = "tileButton2";
+            this.tileButton2.Size = new System.Drawing.Size(175, 46);
+            this.tileButton2.TabIndex = 13;
+            this.tileButton2.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton2, "Click here to reset average");
+            this.tileButton2.UseVisualStyleBackColor = false;
+            // 
+            // tileButton5
+            // 
+            this.tileButton5.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton5.FlatAppearance.BorderSize = 0;
+            this.tileButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton5.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton5.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton5.Location = new System.Drawing.Point(3, 134);
+            this.tileButton5.Name = "tileButton5";
+            this.tileButton5.Size = new System.Drawing.Size(178, 45);
+            this.tileButton5.TabIndex = 16;
+            this.tileButton5.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton5, "Click here to reset average");
+            this.tileButton5.UseVisualStyleBackColor = false;
+            // 
+            // tileButton4
+            // 
+            this.tileButton4.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton4.FlatAppearance.BorderSize = 0;
+            this.tileButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton4.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton4.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton4.Location = new System.Drawing.Point(3, 133);
+            this.tileButton4.Name = "tileButton4";
+            this.tileButton4.Size = new System.Drawing.Size(175, 46);
+            this.tileButton4.TabIndex = 15;
+            this.tileButton4.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton4, "Click here to reset average");
+            this.tileButton4.UseVisualStyleBackColor = false;
+            // 
+            // tileButton6
+            // 
+            this.tileButton6.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton6.FlatAppearance.BorderSize = 0;
+            this.tileButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton6.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton6.Location = new System.Drawing.Point(3, 134);
+            this.tileButton6.Name = "tileButton6";
+            this.tileButton6.Size = new System.Drawing.Size(175, 47);
+            this.tileButton6.TabIndex = 17;
+            this.tileButton6.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton6, "Click here to reset average");
+            this.tileButton6.UseVisualStyleBackColor = false;
+            // 
+            // tileButton1
+            // 
+            this.tileButton1.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton1.FlatAppearance.BorderSize = 0;
+            this.tileButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton1.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton1.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton1.Location = new System.Drawing.Point(5, 135);
+            this.tileButton1.Margin = new System.Windows.Forms.Padding(5);
+            this.tileButton1.Name = "tileButton1";
+            this.tileButton1.Size = new System.Drawing.Size(171, 42);
+            this.tileButton1.TabIndex = 12;
+            this.tileButton1.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton1, "Click here to reset average");
+            this.tileButton1.UseVisualStyleBackColor = false;
+            this.tileButton1.Click += new System.EventHandler(this.tileButton_Click);
+            // 
+            // dataGridTimer
+            // 
+            this.dataGridTimer.Interval = 1000;
+            this.dataGridTimer.Tick += new System.EventHandler(this.dataGridTimer_Tick);
+            // 
+            // recordSign
+            // 
+            this.recordSign.Interval = 1000;
+            this.recordSign.Tick += new System.EventHandler(this.recordSign_Tick);
             // 
             // tabControl1
             // 
@@ -902,7 +1137,7 @@ namespace CRS
             this.tabControl1.Location = new System.Drawing.Point(3, 50);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1055, 582);
+            this.tabControl1.Size = new System.Drawing.Size(1022, 582);
             this.tabControl1.TabIndex = 3;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -914,7 +1149,7 @@ namespace CRS
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1047, 556);
+            this.tabPage1.Size = new System.Drawing.Size(1014, 556);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             // 
@@ -949,12 +1184,14 @@ namespace CRS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.17073F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.08826F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1041, 550);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 550);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // hTile0
             // 
             this.hTile0.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.hTile0.BackgroundImage = global::CRS.Properties.Resources.dashboard_mass_blue_white;
+            this.hTile0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.hTile0.ColumnCount = 4;
             this.tableLayoutPanel1.SetColumnSpan(this.hTile0, 2);
             this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
@@ -962,11 +1199,12 @@ namespace CRS
             this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
             this.hTile0.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
             this.hTile0.ContextMenuStrip = this.tilePopUpMenu;
-            this.hTile0.Controls.Add(this.tileLabel11, 0, 0);
             this.hTile0.Controls.Add(this.label11, 0, 1);
-            this.hTile0.Controls.Add(this.label11_, 3, 1);
             this.hTile0.Controls.Add(this.tileButton11, 1, 2);
-            this.hTile0.Controls.Add(this.rLabel1, 1, 1);
+            this.hTile0.Controls.Add(this.tileLabel11, 0, 0);
+            this.hTile0.Controls.Add(this.rLabela2, 3, 2);
+            this.hTile0.Controls.Add(this.rLabela1, 0, 2);
+            this.hTile0.Controls.Add(this.label11_, 2, 1);
             this.hTile0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTile0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hTile0.Location = new System.Drawing.Point(3, 409);
@@ -974,82 +1212,98 @@ namespace CRS
             this.hTile0.RowCount = 3;
             this.hTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.hTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.hTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.hTile0.Size = new System.Drawing.Size(410, 138);
-            this.hTile0.TabIndex = 24;
-            // 
-            // tileLabel11
-            // 
-            this.tileLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tileLabel11.AutoSize = true;
-            this.hTile0.SetColumnSpan(this.tileLabel11, 4);
-            this.tileLabel11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold);
-            this.tileLabel11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileLabel11.Location = new System.Drawing.Point(3, 0);
-            this.tileLabel11.Name = "tileLabel11";
-            this.tileLabel11.Size = new System.Drawing.Size(404, 31);
-            this.tileLabel11.TabIndex = 0;
-            this.tileLabel11.Text = "CO(mass)";
-            this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.hTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.hTile0.Size = new System.Drawing.Size(396, 138);
+            this.hTile0.TabIndex = 26;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.SystemColors.Control;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.hTile0.SetColumnSpan(this.label11, 2);
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 26.25F);
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label11.Location = new System.Drawing.Point(1, 32);
             this.label11.Margin = new System.Windows.Forms.Padding(1);
             this.label11.Name = "label11";
-            this.hTile0.SetRowSpan(this.label11, 2);
-            this.label11.Size = new System.Drawing.Size(112, 105);
-            this.label11.TabIndex = 4;
+            this.label11.Size = new System.Drawing.Size(195, 65);
+            this.label11.TabIndex = 7;
             this.label11.Text = "0.0";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tileButton11
+            // 
+            this.tileButton11.BackColor = System.Drawing.Color.Transparent;
+            this.hTile0.SetColumnSpan(this.tileButton11, 2);
+            this.tileButton11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton11.FlatAppearance.BorderSize = 0;
+            this.tileButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton11.Location = new System.Drawing.Point(113, 101);
+            this.tileButton11.Name = "tileButton11";
+            this.tileButton11.Size = new System.Drawing.Size(168, 34);
+            this.tileButton11.TabIndex = 8;
+            this.tileButton11.Text = "RESET AVERAGE";
+            this.tileButton11.UseVisualStyleBackColor = false;
+            // 
+            // tileLabel11
+            // 
+            this.tileLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tileLabel11.AutoSize = true;
+            this.tileLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.hTile0.SetColumnSpan(this.tileLabel11, 4);
+            this.tileLabel11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold);
+            this.tileLabel11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileLabel11.Location = new System.Drawing.Point(3, 0);
+            this.tileLabel11.Name = "tileLabel11";
+            this.tileLabel11.Size = new System.Drawing.Size(390, 31);
+            this.tileLabel11.TabIndex = 0;
+            this.tileLabel11.Text = "CO(mass)";
+            this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rLabela2
+            // 
+            this.rLabela2.AutoSize = true;
+            this.rLabela2.BackColor = System.Drawing.Color.Transparent;
+            this.rLabela2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rLabela2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rLabela2.Location = new System.Drawing.Point(287, 98);
+            this.rLabela2.Name = "rLabela2";
+            this.rLabela2.Size = new System.Drawing.Size(106, 40);
+            this.rLabela2.TabIndex = 10;
+            this.rLabela2.Text = "g/bhp-hr";
+            this.rLabela2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rLabela1
+            // 
+            this.rLabela1.AutoSize = true;
+            this.rLabela1.BackColor = System.Drawing.Color.Transparent;
+            this.rLabela1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rLabela1.Font = new System.Drawing.Font("Myriad Pro SemiExt", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rLabela1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.rLabela1.Location = new System.Drawing.Point(3, 98);
+            this.rLabela1.Name = "rLabela1";
+            this.rLabela1.Size = new System.Drawing.Size(104, 40);
+            this.rLabela1.TabIndex = 9;
+            this.rLabela1.Text = "g/bhp-hr";
+            this.rLabela1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11_
             // 
             this.label11_.AutoSize = true;
-            this.label11_.BackColor = System.Drawing.SystemColors.Control;
+            this.label11_.BackColor = System.Drawing.Color.Transparent;
+            this.hTile0.SetColumnSpan(this.label11_, 2);
             this.label11_.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11_.Font = new System.Drawing.Font("Times New Roman", 26.25F);
             this.label11_.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11_.Location = new System.Drawing.Point(295, 32);
+            this.label11_.Location = new System.Drawing.Point(198, 32);
             this.label11_.Margin = new System.Windows.Forms.Padding(1);
             this.label11_.Name = "label11_";
-            this.hTile0.SetRowSpan(this.label11_, 2);
-            this.label11_.Size = new System.Drawing.Size(114, 105);
-            this.label11_.TabIndex = 5;
+            this.label11_.Size = new System.Drawing.Size(197, 65);
+            this.label11_.TabIndex = 6;
             this.label11_.Text = "0.0";
             this.label11_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tileButton11
-            // 
-            this.hTile0.SetColumnSpan(this.tileButton11, 2);
-            this.tileButton11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton11.Location = new System.Drawing.Point(117, 112);
-            this.tileButton11.Name = "tileButton11";
-            this.tileButton11.Size = new System.Drawing.Size(174, 23);
-            this.tileButton11.TabIndex = 6;
-            this.tileButton11.Text = "RESET AVERAGE";
-            this.tileButton11.UseVisualStyleBackColor = true;
-            // 
-            // rLabel1
-            // 
-            this.rLabel1.AutoSize = true;
-            this.hTile0.SetColumnSpan(this.rLabel1, 2);
-            this.rLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.rLabel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rLabel1.Location = new System.Drawing.Point(117, 31);
-            this.rLabel1.Name = "rLabel1";
-            this.rLabel1.Size = new System.Drawing.Size(174, 78);
-            this.rLabel1.TabIndex = 7;
-            this.rLabel1.Text = "g/bhp-hr";
-            this.rLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile2
             // 
@@ -1064,14 +1318,14 @@ namespace CRS
             this.sTile2.Controls.Add(this.tileButton3, 0, 2);
             this.sTile2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile2.Location = new System.Drawing.Point(426, 10);
+            this.sTile2.Location = new System.Drawing.Point(412, 10);
             this.sTile2.Margin = new System.Windows.Forms.Padding(10);
             this.sTile2.Name = "sTile2";
             this.sTile2.RowCount = 3;
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile2.Size = new System.Drawing.Size(188, 182);
+            this.sTile2.Size = new System.Drawing.Size(181, 182);
             this.sTile2.TabIndex = 4;
             // 
             // label3
@@ -1079,10 +1333,10 @@ namespace CRS
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label3.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 68);
+            this.label3.Size = new System.Drawing.Size(175, 68);
             this.label3.TabIndex = 0;
             this.label3.Text = "0.0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1095,23 +1349,10 @@ namespace CRS
             this.tileLabel3.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
             this.tileLabel3.Location = new System.Drawing.Point(3, 0);
             this.tileLabel3.Name = "tileLabel3";
-            this.tileLabel3.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel3.Size = new System.Drawing.Size(175, 62);
             this.tileLabel3.TabIndex = 1;
-            this.tileLabel3.Text = "CO2%";
+            this.tileLabel3.Text = "NO ppm";
             this.tileLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tileButton3
-            // 
-            this.tileButton3.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton3.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton3.Location = new System.Drawing.Point(3, 133);
-            this.tileButton3.Name = "tileButton3";
-            this.tileButton3.Size = new System.Drawing.Size(182, 46);
-            this.tileButton3.TabIndex = 2;
-            this.tileButton3.Text = "0.0 AVG";
-            this.tileButton3.UseVisualStyleBackColor = false;
             // 
             // sTile9
             // 
@@ -1126,40 +1367,26 @@ namespace CRS
             this.sTile9.Controls.Add(this.tileLabel10, 0, 0);
             this.sTile9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile9.Location = new System.Drawing.Point(842, 212);
+            this.sTile9.Location = new System.Drawing.Point(814, 212);
             this.sTile9.Margin = new System.Windows.Forms.Padding(10);
             this.sTile9.Name = "sTile9";
             this.sTile9.RowCount = 3;
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile9.Size = new System.Drawing.Size(189, 184);
+            this.sTile9.Size = new System.Drawing.Size(184, 184);
             this.sTile9.TabIndex = 19;
-            // 
-            // tileButton10
-            // 
-            this.tileButton10.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton10.Location = new System.Drawing.Point(3, 134);
-            this.tileButton10.Name = "tileButton10";
-            this.tileButton10.Size = new System.Drawing.Size(183, 47);
-            this.tileButton10.TabIndex = 21;
-            this.tileButton10.Text = "0.0 AVG";
-            this.tileButton10.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label10.Location = new System.Drawing.Point(3, 62);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(183, 69);
+            this.label10.Size = new System.Drawing.Size(178, 69);
             this.label10.TabIndex = 18;
             this.label10.Text = "0.0";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1173,7 +1400,7 @@ namespace CRS
             this.tileLabel10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel10.Location = new System.Drawing.Point(3, 0);
             this.tileLabel10.Name = "tileLabel10";
-            this.tileLabel10.Size = new System.Drawing.Size(183, 62);
+            this.tileLabel10.Size = new System.Drawing.Size(178, 62);
             this.tileLabel10.TabIndex = 20;
             this.tileLabel10.Text = "T(amb)°F";
             this.tileLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1191,40 +1418,26 @@ namespace CRS
             this.sTile8.Controls.Add(this.tileLabel9, 0, 0);
             this.sTile8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile8.Location = new System.Drawing.Point(634, 212);
+            this.sTile8.Location = new System.Drawing.Point(613, 212);
             this.sTile8.Margin = new System.Windows.Forms.Padding(10);
             this.sTile8.Name = "sTile8";
             this.sTile8.RowCount = 3;
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile8.Size = new System.Drawing.Size(188, 184);
+            this.sTile8.Size = new System.Drawing.Size(181, 184);
             this.sTile8.TabIndex = 18;
-            // 
-            // tileButton9
-            // 
-            this.tileButton9.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton9.Location = new System.Drawing.Point(3, 134);
-            this.tileButton9.Name = "tileButton9";
-            this.tileButton9.Size = new System.Drawing.Size(182, 47);
-            this.tileButton9.TabIndex = 20;
-            this.tileButton9.Text = "0.0 AVG";
-            this.tileButton9.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label9.Location = new System.Drawing.Point(3, 62);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(182, 69);
+            this.label9.Size = new System.Drawing.Size(175, 69);
             this.label9.TabIndex = 17;
             this.label9.Text = "0.0";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1238,7 +1451,7 @@ namespace CRS
             this.tileLabel9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel9.Location = new System.Drawing.Point(3, 0);
             this.tileLabel9.Name = "tileLabel9";
-            this.tileLabel9.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel9.Size = new System.Drawing.Size(175, 62);
             this.tileLabel9.TabIndex = 19;
             this.tileLabel9.Text = "T(gas)°F";
             this.tileLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1256,40 +1469,26 @@ namespace CRS
             this.sTile7.Controls.Add(this.tileLabel8, 0, 0);
             this.sTile7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile7.Location = new System.Drawing.Point(426, 212);
+            this.sTile7.Location = new System.Drawing.Point(412, 212);
             this.sTile7.Margin = new System.Windows.Forms.Padding(10);
             this.sTile7.Name = "sTile7";
             this.sTile7.RowCount = 3;
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile7.Size = new System.Drawing.Size(188, 184);
+            this.sTile7.Size = new System.Drawing.Size(181, 184);
             this.sTile7.TabIndex = 17;
-            // 
-            // tileButton8
-            // 
-            this.tileButton8.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton8.Location = new System.Drawing.Point(3, 134);
-            this.tileButton8.Name = "tileButton8";
-            this.tileButton8.Size = new System.Drawing.Size(182, 47);
-            this.tileButton8.TabIndex = 19;
-            this.tileButton8.Text = "0.0 AVG";
-            this.tileButton8.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label8.Location = new System.Drawing.Point(3, 62);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(182, 69);
+            this.label8.Size = new System.Drawing.Size(175, 69);
             this.label8.TabIndex = 16;
             this.label8.Text = "0.0";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1303,7 +1502,7 @@ namespace CRS
             this.tileLabel8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel8.Location = new System.Drawing.Point(3, 0);
             this.tileLabel8.Name = "tileLabel8";
-            this.tileLabel8.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel8.Size = new System.Drawing.Size(175, 62);
             this.tileLabel8.TabIndex = 18;
             this.tileLabel8.Text = "CxHy ppm";
             this.tileLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1321,40 +1520,26 @@ namespace CRS
             this.sTile6.Controls.Add(this.tileLabel7, 0, 0);
             this.sTile6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile6.Location = new System.Drawing.Point(218, 212);
+            this.sTile6.Location = new System.Drawing.Point(211, 212);
             this.sTile6.Margin = new System.Windows.Forms.Padding(10);
             this.sTile6.Name = "sTile6";
             this.sTile6.RowCount = 3;
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile6.Size = new System.Drawing.Size(188, 184);
+            this.sTile6.Size = new System.Drawing.Size(181, 184);
             this.sTile6.TabIndex = 16;
-            // 
-            // tileButton7
-            // 
-            this.tileButton7.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton7.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton7.Location = new System.Drawing.Point(3, 134);
-            this.tileButton7.Name = "tileButton7";
-            this.tileButton7.Size = new System.Drawing.Size(182, 47);
-            this.tileButton7.TabIndex = 18;
-            this.tileButton7.Text = "0.0 AVG";
-            this.tileButton7.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label7.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(3, 62);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(182, 69);
+            this.label7.Size = new System.Drawing.Size(175, 69);
             this.label7.TabIndex = 15;
             this.label7.Text = "0.0";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1368,7 +1553,7 @@ namespace CRS
             this.tileLabel7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel7.Location = new System.Drawing.Point(3, 0);
             this.tileLabel7.Name = "tileLabel7";
-            this.tileLabel7.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel7.Size = new System.Drawing.Size(175, 62);
             this.tileLabel7.TabIndex = 17;
             this.tileLabel7.Text = "SO2 ppm";
             this.tileLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1386,40 +1571,26 @@ namespace CRS
             this.sTile1.Controls.Add(this.tileLabel2, 0, 0);
             this.sTile1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile1.Location = new System.Drawing.Point(218, 10);
+            this.sTile1.Location = new System.Drawing.Point(211, 10);
             this.sTile1.Margin = new System.Windows.Forms.Padding(10);
             this.sTile1.Name = "sTile1";
             this.sTile1.RowCount = 3;
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile1.Size = new System.Drawing.Size(188, 182);
+            this.sTile1.Size = new System.Drawing.Size(181, 182);
             this.sTile1.TabIndex = 15;
-            // 
-            // tileButton2
-            // 
-            this.tileButton2.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton2.Location = new System.Drawing.Point(3, 133);
-            this.tileButton2.Name = "tileButton2";
-            this.tileButton2.Size = new System.Drawing.Size(182, 46);
-            this.tileButton2.TabIndex = 13;
-            this.tileButton2.Text = "0.0 AVG";
-            this.tileButton2.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(3, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 68);
+            this.label2.Size = new System.Drawing.Size(175, 68);
             this.label2.TabIndex = 10;
             this.label2.Text = "0.0";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1433,7 +1604,7 @@ namespace CRS
             this.tileLabel2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel2.Location = new System.Drawing.Point(3, 0);
             this.tileLabel2.Name = "tileLabel2";
-            this.tileLabel2.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel2.Size = new System.Drawing.Size(175, 62);
             this.tileLabel2.TabIndex = 12;
             this.tileLabel2.Text = "CO ppm";
             this.tileLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1451,40 +1622,26 @@ namespace CRS
             this.sTile4.Controls.Add(this.tileLabel5, 0, 0);
             this.sTile4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile4.Location = new System.Drawing.Point(842, 10);
+            this.sTile4.Location = new System.Drawing.Point(814, 10);
             this.sTile4.Margin = new System.Windows.Forms.Padding(10);
             this.sTile4.Name = "sTile4";
             this.sTile4.RowCount = 3;
-            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
-            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
-            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile4.Size = new System.Drawing.Size(189, 182);
+            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
+            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
+            this.sTile4.Size = new System.Drawing.Size(184, 182);
             this.sTile4.TabIndex = 13;
-            // 
-            // tileButton5
-            // 
-            this.tileButton5.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton5.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton5.Location = new System.Drawing.Point(3, 133);
-            this.tileButton5.Name = "tileButton5";
-            this.tileButton5.Size = new System.Drawing.Size(183, 46);
-            this.tileButton5.TabIndex = 16;
-            this.tileButton5.Text = "0.0 AVG";
-            this.tileButton5.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label5.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(3, 62);
+            this.label5.Location = new System.Drawing.Point(3, 50);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 68);
+            this.label5.Size = new System.Drawing.Size(178, 81);
             this.label5.TabIndex = 13;
             this.label5.Text = "0.0";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1498,9 +1655,9 @@ namespace CRS
             this.tileLabel5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel5.Location = new System.Drawing.Point(3, 0);
             this.tileLabel5.Name = "tileLabel5";
-            this.tileLabel5.Size = new System.Drawing.Size(183, 62);
+            this.tileLabel5.Size = new System.Drawing.Size(178, 50);
             this.tileLabel5.TabIndex = 15;
-            this.tileLabel5.Text = "NO2 ppm";
+            this.tileLabel5.Text = "NOx ppm";
             this.tileLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile3
@@ -1516,40 +1673,26 @@ namespace CRS
             this.sTile3.Controls.Add(this.tileLabel4, 0, 0);
             this.sTile3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile3.Location = new System.Drawing.Point(634, 10);
+            this.sTile3.Location = new System.Drawing.Point(613, 10);
             this.sTile3.Margin = new System.Windows.Forms.Padding(10);
             this.sTile3.Name = "sTile3";
             this.sTile3.RowCount = 3;
-            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
-            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
-            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile3.Size = new System.Drawing.Size(188, 182);
+            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
+            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
+            this.sTile3.Size = new System.Drawing.Size(181, 182);
             this.sTile3.TabIndex = 12;
-            // 
-            // tileButton4
-            // 
-            this.tileButton4.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton4.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton4.Location = new System.Drawing.Point(3, 133);
-            this.tileButton4.Name = "tileButton4";
-            this.tileButton4.Size = new System.Drawing.Size(182, 46);
-            this.tileButton4.TabIndex = 15;
-            this.tileButton4.Text = "0.0 AVG";
-            this.tileButton4.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label4.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(3, 62);
+            this.label4.Location = new System.Drawing.Point(3, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(182, 68);
+            this.label4.Size = new System.Drawing.Size(175, 81);
             this.label4.TabIndex = 12;
             this.label4.Text = "0.0";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1563,9 +1706,9 @@ namespace CRS
             this.tileLabel4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel4.Location = new System.Drawing.Point(3, 0);
             this.tileLabel4.Name = "tileLabel4";
-            this.tileLabel4.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel4.Size = new System.Drawing.Size(175, 49);
             this.tileLabel4.TabIndex = 14;
-            this.tileLabel4.Text = "NO ppm";
+            this.tileLabel4.Text = "NO2 ppm";
             this.tileLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile5
@@ -1588,33 +1731,20 @@ namespace CRS
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.1F));
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.78F));
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12F));
-            this.sTile5.Size = new System.Drawing.Size(188, 184);
+            this.sTile5.Size = new System.Drawing.Size(181, 184);
             this.sTile5.TabIndex = 11;
-            // 
-            // tileButton6
-            // 
-            this.tileButton6.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton6.Location = new System.Drawing.Point(3, 134);
-            this.tileButton6.Name = "tileButton6";
-            this.tileButton6.Size = new System.Drawing.Size(182, 47);
-            this.tileButton6.TabIndex = 17;
-            this.tileButton6.Text = "0.0 AVG";
-            this.tileButton6.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(3, 62);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(182, 69);
+            this.label6.Size = new System.Drawing.Size(175, 69);
             this.label6.TabIndex = 14;
             this.label6.Text = "0.0";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1625,12 +1755,13 @@ namespace CRS
             this.tileLabel6.BackColor = System.Drawing.Color.Transparent;
             this.tileLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tileLabel6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
+            this.tileLabel6.ForeColor = System.Drawing.Color.Black;
             this.tileLabel6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel6.Location = new System.Drawing.Point(3, 0);
             this.tileLabel6.Name = "tileLabel6";
-            this.tileLabel6.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel6.Size = new System.Drawing.Size(175, 62);
             this.tileLabel6.TabIndex = 16;
-            this.tileLabel6.Text = "NOx ppm";
+            this.tileLabel6.Text = "CO2%";
             this.tileLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hTile1
@@ -1646,17 +1777,18 @@ namespace CRS
             this.hTile1.Controls.Add(this.label12, 0, 1);
             this.hTile1.Controls.Add(this.label12_, 3, 1);
             this.hTile1.Controls.Add(this.tileButton12, 1, 2);
-            this.hTile1.Controls.Add(this.rLabel2, 1, 1);
             this.hTile1.Controls.Add(this.tileLabel12, 0, 0);
+            this.hTile1.Controls.Add(this.rLabelb2, 3, 2);
+            this.hTile1.Controls.Add(this.rLabelb1, 0, 2);
             this.hTile1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hTile1.Location = new System.Drawing.Point(627, 409);
+            this.hTile1.Location = new System.Drawing.Point(606, 409);
             this.hTile1.Name = "hTile1";
             this.hTile1.RowCount = 3;
             this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.hTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.hTile1.Size = new System.Drawing.Size(411, 138);
+            this.hTile1.Size = new System.Drawing.Size(399, 138);
             this.hTile1.TabIndex = 23;
             // 
             // label12
@@ -1669,8 +1801,7 @@ namespace CRS
             this.label12.Location = new System.Drawing.Point(1, 32);
             this.label12.Margin = new System.Windows.Forms.Padding(1);
             this.label12.Name = "label12";
-            this.hTile1.SetRowSpan(this.label12, 2);
-            this.label12.Size = new System.Drawing.Size(113, 105);
+            this.label12.Size = new System.Drawing.Size(109, 43);
             this.label12.TabIndex = 7;
             this.label12.Text = "0.0";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1682,11 +1813,10 @@ namespace CRS
             this.label12_.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12_.Font = new System.Drawing.Font("Times New Roman", 26.25F);
             this.label12_.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12_.Location = new System.Drawing.Point(296, 32);
+            this.label12_.Location = new System.Drawing.Point(286, 32);
             this.label12_.Margin = new System.Windows.Forms.Padding(1);
             this.label12_.Name = "label12_";
-            this.hTile1.SetRowSpan(this.label12_, 2);
-            this.label12_.Size = new System.Drawing.Size(114, 105);
+            this.label12_.Size = new System.Drawing.Size(112, 43);
             this.label12_.TabIndex = 6;
             this.label12_.Text = "0.0";
             this.label12_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1696,28 +1826,15 @@ namespace CRS
             this.tileButton12.BackColor = System.Drawing.Color.Transparent;
             this.hTile1.SetColumnSpan(this.tileButton12, 2);
             this.tileButton12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tileButton12.FlatAppearance.BorderSize = 0;
+            this.tileButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tileButton12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton12.Location = new System.Drawing.Point(118, 112);
+            this.tileButton12.Location = new System.Drawing.Point(114, 79);
             this.tileButton12.Name = "tileButton12";
-            this.tileButton12.Size = new System.Drawing.Size(174, 23);
+            this.tileButton12.Size = new System.Drawing.Size(168, 56);
             this.tileButton12.TabIndex = 8;
             this.tileButton12.Text = "RESET AVERAGE";
             this.tileButton12.UseVisualStyleBackColor = false;
-            // 
-            // rLabel2
-            // 
-            this.rLabel2.AutoSize = true;
-            this.hTile1.SetColumnSpan(this.rLabel2, 2);
-            this.rLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.rLabel2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rLabel2.Location = new System.Drawing.Point(118, 31);
-            this.rLabel2.Name = "rLabel2";
-            this.rLabel2.Size = new System.Drawing.Size(174, 78);
-            this.rLabel2.TabIndex = 9;
-            this.rLabel2.Text = "g/bhp-hr";
-            this.rLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tileLabel12
             // 
@@ -1728,10 +1845,35 @@ namespace CRS
             this.tileLabel12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel12.Location = new System.Drawing.Point(3, 0);
             this.tileLabel12.Name = "tileLabel12";
-            this.tileLabel12.Size = new System.Drawing.Size(405, 31);
+            this.tileLabel12.Size = new System.Drawing.Size(393, 31);
             this.tileLabel12.TabIndex = 0;
             this.tileLabel12.Text = "NOx(mass)";
             this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rLabelb2
+            // 
+            this.rLabelb2.AutoSize = true;
+            this.rLabelb2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rLabelb2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rLabelb2.Location = new System.Drawing.Point(288, 76);
+            this.rLabelb2.Name = "rLabelb2";
+            this.rLabelb2.Size = new System.Drawing.Size(108, 62);
+            this.rLabelb2.TabIndex = 10;
+            this.rLabelb2.Text = "g/bhp-hr";
+            this.rLabelb2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rLabelb1
+            // 
+            this.rLabelb1.AutoSize = true;
+            this.rLabelb1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rLabelb1.Font = new System.Drawing.Font("Myriad Pro SemiExt", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rLabelb1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.rLabelb1.Location = new System.Drawing.Point(3, 76);
+            this.rLabelb1.Name = "rLabelb1";
+            this.rLabelb1.Size = new System.Drawing.Size(105, 62);
+            this.rLabelb1.TabIndex = 9;
+            this.rLabelb1.Text = "g/bhp-hr";
+            this.rLabelb1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile0
             // 
@@ -1753,7 +1895,7 @@ namespace CRS
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.09956F));
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.77672F));
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.12372F));
-            this.sTile0.Size = new System.Drawing.Size(188, 182);
+            this.sTile0.Size = new System.Drawing.Size(181, 182);
             this.sTile0.TabIndex = 14;
             // 
             // label1
@@ -1762,11 +1904,11 @@ namespace CRS
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Myriad Pro SemiExt", 48F);
+            this.label1.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(3, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 68);
+            this.label1.Size = new System.Drawing.Size(175, 68);
             this.label1.TabIndex = 9;
             this.label1.Text = "0.0";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1780,37 +1922,20 @@ namespace CRS
             this.tileLabel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel1.Location = new System.Drawing.Point(3, 0);
             this.tileLabel1.Name = "tileLabel1";
-            this.tileLabel1.Size = new System.Drawing.Size(182, 62);
+            this.tileLabel1.Size = new System.Drawing.Size(175, 62);
             this.tileLabel1.TabIndex = 11;
             this.tileLabel1.Text = "O2%";
             this.tileLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tileButton1
-            // 
-            this.tileButton1.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton1.FlatAppearance.BorderSize = 0;
-            this.tileButton1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tileButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tileButton1.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton1.Location = new System.Drawing.Point(5, 135);
-            this.tileButton1.Margin = new System.Windows.Forms.Padding(5);
-            this.tileButton1.Name = "tileButton1";
-            this.tileButton1.Size = new System.Drawing.Size(178, 42);
-            this.tileButton1.TabIndex = 12;
-            this.tileButton1.Text = "0.0 AVG";
-            this.tileButton1.UseVisualStyleBackColor = false;
-            this.tileButton1.Click += new System.EventHandler(this.tileButton_Click);
-            // 
             // tableLayoutPanel11
             // 
+            this.tableLayoutPanel11.BackgroundImage = global::CRS.Properties.Resources.status_box;
+            this.tableLayoutPanel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel11.ColumnCount = 2;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.progressBar1, 0, 4);
-            this.tableLayoutPanel11.Controls.Add(this.button13, 0, 5);
+            this.tableLayoutPanel11.Controls.Add(this.signalStrengthBar, 0, 5);
+            this.tableLayoutPanel11.Controls.Add(this.button13, 0, 6);
             this.tableLayoutPanel11.Controls.Add(this.cycleLabel, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.rTimelbl, 1, 1);
             this.tableLayoutPanel11.Controls.Add(this.tTimelbl, 1, 2);
@@ -1818,52 +1943,45 @@ namespace CRS
             this.tableLayoutPanel11.Controls.Add(this.plbl, 0, 3);
             this.tableLayoutPanel11.Controls.Add(this.tlbl, 0, 2);
             this.tableLayoutPanel11.Controls.Add(this.rlbl, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.ilbl, 0, 4);
+            this.tableLayoutPanel11.Controls.Add(this.iflowlbl, 1, 4);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(419, 409);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(405, 409);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 6;
+            this.tableLayoutPanel11.RowCount = 7;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(202, 138);
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(195, 138);
             this.tableLayoutPanel11.TabIndex = 25;
             // 
-            // progressBar1
+            // signalStrengthBar
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.signalStrengthBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel11.SetColumnSpan(this.progressBar1, 2);
-            this.progressBar1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.progressBar1.Location = new System.Drawing.Point(25, 91);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(25, 5, 25, 5);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(152, 13);
-            this.progressBar1.TabIndex = 8;
-            // 
-            // button13
-            // 
-            this.tableLayoutPanel11.SetColumnSpan(this.button13, 2);
-            this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button13.Location = new System.Drawing.Point(3, 112);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(196, 23);
-            this.button13.TabIndex = 25;
-            this.button13.Text = "Reset All Averages";
-            this.button13.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel11.SetColumnSpan(this.signalStrengthBar, 2);
+            this.signalStrengthBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.signalStrengthBar.Location = new System.Drawing.Point(25, 240);
+            this.signalStrengthBar.Margin = new System.Windows.Forms.Padding(25, 5, 25, 5);
+            this.signalStrengthBar.Name = "signalStrengthBar";
+            this.signalStrengthBar.Size = new System.Drawing.Size(145, 13);
+            this.signalStrengthBar.TabIndex = 8;
             // 
             // cycleLabel
             // 
             this.cycleLabel.AutoSize = true;
+            this.cycleLabel.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel11.SetColumnSpan(this.cycleLabel, 2);
             this.cycleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cycleLabel.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cycleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cycleLabel.Location = new System.Drawing.Point(3, 0);
             this.cycleLabel.Name = "cycleLabel";
-            this.cycleLabel.Size = new System.Drawing.Size(196, 13);
+            this.cycleLabel.Size = new System.Drawing.Size(189, 19);
             this.cycleLabel.TabIndex = 1;
             this.cycleLabel.Text = "Cycle: 1";
             this.cycleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1871,12 +1989,13 @@ namespace CRS
             // rTimelbl
             // 
             this.rTimelbl.AutoSize = true;
+            this.rTimelbl.BackColor = System.Drawing.Color.Transparent;
             this.rTimelbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTimelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.rTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rTimelbl.Location = new System.Drawing.Point(104, 13);
+            this.rTimelbl.Location = new System.Drawing.Point(100, 19);
             this.rTimelbl.Name = "rTimelbl";
-            this.rTimelbl.Size = new System.Drawing.Size(95, 16);
+            this.rTimelbl.Size = new System.Drawing.Size(92, 50);
             this.rTimelbl.TabIndex = 26;
             this.rTimelbl.Text = "00:00:00";
             this.rTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1884,12 +2003,13 @@ namespace CRS
             // tTimelbl
             // 
             this.tTimelbl.AutoSize = true;
+            this.tTimelbl.BackColor = System.Drawing.Color.Transparent;
             this.tTimelbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tTimelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tTimelbl.Location = new System.Drawing.Point(104, 29);
+            this.tTimelbl.Location = new System.Drawing.Point(100, 69);
             this.tTimelbl.Name = "tTimelbl";
-            this.tTimelbl.Size = new System.Drawing.Size(95, 16);
+            this.tTimelbl.Size = new System.Drawing.Size(92, 50);
             this.tTimelbl.TabIndex = 27;
             this.tTimelbl.Text = "00:00:00";
             this.tTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1897,12 +2017,13 @@ namespace CRS
             // pTimelbl
             // 
             this.pTimelbl.AutoSize = true;
+            this.pTimelbl.BackColor = System.Drawing.Color.Transparent;
             this.pTimelbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTimelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.pTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pTimelbl.Location = new System.Drawing.Point(104, 45);
+            this.pTimelbl.Location = new System.Drawing.Point(100, 119);
             this.pTimelbl.Name = "pTimelbl";
-            this.pTimelbl.Size = new System.Drawing.Size(95, 16);
+            this.pTimelbl.Size = new System.Drawing.Size(92, 50);
             this.pTimelbl.TabIndex = 28;
             this.pTimelbl.Text = "00:00:00";
             this.pTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1910,12 +2031,13 @@ namespace CRS
             // plbl
             // 
             this.plbl.AutoSize = true;
+            this.plbl.BackColor = System.Drawing.Color.Transparent;
             this.plbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.plbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.plbl.Location = new System.Drawing.Point(3, 45);
+            this.plbl.Location = new System.Drawing.Point(3, 119);
             this.plbl.Name = "plbl";
-            this.plbl.Size = new System.Drawing.Size(95, 16);
+            this.plbl.Size = new System.Drawing.Size(91, 50);
             this.plbl.TabIndex = 23;
             this.plbl.Text = "Purge:";
             this.plbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1923,12 +2045,13 @@ namespace CRS
             // tlbl
             // 
             this.tlbl.AutoSize = true;
+            this.tlbl.BackColor = System.Drawing.Color.Transparent;
             this.tlbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tlbl.Location = new System.Drawing.Point(3, 29);
+            this.tlbl.Location = new System.Drawing.Point(3, 69);
             this.tlbl.Name = "tlbl";
-            this.tlbl.Size = new System.Drawing.Size(95, 16);
+            this.tlbl.Size = new System.Drawing.Size(91, 50);
             this.tlbl.TabIndex = 4;
             this.tlbl.Text = "Test:";
             this.tlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1936,15 +2059,42 @@ namespace CRS
             // rlbl
             // 
             this.rlbl.AutoSize = true;
+            this.rlbl.BackColor = System.Drawing.Color.Transparent;
             this.rlbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.rlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rlbl.Location = new System.Drawing.Point(3, 13);
+            this.rlbl.Location = new System.Drawing.Point(3, 19);
             this.rlbl.Name = "rlbl";
-            this.rlbl.Size = new System.Drawing.Size(95, 16);
+            this.rlbl.Size = new System.Drawing.Size(91, 50);
             this.rlbl.TabIndex = 2;
             this.rlbl.Text = "Ramp Up:";
             this.rlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ilbl
+            // 
+            this.ilbl.AutoSize = true;
+            this.ilbl.BackColor = System.Drawing.Color.Transparent;
+            this.ilbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ilbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ilbl.Location = new System.Drawing.Point(3, 169);
+            this.ilbl.Name = "ilbl";
+            this.ilbl.Size = new System.Drawing.Size(91, 66);
+            this.ilbl.TabIndex = 29;
+            this.ilbl.Text = "I.Flow:";
+            this.ilbl.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // iflowlbl
+            // 
+            this.iflowlbl.AutoSize = true;
+            this.iflowlbl.BackColor = System.Drawing.Color.Transparent;
+            this.iflowlbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iflowlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iflowlbl.Location = new System.Drawing.Point(100, 169);
+            this.iflowlbl.Name = "iflowlbl";
+            this.iflowlbl.Size = new System.Drawing.Size(92, 66);
+            this.iflowlbl.TabIndex = 30;
+            this.iflowlbl.Text = "0.0";
+            this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // shapeContainer1
             // 
@@ -1953,7 +2103,7 @@ namespace CRS
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1041, 550);
+            this.shapeContainer1.Size = new System.Drawing.Size(1008, 550);
             this.shapeContainer1.TabIndex = 5;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1972,7 +2122,7 @@ namespace CRS
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1047, 556);
+            this.tabPage2.Size = new System.Drawing.Size(1014, 556);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             // 
@@ -1982,7 +2132,7 @@ namespace CRS
             this.tableLayoutPanel14.ColumnCount = 2;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Controls.Add(this.panel1);
+            this.tableLayoutPanel14.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel14.Controls.Add(this.trendGraph, 1, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 3);
@@ -1990,7 +2140,7 @@ namespace CRS
             this.tableLayoutPanel14.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(1041, 550);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1008, 550);
             this.tableLayoutPanel14.TabIndex = 2;
             // 
             // panel1
@@ -2198,7 +2348,7 @@ namespace CRS
             this.trendGraph.Series.Add(series16);
             this.trendGraph.Series.Add(series17);
             this.trendGraph.Series.Add(series18);
-            this.trendGraph.Size = new System.Drawing.Size(753, 542);
+            this.trendGraph.Size = new System.Drawing.Size(720, 542);
             this.trendGraph.TabIndex = 1;
             this.trendGraph.Text = "trendChart";
             // 
@@ -2209,7 +2359,7 @@ namespace CRS
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1047, 556);
+            this.tabPage3.Size = new System.Drawing.Size(1014, 556);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hybrid";
             // 
@@ -2241,7 +2391,7 @@ namespace CRS
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.701F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.1492F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.32538F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1041, 550);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1008, 550);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // tableLayoutPanel15
@@ -2963,7 +3113,7 @@ namespace CRS
             this.chart1.Series.Add(series32);
             this.chart1.Series.Add(series33);
             this.chart1.Series.Add(series34);
-            this.chart1.Size = new System.Drawing.Size(570, 544);
+            this.chart1.Size = new System.Drawing.Size(537, 544);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
             // 
@@ -3044,24 +3194,48 @@ namespace CRS
             // 
             // tabPage4
             // 
-            this.tabPage4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage4.BackgroundImage")));
             this.tabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage4.Controls.Add(this.button16);
-            this.tabPage4.Controls.Add(this.button15);
-            this.tabPage4.Controls.Add(this.shapeContainer2);
+            this.tabPage4.Controls.Add(this.tableLayoutPanel12);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1047, 556);
+            this.tabPage4.Size = new System.Drawing.Size(1014, 556);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Analyzer Control";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.75793F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.24206F));
+            this.tableLayoutPanel12.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1008, 550);
+            this.tableLayoutPanel12.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::CRS.Properties.Resources.Analyzer_control;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.button16);
+            this.panel4.Controls.Add(this.button15);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(677, 544);
+            this.panel4.TabIndex = 5;
+            // 
             // button16
             // 
+            this.button16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button16.Location = new System.Drawing.Point(432, 184);
+            this.button16.Location = new System.Drawing.Point(459, 116);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(75, 23);
             this.button16.TabIndex = 1;
@@ -3070,33 +3244,15 @@ namespace CRS
             // 
             // button15
             // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button15.Location = new System.Drawing.Point(496, 83);
+            this.button15.Location = new System.Drawing.Point(459, 272);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(75, 23);
             this.button15.TabIndex = 0;
             this.button15.Text = "Beep";
             this.button15.UseVisualStyleBackColor = true;
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(3, 3);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2});
-            this.shapeContainer2.Size = new System.Drawing.Size(1041, 550);
-            this.shapeContainer2.TabIndex = 2;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 527;
-            this.lineShape2.X2 = 339;
-            this.lineShape2.Y1 = 99;
-            this.lineShape2.Y2 = 204;
             // 
             // panel12
             // 
@@ -3108,19 +3264,19 @@ namespace CRS
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1055, 41);
+            this.panel12.Size = new System.Drawing.Size(1022, 41);
             this.panel12.TabIndex = 23;
             // 
             // recordingSign
             // 
             this.recordingSign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.recordingSign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.recordingSign.Image = ((System.Drawing.Image)(resources.GetObject("recordingSign.Image")));
+            this.recordingSign.Image = global::CRS.Properties.Resources.recording_A;
             this.recordingSign.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.recordingSign.Location = new System.Drawing.Point(1002, 0);
+            this.recordingSign.Location = new System.Drawing.Point(838, 0);
             this.recordingSign.Margin = new System.Windows.Forms.Padding(0);
             this.recordingSign.Name = "recordingSign";
-            this.recordingSign.Size = new System.Drawing.Size(49, 41);
+            this.recordingSign.Size = new System.Drawing.Size(131, 41);
             this.recordingSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.recordingSign.TabIndex = 8;
             this.recordingSign.TabStop = false;
@@ -3138,32 +3294,21 @@ namespace CRS
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1061, 635);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1028, 635);
             this.tableLayoutPanel2.TabIndex = 24;
-            // 
-            // dataGridTimer
-            // 
-            this.dataGridTimer.Interval = 1000;
-            this.dataGridTimer.Tick += new System.EventHandler(this.dataGridTimer_Tick);
-            // 
-            // recordSign
-            // 
-            this.recordSign.Interval = 500;
-            this.recordSign.Tick += new System.EventHandler(this.recordSign_Tick);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 683);
+            this.ClientSize = new System.Drawing.Size(1028, 683);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.Text = "ECOM America: CRS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
@@ -3249,6 +3394,8 @@ namespace CRS
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.recordingSign)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -3319,88 +3466,91 @@ namespace CRS
         private ToolStripMenuItem equipmentSiteToolStripMenuItem;
         private ToolStripStatusLabel phaseTimeLabel;
         private ToolStripStatusLabel phaseLabel;
+        public ToolStripStatusLabel recordTimeLabel;
+        private System.Windows.Forms.Timer recordSign;
+        private ToolStripMenuItem instrumentToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem themeToolStripMenuItem;
+        private ToolStripMenuItem blueWhiteColorToolStripMenuItem;
+        private ToolStripMenuItem blackBlueColorToolStripMenuItem;
+        internal System.Windows.Forms.Timer dataGridTimer;
+        private ToolStripMenuItem blueBlackToolStripMenuItem;
+        private ToolStripMenuItem dataToolStripMenuItem;
+        private ToolStripMenuItem viewTestRecordsToolStripMenuItem;
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabPage tabPage2;
-        private Panel panel12;
-        private Button snapShotButton;
-        private Button stopRecordingButton;
-        private Button startRecordingButton;
-        private TableLayoutPanel tableLayoutPanel2;
-        private TabPage tabPage3;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Panel panel13;
-        private TableLayoutPanel tableLayoutPanel4;
-        private Label label31;
-        private Panel panel14;
-        private CheckBox checkBox10;
-        public Label label33;
-        private TableLayoutPanel tableLayoutPanel7;
-        private Panel panel17;
-        private CheckBox checkBox13;
-        public Label label41;
-        private Label label42;
-        private TableLayoutPanel tableLayoutPanel8;
-        private Label label43;
-        private Panel panel18;
-        private CheckBox checkBox14;
-        public Label label45;
-        private TableLayoutPanel tableLayoutPanel9;
-        private Panel panel19;
-        private CheckBox checkBox15;
-        public Label label47;
-        private Label label48;
-        private TableLayoutPanel tableLayoutPanel10;
-        private Panel panel20;
-        private CheckBox checkBox16;
-        public Label label50;
-        private Label label51;
-        private TableLayoutPanel tableLayoutPanel13;
-        private Label label59;
-        private Panel panel23;
-        private CheckBox checkBox19;
-        public Label label60;
-        private TableLayoutPanel tableLayoutPanel14;
-        public System.Windows.Forms.DataVisualization.Charting.Chart trendGraph;
-        public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel sTile9;
-        private TableLayoutPanel sTile8;
-        private TableLayoutPanel sTile7;
-        private TableLayoutPanel sTile6;
-        private TableLayoutPanel sTile1;
-        private TableLayoutPanel sTile0;
-        private TableLayoutPanel sTile4;
-        private TableLayoutPanel sTile3;
-        private TableLayoutPanel sTile5;
-        private TableLayoutPanel hTile1;
         private TableLayoutPanel hTile0;
-        private Label tileLabel11;
-        private Label tileLabel12;
         private Label label11;
         private Label label11_;
-        private Label label12_;
-        private Label label12;
-        private Label label61;
-        public ToolStripStatusLabel recordTimeLabel;
-        private Label label2;
+        private Button tileButton11;
+        public Label rLabela1;
+        private Label tileLabel11;
+        private Label rLabela2;
+        private TableLayoutPanel sTile2;
+        private Label label3;
+        private Label tileLabel3;
+        private Button tileButton3;
+        private TableLayoutPanel sTile9;
+        private Button tileButton10;
         private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label5;
-        private Label label4;
-        private Label label6;
-        private TabPage tabPage4;
-        private Label tileLabel1;
         private Label tileLabel10;
+        private TableLayoutPanel sTile8;
+        private Button tileButton9;
+        private Label label9;
         private Label tileLabel9;
+        private TableLayoutPanel sTile7;
+        private Button tileButton8;
+        private Label label8;
         private Label tileLabel8;
+        private TableLayoutPanel sTile6;
+        private Button tileButton7;
+        private Label label7;
         private Label tileLabel7;
+        private TableLayoutPanel sTile1;
+        private Button tileButton2;
+        private Label label2;
         private Label tileLabel2;
+        private TableLayoutPanel sTile4;
+        private Button tileButton5;
+        private Label label5;
         private Label tileLabel5;
+        private TableLayoutPanel sTile3;
+        private Button tileButton4;
+        private Label label4;
         private Label tileLabel4;
+        private TableLayoutPanel sTile5;
+        private Button tileButton6;
+        private Label label6;
         private Label tileLabel6;
+        private TableLayoutPanel hTile1;
+        private Label label12;
+        private Label label12_;
+        private Button tileButton12;
+        public Label rLabelb1;
+        private Label tileLabel12;
+        private Label rLabelb2;
+        private TableLayoutPanel sTile0;
+        private Label label1;
+        private Label tileLabel1;
+        private Button tileButton1;
+        private TableLayoutPanel tableLayoutPanel11;
+        private ProgressBar signalStrengthBar;
+        private Button button13;
+        private Label cycleLabel;
+        private Label rTimelbl;
+        private Label tTimelbl;
+        private Label pTimelbl;
+        private Label plbl;
+        private Label tlbl;
+        private Label rlbl;
+        private Label ilbl;
+        private Label iflowlbl;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private TabPage tabPage2;
+        private TableLayoutPanel tableLayoutPanel14;
         private Panel panel1;
         private Button button2;
         public DataGridView elementTable;
@@ -3408,15 +3558,9 @@ namespace CRS
         private DataGridViewTextBoxColumn dgValue;
         private DataGridViewTextBoxColumn dgUnit;
         private DataGridViewCheckBoxColumn dgGraph;
-        private Button tileButton10;
-        private Button tileButton9;
-        private Button tileButton8;
-        private Button tileButton7;
-        private Button tileButton2;
-        private Button tileButton5;
-        private Button tileButton4;
-        private Button tileButton6;
-        private Button tileButton1;
+        public System.Windows.Forms.DataVisualization.Charting.Chart trendGraph;
+        private TabPage tabPage3;
+        private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel15;
         private Label label19;
         private Panel panel5;
@@ -3435,46 +3579,55 @@ namespace CRS
         private CheckBox checkBox1;
         public Label label16;
         private Label label44;
+        private Panel panel13;
+        private TableLayoutPanel tableLayoutPanel4;
+        private Label label31;
+        private Panel panel14;
+        private CheckBox checkBox10;
+        public Label label33;
         private Label label40;
+        private TableLayoutPanel tableLayoutPanel7;
+        private Panel panel17;
+        private CheckBox checkBox13;
+        public Label label41;
+        private Label label42;
         private Label label49;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label label43;
+        private Panel panel18;
+        private CheckBox checkBox14;
+        public Label label45;
         private Label label46;
+        private TableLayoutPanel tableLayoutPanel9;
+        private Panel panel19;
+        private CheckBox checkBox15;
+        public Label label47;
+        private Label label48;
         private Label label32;
+        private TableLayoutPanel tableLayoutPanel10;
+        private Panel panel20;
+        private CheckBox checkBox16;
+        public Label label50;
+        private Label label51;
+        private Label label61;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private TableLayoutPanel tableLayoutPanel13;
+        private Label label59;
+        private Panel panel23;
+        private CheckBox checkBox19;
+        public Label label60;
         private Label label52;
-        private TableLayoutPanel tableLayoutPanel11;
-        private Button button13;
-        private Label cycleLabel;
-        private Label rTimelbl;
-        private Label tTimelbl;
-        private Label pTimelbl;
-        private Label plbl;
-        private Label tlbl;
-        private Label rlbl;
-        private ProgressBar progressBar1;
-        private Button tileButton12;
-        public Label rLabel2;
-        private Button tileButton11;
-        private Label rLabel1;
-        private Button button15;
+        private TabPage tabPage4;
         private Button button16;
-        private System.Windows.Forms.Timer recordSign;
-        private ToolStripMenuItem instrumentToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripMenuItem themeToolStripMenuItem;
-        private ToolStripMenuItem blueWhiteColorToolStripMenuItem;
-        private ToolStripMenuItem blackBlueColorToolStripMenuItem;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
-        internal System.Windows.Forms.Timer dataGridTimer;
-        private Label label1;
-        private TableLayoutPanel sTile2;
-        private Label label3;
-        private Label tileLabel3;
-        private Button tileButton3;
+        private Button button15;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Panel panel4;
+        private Panel panel12;
         private PictureBox recordingSign;
-        private ToolStripMenuItem blueBlackToolStripMenuItem;
+        private Button snapShotButton;
+        private Button stopRecordingButton;
+        private Button startRecordingButton;
+        private TableLayoutPanel tableLayoutPanel2;
 
 
     }

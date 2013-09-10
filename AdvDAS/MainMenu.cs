@@ -52,6 +52,7 @@ namespace CRS
         public static string currentCycle = "\u221e";
         public static string cUnit, nUnit;
         public J2KNProtocol protocol = new J2KNProtocol();
+        private bool run= true;
 
         public MainMenu()
         {
@@ -105,8 +106,8 @@ namespace CRS
             lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel8, this.label8, this.tileButton8));
             lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel9, this.label9, this.tileButton9));
             lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel10, this.label10, this.tileButton10));
-            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel11, this.label11, this.rLabel1, this.tileButton11));
-            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel12, this.label12, this.rLabel2, this.tileButton12));
+            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel11, this.label11, this.rLabela1, this.tileButton11));
+            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel12, this.label12, this.rLabelb1, this.tileButton12));
             //this loop adds all the popup displays to a list
             for (int i = 0; i < 10; i++)
             {
@@ -136,39 +137,47 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            this.timer1.Start();
-            this.recordSign.Start();
-            this.startRecordingButton.Enabled = false;
-            this.stopRecordingButton.Enabled = true;
-            this.snapShotButton.Enabled = true;
-            if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
+            if (run.Equals(true))
             {
-                this.cycleLabel.Text = "Cycle: " + currentCycle;
-                //currentCycle++;
-                //if (numOfCycles<currentCycle)
+                run = false;
+                this.timer1.Start();
+                this.recordSign.Start();
+                this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
+                this.stopRecordingButton.Enabled = true;
+                this.configureRecordingToolStripMenuItem.Enabled = false;
+                if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    this.cycleLabel.Text = "Cycle: " + currentCycle;
+                    this.timer1.Stop();
+                    this.recordSign.Stop();
+                    this.configureRecordingToolStripMenuItem.Enabled = true;
+                }
+            }
+            else
+            {
+                run = true;
                 this.timer1.Stop();
-                this.recordSign.Stop();
+                this.recordSign.Stop(); ;
+                this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_B;
+                this.stopRecordingButton.Enabled = true;
+                this.configureRecordingToolStripMenuItem.Enabled = false;
+
             }
         }
         //Pauses recording?
-        private void pauseRecordingItem_Click(object sender, EventArgs e)
-        {
-            this.timer1.Stop();
-            this.startRecordingButton.Enabled = true;
-            this.stopRecordingButton.Enabled = false;
-            this.snapShotButton.Enabled = true;
-        }
-        //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
         {
-            recordingProgressBar.Value = 0;
-            running = new DateTime();
-            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
             this.timer1.Stop();
             this.recordSign.Stop();
             this.startRecordingButton.Enabled = true;
             this.stopRecordingButton.Enabled = false;
-            this.snapShotButton.Enabled = false;
+        }
+        //Stops recording
+        private void snapShot_Click(object sender, EventArgs e)
+        {
+            NotesForm note = new NotesForm();
+            note.ShowDialog();
+            //new GasAnalysis(protocol).newEntry(note.snapNote);
         }
         //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
@@ -268,6 +277,7 @@ namespace CRS
             this.pTimelbl.Text = purge.ToString("HH:mm:ss");
             this.tTimelbl.Text = testData.ToString("HH:mm:ss");
             this.rTimelbl.Text = rampUp.ToString("HH:mm:ss");
+            this.iflowlbl.Text = Connection.protocol.vIFlow;
             //foreach (Label lbl in )
             //switch()
         }
@@ -715,34 +725,36 @@ namespace CRS
             }
         }
 
-        private void startRecordingItem_MouseHover(object sender, EventArgs e)
+        private void startRecordingButton_MouseDown(object sender, MouseEventArgs e)
         {
             startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_B;
         }
 
-        private void startRecordingItem_MouseLeave(object sender, EventArgs e)
+        private void startRecordingButton_MouseUp(object sender, MouseEventArgs e)
         {
             startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
         }
 
-        private void pauseRecordingItem_MouseHover(object sender, EventArgs e)
+        private void stopRecordingButton_MouseDown(object sender, MouseEventArgs e)
         {
-            stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_B;
+            this.stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_B;
         }
 
-        private void pauseRecordingItem_MouseLeave(object sender, EventArgs e)
+        private void stopRecordingButton_MouseUp(object sender, MouseEventArgs e)
         {
-            stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_A;
+            this.stopRecordingButton.BackgroundImage = CRS.Properties.Resources.stop_A;
         }
 
-        private void stopRecordingItem_MouseHover(object sender, EventArgs e)
+        private void snapShotButton_MouseDown(object sender, MouseEventArgs e)
         {
-            snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_B;
+            this.snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_B;
         }
 
-        private void stopRecordingItem_MouseLeave(object sender, EventArgs e)
+        private void snapShotButton_MouseUp(object sender, MouseEventArgs e)
         {
-            snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
+            this.snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
         }
+
+
     }
 }
