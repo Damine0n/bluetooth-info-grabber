@@ -195,6 +195,7 @@
             this.button24 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.startTimerButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -242,7 +243,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(848, 459);
+            this.tabControl1.Size = new System.Drawing.Size(848, 452);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -285,7 +286,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(840, 433);
+            this.tabPage1.Size = new System.Drawing.Size(840, 389);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Calibration Gas Info.";
             // 
@@ -873,6 +874,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.startTimerButton);
             this.tabPage2.Controls.Add(this.capCalNO);
             this.tabPage2.Controls.Add(this.capCalCO);
             this.tabPage2.Controls.Add(this.dateTimePicker5);
@@ -892,7 +894,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(840, 433);
+            this.tabPage2.Size = new System.Drawing.Size(840, 426);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
@@ -1540,7 +1542,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(840, 433);
+            this.tabPage3.Size = new System.Drawing.Size(840, 426);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Drift Check";
             // 
@@ -2099,11 +2101,22 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // startTimerButton
+            // 
+            this.startTimerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startTimerButton.Location = new System.Drawing.Point(486, 124);
+            this.startTimerButton.Name = "startTimerButton";
+            this.startTimerButton.Size = new System.Drawing.Size(59, 38);
+            this.startTimerButton.TabIndex = 18;
+            this.startTimerButton.Text = "Start";
+            this.startTimerButton.UseVisualStyleBackColor = true;
+            this.startTimerButton.Click += new System.EventHandler(this.startTimerButton_Click);
+            // 
             // Calibration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 459);
+            this.ClientSize = new System.Drawing.Size(848, 452);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -2340,5 +2353,6 @@
         private System.Windows.Forms.Button capCalCO;
         private System.Windows.Forms.Button capCalNO;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button startTimerButton;
     }
 }

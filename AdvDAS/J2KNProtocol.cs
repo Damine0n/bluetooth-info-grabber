@@ -11,24 +11,32 @@ namespace CRS
 {
     public class J2KNProtocol
     {
-        public string vO2 = "";
-        public string vCO = "";
-        public string vNO = "";
-        public string vNO2 = "";
-        public string vNOx = "";
-        public string vSO2 = "";
-        public string vCxHy = "";
-        public string vDraft = "";
-        public string vTamb = "";
-        public string vTgas = "";
-        public string vTcell = "";
-        public string vIFlow = "";
-        public string vLosses = "";
-        public string vExcessAir = "";
-        public string vEfficiency = "";
-        public string vCO2 = "";
-        public string vCOmass = "";
-        public string vNOxmass = "";
+        public string vO2 = "0.0";
+        public string vCO = "0.0";
+        public string vNO = "0.0";
+        public string vNO2 = "0.0";
+        public string vNOx = "0.0";
+        public string vSO2 = "0.0";
+        public string vCxHy = "0.0";
+        public string vDraft = "0.0";
+        public string vTamb = "0.0";
+        public string vTgas = "0.0";
+        public string vTcell = "0.0";
+        public string vIFlow = "0.0";
+        public string vLosses = "0.0";
+        public string vExcessAir = "0.0";
+        public string vEfficiency = "0.0";
+        public string vCO2 = "0.0";
+        public string vCOmass = "0.0";
+        public string vNOxmass = "0.0";
+        public string vCO_C = "0.0";
+        public string vNO_C = "0.0";
+        public string vNO2_C = "0.0";
+        public string vNOx_C = "0.0";
+        public string vSO2_C = "0.0";
+        public string vCxHy_C = "0.0";
+        public string vCOmass_C = "0.0";
+        public string vNOxmass_C = "0.0";
         public string vAccu = "";
         public string vSerialNumber = "";
         public string ipAddress = "192.168.55.1";
@@ -133,7 +141,37 @@ namespace CRS
                 //MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
+        public void populateCorrection(int index, double num)
+        {
+            double Emeas, O2meas=Convert.ToDouble(vO2);
+            switch (index)
+            {
+                case 1:
+                    Emeas=Convert.ToDouble(vCO);
+                    vCO_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    break;
+                case 2:
+                    Emeas=Convert.ToDouble(vNO);
+                    vNO_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    break;
+                case 3:
+                    Emeas=Convert.ToDouble(vNO2);
+                    vNO2_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    break;
+                case 4:
+                    Emeas=Convert.ToDouble(vNOx);
+                    vNOx_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    break;
+                case 5:
+                    Emeas=Convert.ToDouble(vSO2);
+                    vSO2_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    break;
+                case 6:
+                    Emeas=Convert.ToDouble(vCxHy);
+                    vCxHy_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    break;
+            }
+        }
         private static string CalculateChecksum(string dataToCalculate)
         {
             byte[] byteToCalculate = Encoding.ASCII.GetBytes(dataToCalculate);
@@ -161,27 +199,27 @@ namespace CRS
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
                 clientSocket.Receive(receivedBytes);
-                
+
                 string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
                 if (p.Equals("$0A0514"))
-                    vSerialNumber= Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16).ToString();
+                    vSerialNumber = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16).ToString();
                 else if (p.Equals("$0A053D"))
                 {
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
-                    if (iValue >= 32767 || iValue ==0)
+                    if (iValue >= 32767 || iValue == 0)
                         vLosses = "0.0";
                     else
-                        vLosses = (iValue/10).ToString("0.0");
+                        vLosses = (iValue / 10).ToString("0.0");
                 }
                 else if (p.Equals("$0A0531"))
                 {
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                     vIFlow = (iValue / 100).ToString("0.00");
                 }
-                else if (p.Equals("$0A054E")) 
+                else if (p.Equals("$0A054E"))
                 {
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
-                    if (iValue >= 32767 || iValue ==0)
+                    if (iValue >= 32767 || iValue == 0)
                         vNOx = "0.0";
                     else
                         vNOx = (iValue).ToString("0.0");

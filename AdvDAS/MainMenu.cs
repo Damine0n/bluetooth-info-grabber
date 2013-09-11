@@ -754,7 +754,5 @@ namespace CRS
         {
             this.snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
         }
-
-
     }
 }

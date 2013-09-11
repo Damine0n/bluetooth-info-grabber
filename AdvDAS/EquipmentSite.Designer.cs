@@ -88,9 +88,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -658,9 +655,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.comboBox1);
@@ -673,37 +667,6 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emmisions Values Included In Report ";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(430, 67);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(80, 13);
-            this.label25.TabIndex = 11;
-            this.label25.Text = "% O2 corrected";
-            this.label25.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(395, 63);
-            this.textBox3.MaxLength = 2;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(29, 20);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.Visible = false;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(395, 24);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(127, 17);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Enable O2 Correction";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label24
             // 
@@ -747,7 +710,7 @@
             // 
             this.cbFuelType.FormattingEnabled = true;
             this.cbFuelType.Items.AddRange(new object[] {
-            "Boiler",
+            "Boiler/Heater",
             "Engine"});
             this.cbFuelType.Location = new System.Drawing.Point(189, 20);
             this.cbFuelType.Name = "cbFuelType";
@@ -801,7 +764,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EquipmentSite";
             this.Text = "Setup Equipment & Site";
@@ -889,8 +852,5 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

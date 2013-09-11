@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Microsoft.VisualBasic;
 
 namespace CRS
 {
@@ -30,8 +31,6 @@ namespace CRS
             this.lbl2 = tuple.Item2;
             this.btn = tuple.Item3;
             timer1.Start();
-            
-            
         }
         public int Index
         {
@@ -53,20 +52,10 @@ namespace CRS
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            resetAverage();
-        }
-
-        public void resetAverage()
-        {
-            nums.Clear();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
             protocol.processProtocol();
             protocol.processProtocol("$0A0531");
             protocol.processProtocol("$0A054E");
-            timer1.Interval = MainMenu.dgInterval;
+            
             switch (elementComboBox.SelectedIndex)
             {
                 case 0:
@@ -89,12 +78,14 @@ namespace CRS
                     break;
                 case 2:
                     this.lbl1.Text = elementComboBox.Text;
-                    valLabel.Text = protocol.vCO;
-                    nums.Add(Convert.ToDouble(protocol.vCO));
+                    string CO_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+                    protocol.populateCorrection(1,Convert.ToDouble(CO_C));
+                    valLabel.Text = protocol.vCO_C;
+                    nums.Add(Convert.ToDouble(protocol.vCO_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
-                    this.lbl2.Text = protocol.vCO;
+                    this.lbl2.Text = protocol.vCO_C;
                     break;
                 case 3:
                     this.lbl1.Text = elementComboBox.Text;
@@ -116,12 +107,14 @@ namespace CRS
                     break;
                 case 5:
                     this.lbl1.Text = elementComboBox.Text;
-                    valLabel.Text = protocol.vNO;
-                    nums.Add(Convert.ToDouble(protocol.vNO));
+                    string NO_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+                    protocol.populateCorrection(2, Convert.ToDouble(NO_C));
+                    valLabel.Text = protocol.vNO_C;
+                    nums.Add(Convert.ToDouble(protocol.vNO_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
-                    this.lbl2.Text = protocol.vNO;
+                    this.lbl2.Text = protocol.vNO_C;
                     break;
                 case 6:
                     this.lbl1.Text = elementComboBox.Text;
@@ -134,12 +127,14 @@ namespace CRS
                     break;
                 case 7:
                     this.lbl1.Text = elementComboBox.Text;
-                    valLabel.Text = protocol.vNO2;
-                    nums.Add(Convert.ToDouble(protocol.vNO2));
+                    string NO2_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+                    protocol.populateCorrection(3, Convert.ToDouble(NO2_C));
+                    valLabel.Text = protocol.vNO2_C;
+                    nums.Add(Convert.ToDouble(protocol.vNO2_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
-                    this.lbl2.Text = protocol.vNO2;
+                    this.lbl2.Text = protocol.vNO2_C;
                     break;
                 case 8:
                     this.lbl1.Text = elementComboBox.Text;
@@ -152,12 +147,14 @@ namespace CRS
                     break;
                 case 9:
                     this.lbl1.Text = elementComboBox.Text;
-                    valLabel.Text = protocol.vNOx;
-                    nums.Add(Convert.ToDouble(protocol.vNOx));
+                    valLabel.Text = protocol.vNOx_C;
+                    string NOx_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+                    protocol.populateCorrection(4, Convert.ToDouble(NOx_C));
+                    nums.Add(Convert.ToDouble(protocol.vNOx_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
-                    this.lbl2.Text = protocol.vNOx;
+                    this.lbl2.Text = protocol.vNOx_C;
                     break;
                 case 10:
                     this.lbl1.Text = elementComboBox.Text;
@@ -170,11 +167,13 @@ namespace CRS
                     break;
                 case 11:
                     this.lbl1.Text = elementComboBox.Text;
-                    valLabel.Text = protocol.vSO2;
-                    nums.Add(Convert.ToDouble(protocol.vSO2));
+                    string SO2_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+                    protocol.populateCorrection(5, Convert.ToDouble(SO2_C));
+                    valLabel.Text = protocol.vSO2_C;
+                    nums.Add(Convert.ToDouble(protocol.vSO2_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
-                    this.lbl2.Text = protocol.vSO2;
+                    this.lbl2.Text = protocol.vSO2_C;
                     break;
                 case 12:
                     this.lbl1.Text = elementComboBox.Text;
@@ -187,12 +186,14 @@ namespace CRS
                     break;
                 case 13:
                     this.lbl1.Text = elementComboBox.Text;
-                    valLabel.Text = protocol.vCxHy;
-                    nums.Add(Convert.ToDouble(protocol.vCxHy));
+                    string CxHy_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+                    protocol.populateCorrection(6, Convert.ToDouble(CxHy_C));
+                    valLabel.Text = protocol.vCxHy_C;
+                    nums.Add(Convert.ToDouble(protocol.vCxHy_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
-                    this.lbl2.Text = protocol.vCxHy;
+                    this.lbl2.Text = protocol.vCxHy_C;
                     break;
                 case 14:
                     this.lbl1.Text = elementComboBox.Text;
@@ -267,7 +268,20 @@ namespace CRS
                     this.lbl2.Text = protocol.vExcessAir;
                     break;
             }
-            
+            resetAverage();
+        }
+
+        public void resetAverage()
+        {
+            nums.Clear();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            protocol.processProtocol();
+            protocol.processProtocol("$0A0531");
+            protocol.processProtocol("$0A054E");
+            timer1.Interval = MainMenu.dgInterval;
             chartIt(valLabel.Text, average);
         }
 

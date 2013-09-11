@@ -260,21 +260,6 @@ namespace CRS
         {
             ebc.ShowDialog();
         }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                textBox3.Visible = true;
-                label25.Visible = true;
-            }
-            else
-            {
-                textBox3.Visible = false;
-                label25.Visible = false;
-            }
-        }
-
         private void checkBoxes_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox src = sender as CheckBox;

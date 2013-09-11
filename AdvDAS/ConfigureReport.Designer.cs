@@ -51,6 +51,7 @@
             this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.checkBox33 = new System.Windows.Forms.CheckBox();
             this.checkBox34 = new System.Windows.Forms.CheckBox();
@@ -79,7 +80,8 @@
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -346,8 +348,19 @@
             this.tabPage2.Text = "Report Data";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(114, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "A maximum of ten values can be printed";
+            // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label25);
+            this.groupBox5.Controls.Add(this.textBox3);
             this.groupBox5.Controls.Add(this.checkBox33);
             this.groupBox5.Controls.Add(this.checkBox34);
             this.groupBox5.Controls.Add(this.checkBox35);
@@ -362,7 +375,6 @@
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Select which parameters to apply O2 correction:";
-            this.groupBox5.Visible = false;
             // 
             // checkBox33
             // 
@@ -652,14 +664,23 @@
             this.checkBox6.Text = "O2";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label25
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(114, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "A maximum of ten values can be printed";
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(309, 65);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(80, 13);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "% O2 corrected";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(255, 62);
+            this.textBox3.MaxLength = 2;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(48, 20);
+            this.textBox3.TabIndex = 13;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SetUpReport
             // 
@@ -747,5 +768,7 @@
         private System.Windows.Forms.CheckBox checkBox39;
         private System.Windows.Forms.CheckBox checkBox40;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

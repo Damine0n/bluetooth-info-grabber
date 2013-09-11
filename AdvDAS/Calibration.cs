@@ -144,6 +144,12 @@ namespace CRS
             calNO2.Enabled = true;
         }
 
+        private void startTimerButton_Click(object sender, EventArgs e)
+        {
+            if(true)
+            this.startTimerButton.Text = "Stop";
+        }
+
 
 
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
