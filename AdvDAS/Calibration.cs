@@ -16,7 +16,7 @@ namespace CRS
         public Calibration()
         {
             InitializeComponent();
-            timer1.Start();
+            timer1.Stop();
             ((Control)this.tabPage2).Enabled = false;
             ((Control)this.tabPage3).Enabled = false;
             ((Control)this.tabPage4).Enabled = false;

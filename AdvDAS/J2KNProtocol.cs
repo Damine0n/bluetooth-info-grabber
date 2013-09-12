@@ -40,29 +40,44 @@ namespace CRS
         public string vAccu = "";
         public string vSerialNumber = "";
         public string ipAddress = "192.168.55.1";
+        public IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
+        Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public J2KNProtocol()
         {
 
         }
-
-        public void processProtocol()
+        public void disconnect()
         {
-            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            clientSocket.Disconnect(true);
+        }
+        public bool processProtocol()
+        {
+
             byte[] sendPacket = new byte[256];
             string p = "$0802";
             string vbCr = "\r";
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
             if (!clientSocket.Connected)
-                clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
-            try
+                try
             {
+                
+                    clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
                 clientSocket.Receive(receivedBytes);
+            }
+            catch
+            {
+                MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication");
+                return clientSocket.Connected;
+            }
+            try
+            {
+
                 string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
-                //MessageBox.Show(Convert.ToInt32(arr[13].Substring(2, 4), 16).ToString());
+                MessageBox.Show(Convert.ToInt32(arr[13].Substring(2, 4), 16).ToString());
                 iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
                 if (iValue >= 32767 || iValue == 0)
                     vO2 = "0.0";
@@ -135,40 +150,37 @@ namespace CRS
                     vAccu = (iValue / 10).ToString("0.0");
                 clientSocket.Close();
             }
-            catch (Exception ex)
-            {
-                //throw ex;
-                //MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            catch { }
+            return clientSocket.Connected;
         }
         public void populateCorrection(int index, double num)
         {
-            double Emeas, O2meas=Convert.ToDouble(vO2);
+            double Emeas, O2meas = Convert.ToDouble(vO2);
             switch (index)
             {
                 case 1:
-                    Emeas=Convert.ToDouble(vCO);
-                    vCO_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    Emeas = Convert.ToDouble(vCO);
+                    vCO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 2:
-                    Emeas=Convert.ToDouble(vNO);
-                    vNO_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    Emeas = Convert.ToDouble(vNO);
+                    vNO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 3:
-                    Emeas=Convert.ToDouble(vNO2);
-                    vNO2_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    Emeas = Convert.ToDouble(vNO2);
+                    vNO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 4:
-                    Emeas=Convert.ToDouble(vNOx);
-                    vNOx_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    Emeas = Convert.ToDouble(vNOx);
+                    vNOx_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 5:
-                    Emeas=Convert.ToDouble(vSO2);
-                    vSO2_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    Emeas = Convert.ToDouble(vSO2);
+                    vSO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 6:
-                    Emeas=Convert.ToDouble(vCxHy);
-                    vCxHy_C = (Emeas*((21-num)/(21-O2meas))).ToString();
+                    Emeas = Convert.ToDouble(vCxHy);
+                    vCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
             }
         }
@@ -191,10 +203,19 @@ namespace CRS
             string vbCr = "\r";
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
+
             if (!clientSocket.Connected)
-                clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
+                try
+                {
+                    clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
+                }
+                catch
+                {
+                    return;
+                }
             try
             {
+
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
@@ -202,8 +223,8 @@ namespace CRS
 
                 string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
                 if (p.Equals("$0A0514"))
-                    vSerialNumber = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16).ToString();
-                else if (p.Equals("$0A053D"))
+                    vSerialNumber = (Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16)).ToString();
+                if (p.Equals("$0A053D"))
                 {
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                     if (iValue >= 32767 || iValue == 0)
@@ -224,13 +245,9 @@ namespace CRS
                     else
                         vNOx = (iValue).ToString("0.0");
                 }
+            }
+            catch { }
 
-            }
-            catch (Exception ex)
-            {
-                //throw ex;
-                //MessageBox.Show(ex.Message + ex.StackTrace);
-            }
 
             clientSocket.Close();
 

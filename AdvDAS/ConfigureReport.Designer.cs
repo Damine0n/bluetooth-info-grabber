@@ -210,9 +210,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(195, 58);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(109, 17);
+            this.checkBox1.Size = new System.Drawing.Size(84, 17);
             this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "STD Support Info";
+            this.checkBox1.Text = "Support Info";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -220,39 +220,39 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(195, 35);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(215, 17);
+            this.checkBox2.Size = new System.Drawing.Size(190, 17);
             this.checkBox2.TabIndex = 15;
-            this.checkBox2.Text = "STD Calibration (with Pre/Post Cal Only)";
+            this.checkBox2.Text = "Calibration (with Pre/Post Cal Only)";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(18, 81);
+            this.checkBox3.Location = new System.Drawing.Point(17, 81);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(108, 17);
+            this.checkBox3.Size = new System.Drawing.Size(83, 17);
             this.checkBox3.TabIndex = 14;
-            this.checkBox3.Text = "STD Calculations";
+            this.checkBox3.Text = "Calculations";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(18, 58);
+            this.checkBox4.Location = new System.Drawing.Point(17, 58);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(124, 17);
+            this.checkBox4.Size = new System.Drawing.Size(99, 17);
             this.checkBox4.TabIndex = 13;
-            this.checkBox4.Text = "STD Recorded Data";
+            this.checkBox4.Text = "Recorded Data";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(19, 35);
+            this.checkBox5.Location = new System.Drawing.Point(17, 35);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(83, 17);
+            this.checkBox5.Size = new System.Drawing.Size(58, 17);
             this.checkBox5.TabIndex = 12;
-            this.checkBox5.Text = "STD Report";
+            this.checkBox5.Text = "Report";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -275,9 +275,9 @@
             this.checkBox12.Enabled = false;
             this.checkBox12.Location = new System.Drawing.Point(194, 46);
             this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(109, 17);
+            this.checkBox12.Size = new System.Drawing.Size(84, 17);
             this.checkBox12.TabIndex = 11;
-            this.checkBox12.Text = "STD Support Info";
+            this.checkBox12.Text = "Support Info";
             this.checkBox12.UseVisualStyleBackColor = true;
             // 
             // checkBox13
@@ -286,9 +286,9 @@
             this.checkBox13.Enabled = false;
             this.checkBox13.Location = new System.Drawing.Point(194, 23);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(215, 17);
+            this.checkBox13.Size = new System.Drawing.Size(190, 17);
             this.checkBox13.TabIndex = 10;
-            this.checkBox13.Text = "STD Calibration (with Pre/Post Cal Only)";
+            this.checkBox13.Text = "Calibration (with Pre/Post Cal Only)";
             this.checkBox13.UseVisualStyleBackColor = true;
             // 
             // checkBox14
@@ -297,9 +297,9 @@
             this.checkBox14.Enabled = false;
             this.checkBox14.Location = new System.Drawing.Point(17, 69);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(108, 17);
+            this.checkBox14.Size = new System.Drawing.Size(83, 17);
             this.checkBox14.TabIndex = 9;
-            this.checkBox14.Text = "STD Calculations";
+            this.checkBox14.Text = "Calculations";
             this.checkBox14.UseVisualStyleBackColor = true;
             // 
             // checkBox15
@@ -308,9 +308,9 @@
             this.checkBox15.Enabled = false;
             this.checkBox15.Location = new System.Drawing.Point(17, 46);
             this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(124, 17);
+            this.checkBox15.Size = new System.Drawing.Size(99, 17);
             this.checkBox15.TabIndex = 8;
-            this.checkBox15.Text = "STD Recorded Data";
+            this.checkBox15.Text = "Recorded Data";
             this.checkBox15.UseVisualStyleBackColor = true;
             // 
             // checkBox16
@@ -319,9 +319,9 @@
             this.checkBox16.Enabled = false;
             this.checkBox16.Location = new System.Drawing.Point(17, 23);
             this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(83, 17);
+            this.checkBox16.Size = new System.Drawing.Size(58, 17);
             this.checkBox16.TabIndex = 7;
-            this.checkBox16.Text = "STD Report";
+            this.checkBox16.Text = "Report";
             this.checkBox16.UseVisualStyleBackColor = true;
             // 
             // checkBox10

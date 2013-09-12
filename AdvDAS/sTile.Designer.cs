@@ -66,6 +66,10 @@
             "O2%",
             "CO ppm",
             "CO ppm - % O2",
+            "CO lbs/hr",
+            "CO TPY",
+            "CO gr/bhp",
+            "CO mmBTU/hr",
             "CO2%",
             "NO ppm",
             "NO ppm - % O2",
@@ -73,6 +77,10 @@
             "NO2 ppm - % O2",
             "NOx ppm",
             "NOx ppm - % O2",
+            "NOx lbs/hr",
+            "NOx TPY",
+            "NOx gr/bhp",
+            "NOx mmBTU/hr",
             "SO2 ppm",
             "SO2 ppm - % O2",
             "CxHy ppm",
@@ -318,7 +326,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label aveLabel;
         private System.Windows.Forms.Label valLabel;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
         
     }
 }

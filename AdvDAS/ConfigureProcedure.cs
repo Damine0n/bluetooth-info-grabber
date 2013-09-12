@@ -25,8 +25,9 @@ namespace CRS
         private DateTime purge;
         private DateTime totalCycle;
         private DateTime cycle;
-        private int sampleRate, numOfCycles;
-        public SetUpProcedure(DateTime rampUp, DateTime testData, DateTime purge,int numOfCycles, int sampleRate)
+        private int sampleRate; 
+        private string numOfCycles;
+        public SetUpProcedure(DateTime rampUp, DateTime testData, DateTime purge,string numOfCycles, int sampleRate)
         {
             InitializeComponent();
             this.rampUp = rampUp;
@@ -53,7 +54,7 @@ namespace CRS
             dateTimePicker1.Value = rampUp;
             dateTimePicker2.Value = testData;
             dateTimePicker3.Value = purge;
-            numericUpDown1.Value = numOfCycles;
+            numericUpDown1.Value = Convert.ToInt32(numOfCycles);
             numericUpDown2.Value = sampleRate;
         }
 
@@ -64,7 +65,7 @@ namespace CRS
                 this.label6.Enabled = false;
                 this.numericUpDown1.Enabled = false;
                 MessageBox.Show("Once the function is initiated, the analyzer will cycle continuously until the user stops the measurement.");
-                this.numOfCycles = 10000;
+                this.numOfCycles = "10000";
             }else
             {
                 this.label6.Enabled = true;
@@ -84,7 +85,7 @@ namespace CRS
                 this.dateTimePicker3.Enabled = false;
                 this.checkBox5.Enabled = false;
                 label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
-                Cycles(numOfCycles,Convert.ToDateTime(label4.Text));
+                Cycles(Convert.ToInt32(numOfCycles),Convert.ToDateTime(label4.Text));
             }
             else if (checkBox2.Checked.Equals(true) && checkBox4.Checked.Equals(false))
             {
@@ -95,7 +96,7 @@ namespace CRS
                 this.dateTimePicker3.Enabled = true;
                 this.checkBox5.Enabled = true;
                 label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
-                Cycles(numOfCycles, Convert.ToDateTime(label4.Text));
+                Cycles(Convert.ToInt32(numOfCycles), Convert.ToDateTime(label4.Text));
             }
             else if (checkBox2.Checked.Equals(false) && checkBox4.Checked.Equals(true))
             {
@@ -106,7 +107,7 @@ namespace CRS
                 this.dateTimePicker3.Enabled = false;
                 this.checkBox5.Enabled = false;
                 label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text)).ToString("HH:mm:ss");
-                Cycles(numOfCycles, Convert.ToDateTime(label4.Text));
+                Cycles(Convert.ToInt32(numOfCycles), Convert.ToDateTime(label4.Text));
             }
             else
             {
@@ -117,7 +118,7 @@ namespace CRS
                 this.dateTimePicker3.Enabled = true;
                 this.checkBox5.Enabled = true;
                 label4.Text = cycle.Add(TimeSpan.Parse(this.dateTimePicker1.Text) + TimeSpan.Parse(this.dateTimePicker2.Text) + TimeSpan.Parse(this.dateTimePicker3.Text)).ToString("HH:mm:ss");
-                Cycles(numOfCycles, Convert.ToDateTime(label4.Text));
+                Cycles(Convert.ToInt32(numOfCycles), Convert.ToDateTime(label4.Text));
             }
         }
 
@@ -143,7 +144,7 @@ namespace CRS
                 MainMenu.testData = this.dateTimePicker2.Value;
                 MainMenu.purge = this.dateTimePicker3.Value;
             }
-            if (numOfCycles == -1)
+            if (numOfCycles == "-1")
             {
                 MainMenu.testTime = this.cycle;
             }
@@ -181,7 +182,7 @@ namespace CRS
                 cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(this.rampUp.ToString("HH:mm:ss")) + TimeSpan.Parse(this.testData.ToString("HH:mm:ss")) + TimeSpan.Parse(this.purge.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
                 label4.Text = cycle.ToString("HH:mm:ss");
             }
-            Cycles(numOfCycles,cycle);
+            Cycles(Convert.ToInt32(numOfCycles), cycle);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
@@ -192,8 +193,8 @@ namespace CRS
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            numOfCycles = (int)numericUpDown1.Value;
-            Cycles(numOfCycles,cycle);
+            numOfCycles = ""+numericUpDown1.Value;
+            Cycles(Convert.ToInt32(numOfCycles), cycle);
         }
         private void Cycles(int x, DateTime newCycle)
         {
