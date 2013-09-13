@@ -48,6 +48,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSite = new System.Windows.Forms.Button();
             this.tbLogo = new System.Windows.Forms.TextBox();
             this.tbNotes = new System.Windows.Forms.TextBox();
             this.tbContact = new System.Windows.Forms.TextBox();
@@ -75,6 +76,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnEditCustomer = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -198,6 +201,7 @@
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -217,7 +221,7 @@
             // 
             this.btnDeleteCustomer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDeleteCustomer.AutoSize = true;
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(105, 331);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(206, 331);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteCustomer.TabIndex = 53;
@@ -249,6 +253,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.btnSite);
             this.tabPage1.Controls.Add(this.tbLogo);
             this.tabPage1.Controls.Add(this.tbNotes);
             this.tabPage1.Controls.Add(this.tbContact);
@@ -280,6 +285,16 @@
             this.tabPage1.Size = new System.Drawing.Size(687, 299);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Select Customer";
+            // 
+            // btnSite
+            // 
+            this.btnSite.Location = new System.Drawing.Point(6, 270);
+            this.btnSite.Name = "btnSite";
+            this.btnSite.Size = new System.Drawing.Size(248, 23);
+            this.btnSite.TabIndex = 79;
+            this.btnSite.Text = "Edit Site/Equipment";
+            this.btnSite.UseVisualStyleBackColor = true;
+            this.btnSite.Click += new System.EventHandler(this.btnSite_Click);
             // 
             // tbLogo
             // 
@@ -512,11 +527,37 @@
             this.tabControl1.Size = new System.Drawing.Size(695, 325);
             this.tabControl1.TabIndex = 54;
             // 
+            // btnEditCustomer
+            // 
+            this.btnEditCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEditCustomer.AutoSize = true;
+            this.btnEditCustomer.Location = new System.Drawing.Point(105, 331);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(95, 23);
+            this.btnEditCustomer.TabIndex = 56;
+            this.btnEditCustomer.Text = "Edit Customer";
+            this.toolTip1.SetToolTip(this.btnEditCustomer, "Add Customer to Database");
+            this.btnEditCustomer.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button1.Location = new System.Drawing.Point(588, 332);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 22);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "Accept";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Customer
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 382);
+            this.Controls.Add(this.btnEditCustomer);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.bindingNavigator1);
@@ -572,7 +613,6 @@
         private System.Windows.Forms.TextBox tbStreet;
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbCompany;
-        private System.Windows.Forms.TextBox tbCustomerID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnLogo;
@@ -589,5 +629,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEditCustomer;
+        public System.Windows.Forms.TextBox tbCustomerID;
+        private System.Windows.Forms.Button btnSite;
     }
 }

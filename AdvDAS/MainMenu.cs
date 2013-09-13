@@ -20,6 +20,8 @@ namespace CRS
 {
     public partial class MainMenu : Form
     {
+        private System.Drawing.Rectangle tabArea;
+        private RectangleF tabTextArea;
         public static PrintDoc pDoc = new PrintDoc();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         public static List<hTile> ht = new List<hTile>();
@@ -33,13 +35,12 @@ namespace CRS
         //private Trend viewTrend = new Trend(pDoc);
         private SetUpReport configReport = new SetUpReport(pDoc);
         private SetUpProcedure configProcedure;
-        private EquipmentSite eSite = new EquipmentSite();
         private PersonalData personalData = new PersonalData();
         private Calibration caliForm = new Calibration();
-        private Customer customer = new Customer();
+        private  Customer customer = new Customer();
         private Form2 forming = new Form2();
-        public List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
-        public List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
+        private List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
+        private List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
 
         private DateTime running = new DateTime();
         public static DateTime testTime;
@@ -48,7 +49,7 @@ namespace CRS
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-        public static int dgInterval, cycles=999999;
+        public static int dgInterval, cycles=10000;
         public static string currentCycle = "\u221e";
         public static string cUnit, nUnit, numOfCycles;
         public J2KNProtocol protocol = new J2KNProtocol();
@@ -66,7 +67,8 @@ namespace CRS
             nUnit = "g/bhp-hr";
             if (protocol.processProtocol().Equals(true))
                 dataGridTimer.Start();
-            //get all values
+            tabArea = tabControl1.GetTabRect(0);
+            tabTextArea = (RectangleF)tabControl1.GetTabRect(0);
         }
 
         //This method creates the database connection ands populates the element Table on tab2
@@ -107,20 +109,15 @@ namespace CRS
             lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel8, this.label8, this.tileButton8));
             lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel9, this.label9, this.tileButton9));
             lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel10, this.label10, this.tileButton10));
-            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel11, this.label11, this.rLabela1, this.tileButton11));
-            lblList2.Add(new Tuple<Label, Label, Label, Button>(this.tileLabel12, this.label12, this.rLabelb1, this.tileButton12));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel11, this.label11, this.tileButton11));
+            lblList1.Add(new Tuple<Label, Label, Button>(this.tileLabel12, this.label12, this.tileButton12));
             //this loop adds all the popup displays to a list
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i <= 11; i++)
             {
                 scaleDisplays.Add(new ScaleDisplay(lblList1[i]));
                 scaleDisplays[i].elementComboBox.SelectedItem = lblList1[i].Item1.Text;
             }
-            ht.Add(new hTile(lblList2[0], cUnit));
-            ht[0].elementComboBox.Items.AddRange(new object[] { "CO(mass)", "CO(mass) - correction" });
-            ht[0].elementComboBox.SelectedIndex = 0;
-            ht.Add(new hTile(lblList2[1], nUnit));
-            ht[1].elementComboBox.Items.AddRange(new object[] { "NOx(mass)", "NOx(mass) - correction" });
-            ht[1].elementComboBox.SelectedIndex = 0;
+            
             //Creates a list of all the tiles in the main tab
             tiles.Add(sTile0);
             tiles.Add(sTile1);
@@ -132,8 +129,8 @@ namespace CRS
             tiles.Add(sTile7);
             tiles.Add(sTile8);
             tiles.Add(sTile9);
-            hTiles.Add(hTile0);
-            hTiles.Add(hTile1);
+            tiles.Add(sTile10);
+            tiles.Add(sTile11);
         }
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
@@ -369,10 +366,7 @@ namespace CRS
         }
 
         //Opens Equipment/Site Window
-        private void equipmentSiteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            eSite.ShowDialog();
-        }
+
 
         //Method for reseting all averages
         private double doAverage(double p)
@@ -383,23 +377,6 @@ namespace CRS
                 num.Add(p);
             return num.Average();
             throw new NotImplementedException();
-        }
-
-        //Changes color of text
-        private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            colorDialog.AllowFullOpen = false;
-            // Sets the initial color select to the current text color.
-            colorDialog.Color = label1.ForeColor;
-
-            // Update the text box color if the user clicks OK  
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                labelColor(this, colorDialog.Color);
-            }
-
         }
 
         //Changes Label color
@@ -546,21 +523,19 @@ namespace CRS
                             scaleDisplays[9].source = sourceControl;
                             scaleDisplays[9].ShowDialog(this);
                             break;
-                        case "hTile0":
-                            ht[0].Index = ht[0].elementComboBox.SelectedIndex;
-                            ht[0].source = sourceControl;
-                            ht[0].ShowDialog(this);
+                        case "sTile10":
+                            scaleDisplays[10].Index = scaleDisplays[10].elementComboBox.SelectedIndex;
+                            scaleDisplays[10].source = sourceControl;
+                            scaleDisplays[10].ShowDialog(this);
                             break;
-                        case "hTile1":
-                            ht[1].Index = ht[1].elementComboBox.SelectedIndex;
-                            ht[1].source = sourceControl;
-                            ht[1].ShowDialog(this);
+                        case "sTile11":
+                            scaleDisplays[11].Index = scaleDisplays[11].elementComboBox.SelectedIndex;
+                            scaleDisplays[11].source = sourceControl;
+                            scaleDisplays[11].ShowDialog(this);
                             break;
                     }
                 }
-
             }
-
         }
         private void tileButton_Click(object sender, EventArgs e)
         {
@@ -743,32 +718,53 @@ namespace CRS
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void blueWhiteColorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void blue25GrayColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int i=0;
             foreach (TableLayoutPanel tile in tiles)
             {
-                tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_white_box;
+                tile.BackgroundImage = CRS.Properties.Resources.ecomblu_25graybox_25grayback;
+                lblList1[i].Item2.ForeColor= Color.Black;
+                this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+                i++;
+            }
+            
+        }
+        private void blue50GrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (TableLayoutPanel tile in tiles)
+            {
+                tile.BackgroundImage = CRS.Properties.Resources.ecomblu_50graybox_25grayback;
+                lblList1[i].Item2.ForeColor = Color.Black;
+                this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+                i++;
+            }
+        }
+        private void blueWhiteColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (TableLayoutPanel tile in tiles)
+            {
+                tile.BackgroundImage = CRS.Properties.Resources.ecomblu_whitebox_25gray;
+                lblList1[i].Item2.ForeColor = Color.Black;
+                this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+                i++;
             }
             //foreach (Button btn in )
             //{
             //    btn.ForeColor = System.Drawing.Color.Black;
             //}
         }
-
-        private void blackBlueColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (TableLayoutPanel tile in tiles)
-            {
-                tile.BackgroundImage = CRS.Properties.Resources.dashboard_black_blue_box;
-            }
-        }
-
-
         private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int i = 0;
             foreach (TableLayoutPanel tile in tiles)
             {
-                tile.BackgroundImage = CRS.Properties.Resources.dashboard_blue_black_box;
+                tile.BackgroundImage = CRS.Properties.Resources.ecomblu_blackbox_black;
+                lblList1[i].Item2.ForeColor = Color.White;
+                this.tabPage1.BackColor = Color.Black;
+                i++;
             }
         }
 
@@ -816,6 +812,23 @@ namespace CRS
         private void button15_Click(object sender, EventArgs e)
         {
             protocol.processProtocol("$0F1066 0x20");
+        }
+        private System.Drawing.Rectangle myTabRect;
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.Pink);
+            System.Drawing.Font font = new System.Drawing.Font("Arial", 10.0f);
+            SolidBrush brush = new SolidBrush(Color.Red);
+
+            g.DrawRectangle(p, tabArea);
+            g.DrawString("tabPage1", font, brush, tabTextArea);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

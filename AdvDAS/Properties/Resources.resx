@@ -118,17 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dashboard_blue_white_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\dashboard-blue-white-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rec_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\rec-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="snapshot_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\snapshot-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dashboard_black_blue_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\dashboard-black-blue-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rec_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\rec-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,9 +132,6 @@
   </data>
   <data name="stop_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\stop-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dashboard_blue_black_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\dashboard-blue-black-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stop_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\stop-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,5 +162,17 @@
   </data>
   <data name="recording_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\recording-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_25graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-25graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_50graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-50graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_blackbox_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-blackbox-black.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_whitebox_25gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-whitebox-25gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

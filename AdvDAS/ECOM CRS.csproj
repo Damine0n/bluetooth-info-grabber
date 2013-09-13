@@ -265,6 +265,10 @@
     <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Panels\ecomblu-whitebox-25gray.jpg" />
+    <None Include="Panels\ecomblu-blackbox-black.jpg" />
+    <None Include="Panels\ecomblu-50graybox-25grayback.jpg" />
+    <None Include="Panels\ecomblu-25graybox-25grayback.jpg" />
     <None Include="Panels\status-box.jpg" />
     <None Include="Panels\dashboard-mass-blue-white.jpg" />
     <None Include="Resources\Analyzer control.png" />

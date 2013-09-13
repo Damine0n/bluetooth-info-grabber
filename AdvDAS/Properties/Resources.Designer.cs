@@ -73,39 +73,49 @@ namespace CRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dashboard_black_blue_box {
-            get {
-                object obj = ResourceManager.GetObject("dashboard_black_blue_box", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dashboard_blue_black_box {
-            get {
-                object obj = ResourceManager.GetObject("dashboard_blue_black_box", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dashboard_blue_white_box {
-            get {
-                object obj = ResourceManager.GetObject("dashboard_blue_white_box", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap dashboard_mass_blue_white {
             get {
                 object obj = ResourceManager.GetObject("dashboard_mass_blue_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ecomblu_25graybox_25grayback {
+            get {
+                object obj = ResourceManager.GetObject("ecomblu_25graybox_25grayback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ecomblu_50graybox_25grayback {
+            get {
+                object obj = ResourceManager.GetObject("ecomblu_50graybox_25grayback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ecomblu_blackbox_black {
+            get {
+                object obj = ResourceManager.GetObject("ecomblu_blackbox_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ecomblu_whitebox_25gray {
+            get {
+                object obj = ResourceManager.GetObject("ecomblu_whitebox_25gray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

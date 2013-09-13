@@ -53,10 +53,12 @@ namespace CRS
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            protocol.processProtocol();
-            protocol.processProtocol("$0A0531");
-            protocol.processProtocol("$0A054E");
-            
+            if (protocol.processProtocol().Equals(true))
+            {
+                protocol.processProtocol();
+                protocol.processProtocol("$0A0531");
+                protocol.processProtocol("$0A054E");
+            }
             switch (elementComboBox.SelectedIndex)
             {
                 case 0:

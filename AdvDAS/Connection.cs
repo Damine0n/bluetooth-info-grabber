@@ -19,13 +19,12 @@ namespace CRS
         {
             InitializeComponent();
             comboBox1.Items.AddRange(protocol.ipHost.AddressList);
-            comboBox1.SelectedText = protocol.ipAddress;
+            comboBox1.SelectedIndex = comboBox1.Items.Count-1;
             this.main = main;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             protocol.ipAddress = comboBox1.Text;
             if (!protocol.processProtocol().Equals(conn))
             {

@@ -13,6 +13,7 @@ namespace CRS
     public partial class Calibration : Form
     {
         J2KNProtocol protocol = new J2KNProtocol();
+        bool clicked = false;
         public Calibration()
         {
             InitializeComponent();
@@ -146,8 +147,18 @@ namespace CRS
 
         private void startTimerButton_Click(object sender, EventArgs e)
         {
-            if(true)
-            this.startTimerButton.Text = "Stop";
+            if (clicked)
+            {
+                this.startTimerButton.Text = "Stop";
+                clicked = true;
+            }
+            else
+            {
+                this.startTimerButton.Text = "Start";
+                clicked = false;
+            }
+
+
         }
 
 

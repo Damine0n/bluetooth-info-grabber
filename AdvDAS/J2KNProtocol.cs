@@ -44,11 +44,10 @@ namespace CRS
         Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public J2KNProtocol()
         {
-
         }
         public void disconnect()
         {
-            clientSocket.Disconnect(true);
+            clientSocket.Disconnect(false);
         }
         public bool processProtocol()
         {
@@ -59,25 +58,23 @@ namespace CRS
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
             if (!clientSocket.Connected)
+                //clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
                 try
-            {
-                
-                    clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
-                sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
-                clientSocket.Send(sendPacket);
-                clientSocket.ReceiveTimeout = 4000;
-                clientSocket.Receive(receivedBytes);
-            }
-            catch
-            {
-                MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication");
-                return clientSocket.Connected;
-            }
+                {
+                    sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
+                    clientSocket.Send(sendPacket);
+                    clientSocket.ReceiveTimeout = 4000;
+                    clientSocket.Receive(receivedBytes);
+                }
+                catch
+                {
+                    MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication");
+                    return false;
+                }
             try
             {
 
                 string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
-                MessageBox.Show(Convert.ToInt32(arr[13].Substring(2, 4), 16).ToString());
                 iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
                 if (iValue >= 32767 || iValue == 0)
                     vO2 = "0.0";
@@ -183,6 +180,30 @@ namespace CRS
                     vCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
             }
+        }
+        public void populateCorrection(double num)
+        {
+            double Emeas, O2meas = Convert.ToDouble(vO2);
+
+            Emeas = Convert.ToDouble(vCO);
+            vCO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+
+            Emeas = Convert.ToDouble(vNO);
+            vNO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+
+            Emeas = Convert.ToDouble(vNO2);
+            vNO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+
+            Emeas = Convert.ToDouble(vNOx);
+            vNOx_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+
+            Emeas = Convert.ToDouble(vSO2);
+            vSO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+
+            Emeas = Convert.ToDouble(vCxHy);
+            vCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+
+
         }
         private static string CalculateChecksum(string dataToCalculate)
         {

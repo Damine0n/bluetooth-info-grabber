@@ -17,10 +17,11 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         DataSet ds = new DataSet();
+        EquipmentSite eSite = new EquipmentSite();
         public Customer()
         {
             InitializeComponent();
-            load_table(); 
+            load_table();
         }
         private void load_table()
         {
@@ -35,7 +36,6 @@ namespace CRS
                 da.Fill(ds);
                 bindingSource1.DataSource = ds.Tables[0];
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
-                
                 
                 tbCustomerID.DataBindings.Add("Text", bindingSource1, "CustomerID");
                 tbCompany.DataBindings.Add("Text", bindingSource1, "Company");
@@ -195,6 +195,21 @@ namespace CRS
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        {
+            this.Text = tbCustomerID.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.tbCustomerID.Text = this.eSite.Text;
+        }
+
+        private void btnSite_Click(object sender, EventArgs e)
+        {
+            eSite.ShowDialog();
         }
 
     }
