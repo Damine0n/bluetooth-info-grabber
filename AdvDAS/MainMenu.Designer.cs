@@ -24,14 +24,7 @@ namespace CRS
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+ 
 
         #region Windows Form Designer generated code
 
@@ -118,6 +111,8 @@ namespace CRS
             System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series36 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,8 +126,8 @@ namespace CRS
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blackBlueColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.blueWhiteColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blueBlackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blueWhiteColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewTestRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applyO2CorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,13 +137,6 @@ namespace CRS
             this.performPreAndPostCalibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupCommunictaionPortsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCalibrationItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewCalibrationInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enterCalGasInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.preTestCalibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.postTestCalibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.abortCalibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,11 +165,27 @@ namespace CRS
             this.tileButton4 = new System.Windows.Forms.Button();
             this.tileButton5 = new System.Windows.Forms.Button();
             this.tileButton1 = new System.Windows.Forms.Button();
+            this.tileButton12 = new System.Windows.Forms.Button();
+            this.tileButton11 = new System.Windows.Forms.Button();
+            this.tileButton10 = new System.Windows.Forms.Button();
+            this.tileButton9 = new System.Windows.Forms.Button();
             this.dataGridTimer = new System.Windows.Forms.Timer(this.components);
             this.recordSign = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.sTile8 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tileLabel9 = new System.Windows.Forms.Label();
+            this.sTile9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tileLabel10 = new System.Windows.Forms.Label();
+            this.sTile10 = new System.Windows.Forms.TableLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tileLabel11 = new System.Windows.Forms.Label();
+            this.sTile11 = new System.Windows.Forms.TableLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tileLabel12 = new System.Windows.Forms.Label();
             this.sTile2 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tileLabel3 = new System.Windows.Forms.Label();
@@ -206,14 +210,17 @@ namespace CRS
             this.sTile0 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tileLabel1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.cycleLabel = new System.Windows.Forms.Label();
-            this.rTimelbl = new System.Windows.Forms.Label();
-            this.tTimelbl = new System.Windows.Forms.Label();
             this.pTimelbl = new System.Windows.Forms.Label();
             this.plbl = new System.Windows.Forms.Label();
-            this.tlbl = new System.Windows.Forms.Label();
+            this.rTimelbl = new System.Windows.Forms.Label();
             this.rlbl = new System.Windows.Forms.Label();
+            this.tTimelbl = new System.Windows.Forms.Label();
+            this.tlbl = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -299,6 +306,7 @@ namespace CRS
             this.batt_Vlbl = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.battB_Vlbl = new System.Windows.Forms.Label();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.recordingSign = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -313,30 +321,15 @@ namespace CRS
             this.recordTimeLabel = new System.Windows.Forms.Label();
             this.clock_lbl = new System.Windows.Forms.Label();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.sTile11 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton12 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tileLabel12 = new System.Windows.Forms.Label();
-            this.sTile10 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton11 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tileLabel11 = new System.Windows.Forms.Label();
-            this.sTile9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton10 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tileLabel10 = new System.Windows.Forms.Label();
-            this.sTile8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tileButton9 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tileLabel9 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tilePopUpMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.sTile8.SuspendLayout();
+            this.sTile9.SuspendLayout();
+            this.sTile10.SuspendLayout();
+            this.sTile11.SuspendLayout();
             this.sTile2.SuspendLayout();
             this.sTile7.SuspendLayout();
             this.sTile6.SuspendLayout();
@@ -345,6 +338,7 @@ namespace CRS
             this.sTile3.SuspendLayout();
             this.sTile4.SuspendLayout();
             this.sTile0.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -382,11 +376,6 @@ namespace CRS
             this.tableLayoutPanel17.SuspendLayout();
             this.panel7.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.sTile11.SuspendLayout();
-            this.sTile10.SuspendLayout();
-            this.sTile9.SuspendLayout();
-            this.sTile8.SuspendLayout();
-            this.tableLayoutPanel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -402,7 +391,7 @@ namespace CRS
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(326, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(418, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -497,19 +486,19 @@ namespace CRS
             this.blackBlueColorToolStripMenuItem.Text = "Blue-Gray";
             this.blackBlueColorToolStripMenuItem.Click += new System.EventHandler(this.blue25GrayColorToolStripMenuItem_Click);
             // 
-            // blueWhiteColorToolStripMenuItem
-            // 
-            this.blueWhiteColorToolStripMenuItem.Name = "blueWhiteColorToolStripMenuItem";
-            this.blueWhiteColorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.blueWhiteColorToolStripMenuItem.Text = "Blue-White";
-            this.blueWhiteColorToolStripMenuItem.Click += new System.EventHandler(this.blueWhiteColorToolStripMenuItem_Click);
-            // 
             // blueBlackToolStripMenuItem
             // 
             this.blueBlackToolStripMenuItem.Name = "blueBlackToolStripMenuItem";
             this.blueBlackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.blueBlackToolStripMenuItem.Text = "Blue-Black";
             this.blueBlackToolStripMenuItem.Click += new System.EventHandler(this.blueBlackToolStripMenuItem_Click);
+            // 
+            // blueWhiteColorToolStripMenuItem
+            // 
+            this.blueWhiteColorToolStripMenuItem.Name = "blueWhiteColorToolStripMenuItem";
+            this.blueWhiteColorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.blueWhiteColorToolStripMenuItem.Text = "Blue-White";
+            this.blueWhiteColorToolStripMenuItem.Click += new System.EventHandler(this.blueWhiteColorToolStripMenuItem_Click);
             // 
             // dataToolStripMenuItem
             // 
@@ -577,60 +566,11 @@ namespace CRS
             // 
             // menuCalibrationItem
             // 
-            this.menuCalibrationItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewCalibrationInfoToolStripMenuItem,
-            this.enterCalGasInfoToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.preTestCalibrationToolStripMenuItem,
-            this.postTestCalibrationToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.abortCalibrationToolStripMenuItem});
             this.menuCalibrationItem.ForeColor = System.Drawing.SystemColors.Control;
             this.menuCalibrationItem.Name = "menuCalibrationItem";
             this.menuCalibrationItem.Size = new System.Drawing.Size(77, 20);
             this.menuCalibrationItem.Text = "Calibration";
-            // 
-            // viewCalibrationInfoToolStripMenuItem
-            // 
-            this.viewCalibrationInfoToolStripMenuItem.Name = "viewCalibrationInfoToolStripMenuItem";
-            this.viewCalibrationInfoToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.viewCalibrationInfoToolStripMenuItem.Text = "Calibration Gas Info";
-            this.viewCalibrationInfoToolStripMenuItem.Click += new System.EventHandler(this.viewCalibrationInfoToolStripMenuItem_Click);
-            // 
-            // enterCalGasInfoToolStripMenuItem
-            // 
-            this.enterCalGasInfoToolStripMenuItem.Name = "enterCalGasInfoToolStripMenuItem";
-            this.enterCalGasInfoToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.enterCalGasInfoToolStripMenuItem.Text = "Enter Cal Gas Info";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
-            // 
-            // preTestCalibrationToolStripMenuItem
-            // 
-            this.preTestCalibrationToolStripMenuItem.Name = "preTestCalibrationToolStripMenuItem";
-            this.preTestCalibrationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.preTestCalibrationToolStripMenuItem.Text = "Calibration";
-            // 
-            // postTestCalibrationToolStripMenuItem
-            // 
-            this.postTestCalibrationToolStripMenuItem.Enabled = false;
-            this.postTestCalibrationToolStripMenuItem.Name = "postTestCalibrationToolStripMenuItem";
-            this.postTestCalibrationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.postTestCalibrationToolStripMenuItem.Text = "Post-Test Calibration";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(182, 6);
-            // 
-            // abortCalibrationToolStripMenuItem
-            // 
-            this.abortCalibrationToolStripMenuItem.Name = "abortCalibrationToolStripMenuItem";
-            this.abortCalibrationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.abortCalibrationToolStripMenuItem.Text = "Abort Calibration";
+            this.menuCalibrationItem.Click += new System.EventHandler(this.menuCalibrationItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1012,6 +952,78 @@ namespace CRS
             this.tileButton1.UseVisualStyleBackColor = false;
             this.tileButton1.Click += new System.EventHandler(this.tileButton_Click);
             // 
+            // tileButton12
+            // 
+            this.tileButton12.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton12.FlatAppearance.BorderSize = 0;
+            this.tileButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton12.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton12.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton12.Location = new System.Drawing.Point(3, 126);
+            this.tileButton12.Name = "tileButton12";
+            this.tileButton12.Size = new System.Drawing.Size(174, 37);
+            this.tileButton12.TabIndex = 16;
+            this.tileButton12.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton12, "Click here to reset average");
+            this.tileButton12.UseVisualStyleBackColor = false;
+            // 
+            // tileButton11
+            // 
+            this.tileButton11.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton11.FlatAppearance.BorderSize = 0;
+            this.tileButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton11.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton11.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton11.Location = new System.Drawing.Point(3, 126);
+            this.tileButton11.Name = "tileButton11";
+            this.tileButton11.Size = new System.Drawing.Size(174, 37);
+            this.tileButton11.TabIndex = 16;
+            this.tileButton11.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton11, "Click here to reset average");
+            this.tileButton11.UseVisualStyleBackColor = false;
+            // 
+            // tileButton10
+            // 
+            this.tileButton10.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton10.FlatAppearance.BorderSize = 0;
+            this.tileButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton10.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton10.Location = new System.Drawing.Point(3, 126);
+            this.tileButton10.Name = "tileButton10";
+            this.tileButton10.Size = new System.Drawing.Size(174, 37);
+            this.tileButton10.TabIndex = 16;
+            this.tileButton10.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton10, "Click here to reset average");
+            this.tileButton10.UseVisualStyleBackColor = false;
+            // 
+            // tileButton9
+            // 
+            this.tileButton9.BackColor = System.Drawing.Color.Transparent;
+            this.tileButton9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileButton9.FlatAppearance.BorderSize = 0;
+            this.tileButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tileButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileButton9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileButton9.ForeColor = System.Drawing.Color.Silver;
+            this.tileButton9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileButton9.Location = new System.Drawing.Point(3, 126);
+            this.tileButton9.Name = "tileButton9";
+            this.tileButton9.Size = new System.Drawing.Size(174, 37);
+            this.tileButton9.TabIndex = 16;
+            this.tileButton9.Text = "0.0 AVG";
+            this.toolTip1.SetToolTip(this.tileButton9, "Click here to reset average");
+            this.tileButton9.UseVisualStyleBackColor = false;
+            // 
             // dataGridTimer
             // 
             this.dataGridTimer.Interval = 1000;
@@ -1085,7 +1097,210 @@ namespace CRS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1004, 558);
             this.tableLayoutPanel1.TabIndex = 4;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // sTile8
+            // 
+            this.sTile8.BackColor = System.Drawing.Color.Black;
+            this.sTile8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile8.BackgroundImage")));
+            this.sTile8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sTile8.ColumnCount = 1;
+            this.sTile8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sTile8.ContextMenuStrip = this.tilePopUpMenu;
+            this.sTile8.Controls.Add(this.tileButton9, 0, 2);
+            this.sTile8.Controls.Add(this.label9, 0, 1);
+            this.sTile8.Controls.Add(this.tileLabel9, 0, 0);
+            this.sTile8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sTile8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sTile8.Location = new System.Drawing.Point(10, 382);
+            this.sTile8.Margin = new System.Windows.Forms.Padding(10);
+            this.sTile8.Name = "sTile8";
+            this.sTile8.RowCount = 3;
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
+            this.sTile8.Size = new System.Drawing.Size(180, 166);
+            this.sTile8.TabIndex = 29;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(3, 42);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(174, 81);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "----";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tileLabel9
+            // 
+            this.tileLabel9.AutoSize = true;
+            this.tileLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.tileLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileLabel9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
+            this.tileLabel9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileLabel9.Location = new System.Drawing.Point(3, 0);
+            this.tileLabel9.Name = "tileLabel9";
+            this.tileLabel9.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel9.TabIndex = 15;
+            this.tileLabel9.Text = "NOx ppm";
+            this.tileLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sTile9
+            // 
+            this.sTile9.BackColor = System.Drawing.Color.Black;
+            this.sTile9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile9.BackgroundImage")));
+            this.sTile9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sTile9.ColumnCount = 1;
+            this.sTile9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sTile9.ContextMenuStrip = this.tilePopUpMenu;
+            this.sTile9.Controls.Add(this.tileButton10, 0, 2);
+            this.sTile9.Controls.Add(this.label10, 0, 1);
+            this.sTile9.Controls.Add(this.tileLabel10, 0, 0);
+            this.sTile9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sTile9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sTile9.Location = new System.Drawing.Point(210, 382);
+            this.sTile9.Margin = new System.Windows.Forms.Padding(10);
+            this.sTile9.Name = "sTile9";
+            this.sTile9.RowCount = 3;
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
+            this.sTile9.Size = new System.Drawing.Size(180, 166);
+            this.sTile9.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(3, 42);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(174, 81);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "----";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tileLabel10
+            // 
+            this.tileLabel10.AutoSize = true;
+            this.tileLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.tileLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileLabel10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
+            this.tileLabel10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileLabel10.Location = new System.Drawing.Point(3, 0);
+            this.tileLabel10.Name = "tileLabel10";
+            this.tileLabel10.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel10.TabIndex = 15;
+            this.tileLabel10.Text = "T(amb)°F";
+            this.tileLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sTile10
+            // 
+            this.sTile10.BackColor = System.Drawing.Color.Black;
+            this.sTile10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile10.BackgroundImage")));
+            this.sTile10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sTile10.ColumnCount = 1;
+            this.sTile10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sTile10.ContextMenuStrip = this.tilePopUpMenu;
+            this.sTile10.Controls.Add(this.tileButton11, 0, 2);
+            this.sTile10.Controls.Add(this.label11, 0, 1);
+            this.sTile10.Controls.Add(this.tileLabel11, 0, 0);
+            this.sTile10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sTile10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sTile10.Location = new System.Drawing.Point(410, 382);
+            this.sTile10.Margin = new System.Windows.Forms.Padding(10);
+            this.sTile10.Name = "sTile10";
+            this.sTile10.RowCount = 3;
+            this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
+            this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
+            this.sTile10.Size = new System.Drawing.Size(180, 166);
+            this.sTile10.TabIndex = 27;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(3, 42);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(174, 81);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "----";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tileLabel11
+            // 
+            this.tileLabel11.AutoSize = true;
+            this.tileLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.tileLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileLabel11.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
+            this.tileLabel11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileLabel11.Location = new System.Drawing.Point(3, 0);
+            this.tileLabel11.Name = "tileLabel11";
+            this.tileLabel11.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel11.TabIndex = 15;
+            this.tileLabel11.Text = "T(cell)°F";
+            this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sTile11
+            // 
+            this.sTile11.BackColor = System.Drawing.Color.Black;
+            this.sTile11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile11.BackgroundImage")));
+            this.sTile11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sTile11.ColumnCount = 1;
+            this.sTile11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sTile11.ContextMenuStrip = this.tilePopUpMenu;
+            this.sTile11.Controls.Add(this.tileButton12, 0, 2);
+            this.sTile11.Controls.Add(this.label12, 0, 1);
+            this.sTile11.Controls.Add(this.tileLabel12, 0, 0);
+            this.sTile11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sTile11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sTile11.Location = new System.Drawing.Point(610, 382);
+            this.sTile11.Margin = new System.Windows.Forms.Padding(10);
+            this.sTile11.Name = "sTile11";
+            this.sTile11.RowCount = 3;
+            this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
+            this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
+            this.sTile11.Size = new System.Drawing.Size(180, 166);
+            this.sTile11.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label12.Location = new System.Drawing.Point(3, 42);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(174, 81);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "----";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tileLabel12
+            // 
+            this.tileLabel12.AutoSize = true;
+            this.tileLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.tileLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileLabel12.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
+            this.tileLabel12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tileLabel12.Location = new System.Drawing.Point(3, 0);
+            this.tileLabel12.Name = "tileLabel12";
+            this.tileLabel12.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel12.TabIndex = 15;
+            this.tileLabel12.Text = "Efficiency %";
+            this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile2
             // 
@@ -1496,25 +1711,36 @@ namespace CRS
             this.tileLabel1.Text = "O2%";
             this.tileLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel11
+            // tableLayoutPanel19
             // 
-            this.tableLayoutPanel11.BackgroundImage = global::CRS.Properties.Resources.status_box;
-            this.tableLayoutPanel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.57732F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.42268F));
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(28, 0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 7;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(194, 89);
-            this.tableLayoutPanel11.TabIndex = 25;
+            this.tableLayoutPanel19.ColumnCount = 2;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel19.Controls.Add(this.pTimelbl, 1, 7);
+            this.tableLayoutPanel19.Controls.Add(this.plbl, 0, 7);
+            this.tableLayoutPanel19.Controls.Add(this.tTimelbl, 1, 5);
+            this.tableLayoutPanel19.Controls.Add(this.tlbl, 0, 5);
+            this.tableLayoutPanel19.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.label21, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.label14, 0, 8);
+            this.tableLayoutPanel19.Controls.Add(this.rlbl, 0, 3);
+            this.tableLayoutPanel19.Controls.Add(this.rTimelbl, 1, 3);
+            this.tableLayoutPanel19.Controls.Add(this.cycleLabel, 0, 2);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(803, 3);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 9;
+            this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel19, 3);
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(198, 389);
+            this.tableLayoutPanel19.TabIndex = 31;
             // 
             // cycleLabel
             // 
@@ -1523,38 +1749,12 @@ namespace CRS
             this.tableLayoutPanel19.SetColumnSpan(this.cycleLabel, 2);
             this.cycleLabel.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cycleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cycleLabel.Location = new System.Drawing.Point(3, 80);
+            this.cycleLabel.Location = new System.Drawing.Point(3, 40);
             this.cycleLabel.Name = "cycleLabel";
             this.cycleLabel.Size = new System.Drawing.Size(64, 19);
             this.cycleLabel.TabIndex = 1;
             this.cycleLabel.Text = "Cycle: 1";
             this.cycleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rTimelbl
-            // 
-            this.rTimelbl.AutoSize = true;
-            this.rTimelbl.BackColor = System.Drawing.Color.Transparent;
-            this.rTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rTimelbl.Location = new System.Drawing.Point(102, 360);
-            this.rTimelbl.Name = "rTimelbl";
-            this.rTimelbl.Size = new System.Drawing.Size(84, 20);
-            this.rTimelbl.TabIndex = 26;
-            this.rTimelbl.Text = "00:00:00";
-            this.rTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tTimelbl
-            // 
-            this.tTimelbl.AutoSize = true;
-            this.tTimelbl.BackColor = System.Drawing.Color.Transparent;
-            this.tTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tTimelbl.Location = new System.Drawing.Point(102, 220);
-            this.tTimelbl.Name = "tTimelbl";
-            this.tTimelbl.Size = new System.Drawing.Size(84, 23);
-            this.tTimelbl.TabIndex = 27;
-            this.tTimelbl.Text = "00:00:00";
-            this.tTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pTimelbl
             // 
@@ -1562,9 +1762,9 @@ namespace CRS
             this.pTimelbl.BackColor = System.Drawing.Color.Transparent;
             this.pTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pTimelbl.Location = new System.Drawing.Point(102, 380);
+            this.pTimelbl.Location = new System.Drawing.Point(103, 267);
             this.pTimelbl.Name = "pTimelbl";
-            this.pTimelbl.Size = new System.Drawing.Size(84, 20);
+            this.pTimelbl.Size = new System.Drawing.Size(84, 23);
             this.pTimelbl.TabIndex = 28;
             this.pTimelbl.Text = "00:00:00";
             this.pTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1575,25 +1775,25 @@ namespace CRS
             this.plbl.BackColor = System.Drawing.Color.Transparent;
             this.plbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.plbl.Location = new System.Drawing.Point(3, 380);
+            this.plbl.Location = new System.Drawing.Point(3, 267);
             this.plbl.Name = "plbl";
-            this.plbl.Size = new System.Drawing.Size(65, 20);
+            this.plbl.Size = new System.Drawing.Size(65, 23);
             this.plbl.TabIndex = 23;
             this.plbl.Text = "Purge:";
             this.plbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tlbl
+            // rTimelbl
             // 
-            this.tlbl.AutoSize = true;
-            this.tlbl.BackColor = System.Drawing.Color.Transparent;
-            this.tlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tlbl.Location = new System.Drawing.Point(3, 220);
-            this.tlbl.Name = "tlbl";
-            this.tlbl.Size = new System.Drawing.Size(48, 23);
-            this.tlbl.TabIndex = 4;
-            this.tlbl.Text = "Test:";
-            this.tlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rTimelbl.AutoSize = true;
+            this.rTimelbl.BackColor = System.Drawing.Color.Transparent;
+            this.rTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.rTimelbl.Location = new System.Drawing.Point(103, 80);
+            this.rTimelbl.Name = "rTimelbl";
+            this.rTimelbl.Size = new System.Drawing.Size(84, 23);
+            this.rTimelbl.TabIndex = 26;
+            this.rTimelbl.Text = "00:00:00";
+            this.rTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // rlbl
             // 
@@ -1601,12 +1801,73 @@ namespace CRS
             this.rlbl.BackColor = System.Drawing.Color.Transparent;
             this.rlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rlbl.Location = new System.Drawing.Point(3, 360);
+            this.rlbl.Location = new System.Drawing.Point(3, 80);
             this.rlbl.Name = "rlbl";
-            this.rlbl.Size = new System.Drawing.Size(60, 20);
+            this.rlbl.Size = new System.Drawing.Size(94, 23);
             this.rlbl.TabIndex = 2;
             this.rlbl.Text = "Ramp Up:";
             this.rlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tTimelbl
+            // 
+            this.tTimelbl.AutoSize = true;
+            this.tTimelbl.BackColor = System.Drawing.Color.Transparent;
+            this.tTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tTimelbl.Location = new System.Drawing.Point(103, 157);
+            this.tTimelbl.Name = "tTimelbl";
+            this.tTimelbl.Size = new System.Drawing.Size(84, 23);
+            this.tTimelbl.TabIndex = 27;
+            this.tTimelbl.Text = "00:00:00";
+            this.tTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tlbl
+            // 
+            this.tlbl.AutoSize = true;
+            this.tlbl.BackColor = System.Drawing.Color.Transparent;
+            this.tlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tlbl.Location = new System.Drawing.Point(3, 157);
+            this.tlbl.Name = "tlbl";
+            this.tlbl.Size = new System.Drawing.Size(48, 23);
+            this.tlbl.TabIndex = 4;
+            this.tlbl.Text = "Test:";
+            this.tlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.tableLayoutPanel19.SetColumnSpan(this.label13, 2);
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(192, 20);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Not Connected";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.tableLayoutPanel19.SetColumnSpan(this.label21, 2);
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Location = new System.Drawing.Point(3, 20);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(192, 20);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "1sec(s) Sample Rate";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.tableLayoutPanel19.SetColumnSpan(this.label14, 2);
+            this.label14.Location = new System.Drawing.Point(3, 290);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(144, 17);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "## Machine(s) tested";
             // 
             // shapeContainer1
             // 
@@ -1634,12 +1895,13 @@ namespace CRS
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1014, 564);
+            this.tabPage2.Size = new System.Drawing.Size(1014, 568);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             // 
             // tableLayoutPanel14
             // 
+            this.tableLayoutPanel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.tableLayoutPanel14.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.tableLayoutPanel14.ColumnCount = 2;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -1652,7 +1914,7 @@ namespace CRS
             this.tableLayoutPanel14.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(1008, 558);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1008, 562);
             this.tableLayoutPanel14.TabIndex = 2;
             // 
             // panel1
@@ -1662,14 +1924,14 @@ namespace CRS
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 544);
+            this.panel1.Size = new System.Drawing.Size(273, 548);
             this.panel1.TabIndex = 2;
             // 
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(0, 518);
+            this.button2.Location = new System.Drawing.Point(0, 522);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(273, 26);
             this.button2.TabIndex = 7;
@@ -1693,7 +1955,7 @@ namespace CRS
             this.elementTable.Location = new System.Drawing.Point(0, 0);
             this.elementTable.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.elementTable.Name = "elementTable";
-            this.elementTable.Size = new System.Drawing.Size(273, 544);
+            this.elementTable.Size = new System.Drawing.Size(273, 548);
             this.elementTable.TabIndex = 6;
             this.elementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elementTable_CellContentClick);
             // 
@@ -1860,7 +2122,7 @@ namespace CRS
             this.trendGraph.Series.Add(series16);
             this.trendGraph.Series.Add(series17);
             this.trendGraph.Series.Add(series18);
-            this.trendGraph.Size = new System.Drawing.Size(720, 550);
+            this.trendGraph.Size = new System.Drawing.Size(720, 554);
             this.trendGraph.TabIndex = 1;
             this.trendGraph.Text = "trendChart";
             // 
@@ -1871,13 +2133,14 @@ namespace CRS
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1014, 564);
+            this.tabPage3.Size = new System.Drawing.Size(1014, 568);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hybrid";
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -1903,7 +2166,7 @@ namespace CRS
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.701F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.1492F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.32538F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1008, 558);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1008, 562);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // tableLayoutPanel15
@@ -1919,14 +2182,14 @@ namespace CRS
             this.tableLayoutPanel15.Controls.Add(this.label54, 0, 1);
             this.tableLayoutPanel15.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(320, 274);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(320, 276);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(135, 114);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(135, 115);
             this.tableLayoutPanel15.TabIndex = 14;
             // 
             // label19
@@ -1936,7 +2199,7 @@ namespace CRS
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label19.Location = new System.Drawing.Point(3, 86);
+            this.label19.Location = new System.Drawing.Point(3, 87);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(129, 28);
             this.label19.TabIndex = 13;
@@ -1979,9 +2242,9 @@ namespace CRS
             this.label54.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label54.Location = new System.Drawing.Point(3, 31);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(129, 55);
+            this.label54.Size = new System.Drawing.Size(129, 56);
             this.label54.TabIndex = 14;
-            this.label54.Text = "0.0";
+            this.label54.Text = "----";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel6
@@ -1997,14 +2260,14 @@ namespace CRS
             this.tableLayoutPanel6.Controls.Add(this.label53, 0, 1);
             this.tableLayoutPanel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(165, 274);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(165, 276);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(135, 114);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(135, 115);
             this.tableLayoutPanel6.TabIndex = 14;
             // 
             // label17
@@ -2014,7 +2277,7 @@ namespace CRS
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label17.Location = new System.Drawing.Point(3, 86);
+            this.label17.Location = new System.Drawing.Point(3, 87);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(129, 28);
             this.label17.TabIndex = 13;
@@ -2057,9 +2320,9 @@ namespace CRS
             this.label53.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label53.Location = new System.Drawing.Point(3, 31);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(129, 55);
+            this.label53.Size = new System.Drawing.Size(129, 56);
             this.label53.TabIndex = 14;
-            this.label53.Text = "0.0";
+            this.label53.Text = "----";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel5
@@ -2075,14 +2338,14 @@ namespace CRS
             this.tableLayoutPanel5.Controls.Add(this.label44, 0, 1);
             this.tableLayoutPanel5.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(10, 142);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(10, 143);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(135, 112);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(135, 113);
             this.tableLayoutPanel5.TabIndex = 14;
             // 
             // label15
@@ -2094,7 +2357,7 @@ namespace CRS
             this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label15.Location = new System.Drawing.Point(3, 85);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(129, 27);
+            this.label15.Size = new System.Drawing.Size(129, 28);
             this.label15.TabIndex = 13;
             this.label15.Text = "CURRENT";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2137,7 +2400,7 @@ namespace CRS
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(129, 54);
             this.label44.TabIndex = 14;
-            this.label44.Text = "0.0";
+            this.label44.Text = "----";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel13
@@ -2146,10 +2409,10 @@ namespace CRS
             this.tableLayoutPanel3.SetColumnSpan(this.panel13, 3);
             this.panel13.ContextMenuStrip = this.tilePopUpMenu;
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(10, 408);
+            this.panel13.Location = new System.Drawing.Point(10, 411);
             this.panel13.Margin = new System.Windows.Forms.Padding(10);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(445, 140);
+            this.panel13.Size = new System.Drawing.Size(445, 141);
             this.panel13.TabIndex = 22;
             // 
             // tableLayoutPanel4
@@ -2172,7 +2435,7 @@ namespace CRS
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(135, 112);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(135, 113);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // label31
@@ -2184,7 +2447,7 @@ namespace CRS
             this.label31.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label31.Location = new System.Drawing.Point(3, 85);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(129, 27);
+            this.label31.Size = new System.Drawing.Size(129, 28);
             this.label31.TabIndex = 10;
             this.label31.Text = "CURRENT";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2227,7 +2490,7 @@ namespace CRS
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(129, 54);
             this.label40.TabIndex = 11;
-            this.label40.Text = "0.0";
+            this.label40.Text = "----";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel7
@@ -2243,14 +2506,14 @@ namespace CRS
             this.tableLayoutPanel7.Controls.Add(this.label49, 0, 1);
             this.tableLayoutPanel7.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(320, 142);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(320, 143);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(135, 112);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(135, 113);
             this.tableLayoutPanel7.TabIndex = 17;
             // 
             // panel17
@@ -2287,7 +2550,7 @@ namespace CRS
             this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label42.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.label42.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label42.Location = new System.Drawing.Point(3, 85);
+            this.label42.Location = new System.Drawing.Point(3, 86);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(129, 27);
             this.label42.TabIndex = 15;
@@ -2303,9 +2566,9 @@ namespace CRS
             this.label49.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label49.Location = new System.Drawing.Point(3, 33);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(129, 52);
+            this.label49.Size = new System.Drawing.Size(129, 53);
             this.label49.TabIndex = 16;
-            this.label49.Text = "0.0";
+            this.label49.Text = "----";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
@@ -2321,14 +2584,14 @@ namespace CRS
             this.tableLayoutPanel8.Controls.Add(this.label46, 0, 1);
             this.tableLayoutPanel8.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(165, 142);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(165, 143);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 3;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(135, 112);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(135, 113);
             this.tableLayoutPanel8.TabIndex = 16;
             // 
             // label43
@@ -2338,7 +2601,7 @@ namespace CRS
             this.label43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label43.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.label43.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label43.Location = new System.Drawing.Point(3, 85);
+            this.label43.Location = new System.Drawing.Point(3, 86);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(129, 27);
             this.label43.TabIndex = 14;
@@ -2381,9 +2644,9 @@ namespace CRS
             this.label46.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label46.Location = new System.Drawing.Point(3, 33);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(129, 52);
+            this.label46.Size = new System.Drawing.Size(129, 53);
             this.label46.TabIndex = 15;
-            this.label46.Text = "0.0";
+            this.label46.Text = "----";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
@@ -2406,7 +2669,7 @@ namespace CRS
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(135, 112);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(135, 113);
             this.tableLayoutPanel9.TabIndex = 15;
             // 
             // panel19
@@ -2445,7 +2708,7 @@ namespace CRS
             this.label48.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label48.Location = new System.Drawing.Point(3, 85);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(129, 27);
+            this.label48.Size = new System.Drawing.Size(129, 28);
             this.label48.TabIndex = 9;
             this.label48.Text = "CURRENT";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2461,12 +2724,13 @@ namespace CRS
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(129, 54);
             this.label32.TabIndex = 10;
-            this.label32.Text = "0.0";
+            this.label32.Text = "----";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel10.BackgroundImage")));
             this.tableLayoutPanel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -2483,7 +2747,7 @@ namespace CRS
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.1358F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.8642F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(135, 112);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(135, 113);
             this.tableLayoutPanel10.TabIndex = 14;
             // 
             // panel20
@@ -2523,7 +2787,7 @@ namespace CRS
             this.label51.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label51.Location = new System.Drawing.Point(35, 87);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(64, 25);
+            this.label51.Size = new System.Drawing.Size(64, 26);
             this.label51.TabIndex = 8;
             this.label51.Text = "CURRENT";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2539,7 +2803,7 @@ namespace CRS
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(129, 56);
             this.label61.TabIndex = 9;
-            this.label61.Text = "0.0";
+            this.label61.Text = "----";
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chart1
@@ -2553,7 +2817,6 @@ namespace CRS
             this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(468, 3);
             this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             this.tableLayoutPanel3.SetRowSpan(this.chart1, 4);
             series19.ChartArea = "ChartArea1";
             series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
@@ -2611,27 +2874,35 @@ namespace CRS
             series29.ChartArea = "ChartArea1";
             series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series29.Legend = "Legend1";
-            series29.Name = "Temp1";
+            series29.Name = "T(cell)";
             series30.ChartArea = "ChartArea1";
             series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series30.Legend = "Legend1";
-            series30.Name = "Temp2";
+            series30.Name = "Efficiency";
             series31.ChartArea = "ChartArea1";
             series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series31.Legend = "Legend1";
-            series31.Name = "T(cell)";
+            series31.Name = "I.Flow";
             series32.ChartArea = "ChartArea1";
             series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series32.Legend = "Legend1";
-            series32.Name = "Efficiency";
+            series32.Name = "Draft";
             series33.ChartArea = "ChartArea1";
             series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series33.Legend = "Legend1";
-            series33.Name = "Flow";
+            series33.Name = "Losses";
             series34.ChartArea = "ChartArea1";
             series34.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series34.Legend = "Legend1";
-            series34.Name = "NH3";
+            series34.Name = "Excess Air";
+            series35.ChartArea = "ChartArea1";
+            series35.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series35.Legend = "Legend1";
+            series35.Name = "CO(mass)";
+            series36.ChartArea = "ChartArea1";
+            series36.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series36.Legend = "Legend1";
+            series36.Name = "NOx(mass)";
             this.chart1.Series.Add(series19);
             this.chart1.Series.Add(series20);
             this.chart1.Series.Add(series21);
@@ -2648,7 +2919,9 @@ namespace CRS
             this.chart1.Series.Add(series32);
             this.chart1.Series.Add(series33);
             this.chart1.Series.Add(series34);
-            this.chart1.Size = new System.Drawing.Size(537, 552);
+            this.chart1.Series.Add(series35);
+            this.chart1.Series.Add(series36);
+            this.chart1.Size = new System.Drawing.Size(537, 556);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
             // 
@@ -2665,14 +2938,14 @@ namespace CRS
             this.tableLayoutPanel13.Controls.Add(this.label52, 0, 1);
             this.tableLayoutPanel13.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(10, 274);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(10, 276);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 3;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(135, 114);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(135, 115);
             this.tableLayoutPanel13.TabIndex = 11;
             // 
             // label59
@@ -2682,7 +2955,7 @@ namespace CRS
             this.label59.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label59.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.label59.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label59.Location = new System.Drawing.Point(3, 86);
+            this.label59.Location = new System.Drawing.Point(3, 87);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(129, 28);
             this.label59.TabIndex = 13;
@@ -2725,9 +2998,9 @@ namespace CRS
             this.label52.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label52.Location = new System.Drawing.Point(3, 31);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(129, 55);
+            this.label52.Size = new System.Drawing.Size(129, 56);
             this.label52.TabIndex = 14;
-            this.label52.Text = "0.0";
+            this.label52.Text = "----";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage4
@@ -2737,13 +3010,14 @@ namespace CRS
             this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1014, 564);
+            this.tabPage4.Size = new System.Drawing.Size(1014, 568);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Analyzer Control";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel12
             // 
+            this.tableLayoutPanel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.75793F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.24206F));
@@ -2754,7 +3028,7 @@ namespace CRS
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(1008, 558);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1008, 562);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // panel4
@@ -2766,7 +3040,7 @@ namespace CRS
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(677, 552);
+            this.panel4.Size = new System.Drawing.Size(677, 556);
             this.panel4.TabIndex = 5;
             // 
             // button16
@@ -2774,7 +3048,7 @@ namespace CRS
             this.button16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button16.Location = new System.Drawing.Point(162, 156);
+            this.button16.Location = new System.Drawing.Point(162, 158);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(188, 28);
             this.button16.TabIndex = 1;
@@ -2787,7 +3061,7 @@ namespace CRS
             this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button15.Location = new System.Drawing.Point(188, 57);
+            this.button15.Location = new System.Drawing.Point(188, 61);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(188, 26);
             this.button15.TabIndex = 0;
@@ -3008,6 +3282,26 @@ namespace CRS
             this.battB_Vlbl.TabIndex = 21;
             this.battB_Vlbl.Text = "label66";
             // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.BackgroundImage = global::CRS.Properties.Resources.status_box;
+            this.tableLayoutPanel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.57732F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.42268F));
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(28, -3);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 7;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(194, 47);
+            this.tableLayoutPanel11.TabIndex = 25;
+            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Transparent;
@@ -3196,337 +3490,6 @@ namespace CRS
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
-            // sTile11
-            // 
-            this.sTile11.BackColor = System.Drawing.Color.Black;
-            this.sTile11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile11.BackgroundImage")));
-            this.sTile11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.sTile11.ColumnCount = 1;
-            this.sTile11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sTile11.ContextMenuStrip = this.tilePopUpMenu;
-            this.sTile11.Controls.Add(this.tileButton12, 0, 2);
-            this.sTile11.Controls.Add(this.label12, 0, 1);
-            this.sTile11.Controls.Add(this.tileLabel12, 0, 0);
-            this.sTile11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sTile11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile11.Location = new System.Drawing.Point(610, 382);
-            this.sTile11.Margin = new System.Windows.Forms.Padding(10);
-            this.sTile11.Name = "sTile11";
-            this.sTile11.RowCount = 3;
-            this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
-            this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile11.Size = new System.Drawing.Size(180, 166);
-            this.sTile11.TabIndex = 26;
-            // 
-            // tileButton12
-            // 
-            this.tileButton12.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton12.FlatAppearance.BorderSize = 0;
-            this.tileButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.tileButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tileButton12.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton12.ForeColor = System.Drawing.Color.Silver;
-            this.tileButton12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton12.Location = new System.Drawing.Point(3, 126);
-            this.tileButton12.Name = "tileButton12";
-            this.tileButton12.Size = new System.Drawing.Size(174, 37);
-            this.tileButton12.TabIndex = 16;
-            this.tileButton12.Text = "0.0 AVG";
-            this.toolTip1.SetToolTip(this.tileButton12, "Click here to reset average");
-            this.tileButton12.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(3, 42);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(174, 81);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "----";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tileLabel12
-            // 
-            this.tileLabel12.AutoSize = true;
-            this.tileLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.tileLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileLabel12.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
-            this.tileLabel12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileLabel12.Location = new System.Drawing.Point(3, 0);
-            this.tileLabel12.Name = "tileLabel12";
-            this.tileLabel12.Size = new System.Drawing.Size(174, 42);
-            this.tileLabel12.TabIndex = 15;
-            this.tileLabel12.Text = "Efficiency %";
-            this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // sTile10
-            // 
-            this.sTile10.BackColor = System.Drawing.Color.Black;
-            this.sTile10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile10.BackgroundImage")));
-            this.sTile10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.sTile10.ColumnCount = 1;
-            this.sTile10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sTile10.ContextMenuStrip = this.tilePopUpMenu;
-            this.sTile10.Controls.Add(this.tileButton11, 0, 2);
-            this.sTile10.Controls.Add(this.label11, 0, 1);
-            this.sTile10.Controls.Add(this.tileLabel11, 0, 0);
-            this.sTile10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sTile10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile10.Location = new System.Drawing.Point(410, 382);
-            this.sTile10.Margin = new System.Windows.Forms.Padding(10);
-            this.sTile10.Name = "sTile10";
-            this.sTile10.RowCount = 3;
-            this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
-            this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile10.Size = new System.Drawing.Size(180, 166);
-            this.sTile10.TabIndex = 27;
-            // 
-            // tileButton11
-            // 
-            this.tileButton11.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton11.FlatAppearance.BorderSize = 0;
-            this.tileButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.tileButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tileButton11.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton11.ForeColor = System.Drawing.Color.Silver;
-            this.tileButton11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton11.Location = new System.Drawing.Point(3, 126);
-            this.tileButton11.Name = "tileButton11";
-            this.tileButton11.Size = new System.Drawing.Size(174, 37);
-            this.tileButton11.TabIndex = 16;
-            this.tileButton11.Text = "0.0 AVG";
-            this.toolTip1.SetToolTip(this.tileButton11, "Click here to reset average");
-            this.tileButton11.UseVisualStyleBackColor = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(3, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(174, 81);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "----";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tileLabel11
-            // 
-            this.tileLabel11.AutoSize = true;
-            this.tileLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.tileLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileLabel11.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
-            this.tileLabel11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileLabel11.Location = new System.Drawing.Point(3, 0);
-            this.tileLabel11.Name = "tileLabel11";
-            this.tileLabel11.Size = new System.Drawing.Size(174, 42);
-            this.tileLabel11.TabIndex = 15;
-            this.tileLabel11.Text = "T(cell)°F";
-            this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // sTile9
-            // 
-            this.sTile9.BackColor = System.Drawing.Color.Black;
-            this.sTile9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile9.BackgroundImage")));
-            this.sTile9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.sTile9.ColumnCount = 1;
-            this.sTile9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sTile9.ContextMenuStrip = this.tilePopUpMenu;
-            this.sTile9.Controls.Add(this.tileButton10, 0, 2);
-            this.sTile9.Controls.Add(this.label10, 0, 1);
-            this.sTile9.Controls.Add(this.tileLabel10, 0, 0);
-            this.sTile9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sTile9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile9.Location = new System.Drawing.Point(210, 382);
-            this.sTile9.Margin = new System.Windows.Forms.Padding(10);
-            this.sTile9.Name = "sTile9";
-            this.sTile9.RowCount = 3;
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile9.Size = new System.Drawing.Size(180, 166);
-            this.sTile9.TabIndex = 28;
-            // 
-            // tileButton10
-            // 
-            this.tileButton10.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton10.FlatAppearance.BorderSize = 0;
-            this.tileButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.tileButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tileButton10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton10.ForeColor = System.Drawing.Color.Silver;
-            this.tileButton10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton10.Location = new System.Drawing.Point(3, 126);
-            this.tileButton10.Name = "tileButton10";
-            this.tileButton10.Size = new System.Drawing.Size(174, 37);
-            this.tileButton10.TabIndex = 16;
-            this.tileButton10.Text = "0.0 AVG";
-            this.toolTip1.SetToolTip(this.tileButton10, "Click here to reset average");
-            this.tileButton10.UseVisualStyleBackColor = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(3, 42);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(174, 81);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "----";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tileLabel10
-            // 
-            this.tileLabel10.AutoSize = true;
-            this.tileLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.tileLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileLabel10.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
-            this.tileLabel10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileLabel10.Location = new System.Drawing.Point(3, 0);
-            this.tileLabel10.Name = "tileLabel10";
-            this.tileLabel10.Size = new System.Drawing.Size(174, 42);
-            this.tileLabel10.TabIndex = 15;
-            this.tileLabel10.Text = "T(amb)°F";
-            this.tileLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // sTile8
-            // 
-            this.sTile8.BackColor = System.Drawing.Color.Black;
-            this.sTile8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sTile8.BackgroundImage")));
-            this.sTile8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.sTile8.ColumnCount = 1;
-            this.sTile8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sTile8.ContextMenuStrip = this.tilePopUpMenu;
-            this.sTile8.Controls.Add(this.tileButton9, 0, 2);
-            this.sTile8.Controls.Add(this.label9, 0, 1);
-            this.sTile8.Controls.Add(this.tileLabel9, 0, 0);
-            this.sTile8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sTile8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile8.Location = new System.Drawing.Point(10, 382);
-            this.sTile8.Margin = new System.Windows.Forms.Padding(10);
-            this.sTile8.Name = "sTile8";
-            this.sTile8.RowCount = 3;
-            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
-            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile8.Size = new System.Drawing.Size(180, 166);
-            this.sTile8.TabIndex = 29;
-            // 
-            // tileButton9
-            // 
-            this.tileButton9.BackColor = System.Drawing.Color.Transparent;
-            this.tileButton9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileButton9.FlatAppearance.BorderSize = 0;
-            this.tileButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.tileButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tileButton9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileButton9.ForeColor = System.Drawing.Color.Silver;
-            this.tileButton9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileButton9.Location = new System.Drawing.Point(3, 126);
-            this.tileButton9.Name = "tileButton9";
-            this.tileButton9.Size = new System.Drawing.Size(174, 37);
-            this.tileButton9.TabIndex = 16;
-            this.tileButton9.Text = "0.0 AVG";
-            this.toolTip1.SetToolTip(this.tileButton9, "Click here to reset average");
-            this.tileButton9.UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(3, 42);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(174, 81);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "----";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tileLabel9
-            // 
-            this.tileLabel9.AutoSize = true;
-            this.tileLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.tileLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileLabel9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
-            this.tileLabel9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tileLabel9.Location = new System.Drawing.Point(3, 0);
-            this.tileLabel9.Name = "tileLabel9";
-            this.tileLabel9.Size = new System.Drawing.Size(174, 42);
-            this.tileLabel9.TabIndex = 15;
-            this.tileLabel9.Text = "NOx ppm";
-            this.tileLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel19
-            // 
-            this.tableLayoutPanel19.ColumnCount = 2;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Controls.Add(this.cycleLabel, 0, 4);
-            this.tableLayoutPanel19.Controls.Add(this.pTimelbl, 1, 7);
-            this.tableLayoutPanel19.Controls.Add(this.plbl, 0, 7);
-            this.tableLayoutPanel19.Controls.Add(this.rTimelbl, 1, 6);
-            this.tableLayoutPanel19.Controls.Add(this.rlbl, 0, 6);
-            this.tableLayoutPanel19.Controls.Add(this.tTimelbl, 1, 5);
-            this.tableLayoutPanel19.Controls.Add(this.tlbl, 0, 5);
-            this.tableLayoutPanel19.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.label21, 0, 1);
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(803, 3);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 9;
-            this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel19, 3);
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(198, 420);
-            this.tableLayoutPanel19.TabIndex = 31;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.tableLayoutPanel19.SetColumnSpan(this.label13, 2);
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(192, 20);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Not Connected";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.tableLayoutPanel19.SetColumnSpan(this.label21, 2);
-            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Location = new System.Drawing.Point(3, 20);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(192, 20);
-            this.label21.TabIndex = 31;
-            this.label21.Text = "1sec Samples";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3550,6 +3513,14 @@ namespace CRS
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.sTile8.ResumeLayout(false);
+            this.sTile8.PerformLayout();
+            this.sTile9.ResumeLayout(false);
+            this.sTile9.PerformLayout();
+            this.sTile10.ResumeLayout(false);
+            this.sTile10.PerformLayout();
+            this.sTile11.ResumeLayout(false);
+            this.sTile11.PerformLayout();
             this.sTile2.ResumeLayout(false);
             this.sTile2.PerformLayout();
             this.sTile7.ResumeLayout(false);
@@ -3566,6 +3537,8 @@ namespace CRS
             this.sTile4.PerformLayout();
             this.sTile0.ResumeLayout(false);
             this.sTile0.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -3627,16 +3600,6 @@ namespace CRS
             this.panel7.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.sTile11.ResumeLayout(false);
-            this.sTile11.PerformLayout();
-            this.sTile10.ResumeLayout(false);
-            this.sTile10.PerformLayout();
-            this.sTile9.ResumeLayout(false);
-            this.sTile9.PerformLayout();
-            this.sTile8.ResumeLayout(false);
-            this.sTile8.PerformLayout();
-            this.tableLayoutPanel19.ResumeLayout(false);
-            this.tableLayoutPanel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3667,13 +3630,6 @@ namespace CRS
         private System.Windows.Forms.ToolStripMenuItem configureReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem performPreAndPostCalibrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupCommunictaionPortsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewCalibrationInfoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enterCalGasInfoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem preTestCalibrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem postTestCalibrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem abortCalibrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveReportToolStripMenuItem;
 
 
@@ -3880,6 +3836,7 @@ namespace CRS
         private TableLayoutPanel tableLayoutPanel19;
         private Label label13;
         private Label label21;
+        private Label label14;
 
 
     }

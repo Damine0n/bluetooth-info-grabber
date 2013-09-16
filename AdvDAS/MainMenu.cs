@@ -66,7 +66,10 @@ namespace CRS
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
             if (protocol.processProtocol().Equals(true))
+            {
+                MessageBox.Show(protocol.processProtocol().ToString());
                 dataGridTimer.Start();
+            }
             tabArea = tabControl1.GetTabRect(0);
             tabTextArea = (RectangleF)tabControl1.GetTabRect(0);
         }
@@ -578,6 +581,7 @@ namespace CRS
             {
                 elementTable.Rows.Add(elements[i].Name, elements[i].Value, elements[i].Unit);
                 trendGraph.Series[i].Enabled = false;
+                chart1.Series[i].Enabled = false;
             }
         }
         private void elementTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -595,7 +599,12 @@ namespace CRS
                         {
                             series.Points.Clear();
                         }
+                        foreach (var series in chart1.Series)
+                        {
+                            series.Points.Clear();
+                        }
                         trendGraph.Series[e.RowIndex].Enabled = true;
+                        chart1.Series[e.RowIndex].Enabled = true;
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -605,6 +614,7 @@ namespace CRS
                 else
                 {
                     trendGraph.Series[e.RowIndex].Enabled = false;
+                    chart1.Series[e.RowIndex].Enabled = false;
                 }
             }
         }
@@ -612,26 +622,11 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            switch (nums)
-            {
-                case 1:
-                    connectionStatusLabel.Text = "Connected.  ";
-                    nums++;
-                    break;
-                case 2:
-                    connectionStatusLabel.Text = "Connected.. ";
-                    nums++;
-                    break;
-                case 3:
-                    connectionStatusLabel.Text = "Connected...";
-                    nums = 1;
-                    break;
-                default:
-                    connectionStatusLabel.Text = "Not Connected";
-                    break;
-            }
+            label13.Text= "Connected";
+            label13.ForeColor = Color.Green;
 
             dataGridTimer.Interval = dgInterval;
+            label21.Text = dgInterval / 1000 + "sec(s) Sample Rate";
             //get all values
             Connection.protocol.processProtocol();
             //get Serial Number
@@ -644,40 +639,58 @@ namespace CRS
             Connection.protocol.processProtocol("$0A054E");
             elementTable.Rows[0].Cells[1].Value = Connection.protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
+            chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             elementTable.Rows[1].Cells[1].Value = Connection.protocol.vCO;
             trendGraph.Series[1].Points.AddY(elementTable.Rows[1].Cells[1].Value);
+            chart1.Series[1].Points.AddY(elementTable.Rows[1].Cells[1].Value);
             elementTable.Rows[2].Cells[1].Value = Connection.protocol.vCO2;
             trendGraph.Series[2].Points.AddY(elementTable.Rows[2].Cells[1].Value);
+            chart1.Series[2].Points.AddY(elementTable.Rows[2].Cells[1].Value);
             elementTable.Rows[3].Cells[1].Value = Connection.protocol.vNO;
             trendGraph.Series[3].Points.AddY(elementTable.Rows[3].Cells[1].Value);
+            chart1.Series[3].Points.AddY(elementTable.Rows[3].Cells[1].Value);
             elementTable.Rows[4].Cells[1].Value = Connection.protocol.vNO2;
             trendGraph.Series[4].Points.AddY(elementTable.Rows[4].Cells[1].Value);
+            chart1.Series[4].Points.AddY(elementTable.Rows[4].Cells[1].Value);
             elementTable.Rows[5].Cells[1].Value = Connection.protocol.vNOx;
             trendGraph.Series[5].Points.AddY(elementTable.Rows[5].Cells[1].Value);
+            chart1.Series[5].Points.AddY(elementTable.Rows[5].Cells[1].Value);
             elementTable.Rows[6].Cells[1].Value = Connection.protocol.vSO2;
             trendGraph.Series[6].Points.AddY(elementTable.Rows[6].Cells[1].Value);
+            chart1.Series[6].Points.AddY(elementTable.Rows[6].Cells[1].Value);
             elementTable.Rows[7].Cells[1].Value = Connection.protocol.vCxHy;
             trendGraph.Series[7].Points.AddY(elementTable.Rows[7].Cells[1].Value);
+            chart1.Series[7].Points.AddY(elementTable.Rows[7].Cells[1].Value);
             elementTable.Rows[8].Cells[1].Value = Connection.protocol.vTgas;
             trendGraph.Series[8].Points.AddY(elementTable.Rows[8].Cells[1].Value);
+            chart1.Series[8].Points.AddY(elementTable.Rows[8].Cells[1].Value);
             elementTable.Rows[9].Cells[1].Value = Connection.protocol.vTamb;
             trendGraph.Series[9].Points.AddY(elementTable.Rows[9].Cells[1].Value);
+            chart1.Series[9].Points.AddY(elementTable.Rows[9].Cells[1].Value);
             elementTable.Rows[10].Cells[1].Value = Connection.protocol.vTcell;
             trendGraph.Series[10].Points.AddY(elementTable.Rows[10].Cells[1].Value);
+            chart1.Series[10].Points.AddY(elementTable.Rows[10].Cells[1].Value);
             elementTable.Rows[11].Cells[1].Value = Connection.protocol.vEfficiency;
             trendGraph.Series[11].Points.AddY(elementTable.Rows[11].Cells[1].Value);
+            chart1.Series[11].Points.AddY(elementTable.Rows[11].Cells[1].Value);
             elementTable.Rows[12].Cells[1].Value = Connection.protocol.vIFlow;
             trendGraph.Series[12].Points.AddY(elementTable.Rows[12].Cells[1].Value);
+            chart1.Series[12].Points.AddY(elementTable.Rows[12].Cells[1].Value);
             elementTable.Rows[13].Cells[1].Value = Connection.protocol.vDraft;
             trendGraph.Series[13].Points.AddY(elementTable.Rows[13].Cells[1].Value);
+            chart1.Series[13].Points.AddY(elementTable.Rows[13].Cells[1].Value);
             elementTable.Rows[14].Cells[1].Value = Connection.protocol.vLosses;
             trendGraph.Series[14].Points.AddY(elementTable.Rows[14].Cells[1].Value);
+            chart1.Series[14].Points.AddY(elementTable.Rows[14].Cells[1].Value);
             elementTable.Rows[15].Cells[1].Value = Connection.protocol.vExcessAir;
             trendGraph.Series[15].Points.AddY(elementTable.Rows[15].Cells[1].Value);
+            chart1.Series[15].Points.AddY(elementTable.Rows[15].Cells[1].Value);
             elementTable.Rows[16].Cells[1].Value = Connection.protocol.vCOmass;
             trendGraph.Series[16].Points.AddY(elementTable.Rows[16].Cells[1].Value);
+            chart1.Series[16].Points.AddY(elementTable.Rows[16].Cells[1].Value);
             elementTable.Rows[17].Cells[1].Value = Connection.protocol.vNOxmass;
             trendGraph.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
+            chart1.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
             this.serialNO_lbl.Text = Connection.protocol.vSerialNumber;
             this.iflowlbl.Text = Connection.protocol.vIFlow;
         }
@@ -686,11 +699,6 @@ namespace CRS
         {
             elementTable.Rows[elementTable.RowCount - 2].Cells[2].Value = cUnit;
             elementTable.Rows[elementTable.RowCount - 1].Cells[2].Value = nUnit;
-        }
-
-        private void viewCalibrationInfoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caliForm.ShowDialog();
         }
 
         private void recordSign_Tick(object sender, EventArgs e)
@@ -826,9 +834,9 @@ namespace CRS
             g.DrawString("tabPage1", font, brush, tabTextArea);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void menuCalibrationItem_Click(object sender, EventArgs e)
         {
-
+            caliForm.ShowDialog();
         }
     }
 }

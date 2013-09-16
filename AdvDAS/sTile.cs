@@ -83,12 +83,20 @@ namespace CRS
                     this.lbl1.Text = elementComboBox.Text;
                     string CO_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
                     protocol.populateCorrection(1,Convert.ToDouble(CO_C));
-                    valLabel.Text = protocol.vCO_C;
-                    nums.Add(Convert.ToDouble(protocol.vCO_C));
+                    valLabel.Text = protocol.tempvCO_C;
+                    nums.Add(Convert.ToDouble(protocol.tempvCO_C));
                     average = nums.Average().ToString("0.0");
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vCO_C;
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
                     break;
                 case 7:
                     this.lbl1.Text = elementComboBox.Text;
@@ -158,6 +166,14 @@ namespace CRS
                     aveLabel.Text = average;
                     btn.Text = average + " AVG";
                     this.lbl2.Text = protocol.vNOx_C;
+                    break;
+                case 14:
+                    break;
+                case 15:
+                    break;
+                case 16:
+                    break;
+                case 17:
                     break;
                 case 18:
                     this.lbl1.Text = elementComboBox.Text;

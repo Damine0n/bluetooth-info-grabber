@@ -42,6 +42,12 @@ namespace CRS
         public string ipAddress = "192.168.55.1";
         public IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
         Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        public string tempvCO_C;
+        public string tempvNO_C;
+        public string tempvNO2_C;
+        public string tempvNOx_C;
+        public string tempvSO2_C;
+        public string tempvCxHy_C;
         public J2KNProtocol()
         {
         }
@@ -58,97 +64,101 @@ namespace CRS
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
             if (!clientSocket.Connected)
-                //clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
+            {
                 try
                 {
-                    sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
-                    clientSocket.Send(sendPacket);
-                    clientSocket.ReceiveTimeout = 4000;
-                    clientSocket.Receive(receivedBytes);
+                    clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
                 }
                 catch
                 {
-                    MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication");
+                    //MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication'");
                     return false;
                 }
-            try
-            {
+                sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
+                clientSocket.Send(sendPacket);
+                clientSocket.ReceiveTimeout = 4000;
+                clientSocket.Receive(receivedBytes);
 
-                string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
-                iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
-                if (iValue >= 32767 || iValue == 0)
-                    vO2 = "0.0";
-                else
-                    vO2 = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[4].Substring(2, arr[4].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vCO = "0.0";
-                else
-                    vCO = (iValue).ToString();
-                iValue = (Convert.ToInt32(arr[5].Substring(2, arr[5].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vNO = "0.0";
-                else
-                    vNO = (iValue).ToString();
-                iValue = (Convert.ToInt32(arr[6].Substring(2, arr[6].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vNO2 = "0.0";
-                else
-                    vNO2 = (iValue).ToString();
-                iValue = (Convert.ToInt32(arr[7].Substring(2, arr[7].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vSO2 = "0.0";
-                else
-                    vSO2 = (iValue).ToString();
-                iValue = (Convert.ToInt32(arr[8].Substring(2, arr[8].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vCxHy = "0.0";
-                else
-                    vCxHy = (iValue).ToString();
-                iValue = (Convert.ToInt32(arr[9].Substring(2, arr[9].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vDraft = "0.0";
-                else
-                    vDraft = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[10].Substring(2, arr[10].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vTamb = "0.0";
-                else
-                    vTamb = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[11].Substring(2, arr[11].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vTgas = "0.0";
-                else
-                    vTgas = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[12].Substring(2, arr[12].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vTcell = "0.0";
-                else
-                    vTcell = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[13].Substring(2, arr[13].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vExcessAir = "0.00";
-                else
-                    vExcessAir = (iValue / 100).ToString("0.00");
-                iValue = (Convert.ToInt32(arr[14].Substring(2, arr[14].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vEfficiency = "0.0";
-                else
-                    vEfficiency = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[15].Substring(2, arr[15].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vCO2 = "0.0";
-                else
-                    vCO2 = (iValue / 10).ToString("0.0");
-                iValue = (Convert.ToInt32(arr[16].Substring(2, arr[16].Length - 2), 16));
-                if (iValue >= 32767 || iValue == 0)
-                    vAccu = "0.0";
-                else
-                    vAccu = (iValue / 10).ToString("0.0");
-                clientSocket.Close();
+                try
+                {
+                    string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
+                    iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
+                    if (iValue >= 32767 || iValue == 0)
+                        vO2 = "0.0";
+                    else
+                        vO2 = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[4].Substring(2, arr[4].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vCO = "0.0";
+                    else
+                        vCO = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[5].Substring(2, arr[5].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vNO = "0.0";
+                    else
+                        vNO = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[6].Substring(2, arr[6].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vNO2 = "0.0";
+                    else
+                        vNO2 = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[7].Substring(2, arr[7].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vSO2 = "0.0";
+                    else
+                        vSO2 = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[8].Substring(2, arr[8].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vCxHy = "0.0";
+                    else
+                        vCxHy = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[9].Substring(2, arr[9].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vDraft = "0.0";
+                    else
+                        vDraft = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[10].Substring(2, arr[10].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vTamb = "0.0";
+                    else
+                        vTamb = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[11].Substring(2, arr[11].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vTgas = "0.0";
+                    else
+                        vTgas = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[12].Substring(2, arr[12].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vTcell = "0.0";
+                    else
+                        vTcell = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[13].Substring(2, arr[13].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vExcessAir = "0.00";
+                    else
+                        vExcessAir = (iValue / 100).ToString("0.00");
+                    iValue = (Convert.ToInt32(arr[14].Substring(2, arr[14].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vEfficiency = "0.0";
+                    else
+                        vEfficiency = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[15].Substring(2, arr[15].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vCO2 = "0.0";
+                    else
+                        vCO2 = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[16].Substring(2, arr[16].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vAccu = "0.0";
+                    else
+                        vAccu = (iValue / 10).ToString("0.0");
+                    clientSocket.Close();
+                }
+                catch { }
+
+                return true;
             }
-            catch { }
-            return clientSocket.Connected;
+            return false;
         }
         public void populateCorrection(int index, double num)
         {
@@ -157,27 +167,27 @@ namespace CRS
             {
                 case 1:
                     Emeas = Convert.ToDouble(vCO);
-                    vCO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                    tempvCO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 2:
                     Emeas = Convert.ToDouble(vNO);
-                    vNO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                    tempvNO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 3:
                     Emeas = Convert.ToDouble(vNO2);
-                    vNO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                    tempvNO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 4:
                     Emeas = Convert.ToDouble(vNOx);
-                    vNOx_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                    tempvNOx_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 5:
                     Emeas = Convert.ToDouble(vSO2);
-                    vSO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                    tempvSO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
                 case 6:
                     Emeas = Convert.ToDouble(vCxHy);
-                    vCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                    tempvCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
                     break;
             }
         }
@@ -217,7 +227,7 @@ namespace CRS
             return checksum.ToString("X2");
         }
 
-        internal void processProtocol(string p)
+        public void processProtocol(string p)
         {
             Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             byte[] sendPacket = new byte[256];
@@ -232,6 +242,7 @@ namespace CRS
                 }
                 catch
                 {
+                    MessageBox.Show("yup");
                     return;
                 }
             try
