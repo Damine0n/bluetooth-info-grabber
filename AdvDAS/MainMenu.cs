@@ -67,9 +67,10 @@ namespace CRS
             nUnit = "g/bhp-hr";
             if (protocol.processProtocol().Equals(true))
             {
-                MessageBox.Show(protocol.processProtocol().ToString());
                 dataGridTimer.Start();
             }
+            else
+                MessageBox.Show(protocol.processProtocol().ToString());
             tabArea = tabControl1.GetTabRect(0);
             tabTextArea = (RectangleF)tabControl1.GetTabRect(0);
         }
@@ -185,7 +186,7 @@ namespace CRS
         {
             NotesForm note = new NotesForm();
             note.ShowDialog();
-            //new GasAnalysis(protocol).newEntry(note.snapNote);
+            new GasAnalysis(protocol).newEntry(note.snapNote);
         }
         //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
@@ -236,7 +237,14 @@ namespace CRS
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (!numOfCycles.Equals("\u221e"))
+            {
                 cycles = Convert.ToInt32(numOfCycles);
+                label22.Text = cycles + " of "+numOfCycles;
+            }
+            else
+            {
+                cycleLabel.Text = "Cycle: " + "\u221e";
+            }
             for (int i = 1; i <=cycles; i++)
             {
                 if (rampUpMethod())
@@ -252,15 +260,15 @@ namespace CRS
                     
                 }
             }
-            this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
+            //this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
         }
         private bool rampUpMethod()
         {
             if (!rampUp.ToString("HH:mm:ss").Equals("00:00:00"))
             {
-                this.recordingProgressBar.Value = 0;
-                this.recordingProgressBar.Maximum = rampUp.Hour * (60 * 60) + rampUp.Minute * 60 + rampUp.Second;
-                this.recordingProgressBar.Increment(1);
+                //this.recordingProgressBar.Value = 0;
+                //this.recordingProgressBar.Maximum = rampUp.Hour * (60 * 60) + rampUp.Minute * 60 + rampUp.Second;
+                //this.recordingProgressBar.Increment(1);
                 rampUp = rampUp.AddSeconds(-1);
                 rTimelbl.Text = rampUp.ToString("HH:mm:ss");
                 running = running.AddSeconds(1);
@@ -277,9 +285,9 @@ namespace CRS
             if (!testData.ToString("HH:mm:ss").Equals("00:00:00"))
             {
                 rampUp.ToString("00:00:00");
-                this.recordingProgressBar.Value = 0;
-                this.recordingProgressBar.Maximum = testData.Hour * (60 * 60) + testData.Minute * 60 + testData.Second;
-                this.recordingProgressBar.Increment(1);
+                //this.recordingProgressBar.Value = 0;
+                //this.recordingProgressBar.Maximum = testData.Hour * (60 * 60) + testData.Minute * 60 + testData.Second;
+                //this.recordingProgressBar.Increment(1);
                 testData = testData.AddSeconds(-1);
                 tTimelbl.Text = testData.ToString("HH:mm:ss");
                 running = running.AddSeconds(1);
@@ -298,9 +306,9 @@ namespace CRS
             {
                 testData.ToString("00:00:00");
                 protocol.processProtocol("$0F1040");
-                this.recordingProgressBar.Value = 0;
-                this.recordingProgressBar.Maximum = purge.Hour * (60 * 60) + purge.Minute * 60 + purge.Second; ;
-                this.recordingProgressBar.Increment(1);
+                //this.recordingProgressBar.Value = 0;
+                //this.recordingProgressBar.Maximum = purge.Hour * (60 * 60) + purge.Minute * 60 + purge.Second; ;
+                //this.recordingProgressBar.Increment(1);
                 purge = purge.AddSeconds(-1);
                 pTimelbl.Text = purge.ToString("HH:mm:ss");
                 running = running.AddSeconds(1);
@@ -321,7 +329,7 @@ namespace CRS
         {
             DateTime now = DateTime.Now;
             this.clock_lbl.Text = now.ToString();
-            this.recordTimeLabel.Text = "Total Test Time = " + testTime.ToString("HH:mm:ss");
+            this.recordTimeLabel.Text = testTime.ToString("HH:mm:ss");
             this.pTimelbl.Text = purge.ToString("HH:mm:ss");
             this.tTimelbl.Text = testData.ToString("HH:mm:ss");
             this.rTimelbl.Text = rampUp.ToString("HH:mm:ss");
@@ -626,73 +634,73 @@ namespace CRS
             label13.ForeColor = Color.Green;
 
             dataGridTimer.Interval = dgInterval;
-            label21.Text = dgInterval / 1000 + "sec(s) Sample Rate";
+            label23.Text = dgInterval / 1000 + " sec(s)";
             //get all values
-            Connection.protocol.processProtocol();
+            protocol.processProtocol();
             //get Serial Number
-            Connection.protocol.processProtocol("$0A0514");
+            protocol.processProtocol("$0A0514");
             //get losses number
-            Connection.protocol.processProtocol("$0A053D");
+            protocol.processProtocol("$0A053D");
             //get Internal Flow
-            Connection.protocol.processProtocol("$0A0531");
+            protocol.processProtocol("$0A0531");
             //get Nox Number
-            Connection.protocol.processProtocol("$0A054E");
-            elementTable.Rows[0].Cells[1].Value = Connection.protocol.vO2;
+            protocol.processProtocol("$0A054E");
+            elementTable.Rows[0].Cells[1].Value = protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
-            elementTable.Rows[1].Cells[1].Value = Connection.protocol.vCO;
+            elementTable.Rows[1].Cells[1].Value = protocol.vCO;
             trendGraph.Series[1].Points.AddY(elementTable.Rows[1].Cells[1].Value);
             chart1.Series[1].Points.AddY(elementTable.Rows[1].Cells[1].Value);
-            elementTable.Rows[2].Cells[1].Value = Connection.protocol.vCO2;
+            elementTable.Rows[2].Cells[1].Value = protocol.vCO2;
             trendGraph.Series[2].Points.AddY(elementTable.Rows[2].Cells[1].Value);
             chart1.Series[2].Points.AddY(elementTable.Rows[2].Cells[1].Value);
-            elementTable.Rows[3].Cells[1].Value = Connection.protocol.vNO;
+            elementTable.Rows[3].Cells[1].Value = protocol.vNO;
             trendGraph.Series[3].Points.AddY(elementTable.Rows[3].Cells[1].Value);
             chart1.Series[3].Points.AddY(elementTable.Rows[3].Cells[1].Value);
-            elementTable.Rows[4].Cells[1].Value = Connection.protocol.vNO2;
+            elementTable.Rows[4].Cells[1].Value = protocol.vNO2;
             trendGraph.Series[4].Points.AddY(elementTable.Rows[4].Cells[1].Value);
             chart1.Series[4].Points.AddY(elementTable.Rows[4].Cells[1].Value);
-            elementTable.Rows[5].Cells[1].Value = Connection.protocol.vNOx;
+            elementTable.Rows[5].Cells[1].Value = protocol.vNOx;
             trendGraph.Series[5].Points.AddY(elementTable.Rows[5].Cells[1].Value);
             chart1.Series[5].Points.AddY(elementTable.Rows[5].Cells[1].Value);
-            elementTable.Rows[6].Cells[1].Value = Connection.protocol.vSO2;
+            elementTable.Rows[6].Cells[1].Value = protocol.vSO2;
             trendGraph.Series[6].Points.AddY(elementTable.Rows[6].Cells[1].Value);
             chart1.Series[6].Points.AddY(elementTable.Rows[6].Cells[1].Value);
-            elementTable.Rows[7].Cells[1].Value = Connection.protocol.vCxHy;
+            elementTable.Rows[7].Cells[1].Value = protocol.vCxHy;
             trendGraph.Series[7].Points.AddY(elementTable.Rows[7].Cells[1].Value);
             chart1.Series[7].Points.AddY(elementTable.Rows[7].Cells[1].Value);
-            elementTable.Rows[8].Cells[1].Value = Connection.protocol.vTgas;
+            elementTable.Rows[8].Cells[1].Value = protocol.vTgas;
             trendGraph.Series[8].Points.AddY(elementTable.Rows[8].Cells[1].Value);
             chart1.Series[8].Points.AddY(elementTable.Rows[8].Cells[1].Value);
-            elementTable.Rows[9].Cells[1].Value = Connection.protocol.vTamb;
+            elementTable.Rows[9].Cells[1].Value = protocol.vTamb;
             trendGraph.Series[9].Points.AddY(elementTable.Rows[9].Cells[1].Value);
             chart1.Series[9].Points.AddY(elementTable.Rows[9].Cells[1].Value);
-            elementTable.Rows[10].Cells[1].Value = Connection.protocol.vTcell;
+            elementTable.Rows[10].Cells[1].Value = protocol.vTcell;
             trendGraph.Series[10].Points.AddY(elementTable.Rows[10].Cells[1].Value);
             chart1.Series[10].Points.AddY(elementTable.Rows[10].Cells[1].Value);
-            elementTable.Rows[11].Cells[1].Value = Connection.protocol.vEfficiency;
+            elementTable.Rows[11].Cells[1].Value = protocol.vEfficiency;
             trendGraph.Series[11].Points.AddY(elementTable.Rows[11].Cells[1].Value);
             chart1.Series[11].Points.AddY(elementTable.Rows[11].Cells[1].Value);
-            elementTable.Rows[12].Cells[1].Value = Connection.protocol.vIFlow;
+            elementTable.Rows[12].Cells[1].Value = protocol.vIFlow;
             trendGraph.Series[12].Points.AddY(elementTable.Rows[12].Cells[1].Value);
             chart1.Series[12].Points.AddY(elementTable.Rows[12].Cells[1].Value);
-            elementTable.Rows[13].Cells[1].Value = Connection.protocol.vDraft;
+            elementTable.Rows[13].Cells[1].Value = protocol.vDraft;
             trendGraph.Series[13].Points.AddY(elementTable.Rows[13].Cells[1].Value);
             chart1.Series[13].Points.AddY(elementTable.Rows[13].Cells[1].Value);
-            elementTable.Rows[14].Cells[1].Value = Connection.protocol.vLosses;
+            elementTable.Rows[14].Cells[1].Value = protocol.vLosses;
             trendGraph.Series[14].Points.AddY(elementTable.Rows[14].Cells[1].Value);
             chart1.Series[14].Points.AddY(elementTable.Rows[14].Cells[1].Value);
-            elementTable.Rows[15].Cells[1].Value = Connection.protocol.vExcessAir;
+            elementTable.Rows[15].Cells[1].Value = protocol.vExcessAir;
             trendGraph.Series[15].Points.AddY(elementTable.Rows[15].Cells[1].Value);
             chart1.Series[15].Points.AddY(elementTable.Rows[15].Cells[1].Value);
-            elementTable.Rows[16].Cells[1].Value = Connection.protocol.vCOmass;
+            elementTable.Rows[16].Cells[1].Value = protocol.vCOmass;
             trendGraph.Series[16].Points.AddY(elementTable.Rows[16].Cells[1].Value);
             chart1.Series[16].Points.AddY(elementTable.Rows[16].Cells[1].Value);
-            elementTable.Rows[17].Cells[1].Value = Connection.protocol.vNOxmass;
+            elementTable.Rows[17].Cells[1].Value = protocol.vNOxmass;
             trendGraph.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
             chart1.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
-            this.serialNO_lbl.Text = Connection.protocol.vSerialNumber;
-            this.iflowlbl.Text = Connection.protocol.vIFlow;
+            this.serialNO_lbl.Text = protocol.vSerialNumber;
+            this.iflowlbl.Text = protocol.vIFlow;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -812,12 +820,12 @@ namespace CRS
             this.snapShotButton.BackgroundImage = CRS.Properties.Resources.snapshot_A;
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void pPump_Click(object sender, EventArgs e)
         {
             protocol.processProtocol("$0F1063 0x20");
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void buzzer_Click(object sender, EventArgs e)
         {
             protocol.processProtocol("$0F1066 0x20");
         }
@@ -838,5 +846,22 @@ namespace CRS
         {
             caliForm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
+            configProcedure.ShowDialog();
+        }
+
+        private void viewTestRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewSnapshotsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

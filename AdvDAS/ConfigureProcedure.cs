@@ -33,9 +33,9 @@ namespace CRS
             this.rampUp = rampUp;
             this.testData = testData;
             this.purge = purge;
-            this.numOfCycles = numOfCycles;
             this.sampleRate = sampleRate/1000;
             this.cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(rampUp.ToString("HH:mm:ss")) + TimeSpan.Parse(testData.ToString("HH:mm:ss")) + TimeSpan.Parse(purge.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
+            this.numOfCycles = numOfCycles;
             populate();
         }
 
@@ -65,7 +65,7 @@ namespace CRS
                 this.label6.Enabled = false;
                 this.numericUpDown1.Enabled = false;
                 MessageBox.Show("Once the function is initiated, the analyzer will cycle continuously until the user stops the measurement.");
-                this.numOfCycles = "10000";
+                this.numOfCycles = "999";
             }else
             {
                 this.label6.Enabled = true;

@@ -30,8 +30,10 @@ namespace CRS
             this.lbl1 = tuple.Item1;
             this.lbl2 = tuple.Item2;
             this.btn = tuple.Item3;
-            if(protocol.processProtocol().Equals(true))
+            if (protocol.processProtocol().Equals(true))
+            {
                 timer1.Start();
+            }
         }
         public int Index
         {
@@ -53,12 +55,12 @@ namespace CRS
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (protocol.processProtocol().Equals(true))
-            {
-                protocol.processProtocol();
-                protocol.processProtocol("$0A0531");
-                protocol.processProtocol("$0A054E");
-            }
+            //if (protocol.processProtocol().Equals(true))
+            //{
+            //    protocol.processProtocol();
+            //    protocol.processProtocol("$0A0531");
+            //    protocol.processProtocol("$0A054E");
+            //}
             switch (elementComboBox.SelectedIndex)
             {
                 case 0:
@@ -301,6 +303,7 @@ namespace CRS
             protocol.processProtocol("$0A0531");
             protocol.processProtocol("$0A054E");
             timer1.Interval = MainMenu.dgInterval;
+            this.lbl2.Text = valLabel.Text;
             chartIt(valLabel.Text, average);
         }
 

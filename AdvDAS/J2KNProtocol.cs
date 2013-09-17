@@ -41,7 +41,6 @@ namespace CRS
         public string vSerialNumber = "";
         public string ipAddress = "192.168.55.1";
         public IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-        Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public string tempvCO_C;
         public string tempvNO_C;
         public string tempvNO2_C;
@@ -53,16 +52,17 @@ namespace CRS
         }
         public void disconnect()
         {
+            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             clientSocket.Disconnect(false);
         }
         public bool processProtocol()
         {
-
             byte[] sendPacket = new byte[256];
             string p = "$0802";
             string vbCr = "\r";
             byte[] receivedBytes = new byte[256];
             double iValue = 0;
+            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             if (!clientSocket.Connected)
             {
                 try
@@ -71,7 +71,7 @@ namespace CRS
                 }
                 catch
                 {
-                    //MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication'");
+                    MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication'");
                     return false;
                 }
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
