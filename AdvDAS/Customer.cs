@@ -17,7 +17,6 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         DataSet ds = new DataSet();
-        EquipmentSite eSite = new EquipmentSite();
         public Customer()
         {
             InitializeComponent();
@@ -204,11 +203,11 @@ namespace CRS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.tbCustomerID.Text = this.eSite.Text;
         }
 
         private void btnSite_Click(object sender, EventArgs e)
         {
+            EquipmentSite eSite = new EquipmentSite(tbCustomerID.Text);
             eSite.ShowDialog();
         }
 

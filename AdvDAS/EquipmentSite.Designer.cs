@@ -108,6 +108,7 @@
             // 
             // siteBox
             // 
+            this.siteBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.siteBox.FormattingEnabled = true;
             this.siteBox.Location = new System.Drawing.Point(6, 14);
             this.siteBox.Name = "siteBox";
@@ -117,6 +118,7 @@
             // 
             // equipBox
             // 
+            this.equipBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.equipBox.FormattingEnabled = true;
             this.equipBox.Location = new System.Drawing.Point(6, 14);
             this.equipBox.Name = "equipBox";

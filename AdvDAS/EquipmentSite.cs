@@ -19,11 +19,14 @@ namespace CRS
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
         private MassEBC ebc = new MassEBC();
-        public EquipmentSite()
+        private string Customer;
+        public EquipmentSite(string Customer)
         {
+            // TODO: Complete member initialization
             InitializeComponent();
             sqlite_conn.Open();
             Fillcombo();
+            this.Customer = Customer;
         }
         void Fillcombo()
         {
@@ -31,7 +34,7 @@ namespace CRS
             equipBox.Items.Clear();
             try
             {
-                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites;", sqlite_conn);
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites WHERE Customer ='"+this.Customer+"';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
                 while (sqlite_datareader.Read())
                 {
@@ -41,9 +44,9 @@ namespace CRS
                 sqlite_datareader.Close();
                 siteBox.SelectedIndex = 0;
             }
-            catch (Exception ex)
+            catch (ArgumentOutOfRangeException ex)
             {
-                MessageBox.Show("Personal Data: " + ex.Message);
+                MessageBox.Show("Please, create site and equipment");
             }
         }
         
@@ -89,12 +92,20 @@ namespace CRS
         }
         private void btnCreateSite_Click(object sender, EventArgs e)
         {
-            string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
-            sqlite_cmd.CommandText = "INSERT INTO Sites (Site) VALUES ('" + x + "');";
-            sqlite_cmd.ExecuteNonQuery();
-            CreateEquipment(x);           
-            siteBox.Items.Clear();
-            siteBox.SelectedItem = x;
+            try
+            {
+                string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
+                sqlite_cmd.CommandText = "INSERT INTO Sites (Site,Customer) VALUES ('" + x + "','" + Customer + "');";
+                sqlite_cmd.ExecuteNonQuery();
+                CreateEquipment(x);
+                siteBox.Items.Clear();
+                siteBox.SelectedItem = x;
+            }
+            catch
+            {
+                MessageBox.Show("Site name must be unique.");
+            }
+            
         }
 
         private void CreateEquipment(string x)

@@ -782,6 +782,8 @@ namespace CRS
                 this.tabPage1.BackColor = Color.Black;
                 i++;
             }
+            label21.ForeColor = Color.White;
+            label23.ForeColor = Color.White;
         }
 
         private void startRecordingButton_MouseDown(object sender, MouseEventArgs e)
@@ -862,6 +864,864 @@ namespace CRS
         {
 
         }
+        private void toolStripComboBox1_SelectedItemChanged(object sender, EventArgs e)
+        {
+            ToolStripComboBox menuItem = sender as ToolStripComboBox;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    switch (sourceControl.Name)
+                    {
+                        case "lTile0":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile1":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile2":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile3":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile4":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile5":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile6":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile7":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                        case "lTile8":
+                            switch (toolStripComboBox1.SelectedIndex)
+                            {
+                                case 0:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vO2;
+                                    break;
+                                case 1:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCO;
+                                    break;
+                                case 2:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 3:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 4:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 5:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 6:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCO2;
+                                    break;
+                                case 7:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vNO;
+                                    break;
+                                case 8:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vNO2;
+                                    break;
+                                case 9:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vNOx;
+                                    break;
+                                case 10:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 11:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 12:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 13:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    break;
+                                case 14:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vSO2;
+                                    break;
+                                case 15:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCxHy;
+                                    break;
+                                case 16:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vTgas;
+                                    break;
+                                case 17:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vTamb;
+                                    break;
+                                case 18:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vTcell;
+                                    break;
+                                case 19:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vEfficiency;
+                                    break;
+                                case 20:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vIFlow;
+                                    break;
+                                case 21:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vDraft;
+                                    break;
+                                case 22:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vLosses;
+                                    break;
+                                case 23:
+                                    lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vExcessAir;
+                                    break;
+                            }
+                            break;
+                    }
+                }
+            }
+        }
 
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
