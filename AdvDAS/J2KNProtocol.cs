@@ -47,6 +47,7 @@ namespace CRS
         public string tempvNOx_C;
         public string tempvSO2_C;
         public string tempvCxHy_C;
+        public int signalStrength=0;
         public J2KNProtocol()
         {
         }
@@ -276,6 +277,10 @@ namespace CRS
                         vNOx = "0.0";
                     else
                         vNOx = (iValue).ToString("0.0");
+                }
+                else if (p.Equals("$0A0512"))
+                {
+                    signalStrength = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                 }
             }
             catch { }

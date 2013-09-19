@@ -32,12 +32,11 @@ namespace CRS
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
         private ToolTip tp = new ToolTip();
-        //private Trend viewTrend = new Trend(pDoc);
         private SetUpReport configReport = new SetUpReport(pDoc);
         private SetUpProcedure configProcedure;
         private PersonalData personalData = new PersonalData();
         private Calibration caliForm = new Calibration();
-        private  Customer customer = new Customer();
+        private Customer customer = new Customer();
         private Form2 forming = new Form2();
         private List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
         private List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
@@ -49,11 +48,11 @@ namespace CRS
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-        public static int dgInterval, cycles=10000;
+        public static int dgInterval, cycles = 999;
         public static string currentCycle = "\u221e";
         public static string cUnit, nUnit, numOfCycles;
         public J2KNProtocol protocol = new J2KNProtocol();
-        private bool run= false;
+        private bool run = false;
 
         public MainMenu()
         {
@@ -69,8 +68,6 @@ namespace CRS
             {
                 dataGridTimer.Start();
             }
-            else
-                MessageBox.Show(protocol.processProtocol().ToString());
             tabArea = tabControl1.GetTabRect(0);
             tabTextArea = (RectangleF)tabControl1.GetTabRect(0);
         }
@@ -121,7 +118,7 @@ namespace CRS
                 scaleDisplays.Add(new ScaleDisplay(lblList1[i]));
                 scaleDisplays[i].elementComboBox.SelectedItem = lblList1[i].Item1.Text;
             }
-            
+
             //Creates a list of all the tiles in the main tab
             tiles.Add(sTile0);
             tiles.Add(sTile1);
@@ -144,15 +141,15 @@ namespace CRS
                 this.configureRecordingToolStripMenuItem.Enabled = run;
                 run = true;
                 this.timer1.Start();
-                this.recordSign.Start();
+                this.recordSignTimer.Start();
                 this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
                 this.stopRecordingButton.Enabled = run;
-                
+
                 if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
                     this.cycleLabel.Text = "Cycle: " + currentCycle;
                     this.timer1.Stop();
-                    this.recordSign.Stop();
+                    this.recordSignTimer.Stop();
                     this.configureRecordingToolStripMenuItem.Enabled = true;
                 }
             }
@@ -161,18 +158,20 @@ namespace CRS
                 this.configureRecordingToolStripMenuItem.Enabled = run;
                 run = false;
                 this.timer1.Stop();
-                this.recordSign.Stop(); ;
+                this.recordSignTimer.Stop(); ;
                 this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
                 this.stopRecordingButton.Enabled = true;
-                
+
 
             }
         }
-        //Pauses recording?
+        //Stops recording?
         private void stopRecordingItem_Click(object sender, EventArgs e)
         {
+            run = false;
+            this.configureRecordingToolStripMenuItem.Enabled = run;
             this.timer1.Stop();
-            this.recordSign.Stop();
+            this.recordSignTimer.Stop();
             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
             run = false;
             rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
@@ -181,12 +180,12 @@ namespace CRS
             this.startRecordingButton.Enabled = true;
             this.stopRecordingButton.Enabled = false;
         }
-        //Stops recording
+        //Takes Snapshot Recording
         private void snapShot_Click(object sender, EventArgs e)
         {
             NotesForm note = new NotesForm();
             note.ShowDialog();
-            new GasAnalysis(protocol).newEntry(note.snapNote);
+            new GasAnalysis(protocol).newEntry(note.snapNote, timer1.Enabled);
         }
         //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
@@ -236,31 +235,33 @@ namespace CRS
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
+            int num = 1;
             if (!numOfCycles.Equals("\u221e"))
             {
                 cycles = Convert.ToInt32(numOfCycles);
-                label22.Text = cycles + " of "+numOfCycles;
+                label22.Text = num + " of " + cycles;
             }
             else
             {
-                cycleLabel.Text = "Cycle: " + "\u221e";
+                label22.Text = cycles + " of " + "\u221e";
             }
-            for (int i = 1; i <=cycles; i++)
+            for (num = 1; num <= cycles; num++)
             {
                 if (rampUpMethod())
                 {
-                    
+
                 }
                 else if (testDataMethod())
                 {
-                    
+
                 }
                 else if (purgeMethod())
                 {
-                    
+
                 }
             }
-            //this.phaseTimeLabel.Text = running.ToString("HH:mm:ss");
+            timer1.Stop();
+            this.recordSignTimer.Stop();
         }
         private bool rampUpMethod()
         {
@@ -284,14 +285,13 @@ namespace CRS
         {
             if (!testData.ToString("HH:mm:ss").Equals("00:00:00"))
             {
-                rampUp.ToString("00:00:00");
                 //this.recordingProgressBar.Value = 0;
                 //this.recordingProgressBar.Maximum = testData.Hour * (60 * 60) + testData.Minute * 60 + testData.Second;
                 //this.recordingProgressBar.Increment(1);
                 testData = testData.AddSeconds(-1);
                 tTimelbl.Text = testData.ToString("HH:mm:ss");
                 running = running.AddSeconds(1);
-                new GasAnalysis(protocol).newEntry("");
+                new GasAnalysis(protocol).newEntry();
                 return true;
             }
             else
@@ -304,7 +304,6 @@ namespace CRS
         {
             if (!purge.ToString("HH:mm:ss").Equals("00:00:00"))
             {
-                testData.ToString("00:00:00");
                 protocol.processProtocol("$0F1040");
                 //this.recordingProgressBar.Value = 0;
                 //this.recordingProgressBar.Maximum = purge.Hour * (60 * 60) + purge.Minute * 60 + purge.Second; ;
@@ -630,7 +629,7 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            label13.Text= "Connected";
+            label13.Text = "Connected";
             label13.ForeColor = Color.Green;
 
             dataGridTimer.Interval = dgInterval;
@@ -645,6 +644,8 @@ namespace CRS
             protocol.processProtocol("$0A0531");
             //get Nox Number
             protocol.processProtocol("$0A054E");
+            //get Signal Strength
+            protocol.processProtocol("$0A0512");
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
@@ -701,6 +702,7 @@ namespace CRS
             chart1.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
             this.serialNO_lbl.Text = protocol.vSerialNumber;
             this.iflowlbl.Text = protocol.vIFlow;
+            this.analyzerSignal.Value = Convert.ToInt32(protocol.signalStrength);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -736,15 +738,15 @@ namespace CRS
 
         private void blue25GrayColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int i=0;
+            int i = 0;
             foreach (TableLayoutPanel tile in tiles)
             {
                 tile.BackgroundImage = CRS.Properties.Resources.ecomblu_25graybox_25grayback;
-                lblList1[i].Item2.ForeColor= Color.Black;
+                lblList1[i].Item2.ForeColor = Color.Black;
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
-            
+
         }
         private void blue50GrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -788,7 +790,7 @@ namespace CRS
 
         private void startRecordingButton_MouseDown(object sender, MouseEventArgs e)
         {
-            if(run.Equals(false))
+            if (run.Equals(false))
                 startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_B;
             else
                 startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_B;
@@ -1722,6 +1724,40 @@ namespace CRS
         private void toolStripComboBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void browseReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "Reports/";
+            openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            // Insert code to read the stream here.
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pDoc.printTrend(trendGraph);
         }
     }
 }
