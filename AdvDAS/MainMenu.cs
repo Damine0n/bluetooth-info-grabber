@@ -40,16 +40,21 @@ namespace CRS
         private Form2 forming = new Form2();
         private List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
         private List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
-
+        private bool rFirst = true;
+        private bool tFirst = true;
+        private bool pFirst = true;
         private DateTime running = new DateTime();
         public static DateTime testTime;
         public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
         public static DateTime testData = new DateTime(2000, 2, 1, 0, 0, 0);
         public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
+        private DateTime tempRampUp = new DateTime(2000, 1, 1, 0, 0, 0);
+        private DateTime tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
+        private DateTime tempPurge = new DateTime(2000, 1, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-        public static int dgInterval, cycles = 999;
-        public static string currentCycle = "\u221e";
+        public static int dgInterval, cycles;
+        public static int currentCycle = 1;
         public static string cUnit, nUnit, numOfCycles;
         public J2KNProtocol protocol = new J2KNProtocol();
         private bool run = false;
@@ -136,40 +141,38 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            if (run.Equals(false))
+            if (!run)
             {
-                this.configureRecordingToolStripMenuItem.Enabled = run;
-                run = true;
-                this.timer1.Start();
-                this.recordSignTimer.Start();
-                this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
-                this.stopRecordingButton.Enabled = run;
-
-                if (rampUp.ToString("HH:mm:ss").Equals("00:00:00") && testData.ToString("HH:mm:ss").Equals("00:00:00") && purge.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (tempRampUp.ToString("HH:mm:ss").Equals("00:00:00") && tempTestData.ToString("HH:mm:ss").Equals("00:00:00") && tempPurge.ToString("HH:mm:ss").Equals("00:00:00") && numOfCycles == currentCycle.ToString())
                 {
-                    this.cycleLabel.Text = "Cycle: " + currentCycle;
-                    this.timer1.Stop();
-                    this.recordSignTimer.Stop();
-                    this.configureRecordingToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    this.configureRecordingToolStripMenuItem.Enabled = run;
+                    this.button1.Enabled = run;
+                    run = true;
+                    this.timer1.Start();
+                    this.recordSignTimer.Start();
+                    this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
+                    this.stopRecordingButton.Enabled = run;
                 }
             }
             else
             {
                 this.configureRecordingToolStripMenuItem.Enabled = run;
+                this.button1.Enabled = run;
                 run = false;
                 this.timer1.Stop();
-                this.recordSignTimer.Stop(); ;
+                this.recordSignTimer.Stop();
+                this.recordingSign.Visible = false;
                 this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
-                this.stopRecordingButton.Enabled = true;
-
-
             }
         }
-        //Stops recording?
+        //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
         {
-            run = false;
             this.configureRecordingToolStripMenuItem.Enabled = run;
+            this.button1.Enabled = run;
             this.timer1.Stop();
             this.recordSignTimer.Stop();
             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
@@ -177,6 +180,10 @@ namespace CRS
             rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
             testData = new DateTime(2000, 1, 2, 0, 0, 0);
             purge = new DateTime(2000, 2, 1, 0, 0, 0);
+            rFirst = true;
+            tFirst = true;
+            pFirst = true;
+            testTime = new DateTime(2000, 1, 1, 0, 0, 0); 
             this.startRecordingButton.Enabled = true;
             this.stopRecordingButton.Enabled = false;
         }
@@ -235,18 +242,10 @@ namespace CRS
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int num = 1;
             if (!numOfCycles.Equals("\u221e"))
             {
                 cycles = Convert.ToInt32(numOfCycles);
-                label22.Text = num + " of " + cycles;
-            }
-            else
-            {
-                label22.Text = cycles + " of " + "\u221e";
-            }
-            for (num = 1; num <= cycles; num++)
-            {
+                label22.Text = currentCycle + " of " + numOfCycles;
                 if (rampUpMethod())
                 {
 
@@ -259,79 +258,164 @@ namespace CRS
                 {
 
                 }
-            }
-            timer1.Stop();
-            this.recordSignTimer.Stop();
-        }
-        private bool rampUpMethod()
-        {
-            if (!rampUp.ToString("HH:mm:ss").Equals("00:00:00"))
-            {
-                //this.recordingProgressBar.Value = 0;
-                //this.recordingProgressBar.Maximum = rampUp.Hour * (60 * 60) + rampUp.Minute * 60 + rampUp.Second;
-                //this.recordingProgressBar.Increment(1);
-                rampUp = rampUp.AddSeconds(-1);
-                rTimelbl.Text = rampUp.ToString("HH:mm:ss");
-                running = running.AddSeconds(1);
-                return true;
+                else if (!currentCycle.ToString().Equals(numOfCycles))
+                {
+                    currentCycle++;
+                    rFirst = true;
+                    tFirst = true;
+                    pFirst = true;
+
+                }
+                else if (currentCycle.ToString().Equals(numOfCycles))
+                {
+                    timer1.Stop();
+                    this.recordSignTimer.Stop();
+                    this.recordingSign.Visible = false;
+                    this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
+                }
             }
             else
             {
-                return false;
+                label22.Text = currentCycle + " of " + "\u221e";
+                if (rampUpMethod())
+                {
+
+                }
+                else if (testDataMethod())
+                {
+
+                }
+                else if (purgeMethod())
+                {
+
+                }
+                else if (!currentCycle.ToString().Equals(numOfCycles))
+                {
+                    currentCycle++;
+                    rFirst = true;
+                    tFirst = true;
+                    pFirst = true;
+                }
+            }
+        }
+        private bool rampUpMethod()
+        {
+            if (rFirst)
+            {
+                if (!tempRampUp.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    rFirst = false;
+                    tempRampUp = tempRampUp.AddSeconds(-1);
+                    rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!tempRampUp.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    tempRampUp = tempRampUp.AddSeconds(-1);
+                    rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
         private bool testDataMethod()
         {
-            if (!testData.ToString("HH:mm:ss").Equals("00:00:00"))
+            if (tFirst)
             {
-                //this.recordingProgressBar.Value = 0;
-                //this.recordingProgressBar.Maximum = testData.Hour * (60 * 60) + testData.Minute * 60 + testData.Second;
-                //this.recordingProgressBar.Increment(1);
-                testData = testData.AddSeconds(-1);
-                tTimelbl.Text = testData.ToString("HH:mm:ss");
-                running = running.AddSeconds(1);
-                new GasAnalysis(protocol).newEntry();
-                return true;
+                if (!tempTestData.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    tFirst = false;
+                    tempTestData = testData.AddSeconds(-1);
+                    tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                    new GasAnalysis(protocol).newEntry();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (!tempTestData.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    tempTestData = tempTestData.AddSeconds(-1);
+                    tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                    new GasAnalysis(protocol).newEntry();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
         private bool purgeMethod()
         {
-            if (!purge.ToString("HH:mm:ss").Equals("00:00:00"))
+            if (pFirst)
             {
-                protocol.processProtocol("$0F1040");
-                //this.recordingProgressBar.Value = 0;
-                //this.recordingProgressBar.Maximum = purge.Hour * (60 * 60) + purge.Minute * 60 + purge.Second; ;
-                //this.recordingProgressBar.Increment(1);
-                purge = purge.AddSeconds(-1);
-                pTimelbl.Text = purge.ToString("HH:mm:ss");
-                running = running.AddSeconds(1);
-                return true;
+                if (!tempPurge.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    protocol.processProtocol("$0F1050");
+                    pFirst = false;
+                    tempPurge = tempPurge.AddSeconds(-1);
+                    pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (!tempPurge.ToString("HH:mm:ss").Equals("00:00:00"))
+                {
+                    tempPurge = tempPurge.AddSeconds(-1);
+                    pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                    running = running.AddSeconds(1);
+                    return true;
+                }
+                else
+                {
+                    protocol.processProtocol("$0F1051");
+                    return false;
+                }
             }
         }
 
-        private void recordTestData()
-        {
-            throw new NotImplementedException();
-        }
         //Regular time and refreshes all other time
         private void timer2_Tick(object sender, EventArgs e)
         {
+            if (rFirst)
+                tempRampUp = rampUp;
+            if (tFirst)
+                tempTestData = testData;
+            if (pFirst)
+                tempPurge = purge;
             DateTime now = DateTime.Now;
             this.clock_lbl.Text = now.ToString();
             this.recordTimeLabel.Text = testTime.ToString("HH:mm:ss");
-            this.pTimelbl.Text = purge.ToString("HH:mm:ss");
-            this.tTimelbl.Text = testData.ToString("HH:mm:ss");
-            this.rTimelbl.Text = rampUp.ToString("HH:mm:ss");
+            this.pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+            this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+            this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
         }
 
         //add question during close
@@ -633,7 +717,10 @@ namespace CRS
             label13.ForeColor = Color.Green;
 
             dataGridTimer.Interval = dgInterval;
+            timer1.Interval = dgInterval;
             label23.Text = dgInterval / 1000 + " sec(s)";
+            label22.Text = currentCycle + " of " + numOfCycles;
+
             //get all values
             protocol.processProtocol();
             //get Serial Number
@@ -746,6 +833,18 @@ namespace CRS
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
+            label21.ForeColor = Color.Black;
+            label23.ForeColor = Color.Black;
+            cycleLabel.ForeColor = Color.Black;
+            label22.ForeColor = Color.Black;
+            rlbl.ForeColor = Color.Black;
+            tlbl.ForeColor = Color.Black;
+            plbl.ForeColor = Color.Black;
+            rTimelbl.ForeColor = Color.Black;
+            tTimelbl.ForeColor = Color.Black;
+            pTimelbl.ForeColor = Color.Black;
+            label14.ForeColor = Color.Black;
+            clock_lbl.ForeColor = Color.Black;
 
         }
         private void blue50GrayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -769,10 +868,18 @@ namespace CRS
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
-            //foreach (Button btn in )
-            //{
-            //    btn.ForeColor = System.Drawing.Color.Black;
-            //}
+            label21.ForeColor = Color.White;
+            label23.ForeColor = Color.White;
+            cycleLabel.ForeColor = Color.Black;
+            label22.ForeColor = Color.Black;
+            rlbl.ForeColor = Color.Black;
+            tlbl.ForeColor = Color.Black;
+            plbl.ForeColor = Color.Black;
+            rTimelbl.ForeColor = Color.Black;
+            tTimelbl.ForeColor = Color.Black;
+            pTimelbl.ForeColor = Color.Black;
+            label14.ForeColor = Color.Black;
+            clock_lbl.ForeColor = Color.Black;
         }
         private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -786,6 +893,18 @@ namespace CRS
             }
             label21.ForeColor = Color.White;
             label23.ForeColor = Color.White;
+            cycleLabel.ForeColor = Color.White;
+            label22.ForeColor = Color.White;
+            rlbl.ForeColor = Color.White;
+            tlbl.ForeColor = Color.White;
+            plbl.ForeColor = Color.White;
+            rTimelbl.ForeColor = Color.White;
+            tTimelbl.ForeColor = Color.White;
+            pTimelbl.ForeColor = Color.White;
+            label14.ForeColor = Color.White;
+            clock_lbl.ForeColor = Color.White;
+
+
         }
 
         private void startRecordingButton_MouseDown(object sender, MouseEventArgs e)
@@ -853,17 +972,20 @@ namespace CRS
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
             configProcedure.ShowDialog();
         }
 
         private void viewTestRecordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            TestRecords tRecords = new TestRecords();
+            tRecords.ShowDialog();
         }
 
         private void viewSnapshotsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //ViewSnapShots snaps = new ViewSnapShots();
 
         }
         private void toolStripComboBox1_SelectedItemChanged(object sender, EventArgs e)

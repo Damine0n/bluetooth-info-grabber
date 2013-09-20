@@ -165,6 +165,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RunTest.cs" />
     <Compile Include="SerialSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +183,12 @@
     </Compile>
     <Compile Include="sTile.Designer.cs">
       <DependentUpon>sTile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestRecords.Designer.cs">
+      <DependentUpon>TestRecords.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BTooth.resx">
       <DependentUpon>BTooth.cs</DependentUpon>
@@ -244,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sTile.resx">
       <DependentUpon>sTile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestRecords.resx">
+      <DependentUpon>TestRecords.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

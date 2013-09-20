@@ -17,6 +17,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         DataSet ds = new DataSet();
+        private string picPath="";
 
         public PersonalData()
         {
@@ -28,10 +29,11 @@ namespace CRS
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Add Logo";
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string s = ofd.FileName;
-                pictureBox1.ImageLocation = s;
+                picPath = ofd.FileName;
+                pictureBox1.ImageLocation = picPath;
 
             }
         }
@@ -81,7 +83,7 @@ namespace CRS
                 textBox8.DataBindings.Add("Text", bindingSource1, "CellPhone");
                 textBox9.DataBindings.Add("Text", bindingSource1, "Email");
                 textBox10.DataBindings.Add("Text", bindingSource1, "HomePage");
-                //pictureBox1.DataBindings.Add()
+                //pictureBox1.DataBindings.Add("BLOB", bindingSource1, "LOGO");
             }
             catch (Exception ex)
             {
@@ -92,13 +94,17 @@ namespace CRS
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            byte[] imageBt = null;
+            FileStream fstream = new FileStream(picPath,FileMode.Open,FileAccess.Read);
+            BinaryReader br = new BinaryReader(fstream);
+            imageBt = br.ReadBytes((int)fstream.Length);
             try
             {
                     // Lets insert something into our new table:
                 sqlite_cmd.CommandText = "UPDATE Personal_Data SET Engineer = '" + textBox1.Text + "', Company = '" + textBox2.Text
                         + "', Phone = '" + textBox3.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text 
                         + "', City = '" + textBox6.Text + "', Fax = '" + textBox7.Text + "', CellPhone = '" + textBox8.Text 
-                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "' WHERE PData = 1;";
+                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = '" + picPath + "' WHERE PData = 1;";
 
                     // And execute this again ;D
                     sqlite_cmd.ExecuteNonQuery();
