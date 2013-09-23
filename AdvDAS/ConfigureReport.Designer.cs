@@ -53,6 +53,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.checkBox33 = new System.Windows.Forms.CheckBox();
             this.checkBox34 = new System.Windows.Forms.CheckBox();
             this.checkBox35 = new System.Windows.Forms.CheckBox();
@@ -80,8 +82,6 @@
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -376,10 +376,28 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Select which parameters to apply O2 correction:";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(309, 65);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(80, 13);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "% O2 corrected";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(255, 62);
+            this.textBox3.MaxLength = 2;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(48, 20);
+            this.textBox3.TabIndex = 13;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // checkBox33
             // 
             this.checkBox33.AutoSize = true;
-            this.checkBox33.Location = new System.Drawing.Point(256, 42);
+            this.checkBox33.Location = new System.Drawing.Point(137, 66);
             this.checkBox33.Name = "checkBox33";
             this.checkBox33.Size = new System.Drawing.Size(51, 17);
             this.checkBox33.TabIndex = 7;
@@ -389,7 +407,7 @@
             // checkBox34
             // 
             this.checkBox34.AutoSize = true;
-            this.checkBox34.Location = new System.Drawing.Point(256, 19);
+            this.checkBox34.Location = new System.Drawing.Point(137, 42);
             this.checkBox34.Name = "checkBox34";
             this.checkBox34.Size = new System.Drawing.Size(47, 17);
             this.checkBox34.TabIndex = 6;
@@ -399,7 +417,7 @@
             // checkBox35
             // 
             this.checkBox35.AutoSize = true;
-            this.checkBox35.Location = new System.Drawing.Point(137, 66);
+            this.checkBox35.Location = new System.Drawing.Point(255, 42);
             this.checkBox35.Name = "checkBox35";
             this.checkBox35.Size = new System.Drawing.Size(77, 17);
             this.checkBox35.TabIndex = 5;
@@ -410,7 +428,7 @@
             // 
             this.checkBox36.AutoSize = true;
             this.checkBox36.Cursor = System.Windows.Forms.Cursors.Default;
-            this.checkBox36.Location = new System.Drawing.Point(137, 42);
+            this.checkBox36.Location = new System.Drawing.Point(255, 19);
             this.checkBox36.Name = "checkBox36";
             this.checkBox36.Size = new System.Drawing.Size(71, 17);
             this.checkBox36.TabIndex = 4;
@@ -663,24 +681,6 @@
             this.checkBox6.TabIndex = 0;
             this.checkBox6.Text = "O2";
             this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(309, 65);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(80, 13);
-            this.label25.TabIndex = 14;
-            this.label25.Text = "% O2 corrected";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(255, 62);
-            this.textBox3.MaxLength = 2;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(48, 20);
-            this.textBox3.TabIndex = 13;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SetUpReport
             // 

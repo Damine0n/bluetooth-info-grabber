@@ -83,6 +83,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.startTimerButton = new System.Windows.Forms.Button();
             this.capCalNO = new System.Windows.Forms.Button();
             this.capCalCO = new System.Windows.Forms.Button();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
@@ -188,7 +189,7 @@
             this.button24 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.startTimerButton = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -279,7 +280,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(840, 389);
+            this.tabPage1.Size = new System.Drawing.Size(840, 426);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Calibration Gas Info.";
             // 
@@ -346,6 +347,7 @@
             0,
             0,
             0});
+            this.numericUpDown9.ValueChanged += new System.EventHandler(this.numericUpDown9_ValueChanged);
             // 
             // label21
             // 
@@ -789,7 +791,6 @@
             0,
             0,
             0});
-            this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
             // label28
             // 
@@ -890,6 +891,17 @@
             this.tabPage2.Size = new System.Drawing.Size(840, 426);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
+            // 
+            // startTimerButton
+            // 
+            this.startTimerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startTimerButton.Location = new System.Drawing.Point(486, 124);
+            this.startTimerButton.Name = "startTimerButton";
+            this.startTimerButton.Size = new System.Drawing.Size(59, 38);
+            this.startTimerButton.TabIndex = 18;
+            this.startTimerButton.Text = "Start";
+            this.startTimerButton.UseVisualStyleBackColor = true;
+            this.startTimerButton.Click += new System.EventHandler(this.startTimerButton_Click);
             // 
             // capCalNO
             // 
@@ -2086,7 +2098,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(840, 433);
+            this.tabPage4.Size = new System.Drawing.Size(840, 426);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Interference Check";
             // 
@@ -2094,16 +2106,9 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // startTimerButton
+            // timer2
             // 
-            this.startTimerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startTimerButton.Location = new System.Drawing.Point(486, 124);
-            this.startTimerButton.Name = "startTimerButton";
-            this.startTimerButton.Size = new System.Drawing.Size(59, 38);
-            this.startTimerButton.TabIndex = 18;
-            this.startTimerButton.Text = "Start";
-            this.startTimerButton.UseVisualStyleBackColor = true;
-            this.startTimerButton.Click += new System.EventHandler(this.startTimerButton_Click);
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Calibration
             // 
@@ -2347,5 +2352,6 @@
         private System.Windows.Forms.Button capCalNO;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button startTimerButton;
+        private System.Windows.Forms.Timer timer2;
     }
 }

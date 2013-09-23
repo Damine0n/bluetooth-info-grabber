@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using System.Globalization;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
@@ -171,6 +172,11 @@ namespace CRS
         //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
         {
+            stopIt();
+        }
+
+        private void stopIt()
+        {
             this.configureRecordingToolStripMenuItem.Enabled = run;
             this.button1.Enabled = run;
             this.timer1.Stop();
@@ -183,7 +189,7 @@ namespace CRS
             rFirst = true;
             tFirst = true;
             pFirst = true;
-            testTime = new DateTime(2000, 1, 1, 0, 0, 0); 
+            testTime = new DateTime(2000, 1, 1, 0, 0, 0);
             this.startRecordingButton.Enabled = true;
             this.stopRecordingButton.Enabled = false;
         }
@@ -264,14 +270,16 @@ namespace CRS
                     rFirst = true;
                     tFirst = true;
                     pFirst = true;
-
+                    protocol.processProtocol("$0F1066 0x20");
                 }
                 else if (currentCycle.ToString().Equals(numOfCycles))
                 {
                     timer1.Stop();
                     this.recordSignTimer.Stop();
                     this.recordingSign.Visible = false;
+                    protocol.processProtocol("$0F1066 0x20");
                     this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
+                    stopIt();
                 }
             }
             else
@@ -295,6 +303,7 @@ namespace CRS
                     rFirst = true;
                     tFirst = true;
                     pFirst = true;
+                    protocol.processProtocol("$0F1066 0x20");
                 }
             }
         }
@@ -305,7 +314,7 @@ namespace CRS
                 if (!tempRampUp.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
                     rFirst = false;
-                    tempRampUp = tempRampUp.AddSeconds(-1);
+                    tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     return true;
@@ -319,9 +328,10 @@ namespace CRS
             {
                 if (!tempRampUp.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
-                    tempRampUp = tempRampUp.AddSeconds(-1);
+                    tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
+                    protocol.processProtocol("$0F1066 0x20");
                     return true;
                 }
                 else
@@ -333,15 +343,17 @@ namespace CRS
 
         private bool testDataMethod()
         {
+            string tableName = "";
             if (tFirst)
             {
                 if (!tempTestData.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
+                    protocol.processProtocol("$0F1066 0x20");
                     tFirst = false;
-                    tempTestData = testData.AddSeconds(-1);
+                    tempTestData = testData.AddSeconds(-(dgInterval/1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    new GasAnalysis(protocol).newEntry();
+                    tableName= new GasAnalysis(protocol).newEntry();
                     return true;
                 }
                 else
@@ -353,10 +365,10 @@ namespace CRS
             {
                 if (!tempTestData.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
-                    tempTestData = tempTestData.AddSeconds(-1);
+                    tempTestData = tempTestData.AddSeconds(-(dgInterval / 1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    new GasAnalysis(protocol).newEntry();
+                    new GasAnalysis(protocol).newEntry(tableName);
                     return true;
                 }
                 else
@@ -372,9 +384,10 @@ namespace CRS
             {
                 if (!tempPurge.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
-                    protocol.processProtocol("$0F1050");
+                    protocol.processProtocol("$0F1066 0x20");
+                    protocol.processProtocol("$0F1050 0x20");
                     pFirst = false;
-                    tempPurge = tempPurge.AddSeconds(-1);
+                    tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     return true;
@@ -388,14 +401,14 @@ namespace CRS
             {
                 if (!tempPurge.ToString("HH:mm:ss").Equals("00:00:00"))
                 {
-                    tempPurge = tempPurge.AddSeconds(-1);
+                    tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     return true;
                 }
                 else
                 {
-                    protocol.processProtocol("$0F1051");
+                    protocol.processProtocol("$0F1051 0x20");
                     return false;
                 }
             }
@@ -1880,6 +1893,11 @@ namespace CRS
         private void button2_Click(object sender, EventArgs e)
         {
             pDoc.printTrend(trendGraph);
+        }
+
+        private void tableLayoutPanel19_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

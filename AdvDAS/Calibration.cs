@@ -14,6 +14,10 @@ namespace CRS
     {
         J2KNProtocol protocol = new J2KNProtocol();
         bool clicked = false;
+        private double COcalError, COzeroError;
+        private double NOcalError, NOzeroError;
+        private double NO2calError, NO2zeroError;
+        private double O2calError, O2zeroError;
         public Calibration()
         {
             InitializeComponent();
@@ -21,13 +25,6 @@ namespace CRS
             ((Control)this.tabPage2).Enabled = false;
             ((Control)this.tabPage3).Enabled = false;
             ((Control)this.tabPage4).Enabled = false;
-        }
-
-       
-
-        private void numericUpDown5_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -91,7 +88,12 @@ namespace CRS
                 ((Control)this.tabPage4).Enabled = true;
             }
             else
+            {
                 MessageBox.Show("All Span Gas Values should be entered.");
+                ((Control)this.tabPage2).Enabled = false;
+                ((Control)this.tabPage3).Enabled = false;
+                ((Control)this.tabPage4).Enabled = false;
+            }
         }
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -109,56 +111,135 @@ namespace CRS
                 e.Handled = true;
             }
         }
+
+        private void numericUpDown9_ValueChanged(object sender, EventArgs e)
+        {
+            timer2.Interval = Convert.ToInt32(numericUpDown9.Value);
+        }
         ////////////////////CALIBRATION-TAB2\\\\\\\\\\\\\\\\\\\\\
 
         private void capZeroO2_Click(object sender, EventArgs e)
         {
             textBox7.Text = cO2lbl.Text;
+            if(Convert.ToDouble(this.textBox7.Text) > (Convert.ToDouble(textBox4.Text) + (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox7.Text) < (Convert.ToDouble(textBox4.Text) - (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox7.ForeColor = Color.Green;
+            }else
+            {
+                textBox7.ForeColor = Color.Red;
+            }
         }
 
         private void capZeroCO_Click(object sender, EventArgs e)
         {
             textBox8.Text = cCOlbl.Text;
+            if (Convert.ToDouble(this.textBox8.Text) > (Convert.ToDouble(textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox8.Text) < (Convert.ToDouble(textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox8.ForeColor = Color.Green;
+            }
+            else
+            {
+                textBox8.ForeColor = Color.Red;
+            }
         }
 
         private void capZeroNO_Click(object sender, EventArgs e)
         {
             textBox11.Text = cNOlbl.Text;
+            if (Convert.ToDouble(this.textBox11.Text) > (Convert.ToDouble(textBox2.Text) + (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox11.Text) < (Convert.ToDouble(textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox11.ForeColor = Color.Green;
+            }
+            else
+            {
+                textBox11.ForeColor = Color.Red;
+            }
         }
 
         private void capZeroNO2_Click(object sender, EventArgs e)
         {
             textBox12.Text = cNO2lbl.Text;
+            if (Convert.ToDouble(this.textBox12.Text) > (Convert.ToDouble(textBox3.Text) + (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox12.Text) < (Convert.ToDouble(textBox3.Text) - (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox12.ForeColor = Color.Green;
+            }
+            else
+            {
+                textBox12.ForeColor = Color.Red;
+            }
         }
         private void capCalCO_Click(object sender, EventArgs e)
         {
+            textBox13.Text = cCOlbl.Text;
+            if (Convert.ToDouble(this.textBox13.Text) > (Convert.ToDouble(textBox13.Text) + (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox13.Text) < (Convert.ToDouble(textBox13.Text) - (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox13.ForeColor = Color.Green;
+            }
+            else
+            {
+                textBox13.ForeColor = Color.Red;
+            }
             calCO.Enabled = true;
         }
 
         private void capCalNO_Click(object sender, EventArgs e)
         {
+            textBox14.Text = cNOlbl.Text;
+            if (Convert.ToDouble(this.textBox14.Text) > (Convert.ToDouble(textBox12.Text) + (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox14.Text) < (Convert.ToDouble(textBox12.Text) - (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox14.ForeColor = Color.Green;
+            }
+            else
+            {
+                textBox14.ForeColor = Color.Red;
+            }
             calNO.Enabled = true;
         }
 
         private void capCalNO2_Click(object sender, EventArgs e)
         {
+            textBox15.Text = cNO2lbl.Text;
+            if (Convert.ToDouble(this.textBox15.Text) > (Convert.ToDouble(textBox12.Text) + (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+                Convert.ToDouble(this.textBox15.Text) < (Convert.ToDouble(textBox12.Text) - (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            {
+                textBox15.ForeColor = Color.Green;
+            }
+            else
+            {
+                textBox15.ForeColor = Color.Red;
+            }
             calNO2.Enabled = true;
         }
 
         private void startTimerButton_Click(object sender, EventArgs e)
         {
-            if (clicked)
+            if (!clicked)
             {
+                timer2.Start();
+                dateTimePicker5.Enabled=false;
                 this.startTimerButton.Text = "Stop";
                 clicked = true;
             }
             else
             {
+                timer2.Stop();
+                dateTimePicker5.Enabled = true;
                 this.startTimerButton.Text = "Start";
                 clicked = false;
             }
 
 
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-1);
         }
 
 

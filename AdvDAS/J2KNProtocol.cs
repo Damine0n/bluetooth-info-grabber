@@ -89,7 +89,7 @@ namespace CRS
                     else
                         vO2 = (iValue / 10).ToString("0.0");
                     iValue = (Convert.ToInt32(arr[4].Substring(2, arr[4].Length - 2), 16));
-                    if (iValue >= 32767 || iValue == 0)
+                    if (iValue >= 32767)
                         vCO = "0.0";
                     else
                         vCO = (iValue).ToString();
