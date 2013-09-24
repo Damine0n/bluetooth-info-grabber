@@ -30,7 +30,7 @@ namespace CRS
             this.lbl1 = tuple.Item1;
             this.lbl2 = tuple.Item2;
             this.btn = tuple.Item3;
-            if (protocol.processProtocol().Equals(true))
+            if (protocol.processProtocol())
             {
                 timer1.Start();
             }
@@ -354,7 +354,7 @@ namespace CRS
             }
             this.lbl2.Text = valLabel.Text;
             nums.Add(Convert.ToDouble(valLabel.Text));
-            average = nums.Average().ToString("0.00");
+            average = nums.Average().ToString("0.0");
             aveLabel.Text = average;
             this.btn.Text = average + " AVG";
             chartIt(valLabel.Text, average);

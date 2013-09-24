@@ -25,9 +25,7 @@ namespace CRS
         private RectangleF tabTextArea;
         public static PrintDoc pDoc = new PrintDoc();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
-        public static List<hTile> ht = new List<hTile>();
         public List<TableLayoutPanel> tiles = new List<TableLayoutPanel>();
-        public List<TableLayoutPanel> hTiles = new List<TableLayoutPanel>();
 
         public Color textColor = Color.Black;
         public Color backgroundColor = Color.Black;
@@ -46,18 +44,19 @@ namespace CRS
         private bool pFirst = true;
         private DateTime running = new DateTime();
         public static DateTime testTime;
-        public static DateTime rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
+        public static DateTime rampUp = new DateTime(2000, 2, 1, 0, 0, 0);
         public static DateTime testData = new DateTime(2000, 2, 1, 0, 0, 0);
-        public static DateTime purge = new DateTime(2000, 1, 2, 0, 0, 0);
-        private DateTime tempRampUp = new DateTime(2000, 1, 1, 0, 0, 0);
+        public static DateTime purge = new DateTime(2000, 2, 1, 0, 0, 0);
+        private DateTime tempRampUp = new DateTime(2000, 2, 1, 0, 0, 0);
         private DateTime tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
-        private DateTime tempPurge = new DateTime(2000, 1, 2, 0, 0, 0);
+        private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         public static int dgInterval, cycles;
         public static int currentCycle = 1;
         public static string cUnit, nUnit, numOfCycles;
         public J2KNProtocol protocol = new J2KNProtocol();
+        private string tableName = "";
         private bool run = false;
 
         public MainMenu()
@@ -70,7 +69,7 @@ namespace CRS
             numOfCycles = "1";
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
-            if (protocol.processProtocol().Equals(true))
+            if (protocol.processProtocol(true))
             {
                 dataGridTimer.Start();
             }
@@ -149,6 +148,7 @@ namespace CRS
                 }
                 else
                 {
+                    protocol.processProtocol("$0F1066 0x20");
                     this.configureRecordingToolStripMenuItem.Enabled = run;
                     this.button1.Enabled = run;
                     run = true;
@@ -183,8 +183,8 @@ namespace CRS
             this.recordSignTimer.Stop();
             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
             run = false;
-            rampUp = new DateTime(2000, 1, 1, 0, 0, 0);
-            testData = new DateTime(2000, 1, 2, 0, 0, 0);
+            rampUp = new DateTime(2000, 2, 1, 0, 0, 0);
+            testData = new DateTime(2000, 2, 1, 0, 0, 0);
             purge = new DateTime(2000, 2, 1, 0, 0, 0);
             rFirst = true;
             tFirst = true;
@@ -192,13 +192,17 @@ namespace CRS
             testTime = new DateTime(2000, 1, 1, 0, 0, 0);
             this.startRecordingButton.Enabled = true;
             this.stopRecordingButton.Enabled = false;
+
+            DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+                Application.ExitThread();                
         }
         //Takes Snapshot Recording
         private void snapShot_Click(object sender, EventArgs e)
         {
             NotesForm note = new NotesForm();
             note.ShowDialog();
-            new GasAnalysis(protocol).newEntry(note.snapNote, timer1.Enabled);
+            new GasAnalysis().newEntry(protocol,note.snapNote, timer1.Enabled, tableName);
         }
         //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
@@ -248,6 +252,8 @@ namespace CRS
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
+            timer1.Interval = dgInterval;
+
             if (!numOfCycles.Equals("\u221e"))
             {
                 cycles = Convert.ToInt32(numOfCycles);
@@ -311,7 +317,7 @@ namespace CRS
         {
             if (rFirst)
             {
-                if (!tempRampUp.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (!(tempRampUp <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     rFirst = false;
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
@@ -326,7 +332,7 @@ namespace CRS
             }
             else
             {
-                if (!tempRampUp.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (!(tempRampUp <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
@@ -336,6 +342,7 @@ namespace CRS
                 }
                 else
                 {
+                    tempRampUp = new DateTime(2000, 2, 1, 0, 0, 0);
                     return false;
                 }
             }
@@ -343,17 +350,17 @@ namespace CRS
 
         private bool testDataMethod()
         {
-            string tableName = "";
+
             if (tFirst)
             {
-                if (!tempTestData.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (!(tempTestData <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     protocol.processProtocol("$0F1066 0x20");
                     tFirst = false;
-                    tempTestData = testData.AddSeconds(-(dgInterval/1000));
+                    tempTestData = testData.AddSeconds(-(dgInterval / 1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    tableName= new GasAnalysis(protocol).newEntry();
+                    tableName = new GasAnalysis().newEntry(protocol);
                     return true;
                 }
                 else
@@ -363,16 +370,17 @@ namespace CRS
             }
             else
             {
-                if (!tempTestData.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (!(tempTestData <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     tempTestData = tempTestData.AddSeconds(-(dgInterval / 1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    new GasAnalysis(protocol).newEntry(tableName);
+                    new GasAnalysis().newEntry(protocol,tableName);
                     return true;
                 }
                 else
                 {
+                    tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
                     return false;
                 }
             }
@@ -382,7 +390,7 @@ namespace CRS
         {
             if (pFirst)
             {
-                if (!tempPurge.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     protocol.processProtocol("$0F1066 0x20");
                     protocol.processProtocol("$0F1050 0x20");
@@ -399,7 +407,7 @@ namespace CRS
             }
             else
             {
-                if (!tempPurge.ToString("HH:mm:ss").Equals("00:00:00"))
+                if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
@@ -409,6 +417,7 @@ namespace CRS
                 else
                 {
                     protocol.processProtocol("$0F1051 0x20");
+                    tempPurge = new DateTime(2000, 2, 1, 0, 0, 0);
                     return false;
                 }
             }
@@ -473,18 +482,6 @@ namespace CRS
         }
 
         //Opens Equipment/Site Window
-
-
-        //Method for reseting all averages
-        private double doAverage(double p)
-        {
-            if (p == -1)
-                num.Clear();
-            else
-                num.Add(p);
-            return num.Average();
-            throw new NotImplementedException();
-        }
 
         //Changes Label color
         private void labelColor(Control ctrl, Color color)
@@ -565,7 +562,15 @@ namespace CRS
                 }
             }
         }
-
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (ScaleDisplay display in scaleDisplays)
+            {
+                scaleDisplays[i].resetAverage();
+                i++;
+            }
+        }
         private void editDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
@@ -728,9 +733,6 @@ namespace CRS
         {
             label13.Text = "Connected";
             label13.ForeColor = Color.Green;
-
-            dataGridTimer.Interval = dgInterval;
-            timer1.Interval = dgInterval;
             label23.Text = dgInterval / 1000 + " sec(s)";
             label22.Text = currentCycle + " of " + numOfCycles;
 

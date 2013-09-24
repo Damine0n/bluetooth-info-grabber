@@ -72,6 +72,110 @@ namespace CRS
                 }
                 catch
                 {
+                    return false;
+                }
+                sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
+                clientSocket.Send(sendPacket);
+                clientSocket.ReceiveTimeout = 4000;
+                clientSocket.Receive(receivedBytes);
+
+                try
+                {
+                    string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
+                    iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
+                    if (iValue >= 32767 || iValue == 0)
+                        vO2 = "0.0";
+                    else
+                        vO2 = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[4].Substring(2, arr[4].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vCO = "0.0";
+                    else
+                        vCO = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[5].Substring(2, arr[5].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vNO = "0.0";
+                    else
+                        vNO = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[6].Substring(2, arr[6].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vNO2 = "0.0";
+                    else
+                        vNO2 = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[7].Substring(2, arr[7].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vSO2 = "0.0";
+                    else
+                        vSO2 = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[8].Substring(2, arr[8].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vCxHy = "0.0";
+                    else
+                        vCxHy = (iValue).ToString();
+                    iValue = (Convert.ToInt32(arr[9].Substring(2, arr[9].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vDraft = "0.0";
+                    else
+                        vDraft = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[10].Substring(2, arr[10].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vTamb = "0.0";
+                    else
+                        vTamb = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[11].Substring(2, arr[11].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vTgas = "0.0";
+                    else
+                        vTgas = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[12].Substring(2, arr[12].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vTcell = "0.0";
+                    else
+                        vTcell = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[13].Substring(2, arr[13].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vExcessAir = "0.00";
+                    else
+                        vExcessAir = (iValue / 100).ToString("0.00");
+                    iValue = (Convert.ToInt32(arr[14].Substring(2, arr[14].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vEfficiency = "0.0";
+                    else
+                        vEfficiency = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[15].Substring(2, arr[15].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vCO2 = "0.0";
+                    else
+                        vCO2 = (iValue / 10).ToString("0.0");
+                    iValue = (Convert.ToInt32(arr[16].Substring(2, arr[16].Length - 2), 16));
+                    if (iValue >= 32767 || iValue == 0)
+                        vAccu = "0.0";
+                    else
+                        vAccu = (iValue / 10).ToString("0.0");
+                    clientSocket.Close();
+                }
+                catch { }
+
+                return true;
+            }
+            return false;
+        }
+        public bool processProtocol(bool first)
+        {
+            byte[] sendPacket = new byte[256];
+            string p = "$0802";
+            string vbCr = "\r";
+            byte[] receivedBytes = new byte[256];
+            double iValue = 0;
+            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            if (!clientSocket.Connected)
+            {
+                try
+                {
+                    clientSocket.Connect(IPAddress.Parse(ipAddress), 4000);
+                }
+                catch
+                {
                     MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication'");
                     return false;
                 }

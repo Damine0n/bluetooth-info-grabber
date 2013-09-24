@@ -19,6 +19,7 @@ namespace CRS
         {
             InitializeComponent();
             comboBox1.Items.AddRange(protocol.ipHost.AddressList);
+            comboBox1.Items.Add("192.168.55.1");
             comboBox1.SelectedIndex = comboBox1.Items.Count-1;
             this.main = main;
         }

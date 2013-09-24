@@ -21,7 +21,8 @@ namespace CRS
         public Calibration()
         {
             InitializeComponent();
-            timer1.Start();
+            if (protocol.processProtocol())
+                timer1.Start();
             ((Control)this.tabPage2).Enabled = false;
             ((Control)this.tabPage3).Enabled = false;
             ((Control)this.tabPage4).Enabled = false;
@@ -121,11 +122,12 @@ namespace CRS
         private void capZeroO2_Click(object sender, EventArgs e)
         {
             textBox7.Text = cO2lbl.Text;
-            if(Convert.ToDouble(this.textBox7.Text) > (Convert.ToDouble(textBox4.Text) + (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
+            if (Convert.ToDouble(this.textBox7.Text) > (Convert.ToDouble(textBox4.Text) + (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
                 Convert.ToDouble(this.textBox7.Text) < (Convert.ToDouble(textBox4.Text) - (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
                 textBox7.ForeColor = Color.Green;
-            }else
+            }
+            else
             {
                 textBox7.ForeColor = Color.Red;
             }
@@ -221,8 +223,9 @@ namespace CRS
         {
             if (!clicked)
             {
+                protocol.processProtocol("$0F1051 0x20");
                 timer2.Start();
-                dateTimePicker5.Enabled=false;
+                dateTimePicker5.Enabled = false;
                 this.startTimerButton.Text = "Stop";
                 clicked = true;
             }
@@ -233,16 +236,12 @@ namespace CRS
                 this.startTimerButton.Text = "Start";
                 clicked = false;
             }
-
-
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-1);
         }
-
-
 
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
