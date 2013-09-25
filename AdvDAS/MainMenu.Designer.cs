@@ -184,6 +184,7 @@ namespace CRS
             this.tileLabel1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.pTimelbl = new System.Windows.Forms.Label();
+            this.clock_lbl = new System.Windows.Forms.Label();
             this.plbl = new System.Windows.Forms.Label();
             this.tTimelbl = new System.Windows.Forms.Label();
             this.tlbl = new System.Windows.Forms.Label();
@@ -197,9 +198,9 @@ namespace CRS
             this.button1 = new System.Windows.Forms.Button();
             this.recordTimeLabel = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.resetButton = new System.Windows.Forms.Button();
-            this.clock_lbl = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -326,7 +327,6 @@ namespace CRS
             this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzerSignal = new WindowWidgets.SignalStrength();
-            this.label16 = new System.Windows.Forms.Label();
             this.tilePopUpMenu.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -1482,26 +1482,27 @@ namespace CRS
             this.tableLayoutPanel19.ColumnCount = 2;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Controls.Add(this.pTimelbl, 1, 8);
-            this.tableLayoutPanel19.Controls.Add(this.plbl, 0, 8);
-            this.tableLayoutPanel19.Controls.Add(this.tTimelbl, 1, 6);
-            this.tableLayoutPanel19.Controls.Add(this.tlbl, 0, 6);
-            this.tableLayoutPanel19.Controls.Add(this.label21, 0, 2);
-            this.tableLayoutPanel19.Controls.Add(this.label14, 0, 11);
-            this.tableLayoutPanel19.Controls.Add(this.rlbl, 0, 4);
-            this.tableLayoutPanel19.Controls.Add(this.rTimelbl, 1, 4);
-            this.tableLayoutPanel19.Controls.Add(this.cycleLabel, 0, 3);
-            this.tableLayoutPanel19.Controls.Add(this.label23, 1, 2);
-            this.tableLayoutPanel19.Controls.Add(this.label22, 1, 3);
-            this.tableLayoutPanel19.Controls.Add(this.button1, 0, 13);
-            this.tableLayoutPanel19.Controls.Add(this.recordTimeLabel, 1, 9);
-            this.tableLayoutPanel19.Controls.Add(this.label15, 0, 9);
-            this.tableLayoutPanel19.Controls.Add(this.panel6, 0, 14);
+            this.tableLayoutPanel19.Controls.Add(this.pTimelbl, 1, 5);
+            this.tableLayoutPanel19.Controls.Add(this.clock_lbl, 0, 10);
+            this.tableLayoutPanel19.Controls.Add(this.plbl, 0, 5);
+            this.tableLayoutPanel19.Controls.Add(this.tTimelbl, 1, 4);
+            this.tableLayoutPanel19.Controls.Add(this.tlbl, 0, 4);
+            this.tableLayoutPanel19.Controls.Add(this.label21, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.label14, 0, 7);
+            this.tableLayoutPanel19.Controls.Add(this.rlbl, 0, 3);
+            this.tableLayoutPanel19.Controls.Add(this.rTimelbl, 1, 3);
+            this.tableLayoutPanel19.Controls.Add(this.cycleLabel, 0, 2);
+            this.tableLayoutPanel19.Controls.Add(this.label23, 1, 1);
+            this.tableLayoutPanel19.Controls.Add(this.label22, 1, 2);
+            this.tableLayoutPanel19.Controls.Add(this.button1, 0, 8);
+            this.tableLayoutPanel19.Controls.Add(this.recordTimeLabel, 1, 6);
+            this.tableLayoutPanel19.Controls.Add(this.label15, 0, 6);
             this.tableLayoutPanel19.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.panel6, 0, 9);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(803, 3);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 15;
+            this.tableLayoutPanel19.RowCount = 11;
             this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel19, 3);
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1512,15 +1513,10 @@ namespace CRS
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel19.Size = new System.Drawing.Size(198, 551);
             this.tableLayoutPanel19.TabIndex = 31;
-            this.tableLayoutPanel19.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel19_Paint);
             // 
             // pTimelbl
             // 
@@ -1534,6 +1530,19 @@ namespace CRS
             this.pTimelbl.TabIndex = 28;
             this.pTimelbl.Text = "00:00:00";
             this.pTimelbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // clock_lbl
+            // 
+            this.clock_lbl.AutoSize = true;
+            this.tableLayoutPanel19.SetColumnSpan(this.clock_lbl, 2);
+            this.clock_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clock_lbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clock_lbl.Location = new System.Drawing.Point(3, 532);
+            this.clock_lbl.Name = "clock_lbl";
+            this.clock_lbl.Size = new System.Drawing.Size(192, 19);
+            this.clock_lbl.TabIndex = 40;
+            this.clock_lbl.Text = "label15";
+            this.clock_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // plbl
             // 
@@ -1668,7 +1677,7 @@ namespace CRS
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Location = new System.Drawing.Point(3, 191);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 29);
+            this.button1.Size = new System.Drawing.Size(192, 30);
             this.button1.TabIndex = 36;
             this.button1.Text = "Edit Procedure";
             this.button1.UseVisualStyleBackColor = true;
@@ -1698,39 +1707,37 @@ namespace CRS
             this.label15.Text = "Total Test Time:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.tableLayoutPanel19.SetColumnSpan(this.label16, 2);
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Location = new System.Drawing.Point(3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(192, 17);
+            this.label16.TabIndex = 39;
+            this.label16.Text = "label16";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // panel6
             // 
             this.tableLayoutPanel19.SetColumnSpan(this.panel6, 2);
             this.panel6.Controls.Add(this.resetButton);
-            this.panel6.Controls.Add(this.clock_lbl);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 226);
+            this.panel6.Location = new System.Drawing.Point(3, 227);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(192, 339);
+            this.panel6.Size = new System.Drawing.Size(192, 302);
             this.panel6.TabIndex = 38;
             // 
             // resetButton
             // 
             this.resetButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.resetButton.Location = new System.Drawing.Point(0, 297);
+            this.resetButton.Location = new System.Drawing.Point(0, 270);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(192, 23);
-            this.resetButton.TabIndex = 4;
+            this.resetButton.Size = new System.Drawing.Size(192, 32);
+            this.resetButton.TabIndex = 41;
             this.resetButton.Text = "Reset All Averages";
             this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
-            // clock_lbl
-            // 
-            this.clock_lbl.AutoSize = true;
-            this.clock_lbl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.clock_lbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clock_lbl.Location = new System.Drawing.Point(0, 320);
-            this.clock_lbl.Name = "clock_lbl";
-            this.clock_lbl.Size = new System.Drawing.Size(62, 19);
-            this.clock_lbl.TabIndex = 3;
-            this.clock_lbl.Text = "label15";
-            this.clock_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // shapeContainer1
             // 
@@ -3261,7 +3268,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnCount = 3;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 1, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.analyzerSignal, 0, 0);
@@ -3285,13 +3292,13 @@ namespace CRS
             this.tableLayoutPanel17.Controls.Add(this.iflowlbl, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.flowlbl, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(217, 3);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(219, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(217, 66);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(219, 66);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3302,7 +3309,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.Black;
             this.iflowlbl.Location = new System.Drawing.Point(6, 3);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(205, 28);
+            this.iflowlbl.Size = new System.Drawing.Size(207, 28);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3315,7 +3322,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.Black;
             this.flowlbl.Location = new System.Drawing.Point(6, 34);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(205, 29);
+            this.flowlbl.Size = new System.Drawing.Size(207, 29);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3326,7 +3333,7 @@ namespace CRS
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(88, 54);
+            this.label13.Location = new System.Drawing.Point(90, 54);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 18);
             this.label13.TabIndex = 29;
@@ -3577,7 +3584,7 @@ namespace CRS
             this.analyzerSignal.EmptyBarColor = System.Drawing.Color.Gray;
             this.analyzerSignal.GoodSignalColor = System.Drawing.Color.Green;
             this.analyzerSignal.GoodSignalThreshold = 0.8F;
-            this.analyzerSignal.Location = new System.Drawing.Point(124, 3);
+            this.analyzerSignal.Location = new System.Drawing.Point(126, 3);
             this.analyzerSignal.MaximumValue = 1F;
             this.analyzerSignal.MinimumValue = 0F;
             this.analyzerSignal.Name = "analyzerSignal";
@@ -3595,15 +3602,6 @@ namespace CRS
             this.analyzerSignal.XColor = System.Drawing.Color.Red;
             this.analyzerSignal.XIfNoSignal = true;
             this.analyzerSignal.XWidth = 1.5F;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 17);
-            this.label16.TabIndex = 39;
-            this.label16.Text = "label16";
             // 
             // MainMenu
             // 
@@ -3656,7 +3654,6 @@ namespace CRS
             this.tableLayoutPanel19.ResumeLayout(false);
             this.tableLayoutPanel19.PerformLayout();
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -3815,20 +3812,7 @@ namespace CRS
         private Label tileLabel1;
         private Button tileButton1;
         private TableLayoutPanel tableLayoutPanel19;
-        private Label pTimelbl;
-        private Label plbl;
-        private Label tTimelbl;
-        private Label tlbl;
         private Label label13;
-        private Label label21;
-        private Label label14;
-        private Label rlbl;
-        private Label rTimelbl;
-        private Label cycleLabel;
-        private Label label23;
-        private Button button1;
-        private Label recordTimeLabel;
-        private Label label15;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private TabPage tabPage2;
@@ -3954,11 +3938,24 @@ namespace CRS
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripComboBox toolStripComboBox1;
         private WindowWidgets.SignalStrength analyzerSignal;
-        public Label label22;
+        private Label label14;
+        private Button button1;
         private Panel panel6;
+        private Label pTimelbl;
+        private Label plbl;
+        private Label tTimelbl;
+        private Label tlbl;
+        private Label label21;
+        private Label rlbl;
+        private Label rTimelbl;
+        private Label cycleLabel;
+        private Label label23;
+        public Label label22;
+        private Label recordTimeLabel;
+        private Label label15;
+        private Label label16;
         private Button resetButton;
         private Label clock_lbl;
-        private Label label16;
 
 
     }

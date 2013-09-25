@@ -25,7 +25,7 @@ namespace CRS
             {
                 try
                 {
-                    tableName += "_Test_" + i;
+                    tableName += "Test_" + i + "_" + DateTime.Now.ToString("d", CultureInfo.CreateSpecificCulture("en-US"));
                     //Creates a new table:
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE " + tableName + " AS SELECT * FROM SnapShots WHERE 0;";

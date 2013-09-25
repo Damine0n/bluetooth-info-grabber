@@ -27,7 +27,7 @@ namespace CRS
         public MainMenu MainMenu { get; set; }
         
 
-        public void printTrend(Chart graph)
+        public void printGraph(Chart graph)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
@@ -38,10 +38,10 @@ namespace CRS
            //Open Document To Write
             doc.Open();
             //Insert image
-            //iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(OFD.FileName);
-            //LOGO.ScaleToFit(100f, 150f);
-            //LOGO.Border = iTextSharp.text.Rectangle.BOX;
-            //doc.Add(LOGO);
+            iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(OFD.FileName);
+            LOGO.ScaleToFit(100f, 150f);
+            LOGO.Border = iTextSharp.text.Rectangle.BOX;
+            doc.Add(LOGO);
             //Write Some Content
             Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
             //Adds above created text using different class object to our pdf document.
@@ -87,7 +87,7 @@ namespace CRS
             doc.Close();//Closes Document
             System.Diagnostics.Process.Start(sfd.FileName);
         }
-        public void printReport()
+        public void printSnapShot()
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
@@ -105,6 +105,61 @@ namespace CRS
                 //Adds above created text using different class object to our pdf document.
                 doc.Add(paragraph);
                 doc.Close();//Closes Document
+                System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
+
+        public void printReport(List<string> names)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PDF File|*.pdf";
+            sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save Report";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = sfd.FileName;
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+                doc.Open();//Open Document To Write
+
+                //Write Some Content
+                Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
+                //Adds above created text using different class object to our pdf document.
+                doc.Add(paragraph);
+                for (int z = 1; z == names.Count; z++)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase("MainMenu Table",
+                        new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,
+                        20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
+                    cell.Colspan = 8;
+                    cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
+                    PdfPTable dgTable = new PdfPTable(MainMenu.elementTable.ColumnCount - 1);
+                    dgTable.AddCell(cell);
+
+                    //Add headers from the DGV to the table
+                    for (int i = 0; i < MainMenu.elementTable.ColumnCount - 1; i++)
+                    {
+                        dgTable.AddCell(new Phrase(MainMenu.elementTable.Columns[i].HeaderText));
+                    }
+
+                    //Flag First Row as Header
+                    dgTable.HeaderRows = 1;
+
+                    //Add actual rows from DGV to the table
+                    for (int j = 0; j < MainMenu.elementTable.Rows.Count; j++)
+                    {
+                        for (int k = 0; k < MainMenu.elementTable.Columns.Count; k++)
+                        {
+                            if (MainMenu.elementTable[k, j].Value != null)
+                            {
+                                dgTable.AddCell(new Phrase(MainMenu.elementTable[k, j].Value.ToString()));
+                            }
+                        }
+                    }
+                    //Adds table to pdf
+                    doc.Add(dgTable);
+                }
+                    doc.Close();//Closes Document
                 System.Diagnostics.Process.Start(sfd.FileName);
             }
         }

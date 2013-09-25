@@ -266,6 +266,7 @@ namespace CRS
                 MessageBox.Show("Personal Data: " + ex.Message);
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
+            MainMenu.equipment = "Equipment: "+this.equipBox.Text.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

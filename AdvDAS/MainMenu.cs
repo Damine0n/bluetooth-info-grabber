@@ -26,7 +26,7 @@ namespace CRS
         public static PrintDoc pDoc = new PrintDoc();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         public List<TableLayoutPanel> tiles = new List<TableLayoutPanel>();
-
+        public List<string> tableNames = new List<string>();
         public Color textColor = Color.Black;
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
@@ -54,7 +54,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         public static int dgInterval, cycles;
         public static int currentCycle = 1;
-        public static string cUnit, nUnit, numOfCycles;
+        public static string cUnit, nUnit, numOfCycles, equipment="Equipment:";
         public J2KNProtocol protocol = new J2KNProtocol();
         private string tableName = "";
         private bool run = false;
@@ -195,8 +195,8 @@ namespace CRS
 
             DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
-                Application.ExitThread();                
-        }
+                pDoc.printReport(tableNames);
+            }
         //Takes Snapshot Recording
         private void snapShot_Click(object sender, EventArgs e)
         {
@@ -361,6 +361,7 @@ namespace CRS
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     tableName = new GasAnalysis().newEntry(protocol);
+                    tableNames.Add(tableName);
                     return true;
                 }
                 else
@@ -438,6 +439,7 @@ namespace CRS
             this.pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
             this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+            this.label16.Text = equipment;
         }
 
         //add question during close
@@ -1894,12 +1896,7 @@ namespace CRS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pDoc.printTrend(trendGraph);
-        }
-
-        private void tableLayoutPanel19_Paint(object sender, PaintEventArgs e)
-        {
-
+            pDoc.printGraph(trendGraph);
         }
     }
 }

@@ -47,7 +47,7 @@ namespace CRS
         public string tempvNOx_C;
         public string tempvSO2_C;
         public string tempvCxHy_C;
-        public int signalStrength=0;
+        public int signalStrength = 0;
         public J2KNProtocol()
         {
         }
@@ -78,7 +78,6 @@ namespace CRS
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
                 clientSocket.Receive(receivedBytes);
-
                 try
                 {
                     string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
@@ -154,7 +153,9 @@ namespace CRS
                         vAccu = (iValue / 10).ToString("0.0");
                     clientSocket.Close();
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                }
 
                 return true;
             }
@@ -176,9 +177,9 @@ namespace CRS
                 }
                 catch
                 {
-                    MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication'");
                     return false;
                 }
+            
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
@@ -257,10 +258,13 @@ namespace CRS
                         vAccu = "0.0";
                     else
                         vAccu = (iValue / 10).ToString("0.0");
-                    clientSocket.Close();
+                    
                 }
-                catch { }
-
+                catch
+                {
+                    MessageBox.Show("You must connect analyzer to computer with IP address in 'Set-Up Communication'.");
+                }
+                clientSocket.Close();
                 return true;
             }
             return false;
@@ -347,7 +351,6 @@ namespace CRS
                 }
                 catch
                 {
-                    MessageBox.Show("yup");
                     return;
                 }
             try
@@ -387,9 +390,9 @@ namespace CRS
                     signalStrength = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                 }
             }
-            catch { }
-
-
+            catch
+            {
+            }
             clientSocket.Close();
 
         }
