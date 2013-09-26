@@ -20,6 +20,9 @@ namespace CRS
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
+        DataSet ds = new DataSet();
+        BindingSource bindingSource1 = new BindingSource();
+        DataGridView testTable = new DataGridView();
         public PrintDoc()
         {
         }
@@ -46,36 +49,6 @@ namespace CRS
             Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
             //Adds above created text using different class object to our pdf document.
             doc.Add(paragraph);
-            //PdfPCell cell = new PdfPCell(new Phrase("MainMenu Table",
-            //    new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,
-            //    20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
-            //cell.Colspan = 3;
-            //cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
-            //PdfPTable dgTable = new PdfPTable(MainMenu.elementTable.ColumnCount - 1);
-            //dgTable.AddCell(cell);
-
-            ////Add headers from the DGV to the table
-            //for (int i = 0; i < MainMenu.elementTable.ColumnCount - 1; i++)
-            //{
-            //    dgTable.AddCell(new Phrase(MainMenu.elementTable.Columns[i].HeaderText));
-            //}
-
-            ////Flag First Row as Header
-            //dgTable.HeaderRows = 1;
-
-            ////Add actual rows from DGV to the table
-            //for (int j = 0; j < MainMenu.elementTable.Rows.Count; j++)
-            //{
-            //    for (int k = 0; k < MainMenu.elementTable.Columns.Count; k++)
-            //    {
-            //        if (MainMenu.elementTable[k, j].Value != null)
-            //        {
-            //            dgTable.AddCell(new Phrase(MainMenu.elementTable[k, j].Value.ToString()));
-            //        }
-            //    }
-            //}
-            ////Adds table to pdf
-            //doc.Add(dgTable);
 
             //Adds chart to PDF
             var chartimage = new MemoryStream();
@@ -116,6 +89,9 @@ namespace CRS
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
             sfd.Title = "Save Report";
+            sqlite_conn.Open();
+
+            
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = sfd.FileName;
@@ -128,31 +104,42 @@ namespace CRS
                 doc.Add(paragraph);
                 for (int z = 1; z == names.Count; z++)
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase("MainMenu Table",
+                    try
+                    {
+                        var da = new SQLiteDataAdapter("SELECT Time, O2, NOx, COmass, NOxmass, FROM " + names[z] + ";", sqlite_conn);
+                        da.Fill(ds);
+                        bindingSource1.DataSource = ds.Tables[0];
+                        testTable.DataSource = ds.Tables[0].DefaultView;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    PdfPCell cell = new PdfPCell(new Phrase(names[z],
                         new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,
                         20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
                     cell.Colspan = 8;
                     cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
-                    PdfPTable dgTable = new PdfPTable(MainMenu.elementTable.ColumnCount - 1);
+                    PdfPTable dgTable = new PdfPTable(testTable.ColumnCount - 1);
                     dgTable.AddCell(cell);
 
                     //Add headers from the DGV to the table
-                    for (int i = 0; i < MainMenu.elementTable.ColumnCount - 1; i++)
+                    for (int i = 0; i < testTable.ColumnCount - 1; i++)
                     {
-                        dgTable.AddCell(new Phrase(MainMenu.elementTable.Columns[i].HeaderText));
+                        dgTable.AddCell(new Phrase(testTable.Columns[i].HeaderText));
                     }
 
                     //Flag First Row as Header
                     dgTable.HeaderRows = 1;
 
                     //Add actual rows from DGV to the table
-                    for (int j = 0; j < MainMenu.elementTable.Rows.Count; j++)
+                    for (int j = 0; j < testTable.Rows.Count; j++)
                     {
-                        for (int k = 0; k < MainMenu.elementTable.Columns.Count; k++)
+                        for (int k = 0; k < testTable.Columns.Count; k++)
                         {
-                            if (MainMenu.elementTable[k, j].Value != null)
+                            if (testTable[k, j].Value != null)
                             {
-                                dgTable.AddCell(new Phrase(MainMenu.elementTable[k, j].Value.ToString()));
+                                dgTable.AddCell(new Phrase(testTable[k, j].Value.ToString()));
                             }
                         }
                     }

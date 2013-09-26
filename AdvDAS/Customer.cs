@@ -24,11 +24,8 @@ namespace CRS
         }
         private void load_table()
         {
-            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
-
             // We use these three SQLite objects:
             sqlite_conn.Open();
-
             try
             {
                 var da = new SQLiteDataAdapter("SELECT * FROM Customers;", sqlite_conn);
@@ -47,6 +44,7 @@ namespace CRS
                 tbCellPhone.DataBindings.Add("Text", bindingSource1, "CellPhone");
                 tbEmail.DataBindings.Add("Text", bindingSource1, "Email");
                 tbNotes.DataBindings.Add("Text", bindingSource1, "Notes");
+                da.Update(ds);
             }
             catch (Exception ex)
             {

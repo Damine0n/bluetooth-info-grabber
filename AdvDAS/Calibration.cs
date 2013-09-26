@@ -14,10 +14,6 @@ namespace CRS
     {
         J2KNProtocol protocol = new J2KNProtocol();
         bool clicked = false;
-        private double COcalError, COzeroError;
-        private double NOcalError, NOzeroError;
-        private double NO2calError, NO2zeroError;
-        private double O2calError, O2zeroError;
         public Calibration()
         {
             InitializeComponent();
@@ -121,100 +117,100 @@ namespace CRS
 
         private void capZeroO2_Click(object sender, EventArgs e)
         {
-            textBox7.Text = cO2lbl.Text;
-            if (Convert.ToDouble(this.textBox7.Text) > (Convert.ToDouble(textBox4.Text) + (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox7.Text) < (Convert.ToDouble(textBox4.Text) - (Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.O2zeroResponse.Text = cO2lbl.Text;
+            if (Convert.ToDouble(this.O2zeroResponse.Text) <= ((Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) &&
+                Convert.ToDouble(this.O2zeroResponse.Text) >= (-(Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
-                textBox7.ForeColor = Color.Green;
+                this.O2zeroResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox7.ForeColor = Color.Red;
+                this.O2zeroResponse.ForeColor = Color.Red;
             }
         }
 
         private void capZeroCO_Click(object sender, EventArgs e)
         {
-            textBox8.Text = cCOlbl.Text;
-            if (Convert.ToDouble(this.textBox8.Text) > (Convert.ToDouble(textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox8.Text) < (Convert.ToDouble(textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.COzeroResponse.Text = cCOlbl.Text;
+            if (Convert.ToDouble(this.COzeroResponse.Text) <= ((Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) &&
+                Convert.ToDouble(this.COzeroResponse.Text) >= (-(Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
-                textBox8.ForeColor = Color.Green;
+                this.COzeroResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox8.ForeColor = Color.Red;
+                this.COzeroResponse.ForeColor = Color.Red;
             }
         }
 
         private void capZeroNO_Click(object sender, EventArgs e)
         {
-            textBox11.Text = cNOlbl.Text;
-            if (Convert.ToDouble(this.textBox11.Text) > (Convert.ToDouble(textBox2.Text) + (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox11.Text) < (Convert.ToDouble(textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.NOzeroResponse.Text = cNOlbl.Text;
+            if (Convert.ToDouble(this.NOzeroResponse.Text) <= ((Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) &&
+                Convert.ToDouble(this.NOzeroResponse.Text) >= (-(Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
-                textBox11.ForeColor = Color.Green;
+                this.NOzeroResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox11.ForeColor = Color.Red;
+                this.NOzeroResponse.ForeColor = Color.Red;
             }
         }
 
         private void capZeroNO2_Click(object sender, EventArgs e)
         {
-            textBox12.Text = cNO2lbl.Text;
-            if (Convert.ToDouble(this.textBox12.Text) > (Convert.ToDouble(textBox3.Text) + (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox12.Text) < (Convert.ToDouble(textBox3.Text) - (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.NO2zeroResponse.Text = cNO2lbl.Text;
+            if (Convert.ToDouble(this.NO2zeroResponse.Text) <= ((Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) &&
+                Convert.ToDouble(this.NO2zeroResponse.Text) >= (-(Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
-                textBox12.ForeColor = Color.Green;
+                this.NO2zeroResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox12.ForeColor = Color.Red;
+                this.NO2zeroResponse.ForeColor = Color.Red;
             }
         }
         private void capCalCO_Click(object sender, EventArgs e)
         {
-            textBox13.Text = cCOlbl.Text;
-            if (Convert.ToDouble(this.textBox13.Text) > (Convert.ToDouble(textBox13.Text) + (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox13.Text) < (Convert.ToDouble(textBox13.Text) - (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.COcalResponse.Text = cCOlbl.Text;
+            if ((Convert.ToDouble(this.COcalResponse.Text) >= (Convert.ToDouble(this.textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))) &&
+                (Convert.ToDouble(this.COcalResponse.Text) <= (Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))))
             {
-                textBox13.ForeColor = Color.Green;
+                this.COcalResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox13.ForeColor = Color.Red;
+                this.COcalResponse.ForeColor = Color.Red;
             }
             calCO.Enabled = true;
         }
 
         private void capCalNO_Click(object sender, EventArgs e)
         {
-            textBox14.Text = cNOlbl.Text;
-            if (Convert.ToDouble(this.textBox14.Text) > (Convert.ToDouble(textBox12.Text) + (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox14.Text) < (Convert.ToDouble(textBox12.Text) - (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.NOcalResponse.Text = cNOlbl.Text;
+            if (Convert.ToDouble(this.NOcalResponse.Text) <= (Convert.ToDouble(textBox2.Text) + (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) &&
+                Convert.ToDouble(this.NOcalResponse.Text) >= (Convert.ToDouble(textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
-                textBox14.ForeColor = Color.Green;
+                this.NOcalResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox14.ForeColor = Color.Red;
+                this.NOcalResponse.ForeColor = Color.Red;
             }
             calNO.Enabled = true;
         }
 
         private void capCalNO2_Click(object sender, EventArgs e)
         {
-            textBox15.Text = cNO2lbl.Text;
-            if (Convert.ToDouble(this.textBox15.Text) > (Convert.ToDouble(textBox12.Text) + (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) ||
-                Convert.ToDouble(this.textBox15.Text) < (Convert.ToDouble(textBox12.Text) - (Convert.ToDouble(textBox12.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
+            this.NO2calResponse.Text = cNO2lbl.Text;
+            if (Convert.ToDouble(this.NO2calResponse.Text) <= (Convert.ToDouble(textBox3.Text) + (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))) &&
+                Convert.ToDouble(this.NO2calResponse.Text) >= (Convert.ToDouble(textBox3.Text) - (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100))))
             {
-                textBox15.ForeColor = Color.Green;
+                this.NO2calResponse.ForeColor = Color.Green;
             }
             else
             {
-                textBox15.ForeColor = Color.Red;
+                this.NO2calResponse.ForeColor = Color.Red;
             }
             calNO2.Enabled = true;
         }

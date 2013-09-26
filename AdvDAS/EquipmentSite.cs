@@ -25,8 +25,9 @@ namespace CRS
             // TODO: Complete member initialization
             InitializeComponent();
             sqlite_conn.Open();
-            Fillcombo();
             this.Customer = Customer;
+            Fillcombo();
+            
         }
         void Fillcombo()
         {
@@ -105,7 +106,6 @@ namespace CRS
             {
                 MessageBox.Show("Site name must be unique.");
             }
-            
         }
 
         private void CreateEquipment(string x)

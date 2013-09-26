@@ -912,7 +912,7 @@ namespace CRS
             this.tileLabel9.Name = "tileLabel9";
             this.tileLabel9.Size = new System.Drawing.Size(174, 42);
             this.tileLabel9.TabIndex = 15;
-            this.tileLabel9.Text = "NOx ppm";
+            this.tileLabel9.Text = "T(gas)°F";
             this.tileLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile9
@@ -1014,7 +1014,7 @@ namespace CRS
             this.tileLabel11.Name = "tileLabel11";
             this.tileLabel11.Size = new System.Drawing.Size(174, 42);
             this.tileLabel11.TabIndex = 15;
-            this.tileLabel11.Text = "T(cell)°F";
+            this.tileLabel11.Text = "Efficiency %";
             this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile11
@@ -1065,7 +1065,7 @@ namespace CRS
             this.tileLabel12.Name = "tileLabel12";
             this.tileLabel12.Size = new System.Drawing.Size(174, 42);
             this.tileLabel12.TabIndex = 15;
-            this.tileLabel12.Text = "Efficiency %";
+            this.tileLabel12.Text = "T(cell)°F";
             this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile2
@@ -1165,7 +1165,7 @@ namespace CRS
             this.tileLabel8.Name = "tileLabel8";
             this.tileLabel8.Size = new System.Drawing.Size(174, 41);
             this.tileLabel8.TabIndex = 19;
-            this.tileLabel8.Text = "T(gas)°F";
+            this.tileLabel8.Text = "NOx ppm";
             this.tileLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sTile6
@@ -1738,6 +1738,7 @@ namespace CRS
             this.resetButton.TabIndex = 41;
             this.resetButton.Text = "Reset All Averages";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // shapeContainer1
             // 
@@ -3268,7 +3269,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnCount = 3;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 1, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.analyzerSignal, 0, 0);
@@ -3292,13 +3293,13 @@ namespace CRS
             this.tableLayoutPanel17.Controls.Add(this.iflowlbl, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.flowlbl, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(219, 3);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(209, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(219, 66);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(208, 66);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3309,7 +3310,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.Black;
             this.iflowlbl.Location = new System.Drawing.Point(6, 3);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(207, 28);
+            this.iflowlbl.Size = new System.Drawing.Size(196, 28);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3322,7 +3323,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.Black;
             this.flowlbl.Location = new System.Drawing.Point(6, 34);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(207, 29);
+            this.flowlbl.Size = new System.Drawing.Size(196, 29);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3333,7 +3334,7 @@ namespace CRS
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(90, 54);
+            this.label13.Location = new System.Drawing.Point(80, 54);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 18);
             this.label13.TabIndex = 29;
@@ -3584,7 +3585,7 @@ namespace CRS
             this.analyzerSignal.EmptyBarColor = System.Drawing.Color.Gray;
             this.analyzerSignal.GoodSignalColor = System.Drawing.Color.Green;
             this.analyzerSignal.GoodSignalThreshold = 0.8F;
-            this.analyzerSignal.Location = new System.Drawing.Point(126, 3);
+            this.analyzerSignal.Location = new System.Drawing.Point(116, 3);
             this.analyzerSignal.MaximumValue = 1F;
             this.analyzerSignal.MinimumValue = 0F;
             this.analyzerSignal.Name = "analyzerSignal";
