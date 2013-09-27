@@ -39,6 +39,7 @@ namespace CRS
         public string vNOxmass_C = "0.0";
         public string vAccu = "";
         public string vSerialNumber = "";
+        public string vFirmware = "";
         public string ipAddress = "192.168.55.1";
         public IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
         public string tempvCO_C;
@@ -388,6 +389,10 @@ namespace CRS
                 else if (p.Equals("$0A0512"))
                 {
                     signalStrength = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
+                }
+                else if (p.Equals("$0A0515"))
+                {
+                    vFirmware = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16).ToString();
                 }
             }
             catch

@@ -17,12 +17,10 @@ namespace CRS
 {
     public partial class SetUpReport : Form
     {
-        private PrintDoc pDoc;
-        public SetUpReport(PrintDoc pDoc)
+        public SetUpReport()
         {
             // TODO: Complete member initialization
             InitializeComponent();
-            this.pDoc = pDoc;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,6 +47,11 @@ namespace CRS
                 this.checkBox14.Enabled = true;
                 this.checkBox15.Enabled = true;
             }
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

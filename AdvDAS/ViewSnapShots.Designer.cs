@@ -1,6 +1,6 @@
 ﻿namespace CRS
 {
-    partial class TestRecords
+    partial class ViewSnapShots
     {
         /// <summary>
         /// Required designer variable.
@@ -79,7 +79,7 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Search:";
             // 
-            // TestRecords
+            // ViewSnapShots
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,7 +90,7 @@
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TestRecords";
+            this.Name = "ViewSnapShots";
             this.Text = "TestRecords";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

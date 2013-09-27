@@ -92,6 +92,18 @@
     <Compile Include="Connection.Designer.cs">
       <DependentUpon>Connection.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintDocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintDocs.Designer.cs">
+      <DependentUpon>PrintDocs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSnapShots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSnapShots.Designer.cs">
+      <DependentUpon>ViewSnapShots.cs</DependentUpon>
+    </Compile>
     <Compile Include="CRSAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Connection.resx">
       <DependentUpon>Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintDocs.resx">
+      <DependentUpon>PrintDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSnapShots.resx">
+      <DependentUpon>ViewSnapShots.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CRSAboutBox.resx">
       <DependentUpon>CRSAboutBox.cs</DependentUpon>

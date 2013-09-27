@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.IO;
 using Finisar.SQLite;
 
 namespace CRS
@@ -27,7 +28,7 @@ namespace CRS
             sqlite_conn.Open();
             this.Customer = Customer;
             Fillcombo();
-            
+
         }
         void Fillcombo()
         {
@@ -35,7 +36,7 @@ namespace CRS
             equipBox.Items.Clear();
             try
             {
-                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites WHERE Customer ='"+this.Customer+"';", sqlite_conn);
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites WHERE Customer ='" + this.Customer + "';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
                 while (sqlite_datareader.Read())
                 {
@@ -50,7 +51,7 @@ namespace CRS
                 MessageBox.Show("Please, create site and equipment");
             }
         }
-        
+
         private void btnDeleteSite_Click(object sender, EventArgs e)
         {
 
@@ -69,6 +70,8 @@ namespace CRS
                 {
                     MessageBox.Show(ex.Message);
                 }
+                DirectoryInfo di = new DirectoryInfo(@"Reports\" + this.siteBox.SelectedItem.ToString());
+                di.Delete();
             }
             else
                 return;
@@ -81,32 +84,60 @@ namespace CRS
                 if (dialog == DialogResult.Yes)
                 {
                     sqlite_cmd = sqlite_conn.CreateCommand();
-                    sqlite_cmd.CommandText = "DELETE FROM Equipments WHERE owner = '" + this.siteBox.SelectedItem.ToString() 
+                    sqlite_cmd.CommandText = "DELETE FROM Equipments WHERE owner = '" + this.siteBox.SelectedItem.ToString()
                                                     + "' And equipment = '" + this.equipBox.SelectedItem.ToString() + "';";
                     sqlite_cmd.ExecuteNonQuery();
                     equipBox.Items.Clear();
                     Fillcombo();
                     equipBox.SelectedIndex = 0;
+                    DirectoryInfo di = new DirectoryInfo(Path.Combine(@"Reports\" + this.siteBox.SelectedItem.ToString(), this.equipBox.SelectedItem.ToString()));
+                    di.Delete();
                 }
-            else
-                return;
+                else
+                    return;
         }
         private void btnCreateSite_Click(object sender, EventArgs e)
         {
+            string x="";
             try
             {
-                string x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
+                 x= Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
                 sqlite_cmd.CommandText = "INSERT INTO Sites (Site,Customer) VALUES ('" + x + "','" + Customer + "');";
                 sqlite_cmd.ExecuteNonQuery();
-                CreateEquipment(x);
-                siteBox.Items.Clear();
-                siteBox.SelectedItem = x;
             }
             catch
             {
                 MessageBox.Show("Site name must be unique.");
             }
+            string path = @"Reports\" + x;
+            try
+            {
+                // Determine whether the directory exists. 
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine("That path exists already.");
+                    return;
+                }
+
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(path);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The process failed: {0}", ex.ToString());
+            }
+            
+
+            CreateEquipment(x);
+            siteBox.Items.Clear();
+            equipBox.Items.Clear();
+            Fillcombo();
+            siteBox.SelectedItem = x;
+            
         }
+
+
 
         private void CreateEquipment(string x)
         {
@@ -117,9 +148,28 @@ namespace CRS
 
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            string path = @"Reports\" + x;
+            try
+            {
+                // Determine whether the directory exists. 
+                if (Directory.Exists(Path.Combine(path,y)))
+                {
+                    Console.WriteLine("That path exists already.");
+                    return;
+                }
+
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(Path.Combine(path,y));
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The process failed: {0}", ex.ToString());
             }
         }
 
@@ -141,20 +191,20 @@ namespace CRS
                 sqlite_cmd = sqlite_conn.CreateCommand();
 
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "Update Equipments SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '" 
-                    + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '" 
-                    + this.tbStackFlow.Text + "', stackTemp = '" + this.tbStackTemp.Text + "', intakeMPL = '" + this.tbIntakeMPL.Text + "', intakeMPR = '" 
-                    + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '" 
-                    + this.tbStackHeightFT.Text + "', stackHeightIN = '" + this.tbStackHeightIN.Text + "', fuelSG = '" + this.tbFuelSG.Text + "', RPM = '" 
-                    + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '" 
+                sqlite_cmd.CommandText = "Update Equipments SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '"
+                    + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '"
+                    + this.tbStackFlow.Text + "', stackTemp = '" + this.tbStackTemp.Text + "', intakeMPL = '" + this.tbIntakeMPL.Text + "', intakeMPR = '"
+                    + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '"
+                    + this.tbStackHeightFT.Text + "', stackHeightIN = '" + this.tbStackHeightIN.Text + "', fuelSG = '" + this.tbFuelSG.Text + "', RPM = '"
+                    + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
                     + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text
-                    + "'  WHERE equipment = '"+this.equipBox.SelectedText+"';";
+                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
 
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='" 
-                    + this.textBox2.Text + "' Where site = '"+this.siteBox.Text.ToString()+"' ;";
+                sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='"
+                    + this.textBox2.Text + "' Where site = '" + this.siteBox.Text.ToString() + "' ;";
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
             }
@@ -172,7 +222,7 @@ namespace CRS
                 sqlite_cmd = new SQLiteCommand("SELECT Sites.area, Sites.facility, Equipments.equipment FROM Sites INNER JOIN Equipments ON Sites.site"
                     + " = Equipments.owner WHERE Site = '" + this.siteBox.Text.ToString() + "';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
-                    
+
                 while (sqlite_datareader.Read())
                 {
                     string area = sqlite_datareader[0].ToString();
@@ -196,7 +246,7 @@ namespace CRS
             try
             {
 
-                sqlite_cmd = new SQLiteCommand("SELECT * FROM Equipments WHERE owner = '" + this.siteBox.Text.ToString() 
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Equipments WHERE owner = '" + this.siteBox.Text.ToString()
                     + "' AND equipment = '" + this.equipBox.Text.ToString() + "';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
 
@@ -206,7 +256,7 @@ namespace CRS
                     tbUnitNum.Text = unitNum;
 
                     string model = sqlite_datareader[3].ToString();
-                    tbModel.Text = model; 
+                    tbModel.Text = model;
 
                     string serialNum = sqlite_datareader[4].ToString();
                     tbSerialNum.Text = serialNum;
@@ -266,7 +316,8 @@ namespace CRS
                 MessageBox.Show("Personal Data: " + ex.Message);
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
-            MainMenu.equipment = "Equipment: "+this.equipBox.Text.ToString();
+            GasAnalysis.site = this.siteBox.Text.ToString();
+            MainMenu.equipment = "Equipment: " + this.equipBox.Text.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -276,7 +327,7 @@ namespace CRS
         private void checkBoxes_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox src = sender as CheckBox;
-            if (src.Checked==true)
+            if (src.Checked == true)
             {
                 MessageBox.Show("Select '" + src.Text + " - Corrected' in the tile dropdown menu to view.");
             }

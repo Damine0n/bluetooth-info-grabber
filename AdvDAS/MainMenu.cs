@@ -23,7 +23,7 @@ namespace CRS
     {
         private System.Drawing.Rectangle tabArea;
         private RectangleF tabTextArea;
-        public static PrintDoc pDoc = new PrintDoc();
+        public static PrintDocs pDoc = new PrintDocs();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         public List<TableLayoutPanel> tiles = new List<TableLayoutPanel>();
         public List<string> tableNames = new List<string>();
@@ -31,8 +31,9 @@ namespace CRS
         public Color backgroundColor = Color.Black;
         private List<double> num = new List<double>();
         private ToolTip tp = new ToolTip();
-        private SetUpReport configReport = new SetUpReport(pDoc);
+        private SetUpReport configReport = new SetUpReport();
         private SetUpProcedure configProcedure;
+        TestRecords tRecords = new TestRecords();
         private PersonalData personalData = new PersonalData();
         private Calibration caliForm = new Calibration();
         private Customer customer = new Customer();
@@ -52,9 +53,9 @@ namespace CRS
         private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-        public static int dgInterval, cycles;
+        public static int dgInterval, cycles,tested;
         public static int currentCycle = 1;
-        public static string cUnit, nUnit, numOfCycles, equipment="Equipment:";
+        public static string cUnit, nUnit, numOfCycles, equipment="Equipment: Not Selected";
         public J2KNProtocol protocol = new J2KNProtocol();
         private string tableName = "";
         private bool run = false;
@@ -141,7 +142,7 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            if (equipment.Equals("Equipment:"))
+            if (!equipment.Equals("Equipment: Not Selected"))
             {
                 if (!run)
                 {
@@ -199,6 +200,7 @@ namespace CRS
             {
                 DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
+                    pDoc.ShowDialog();
                     pDoc.printReport(tableNames);
             }
         }
@@ -452,6 +454,7 @@ namespace CRS
             this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
+            this.label14.Text=tested + " Machines Tested";
         }
 
         //add question during close
@@ -759,6 +762,8 @@ namespace CRS
             protocol.processProtocol();
             //get Serial Number
             protocol.processProtocol("$0A0514");
+            //get Firmware ID
+            protocol.processProtocol("$0A0515");
             //get losses number
             protocol.processProtocol("$0A053D");
             //get Internal Flow
@@ -824,6 +829,7 @@ namespace CRS
             this.serialNO_lbl.Text = protocol.vSerialNumber;
             this.iflowlbl.Text = protocol.vIFlow;
             this.analyzerSignal.Value = Convert.ToInt32(protocol.signalStrength);
+            this.Firmware_lbl.Text = protocol.vFirmware;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -1013,13 +1019,13 @@ namespace CRS
 
         private void viewTestRecordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TestRecords tRecords = new TestRecords();
             tRecords.ShowDialog();
         }
 
         private void viewSnapshotsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ViewSnapShots snaps = new ViewSnapShots();
+            ViewSnapShots snaps = new ViewSnapShots();
+            snaps.ShowDialog();
 
         }
         private void toolStripComboBox1_SelectedItemChanged(object sender, EventArgs e)
@@ -1914,6 +1920,12 @@ namespace CRS
         private void button2_Click(object sender, EventArgs e)
         {
             pDoc.printGraph(trendGraph);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //start Calibration phase
+            protocol.processProtocol("$0A0517");
         }
     }
 }

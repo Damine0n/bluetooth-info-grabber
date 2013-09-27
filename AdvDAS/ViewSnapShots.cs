@@ -11,13 +11,13 @@ using Finisar.SQLite;
 
 namespace CRS
 {
-    public partial class TestRecords : Form
+    public partial class ViewSnapShots : Form
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         DataTable ds = new DataTable();
-        public TestRecords()
+        public ViewSnapShots()
         {
             InitializeComponent();
             LoadTable();
@@ -32,23 +32,19 @@ namespace CRS
             CBColumn.FalseValue = "0";
             CBColumn.TrueValue = "1";
             sqlite_conn.Open();
-            for (int i = 0; i < 2; i++)
+            try
             {
-                try
-                {
-                    var da = new SQLiteDataAdapter("SELECT * FROM Test_Tables;", sqlite_conn);
-                    da.Fill(ds);
-                    bindingSource1.DataSource = ds;
-                    dataGridView1.DataSource = bindingSource1;
-                    //dataGridView1.Columns.Insert(dataGridView1.ColumnCount,CBColumn);
-                    da.Update(ds);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                var da = new SQLiteDataAdapter("SELECT * FROM SnapShots;", sqlite_conn);
+                da.Fill(ds);
+                bindingSource1.DataSource = ds;
+                dataGridView1.DataSource = bindingSource1;
+                //dataGridView1.Columns.Insert(dataGridView1.ColumnCount,CBColumn);
+                da.Update(ds);
             }
-            MainMenu.tested = dataGridView1.RowCount;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         void AutoCompleteTest()
@@ -73,15 +69,14 @@ namespace CRS
         }
         private void Print_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dataGridView1.ColumnCount.ToString());
+            MessageBox.Show(dataGridView1.SelectedRows[0].ToString());
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DataView DV = new DataView(ds);
-            DV.RowFilter = string.Format("Test LIKE '%{0}%'",tbSearch.Text);
+            DV.RowFilter = string.Format("Time LIKE '%{0}%'",tbSearch.Text);
             dataGridView1.DataSource = DV;
-            
         }
     }
 }

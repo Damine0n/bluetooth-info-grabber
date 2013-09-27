@@ -5,26 +5,24 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Globalization;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using Finisar.SQLite;
 using System.IO;
 
 namespace CRS
 {
-    public class PrintDoc
+    public partial class PrintDocs : Form
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
-        private SQLiteCommand sqlite_cmd;
         DataTable ds = new DataTable();
-        BindingSource bindingSource1 = new BindingSource();
-        DataGridView testTable = new DataGridView();
-        public PrintDoc()
+        public PrintDocs()
         {
+            InitializeComponent();
         }
         public OpenFileDialog OFD { get; set; }
         public MainMenu MainMenu { get; set; }
@@ -106,42 +104,43 @@ namespace CRS
                 {
                     try
                     {
-                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NOx, COmass, NOxmass, Tgas, Tamb, Tcell , Notes FROM " + names[z] + ";", sqlite_conn);
+                        var da = new SQLiteDataAdapter("SELECT * FROM Test_Tables;", sqlite_conn);
                         da.Fill(ds);
                         bindingSource1.DataSource = ds;
-                        testTable.DataSource = bindingSource1;
+                        dataGridView1.DataSource = bindingSource1;
+                        //dataGridView1.Columns.Insert(dataGridView1.ColumnCount,CBColumn);
                         da.Update(ds);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message+ ex.StackTrace);
+                        MessageBox.Show(ex.Message + ex.StackTrace);
                     }
                     try
                     {
-                        PdfPCell cell = new PdfPCell(new Phrase(names[z], new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
+                        PdfPCell cell = new PdfPCell(new Phrase(names[z], new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
                         cell.Colspan = 10;
                         cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
-                        PdfPTable dgTable = new PdfPTable(testTable.ColumnCount);
+                        PdfPTable dgTable = new PdfPTable(dataGridView1.ColumnCount);
 
                         dgTable.AddCell(cell);
 
                         //Add headers from the DGV to the table
-                        for (int i = 0; i < testTable.ColumnCount - 1; i++)
+                        for (int i = 0; i < dataGridView1.ColumnCount - 1; i++)
                         {
-                            dgTable.AddCell(new Phrase(testTable.Columns[i].HeaderText));
+                            dgTable.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText));
                         }
 
                         //Flag First Row as Header
                         dgTable.HeaderRows = 1;
 
                         //Add actual rows from DGV to the table
-                        for (int j = 0; j < testTable.Rows.Count; j++)
+                        for (int j = 0; j < dataGridView1.Rows.Count; j++)
                         {
-                            for (int k = 0; k < testTable.Columns.Count; k++)
+                            for (int k = 0; k < dataGridView1.Columns.Count; k++)
                             {
-                                if (testTable[k, j].Value != null)
+                                if (dataGridView1[k, j].Value != null)
                                 {
-                                    dgTable.AddCell(new Phrase(testTable[k, j].Value.ToString()));
+                                    dgTable.AddCell(new Phrase(dataGridView1[k, j].Value.ToString()));
                                 }
                             }
                         }
@@ -150,7 +149,7 @@ namespace CRS
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(testTable.ColumnCount.ToString());
+                        MessageBox.Show(dataGridView1.ColumnCount.ToString());
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
                     doc.Close();//Closes Document
