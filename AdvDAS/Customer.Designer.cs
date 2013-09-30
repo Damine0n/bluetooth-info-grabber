@@ -78,6 +78,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnEditCustomer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.SearchBar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -237,7 +239,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(687, 299);
+            this.tabPage2.Size = new System.Drawing.Size(687, 279);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "All Customer";
             // 
@@ -247,7 +249,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(681, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(681, 273);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage1
@@ -524,7 +526,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(695, 325);
+            this.tabControl1.Size = new System.Drawing.Size(695, 305);
             this.tabControl1.TabIndex = 54;
             // 
             // btnEditCustomer
@@ -550,12 +552,32 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 312);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 57;
+            this.label13.Text = "Search:";
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.SearchBar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.SearchBar.Location = new System.Drawing.Point(51, 309);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(250, 20);
+            this.SearchBar.TabIndex = 58;
+            // 
             // Customer
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 382);
+            this.Controls.Add(this.SearchBar);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.btnEditCustomer);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
@@ -633,5 +655,7 @@
         private System.Windows.Forms.Button btnEditCustomer;
         public System.Windows.Forms.TextBox tbCustomerID;
         private System.Windows.Forms.Button btnSite;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox SearchBar;
     }
 }

@@ -103,6 +103,24 @@ namespace CRS
                     Paragraph paragraph = new Paragraph("This is the test paragraph.\nTested table #" + z + " " + names[z]);
                     //Adds above created text using different class object to our pdf document.
                     doc.Add(paragraph);
+                    //PdfWriter.GetInstance(doc, new FileStream(pdfpath + "/Columns.pdf", FileMode.Create));
+                    Paragraph heading = new Paragraph("Page Heading");
+                    
+                    heading.SpacingAfter = 18f;
+                    doc.Add(heading);
+                    string text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse blandit blandit turpis. Nam in lectus ut dolor consectetuer bibendum. Morbi neque ipsum, laoreet id; dignissim et, viverra id, mauris. Nulla mauris elit, consectetuer sit amet, accumsan eget, congue ac, libero. Vivamus suscipit. Nunc dignissim consectetuer lectus. Fusce elit nisi; commodo non, facilisis quis, hendrerit eu, dolor? Suspendisse eleifend nisi ut magna. Phasellus id lectus! Vivamus laoreet enim et dolor. Integer arcu mauris, ultricies vel, porta quis, venenatis at, libero. Donec nibh est, adipiscing et, ullamcorper vitae, placerat at, diam. Integer ac turpis vel ligula rutrum auctor! Morbi egestas erat sit amet diam. Ut ut ipsum? Aliquam non sem. Nulla risus eros, mollis quis, blandit ut; luctus eget, urna. Vestibulum vestibulum dapibus erat. Proin egestas leo a metus?";
+                    ColumnText columns = new ColumnText();
+                    //float left, float right, float gutterwidth, int numcolumns
+                    columns.AddRegularColumns(36f, doc.PageSize.Width - 36f, 24f, 2);
+                    Paragraph para = new Paragraph(text);
+                    para.SpacingAfter = 9f;
+                    para.Alignment = Element.ALIGN_JUSTIFIED;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        columns.AddElement(para);
+                    }
+
+                    doc.Add(columns);
                     try
                     {
                         var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NOx, COmass, NOXmass, Tgas, Tamb, Tcell FROM " + names[z] + ";", sqlite_conn);
