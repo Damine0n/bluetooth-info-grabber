@@ -79,7 +79,7 @@ namespace CRS
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DataView DV = new DataView(ds);
-            DV.RowFilter = string.Format("Test LIKE '%{0}%'",tbSearch.Text);
+            DV.RowFilter = string.Format("Test LIKE '%{0}%' or Equipment LIKE '%{0}%' or Site LIKE '%{0}%'", tbSearch.Text);
             dataGridView1.DataSource = DV;
             
         }

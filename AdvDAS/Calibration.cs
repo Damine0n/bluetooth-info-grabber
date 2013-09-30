@@ -219,7 +219,8 @@ namespace CRS
         {
             if (!clicked)
             {
-                protocol.processProtocol("$0F1051 0x20");
+                protocol.processProtocol("$0F1006 0x20");
+                protocol.processProtocol("$0F1004 0x20");
                 timer2.Start();
                 dateTimePicker5.Enabled = false;
                 this.startTimerButton.Text = "Stop";
@@ -227,18 +228,26 @@ namespace CRS
             }
             else
             {
-                timer2.Stop();
-                dateTimePicker5.Enabled = true;
-                this.startTimerButton.Text = "Start";
-                clicked = false;
+                stopIt();
             }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-1);
+            if (!dateTimePicker5.Value.ToString("mm:ss").Equals("00:00"))
+                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-1);
+            else 
+                stopIt();
         }
 
+        private void stopIt()
+        {
+            protocol.processProtocol("$0F1007Meas1");
+            timer2.Stop();
+            dateTimePicker5.Enabled = true;
+            this.startTimerButton.Text = "Start";
+            clicked = false;
+        }
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }

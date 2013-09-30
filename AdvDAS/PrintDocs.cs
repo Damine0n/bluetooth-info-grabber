@@ -58,7 +58,7 @@ namespace CRS
             doc.Close();//Closes Document
             System.Diagnostics.Process.Start(sfd.FileName);
         }
-        public void printSnapShot()
+        public void printSnapShot(List<string> snapshots)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
@@ -97,14 +97,15 @@ namespace CRS
                 doc.Open();//Open Document To Write
 
                 //Write Some Content
-                Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
-                //Adds above created text using different class object to our pdf document.
-                doc.Add(paragraph);
+
                 for (int z = 0; z < names.Count; z++)
                 {
+                    Paragraph paragraph = new Paragraph("This is the test paragraph.\nTested table #" + z + " " + names[z]);
+                    //Adds above created text using different class object to our pdf document.
+                    doc.Add(paragraph);
                     try
                     {
-                        var da = new SQLiteDataAdapter("SELECT * FROM Test_Tables;", sqlite_conn);
+                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NOx, COmass, NOXmass, Tgas, Tamb, Tcell FROM " + names[z] + ";", sqlite_conn);
                         da.Fill(ds);
                         bindingSource1.DataSource = ds;
                         dataGridView1.DataSource = bindingSource1;
@@ -123,9 +124,9 @@ namespace CRS
                         PdfPTable dgTable = new PdfPTable(dataGridView1.ColumnCount);
 
                         dgTable.AddCell(cell);
-
+                        
                         //Add headers from the DGV to the table
-                        for (int i = 0; i < dataGridView1.ColumnCount - 1; i++)
+                        for (int i = 0; i < dataGridView1.ColumnCount; i++)
                         {
                             dgTable.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText));
                         }
@@ -140,7 +141,7 @@ namespace CRS
                             {
                                 if (dataGridView1[k, j].Value != null)
                                 {
-                                    dgTable.AddCell(new Phrase(dataGridView1[k, j].Value.ToString()));
+                                    dgTable.AddCell(new Phrase(dataGridView1[k, j].Value.ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 10f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)));
                                 }
                             }
                         }
@@ -152,11 +153,12 @@ namespace CRS
                         MessageBox.Show(dataGridView1.ColumnCount.ToString());
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
-                    doc.Close();//Closes Document
-                    System.Diagnostics.Process.Start(sfd.FileName);
-                }
 
-            }
+                }
+                doc.Close();//Closes Document
+                System.Diagnostics.Process.Start(sfd.FileName);
+            } 
+            sqlite_conn.Close();
         }
     }
 }

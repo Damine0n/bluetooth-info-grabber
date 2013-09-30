@@ -200,8 +200,10 @@ namespace CRS
             {
                 DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
+                {
                     pDoc.ShowDialog();
                     pDoc.printReport(tableNames);
+                }
             }
         }
         //Takes Snapshot Recording
