@@ -12,8 +12,8 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using System.Data.SQLite;
-//using Finisar.SQLite;
+//using System.Data.SQLite;
+using Finisar.SQLite;
 using System.Drawing.Drawing2D;
 
 

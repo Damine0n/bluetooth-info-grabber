@@ -11,8 +11,8 @@ using iTextSharp.text.pdf;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
-//using Finisar.SQLite;
+//using System.Data.SQLite;
+using Finisar.SQLite;
 using System.IO;
 
 namespace CRS
