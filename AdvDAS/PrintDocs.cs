@@ -11,7 +11,8 @@ using iTextSharp.text.pdf;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Finisar.SQLite;
+using System.Data.SQLite;
+//using Finisar.SQLite;
 using System.IO;
 
 namespace CRS
@@ -80,7 +81,7 @@ namespace CRS
             }
         }
 
-        public void printReport(List<string> names)
+        public void printReport(List<string> names, string note)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
@@ -109,9 +110,9 @@ namespace CRS
                     heading.SpacingAfter = 18f;
                     doc.Add(heading);
                     string text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse blandit blandit turpis. Nam in lectus ut dolor consectetuer bibendum. Morbi neque ipsum, laoreet id; dignissim et, viverra id, mauris. Nulla mauris elit, consectetuer sit amet, accumsan eget, congue ac, libero. Vivamus suscipit. Nunc dignissim consectetuer lectus. Fusce elit nisi; commodo non, facilisis quis, hendrerit eu, dolor? Suspendisse eleifend nisi ut magna. Phasellus id lectus! Vivamus laoreet enim et dolor. Integer arcu mauris, ultricies vel, porta quis, venenatis at, libero. Donec nibh est, adipiscing et, ullamcorper vitae, placerat at, diam. Integer ac turpis vel ligula rutrum auctor! Morbi egestas erat sit amet diam. Ut ut ipsum? Aliquam non sem. Nulla risus eros, mollis quis, blandit ut; luctus eget, urna. Vestibulum vestibulum dapibus erat. Proin egestas leo a metus?";
-                    ColumnText columns = new ColumnText();
+                    ColumnText columns = new ColumnText(new PdfContentByte(wri));
                     //float left, float right, float gutterwidth, int numcolumns
-                    columns.AddRegularColumns(36f, doc.PageSize.Width - 36f, 24f, 2);
+                    columns.SetSimpleColumn(36f, doc.PageSize.Width - 36f, 24f, 2);
                     Paragraph para = new Paragraph(text);
                     para.SpacingAfter = 9f;
                     para.Alignment = Element.ALIGN_JUSTIFIED;
@@ -120,15 +121,16 @@ namespace CRS
                         columns.AddElement(para);
                     }
 
-                    doc.Add(columns);
+                    //doc.Add(columns);
                     try
                     {
-                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NOx, COmass, NOXmass, Tgas, Tamb, Tcell FROM " + names[z] + ";", sqlite_conn);
+                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NOx, COmass, NOxmass, Tgas, Tamb, Tcell, Notes FROM " + names[z] + ";", sqlite_conn);
+                        ds.Clear();
                         da.Fill(ds);
                         bindingSource1.DataSource = ds;
                         dataGridView1.DataSource = bindingSource1;
                         //dataGridView1.Columns.Insert(dataGridView1.ColumnCount,CBColumn);
-                        da.Update(ds);
+                        //da.Update(ds);
                     }
                     catch (Exception ex)
                     {
@@ -136,7 +138,7 @@ namespace CRS
                     }
                     try
                     {
-                        PdfPCell cell = new PdfPCell(new Phrase(names[z], new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GREEN)));
+                        PdfPCell cell = new PdfPCell(new Phrase(names[z], new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 20f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLUE)));
                         cell.Colspan = 10;
                         cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
                         PdfPTable dgTable = new PdfPTable(dataGridView1.ColumnCount);
@@ -146,7 +148,7 @@ namespace CRS
                         //Add headers from the DGV to the table
                         for (int i = 0; i < dataGridView1.ColumnCount; i++)
                         {
-                            dgTable.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText));
+                            dgTable.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLUE)));
                         }
 
                         //Flag First Row as Header

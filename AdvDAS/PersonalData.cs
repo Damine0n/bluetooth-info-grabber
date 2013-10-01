@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Finisar.SQLite;
+using System.Data.SQLite;
+//using Finisar.SQLite;
 
 namespace CRS
 {
     public partial class PersonalData : Form
     {
+        
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         DataSet ds = new DataSet();

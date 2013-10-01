@@ -53,5 +53,21 @@ namespace CRS
         {
 
         }
+        private int checkCounter;
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox box = (CheckBox)sender;
+            if (box.Checked)
+                checkCounter++;
+            else
+                checkCounter--;
+
+            // prevent checking
+            if (checkCounter == 10)
+            {
+                MessageBox.Show("You may only print 9 values.", "Error");
+                box.Checked = false;
+            }
+        }
     }
 }

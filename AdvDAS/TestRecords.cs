@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Finisar.SQLite;
-
+using System.Data.SQLite;
+//using Finisar.SQLite;
 namespace CRS
 {
     public partial class TestRecords : Form
@@ -31,11 +31,10 @@ namespace CRS
             CBColumn.HeaderText = "Select";
             CBColumn.FalseValue = "0";
             CBColumn.TrueValue = "1";
-            sqlite_conn.Open();
-            for (int i = 0; i < 2; i++)
-            {
+            
+            
                 try
-                {
+                {sqlite_conn.Open();
                     var da = new SQLiteDataAdapter("SELECT * FROM Test_Tables;", sqlite_conn);
                     da.Fill(ds);
                     bindingSource1.DataSource = ds;
@@ -47,7 +46,6 @@ namespace CRS
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
             MainMenu.tested = dataGridView1.RowCount;
         }
 

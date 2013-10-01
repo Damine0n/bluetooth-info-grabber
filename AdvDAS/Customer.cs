@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Finisar.SQLite;
+using System.Data.SQLite;
+//using Finisar.SQLite;
 using System.IO;
 
 namespace CRS
@@ -16,11 +17,13 @@ namespace CRS
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
-        DataSet ds = new DataSet();
+        private SQLiteDataReader sqlite_datareader;
+        DataTable ds = new DataTable();
         public Customer()
         {
             InitializeComponent();
             load_table();
+            AutoCompleteTest();
         }
         private void load_table()
         {
@@ -30,8 +33,8 @@ namespace CRS
             {
                 var da = new SQLiteDataAdapter("SELECT * FROM Customers;", sqlite_conn);
                 da.Fill(ds);
-                bindingSource1.DataSource = ds.Tables[0];
-                dataGridView1.DataSource = ds.Tables[0].DefaultView;
+                bindingSource1.DataSource = ds;
+                dataGridView1.DataSource = bindingSource1;
                 
                 tbCustomerID.DataBindings.Add("Text", bindingSource1, "CustomerID");
                 tbCompany.DataBindings.Add("Text", bindingSource1, "Company");
@@ -51,32 +54,7 @@ namespace CRS
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btnLogo_Click(object sender, EventArgs e)
-        {
-            Stream myStream = null;
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Add Logo";
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                try
-                {
-                    if ((myStream = ofd.OpenFile()) != null)
-                    {
-                        using (myStream)
-                        {
-                            string s = ofd.FileName;
-                            tbLogo.Text = s;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-                }
-                
-            }
-        }
+
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
@@ -207,6 +185,33 @@ namespace CRS
         {
             EquipmentSite eSite = new EquipmentSite(tbCustomerID.Text);
             eSite.ShowDialog();
+        }
+        void AutoCompleteTest()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            try
+            {
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Test_Tables;", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                while (sqlite_datareader.Read())
+                {
+                    string tests = sqlite_datareader[1].ToString();
+                    coll.Add(tests);
+                }
+                sqlite_datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            SearchBar.AutoCompleteCustomSource = coll;
+        }
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            DataView DV = new DataView(ds);
+            DV.RowFilter = string.Format("CustomerID LIKE '%{0}%' or Company LIKE '%{0}%' or Contact LIKE '%{0}%' or Phone LIKE '%{0}%' "+
+                "or Street LIKE '%{0}%' or Zip LIKE '%{0}%' or City LIKE '%{0}%' or Fax LIKE '%{0}%' or CellPhone LIKE '%{0}%' or Email LIKE '%{0}%' or Notes LIKE '%{0}%'", SearchBar.Text);
+            dataGridView1.DataSource = DV;
         }
 
     }

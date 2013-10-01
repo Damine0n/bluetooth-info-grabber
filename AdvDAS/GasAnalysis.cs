@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
-using Finisar.SQLite;
+using System.Data.SQLite;
+//using Finisar.SQLite;
 using System.IO;
 
 namespace CRS

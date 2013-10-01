@@ -13,7 +13,8 @@ using System.Globalization;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using Finisar.SQLite;
+using System.Data.SQLite;
+//using Finisar.SQLite;
 using System.Drawing.Drawing2D;
 
 
@@ -74,8 +75,7 @@ namespace CRS
             {
                 dataGridTimer.Start();
             }
-            tabArea = tabControl1.GetTabRect(0);
-            tabTextArea = (RectangleF)tabControl1.GetTabRect(0);
+            
         }
 
         //This method creates the database connection ands populates the element Table on tab2
@@ -198,11 +198,13 @@ namespace CRS
             this.stopRecordingButton.Enabled = false;
             if (test)
             {
+
                 DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    pDoc.ShowDialog();
-                    pDoc.printReport(tableNames);
+                    NotesForm notes = new NotesForm();
+                    notes.ShowDialog();
+                    pDoc.printReport(tableNames, notes.snapNote);
                 }
             }
         }

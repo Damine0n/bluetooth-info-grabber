@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.IO;
-using Finisar.SQLite;
+using System.Data.SQLite;
+//using Finisar.SQLite;
 
 namespace CRS
 {
@@ -197,7 +198,8 @@ namespace CRS
                     + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '"
                     + this.tbStackHeightFT.Text + "', stackHeightIN = '" + this.tbStackHeightIN.Text + "', fuelSG = '" + this.tbFuelSG.Text + "', RPM = '"
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
-                    + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text
+                    + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '" 
+                    + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value + "', permitEquip = '" + this.tbPermitEquip
                     + "'  WHERE equipment = '" + this.equipBox.SelectedText + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -308,6 +310,15 @@ namespace CRS
 
                     string catalyticConverterModel = sqlite_datareader[20].ToString();
                     tbCatalyticConverterModel.Text = catalyticConverterModel;
+
+                    string AirPermit = sqlite_datareader[21].ToString();
+                    this.tbAirPermit.Text = AirPermit;
+
+                    DateTime permitDate = Convert.ToDateTime(sqlite_datareader[22]);
+                    this.tbPermitDate.Value = permitDate;
+
+                    string permitEquip = sqlite_datareader[23].ToString();
+                    this.tbPermitEquip.Text = permitEquip;
                 }
                 sqlite_datareader.Close();
             }
@@ -330,6 +341,62 @@ namespace CRS
             if (src.Checked == true)
             {
                 MessageBox.Show("Select '" + src.Text + " - Corrected' in the tile dropdown menu to view.");
+            }
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxA_TextChanged(object sender, EventArgs e)
+        {
+            TextBox Box = (TextBox)sender;
+            try
+            {
+                sqlite_cmd = sqlite_conn.CreateCommand();
+
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit =  '" + Box.Text + "'  WHERE equipment = '" + this.equipBox.SelectedText + "';";
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textBoxB_TextChanged(object sender, EventArgs e)
+        {
+            TextBox Box = (TextBox)sender;
+            try
+            {
+                sqlite_cmd = sqlite_conn.CreateCommand();
+
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "UPDATE Equipments SET NOxLimit =  '" + Box.Text + "'  WHERE equipment = '" + this.equipBox.SelectedText + "';";
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
