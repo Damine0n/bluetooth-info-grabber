@@ -16,9 +16,9 @@ namespace CRS
     public partial class PersonalData : Form
     {
         
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
-        DataSet ds = new DataSet();
+        DataTable ds = new DataTable();
         private string picPath="";
 
         public PersonalData()
@@ -73,11 +73,12 @@ namespace CRS
             {
                 var da = new SQLiteDataAdapter("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
                 da.Fill(ds);
-                bindingSource1.DataSource = ds.Tables[0];
+                bindingSource1.DataSource = ds;
                                 
                 textBox1.DataBindings.Add("Text", bindingSource1, "Engineer");
                 textBox2.DataBindings.Add("Text", bindingSource1, "Company");
                 textBox3.DataBindings.Add("Text", bindingSource1, "Phone");
+                comboBox1.DataBindings.Add("Text", bindingSource1, "State");
                 textBox4.DataBindings.Add("Text", bindingSource1, "Street");
                 textBox5.DataBindings.Add("Text", bindingSource1, "Zip");
                 textBox6.DataBindings.Add("Text", bindingSource1, "City");
@@ -100,11 +101,12 @@ namespace CRS
             FileStream fstream = new FileStream(picPath,FileMode.Open,FileAccess.Read);
             BinaryReader br = new BinaryReader(fstream);
             imageBt = br.ReadBytes((int)fstream.Length);
+            //pictureBox1.Image;
             try
             {
                     // Lets insert something into our new table:
                 sqlite_cmd.CommandText = "UPDATE Personal_Data SET Engineer = '" + textBox1.Text + "', Company = '" + textBox2.Text
-                        + "', Phone = '" + textBox3.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text 
+                        + "', Phone = '" + textBox3.Text + "', State = '" + comboBox1.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text 
                         + "', City = '" + textBox6.Text + "', Fax = '" + textBox7.Text + "', CellPhone = '" + textBox8.Text 
                         + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = '" + picPath + "' WHERE PData = 1;";
 
@@ -136,15 +138,15 @@ namespace CRS
             }
         }
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-            {
-                e.Handled = true;
-                MessageBox.Show("Please enter numerical digits only.");
-            }
+        //private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    char ch = e.KeyChar;
+        //    if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+        //    {
+        //        e.Handled = true;
+        //        MessageBox.Show("Please enter numerical digits only.");
+        //    }
             
-        }
+        //}
     }
 }

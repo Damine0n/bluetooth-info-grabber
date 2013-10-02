@@ -43,6 +43,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(804, 345);
             this.dataGridView1.TabIndex = 0;
+
             // 
             // PrintDocs
             // 

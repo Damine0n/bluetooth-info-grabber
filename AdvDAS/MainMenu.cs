@@ -53,7 +53,7 @@ namespace CRS
         private DateTime tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
         private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         public static int dgInterval, cycles,tested;
         public static int currentCycle = 1;
         public static string cUnit, nUnit, numOfCycles, equipment="Equipment: Not Selected";

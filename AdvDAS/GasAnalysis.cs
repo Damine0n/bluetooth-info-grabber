@@ -12,7 +12,7 @@ namespace CRS
 {
     class GasAnalysis
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         public static string equipment = "";
         public static string site = "";
@@ -42,12 +42,11 @@ namespace CRS
                         //Inserts something into our new table:
                         sqlite_cmd = sqlite_conn.CreateCommand();
                         sqlite_cmd.CommandText = "INSERT INTO  " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                        + "Losses, ExcessAir, COmass, NOxmass) VALUES ('"
+                        + "Losses, ExcessAir) VALUES ('"
                         + DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US")) + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
                         + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','"
                         + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','"
-                        + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','"
-                        + protocol.vNOxmass + "');";
+                        + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "');";
 
                         // And execute this again ;D
                         sqlite_cmd.ExecuteNonQuery();
@@ -77,12 +76,11 @@ namespace CRS
                 //Inserts something into our new table:
                 sqlite_cmd = sqlite_conn.CreateCommand();
                 sqlite_cmd.CommandText = "INSERT INTO  " + x + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                + "Losses, ExcessAir, COmass, NOxmass) VALUES ('"
+                + "Losses, ExcessAir) VALUES ('"
                 + DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US")) + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
                 + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','"
                 + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','"
-                + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','"
-                + protocol.vNOxmass + "');";
+                + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "');";
 
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -122,11 +120,11 @@ namespace CRS
                 {
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO SnapShots (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                        + "Losses, ExcessAir, COmass, NOxmass, Date, Notes) VALUES ('"
+                        + "Losses, ExcessAir, Notes) VALUES ('"
                         + DateTime.Now + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','"
                         + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','"
                         + protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
-                        + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "','" + DateTime.Now.ToString("d", CultureInfo.CreateSpecificCulture("en-US")) + "','" + note + "');";
+                        + protocol.vLosses + "','" + protocol.vExcessAir + "','" + note + "');";
 
                     // And execute this again ;D
                     sqlite_cmd.ExecuteNonQuery();

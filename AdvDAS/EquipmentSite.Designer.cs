@@ -753,11 +753,13 @@
             // 
             // tbPermitDate
             // 
-            this.tbPermitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.tbPermitDate.CustomFormat = "MM/dd/yyyy";
+            this.tbPermitDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tbPermitDate.Location = new System.Drawing.Point(259, 13);
             this.tbPermitDate.Name = "tbPermitDate";
             this.tbPermitDate.Size = new System.Drawing.Size(83, 20);
             this.tbPermitDate.TabIndex = 20;
+            this.tbPermitDate.Value = new System.DateTime(2013, 10, 2, 0, 0, 0, 0);
             // 
             // label31
             // 

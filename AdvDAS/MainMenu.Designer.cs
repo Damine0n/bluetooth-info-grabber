@@ -301,7 +301,6 @@ namespace CRS
             this.iflowlbl = new System.Windows.Forms.Label();
             this.flowlbl = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.analyzerSignal = new WindowWidgets.SignalStrength();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -330,6 +329,7 @@ namespace CRS
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpgradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAdvDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyzerSignal = new WindowWidgets.SignalStrength();
             this.tilePopUpMenu.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -1504,7 +1504,8 @@ namespace CRS
             this.tableLayoutPanel19.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel19.Controls.Add(this.panel6, 0, 9);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(803, 3);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(803, 10);
+            this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(3, 10, 3, 12);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 11;
             this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel19, 3);
@@ -1519,7 +1520,7 @@ namespace CRS
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(198, 551);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(198, 535);
             this.tableLayoutPanel19.TabIndex = 31;
             // 
             // pTimelbl
@@ -1541,7 +1542,7 @@ namespace CRS
             this.tableLayoutPanel19.SetColumnSpan(this.clock_lbl, 2);
             this.clock_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clock_lbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clock_lbl.Location = new System.Drawing.Point(3, 532);
+            this.clock_lbl.Location = new System.Drawing.Point(3, 516);
             this.clock_lbl.Name = "clock_lbl";
             this.clock_lbl.Size = new System.Drawing.Size(192, 19);
             this.clock_lbl.TabIndex = 40;
@@ -1730,13 +1731,13 @@ namespace CRS
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 227);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(192, 302);
+            this.panel6.Size = new System.Drawing.Size(192, 286);
             this.panel6.TabIndex = 38;
             // 
             // resetButton
             // 
             this.resetButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.resetButton.Location = new System.Drawing.Point(0, 270);
+            this.resetButton.Location = new System.Drawing.Point(0, 254);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(192, 32);
             this.resetButton.TabIndex = 41;
@@ -3317,7 +3318,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnCount = 3;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 1, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.analyzerSignal, 0, 0);
@@ -3341,13 +3342,13 @@ namespace CRS
             this.tableLayoutPanel17.Controls.Add(this.iflowlbl, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.flowlbl, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(203, 3);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(186, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(203, 66);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(185, 66);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3358,7 +3359,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.Black;
             this.iflowlbl.Location = new System.Drawing.Point(6, 3);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(191, 28);
+            this.iflowlbl.Size = new System.Drawing.Size(173, 28);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3371,7 +3372,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.Black;
             this.flowlbl.Location = new System.Drawing.Point(6, 34);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(191, 29);
+            this.flowlbl.Size = new System.Drawing.Size(173, 29);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3382,42 +3383,12 @@ namespace CRS
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(74, 54);
+            this.label13.Location = new System.Drawing.Point(57, 54);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 18);
             this.label13.TabIndex = 29;
             this.label13.Text = "Not Connected";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // analyzerSignal
-            // 
-            this.analyzerSignal.BackgroundStyle = WindowWidgets.SignalStrengthBackgroundStyle.Normal;
-            this.analyzerSignal.BarLayout = WindowWidgets.SignalStrengthLayout.LeftToRight;
-            this.analyzerSignal.BarSpacing = 2;
-            this.analyzerSignal.BarStepSize = 20;
-            this.analyzerSignal.CenterGradientColor = System.Drawing.Color.WhiteSmoke;
-            this.analyzerSignal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.analyzerSignal.EmptyBarColor = System.Drawing.Color.Gray;
-            this.analyzerSignal.GoodSignalColor = System.Drawing.Color.Green;
-            this.analyzerSignal.GoodSignalThreshold = 0.8F;
-            this.analyzerSignal.Location = new System.Drawing.Point(110, 3);
-            this.analyzerSignal.MaximumValue = 1F;
-            this.analyzerSignal.MinimumValue = 0F;
-            this.analyzerSignal.Name = "analyzerSignal";
-            this.analyzerSignal.NoSignalColor = System.Drawing.Color.White;
-            this.analyzerSignal.NoSignalThreshold = 0F;
-            this.analyzerSignal.NumberOfBars = 5;
-            this.analyzerSignal.PoorSignalColor = System.Drawing.Color.Yellow;
-            this.analyzerSignal.PoorSignalThreshold = 0.5F;
-            this.analyzerSignal.Size = new System.Drawing.Size(87, 48);
-            this.analyzerSignal.SmallBarHeight = 10;
-            this.analyzerSignal.UseSolidBars = false;
-            this.analyzerSignal.Value = 0F;
-            this.analyzerSignal.WeakSignalColor = System.Drawing.Color.Red;
-            this.analyzerSignal.WeakSignalThreshold = 0.2F;
-            this.analyzerSignal.XColor = System.Drawing.Color.Red;
-            this.analyzerSignal.XIfNoSignal = true;
-            this.analyzerSignal.XWidth = 1.5F;
             // 
             // menuStrip1
             // 
@@ -3651,6 +3622,36 @@ namespace CRS
             this.aboutAdvDASToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.aboutAdvDASToolStripMenuItem.Text = "About CRS";
             this.aboutAdvDASToolStripMenuItem.Click += new System.EventHandler(this.aboutAdvDASToolStripMenuItem_Click);
+            // 
+            // analyzerSignal
+            // 
+            this.analyzerSignal.BackgroundStyle = WindowWidgets.SignalStrengthBackgroundStyle.Normal;
+            this.analyzerSignal.BarLayout = WindowWidgets.SignalStrengthLayout.LeftToRight;
+            this.analyzerSignal.BarSpacing = 2;
+            this.analyzerSignal.BarStepSize = 20;
+            this.analyzerSignal.CenterGradientColor = System.Drawing.Color.WhiteSmoke;
+            this.analyzerSignal.Dock = System.Windows.Forms.DockStyle.Right;
+            this.analyzerSignal.EmptyBarColor = System.Drawing.Color.Gray;
+            this.analyzerSignal.GoodSignalColor = System.Drawing.Color.Green;
+            this.analyzerSignal.GoodSignalThreshold = 0.8F;
+            this.analyzerSignal.Location = new System.Drawing.Point(93, 3);
+            this.analyzerSignal.MaximumValue = 1F;
+            this.analyzerSignal.MinimumValue = 0F;
+            this.analyzerSignal.Name = "analyzerSignal";
+            this.analyzerSignal.NoSignalColor = System.Drawing.Color.White;
+            this.analyzerSignal.NoSignalThreshold = 0F;
+            this.analyzerSignal.NumberOfBars = 5;
+            this.analyzerSignal.PoorSignalColor = System.Drawing.Color.Yellow;
+            this.analyzerSignal.PoorSignalThreshold = 0.5F;
+            this.analyzerSignal.Size = new System.Drawing.Size(87, 48);
+            this.analyzerSignal.SmallBarHeight = 10;
+            this.analyzerSignal.UseSolidBars = false;
+            this.analyzerSignal.Value = 0F;
+            this.analyzerSignal.WeakSignalColor = System.Drawing.Color.Red;
+            this.analyzerSignal.WeakSignalThreshold = 0.2F;
+            this.analyzerSignal.XColor = System.Drawing.Color.Red;
+            this.analyzerSignal.XIfNoSignal = true;
+            this.analyzerSignal.XWidth = 1.5F;
             // 
             // MainMenu
             // 

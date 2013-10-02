@@ -16,7 +16,7 @@ namespace CRS
 {
     public partial class EquipmentSite : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
@@ -145,7 +145,7 @@ namespace CRS
             string y = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new equipment.", "New Equipment", "");
             try
             {
-                sqlite_cmd.CommandText = "INSERT INTO Equipments (owner, equipment) VALUES ('" + x + "','" + y + "');";
+                sqlite_cmd.CommandText = "INSERT INTO Equipments (owner, equipment, permitDate) VALUES ('" + x + "','" + y + "','" + this.tbPermitDate.Value.ToString("MM/dd/yyyy")+"');";
 
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -198,8 +198,8 @@ namespace CRS
                     + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '"
                     + this.tbStackHeightFT.Text + "', stackHeightIN = '" + this.tbStackHeightIN.Text + "', fuelSG = '" + this.tbFuelSG.Text + "', RPM = '"
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
-                    + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '" 
-                    + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value + "', permitEquip = '" + this.tbPermitEquip
+                    + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '"
+                    + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip
                     + "'  WHERE equipment = '" + this.equipBox.SelectedText + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -239,7 +239,7 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Personal Data: " + ex.Message);
+                MessageBox.Show("SiteBox: " + ex.Message + ex.StackTrace);
             }
         }
 
@@ -324,7 +324,7 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Personal Data: " + ex.Message);
+                MessageBox.Show("EquipBox: " + ex.Message);
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
             GasAnalysis.site = this.siteBox.Text.ToString();
