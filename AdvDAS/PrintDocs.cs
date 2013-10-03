@@ -24,8 +24,10 @@ namespace CRS
         DataTable ds = new DataTable();
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
-        public string equipment = "";
-        private string pEngineer, pCompany, pPhone,p, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone;
+        private string equipment = "", site = "";
+        private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, sFacilty, sArea,
+            eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip,ePermitCO, ePermitNOx, ePermitUnit, aModel, aSerialNo, eLimitUnit;
+        DateTime ePermitDate;
         public iTextSharp.text.Image picture;
         public PrintDocs()
         {
@@ -87,7 +89,7 @@ namespace CRS
             }
         }
 
-        public void printReport(List<string> names, string note)
+        public void printReport(List<string> names)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
@@ -102,23 +104,41 @@ namespace CRS
             {
                 string path = sfd.FileName;
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
-                doc.Open();//Open Document To Write
-                //Write Some Content
-                Paragraph heading = new Paragraph("Engine Emissions Test Report");
-                heading.Font.Size = 35;
-                heading.Alignment = 1;
-                doc.Add(heading);
-                Paragraph personalData= new Paragraph();
-                //heading.Font.Style = Font.Bold;//PdfWriter.GetInstance(doc, new FileStream(pdfpath + "/Columns.pdf", FileMode.Create));
-                doc.Add(new Chunk(equipment));
-                doc.Add(new Paragraph(String.Format("{0}", pStreet)));
-                doc.Add(new Paragraph(String.Format("{0}, {1} {2}",new object[]{pCity, pState, pZip})));
-                doc.Add(new Paragraph(String.Format("Phone: {0}", pPhone)));
-                doc.Add(new Paragraph(String.Format("Mobile: {0}", pCellphone)));
 
-                ColumnText column = new ColumnText(wri.DirectContent);
-                //column.AddText(new Paragraph(personalData)));
-                
+                doc.Open();//Open Document To Write
+                try
+                {
+                    //Write Some Content
+                    ColumnText ct = new ColumnText(wri.DirectContent);
+                    Paragraph heading = new Paragraph("Engine Emissions Test Report");
+                    Paragraph personalData = new Paragraph();
+                    heading.Font.Size = 35;
+                    heading.Alignment = 1;
+                    doc.Add(heading);
+
+                    
+                    personalData.Add(new Paragraph(String.Format("{0}", pStreet)));
+                    personalData.Add(new Paragraph(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
+                    personalData.Add(new Paragraph(String.Format("Phone: {0}", pPhone)));
+                    personalData.Add(new Paragraph(String.Format("Mobile: {0}", pCellphone)));
+                    personalData.Add(new Paragraph(String.Format("Email: {0}", pEmail)));
+                    Phrase p = new Phrase();
+                    p.Add("what up");
+                    ct.YLine=3;
+                    ct.Alignment = Element.ALIGN_JUSTIFIED;
+                    ct.ExtraParagraphSpace = 6;
+                    ct.Leading = 1.2f;
+                    ct.FollowingIndent = 27;
+                    //int linesWritten, column, status= ct.co
+                    ct.SetText(personalData);
+                    ct.SetText(p);
+                    ct.Go(false);
+                    doc.Add(new Chunk(equipment));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
                 for (int z = 0; z < names.Count; z++)
                 {
                     doc.NewPage();
@@ -205,98 +225,70 @@ namespace CRS
                     pCellphone = sqlite_datareader[9].ToString();
                     pEmail = sqlite_datareader[10].ToString();
                     pHomePage = sqlite_datareader[11].ToString();
-                   
+
                 }
-                equipment = MainMenu.equipment;
+                equipment = GasAnalysis.equipment;
+                site = GasAnalysis.site;
+                //sqlite_datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            try
+            {
+
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites WHERE Site = " + site + ";", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+                while (sqlite_datareader.Read())
+                {
+                    sArea = sqlite_datareader[2].ToString();
+                    sFacilty = sqlite_datareader[3].ToString();
+                }
+                equipment = GasAnalysis.equipment;
+                site = GasAnalysis.site;
                 sqlite_datareader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message+ex.StackTrace);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            //try
-            //{
-                
-            //    sqlite_cmd = new SQLiteCommand("SELECT * FROM Personal_Data WHERE owner = '" + this.siteBox.Text.ToString()
-            //        + "' AND equipment = '" + this.equipBox.Text.ToString() + "';", sqlite_conn);
-            //    sqlite_datareader = sqlite_cmd.ExecuteReader();
+            try
+            {
 
-            //    while (sqlite_datareader.Read())
-            //    {
-            //        string unitNum = sqlite_datareader[2].ToString();
-            //        tbUnitNum.Text = unitNum;
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Equipments WHERE owner = '" + site
+                    + "' AND equipment = '" + equipment + "';", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
 
-            //        string model = sqlite_datareader[3].ToString();
-            //        tbModel.Text = model;
+                while (sqlite_datareader.Read())
+                {
+                    eUnitNumber = sqlite_datareader[2].ToString();
 
-            //        string serialNum = sqlite_datareader[4].ToString();
-            //        tbSerialNum.Text = serialNum;
+                    eModel = sqlite_datareader[3].ToString();
 
-            //        string service = sqlite_datareader[5].ToString();
-            //        tbService.Text = service;
+                    eSerialNo = sqlite_datareader[4].ToString();
 
-            //        string ignitionTiming = sqlite_datareader[6].ToString();
-            //        tbIgnitionTiming.Text = ignitionTiming;
+                    ePermitNumber = sqlite_datareader[21].ToString();
 
-            //        string stackFlow = sqlite_datareader[7].ToString();
-            //        tbStackFlow.Text = stackFlow;
+                    ePermitDate = Convert.ToDateTime(sqlite_datareader[22]);
 
-            //        string stackTemp = sqlite_datareader[8].ToString();
-            //        tbStackTemp.Text = stackTemp;
+                    ePermitEquip = sqlite_datareader[23].ToString();
 
-            //        string intakeMPL = sqlite_datareader[9].ToString();
-            //        tbIntakeMPL.Text = intakeMPL;
+                    ePermitCO = sqlite_datareader[24].ToString();
 
-            //        string intakeMPR = sqlite_datareader[10].ToString();
-            //        tbIntakeMPR.Text = intakeMPR;
+                    ePermitNOx = sqlite_datareader[25].ToString();
 
-            //        string intakeMTL = sqlite_datareader[11].ToString();
-            //        tbIntakeMTL.Text = intakeMTL;
-
-            //        string intakeMTR = sqlite_datareader[12].ToString();
-            //        tbIntakeMTR.Text = intakeMTR;
-
-            //        string stackHeightFT = sqlite_datareader[13].ToString();
-            //        tbStackHeightFT.Text = stackHeightFT;
-
-            //        string stackHeightIN = sqlite_datareader[14].ToString();
-            //        tbStackHeightIN.Text = stackHeightIN;
-
-            //        string fuelSG = sqlite_datareader[15].ToString();
-            //        tbFuelSG.Text = fuelSG;
-
-            //        string RPM = sqlite_datareader[16].ToString();
-            //        tbRPM.Text = RPM;
-
-            //        string controllerMake = sqlite_datareader[17].ToString();
-            //        AFControllerMake.Text = controllerMake;
-
-            //        string controllerModel = sqlite_datareader[18].ToString();
-            //        AFControllerModel.Text = controllerModel;
-
-            //        string catalyticConverterMake = sqlite_datareader[19].ToString();
-            //        tbCatalyticConverterMake.Text = catalyticConverterMake;
-
-            //        string catalyticConverterModel = sqlite_datareader[20].ToString();
-            //        tbCatalyticConverterModel.Text = catalyticConverterModel;
-
-            //        string AirPermit = sqlite_datareader[21].ToString();
-            //        this.tbAirPermit.Text = AirPermit;
-
-            //        DateTime permitDate = Convert.ToDateTime(sqlite_datareader[22]);
-            //        this.tbPermitDate.Value = permitDate;
-
-            //        string permitEquip = sqlite_datareader[23].ToString();
-            //        this.tbPermitEquip.Text = permitEquip;
-            //    }
-            //    sqlite_datareader.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("EquipBox: " + ex.Message);
-            //}
+                    eLimitUnit = sqlite_datareader[26].ToString();
+                }
+                sqlite_datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EquipBox: " + ex.Message);
+            }
             sqlite_conn.Close();
         }
-        
+
     }
 }

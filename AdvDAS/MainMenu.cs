@@ -202,9 +202,8 @@ namespace CRS
                 DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    NotesForm notes = new NotesForm();
-                    notes.ShowDialog();
-                    pDoc.printReport(tableNames, notes.snapNote);
+                    
+                    pDoc.printReport(tableNames);
                 }
             }
         }

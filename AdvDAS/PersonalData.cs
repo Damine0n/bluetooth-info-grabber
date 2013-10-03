@@ -86,7 +86,7 @@ namespace CRS
                 textBox8.DataBindings.Add("Text", bindingSource1, "CellPhone");
                 textBox9.DataBindings.Add("Text", bindingSource1, "Email");
                 textBox10.DataBindings.Add("Text", bindingSource1, "HomePage");
-                //pictureBox1.DataBindings.Add("BLOB", bindingSource1, "LOGO");
+                pictureBox1.DataBindings.Add("BLOB", bindingSource1, "LOGO");
             }
             catch (Exception ex)
             {
@@ -98,24 +98,25 @@ namespace CRS
         private void btnAccept_Click(object sender, EventArgs e)
         {
             byte[] imageBt = null;
-            FileStream fstream = new FileStream(picPath,FileMode.Open,FileAccess.Read);
+            FileStream fstream = new FileStream(picPath, FileMode.Open, FileAccess.Read);
             BinaryReader br = new BinaryReader(fstream);
             imageBt = br.ReadBytes((int)fstream.Length);
-            //pictureBox1.Image;
             try
             {
                     // Lets insert something into our new table:
                 sqlite_cmd.CommandText = "UPDATE Personal_Data SET Engineer = '" + textBox1.Text + "', Company = '" + textBox2.Text
                         + "', Phone = '" + textBox3.Text + "', State = '" + comboBox1.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text 
                         + "', City = '" + textBox6.Text + "', Fax = '" + textBox7.Text + "', CellPhone = '" + textBox8.Text 
-                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = '" + picPath + "' WHERE PData = 1;";
+                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = @IMG WHERE PData = 1;";
 
                     // And execute this again ;D
+                var pix = new SQLiteParameter("@IMG", DbType.Byte) { Value = imageBt }; 
+                sqlite_cmd.Parameters.Add(pix);
                     sqlite_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
            
         
