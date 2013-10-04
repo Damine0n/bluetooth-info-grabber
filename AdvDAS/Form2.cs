@@ -16,7 +16,7 @@ namespace CRS
     public partial class Form2 : Form
     {
         // We use these three SQLite objects:
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
 
         private SQLiteCommand sqlite_cmd;
         public Form2()

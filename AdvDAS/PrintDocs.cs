@@ -25,8 +25,8 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         private string equipment = "", site = "";
-        private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, sFacilty, sArea,
-            eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip,ePermitCO, ePermitNOx, ePermitUnit, aModel, aSerialNo, eLimitUnit;
+        private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, pLogo,
+            sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip,ePermitCO, ePermitNOx, eLimitUnit;
         DateTime ePermitDate;
         public iTextSharp.text.Image picture;
         public PrintDocs()
@@ -91,7 +91,7 @@ namespace CRS
 
         public void printReport(List<string> names)
         {
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 10, 10);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
@@ -115,8 +115,10 @@ namespace CRS
                     heading.Font.Size = 35;
                     heading.Alignment = 1;
                     doc.Add(heading);
-
-                    
+                    iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
+                    LOGO.ScaleToFit(100f, 150f);
+                    LOGO.Border = iTextSharp.text.Rectangle.BOX;
+                    doc.Add(LOGO);
                     personalData.Add(new Paragraph(String.Format("{0}", pStreet)));
                     personalData.Add(new Paragraph(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
                     personalData.Add(new Paragraph(String.Format("Phone: {0}", pPhone)));
@@ -130,10 +132,18 @@ namespace CRS
                     ct.Leading = 1.2f;
                     ct.FollowingIndent = 27;
                     //int linesWritten, column, status= ct.co
+                    ct.SetSimpleColumn(new Phrase("Anhang zum Phytosanitären Transportdokument Nr.: EG/DE/\n"), 36, 36, 
+                        doc.PageSize.Width - 36, doc.PageSize.Height - 36, 10, Element.ALIGN_LEFT);
                     ct.SetText(personalData);
                     ct.SetText(p);
-                    ct.Go(false);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT,p, 20, 0, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 10, 0, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 20, 20, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 10,20, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 0, 0, 0);
+                    ct.Go();
                     doc.Add(new Chunk(equipment));
+                    
                 }
                 catch (Exception ex)
                 {
@@ -225,7 +235,7 @@ namespace CRS
                     pCellphone = sqlite_datareader[9].ToString();
                     pEmail = sqlite_datareader[10].ToString();
                     pHomePage = sqlite_datareader[11].ToString();
-
+                    pLogo = sqlite_datareader[12].ToString();
                 }
                 equipment = GasAnalysis.equipment;
                 site = GasAnalysis.site;
@@ -243,8 +253,8 @@ namespace CRS
 
                 while (sqlite_datareader.Read())
                 {
-                    sArea = sqlite_datareader[2].ToString();
-                    sFacilty = sqlite_datareader[3].ToString();
+                    sArea = sqlite_datareader[1].ToString();
+                    sFacilty = sqlite_datareader[2].ToString();
                 }
                 equipment = GasAnalysis.equipment;
                 site = GasAnalysis.site;

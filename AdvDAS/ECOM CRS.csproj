@@ -48,8 +48,14 @@
     <Reference Include="itextsharp.xtra">
       <HintPath>.\itextsharp.xtra.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="sharpPDF, Version=1.0.1870.19498, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\sharpPDF.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\SQLite.NET.dll</HintPath>
@@ -57,6 +63,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -92,11 +99,22 @@
     <Compile Include="Connection.Designer.cs">
       <DependentUpon>Connection.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PrintDocs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrintDocs.Designer.cs">
       <DependentUpon>PrintDocs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Browser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report Browser.Designer.cs">
+      <DependentUpon>Report Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewSnapShots.cs">
       <SubType>Form</SubType>
@@ -220,6 +238,9 @@
     <EmbeddedResource Include="PrintDocs.resx">
       <DependentUpon>PrintDocs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser.resx">
+      <DependentUpon>Report Browser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewSnapShots.resx">
       <DependentUpon>ViewSnapShots.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +294,17 @@
     <EmbeddedResource Include="TestRecords.resx">
       <DependentUpon>TestRecords.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

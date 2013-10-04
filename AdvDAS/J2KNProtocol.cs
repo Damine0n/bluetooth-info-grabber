@@ -75,12 +75,13 @@ namespace CRS
                 {
                     return false;
                 }
-                sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
-                clientSocket.Send(sendPacket);
-                clientSocket.ReceiveTimeout = 4000;
-                clientSocket.Receive(receivedBytes);
+
                 try
                 {
+                    sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
+                    clientSocket.Send(sendPacket);
+                    clientSocket.ReceiveTimeout = 4000;
+                    clientSocket.Receive(receivedBytes);
                     string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
                     iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
                     if (iValue >= 32767 || iValue == 0)
@@ -157,7 +158,6 @@ namespace CRS
                 catch (Exception ex)
                 {
                 }
-
                 return true;
             }
             return false;
@@ -180,7 +180,7 @@ namespace CRS
                 {
                     return false;
                 }
-            
+
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
@@ -259,7 +259,7 @@ namespace CRS
                         vAccu = "0.0";
                     else
                         vAccu = (iValue / 10).ToString("0.0");
-                    
+
                 }
                 catch
                 {

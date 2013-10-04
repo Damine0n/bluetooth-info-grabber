@@ -15,11 +15,12 @@ namespace CRS
 {
     public partial class PersonalData : Form
     {
-        
+
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
+        private SQLiteDataReader sqlite_datareader;
         DataTable ds = new DataTable();
-        private string picPath="";
+        private string picPath = "";
 
         public PersonalData()
         {
@@ -55,7 +56,7 @@ namespace CRS
 
         private void PersonalData_Load()
         {
-             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
+            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
             // We use these three SQLite objects:
             sqlite_conn.Open();
@@ -74,7 +75,7 @@ namespace CRS
                 var da = new SQLiteDataAdapter("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
                 da.Fill(ds);
                 bindingSource1.DataSource = ds;
-                                
+
                 textBox1.DataBindings.Add("Text", bindingSource1, "Engineer");
                 textBox2.DataBindings.Add("Text", bindingSource1, "Company");
                 textBox3.DataBindings.Add("Text", bindingSource1, "Phone");
@@ -86,56 +87,38 @@ namespace CRS
                 textBox8.DataBindings.Add("Text", bindingSource1, "CellPhone");
                 textBox9.DataBindings.Add("Text", bindingSource1, "Email");
                 textBox10.DataBindings.Add("Text", bindingSource1, "HomePage");
-                pictureBox1.DataBindings.Add("BLOB", bindingSource1, "LOGO");
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+                while (sqlite_datareader.Read())
+                {
+                    picPath = sqlite_datareader[12].ToString();
+                }
+                pictureBox1.ImageLocation = picPath;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Personal Data: " + ex.Message);
+                //MessageBox.Show("Personal Data: " + ex.Message + ex.StackTrace);
             }
-        
+
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            byte[] imageBt = null;
-            FileStream fstream = new FileStream(picPath, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fstream);
-            imageBt = br.ReadBytes((int)fstream.Length);
             try
             {
-                    // Lets insert something into our new table:
+                // Lets insert something into our new table:
                 sqlite_cmd.CommandText = "UPDATE Personal_Data SET Engineer = '" + textBox1.Text + "', Company = '" + textBox2.Text
-                        + "', Phone = '" + textBox3.Text + "', State = '" + comboBox1.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text 
-                        + "', City = '" + textBox6.Text + "', Fax = '" + textBox7.Text + "', CellPhone = '" + textBox8.Text 
-                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = @IMG WHERE PData = 1;";
+                        + "', Phone = '" + textBox3.Text + "', State = '" + comboBox1.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text
+                        + "', City = '" + textBox6.Text + "', Fax = '" + textBox7.Text + "', CellPhone = '" + textBox8.Text
+                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = '" + picPath + "';";
 
-                    // And execute this again ;D
-                var pix = new SQLiteParameter("@IMG", DbType.Byte) { Value = imageBt }; 
-                sqlite_cmd.Parameters.Add(pix);
-                    sqlite_cmd.ExecuteNonQuery();
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-           
-        
-        }
-
-        static byte[] GetBytes(SQLiteDataReader reader)
-        {
-            const int CHUNK_SIZE = 2 * 1024;
-            byte[] buffer = new byte[CHUNK_SIZE];
-            long bytesRead;
-            long fieldOffset = 0;
-            using (MemoryStream stream = new MemoryStream())
-            {
-                while ((bytesRead = reader.GetBytes(0, fieldOffset, buffer, 0, buffer.Length)) > 0)
-                {
-                    stream.Write(buffer, 0, (int)bytesRead);
-                    fieldOffset += bytesRead;
-                }
-                return stream.ToArray();
             }
         }
 
@@ -147,7 +130,7 @@ namespace CRS
         //        e.Handled = true;
         //        MessageBox.Show("Please enter numerical digits only.");
         //    }
-            
+
         //}
     }
 }

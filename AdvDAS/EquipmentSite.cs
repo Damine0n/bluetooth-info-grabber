@@ -199,8 +199,8 @@ namespace CRS
                     + this.tbStackHeightFT.Text + "', stackHeightIN = '" + this.tbStackHeightIN.Text + "', fuelSG = '" + this.tbFuelSG.Text + "', RPM = '"
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
                     + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '"
-                    + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip
-                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "';";
+                    + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip.Text
+                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText+ "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
 

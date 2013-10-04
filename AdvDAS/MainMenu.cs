@@ -861,11 +861,6 @@ namespace CRS
             about.ShowDialog();
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
         private void blue25GrayColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -1893,31 +1888,34 @@ namespace CRS
 
         private void browseReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Stream myStream = null;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            ReportBrowser reports = new ReportBrowser();
+            reports.ShowDialog();
+            
+            //Stream myStream = null;
+            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "Reports/";
-            openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 1;
-            openFileDialog1.RestoreDirectory = true;
+            //openFileDialog1.InitialDirectory = "Reports/";
+            //openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            //openFileDialog1.FilterIndex = 1;
+            //openFileDialog1.RestoreDirectory = true;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    if ((myStream = openFileDialog1.OpenFile()) != null)
-                    {
-                        using (myStream)
-                        {
-                            // Insert code to read the stream here.
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-                }
-            }
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    try
+            //    {
+            //        if ((myStream = openFileDialog1.OpenFile()) != null)
+            //        {
+            //            using (myStream)
+            //            {
+            //                // Insert code to read the stream here.
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+            //    }
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
