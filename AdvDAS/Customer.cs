@@ -96,8 +96,8 @@ namespace CRS
             try
             {
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text + "', Contact = '" + this.tbContact.Text
-                    + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text 
+                sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text 
+                    + "', Contact = '" + this.tbContact.Text + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text 
                     + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text + "', CellPhone = '" + this.tbCellPhone.Text 
                     + "', Email = '" + this.tbEmail.Text + "', Notes = '" + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
                 // Now lets execute the SQL ;D

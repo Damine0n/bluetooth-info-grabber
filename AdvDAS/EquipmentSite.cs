@@ -204,6 +204,7 @@ namespace CRS
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
 
+                sqlite_cmd = sqlite_conn.CreateCommand();
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='"
                     + this.textBox2.Text + "' Where site = '" + this.siteBox.Text.ToString() + "' ;";

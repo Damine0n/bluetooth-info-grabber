@@ -105,6 +105,8 @@ namespace CRS
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(textBox5.Text);
+            sqlite_cmd = sqlite_conn.CreateCommand();
             try
             {
                 // Lets insert something into our new table:

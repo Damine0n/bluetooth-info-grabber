@@ -109,15 +109,22 @@ namespace CRS
                 try
                 {
                     //Write Some Content
-                    ColumnText ct = new ColumnText(wri.DirectContent);
+                    PdfContentByte cb = wri.DirectContent;
+                    cb.BeginText();
+                    cb.SetFontAndSize(BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false), 18);
+                    cb.ShowText("bvfdzxgfhrdfjkyutvbkl");
+                    cb.EndText();
+                    ColumnText ct = new ColumnText(cb);
                     Paragraph heading = new Paragraph("Engine Emissions Test Report");
                     Paragraph personalData = new Paragraph();
                     heading.Font.Size = 35;
                     heading.Alignment = 1;
+                    heading.SpacingAfter = 18f;
                     doc.Add(heading);
                     iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
                     LOGO.ScaleToFit(100f, 150f);
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
+                    ct.AddElement(LOGO);
                     doc.Add(LOGO);
                     personalData.Add(new Paragraph(String.Format("{0}", pStreet)));
                     personalData.Add(new Paragraph(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
@@ -125,6 +132,7 @@ namespace CRS
                     personalData.Add(new Paragraph(String.Format("Mobile: {0}", pCellphone)));
                     personalData.Add(new Paragraph(String.Format("Email: {0}", pEmail)));
                     Phrase p = new Phrase();
+                    doc.Add(personalData);
                     p.Add("what up");
                     ct.YLine=3;
                     ct.Alignment = Element.ALIGN_JUSTIFIED;
@@ -137,12 +145,12 @@ namespace CRS
                     ct.SetText(personalData);
                     ct.SetText(p);
                     ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT,p, 20, 0, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 10, 0, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 20, 20, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 10,20, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, p, 0, 0, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("do"), 0, 572, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("it"), 20, 20, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("now"), 10, 20, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("please"), 0, 0, 0);
                     ct.Go();
-                    doc.Add(new Chunk(equipment));
+                    doc.Add(new Chunk(equipment + site));
                     
                 }
                 catch (Exception ex)
@@ -215,55 +223,14 @@ namespace CRS
 
         private void FillVariables()
         {
+            fillPersonalData();
+            fillSite();
+            fillEquipment();
+        }
+
+        private void fillEquipment()
+        {
             sqlite_conn.Open();
-            try
-            {
-
-                sqlite_cmd = new SQLiteCommand("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
-                sqlite_datareader = sqlite_cmd.ExecuteReader();
-
-                while (sqlite_datareader.Read())
-                {
-                    pEngineer = sqlite_datareader[1].ToString();
-                    pCompany = sqlite_datareader[2].ToString();
-                    pPhone = sqlite_datareader[3].ToString();
-                    pState = sqlite_datareader[4].ToString();
-                    pStreet = sqlite_datareader[5].ToString();
-                    pZip = sqlite_datareader[6].ToString();
-                    pCity = sqlite_datareader[7].ToString();
-                    pFax = sqlite_datareader[8].ToString();
-                    pCellphone = sqlite_datareader[9].ToString();
-                    pEmail = sqlite_datareader[10].ToString();
-                    pHomePage = sqlite_datareader[11].ToString();
-                    pLogo = sqlite_datareader[12].ToString();
-                }
-                equipment = GasAnalysis.equipment;
-                site = GasAnalysis.site;
-                //sqlite_datareader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-            try
-            {
-
-                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites WHERE Site = " + site + ";", sqlite_conn);
-                sqlite_datareader = sqlite_cmd.ExecuteReader();
-
-                while (sqlite_datareader.Read())
-                {
-                    sArea = sqlite_datareader[1].ToString();
-                    sFacilty = sqlite_datareader[2].ToString();
-                }
-                equipment = GasAnalysis.equipment;
-                site = GasAnalysis.site;
-                sqlite_datareader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
             try
             {
 
@@ -296,6 +263,66 @@ namespace CRS
             catch (Exception ex)
             {
                 MessageBox.Show("EquipBox: " + ex.Message);
+            }
+            sqlite_conn.Close();
+        }
+
+        private void fillSite()
+        {
+            sqlite_conn.Open();
+            try
+            {
+
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Sites WHERE Site = '" + site + "';", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+                while (sqlite_datareader.Read())
+                {
+                    sArea = sqlite_datareader[1].ToString();
+                    sFacilty = sqlite_datareader[2].ToString();
+                }
+                equipment = GasAnalysis.equipment;
+                site = GasAnalysis.site;
+                sqlite_datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            sqlite_conn.Close();
+        }
+
+        private void fillPersonalData()
+        {
+            sqlite_conn.Open();
+            try
+            {
+
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+                while (sqlite_datareader.Read())
+                {
+                    pEngineer = sqlite_datareader[1].ToString();
+                    pCompany = sqlite_datareader[2].ToString();
+                    pPhone = sqlite_datareader[3].ToString();
+                    pState = sqlite_datareader[4].ToString();
+                    pStreet = sqlite_datareader[5].ToString();
+                    pZip = sqlite_datareader[6].ToString();
+                    pCity = sqlite_datareader[7].ToString();
+                    pFax = sqlite_datareader[8].ToString();
+                    pCellphone = sqlite_datareader[9].ToString();
+                    pEmail = sqlite_datareader[10].ToString();
+                    pHomePage = sqlite_datareader[11].ToString();
+                    pLogo = sqlite_datareader[12].ToString();
+                }
+                equipment = GasAnalysis.equipment;
+                site = GasAnalysis.site;
+                //sqlite_datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
             sqlite_conn.Close();
         }
