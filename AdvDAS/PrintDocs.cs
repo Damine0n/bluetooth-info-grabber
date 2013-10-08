@@ -8,6 +8,9 @@ using System.Text;
 using System.Globalization;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.draw;
+using iTextSharp.text.pdf.events;
+using iTextSharp.text.pdf.interfaces;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -114,6 +117,9 @@ namespace CRS
                     cb.SetFontAndSize(BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false), 18);
                     cb.ShowText("bvfdzxgfhrdfjkyutvbkl");
                     cb.EndText();
+                    LineSeparator UNDERLINE = new LineSeparator(1, 100, null, Element.ALIGN_CENTER, -2);
+                    Chunk tab1 = new Chunk(UNDERLINE,doc.PageSize.Width,true);
+                    
                     ColumnText ct = new ColumnText(cb);
                     Paragraph heading = new Paragraph("Engine Emissions Test Report");
                     Paragraph personalData = new Paragraph();
@@ -144,13 +150,26 @@ namespace CRS
                         doc.PageSize.Width - 36, doc.PageSize.Height - 36, 10, Element.ALIGN_LEFT);
                     ct.SetText(personalData);
                     ct.SetText(p);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT,p, 20, 0, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT,new Phrase(pEngineer + "       " + DateTime.Now), 20, 0, 0);
                     ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("do"), 0, 572, 0);
                     ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("it"), 20, 20, 0);
                     ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("now"), 10, 20, 0);
                     ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("please"), 0, 0, 0);
                     ct.Go();
-                    doc.Add(new Chunk(equipment + site));
+                    doc.Add(new Paragraph());
+                    Paragraph info = new Paragraph();
+                    info.Add(tab1);
+                    info.Add(new Paragraph("PHYSICAL LOCATION"));
+                    info.Add(new Phrase("Operational Area:" + sArea));
+                    info.Add(new Phrase("Facility Name:" + sFacilty));
+                    info.Add(tab1);
+                    info.Add(new Paragraph("EQUIPMENT INFORMATION"));
+                    info.Add(tab1);
+                    info.Add(new Paragraph("PERMIT INFORMATION"));
+                    info.Add(tab1);
+                    info.Add(new Paragraph("ANALYZER INFORMATION"));
+                    //doc.Add(new Chunk(equipment + site));
+                    doc.Add(info);
                     
                 }
                 catch (Exception ex)
@@ -318,7 +337,7 @@ namespace CRS
                 }
                 equipment = GasAnalysis.equipment;
                 site = GasAnalysis.site;
-                //sqlite_datareader.Close();
+                sqlite_datareader.Close();
             }
             catch (Exception ex)
             {

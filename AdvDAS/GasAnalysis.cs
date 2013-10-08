@@ -43,7 +43,7 @@ namespace CRS
                         sqlite_cmd = sqlite_conn.CreateCommand();
                         sqlite_cmd.CommandText = "INSERT INTO  " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
                         + "Losses, ExcessAir) VALUES ('"
-                        + DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US")) + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
+                        + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
                         + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','"
                         + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','"
                         + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "');";
@@ -77,7 +77,7 @@ namespace CRS
                 sqlite_cmd = sqlite_conn.CreateCommand();
                 sqlite_cmd.CommandText = "INSERT INTO  " + x + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
                 + "Losses, ExcessAir) VALUES ('"
-                + DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US")) + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
+                + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
                 + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','"
                 + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','"
                 + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "');";
@@ -100,7 +100,7 @@ namespace CRS
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
                         + "Losses, ExcessAir, COmass, NOxmass, Notes) VALUES ('"
-                        + DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US")) + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" 
+                        + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" 
                         + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','" 
                         + protocol.vTamb + "','"+ protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
                         + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "','" + note + "');";

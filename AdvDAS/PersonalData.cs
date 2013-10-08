@@ -98,7 +98,7 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Personal Data: " + ex.Message + ex.StackTrace);
+                MessageBox.Show("Personal Data: " + ex.Message + ex.StackTrace);
             }
 
         }
