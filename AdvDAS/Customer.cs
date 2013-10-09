@@ -18,6 +18,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
+        EquipmentSite eSite = new EquipmentSite();
         DataTable ds = new DataTable();
         public Customer()
         {
@@ -183,7 +184,7 @@ namespace CRS
 
         private void btnSite_Click(object sender, EventArgs e)
         {
-            EquipmentSite eSite = new EquipmentSite(tbCustomerID.Text);
+            eSite.Customer = tbCustomerID.Text;
             eSite.ShowDialog();
         }
         void AutoCompleteTest()

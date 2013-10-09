@@ -29,7 +29,7 @@ namespace CRS
         private SQLiteDataReader sqlite_datareader;
         private string equipment = "", site = "";
         private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, pLogo,
-            sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip,ePermitCO, ePermitNOx, eLimitUnit;
+            sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip,ePermitCO, ePermitNOx, eLimitUnit, aModel;
         DateTime ePermitDate;
         public iTextSharp.text.Image picture;
         public PrintDocs()
@@ -101,7 +101,7 @@ namespace CRS
             sfd.Title = "Save Report";
             FillVariables();
             sqlite_conn.Open();
-
+            iTextSharp.text.Font.FontFamily times = iTextSharp.text.Font.FontFamily.TIMES_ROMAN;
 
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -112,15 +112,10 @@ namespace CRS
                 try
                 {
                     //Write Some Content
-                    PdfContentByte cb = wri.DirectContent;
-                    cb.BeginText();
-                    cb.SetFontAndSize(BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false), 18);
-                    cb.ShowText("bvfdzxgfhrdfjkyutvbkl");
-                    cb.EndText();
                     LineSeparator UNDERLINE = new LineSeparator(1, 100, null, Element.ALIGN_CENTER, -2);
-                    Chunk tab1 = new Chunk(UNDERLINE,doc.PageSize.Width,true);
+                    Chunk tab1 = new Chunk(UNDERLINE,doc.PageSize.Width-2,true);
                     
-                    ColumnText ct = new ColumnText(cb);
+                    ColumnText ct = new ColumnText(wri.DirectContent);
                     Paragraph heading = new Paragraph("Engine Emissions Test Report");
                     Paragraph personalData = new Paragraph();
                     heading.Font.Size = 35;
@@ -132,45 +127,127 @@ namespace CRS
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     ct.AddElement(LOGO);
                     doc.Add(LOGO);
+                    
                     personalData.Add(new Paragraph(String.Format("{0}", pStreet)));
                     personalData.Add(new Paragraph(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
                     personalData.Add(new Paragraph(String.Format("Phone: {0}", pPhone)));
                     personalData.Add(new Paragraph(String.Format("Mobile: {0}", pCellphone)));
                     personalData.Add(new Paragraph(String.Format("Email: {0}", pEmail)));
-                    Phrase p = new Phrase();
                     doc.Add(personalData);
-                    p.Add("what up");
-                    ct.YLine=3;
-                    ct.Alignment = Element.ALIGN_JUSTIFIED;
-                    ct.ExtraParagraphSpace = 6;
-                    ct.Leading = 1.2f;
-                    ct.FollowingIndent = 27;
-                    //int linesWritten, column, status= ct.co
-                    ct.SetSimpleColumn(new Phrase("Anhang zum Phytosanitären Transportdokument Nr.: EG/DE/\n"), 36, 36, 
-                        doc.PageSize.Width - 36, doc.PageSize.Height - 36, 10, Element.ALIGN_LEFT);
-                    ct.SetText(personalData);
-                    ct.SetText(p);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT,new Phrase(pEngineer + "       " + DateTime.Now), 20, 0, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("do"), 0, 572, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("it"), 20, 20, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("now"), 10, 20, 0);
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_LEFT, new Phrase("please"), 0, 0, 0);
-                    ct.Go();
-                    doc.Add(new Paragraph());
+                    
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT,new Phrase(pEngineer + "       " + DateTime.Now), doc.PageSize.Width, 0, 0);
+                    doc.Add(new Paragraph());                    
+
                     Paragraph info = new Paragraph();
+                    ////////////////////////////////////////////////
                     info.Add(tab1);
                     info.Add(new Paragraph("PHYSICAL LOCATION"));
-                    info.Add(new Phrase("Operational Area:" + sArea));
-                    info.Add(new Phrase("Facility Name:" + sFacilty));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Operational Area: " + sArea));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Facility Name: " + sFacilty + "\n"));
+                    ////////////////////////////////////////////////
                     info.Add(tab1);
                     info.Add(new Paragraph("EQUIPMENT INFORMATION"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Equipment : " + equipment));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Unit #: " + eUnitNumber + Chunk.NEWLINE));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Model: " + eModel));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Serial #: " + eSerialNo + "\n"));
+                    //info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    //info.Add(new Phrase("Boiler Parameters: ?" + Chunk.NEWLINE));
+                    ////////////////////////////////////////////////
                     info.Add(tab1);
                     info.Add(new Paragraph("PERMIT INFORMATION"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Permit #: " + ePermitNumber));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Permit Date: " + ePermitDate + Chunk.NEWLINE));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Permit Equipment #: " + ePermitEquip));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Permit Units: "  + Chunk.NEWLINE));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Permit CO Limit: " + ePermitCO));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Permit NOx Limit: " + ePermitNOx + "\n"));
+                    ////////////////////////////////////////////////
                     info.Add(tab1);
                     info.Add(new Paragraph("ANALYZER INFORMATION"));
-                    //doc.Add(new Chunk(equipment + site));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Model: " + aModel));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Serial #: " + sFacilty + "\n"));
                     doc.Add(info);
-                    
+
+                    Paragraph calibrationInfo = new Paragraph();
+                    calibrationInfo.Add(tab1);
+                    calibrationInfo.Add(new Paragraph("Calibration Information"));
+                    calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    calibrationInfo.Add(new Phrase("CO span gas " + aModel + " ppm"));
+                    calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    calibrationInfo.Add(new Phrase("Cal error limit: " + sFacilty + Chunk.NEWLINE));
+                    calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    calibrationInfo.Add(new Phrase("NO span gas " + aModel + " ppm")); 
+                    calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    calibrationInfo.Add(new Phrase("Cal error limit: " + sFacilty + Chunk.NEWLINE));
+                    calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    calibrationInfo.Add(new Phrase("NO2 span gas " + aModel + " ppm")); 
+                    calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    calibrationInfo.Add(new Phrase("Cal error limit: " + sFacilty + "\n"));
+                    doc.Add(calibrationInfo);
+                    doc.Add(tab1);
+                    PdfPTable table = new PdfPTable(5);
+                    PdfPCell cell = new PdfPCell(new Phrase("Emissions Test Results", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 15f, iTextSharp.text.Font.NORMAL)));
+                    cell.Colspan = 5;
+                    table.AddCell(cell);
+
+                    ///////Row1
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Test 1"));
+                    table.AddCell(new Phrase("Test 2"));
+                    table.AddCell(new Phrase("Test 3"));
+                    table.AddCell(new Phrase("Overall Average"));
+
+                    ///////Row2
+                    table.AddCell(new Phrase("O2%"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+
+                    ///////Row3
+                    table.AddCell(new Phrase("CO ppm"));
+                    table.AddCell(new Phrase("NOx ppm"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+
+                    ///////Row4
+                    table.AddCell(new Phrase("NOx ppm"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+
+                    ///////Row5
+                    table.AddCell(new Phrase("CO mass"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+
+                    ///////Row6
+                    table.AddCell(new Phrase("NOx mass"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("Parameter"));
+
+                    doc.Add(table);
                 }
                 catch (Exception ex)
                 {

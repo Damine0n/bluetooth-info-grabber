@@ -21,15 +21,13 @@ namespace CRS
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
         private MassEBC ebc = new MassEBC();
-        private string Customer;
-        public EquipmentSite(string Customer)
+        public string Customer="";
+        public EquipmentSite()
         {
             // TODO: Complete member initialization
             InitializeComponent();
             sqlite_conn.Open();
-            this.Customer = Customer;
-            Fillcombo();
-
+            
         }
         void Fillcombo()
         {
@@ -190,9 +188,16 @@ namespace CRS
             try
             {
                 sqlite_cmd = sqlite_conn.CreateCommand();
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='"
+                    + this.textBox2.Text + "' Where site = '" + this.siteBox.Text.ToString() + "' ;";
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+
+                sqlite_cmd = sqlite_conn.CreateCommand();
 
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "Update Equipments SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '"
+                sqlite_cmd.CommandText = "UPDATE Equipments SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '"
                     + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '"
                     + this.tbStackFlow.Text + "', stackTemp = '" + this.tbStackTemp.Text + "', intakeMPL = '" + this.tbIntakeMPL.Text + "', intakeMPR = '"
                     + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '"
@@ -204,12 +209,6 @@ namespace CRS
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
 
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='"
-                    + this.textBox2.Text + "' Where site = '" + this.siteBox.Text.ToString() + "' ;";
-                // And execute this again ;D
-                sqlite_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -399,6 +398,11 @@ namespace CRS
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void EquipmentSite_Load(object sender, EventArgs e)
+        {
+            Fillcombo();
         }
     }
 }

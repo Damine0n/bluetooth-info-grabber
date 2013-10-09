@@ -1083,6 +1083,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EquipmentSite";
             this.Text = "Setup Equipment & Site";
+            this.Load += new System.EventHandler(this.EquipmentSite_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
