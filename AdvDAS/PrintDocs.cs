@@ -14,7 +14,6 @@ using iTextSharp.text.pdf.interfaces;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Data.SQLite;
 using Finisar.SQLite;
 using System.IO;
 
@@ -29,7 +28,8 @@ namespace CRS
         private SQLiteDataReader sqlite_datareader;
         private string equipment = "", site = "";
         private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, pLogo,
-            sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip,ePermitCO, ePermitNOx, eLimitUnit, aModel;
+            sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip, ePermitCO, ePermitNOx, eLimitUnit, aModel;
+        public string COspan, NOspan, NO2span, calErr1, calErr2, calErr3;
         DateTime ePermitDate;
         public iTextSharp.text.Image picture;
         public PrintDocs()
@@ -94,6 +94,10 @@ namespace CRS
 
         public void printReport(List<string> names)
         {
+            double COsum = 0;
+            double NOxsum = 0;
+            double COMassSum = 0;
+            double NOxMassSum = 0;
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 10, 10);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
@@ -101,8 +105,6 @@ namespace CRS
             sfd.Title = "Save Report";
             FillVariables();
             sqlite_conn.Open();
-            iTextSharp.text.Font.FontFamily times = iTextSharp.text.Font.FontFamily.TIMES_ROMAN;
-
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = sfd.FileName;
@@ -112,9 +114,9 @@ namespace CRS
                 try
                 {
                     //Write Some Content
-                    LineSeparator UNDERLINE = new LineSeparator(1, 100, null, Element.ALIGN_CENTER, -2);
-                    Chunk tab1 = new Chunk(UNDERLINE,doc.PageSize.Width-2,true);
-                    
+                    LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
+                    Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - 20, true);
+
                     ColumnText ct = new ColumnText(wri.DirectContent);
                     Paragraph heading = new Paragraph("Engine Emissions Test Report");
                     Paragraph personalData = new Paragraph();
@@ -127,16 +129,16 @@ namespace CRS
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     ct.AddElement(LOGO);
                     doc.Add(LOGO);
-                    
+
                     personalData.Add(new Paragraph(String.Format("{0}", pStreet)));
                     personalData.Add(new Paragraph(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
                     personalData.Add(new Paragraph(String.Format("Phone: {0}", pPhone)));
                     personalData.Add(new Paragraph(String.Format("Mobile: {0}", pCellphone)));
                     personalData.Add(new Paragraph(String.Format("Email: {0}", pEmail)));
                     doc.Add(personalData);
-                    
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT,new Phrase(pEngineer + "       " + DateTime.Now), doc.PageSize.Width, 0, 0);
-                    doc.Add(new Paragraph());                    
+
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase(pEngineer + "       " + DateTime.Now), doc.PageSize.Width, 0, 0);
+                    doc.Add(new Paragraph());
 
                     Paragraph info = new Paragraph();
                     ////////////////////////////////////////////////
@@ -169,7 +171,7 @@ namespace CRS
                     info.Add(new Chunk(new VerticalPositionMark(), 50, true));
                     info.Add(new Phrase("Permit Equipment #: " + ePermitEquip));
                     info.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    info.Add(new Phrase("Permit Units: "  + Chunk.NEWLINE));
+                    info.Add(new Phrase("Permit Units: " + Chunk.NEWLINE));
                     info.Add(new Chunk(new VerticalPositionMark(), 50, true));
                     info.Add(new Phrase("Permit CO Limit: " + ePermitCO));
                     info.Add(new Chunk(new VerticalPositionMark(), 300, true));
@@ -189,15 +191,15 @@ namespace CRS
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
                     calibrationInfo.Add(new Phrase("CO span gas " + aModel + " ppm"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    calibrationInfo.Add(new Phrase("Cal error limit: " + sFacilty + Chunk.NEWLINE));
+                    calibrationInfo.Add(new Phrase("Cal error limit: " + calErr1 + Chunk.NEWLINE));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    calibrationInfo.Add(new Phrase("NO span gas " + aModel + " ppm")); 
+                    calibrationInfo.Add(new Phrase("NO span gas " + aModel + " ppm"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    calibrationInfo.Add(new Phrase("Cal error limit: " + sFacilty + Chunk.NEWLINE));
+                    calibrationInfo.Add(new Phrase("Cal error limit: " + calErr2 + Chunk.NEWLINE));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    calibrationInfo.Add(new Phrase("NO2 span gas " + aModel + " ppm")); 
+                    calibrationInfo.Add(new Phrase("NO2 span gas " + aModel + " ppm"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    calibrationInfo.Add(new Phrase("Cal error limit: " + sFacilty + "\n"));
+                    calibrationInfo.Add(new Phrase("Cal error limit: " + calErr3 + "\n"));
                     doc.Add(calibrationInfo);
                     doc.Add(tab1);
                     PdfPTable table = new PdfPTable(5);
@@ -258,7 +260,7 @@ namespace CRS
                     doc.NewPage();
                     try
                     {
-                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NOx, Tgas, Tamb, Tcell, Notes FROM " + names[z] + ";", sqlite_conn);
+                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, NO, NO2, NOx, Tgas, Tamb, Tcell FROM " + names[z] + ";", sqlite_conn);
                         ds.Clear();
                         da.Fill(ds);
                         bindingSource1.DataSource = ds;
@@ -299,6 +301,7 @@ namespace CRS
                                 }
                             }
                         }
+
                         //Adds table to pdf
                         doc.Add(dgTable);
                     }
@@ -307,7 +310,17 @@ namespace CRS
                         MessageBox.Show(dataGridView1.ColumnCount.ToString());
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
-                    Paragraph paragraph = new Paragraph("Average CO = \nAverage NOx = \nAverage COmass = \nAverage NOxmass = ");
+                    for (int l = 0; l < dataGridView1.Rows.Count; l++)
+                    {
+                        COsum += Convert.ToDouble(dataGridView1.Rows[l].Cells[2].Value);
+                        NOxsum += Convert.ToDouble(dataGridView1.Rows[l].Cells[5].Value);
+                    }
+                    int count = dataGridView1.Rows.Count;
+                    double COavg = COsum / count;
+                    double NOxavg = NOxsum / count;
+                    double COmassavg = COMassSum / count;
+                    double NOxmassavg = NOxMassSum / count;
+                    Paragraph paragraph = new Paragraph("Average CO = " + COavg + "\nAverage NOx = " + NOxavg + "\nAverage COmass = " + COmassavg + "\nAverage NOxmass = " + NOxmassavg);
                     //Adds above created text using different class object to our pdf document.
                     doc.Add(paragraph);
                 }

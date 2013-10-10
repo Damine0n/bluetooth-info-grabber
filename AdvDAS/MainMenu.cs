@@ -329,6 +329,7 @@ namespace CRS
             {
                 if (!(tempRampUp <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
+                    protocol.processProtocol("$0F1066 0x20");
                     rFirst = false;
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
@@ -347,7 +348,7 @@ namespace CRS
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    protocol.processProtocol("$0F1066 0x20");
+                    
                     return true;
                 }
                 else

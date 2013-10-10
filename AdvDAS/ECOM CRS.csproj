@@ -321,6 +321,9 @@
     <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Panels\calibration-cal-btnblu-gray.jpg" />
+    <None Include="Panels\calibration-button1.jpg" />
+    <None Include="Panels\calibration-btn-black-blu.jpg" />
     <None Include="Panels\ecomblu-whitebox-25gray.jpg" />
     <None Include="Panels\ecomblu-blackbox-black.jpg" />
     <None Include="Panels\ecomblu-50graybox-25grayback.jpg" />

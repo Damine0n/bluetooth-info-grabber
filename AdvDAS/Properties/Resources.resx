@@ -121,58 +121,67 @@
   <data name="rec_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\rec-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="snapshot_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\snapshot-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rec_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\rec-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snapshot_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\snapshot-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\stop-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\stop-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\start-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\start-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Analyzer control" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Analyzer control.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pause_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\pause-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pause_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\pause-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dashboard_mass_blue_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\dashboard-mass-blue-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="status_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\status-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="recording_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\recording-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="recording_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\recording-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ecomblu_25graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\ecomblu-25graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ecomblu_50graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\ecomblu-50graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ecomblu_blackbox_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\ecomblu-blackbox-black.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="snapshot_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\snapshot-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Analyzer control" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Analyzer control.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_25graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-25graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\stop-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\start-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pause_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\pause-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="status_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\status-box.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dashboard_mass_blue_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\dashboard-mass-blue-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rec_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\rec-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recording_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\recording-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snapshot_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\snapshot-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ecomblu_whitebox_25gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\ecomblu-whitebox-25gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\start-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\stop-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_50graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-50graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recording_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\recording-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calibration-btn-black-blu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\calibration-btn-black-blu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calibration-button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\calibration-button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calibration-cal-btnblu-gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\calibration-cal-btnblu-gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

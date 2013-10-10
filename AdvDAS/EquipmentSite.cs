@@ -45,7 +45,7 @@ namespace CRS
                 sqlite_datareader.Close();
                 siteBox.SelectedIndex = 0;
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Please, create site and equipment");
             }
@@ -197,7 +197,7 @@ namespace CRS
                 sqlite_cmd = sqlite_conn.CreateCommand();
 
                 // Let the SQLiteCommand object know our SQL-Query:
-                sqlite_cmd.CommandText = "UPDATE Equipments SET unitNum  = '" + this.tbUnitNum.Text + "' , model  = '" + this.tbModel.Text + "', serialNum  = '"
+                sqlite_cmd.CommandText = "UPDATE Equipments SET unitNum = '" + this.tbUnitNum.Text + "' , model = '" + this.tbModel.Text + "', serialNum  = '"
                     + this.tbSerialNum.Text + "', service = '" + this.tbService.Text + "', ignitionTiming = '" + this.tbIgnitionTiming.Text + "', stackFlow = '"
                     + this.tbStackFlow.Text + "', stackTemp = '" + this.tbStackTemp.Text + "', intakeMPL = '" + this.tbIntakeMPL.Text + "', intakeMPR = '"
                     + this.tbIntakeMPR.Text + "', intakeMTL = '" + this.tbIntakeMTL.Text + "', intakeMTR = '" + this.tbIntakeMTR.Text + "', stackHeightFT = '"
@@ -205,7 +205,7 @@ namespace CRS
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
                     + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '"
                     + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip.Text
-                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText+ "';";
+                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString()+ "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
 

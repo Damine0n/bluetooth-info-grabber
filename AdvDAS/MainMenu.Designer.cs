@@ -3113,8 +3113,8 @@ namespace CRS
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(99, 17);
             this.label27.TabIndex = 3;
-            this.label27.Text = "Serial NO.    #";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label27.Text = "Serial No.";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // O2_Vlbl
             // 
@@ -3176,7 +3176,7 @@ namespace CRS
             this.label34.Size = new System.Drawing.Size(99, 17);
             this.label34.TabIndex = 6;
             this.label34.Text = "Operation Hrs";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // operationHrs_lbl
             // 
@@ -3217,8 +3217,8 @@ namespace CRS
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(99, 17);
             this.label37.TabIndex = 10;
-            this.label37.Text = "Program Vrs";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label37.Text = "Program Vs.";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ProgramVrs_lbl
             // 
@@ -3300,7 +3300,7 @@ namespace CRS
             this.label18.Size = new System.Drawing.Size(99, 17);
             this.label18.TabIndex = 22;
             this.label18.Text = "FirmwareID:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Firmware_lbl
             // 
@@ -3318,7 +3318,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnCount = 3;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 1, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.analyzerSignal, 0, 0);
@@ -3348,7 +3348,7 @@ namespace CRS
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(184, 66);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(183, 66);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3359,7 +3359,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.Black;
             this.iflowlbl.Location = new System.Drawing.Point(6, 3);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(172, 28);
+            this.iflowlbl.Size = new System.Drawing.Size(171, 28);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3372,7 +3372,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.Black;
             this.flowlbl.Location = new System.Drawing.Point(6, 34);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(172, 29);
+            this.flowlbl.Size = new System.Drawing.Size(171, 29);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
