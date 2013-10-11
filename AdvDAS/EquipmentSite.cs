@@ -21,13 +21,13 @@ namespace CRS
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
         private MassEBC ebc = new MassEBC();
-        public string Customer="";
+        public string Customer = "";
         public EquipmentSite()
         {
             // TODO: Complete member initialization
             InitializeComponent();
             sqlite_conn.Open();
-            
+
         }
         void Fillcombo()
         {
@@ -97,10 +97,10 @@ namespace CRS
         }
         private void btnCreateSite_Click(object sender, EventArgs e)
         {
-            string x="";
+            string x = "";
             try
             {
-                 x= Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
+                x = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new site.", "New Site", "");
                 sqlite_cmd.CommandText = "INSERT INTO Sites (Site,Customer) VALUES ('" + x + "','" + Customer + "');";
                 sqlite_cmd.ExecuteNonQuery();
             }
@@ -126,14 +126,14 @@ namespace CRS
             {
                 Console.WriteLine("The process failed: {0}", ex.ToString());
             }
-            
+
 
             CreateEquipment(x);
             siteBox.Items.Clear();
             equipBox.Items.Clear();
             Fillcombo();
             siteBox.SelectedItem = x;
-            
+
         }
 
 
@@ -143,7 +143,7 @@ namespace CRS
             string y = Microsoft.VisualBasic.Interaction.InputBox("Enter the name for the new equipment.", "New Equipment", "");
             try
             {
-                sqlite_cmd.CommandText = "INSERT INTO Equipments (owner, equipment, permitDate) VALUES ('" + x + "','" + y + "','" + this.tbPermitDate.Value.ToString("MM/dd/yyyy")+"');";
+                sqlite_cmd.CommandText = "INSERT INTO Equipments (owner, equipment, permitDate) VALUES ('" + x + "','" + y + "','" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "');";
 
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -156,14 +156,14 @@ namespace CRS
             try
             {
                 // Determine whether the directory exists. 
-                if (Directory.Exists(Path.Combine(path,y)))
+                if (Directory.Exists(Path.Combine(path, y)))
                 {
                     Console.WriteLine("That path exists already.");
                     return;
                 }
 
                 // Try to create the directory.
-                DirectoryInfo di = Directory.CreateDirectory(Path.Combine(path,y));
+                DirectoryInfo di = Directory.CreateDirectory(Path.Combine(path, y));
 
             }
             catch (Exception ex)
@@ -205,7 +205,7 @@ namespace CRS
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
                     + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '"
                     + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip.Text
-                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString()+ "';";
+                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
 
@@ -346,22 +346,87 @@ namespace CRS
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
+            textBox4.Enabled = false;
+            textBox5.Enabled = false;
+            textBox6.Enabled = false;
+            textBox7.Enabled = false;
+            textBox8.Enabled = false;
+            textBox9.Enabled = false;
+            textBox10.Enabled = true;
+            textBox11.Enabled = true;
+            ////////////////////////////////////
+            label28.Enabled = false;
+            label29.Enabled = false;
+            label32.Enabled = false;
+            label33.Enabled = false;
+            label34.Enabled = false;
+            label35.Enabled = false;
+            label36.Enabled = true;
+            label37.Enabled = true;
 
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
+            textBox4.Enabled = false;
+            textBox5.Enabled = false;
+            textBox6.Enabled = false;
+            textBox7.Enabled = false;
+            textBox8.Enabled = true;
+            textBox9.Enabled = true;
+            textBox10.Enabled = false;
+            textBox11.Enabled = false;
+            ////////////////////////////////////
+            label28.Enabled = false;
+            label29.Enabled = false;
+            label32.Enabled = false;
+            label33.Enabled = false;
+            label34.Enabled = true;
+            label35.Enabled = true;
+            label36.Enabled = false;
+            label37.Enabled = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
+            textBox4.Enabled = false;
+            textBox5.Enabled = false;
+            textBox6.Enabled = true;
+            textBox7.Enabled = true;
+            textBox8.Enabled = false;
+            textBox9.Enabled = false;
+            textBox10.Enabled = false;
+            textBox11.Enabled = false;
+            ////////////////////////////////////
+            label28.Enabled = false;
+            label29.Enabled = false;
+            label32.Enabled = true;
+            label33.Enabled = true;
+            label34.Enabled = false;
+            label35.Enabled = false;
+            label36.Enabled = false;
+            label37.Enabled = false;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            textBox4.Enabled = true;
+            textBox5.Enabled = true;
+            textBox6.Enabled = false;
+            textBox7.Enabled = false;
+            textBox8.Enabled = false;
+            textBox9.Enabled = false;
+            textBox10.Enabled = false;
+            textBox11.Enabled = false;
+            ////////////////////////////////////
+            label28.Enabled = true;
+            label29.Enabled = true;
+            label32.Enabled = false;
+            label33.Enabled = false;
+            label34.Enabled = false;
+            label35.Enabled = false;
+            label36.Enabled = false;
+            label37.Enabled = false;
         }
 
         private void textBoxA_TextChanged(object sender, EventArgs e)

@@ -80,6 +80,12 @@ namespace CRS
         {
             if (!textBox1.Text.Equals("") && !textBox2.Text.Equals("") && !textBox3.Text.Equals(""))
             {
+                PrintDocs.COspan = textBox1.Text;
+                PrintDocs.NOspan = textBox2.Text;
+                PrintDocs.NO2span = textBox3.Text;
+                PrintDocs.calErr1 = numericUpDown1.Value.ToString();
+                PrintDocs.calErr2 = numericUpDown2.Value.ToString();
+                PrintDocs.calErr3 = numericUpDown3.Value.ToString();
                 ((Control)this.tabPage2).Enabled = true;
                 ((Control)this.tabPage3).Enabled = true;
                 ((Control)this.tabPage4).Enabled = true;

@@ -29,7 +29,7 @@ namespace CRS
         private string equipment = "", site = "";
         private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, pLogo,
             sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip, ePermitCO, ePermitNOx, eLimitUnit, aModel;
-        public string COspan, NOspan, NO2span, calErr1, calErr2, calErr3;
+        public static string COspan, NOspan, NO2span, calErr1, calErr2, calErr3;
         DateTime ePermitDate;
         public iTextSharp.text.Image picture;
         public PrintDocs()
@@ -94,16 +94,19 @@ namespace CRS
 
         public void printReport(List<string> names)
         {
+            FillVariables();
             double COsum = 0;
             double NOxsum = 0;
             double COMassSum = 0;
             double NOxMassSum = 0;
+            List<Tuple<string, string, string>> averages = new List<Tuple<string, string, string>>(); 
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 10, 10);
             SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory="C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site +"\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
             sfd.Title = "Save Report";
-            FillVariables();
+            
             sqlite_conn.Open();
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -118,26 +121,31 @@ namespace CRS
                     Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - 20, true);
 
                     ColumnText ct = new ColumnText(wri.DirectContent);
-                    Paragraph heading = new Paragraph("Engine Emissions Test Report");
+                    Paragraph heading = new Paragraph("Engine Emissions Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 35, iTextSharp.text.Font.NORMAL));
                     Paragraph personalData = new Paragraph();
-                    heading.Font.Size = 35;
+                    Paragraph date = new Paragraph("Emissions Test Date: " + DateTime.Now.ToString("MM/dd/yyyy"));
                     heading.Alignment = 1;
-                    heading.SpacingAfter = 18f;
+                    date.SpacingAfter = 12f;
+                    
+                    date.Alignment = 2;
+                    heading.Add(date);
                     doc.Add(heading);
                     iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
                     LOGO.ScaleToFit(100f, 150f);
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
-                    ct.AddElement(LOGO);
+                    doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
                     doc.Add(LOGO);
 
-                    personalData.Add(new Paragraph(String.Format("{0}", pStreet)));
-                    personalData.Add(new Paragraph(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
-                    personalData.Add(new Paragraph(String.Format("Phone: {0}", pPhone)));
-                    personalData.Add(new Paragraph(String.Format("Mobile: {0}", pCellphone)));
-                    personalData.Add(new Paragraph(String.Format("Email: {0}", pEmail)));
+                    personalData.Add(new Chunk(String.Format("{0}", pStreet)));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 250, true));
+                    personalData.Add(new Phrase("T\n"));
+                    personalData.Add(new Chunk(String.Format("{0}, {1} {2}\n", new object[] { pCity, pState, pZip })));
+                    personalData.Add(new Chunk(String.Format("Phone: {0}\n", pPhone)));
+                    personalData.Add(new Chunk(String.Format("Mobile: {0}\n", pCellphone)));
+                    personalData.Add(new Chunk(String.Format("Email: {0}\n", pEmail)));
                     doc.Add(personalData);
 
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase(pEngineer + "       " + DateTime.Now), doc.PageSize.Width, 0, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase("Technician" + "       " + "Date"), doc.PageSize.Width, 0, 0);
                     doc.Add(new Paragraph());
 
                     Paragraph info = new Paragraph();
@@ -189,15 +197,15 @@ namespace CRS
                     calibrationInfo.Add(tab1);
                     calibrationInfo.Add(new Paragraph("Calibration Information"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    calibrationInfo.Add(new Phrase("CO span gas " + aModel + " ppm"));
+                    calibrationInfo.Add(new Phrase("CO span gas " + COspan + " ppm"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
                     calibrationInfo.Add(new Phrase("Cal error limit: " + calErr1 + Chunk.NEWLINE));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    calibrationInfo.Add(new Phrase("NO span gas " + aModel + " ppm"));
+                    calibrationInfo.Add(new Phrase("NO span gas " + NOspan + " ppm"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
                     calibrationInfo.Add(new Phrase("Cal error limit: " + calErr2 + Chunk.NEWLINE));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    calibrationInfo.Add(new Phrase("NO2 span gas " + aModel + " ppm"));
+                    calibrationInfo.Add(new Phrase("NO2 span gas " + NO2span + " ppm"));
                     calibrationInfo.Add(new Chunk(new VerticalPositionMark(), 300, true));
                     calibrationInfo.Add(new Phrase("Cal error limit: " + calErr3 + "\n"));
                     doc.Add(calibrationInfo);
@@ -216,38 +224,38 @@ namespace CRS
 
                     ///////Row2
                     table.AddCell(new Phrase("O2%"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
 
                     ///////Row3
                     table.AddCell(new Phrase("CO ppm"));
-                    table.AddCell(new Phrase("NOx ppm"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
 
                     ///////Row4
                     table.AddCell(new Phrase("NOx ppm"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
 
                     ///////Row5
                     table.AddCell(new Phrase("CO mass"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
 
                     ///////Row6
                     table.AddCell(new Phrase("NOx mass"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
-                    table.AddCell(new Phrase("Parameter"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase("0.0"));
 
                     doc.Add(table);
                 }

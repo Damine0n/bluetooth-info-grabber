@@ -321,6 +321,7 @@
     <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Panels\flow-btn.jpg" />
     <None Include="Panels\calibration-cal-btnblu-gray.jpg" />
     <None Include="Panels\calibration-button1.jpg" />
     <None Include="Panels\calibration-btn-black-blu.jpg" />

@@ -1929,5 +1929,10 @@ namespace CRS
             //start Calibration phase
             protocol.processProtocol("$0A0517");
         }
+
+        private void tableLayoutPanel19_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
