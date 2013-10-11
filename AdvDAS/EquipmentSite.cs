@@ -364,6 +364,14 @@ namespace CRS
             label36.Enabled = true;
             label37.Enabled = true;
 
+            sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Let the SQLiteCommand object know our SQL-Query:
+            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox10.Text + "', NOxLimit = '" + textBox11.Text + "', LimitUnit = '" +label37.Text
+                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
+            // Now lets execute the SQL ;D
+            sqlite_cmd.ExecuteNonQuery();
+
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -385,6 +393,14 @@ namespace CRS
             label35.Enabled = true;
             label36.Enabled = false;
             label37.Enabled = false;
+
+            sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Let the SQLiteCommand object know our SQL-Query:
+            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox8.Text + "', NOxLimit = '" + textBox9.Text + "', LimitUnit = '" + label32.Text
+                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
+            // Now lets execute the SQL ;D
+            sqlite_cmd.ExecuteNonQuery();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -406,6 +422,14 @@ namespace CRS
             label35.Enabled = false;
             label36.Enabled = false;
             label37.Enabled = false;
+
+            sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Let the SQLiteCommand object know our SQL-Query:
+            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox6.Text + "', NOxLimit = '" + textBox7.Text + "', LimitUnit = '" + label32.Text
+                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
+            // Now lets execute the SQL ;D
+            sqlite_cmd.ExecuteNonQuery();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -427,6 +451,14 @@ namespace CRS
             label35.Enabled = false;
             label36.Enabled = false;
             label37.Enabled = false;
+
+            sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Let the SQLiteCommand object know our SQL-Query:
+            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox4.Text + "', NOxLimit = '" + textBox5.Text + "', LimitUnit = '" + label28.Text
+                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
+            // Now lets execute the SQL ;D
+            sqlite_cmd.ExecuteNonQuery();
         }
 
         private void textBoxA_TextChanged(object sender, EventArgs e)
