@@ -83,7 +83,8 @@ namespace CRS
                     clientSocket.ReceiveTimeout = 4000;
                     clientSocket.Receive(receivedBytes);
                     string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
-                    iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
+                    
+                        iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
                     if (iValue >= 32767 || iValue == 0)
                         vO2 = "0.0";
                     else

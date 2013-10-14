@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AdvDAS")]
-[assembly: AssemblyDescription("Ecom Advanced DAS")]
+[assembly: AssemblyTitle("CRS")]
+[assembly: AssemblyDescription("Ecom CRS")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ecom America, LTD")]
-[assembly: AssemblyProduct("AdvDAS")]
+[assembly: AssemblyProduct("CRS")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

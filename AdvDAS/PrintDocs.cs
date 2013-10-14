@@ -32,6 +32,7 @@ namespace CRS
         public static string COspan, NOspan, NO2span, calErr1, calErr2, calErr3;
         DateTime ePermitDate;
         public iTextSharp.text.Image picture;
+        J2KNProtocol protocol = new J2KNProtocol();
         public PrintDocs()
         {
             InitializeComponent();
@@ -72,6 +73,8 @@ namespace CRS
         }
         public void printSnapShot(List<string> snapshots)
         {
+            //get Serial Number
+            protocol.processProtocol("$0A0514");
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
@@ -112,7 +115,7 @@ namespace CRS
             {
                 string path = sfd.FileName;
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
-
+                
                 doc.Open();//Open Document To Write
                 try
                 {
@@ -133,14 +136,16 @@ namespace CRS
                     iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
                     LOGO.ScaleToFit(100f, 150f);
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
-                    doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
+                    //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
                     doc.Add(LOGO);
 
                     personalData.Add(new Chunk(String.Format("{0}", pStreet)));
-                    personalData.Add(new Chunk(new VerticalPositionMark(), 250, true));
-                    personalData.Add(new Phrase("T\n"));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 200, true));
+                    personalData.Add(new Phrase("CO g/bhp-hr     NOx g/bhp-hr\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 30, iTextSharp.text.Font.NORMAL)));
                     personalData.Add(new Chunk(String.Format("{0}, {1} {2}\n", new object[] { pCity, pState, pZip })));
-                    personalData.Add(new Chunk(String.Format("Phone: {0}\n", pPhone)));
+                    personalData.Add(new Chunk(String.Format("Phone: {0}", pPhone)));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 235, true));
+                    personalData.Add(new Phrase(" 0.03                 0.14\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 35, iTextSharp.text.Font.NORMAL)));
                     personalData.Add(new Chunk(String.Format("Mobile: {0}\n", pCellphone)));
                     personalData.Add(new Chunk(String.Format("Email: {0}\n", pEmail)));
                     doc.Add(personalData);
@@ -188,9 +193,9 @@ namespace CRS
                     info.Add(tab1);
                     info.Add(new Paragraph("ANALYZER INFORMATION"));
                     info.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    info.Add(new Phrase("Model: " + aModel));
+                    info.Add(new Phrase("Model: J2KN"));
                     info.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    info.Add(new Phrase("Serial #: " + sFacilty + "\n"));
+                    info.Add(new Phrase("Serial #: " + protocol.vSerialNumber + "\n"));
                     doc.Add(info);
 
                     Paragraph calibrationInfo = new Paragraph();
@@ -224,37 +229,37 @@ namespace CRS
 
                     ///////Row2
                     table.AddCell(new Phrase("O2%"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase(averages[0].Item1));
+                    table.AddCell(new Phrase(averages[0].Item2));
+                    table.AddCell(new Phrase(averages[0].Item3));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row3
                     table.AddCell(new Phrase("CO ppm"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase(averages[1].Item1));
+                    table.AddCell(new Phrase(averages[1].Item1));
+                    table.AddCell(new Phrase(averages[1].Item1));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row4
                     table.AddCell(new Phrase("NOx ppm"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase(averages[2].Item1));
+                    table.AddCell(new Phrase(averages[2].Item1));
+                    table.AddCell(new Phrase(averages[2].Item1));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row5
                     table.AddCell(new Phrase("CO mass"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase(averages[3].Item1));
+                    table.AddCell(new Phrase(averages[3].Item1));
+                    table.AddCell(new Phrase(averages[3].Item1));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row6
                     table.AddCell(new Phrase("NOx mass"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
-                    table.AddCell(new Phrase("0.0"));
+                    table.AddCell(new Phrase(averages[4].Item1));
+                    table.AddCell(new Phrase(averages[4].Item1));
+                    table.AddCell(new Phrase(averages[4].Item1));
                     table.AddCell(new Phrase("0.0"));
 
                     doc.Add(table);

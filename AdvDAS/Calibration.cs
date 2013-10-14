@@ -14,6 +14,7 @@ namespace CRS
     {
         J2KNProtocol protocol = new J2KNProtocol();
         bool clicked = false;
+        int interv = 1000;
         public Calibration()
         {
             InitializeComponent();
@@ -117,7 +118,8 @@ namespace CRS
 
         private void numericUpDown9_ValueChanged(object sender, EventArgs e)
         {
-            timer2.Interval = Convert.ToInt32(numericUpDown9.Value);
+            interv = Convert.ToInt32(numericUpDown9.Value)*1000;
+            timer2.Interval = interv;
         }
         ////////////////////CALIBRATION-TAB2\\\\\\\\\\\\\\\\\\\\\
 
@@ -240,10 +242,10 @@ namespace CRS
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (!dateTimePicker5.Value.ToString("mm:ss").Equals("00:00"))
-                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-1);
-            else 
+            if (dateTimePicker5.Value<=new DateTime(2013,9,9, 5,0,0))
                 stopIt();
+            else 
+                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-(interv/1000));
         }
 
         private void stopIt()
@@ -251,6 +253,7 @@ namespace CRS
             protocol.processProtocol("$0F1007Meas1");
             timer2.Stop();
             dateTimePicker5.Enabled = true;
+            dateTimePicker5.Value = new DateTime(2013, 9, 9, 5, 0, 0);
             this.startTimerButton.Text = "Start";
             clicked = false;
         }

@@ -758,7 +758,7 @@ namespace CRS
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
             label13.Text = "Connected";
-            label13.ForeColor = Color.Green;
+            label13.ForeColor = Color.Black;
             label23.Text = dgInterval / 1000 + " sec(s)";
             label22.Text = currentCycle + " of " + numOfCycles;
 
@@ -832,7 +832,6 @@ namespace CRS
             chart1.Series[17].Points.AddY(elementTable.Rows[17].Cells[1].Value);
             this.serialNO_lbl.Text = protocol.vSerialNumber;
             this.iflowlbl.Text = protocol.vIFlow;
-            this.analyzerSignal.Value = Convert.ToInt32(protocol.signalStrength);
             this.Firmware_lbl.Text = protocol.vFirmware;
         }
 
@@ -872,18 +871,18 @@ namespace CRS
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
-            label21.ForeColor = Color.Black;
-            label23.ForeColor = Color.Black;
-            cycleLabel.ForeColor = Color.Black;
-            label22.ForeColor = Color.Black;
-            rlbl.ForeColor = Color.Black;
-            tlbl.ForeColor = Color.Black;
-            plbl.ForeColor = Color.Black;
-            rTimelbl.ForeColor = Color.Black;
-            tTimelbl.ForeColor = Color.Black;
-            pTimelbl.ForeColor = Color.Black;
-            label14.ForeColor = Color.Black;
-            clock_lbl.ForeColor = Color.Black;
+            //label21.ForeColor = Color.Black;
+            //label23.ForeColor = Color.Black;
+            //cycleLabel.ForeColor = Color.Black;
+            //label22.ForeColor = Color.Black;
+            //rlbl.ForeColor = Color.Black;
+            //tlbl.ForeColor = Color.Black;
+            //plbl.ForeColor = Color.Black;
+            //rTimelbl.ForeColor = Color.Black;
+            //tTimelbl.ForeColor = Color.Black;
+            //pTimelbl.ForeColor = Color.Black;
+            //label14.ForeColor = Color.Black;
+            //clock_lbl.ForeColor = Color.Black;
 
         }
         private void blue50GrayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -907,18 +906,18 @@ namespace CRS
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
-            label21.ForeColor = Color.White;
-            label23.ForeColor = Color.White;
-            cycleLabel.ForeColor = Color.Black;
-            label22.ForeColor = Color.Black;
-            rlbl.ForeColor = Color.Black;
-            tlbl.ForeColor = Color.Black;
-            plbl.ForeColor = Color.Black;
-            rTimelbl.ForeColor = Color.Black;
-            tTimelbl.ForeColor = Color.Black;
-            pTimelbl.ForeColor = Color.Black;
-            label14.ForeColor = Color.Black;
-            clock_lbl.ForeColor = Color.Black;
+            //label21.ForeColor = Color.White;
+            //label23.ForeColor = Color.White;
+            //cycleLabel.ForeColor = Color.Black;
+            //label22.ForeColor = Color.Black;
+            //rlbl.ForeColor = Color.Black;
+            //tlbl.ForeColor = Color.Black;
+            //plbl.ForeColor = Color.Black;
+            //rTimelbl.ForeColor = Color.Black;
+            //tTimelbl.ForeColor = Color.Black;
+            //pTimelbl.ForeColor = Color.Black;
+            //label14.ForeColor = Color.Black;
+            //clock_lbl.ForeColor = Color.Black;
         }
         private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -930,18 +929,18 @@ namespace CRS
                 this.tabPage1.BackColor = Color.Black;
                 i++;
             }
-            label21.ForeColor = Color.White;
-            label23.ForeColor = Color.White;
-            cycleLabel.ForeColor = Color.White;
-            label22.ForeColor = Color.White;
-            rlbl.ForeColor = Color.White;
-            tlbl.ForeColor = Color.White;
-            plbl.ForeColor = Color.White;
-            rTimelbl.ForeColor = Color.White;
-            tTimelbl.ForeColor = Color.White;
-            pTimelbl.ForeColor = Color.White;
-            label14.ForeColor = Color.White;
-            clock_lbl.ForeColor = Color.White;
+            //label21.ForeColor = Color.White;
+            //label23.ForeColor = Color.White;
+            //cycleLabel.ForeColor = Color.White;
+            //label22.ForeColor = Color.White;
+            //rlbl.ForeColor = Color.White;
+            //tlbl.ForeColor = Color.White;
+            //plbl.ForeColor = Color.White;
+            //rTimelbl.ForeColor = Color.White;
+            //tTimelbl.ForeColor = Color.White;
+            //pTimelbl.ForeColor = Color.White;
+            //label14.ForeColor = Color.White;
+            //clock_lbl.ForeColor = Color.White;
 
 
         }

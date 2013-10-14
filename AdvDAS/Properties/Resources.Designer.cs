@@ -73,6 +73,46 @@ namespace CRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap analyzer_tab_right_panel_black_white {
+            get {
+                object obj = ResourceManager.GetObject("analyzer-tab-right-panel-black-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap analyzer_tab_right_panel_blu_gray {
+            get {
+                object obj = ResourceManager.GetObject("analyzer-tab-right-panel-blu-gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap analyzer_tab_right_panel_blue_white {
+            get {
+                object obj = ResourceManager.GetObject("analyzer-tab-right-panel-blue-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluetooth {
+            get {
+                object obj = ResourceManager.GetObject("bluetooth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calibration_btn_black_blu {
             get {
                 object obj = ResourceManager.GetObject("calibration-btn-black-blu", resourceCulture);
@@ -96,6 +136,26 @@ namespace CRS.Properties {
         internal static System.Drawing.Bitmap calibration_cal_btnblu_gray {
             get {
                 object obj = ResourceManager.GetObject("calibration-cal-btnblu-gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap capture_zero_btnA {
+            get {
+                object obj = ResourceManager.GetObject("capture-zero-btnA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap capture_zero_btnB {
+            get {
+                object obj = ResourceManager.GetObject("capture-zero-btnB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +213,49 @@ namespace CRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_prodedure_btnA {
+            get {
+                object obj = ResourceManager.GetObject("edit-prodedure-btnA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_prodedure_btnB {
+            get {
+                object obj = ResourceManager.GetObject("edit-prodedure-btnB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flow_btn {
             get {
                 object obj = ResourceManager.GetObject("flow-btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hybrid_box {
+            get {
+                object obj = ResourceManager.GetObject("hybrid-box", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main_tab_right_panel_blu_white {
+            get {
+                object obj = ResourceManager.GetObject("main-tab-right-panel-blu-white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +316,46 @@ namespace CRS.Properties {
         internal static System.Drawing.Bitmap recording_B {
             get {
                 object obj = ResourceManager.GetObject("recording_B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset_A {
+            get {
+                object obj = ResourceManager.GetObject("reset-A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset_B {
+            get {
+                object obj = ResourceManager.GetObject("reset-B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smaller_start_btnA {
+            get {
+                object obj = ResourceManager.GetObject("smaller-start-btnA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smaller_start_btnB {
+            get {
+                object obj = ResourceManager.GetObject("smaller-start-btnB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,6 +426,26 @@ namespace CRS.Properties {
         internal static System.Drawing.Bitmap stop_B {
             get {
                 object obj = ResourceManager.GetObject("stop_B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usb_btn {
+            get {
+                object obj = ResourceManager.GetObject("usb-btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wi_fi_btn {
+            get {
+                object obj = ResourceManager.GetObject("wi-fi-btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

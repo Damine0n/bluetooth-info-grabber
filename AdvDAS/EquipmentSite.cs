@@ -191,7 +191,7 @@ namespace CRS
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='"
                     + this.textBox2.Text + "' Where site = '" + this.siteBox.Text.ToString() + "' ;";
-                // And execute this again ;D
+                // And execute this again 
                 sqlite_cmd.ExecuteNonQuery();
 
                 sqlite_cmd = sqlite_conn.CreateCommand();
@@ -205,10 +205,10 @@ namespace CRS
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
                     + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '"
                     + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip.Text
-                    + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
-                // Now lets execute the SQL ;D
+                    + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+                // Execute the SQL 
                 sqlite_cmd.ExecuteNonQuery();
-
+                MessageBox.Show(sqlite_cmd.CommandText);
             }
             catch (Exception ex)
             {

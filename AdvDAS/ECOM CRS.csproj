@@ -321,6 +321,14 @@
     <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Panels\hybrid-box.jpg" />
+    <None Include="Panels\main-tab-right-panel-blu-white.jpg" />
+    <None Include="Panels\wi-fi-btn.jpg" />
+    <None Include="Panels\usb-btn.jpg" />
+    <None Include="Panels\bluetooth.jpg" />
+    <None Include="Panels\analyzer-tab-right-panel-blu-gray.jpg" />
+    <None Include="Panels\analyzer-tab-right-panel-blue-white.jpg" />
+    <None Include="Panels\analyzer-tab-right-panel-black-white.jpg" />
     <None Include="Panels\flow-btn.jpg" />
     <None Include="Panels\calibration-cal-btnblu-gray.jpg" />
     <None Include="Panels\calibration-button1.jpg" />
@@ -353,6 +361,14 @@
     <None Include="Buttons\pause-B.png" />
     <None Include="Buttons\recording-A.png" />
     <None Include="Buttons\recording-B.png" />
+    <None Include="Buttons\capture-zero-btnA.jpg" />
+    <None Include="Buttons\capture-zero-btnB.jpg" />
+    <None Include="Buttons\edit-prodedure-btnA.jpg" />
+    <None Include="Buttons\edit-prodedure-btnB.jpg" />
+    <None Include="Buttons\smaller-start-btnA.jpg" />
+    <None Include="Buttons\smaller-start-btnB.jpg" />
+    <None Include="Buttons\reset-A.png" />
+    <None Include="Buttons\reset-B.png" />
     <Content Include="Ecom.ico" />
   </ItemGroup>
   <ItemGroup>
