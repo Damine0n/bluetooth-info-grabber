@@ -69,7 +69,7 @@ namespace CRS
         }
         private void Print_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dataGridView1.SelectedRows[0].ToString());
+            MessageBox.Show(dataGridView1.SelectedRows.ToString());
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -77,6 +77,11 @@ namespace CRS
             DataView DV = new DataView(ds);
             DV.RowFilter = string.Format("Time LIKE '%{0}%'",tbSearch.Text);
             dataGridView1.DataSource = DV;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

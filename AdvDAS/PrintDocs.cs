@@ -43,6 +43,10 @@ namespace CRS
 
         public void printGraph(Chart graph)
         {
+            for (int h = 0; h < 3; h++)
+            {
+
+            }
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF File|*.pdf";
@@ -98,11 +102,12 @@ namespace CRS
         public void printReport(List<string> names)
         {
             FillVariables();
+            double O2sum= 0 ;
             double COsum = 0;
             double NOxsum = 0;
             double COMassSum = 0;
             double NOxMassSum = 0;
-            List<Tuple<string, string, string>> averages = new List<Tuple<string, string, string>>(); 
+            List<Tuple<string, string, string, string, string>> averages = new List<Tuple<string, string, string, string, string>>(); 
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 10, 10);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory="C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site +"\\" + equipment;
@@ -129,7 +134,6 @@ namespace CRS
                     Paragraph date = new Paragraph("Emissions Test Date: " + DateTime.Now.ToString("MM/dd/yyyy"));
                     heading.Alignment = 1;
                     date.SpacingAfter = 12f;
-                    
                     date.Alignment = 2;
                     heading.Add(date);
                     doc.Add(heading);
@@ -138,7 +142,7 @@ namespace CRS
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
                     doc.Add(LOGO);
-
+                 
                     personalData.Add(new Chunk(String.Format("{0}", pStreet)));
                     personalData.Add(new Chunk(new VerticalPositionMark(), 200, true));
                     personalData.Add(new Phrase("CO g/bhp-hr     NOx g/bhp-hr\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 30, iTextSharp.text.Font.NORMAL)));
@@ -150,7 +154,7 @@ namespace CRS
                     personalData.Add(new Chunk(String.Format("Email: {0}\n", pEmail)));
                     doc.Add(personalData);
 
-                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase("Technician" + "       " + "Date"), doc.PageSize.Width, 0, 0);
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase("_________________________________________\nTechnician          Date  "), doc.PageSize.Width, 0, 0);
                     doc.Add(new Paragraph());
 
                     Paragraph info = new Paragraph();
@@ -219,7 +223,39 @@ namespace CRS
                     PdfPCell cell = new PdfPCell(new Phrase("Emissions Test Results", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 15f, iTextSharp.text.Font.NORMAL)));
                     cell.Colspan = 5;
                     table.AddCell(cell);
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    for (int z = 0; z <3; z++)
+                    {
+                        try
+                        {
+                            var da = new SQLiteDataAdapter("SELECT O2, CO, NOx FROM " + names[z] + ";", sqlite_conn);
+                            ds.Clear();
+                            da.Fill(ds);
+                            bindingSource1.DataSource = ds;
+                            dataGridView2.DataSource = bindingSource1;
+                            //dataGridView1.Columns.Insert(dataGridView1.ColumnCount,CBColumn);
+                            da.Update(ds);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message + ex.StackTrace);
+                        }
+                        
+                        for (int l = 0; l < dataGridView1.Rows.Count; l++)
+                        {
+                            O2sum += Convert.ToDouble(dataGridView2.Rows[l].Cells[1].Value);
+                            COsum += Convert.ToDouble(dataGridView2.Rows[l].Cells[2].Value);
+                            NOxsum += Convert.ToDouble(dataGridView2.Rows[l].Cells[3].Value);
+                        }
+                        int count = dataGridView1.Rows.Count;
+                        double O2avg = O2sum / count;
+                        double COavg = COsum / count;
+                        double NOxavg = NOxsum / count;
+                        double COmassavg = COMassSum / count;
+                        double NOxmassavg = NOxMassSum / count;
+                        averages[z] = new Tuple<string, string, string, string, string>(O2avg.ToString(),COavg.ToString(),NOxavg.ToString(),COmassavg.ToString(),NOxmassavg.ToString());
 
+                    }
                     ///////Row1
                     table.AddCell(new Phrase("Parameter"));
                     table.AddCell(new Phrase("Test 1"));
@@ -230,36 +266,36 @@ namespace CRS
                     ///////Row2
                     table.AddCell(new Phrase("O2%"));
                     table.AddCell(new Phrase(averages[0].Item1));
-                    table.AddCell(new Phrase(averages[0].Item2));
-                    table.AddCell(new Phrase(averages[0].Item3));
+                    table.AddCell(new Phrase(averages[1].Item1));
+                    table.AddCell(new Phrase(averages[2].Item1));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row3
                     table.AddCell(new Phrase("CO ppm"));
-                    table.AddCell(new Phrase(averages[1].Item1));
-                    table.AddCell(new Phrase(averages[1].Item1));
-                    table.AddCell(new Phrase(averages[1].Item1));
+                    table.AddCell(new Phrase(averages[0].Item2));
+                    table.AddCell(new Phrase(averages[1].Item2));
+                    table.AddCell(new Phrase(averages[2].Item2));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row4
                     table.AddCell(new Phrase("NOx ppm"));
-                    table.AddCell(new Phrase(averages[2].Item1));
-                    table.AddCell(new Phrase(averages[2].Item1));
-                    table.AddCell(new Phrase(averages[2].Item1));
+                    table.AddCell(new Phrase(averages[0].Item3));
+                    table.AddCell(new Phrase(averages[1].Item3));
+                    table.AddCell(new Phrase(averages[2].Item3));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row5
                     table.AddCell(new Phrase("CO mass"));
-                    table.AddCell(new Phrase(averages[3].Item1));
-                    table.AddCell(new Phrase(averages[3].Item1));
-                    table.AddCell(new Phrase(averages[3].Item1));
+                    table.AddCell(new Phrase(averages[0].Item4));
+                    table.AddCell(new Phrase(averages[1].Item4));
+                    table.AddCell(new Phrase(averages[2].Item4));
                     table.AddCell(new Phrase("0.0"));
 
                     ///////Row6
                     table.AddCell(new Phrase("NOx mass"));
-                    table.AddCell(new Phrase(averages[4].Item1));
-                    table.AddCell(new Phrase(averages[4].Item1));
-                    table.AddCell(new Phrase(averages[4].Item1));
+                    table.AddCell(new Phrase(averages[0].Item5));
+                    table.AddCell(new Phrase(averages[1].Item5));
+                    table.AddCell(new Phrase(averages[2].Item5));
                     table.AddCell(new Phrase("0.0"));
 
                     doc.Add(table);

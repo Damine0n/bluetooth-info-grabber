@@ -693,56 +693,56 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(462, 77);
+            this.label36.Location = new System.Drawing.Point(459, 77);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(71, 13);
+            this.label36.Size = new System.Drawing.Size(65, 13);
             this.label36.TabIndex = 27;
-            this.label36.Text = "(LB/MMBTU)";
+            this.label36.Text = "LB/MMBTU";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(462, 47);
+            this.label37.Location = new System.Drawing.Point(459, 47);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(71, 13);
+            this.label37.Size = new System.Drawing.Size(65, 13);
             this.label37.TabIndex = 26;
-            this.label37.Text = "(LB/MMBTU)";
+            this.label37.Text = "LB/MMBTU";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(348, 77);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(34, 13);
+            this.label34.Size = new System.Drawing.Size(28, 13);
             this.label34.TabIndex = 25;
-            this.label34.Text = "(TPY)";
+            this.label34.Text = "TPY";
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(348, 47);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(34, 13);
+            this.label35.Size = new System.Drawing.Size(28, 13);
             this.label35.TabIndex = 24;
-            this.label35.Text = "(TPY)";
+            this.label35.Text = "TPY";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(221, 77);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(47, 13);
+            this.label33.Size = new System.Drawing.Size(41, 13);
             this.label33.TabIndex = 23;
-            this.label33.Text = "(LB/HR)";
+            this.label33.Text = "LB/HR";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(221, 47);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(47, 13);
+            this.label32.Size = new System.Drawing.Size(41, 13);
             this.label32.TabIndex = 22;
-            this.label32.Text = "(LB/HR)";
+            this.label32.Text = "LB/HR";
             // 
             // tbPermitEquip
             // 
@@ -782,7 +782,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(579, 63);
+            this.radioButton4.Location = new System.Drawing.Point(576, 63);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(14, 13);
             this.radioButton4.TabIndex = 17;
@@ -825,7 +825,7 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(536, 74);
+            this.textBox11.Location = new System.Drawing.Point(533, 74);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(37, 20);
             this.textBox11.TabIndex = 13;
@@ -834,7 +834,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(536, 44);
+            this.textBox10.Location = new System.Drawing.Point(533, 44);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(37, 20);
             this.textBox10.TabIndex = 12;
@@ -907,18 +907,18 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(92, 77);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(60, 13);
+            this.label29.Size = new System.Drawing.Size(54, 13);
             this.label29.TabIndex = 4;
-            this.label29.Text = "(g/BHP-Hr)";
+            this.label29.Text = "g/BHP-Hr";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(92, 47);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(60, 13);
+            this.label28.Size = new System.Drawing.Size(54, 13);
             this.label28.TabIndex = 3;
-            this.label28.Text = "(g/BHP-Hr)";
+            this.label28.Text = "g/BHP-Hr";
             // 
             // label27
             // 

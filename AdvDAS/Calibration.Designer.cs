@@ -1596,7 +1596,7 @@
             this.capZeroO2.Location = new System.Drawing.Point(8, 205);
             this.capZeroO2.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroO2.Name = "capZeroO2";
-            this.capZeroO2.Size = new System.Drawing.Size(207, 39);
+            this.capZeroO2.Size = new System.Drawing.Size(205, 39);
             this.capZeroO2.TabIndex = 2;
             this.capZeroO2.UseVisualStyleBackColor = false;
             this.capZeroO2.Click += new System.EventHandler(this.capZeroO2_Click);

@@ -323,8 +323,6 @@ namespace CRS
 
             Emeas = Convert.ToDouble(vCxHy);
             vCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-
-
         }
         private static string CalculateChecksum(string dataToCalculate)
         {
@@ -357,7 +355,6 @@ namespace CRS
                 }
             try
             {
-
                 sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
                 clientSocket.Send(sendPacket);
                 clientSocket.ReceiveTimeout = 4000;
@@ -394,6 +391,11 @@ namespace CRS
                 else if (p.Equals("$0A0515"))
                 {
                     vFirmware = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16).ToString();
+                }
+                else if (p.Equals("$0f1006 0x20"))
+                {
+                    MessageBox.Show(Encoding.ASCII.GetString(receivedBytes));
+                    MessageBox.Show(Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16).ToString());
                 }
             }
             catch

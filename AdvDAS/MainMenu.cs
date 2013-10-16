@@ -869,6 +869,7 @@ namespace CRS
                 tile.BackgroundImage = CRS.Properties.Resources.ecomblu_25graybox_25grayback;
                 lblList1[i].Item2.ForeColor = Color.Black;
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+                this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
             //label21.ForeColor = Color.Black;
@@ -893,6 +894,7 @@ namespace CRS
                 tile.BackgroundImage = CRS.Properties.Resources.ecomblu_50graybox_25grayback;
                 lblList1[i].Item2.ForeColor = Color.Black;
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+                this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
         }
@@ -1013,6 +1015,7 @@ namespace CRS
 
             configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
             configProcedure.ShowDialog();
+            
         }
 
         private void viewTestRecordsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1926,11 +1929,27 @@ namespace CRS
         private void button3_Click(object sender, EventArgs e)
         {
             //start Calibration phase
-            protocol.processProtocol("$0A0517");
+            protocol.processProtocol("$0f1006 0x20");
         }
 
-        private void tableLayoutPanel19_Paint(object sender, PaintEventArgs e)
+        private void resetButton_MouseDown(object sender, MouseEventArgs e)
         {
+            resetButton.BackgroundImage = CRS.Properties.Resources.reset_B;
+        }
+
+        private void resetButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            resetButton.BackgroundImage = CRS.Properties.Resources.reset_A;
+        }
+
+        private void button1_MouseDown(object sender, MouseEventArgs e)
+        {
+            button1.BackgroundImage = CRS.Properties.Resources.edit_prodedure_btnB;
+        }
+
+        private void button1_MouseUp(object sender, MouseEventArgs e)
+        {
+            button1.BackgroundImage = CRS.Properties.Resources.edit_prodedure_btnA;
 
         }
     }

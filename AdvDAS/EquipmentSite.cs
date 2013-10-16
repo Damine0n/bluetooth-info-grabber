@@ -21,7 +21,7 @@ namespace CRS
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
         private MassEBC ebc = new MassEBC();
-        public string Customer = "";
+        public string Customer = "", LimitUnit, COLimit, NOxLimit;
         public EquipmentSite()
         {
             // TODO: Complete member initialization
@@ -208,7 +208,6 @@ namespace CRS
                     + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
                 // Execute the SQL 
                 sqlite_cmd.ExecuteNonQuery();
-                MessageBox.Show(sqlite_cmd.CommandText);
             }
             catch (Exception ex)
             {
@@ -319,12 +318,40 @@ namespace CRS
 
                     string permitEquip = sqlite_datareader[23].ToString();
                     this.tbPermitEquip.Text = permitEquip;
+
+                    COLimit = sqlite_datareader[24].ToString();
+
+                    NOxLimit = sqlite_datareader[25].ToString();
+
+                    LimitUnit = sqlite_datareader[26].ToString();
                 }
                 sqlite_datareader.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("EquipBox: " + ex.Message);
+            }
+            finally
+            {
+                switch (LimitUnit)
+                {
+                    case "g/BHP-Hr":
+                        textBox4.Text = COLimit;
+                        textBox5.Text = NOxLimit;
+                        break;
+                    case "LB/HR":
+                        textBox6.Text = COLimit;
+                        textBox7.Text = NOxLimit;
+                        break;
+                    case "TPY": 
+                        textBox8.Text = COLimit;
+                        textBox9.Text = NOxLimit;
+                        break;
+                    case "LB/MMBTU":
+                        textBox10.Text = COLimit;
+                        textBox11.Text = NOxLimit;
+                        break;
+                }
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
             GasAnalysis.site = this.siteBox.Text.ToString();
@@ -367,7 +394,7 @@ namespace CRS
             sqlite_cmd = sqlite_conn.CreateCommand();
 
             // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox10.Text + "', NOxLimit = '" + textBox11.Text + "', LimitUnit = '" +label37.Text
+            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox10.Text + "', NOxLimit = '" + textBox11.Text + "', LimitUnit = '" + label37.Text
                 + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
             // Now lets execute the SQL ;D
             sqlite_cmd.ExecuteNonQuery();
