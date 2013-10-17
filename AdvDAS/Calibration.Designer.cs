@@ -144,6 +144,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.startTimerButton = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.capZeroO2 = new System.Windows.Forms.Button();
             this.capZeroNO2 = new System.Windows.Forms.Button();
             this.capZeroNO = new System.Windows.Forms.Button();
@@ -189,8 +190,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -870,8 +869,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Controls.Add(this.label32);
-            this.tabPage2.Controls.Add(this.label31);
+            this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.startTimerButton);
             this.tabPage2.Controls.Add(this.capCalNO);
             this.tabPage2.Controls.Add(this.capZeroO2);
@@ -901,21 +899,31 @@
             // 
             // capCalNO
             // 
-            this.capCalNO.Location = new System.Drawing.Point(426, 246);
+            this.capCalNO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capCalNO.BackgroundImage")));
+            this.capCalNO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capCalNO.FlatAppearance.BorderSize = 0;
+            this.capCalNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capCalNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.capCalNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capCalNO.Location = new System.Drawing.Point(426, 251);
             this.capCalNO.Name = "capCalNO";
-            this.capCalNO.Size = new System.Drawing.Size(207, 25);
+            this.capCalNO.Size = new System.Drawing.Size(207, 41);
             this.capCalNO.TabIndex = 17;
-            this.capCalNO.Text = "CAPTURE CAL RESPONSE";
             this.capCalNO.UseVisualStyleBackColor = true;
             this.capCalNO.Click += new System.EventHandler(this.capCalNO_Click);
             // 
             // capCalCO
             // 
-            this.capCalCO.Location = new System.Drawing.Point(218, 246);
+            this.capCalCO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capCalCO.BackgroundImage")));
+            this.capCalCO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capCalCO.FlatAppearance.BorderSize = 0;
+            this.capCalCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capCalCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.capCalCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capCalCO.Location = new System.Drawing.Point(218, 251);
             this.capCalCO.Name = "capCalCO";
-            this.capCalCO.Size = new System.Drawing.Size(205, 25);
-            this.capCalCO.TabIndex = 16;
-            this.capCalCO.Text = "CAPTURE CAL RESPONSE";
+            this.capCalCO.Size = new System.Drawing.Size(205, 41);
+            this.capCalCO.TabIndex = 6;
             this.capCalCO.UseVisualStyleBackColor = true;
             this.capCalCO.Click += new System.EventHandler(this.capCalCO_Click);
             // 
@@ -953,41 +961,61 @@
             // 
             // calNO2
             // 
+            this.calNO2.BackgroundImage = global::CRS.Properties.Resources.CALIBRATE_NO2_A;
+            this.calNO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.calNO2.Enabled = false;
-            this.calNO2.Location = new System.Drawing.Point(634, 278);
+            this.calNO2.FlatAppearance.BorderSize = 0;
+            this.calNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.calNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.calNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calNO2.Location = new System.Drawing.Point(634, 298);
             this.calNO2.Name = "calNO2";
-            this.calNO2.Size = new System.Drawing.Size(200, 34);
-            this.calNO2.TabIndex = 8;
-            this.calNO2.Text = "CALIBRATE\r\nNO2";
+            this.calNO2.Size = new System.Drawing.Size(200, 41);
+            this.calNO2.TabIndex = 10;
             this.calNO2.UseVisualStyleBackColor = true;
             // 
             // calNO
             // 
+            this.calNO.BackgroundImage = global::CRS.Properties.Resources.CALIBRATE_NO_A;
+            this.calNO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.calNO.Enabled = false;
-            this.calNO.Location = new System.Drawing.Point(426, 278);
+            this.calNO.FlatAppearance.BorderSize = 0;
+            this.calNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.calNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.calNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calNO.Location = new System.Drawing.Point(426, 298);
             this.calNO.Name = "calNO";
-            this.calNO.Size = new System.Drawing.Size(207, 34);
-            this.calNO.TabIndex = 7;
-            this.calNO.Text = "CALIBRATE\r\nNO";
+            this.calNO.Size = new System.Drawing.Size(207, 41);
+            this.calNO.TabIndex = 9;
             this.calNO.UseVisualStyleBackColor = true;
             // 
             // calCO
             // 
+            this.calCO.BackgroundImage = global::CRS.Properties.Resources.CALIBRATE_CO_A;
+            this.calCO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.calCO.Enabled = false;
-            this.calCO.Location = new System.Drawing.Point(218, 278);
+            this.calCO.FlatAppearance.BorderSize = 0;
+            this.calCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.calCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.calCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calCO.Location = new System.Drawing.Point(218, 298);
             this.calCO.Name = "calCO";
-            this.calCO.Size = new System.Drawing.Size(205, 34);
-            this.calCO.TabIndex = 6;
-            this.calCO.Text = "CALIBRATE\r\nCO";
+            this.calCO.Size = new System.Drawing.Size(205, 41);
+            this.calCO.TabIndex = 8;
             this.calCO.UseVisualStyleBackColor = true;
             // 
             // capCalNO2
             // 
-            this.capCalNO2.Location = new System.Drawing.Point(634, 246);
+            this.capCalNO2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capCalNO2.BackgroundImage")));
+            this.capCalNO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capCalNO2.FlatAppearance.BorderSize = 0;
+            this.capCalNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capCalNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.capCalNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.capCalNO2.Location = new System.Drawing.Point(634, 251);
             this.capCalNO2.Name = "capCalNO2";
-            this.capCalNO2.Size = new System.Drawing.Size(200, 25);
-            this.capCalNO2.TabIndex = 5;
-            this.capCalNO2.Text = "CAPTURE CAL RESPONSE";
+            this.capCalNO2.Size = new System.Drawing.Size(200, 41);
+            this.capCalNO2.TabIndex = 7;
             this.capCalNO2.UseVisualStyleBackColor = true;
             this.capCalNO2.Click += new System.EventHandler(this.capCalNO2_Click);
             // 
@@ -1581,10 +1609,20 @@
             this.startTimerButton.Location = new System.Drawing.Point(453, 28);
             this.startTimerButton.Name = "startTimerButton";
             this.startTimerButton.Size = new System.Drawing.Size(69, 38);
-            this.startTimerButton.TabIndex = 18;
+            this.startTimerButton.TabIndex = 1;
             this.startTimerButton.Text = "START";
             this.startTimerButton.UseVisualStyleBackColor = true;
             this.startTimerButton.Click += new System.EventHandler(this.startTimerButton_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(734, 6);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(98, 23);
+            this.button6.TabIndex = 21;
+            this.button6.Text = "Calibration Help";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // capZeroO2
             // 
@@ -1592,11 +1630,13 @@
             this.capZeroO2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroO2.BackgroundImage")));
             this.capZeroO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.capZeroO2.FlatAppearance.BorderSize = 0;
+            this.capZeroO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capZeroO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.capZeroO2.Location = new System.Drawing.Point(8, 205);
             this.capZeroO2.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroO2.Name = "capZeroO2";
-            this.capZeroO2.Size = new System.Drawing.Size(205, 39);
+            this.capZeroO2.Size = new System.Drawing.Size(205, 41);
             this.capZeroO2.TabIndex = 2;
             this.capZeroO2.UseVisualStyleBackColor = false;
             this.capZeroO2.Click += new System.EventHandler(this.capZeroO2_Click);
@@ -1606,12 +1646,14 @@
             this.capZeroNO2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroNO2.BackgroundImage")));
             this.capZeroNO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.capZeroNO2.FlatAppearance.BorderSize = 0;
+            this.capZeroNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capZeroNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.capZeroNO2.Location = new System.Drawing.Point(634, 205);
             this.capZeroNO2.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroNO2.Name = "capZeroNO2";
-            this.capZeroNO2.Size = new System.Drawing.Size(200, 39);
-            this.capZeroNO2.TabIndex = 2;
+            this.capZeroNO2.Size = new System.Drawing.Size(200, 41);
+            this.capZeroNO2.TabIndex = 5;
             this.capZeroNO2.UseVisualStyleBackColor = true;
             this.capZeroNO2.Click += new System.EventHandler(this.capZeroNO2_Click);
             // 
@@ -1620,12 +1662,14 @@
             this.capZeroNO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroNO.BackgroundImage")));
             this.capZeroNO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.capZeroNO.FlatAppearance.BorderSize = 0;
+            this.capZeroNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capZeroNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.capZeroNO.Location = new System.Drawing.Point(426, 205);
             this.capZeroNO.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroNO.Name = "capZeroNO";
-            this.capZeroNO.Size = new System.Drawing.Size(205, 39);
-            this.capZeroNO.TabIndex = 2;
+            this.capZeroNO.Size = new System.Drawing.Size(205, 41);
+            this.capZeroNO.TabIndex = 4;
             this.capZeroNO.UseVisualStyleBackColor = true;
             this.capZeroNO.Click += new System.EventHandler(this.capZeroNO_Click);
             // 
@@ -1634,12 +1678,14 @@
             this.capZeroCO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroCO.BackgroundImage")));
             this.capZeroCO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.capZeroCO.FlatAppearance.BorderSize = 0;
+            this.capZeroCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.capZeroCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.capZeroCO.Location = new System.Drawing.Point(218, 205);
             this.capZeroCO.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroCO.Name = "capZeroCO";
-            this.capZeroCO.Size = new System.Drawing.Size(205, 39);
-            this.capZeroCO.TabIndex = 2;
+            this.capZeroCO.Size = new System.Drawing.Size(205, 41);
+            this.capZeroCO.TabIndex = 3;
             this.capZeroCO.UseVisualStyleBackColor = true;
             this.capZeroCO.Click += new System.EventHandler(this.capZeroCO_Click);
             // 
@@ -1651,7 +1697,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.cIFlowlbl, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label47, 0, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(42, 246);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 251);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
@@ -1750,7 +1796,7 @@
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Myriad Pro SemiExt", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label22.Location = new System.Drawing.Point(3, 67);
             this.label22.Name = "label22";
@@ -1764,7 +1810,7 @@
             this.cO2lbl.AutoSize = true;
             this.cO2lbl.BackColor = System.Drawing.Color.Transparent;
             this.cO2lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cO2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cO2lbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cO2lbl.Location = new System.Drawing.Point(3, 0);
             this.cO2lbl.Name = "cO2lbl";
             this.cO2lbl.Size = new System.Drawing.Size(98, 67);
@@ -1794,7 +1840,7 @@
             // 
             this.cNO2lbl.AutoSize = true;
             this.cNO2lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cNO2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cNO2lbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cNO2lbl.Location = new System.Drawing.Point(3, 0);
             this.cNO2lbl.Name = "cNO2lbl";
             this.cNO2lbl.Size = new System.Drawing.Size(94, 67);
@@ -1882,7 +1928,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Myriad Pro SemiExt", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(3, 67);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(94, 45);
@@ -1912,7 +1958,7 @@
             // 
             this.cNOlbl.AutoSize = true;
             this.cNOlbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cNOlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cNOlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cNOlbl.Location = new System.Drawing.Point(3, 0);
             this.cNOlbl.Name = "cNOlbl";
             this.cNOlbl.Size = new System.Drawing.Size(97, 66);
@@ -2000,7 +2046,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Myriad Pro SemiExt", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(3, 66);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(97, 45);
@@ -2032,7 +2078,7 @@
             this.cCOlbl.AutoSize = true;
             this.cCOlbl.BackColor = System.Drawing.Color.Transparent;
             this.cCOlbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cCOlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cCOlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cCOlbl.Location = new System.Drawing.Point(3, 0);
             this.cCOlbl.Name = "cCOlbl";
             this.cCOlbl.Size = new System.Drawing.Size(97, 66);
@@ -2122,7 +2168,7 @@
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Myriad Pro SemiExt", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(3, 66);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(97, 44);
@@ -2139,26 +2185,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(2, 394);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(817, 13);
-            this.label32.TabIndex = 20;
-            this.label32.Text = "Tip: Begin calibration by applying NO gas balanced in N2. You can check for air l" +
-    "eaks & capture zero response of 02 sensor while calibrating the NO sensor (3 bir" +
-    "ds, 1 stone).";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(5, 324);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(370, 65);
-            this.label31.TabIndex = 19;
-            this.label31.Text = resources.GetString("label31.Text");
             // 
             // Calibration
             // 
@@ -2404,7 +2430,6 @@
         private System.Windows.Forms.Label COcalResponse;
         private System.Windows.Forms.Label COzeroResponse;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button6;
     }
 }

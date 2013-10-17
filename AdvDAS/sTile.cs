@@ -66,21 +66,24 @@ namespace CRS
                 case 0:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vO2;
-                    
+
                     this.lbl2.Text = protocol.vO2;
                     break;
                 case 1:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCO;
-                   
+
                     this.lbl2.Text = protocol.vCO;
                     break;
                 case 2:
                     this.lbl1.Text = elementComboBox.Text;
                     string CO_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-                    protocol.populateCorrection(1, Convert.ToDouble(CO_C));
+                    if (!CO_C.Equals(""))
+                        protocol.populateCorrection(1, Convert.ToDouble(CO_C));
+                    else
+                        protocol.populateCorrection(1, 0);
                     valLabel.Text = protocol.tempvCO_C;
-                    
+
                     this.lbl2.Text = protocol.vCO_C;
                     break;
                 case 3:
@@ -94,49 +97,57 @@ namespace CRS
                 case 7:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCO2;
-                    
+
                     this.lbl2.Text = protocol.vCO2;
                     break;
                 case 8:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNO;
-                    
+
                     this.lbl2.Text = protocol.vNO;
                     break;
                 case 9:
                     this.lbl1.Text = elementComboBox.Text;
                     string NO_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-                    protocol.populateCorrection(2, Convert.ToDouble(NO_C));
+                    if (!NO_C.Equals(""))
+                        protocol.populateCorrection(2, Convert.ToDouble(NO_C));
+                    else
+                        protocol.populateCorrection(2, 0);
                     valLabel.Text = protocol.vNO_C;
-                    
+
                     this.lbl2.Text = protocol.vNO_C;
                     break;
                 case 10:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNO2;
-                    
+
                     this.lbl2.Text = protocol.vNO2;
                     break;
                 case 11:
                     this.lbl1.Text = elementComboBox.Text;
                     string NO2_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-                    protocol.populateCorrection(3, Convert.ToDouble(NO2_C));
+                    if (!NO2_C.Equals(""))
+                        protocol.populateCorrection(3, Convert.ToDouble(NO2_C));
+                    else
+                        protocol.populateCorrection(3, 0);
                     valLabel.Text = protocol.vNO2_C;
-                    
+
                     this.lbl2.Text = protocol.vNO2_C;
                     break;
                 case 12:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNOx;
-                    
+
                     this.lbl2.Text = protocol.vNOx;
                     break;
                 case 13:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNOx_C;
                     string NOx_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-                    protocol.populateCorrection(4, Convert.ToDouble(NOx_C));
-                    
+                    if (!NOx_C.Equals(""))
+                        protocol.populateCorrection(4, Convert.ToDouble(NOx_C));
+                    else
+                        protocol.populateCorrection(4, 0);
                     this.lbl2.Text = protocol.vNOx_C;
                     break;
                 case 14:
@@ -150,53 +161,58 @@ namespace CRS
                 case 18:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vSO2;
-                    
+
                     this.lbl2.Text = protocol.vSO2;
                     break;
                 case 19:
                     this.lbl1.Text = elementComboBox.Text;
                     string SO2_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-                    protocol.populateCorrection(5, Convert.ToDouble(SO2_C));
+                    if (!SO2_C.Equals(""))
+                        protocol.populateCorrection(5, Convert.ToDouble(SO2_C));
+                    else
+                        protocol.populateCorrection(5, 0);
                     valLabel.Text = protocol.vSO2_C;
-                    
                     this.lbl2.Text = protocol.vSO2_C;
                     break;
                 case 20:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCxHy;
-                    
+
                     this.lbl2.Text = protocol.vCxHy;
                     break;
                 case 21:
                     this.lbl1.Text = elementComboBox.Text;
                     string CxHy_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-                    protocol.populateCorrection(6, Convert.ToDouble(CxHy_C));
-                    valLabel.Text = protocol.vCxHy_C;
-                    
+                    if (!CxHy_C.Equals(""))
+                        protocol.populateCorrection(6, Convert.ToDouble(CxHy_C));
+                    else
+                        protocol.populateCorrection(6, 0); 
+                        valLabel.Text = protocol.vCxHy_C;
+
                     this.lbl2.Text = protocol.vCxHy_C;
                     break;
                 case 22:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vTgas;
-                    
+
                     this.lbl2.Text = protocol.vTgas;
                     break;
                 case 23:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vTamb;
-                    
+
                     this.lbl2.Text = protocol.vTamb;
                     break;
                 case 24:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vTcell;
-                    
+
                     this.lbl2.Text = protocol.vTcell;
                     break;
                 case 25:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vEfficiency;
-                    
+
                     this.lbl2.Text = protocol.vEfficiency;
                     break;
                 case 26:
@@ -224,10 +240,17 @@ namespace CRS
                     break;
             }
             resetAverage();
-            nums.Add(Convert.ToDouble(valLabel.Text));
-            average = nums.Average().ToString("0.0");
-            aveLabel.Text = average;
-            btn.Text = average + " AVG";
+            try
+            {
+                nums.Add(Convert.ToDouble(valLabel.Text));
+                average = nums.Average().ToString("0.0");
+                aveLabel.Text = average;
+                btn.Text = average + " AVG";
+            }
+            catch (Exception)
+            {
+                resetAverage();
+            }
         }
 
         public void resetAverage()
@@ -274,8 +297,7 @@ namespace CRS
                     break;
                 case 9:
 
-                    valLabel.Text = protocol.vNO_C;
-
+                    valLabel.Text = protocol.tempvNO_C;
                     break;
                 case 10:
                     valLabel.Text = protocol.vNO2;
@@ -283,7 +305,7 @@ namespace CRS
                     break;
                 case 11:
 
-                    valLabel.Text = protocol.vNO2_C;
+                    valLabel.Text = protocol.tempvNO2_C;
 
                     break;
                 case 12:
@@ -291,7 +313,7 @@ namespace CRS
 
                     break;
                 case 13:
-                    valLabel.Text = protocol.vNOx_C;
+                    valLabel.Text = protocol.tempvNOx_C;
 
                     break;
                 case 14:
@@ -309,7 +331,7 @@ namespace CRS
                     break;
                 case 19:
 
-                    valLabel.Text = protocol.vSO2_C;
+                    valLabel.Text = protocol.tempvSO2_C;
 
                     break;
                 case 20:
@@ -317,7 +339,7 @@ namespace CRS
 
                     break;
                 case 21:
-                    valLabel.Text = protocol.vCxHy_C;
+                    valLabel.Text = protocol.tempvCxHy_C;
 
                     break;
                 case 22:
@@ -352,12 +374,18 @@ namespace CRS
                     valLabel.Text = protocol.vExcessAir;
                     break;
             }
-            this.lbl2.Text = valLabel.Text;
-            nums.Add(Convert.ToDouble(valLabel.Text));
-            average = nums.Average().ToString("0.0");
-            aveLabel.Text = average;
-            this.btn.Text = average + " AVG";
-            chartIt(valLabel.Text, average);
+            try
+            {
+                this.lbl2.Text = valLabel.Text;
+                nums.Add(Convert.ToDouble(valLabel.Text));
+                average = nums.Average().ToString("0.0");
+                aveLabel.Text = average;
+                this.btn.Text = average + " AVG";
+                chartIt(valLabel.Text, average);
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private void chartIt(string data1, string data2)

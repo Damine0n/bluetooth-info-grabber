@@ -392,6 +392,7 @@
             // checkBox33
             // 
             this.checkBox33.AutoSize = true;
+            this.checkBox33.Enabled = false;
             this.checkBox33.Location = new System.Drawing.Point(137, 66);
             this.checkBox33.Name = "checkBox33";
             this.checkBox33.Size = new System.Drawing.Size(51, 17);
@@ -403,6 +404,7 @@
             // checkBox34
             // 
             this.checkBox34.AutoSize = true;
+            this.checkBox34.Enabled = false;
             this.checkBox34.Location = new System.Drawing.Point(137, 42);
             this.checkBox34.Name = "checkBox34";
             this.checkBox34.Size = new System.Drawing.Size(47, 17);
@@ -414,6 +416,7 @@
             // checkBox37
             // 
             this.checkBox37.AutoSize = true;
+            this.checkBox37.Enabled = false;
             this.checkBox37.Location = new System.Drawing.Point(137, 19);
             this.checkBox37.Name = "checkBox37";
             this.checkBox37.Size = new System.Drawing.Size(47, 17);
@@ -425,6 +428,7 @@
             // checkBox38
             // 
             this.checkBox38.AutoSize = true;
+            this.checkBox38.Enabled = false;
             this.checkBox38.Location = new System.Drawing.Point(17, 42);
             this.checkBox38.Name = "checkBox38";
             this.checkBox38.Size = new System.Drawing.Size(42, 17);
@@ -436,6 +440,7 @@
             // checkBox39
             // 
             this.checkBox39.AutoSize = true;
+            this.checkBox39.Enabled = false;
             this.checkBox39.Location = new System.Drawing.Point(17, 66);
             this.checkBox39.Name = "checkBox39";
             this.checkBox39.Size = new System.Drawing.Size(48, 17);
@@ -447,6 +452,7 @@
             // checkBox40
             // 
             this.checkBox40.AutoSize = true;
+            this.checkBox40.Enabled = false;
             this.checkBox40.Location = new System.Drawing.Point(17, 19);
             this.checkBox40.Name = "checkBox40";
             this.checkBox40.Size = new System.Drawing.Size(41, 17);

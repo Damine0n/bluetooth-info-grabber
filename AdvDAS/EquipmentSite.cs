@@ -22,6 +22,7 @@ namespace CRS
         DataSet ds = new DataSet();
         private MassEBC ebc = new MassEBC();
         public string Customer = "", LimitUnit, COLimit, NOxLimit;
+        J2KNProtocol protocol = new J2KNProtocol();
         public EquipmentSite()
         {
             // TODO: Complete member initialization
@@ -527,6 +528,12 @@ namespace CRS
         private void EquipmentSite_Load(object sender, EventArgs e)
         {
             Fillcombo();
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

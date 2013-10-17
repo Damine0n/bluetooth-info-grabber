@@ -56,11 +56,65 @@ namespace CRS
         private int checkCounter;
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
+             
             CheckBox box = (CheckBox)sender;
             if (box.Checked)
+            {
+                if (box.Equals(checkBox11))
+                {
+                    checkBox40.Enabled = true;
+                }
+                else if (box.Equals(checkBox18))
+                {
+                    checkBox38.Enabled = true;
+                }
+                else if (box.Equals(checkBox19))
+                {
+                    checkBox39.Enabled = true;
+                }
+                else if (box.Equals(checkBox20))
+                {
+                    checkBox37.Enabled = true;
+                }
+                else if (box.Equals(checkBox21))
+                {
+                    checkBox34.Enabled = true;
+                }
+                else if (box.Equals(checkBox22))
+                {
+                    checkBox33.Enabled = true;
+                }
                 checkCounter++;
+            }
             else
+            {
+                if (box.Equals(checkBox11))
+                {
+                    checkBox40.Enabled = false;
+                }
+                else if (box.Equals(checkBox18))
+                {
+                    checkBox38.Enabled = false;
+                }
+                else if (box.Equals(checkBox19))
+                {
+                    checkBox39.Enabled = false;
+                }
+                else if (box.Equals(checkBox20))
+                {
+                    checkBox37.Enabled = false;
+                }
+                else if (box.Equals(checkBox21))
+                {
+                    checkBox34.Enabled = false;
+                }
+                else if (box.Equals(checkBox22))
+                {
+                    checkBox33.Enabled = false;
+                }
                 checkCounter--;
+            }
+            
 
             // prevent checking
             if (checkCounter == 10)

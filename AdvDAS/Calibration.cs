@@ -257,6 +257,17 @@ namespace CRS
             this.startTimerButton.Text = "Start";
             clicked = false;
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("*Always check for air leaks prior to calibration."
+                +"\n1. Apply cal gas and begin timer."
+                +"\n2. Once timer stops, verify that the sensor response is within the cal error limit."
+                +"\n    Click 'Capture Cal Response'."
+                +"\n3. Click 'Calibrate Sensor'."
+                + "\nTip: Begin calibration by applying NO gas balanced in N2. You can check for air leaks &"
+                +" capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
+        }
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }

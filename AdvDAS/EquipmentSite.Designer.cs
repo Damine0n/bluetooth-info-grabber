@@ -976,7 +976,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(378, 20);
+            this.button2.Location = new System.Drawing.Point(378, 18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 23);
             this.button2.TabIndex = 9;
@@ -1018,7 +1018,7 @@
             "Wood Bark"});
             this.comboBox1.Location = new System.Drawing.Point(189, 63);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 21);
+            this.comboBox1.Size = new System.Drawing.Size(183, 21);
             this.comboBox1.TabIndex = 6;
             // 
             // cbFuelType
@@ -1026,17 +1026,21 @@
             this.cbFuelType.FormattingEnabled = true;
             this.cbFuelType.Items.AddRange(new object[] {
             "Boiler/Heater",
-            "Engine"});
+            "Engine 0--500hp w/o fuel meter",
+            "Engine 0--500hp with fuel meter",
+            "Engine 500hp+ w/o fuel meter",
+            "Engine 500hp+ with fuel meter",
+            "Turbine"});
             this.cbFuelType.Location = new System.Drawing.Point(189, 20);
             this.cbFuelType.Name = "cbFuelType";
-            this.cbFuelType.Size = new System.Drawing.Size(142, 21);
+            this.cbFuelType.Size = new System.Drawing.Size(183, 21);
             this.cbFuelType.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(189, 108);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 23);
+            this.button1.Size = new System.Drawing.Size(183, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Edit/View Mass Emissions ";
             this.button1.UseVisualStyleBackColor = true;
@@ -1055,6 +1059,7 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(131, 64);
             this.checkedListBox1.TabIndex = 0;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // btnAccept
             // 

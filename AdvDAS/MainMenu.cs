@@ -1929,7 +1929,9 @@ namespace CRS
         private void button3_Click(object sender, EventArgs e)
         {
             //start Calibration phase
-            protocol.processProtocol("$0f1006 0x20");
+            protocol.processProtocol("$0F100740000");
+            //protocol.processProtocol("$0F1006 0x20");
+            //protocol.processProtocol("$0F1004 0x20");
         }
 
         private void resetButton_MouseDown(object sender, MouseEventArgs e)
