@@ -115,13 +115,16 @@
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbFuelType = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -759,7 +762,7 @@
             this.tbPermitDate.Name = "tbPermitDate";
             this.tbPermitDate.Size = new System.Drawing.Size(83, 20);
             this.tbPermitDate.TabIndex = 20;
-            this.tbPermitDate.Value = new System.DateTime(2013, 10, 2, 0, 0, 0, 0);
+            this.tbPermitDate.Value = new System.DateTime(2013, 10, 18, 12, 26, 36, 561);
             // 
             // label31
             // 
@@ -830,7 +833,6 @@
             this.textBox11.Size = new System.Drawing.Size(37, 20);
             this.textBox11.TabIndex = 13;
             this.textBox11.Text = "1.000";
-            this.textBox11.TextChanged += new System.EventHandler(this.textBoxB_TextChanged);
             // 
             // textBox10
             // 
@@ -839,7 +841,6 @@
             this.textBox10.Size = new System.Drawing.Size(37, 20);
             this.textBox10.TabIndex = 12;
             this.textBox10.Text = "1.000";
-            this.textBox10.TextChanged += new System.EventHandler(this.textBoxA_TextChanged);
             // 
             // textBox9
             // 
@@ -848,7 +849,6 @@
             this.textBox9.Size = new System.Drawing.Size(37, 20);
             this.textBox9.TabIndex = 11;
             this.textBox9.Text = "1.000";
-            this.textBox9.TextChanged += new System.EventHandler(this.textBoxB_TextChanged);
             // 
             // textBox8
             // 
@@ -857,7 +857,6 @@
             this.textBox8.Size = new System.Drawing.Size(37, 20);
             this.textBox8.TabIndex = 10;
             this.textBox8.Text = "1.000";
-            this.textBox8.TextChanged += new System.EventHandler(this.textBoxA_TextChanged);
             // 
             // textBox7
             // 
@@ -866,7 +865,6 @@
             this.textBox7.Size = new System.Drawing.Size(37, 20);
             this.textBox7.TabIndex = 9;
             this.textBox7.Text = "1.000";
-            this.textBox7.TextChanged += new System.EventHandler(this.textBoxB_TextChanged);
             // 
             // textBox6
             // 
@@ -875,7 +873,6 @@
             this.textBox6.Size = new System.Drawing.Size(37, 20);
             this.textBox6.TabIndex = 8;
             this.textBox6.Text = "1.000";
-            this.textBox6.TextChanged += new System.EventHandler(this.textBoxA_TextChanged);
             // 
             // textBox5
             // 
@@ -884,7 +881,6 @@
             this.textBox5.Size = new System.Drawing.Size(37, 20);
             this.textBox5.TabIndex = 7;
             this.textBox5.Text = "1.000";
-            this.textBox5.TextChanged += new System.EventHandler(this.textBoxB_TextChanged);
             // 
             // textBox4
             // 
@@ -893,7 +889,6 @@
             this.textBox4.Size = new System.Drawing.Size(37, 20);
             this.textBox4.TabIndex = 6;
             this.textBox4.Text = "1.000";
-            this.textBox4.TextChanged += new System.EventHandler(this.textBoxA_TextChanged);
             // 
             // tbAirPermit
             // 
@@ -960,13 +955,16 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox4);
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.checkBox2);
+            this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.cbFuelType);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.checkedListBox1);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(595, 137);
@@ -974,9 +972,49 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emmisions Values Included In Report ";
             // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(24, 91);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(84, 17);
+            this.checkBox4.TabIndex = 13;
+            this.checkBox4.Text = "LB/MMBTU";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(24, 68);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(47, 17);
+            this.checkBox3.TabIndex = 12;
+            this.checkBox3.Text = "TPY";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(24, 45);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(60, 17);
+            this.checkBox2.TabIndex = 11;
+            this.checkBox2.Text = "LB/HR";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(24, 22);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(73, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "g/BHP-Hr";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(378, 18);
+            this.button2.Location = new System.Drawing.Point(399, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 23);
             this.button2.TabIndex = 9;
@@ -1035,6 +1073,7 @@
             this.cbFuelType.Name = "cbFuelType";
             this.cbFuelType.Size = new System.Drawing.Size(183, 21);
             this.cbFuelType.TabIndex = 5;
+            this.cbFuelType.SelectedIndexChanged += new System.EventHandler(this.cbFuelType_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -1045,21 +1084,6 @@
             this.button1.Text = "Edit/View Mass Emissions ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "g/bhp-hr",
-            "lb/hr",
-            "TPY",
-            "lb/MMBTU"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 20);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(131, 64);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // btnAccept
             // 
@@ -1167,7 +1191,6 @@
         private System.Windows.Forms.TextBox tbIntakeMTL;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ComboBox cbFuelType;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource bindingSource1;
@@ -1203,5 +1226,9 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -16,8 +16,14 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         public static string equipment = "";
         public static string site = "";
+        private DateTime timeTaken;
         public GasAnalysis()
         {
+            sqlite_conn.Open();
+        }
+        public GasAnalysis(DateTime timeTaken)
+        {
+            this.timeTaken = timeTaken;
             sqlite_conn.Open();
         }
         public string newEntry(J2KNProtocol protocol)
@@ -90,7 +96,7 @@ namespace CRS
 
             }
         }
-        public void newEntry(J2KNProtocol protocol, string note, bool testing, string tableName)
+        public void SnapShot(J2KNProtocol protocol, string note, bool testing, string tableName)
         {
             if (testing)
             {
@@ -100,7 +106,7 @@ namespace CRS
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
                         + "Losses, ExcessAir, COmass, NOxmass, Notes) VALUES ('"
-                        + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" 
+                        + timeTaken.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" 
                         + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','" 
                         + protocol.vTamb + "','"+ protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
                         + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "','" + note + "');";
@@ -120,11 +126,11 @@ namespace CRS
                 {
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO SnapShots (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                        + "Losses, ExcessAir, Notes) VALUES ('"
-                        + DateTime.Now + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','"
+                        + "Losses, ExcessAir, Notes, Date) VALUES ('"
+                        + timeTaken.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','"
                         + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','"
                         + protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
-                        + protocol.vLosses + "','" + protocol.vExcessAir + "','" + note + "');";
+                        + protocol.vLosses + "','" + protocol.vExcessAir + "','" + note + "','" + timeTaken.ToString("MM/dd/yyyy") + "');";
 
                     // And execute this again ;D
                     sqlite_cmd.ExecuteNonQuery();

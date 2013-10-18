@@ -191,7 +191,7 @@ namespace CRS
                 sqlite_cmd = sqlite_conn.CreateCommand();
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "UPDATE Sites SET Area =  '" + this.textBox1.Text + "', Facility ='"
-                    + this.textBox2.Text + "' Where site = '" + this.siteBox.Text.ToString() + "' ;";
+                    + this.textBox2.Text + "' Where site = '" + this.siteBox.Text + "' ;";
                 // And execute this again 
                 sqlite_cmd.ExecuteNonQuery();
 
@@ -208,6 +208,35 @@ namespace CRS
                     + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip.Text
                     + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
                 // Execute the SQL 
+                sqlite_cmd.ExecuteNonQuery();
+
+                sqlite_cmd = sqlite_conn.CreateCommand();
+
+                // Let the SQLiteCommand object know our SQL-Query:
+                if (radioButton1.Checked)
+                {
+                    sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox4.Text + "', NOxLimit = '" + textBox5.Text + "', LimitUnit = '" + label28.Text
+                        + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+                    // Now lets execute the SQL ;D
+                }
+                else if (radioButton2.Checked)
+                {
+                    sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox6.Text + "', NOxLimit = '" + textBox7.Text + "', LimitUnit = '" + label32.Text
+                        + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+                    // Now lets execute the SQL ;D
+                }
+                else if (radioButton3.Checked)
+                {
+                    sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox8.Text + "', NOxLimit = '" + textBox9.Text + "', LimitUnit = '" + label35.Text
+                        + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+                    // Now lets execute the SQL ;D
+                }
+                else if (radioButton4.Checked)
+                {
+                    sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox10.Text + "', NOxLimit = '" + textBox11.Text + "', LimitUnit = '" + label37.Text
+                        + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+                    // Now lets execute the SQL ;D
+                }
                 sqlite_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -339,18 +368,25 @@ namespace CRS
                     case "g/BHP-Hr":
                         textBox4.Text = COLimit;
                         textBox5.Text = NOxLimit;
+                        radioButton1.Checked = true;
                         break;
                     case "LB/HR":
                         textBox6.Text = COLimit;
                         textBox7.Text = NOxLimit;
+                        radioButton2.Checked = true;
                         break;
-                    case "TPY": 
+                    case "TPY":
                         textBox8.Text = COLimit;
                         textBox9.Text = NOxLimit;
+                        radioButton3.Checked = true;
                         break;
                     case "LB/MMBTU":
                         textBox10.Text = COLimit;
                         textBox11.Text = NOxLimit;
+                        radioButton4.Checked = true;
+                        break;
+                    default:
+                        radioButton1.Checked = true;
                         break;
                 }
             }
@@ -382,7 +418,7 @@ namespace CRS
             textBox9.Enabled = false;
             textBox10.Enabled = true;
             textBox11.Enabled = true;
-            ////////////////////////////////////
+            /////////////////////////////////////
             label28.Enabled = false;
             label29.Enabled = false;
             label32.Enabled = false;
@@ -391,15 +427,15 @@ namespace CRS
             label35.Enabled = false;
             label36.Enabled = true;
             label37.Enabled = true;
-
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox10.Text + "', NOxLimit = '" + textBox11.Text + "', LimitUnit = '" + label37.Text
-                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
-
+            /////////////////////////////////////
+            checkBox4.Checked = true;
+            checkBox2.Enabled = true;
+            checkBox3.Enabled = true;
+            checkBox4.Enabled = false;
+            if (!(cbFuelType.SelectedIndex == 0))
+            {
+                checkBox1.Enabled = true;
+            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -412,7 +448,7 @@ namespace CRS
             textBox9.Enabled = true;
             textBox10.Enabled = false;
             textBox11.Enabled = false;
-            ////////////////////////////////////
+            /////////////////////////////////////
             label28.Enabled = false;
             label29.Enabled = false;
             label32.Enabled = false;
@@ -421,14 +457,15 @@ namespace CRS
             label35.Enabled = true;
             label36.Enabled = false;
             label37.Enabled = false;
-
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox8.Text + "', NOxLimit = '" + textBox9.Text + "', LimitUnit = '" + label32.Text
-                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
+            /////////////////////////////////////
+            checkBox3.Checked = true;
+            checkBox2.Enabled = true;
+            checkBox3.Enabled = false;
+            checkBox4.Enabled = true;
+            if (!(cbFuelType.SelectedIndex == 0))
+            {
+                checkBox1.Enabled = true;
+            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -441,7 +478,7 @@ namespace CRS
             textBox9.Enabled = false;
             textBox10.Enabled = false;
             textBox11.Enabled = false;
-            ////////////////////////////////////
+            /////////////////////////////////////
             label28.Enabled = false;
             label29.Enabled = false;
             label32.Enabled = true;
@@ -450,14 +487,15 @@ namespace CRS
             label35.Enabled = false;
             label36.Enabled = false;
             label37.Enabled = false;
-
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox6.Text + "', NOxLimit = '" + textBox7.Text + "', LimitUnit = '" + label32.Text
-                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
+            /////////////////////////////////////
+            checkBox2.Checked = true;
+            checkBox2.Enabled = false;
+            checkBox3.Enabled = true;
+            checkBox4.Enabled = true;
+            if (!(cbFuelType.SelectedIndex == 0))
+            {
+                checkBox1.Enabled = true;
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -470,7 +508,7 @@ namespace CRS
             textBox9.Enabled = false;
             textBox10.Enabled = false;
             textBox11.Enabled = false;
-            ////////////////////////////////////
+            /////////////////////////////////////
             label28.Enabled = true;
             label29.Enabled = true;
             label32.Enabled = false;
@@ -479,14 +517,16 @@ namespace CRS
             label35.Enabled = false;
             label36.Enabled = false;
             label37.Enabled = false;
-
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox4.Text + "', NOxLimit = '" + textBox5.Text + "', LimitUnit = '" + label28.Text
-                + "'  WHERE equipment = '" + this.equipBox.SelectedText + "' AND owner = '" + this.siteBox.SelectedText.ToString() + "';";
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
+            /////////////////////////////////////
+            
+            checkBox2.Enabled = true;
+            checkBox3.Enabled = true;
+            checkBox4.Enabled = true;
+            if (!(cbFuelType.SelectedIndex == 0))
+            {
+                checkBox1.Checked = true;
+                checkBox1.Enabled = true;
+            }
         }
 
         private void textBoxA_TextChanged(object sender, EventArgs e)
@@ -528,12 +568,38 @@ namespace CRS
         private void EquipmentSite_Load(object sender, EventArgs e)
         {
             Fillcombo();
-
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbFuelType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (cbFuelType.SelectedIndex)
+            {
+                case 0:
+                    checkBox1.Enabled = false;
+                    checkBox1.Checked = false;
+                    break;
+                case 1:
+                    checkBox1.Enabled = true;
+                    checkBox1.Checked = true;
+                    break;
+                case 2:
+                    checkBox1.Enabled = true;
+                    checkBox1.Checked = true;
+                    break;
+                case 3:
+                    checkBox1.Enabled = true;
+                    checkBox1.Checked = true;
+                    break;
+                case 4:
+                    checkBox1.Enabled = true;
+                    checkBox1.Checked = true;
+                    break;
+                case 5:
+                    checkBox1.Enabled = true;
+                    checkBox1.Checked = true;
+                    break;
+            }
+            
         }
     }
 }

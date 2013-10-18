@@ -95,11 +95,6 @@
     <Compile Include="Connection.Designer.cs">
       <DependentUpon>Connection.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="PrintDocs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +105,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Report Browser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report Browser.Designer.cs">
-      <DependentUpon>Report Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewSnapShots.cs">
       <SubType>Form</SubType>
@@ -234,9 +223,6 @@
     <EmbeddedResource Include="PrintDocs.resx">
       <DependentUpon>PrintDocs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report Browser.resx">
-      <DependentUpon>Report Browser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ViewSnapShots.resx">
       <DependentUpon>ViewSnapShots.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,17 +276,6 @@
     <EmbeddedResource Include="TestRecords.resx">
       <DependentUpon>TestRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -313,12 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Panels\flow-black-blu.png" />
@@ -346,10 +315,7 @@
     <None Include="Panels\dashboard-blue-white-box.jpg" />
     <None Include="Panels\dashboard-blu-black-box.jpg" />
     <None Include="Panels\black-blue-box.jpg" />
-    <None Include="Deleket-Soft-Scraps-Button-Pause.ico" />
     <None Include="Ahmadhania-Spherical-Camera.ico" />
-    <None Include="Camera-Android-shutter.png" />
-    <None Include="dashboardPanel.jpg" />
     <None Include="Buttons\rec-A.png" />
     <None Include="Buttons\rec-B.png" />
     <None Include="Buttons\snapshot-A.png" />

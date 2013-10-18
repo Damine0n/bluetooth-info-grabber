@@ -198,11 +198,9 @@ namespace CRS
             this.stopRecordingButton.Enabled = false;
             if (test)
             {
-
                 DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    
                     pDoc.printReport(tableNames);
                 }
             }
@@ -210,9 +208,13 @@ namespace CRS
         //Takes Snapshot Recording
         private void snapShot_Click(object sender, EventArgs e)
         {
+            string time=DateTime.Now.ToString();
             NotesForm note = new NotesForm();
-            note.ShowDialog();
-            new GasAnalysis().newEntry(protocol,note.snapNote, timer1.Enabled, tableName);
+            DialogResult dialog= note.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                new GasAnalysis(Convert.ToDateTime(time)).SnapShot(protocol, note.snapNote, timer1.Enabled, tableName);
+            }
         }
         //Screen shot code might be unnecessary
         //private void snapShot_Click(object sender, EventArgs e)
@@ -758,7 +760,7 @@ namespace CRS
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
             label13.Text = "Connected";
-            label13.ForeColor = Color.Black;
+            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
             label23.Text = dgInterval / 1000 + " sec(s)";
             label22.Text = currentCycle + " of " + numOfCycles;
 
@@ -1891,34 +1893,31 @@ namespace CRS
 
         private void browseReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReportBrowser reports = new ReportBrowser();
-            reports.ShowDialog();
-            
-            //Stream myStream = null;
-            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            //openFileDialog1.InitialDirectory = "Reports/";
-            //openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
-            //openFileDialog1.FilterIndex = 1;
-            //openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.InitialDirectory = "Reports/";
+            openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
 
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    try
-            //    {
-            //        if ((myStream = openFileDialog1.OpenFile()) != null)
-            //        {
-            //            using (myStream)
-            //            {
-            //                // Insert code to read the stream here.
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-            //    }
-            //}
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            // Insert code to read the stream here.
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

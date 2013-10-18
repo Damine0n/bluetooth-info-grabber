@@ -64,12 +64,16 @@
             // 
             // NotesForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 253);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.notesLabel);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NotesForm";
             this.Text = "Additional Notes";
             this.ResumeLayout(false);

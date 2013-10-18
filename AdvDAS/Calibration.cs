@@ -268,6 +268,22 @@ namespace CRS
                 + "\nTip: Begin calibration by applying NO gas balanced in N2. You can check for air leaks &"
                 +" capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
         }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+        }
+
+        private void Calibration_Load(object sender, EventArgs e)
+        {
+            this.Refresh();
+            tabControl1.TabPages[0].Select();
+        }
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (OKbtn.)
+        }
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }
