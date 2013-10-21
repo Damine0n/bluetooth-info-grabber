@@ -269,11 +269,6 @@ namespace CRS
                 +" capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("test");
-        }
-
         private void Calibration_Load(object sender, EventArgs e)
         {
             this.Refresh();
@@ -282,7 +277,10 @@ namespace CRS
 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (OKbtn.)
+            if (!startTimerButton.Enabled)
+            {
+                MessageBox.Show("Must click okay on the 'Calibration Gas Info' tab to proceed.");
+            }
         }
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\

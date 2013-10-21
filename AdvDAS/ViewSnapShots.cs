@@ -43,7 +43,7 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
@@ -63,7 +63,7 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message+ex.StackTrace);
             }
             tbSearch.AutoCompleteCustomSource = coll;
         }

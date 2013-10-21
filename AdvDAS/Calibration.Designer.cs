@@ -190,6 +190,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -245,6 +246,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.label48);
             this.tabPage1.Controls.Add(this.OKbtn);
             this.tabPage1.Controls.Add(this.label46);
@@ -897,7 +899,6 @@
             this.tabPage2.Size = new System.Drawing.Size(840, 426);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // button6
             // 
@@ -2188,6 +2189,15 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(543, 18);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(139, 13);
+            this.label31.TabIndex = 62;
+            this.label31.Text = "Calibration Gas Certificate(s)";
+            // 
             // Calibration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2434,5 +2444,6 @@
         private System.Windows.Forms.Label COzeroResponse;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label31;
     }
 }
