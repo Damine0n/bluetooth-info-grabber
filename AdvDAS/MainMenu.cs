@@ -181,6 +181,10 @@ namespace CRS
 
         private void stopIt(bool test)
         {
+            foreach (Tuple<Label, Label, Button> tupes in lblList1)
+            {
+                tupes.Item3.Enabled = true;
+            }
             this.configureRecordingToolStripMenuItem.Enabled = run;
             this.button1.Enabled = run;
             this.timer1.Stop();
@@ -203,6 +207,9 @@ namespace CRS
                 {
                     pDoc.printReport(tableNames);
                 }
+                pDoc = new PrintDocs();
+                tableNames.Clear();
+                currentCycle = 1;
             }
         }
         //Takes Snapshot Recording
@@ -264,8 +271,13 @@ namespace CRS
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
+            foreach (Tuple<Label, Label, Button> tupes in lblList1)
+            {
+                tupes.Item3.Enabled = false;
+            }
             timer1.Interval = dgInterval;
-
+            resetAll();
+            resetButton.Enabled = false;
             if (!numOfCycles.Equals("\u221e"))
             {
                 cycles = Convert.ToInt32(numOfCycles);
@@ -288,6 +300,7 @@ namespace CRS
                     rFirst = true;
                     tFirst = true;
                     pFirst = true;
+                    resetAll();
                     protocol.processProtocol("$0F1066 0x20");
                 }
                 else if (currentCycle.ToString().Equals(numOfCycles))
@@ -321,6 +334,7 @@ namespace CRS
                     rFirst = true;
                     tFirst = true;
                     pFirst = true;
+                    resetAll();
                     protocol.processProtocol("$0F1066 0x20");
                 }
             }

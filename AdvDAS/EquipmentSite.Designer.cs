@@ -698,18 +698,18 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(459, 77);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(65, 13);
+            this.label36.Size = new System.Drawing.Size(58, 13);
             this.label36.TabIndex = 27;
-            this.label36.Text = "LB/MMBTU";
+            this.label36.Text = "lb/mmBTU";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(459, 47);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(65, 13);
+            this.label37.Size = new System.Drawing.Size(58, 13);
             this.label37.TabIndex = 26;
-            this.label37.Text = "LB/MMBTU";
+            this.label37.Text = "lb/mmBTU";
             // 
             // label34
             // 
@@ -734,18 +734,18 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(221, 77);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(41, 13);
+            this.label33.Size = new System.Drawing.Size(29, 13);
             this.label33.TabIndex = 23;
-            this.label33.Text = "LB/HR";
+            this.label33.Text = "lb/hr";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(221, 47);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 13);
+            this.label32.Size = new System.Drawing.Size(29, 13);
             this.label32.TabIndex = 22;
-            this.label32.Text = "LB/HR";
+            this.label32.Text = "lb/hr";
             // 
             // tbPermitEquip
             // 

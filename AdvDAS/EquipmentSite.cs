@@ -65,13 +65,14 @@ namespace CRS
                     sqlite_cmd.ExecuteNonQuery();
                     Fillcombo();
                     siteBox.SelectedIndex = 0;
+                    DirectoryInfo di = new DirectoryInfo(@"Reports\" + this.siteBox.SelectedItem.ToString());
+                    di.Delete();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show(ex.Message);
                 }
-                DirectoryInfo di = new DirectoryInfo(@"Reports\" + this.siteBox.SelectedItem.ToString());
-                di.Delete();
+                
             }
             else
                 return;

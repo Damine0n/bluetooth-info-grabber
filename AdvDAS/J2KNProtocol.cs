@@ -156,7 +156,7 @@ namespace CRS
                         vAccu = (iValue / 10).ToString("0.0");
                     clientSocket.Close();
                 }
-                catch (Exception ex)
+                catch
                 {
                 }
                 return true;

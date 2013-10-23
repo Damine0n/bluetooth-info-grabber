@@ -494,14 +494,14 @@ namespace CRS
             this.sTile8.Controls.Add(this.tileLabel9, 0, 0);
             this.sTile8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile8.Location = new System.Drawing.Point(210, 380);
+            this.sTile8.Location = new System.Drawing.Point(209, 380);
             this.sTile8.Margin = new System.Windows.Forms.Padding(10);
             this.sTile8.Name = "sTile8";
             this.sTile8.RowCount = 3;
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile8.Size = new System.Drawing.Size(180, 167);
+            this.sTile8.Size = new System.Drawing.Size(179, 167);
             this.sTile8.TabIndex = 29;
             this.toolTip1.SetToolTip(this.sTile8, "Right-Click to edit display");
             // 
@@ -517,7 +517,7 @@ namespace CRS
             this.tileButton9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton9.Location = new System.Drawing.Point(3, 126);
             this.tileButton9.Name = "tileButton9";
-            this.tileButton9.Size = new System.Drawing.Size(174, 38);
+            this.tileButton9.Size = new System.Drawing.Size(173, 38);
             this.tileButton9.TabIndex = 16;
             this.tileButton9.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton9, "Click here to reset average");
@@ -534,7 +534,7 @@ namespace CRS
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label9.Location = new System.Drawing.Point(3, 42);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(174, 81);
+            this.label9.Size = new System.Drawing.Size(173, 81);
             this.label9.TabIndex = 13;
             this.label9.Text = "----";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -548,7 +548,7 @@ namespace CRS
             this.tileLabel9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel9.Location = new System.Drawing.Point(3, 0);
             this.tileLabel9.Name = "tileLabel9";
-            this.tileLabel9.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel9.Size = new System.Drawing.Size(173, 42);
             this.tileLabel9.TabIndex = 15;
             this.tileLabel9.Text = "T(gas)°F";
             this.tileLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -573,7 +573,7 @@ namespace CRS
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile9.Size = new System.Drawing.Size(180, 167);
+            this.sTile9.Size = new System.Drawing.Size(179, 167);
             this.sTile9.TabIndex = 28;
             this.toolTip1.SetToolTip(this.sTile9, "Right-Click to edit display");
             // 
@@ -589,7 +589,7 @@ namespace CRS
             this.tileButton10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton10.Location = new System.Drawing.Point(3, 126);
             this.tileButton10.Name = "tileButton10";
-            this.tileButton10.Size = new System.Drawing.Size(174, 38);
+            this.tileButton10.Size = new System.Drawing.Size(173, 38);
             this.tileButton10.TabIndex = 16;
             this.tileButton10.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton10, "Click here to reset average");
@@ -606,7 +606,7 @@ namespace CRS
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label10.Location = new System.Drawing.Point(3, 42);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(174, 81);
+            this.label10.Size = new System.Drawing.Size(173, 81);
             this.label10.TabIndex = 13;
             this.label10.Text = "----";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -620,7 +620,7 @@ namespace CRS
             this.tileLabel10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel10.Location = new System.Drawing.Point(3, 0);
             this.tileLabel10.Name = "tileLabel10";
-            this.tileLabel10.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel10.Size = new System.Drawing.Size(173, 42);
             this.tileLabel10.TabIndex = 15;
             this.tileLabel10.Text = "T(amb)°F";
             this.tileLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -638,14 +638,14 @@ namespace CRS
             this.sTile10.Controls.Add(this.tileLabel11, 0, 0);
             this.sTile10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile10.Location = new System.Drawing.Point(610, 380);
+            this.sTile10.Location = new System.Drawing.Point(607, 380);
             this.sTile10.Margin = new System.Windows.Forms.Padding(10);
             this.sTile10.Name = "sTile10";
             this.sTile10.RowCount = 3;
             this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
             this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile10.Size = new System.Drawing.Size(180, 167);
+            this.sTile10.Size = new System.Drawing.Size(179, 167);
             this.sTile10.TabIndex = 27;
             this.toolTip1.SetToolTip(this.sTile10, "Right-Click to edit display");
             // 
@@ -661,7 +661,7 @@ namespace CRS
             this.tileButton11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton11.Location = new System.Drawing.Point(3, 126);
             this.tileButton11.Name = "tileButton11";
-            this.tileButton11.Size = new System.Drawing.Size(174, 38);
+            this.tileButton11.Size = new System.Drawing.Size(173, 38);
             this.tileButton11.TabIndex = 16;
             this.tileButton11.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton11, "Click here to reset average");
@@ -678,7 +678,7 @@ namespace CRS
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label11.Location = new System.Drawing.Point(3, 42);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(174, 81);
+            this.label11.Size = new System.Drawing.Size(173, 81);
             this.label11.TabIndex = 13;
             this.label11.Text = "----";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -692,7 +692,7 @@ namespace CRS
             this.tileLabel11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel11.Location = new System.Drawing.Point(3, 0);
             this.tileLabel11.Name = "tileLabel11";
-            this.tileLabel11.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel11.Size = new System.Drawing.Size(173, 42);
             this.tileLabel11.TabIndex = 15;
             this.tileLabel11.Text = "Efficiency %";
             this.tileLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -710,14 +710,14 @@ namespace CRS
             this.sTile11.Controls.Add(this.tileLabel12, 0, 0);
             this.sTile11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile11.Location = new System.Drawing.Point(410, 380);
+            this.sTile11.Location = new System.Drawing.Point(408, 380);
             this.sTile11.Margin = new System.Windows.Forms.Padding(10);
             this.sTile11.Name = "sTile11";
             this.sTile11.RowCount = 3;
             this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
             this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.sTile11.Size = new System.Drawing.Size(180, 167);
+            this.sTile11.Size = new System.Drawing.Size(179, 167);
             this.sTile11.TabIndex = 26;
             this.toolTip1.SetToolTip(this.sTile11, "Right-Click to edit display");
             // 
@@ -733,7 +733,7 @@ namespace CRS
             this.tileButton12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton12.Location = new System.Drawing.Point(3, 126);
             this.tileButton12.Name = "tileButton12";
-            this.tileButton12.Size = new System.Drawing.Size(174, 38);
+            this.tileButton12.Size = new System.Drawing.Size(173, 38);
             this.tileButton12.TabIndex = 16;
             this.tileButton12.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton12, "Click here to reset average");
@@ -750,7 +750,7 @@ namespace CRS
             this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label12.Location = new System.Drawing.Point(3, 42);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(174, 81);
+            this.label12.Size = new System.Drawing.Size(173, 81);
             this.label12.TabIndex = 13;
             this.label12.Text = "----";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -764,7 +764,7 @@ namespace CRS
             this.tileLabel12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel12.Location = new System.Drawing.Point(3, 0);
             this.tileLabel12.Name = "tileLabel12";
-            this.tileLabel12.Size = new System.Drawing.Size(174, 42);
+            this.tileLabel12.Size = new System.Drawing.Size(173, 42);
             this.tileLabel12.TabIndex = 15;
             this.tileLabel12.Text = "T(cell)°F";
             this.tileLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -782,14 +782,14 @@ namespace CRS
             this.sTile2.Controls.Add(this.tileButton3, 0, 2);
             this.sTile2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile2.Location = new System.Drawing.Point(410, 10);
+            this.sTile2.Location = new System.Drawing.Point(408, 10);
             this.sTile2.Margin = new System.Windows.Forms.Padding(10);
             this.sTile2.Name = "sTile2";
             this.sTile2.RowCount = 3;
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile2.Size = new System.Drawing.Size(180, 165);
+            this.sTile2.Size = new System.Drawing.Size(179, 165);
             this.sTile2.TabIndex = 4;
             this.toolTip1.SetToolTip(this.sTile2, "Right-Click to edit display");
             // 
@@ -802,7 +802,7 @@ namespace CRS
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(3, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 81);
+            this.label3.Size = new System.Drawing.Size(173, 81);
             this.label3.TabIndex = 0;
             this.label3.Text = "----";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -815,7 +815,7 @@ namespace CRS
             this.tileLabel3.Font = new System.Drawing.Font("Myriad Pro SemiExt", 24F);
             this.tileLabel3.Location = new System.Drawing.Point(3, 0);
             this.tileLabel3.Name = "tileLabel3";
-            this.tileLabel3.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel3.Size = new System.Drawing.Size(173, 41);
             this.tileLabel3.TabIndex = 1;
             this.tileLabel3.Text = "NO ppm";
             this.tileLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -831,7 +831,7 @@ namespace CRS
             this.tileButton3.ForeColor = System.Drawing.Color.Silver;
             this.tileButton3.Location = new System.Drawing.Point(3, 125);
             this.tileButton3.Name = "tileButton3";
-            this.tileButton3.Size = new System.Drawing.Size(174, 37);
+            this.tileButton3.Size = new System.Drawing.Size(173, 37);
             this.tileButton3.TabIndex = 2;
             this.tileButton3.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton3, "Click here to reset average");
@@ -851,14 +851,14 @@ namespace CRS
             this.sTile7.Controls.Add(this.tileLabel8, 0, 0);
             this.sTile7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile7.Location = new System.Drawing.Point(610, 195);
+            this.sTile7.Location = new System.Drawing.Point(607, 195);
             this.sTile7.Margin = new System.Windows.Forms.Padding(10);
             this.sTile7.Name = "sTile7";
             this.sTile7.RowCount = 3;
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile7.Size = new System.Drawing.Size(180, 165);
+            this.sTile7.Size = new System.Drawing.Size(179, 165);
             this.sTile7.TabIndex = 18;
             this.toolTip1.SetToolTip(this.sTile7, "Right-Click to edit display");
             // 
@@ -874,7 +874,7 @@ namespace CRS
             this.tileButton8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton8.Location = new System.Drawing.Point(3, 125);
             this.tileButton8.Name = "tileButton8";
-            this.tileButton8.Size = new System.Drawing.Size(174, 37);
+            this.tileButton8.Size = new System.Drawing.Size(173, 37);
             this.tileButton8.TabIndex = 20;
             this.tileButton8.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton8, "Click here to reset average");
@@ -891,7 +891,7 @@ namespace CRS
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label8.Location = new System.Drawing.Point(3, 41);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(174, 81);
+            this.label8.Size = new System.Drawing.Size(173, 81);
             this.label8.TabIndex = 17;
             this.label8.Text = "----";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -905,7 +905,7 @@ namespace CRS
             this.tileLabel8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel8.Location = new System.Drawing.Point(3, 0);
             this.tileLabel8.Name = "tileLabel8";
-            this.tileLabel8.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel8.Size = new System.Drawing.Size(173, 41);
             this.tileLabel8.TabIndex = 19;
             this.tileLabel8.Text = "NOx ppm";
             this.tileLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -923,14 +923,14 @@ namespace CRS
             this.sTile6.Controls.Add(this.tileLabel7, 0, 0);
             this.sTile6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile6.Location = new System.Drawing.Point(410, 195);
+            this.sTile6.Location = new System.Drawing.Point(408, 195);
             this.sTile6.Margin = new System.Windows.Forms.Padding(10);
             this.sTile6.Name = "sTile6";
             this.sTile6.RowCount = 3;
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile6.Size = new System.Drawing.Size(180, 165);
+            this.sTile6.Size = new System.Drawing.Size(179, 165);
             this.sTile6.TabIndex = 17;
             this.toolTip1.SetToolTip(this.sTile6, "Right-Click to edit display");
             // 
@@ -946,7 +946,7 @@ namespace CRS
             this.tileButton7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton7.Location = new System.Drawing.Point(3, 125);
             this.tileButton7.Name = "tileButton7";
-            this.tileButton7.Size = new System.Drawing.Size(174, 37);
+            this.tileButton7.Size = new System.Drawing.Size(173, 37);
             this.tileButton7.TabIndex = 19;
             this.tileButton7.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton7, "Click here to reset average");
@@ -963,7 +963,7 @@ namespace CRS
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(3, 41);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(174, 81);
+            this.label7.Size = new System.Drawing.Size(173, 81);
             this.label7.TabIndex = 16;
             this.label7.Text = "----";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -977,7 +977,7 @@ namespace CRS
             this.tileLabel7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel7.Location = new System.Drawing.Point(3, 0);
             this.tileLabel7.Name = "tileLabel7";
-            this.tileLabel7.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel7.Size = new System.Drawing.Size(173, 41);
             this.tileLabel7.TabIndex = 18;
             this.tileLabel7.Text = "CxHy ppm";
             this.tileLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -995,14 +995,14 @@ namespace CRS
             this.sTile5.Controls.Add(this.tileLabel6, 0, 0);
             this.sTile5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile5.Location = new System.Drawing.Point(210, 195);
+            this.sTile5.Location = new System.Drawing.Point(209, 195);
             this.sTile5.Margin = new System.Windows.Forms.Padding(10);
             this.sTile5.Name = "sTile5";
             this.sTile5.RowCount = 3;
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile5.Size = new System.Drawing.Size(180, 165);
+            this.sTile5.Size = new System.Drawing.Size(179, 165);
             this.sTile5.TabIndex = 16;
             this.toolTip1.SetToolTip(this.sTile5, "Right-Click to edit display");
             // 
@@ -1018,7 +1018,7 @@ namespace CRS
             this.tileButton6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton6.Location = new System.Drawing.Point(3, 125);
             this.tileButton6.Name = "tileButton6";
-            this.tileButton6.Size = new System.Drawing.Size(174, 37);
+            this.tileButton6.Size = new System.Drawing.Size(173, 37);
             this.tileButton6.TabIndex = 18;
             this.tileButton6.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton6, "Click here to reset average");
@@ -1035,7 +1035,7 @@ namespace CRS
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(3, 41);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(174, 81);
+            this.label6.Size = new System.Drawing.Size(173, 81);
             this.label6.TabIndex = 15;
             this.label6.Text = "----";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1049,7 +1049,7 @@ namespace CRS
             this.tileLabel6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel6.Location = new System.Drawing.Point(3, 0);
             this.tileLabel6.Name = "tileLabel6";
-            this.tileLabel6.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel6.Size = new System.Drawing.Size(173, 41);
             this.tileLabel6.TabIndex = 17;
             this.tileLabel6.Text = "SO2 ppm";
             this.tileLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1067,14 +1067,14 @@ namespace CRS
             this.sTile1.Controls.Add(this.tileLabel2, 0, 0);
             this.sTile1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile1.Location = new System.Drawing.Point(210, 10);
+            this.sTile1.Location = new System.Drawing.Point(209, 10);
             this.sTile1.Margin = new System.Windows.Forms.Padding(10);
             this.sTile1.Name = "sTile1";
             this.sTile1.RowCount = 3;
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile1.Size = new System.Drawing.Size(180, 165);
+            this.sTile1.Size = new System.Drawing.Size(179, 165);
             this.sTile1.TabIndex = 15;
             this.toolTip1.SetToolTip(this.sTile1, "Right-Click to edit display");
             // 
@@ -1090,7 +1090,7 @@ namespace CRS
             this.tileButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton2.Location = new System.Drawing.Point(3, 125);
             this.tileButton2.Name = "tileButton2";
-            this.tileButton2.Size = new System.Drawing.Size(174, 37);
+            this.tileButton2.Size = new System.Drawing.Size(173, 37);
             this.tileButton2.TabIndex = 13;
             this.tileButton2.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton2, "Click here to reset average");
@@ -1107,7 +1107,7 @@ namespace CRS
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(3, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(174, 81);
+            this.label2.Size = new System.Drawing.Size(173, 81);
             this.label2.TabIndex = 10;
             this.label2.Text = "----";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1121,7 +1121,7 @@ namespace CRS
             this.tileLabel2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel2.Location = new System.Drawing.Point(3, 0);
             this.tileLabel2.Name = "tileLabel2";
-            this.tileLabel2.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel2.Size = new System.Drawing.Size(173, 41);
             this.tileLabel2.TabIndex = 12;
             this.tileLabel2.Text = "CO ppm";
             this.tileLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1139,14 +1139,14 @@ namespace CRS
             this.sTile3.Controls.Add(this.tileLabel4, 0, 0);
             this.sTile3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sTile3.Location = new System.Drawing.Point(610, 10);
+            this.sTile3.Location = new System.Drawing.Point(607, 10);
             this.sTile3.Margin = new System.Windows.Forms.Padding(10);
             this.sTile3.Name = "sTile3";
             this.sTile3.RowCount = 3;
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile3.Size = new System.Drawing.Size(180, 165);
+            this.sTile3.Size = new System.Drawing.Size(179, 165);
             this.sTile3.TabIndex = 12;
             this.toolTip1.SetToolTip(this.sTile3, "Right-Click to edit display");
             // 
@@ -1162,7 +1162,7 @@ namespace CRS
             this.tileButton4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton4.Location = new System.Drawing.Point(3, 125);
             this.tileButton4.Name = "tileButton4";
-            this.tileButton4.Size = new System.Drawing.Size(174, 37);
+            this.tileButton4.Size = new System.Drawing.Size(173, 37);
             this.tileButton4.TabIndex = 15;
             this.tileButton4.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton4, "Click here to reset average");
@@ -1179,7 +1179,7 @@ namespace CRS
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(3, 41);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 81);
+            this.label4.Size = new System.Drawing.Size(173, 81);
             this.label4.TabIndex = 12;
             this.label4.Text = "----";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1193,7 +1193,7 @@ namespace CRS
             this.tileLabel4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel4.Location = new System.Drawing.Point(3, 0);
             this.tileLabel4.Name = "tileLabel4";
-            this.tileLabel4.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel4.Size = new System.Drawing.Size(173, 41);
             this.tileLabel4.TabIndex = 14;
             this.tileLabel4.Text = "NO2 ppm";
             this.tileLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1218,7 +1218,7 @@ namespace CRS
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile4.Size = new System.Drawing.Size(180, 165);
+            this.sTile4.Size = new System.Drawing.Size(179, 165);
             this.sTile4.TabIndex = 11;
             this.toolTip1.SetToolTip(this.sTile4, "Right-Click to edit display");
             // 
@@ -1234,7 +1234,7 @@ namespace CRS
             this.tileButton5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileButton5.Location = new System.Drawing.Point(3, 125);
             this.tileButton5.Name = "tileButton5";
-            this.tileButton5.Size = new System.Drawing.Size(174, 37);
+            this.tileButton5.Size = new System.Drawing.Size(173, 37);
             this.tileButton5.TabIndex = 17;
             this.tileButton5.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton5, "Click here to reset average");
@@ -1251,7 +1251,7 @@ namespace CRS
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(3, 41);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(174, 81);
+            this.label5.Size = new System.Drawing.Size(173, 81);
             this.label5.TabIndex = 14;
             this.label5.Text = "----";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1266,7 +1266,7 @@ namespace CRS
             this.tileLabel5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel5.Location = new System.Drawing.Point(3, 0);
             this.tileLabel5.Name = "tileLabel5";
-            this.tileLabel5.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel5.Size = new System.Drawing.Size(173, 41);
             this.tileLabel5.TabIndex = 16;
             this.tileLabel5.Text = "CO2%";
             this.tileLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1291,7 +1291,7 @@ namespace CRS
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.sTile0.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
-            this.sTile0.Size = new System.Drawing.Size(180, 165);
+            this.sTile0.Size = new System.Drawing.Size(179, 165);
             this.sTile0.TabIndex = 14;
             this.toolTip1.SetToolTip(this.sTile0, "Right-Click to edit display");
             // 
@@ -1306,7 +1306,7 @@ namespace CRS
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(3, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 81);
+            this.label1.Size = new System.Drawing.Size(173, 81);
             this.label1.TabIndex = 9;
             this.label1.Text = "----";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1320,7 +1320,7 @@ namespace CRS
             this.tileLabel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tileLabel1.Location = new System.Drawing.Point(3, 0);
             this.tileLabel1.Name = "tileLabel1";
-            this.tileLabel1.Size = new System.Drawing.Size(174, 41);
+            this.tileLabel1.Size = new System.Drawing.Size(173, 41);
             this.tileLabel1.TabIndex = 11;
             this.tileLabel1.Text = "O2%";
             this.tileLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1338,7 +1338,7 @@ namespace CRS
             this.tileButton1.Location = new System.Drawing.Point(5, 127);
             this.tileButton1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 3);
             this.tileButton1.Name = "tileButton1";
-            this.tileButton1.Size = new System.Drawing.Size(170, 35);
+            this.tileButton1.Size = new System.Drawing.Size(169, 35);
             this.tileButton1.TabIndex = 12;
             this.tileButton1.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton1, "Click here to reset average");
@@ -2031,7 +2031,7 @@ namespace CRS
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1028, 683);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1020, 683);
             this.tableLayoutPanel2.TabIndex = 25;
             // 
             // panel12
@@ -2043,7 +2043,7 @@ namespace CRS
             this.panel12.Controls.Add(this.recordingSign);
             this.panel12.Location = new System.Drawing.Point(3, 28);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(572, 41);
+            this.panel12.Size = new System.Drawing.Size(564, 41);
             this.panel12.TabIndex = 23;
             // 
             // recordingSign
@@ -2073,7 +2073,7 @@ namespace CRS
             this.tabControl1.Location = new System.Drawing.Point(3, 75);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1022, 597);
+            this.tabControl1.Size = new System.Drawing.Size(1014, 597);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -2085,7 +2085,7 @@ namespace CRS
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1014, 567);
+            this.tabPage1.Size = new System.Drawing.Size(1006, 567);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             // 
@@ -2120,7 +2120,7 @@ namespace CRS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1004, 557);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(996, 557);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tableLayoutPanel19
@@ -2149,7 +2149,7 @@ namespace CRS
             this.tableLayoutPanel19.Controls.Add(this.panel6, 0, 9);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.ForeColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(803, 3);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(799, 3);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 11;
             this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel19, 3);
@@ -2164,7 +2164,7 @@ namespace CRS
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(198, 551);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(194, 551);
             this.tableLayoutPanel19.TabIndex = 31;
             // 
             // pTimelbl
@@ -2174,7 +2174,7 @@ namespace CRS
             this.pTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pTimelbl.ForeColor = System.Drawing.Color.White;
             this.pTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pTimelbl.Location = new System.Drawing.Point(113, 105);
+            this.pTimelbl.Location = new System.Drawing.Point(110, 124);
             this.pTimelbl.Name = "pTimelbl";
             this.pTimelbl.Size = new System.Drawing.Size(69, 19);
             this.pTimelbl.TabIndex = 28;
@@ -2191,7 +2191,7 @@ namespace CRS
             this.clock_lbl.Location = new System.Drawing.Point(3, 522);
             this.clock_lbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.clock_lbl.Name = "clock_lbl";
-            this.clock_lbl.Size = new System.Drawing.Size(192, 19);
+            this.clock_lbl.Size = new System.Drawing.Size(188, 19);
             this.clock_lbl.TabIndex = 40;
             this.clock_lbl.Text = "label15";
             this.clock_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2204,9 +2204,9 @@ namespace CRS
             this.plbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plbl.ForeColor = System.Drawing.Color.White;
             this.plbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.plbl.Location = new System.Drawing.Point(3, 105);
+            this.plbl.Location = new System.Drawing.Point(3, 124);
             this.plbl.Name = "plbl";
-            this.plbl.Size = new System.Drawing.Size(104, 19);
+            this.plbl.Size = new System.Drawing.Size(101, 19);
             this.plbl.TabIndex = 23;
             this.plbl.Text = "Purge:";
             this.plbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2218,7 +2218,7 @@ namespace CRS
             this.tTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tTimelbl.ForeColor = System.Drawing.Color.White;
             this.tTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tTimelbl.Location = new System.Drawing.Point(113, 86);
+            this.tTimelbl.Location = new System.Drawing.Point(110, 105);
             this.tTimelbl.Name = "tTimelbl";
             this.tTimelbl.Size = new System.Drawing.Size(69, 19);
             this.tTimelbl.TabIndex = 27;
@@ -2233,9 +2233,9 @@ namespace CRS
             this.tlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlbl.ForeColor = System.Drawing.Color.White;
             this.tlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tlbl.Location = new System.Drawing.Point(3, 86);
+            this.tlbl.Location = new System.Drawing.Point(3, 105);
             this.tlbl.Name = "tlbl";
-            this.tlbl.Size = new System.Drawing.Size(104, 19);
+            this.tlbl.Size = new System.Drawing.Size(101, 19);
             this.tlbl.TabIndex = 4;
             this.tlbl.Text = "Test:";
             this.tlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2249,7 +2249,7 @@ namespace CRS
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(3, 29);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(104, 19);
+            this.label21.Size = new System.Drawing.Size(101, 38);
             this.label21.TabIndex = 31;
             this.label21.Text = "Sample Rate:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2262,9 +2262,9 @@ namespace CRS
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(3, 162);
+            this.label14.Location = new System.Drawing.Point(3, 181);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(192, 19);
+            this.label14.Size = new System.Drawing.Size(188, 19);
             this.label14.TabIndex = 32;
             this.label14.Text = "## Machine(s) tested";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2277,9 +2277,9 @@ namespace CRS
             this.rlbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rlbl.ForeColor = System.Drawing.Color.White;
             this.rlbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rlbl.Location = new System.Drawing.Point(3, 67);
+            this.rlbl.Location = new System.Drawing.Point(3, 86);
             this.rlbl.Name = "rlbl";
-            this.rlbl.Size = new System.Drawing.Size(104, 19);
+            this.rlbl.Size = new System.Drawing.Size(101, 19);
             this.rlbl.TabIndex = 2;
             this.rlbl.Text = "Ramp Up:";
             this.rlbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2291,7 +2291,7 @@ namespace CRS
             this.rTimelbl.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rTimelbl.ForeColor = System.Drawing.Color.White;
             this.rTimelbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rTimelbl.Location = new System.Drawing.Point(113, 67);
+            this.rTimelbl.Location = new System.Drawing.Point(110, 86);
             this.rTimelbl.Name = "rTimelbl";
             this.rTimelbl.Size = new System.Drawing.Size(69, 19);
             this.rTimelbl.TabIndex = 26;
@@ -2306,9 +2306,9 @@ namespace CRS
             this.cycleLabel.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cycleLabel.ForeColor = System.Drawing.Color.White;
             this.cycleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cycleLabel.Location = new System.Drawing.Point(3, 48);
+            this.cycleLabel.Location = new System.Drawing.Point(3, 67);
             this.cycleLabel.Name = "cycleLabel";
-            this.cycleLabel.Size = new System.Drawing.Size(104, 19);
+            this.cycleLabel.Size = new System.Drawing.Size(101, 19);
             this.cycleLabel.TabIndex = 1;
             this.cycleLabel.Text = "Cycle:";
             this.cycleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2319,7 +2319,7 @@ namespace CRS
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(113, 29);
+            this.label23.Location = new System.Drawing.Point(110, 29);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(63, 19);
             this.label23.TabIndex = 34;
@@ -2331,7 +2331,7 @@ namespace CRS
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(113, 48);
+            this.label22.Location = new System.Drawing.Point(110, 67);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(50, 19);
             this.label22.TabIndex = 33;
@@ -2343,7 +2343,7 @@ namespace CRS
             this.recordTimeLabel.BackColor = System.Drawing.Color.Transparent;
             this.recordTimeLabel.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recordTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.recordTimeLabel.Location = new System.Drawing.Point(113, 124);
+            this.recordTimeLabel.Location = new System.Drawing.Point(110, 143);
             this.recordTimeLabel.Name = "recordTimeLabel";
             this.recordTimeLabel.Size = new System.Drawing.Size(69, 19);
             this.recordTimeLabel.TabIndex = 4;
@@ -2356,9 +2356,9 @@ namespace CRS
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(3, 124);
+            this.label15.Location = new System.Drawing.Point(3, 143);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(104, 38);
+            this.label15.Size = new System.Drawing.Size(101, 38);
             this.label15.TabIndex = 37;
             this.label15.Text = "Total Test Time:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2374,7 +2374,7 @@ namespace CRS
             this.label16.Location = new System.Drawing.Point(3, 10);
             this.label16.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(192, 19);
+            this.label16.Size = new System.Drawing.Size(188, 19);
             this.label16.TabIndex = 39;
             this.label16.Text = "label16";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2386,10 +2386,10 @@ namespace CRS
             this.panel6.Controls.Add(this.resetButton);
             this.panel6.Controls.Add(this.button1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(25, 184);
+            this.panel6.Location = new System.Drawing.Point(25, 203);
             this.panel6.Margin = new System.Windows.Forms.Padding(25, 3, 25, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(148, 335);
+            this.panel6.Size = new System.Drawing.Size(144, 316);
             this.panel6.TabIndex = 38;
             // 
             // resetButton
@@ -2401,10 +2401,10 @@ namespace CRS
             this.resetButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.resetButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetButton.Location = new System.Drawing.Point(0, 288);
+            this.resetButton.Location = new System.Drawing.Point(0, 269);
             this.resetButton.Margin = new System.Windows.Forms.Padding(25, 3, 10, 3);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(148, 47);
+            this.resetButton.Size = new System.Drawing.Size(144, 47);
             this.resetButton.TabIndex = 41;
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
@@ -2426,7 +2426,7 @@ namespace CRS
             this.button1.Margin = new System.Windows.Forms.Padding(25, 3, 10, 3);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(148, 43);
+            this.button1.Size = new System.Drawing.Size(144, 43);
             this.button1.TabIndex = 36;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -2440,7 +2440,7 @@ namespace CRS
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1004, 557);
+            this.shapeContainer1.Size = new System.Drawing.Size(996, 557);
             this.shapeContainer1.TabIndex = 5;
             this.shapeContainer1.TabStop = false;
             // 
@@ -3444,12 +3444,12 @@ namespace CRS
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(578, 0);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(570, 0);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 2;
@@ -3469,7 +3469,7 @@ namespace CRS
             this.tableLayoutPanel17.Controls.Add(this.iflowlbl, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.flowlbl, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(216, 10);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(215, 10);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
@@ -3511,7 +3511,7 @@ namespace CRS
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Myriad Pro Light SemiExt", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(53, 52);
+            this.label13.Location = new System.Drawing.Point(52, 52);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 20);
             this.label13.TabIndex = 29;
@@ -3523,7 +3523,7 @@ namespace CRS
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Image = global::CRS.Properties.Resources.wi_fi_btn;
-            this.pictureBox1.Location = new System.Drawing.Point(105, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(104, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 10, 18, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(56, 41);
@@ -3769,7 +3769,7 @@ namespace CRS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.ClientSize = new System.Drawing.Size(1028, 683);
+            this.ClientSize = new System.Drawing.Size(1020, 683);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
