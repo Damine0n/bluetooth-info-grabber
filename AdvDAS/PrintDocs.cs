@@ -184,21 +184,17 @@ namespace CRS
                     averages.Add(new Tuple<string, string, string, string, string>(O2avg.ToString(), COavg.ToString(), NOxavg.ToString(), COmassavg.ToString(), NOxmassavg.ToString()));
 
                 }
-                int g = num-1;
-                MessageBox.Show("YO "+ g);
-                while(g>=0)
+                int g = num - 1;
+                while (g >= 0)
                 {
-                    MessageBox.Show(g + "  -  " + averages[g].Item1);
                     O2total += Convert.ToDouble(averages[g].Item1);
                     COtotal += Convert.ToDouble(averages[g].Item2);
                     NOxtotal += Convert.ToDouble(averages[g].Item3);
                     COmtotal += Convert.ToDouble(averages[g].Item4);
                     NOxmtotal += Convert.ToDouble(averages[g].Item5);
-                    MessageBox.Show(g + "  -  " + Convert.ToDouble(averages[g].Item1));
                     g--;
                 }
 
-                MessageBox.Show(O2total + "   " + Convert.ToDouble(averages[0].Item1) + "   " + num);
                 O2total = O2total / (num);
                 COtotal = COtotal / (num);
                 NOxtotal = NOxmtotal / (num);
@@ -611,5 +607,255 @@ namespace CRS
             sqlite_conn.Close();
         }
 
+
+
+
+        public void printReport(string site, string equipment, string testName)
+        {
+            this.site = site;
+            this.equipment = equipment;
+            FillVariables();
+            double O2sum = 0;
+            double COsum = 0;
+            double NOxsum = 0;
+            double COMassSum = 0;
+            double NOxMassSum = 0;
+            double O2total = 0, COtotal = 0, NOxtotal = 0, COmtotal = 0, NOxmtotal = 0;
+            int num = 0;
+            bool stop = false;
+            List<Tuple<string, string, string, string, string>> averages = new List<Tuple<string, string, string, string, string>>();
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 25, 25, 10, 10);
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
+            sfd.Filter = "PDF File|*.pdf";
+            sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save Report";
+
+            sqlite_conn.Open();
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+                string path = sfd.FileName;
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
+                string COLimitStatus = "Fail";
+                string NOxLimitStatus = "Fail";
+                if (COmtotal < Convert.ToDouble(ePermitCO))
+                    COLimitStatus = "Pass";
+                if (NOxmtotal < Convert.ToDouble(ePermitNOx))
+                    NOxLimitStatus = "Pass";
+
+
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                doc.Open();//Open Document To Write
+                try
+                {
+                    iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
+                    //Write Some Content
+                    LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
+                    Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
+
+                    Paragraph heading = new Paragraph("Engine Emissions Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
+                    Paragraph personalData = new Paragraph("", hel);
+                    Paragraph date = new Paragraph("Emissions Test Date: " + DateTime.Now.ToString("MM/dd/yyyy"));
+                    iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
+                    LOGO.ScaleToFit(100f, 150f);
+                    LOGO.Border = iTextSharp.text.Rectangle.BOX;
+                    //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
+                    heading.Add(LOGO);
+                    heading.Alignment = 1;
+                    heading.SpacingAfter = -75;
+                    date.Alignment = 1;
+                    date.SpacingAfter = 27;
+                    doc.Add(heading);
+                    doc.Add(date);
+                    personalData.Add(new Chunk(String.Format("{0}\n", pEngineer)));
+                    personalData.Add(new Phrase(String.Format("{0}", pCompany)));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 175, true));
+                    personalData.Add(new Phrase("CO: " + eLimitUnit + "     NOx: " + eLimitUnit + "\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+
+                    personalData.Add(new Chunk(String.Format("{0}\n", pStreet)));
+                    personalData.Add(new Chunk(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 230, true));
+                    personalData.Add(new Phrase(COmtotal + "                               " + NOxmtotal + "\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+
+                    personalData.Add(new Chunk(String.Format("Phone: {0}", pPhone)));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 220, true));
+                    personalData.Add(new Phrase(" " + COLimitStatus + "                                      " + NOxLimitStatus + "\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.NORMAL)));
+
+                    personalData.Add(new Chunk(String.Format("Mobile: {0}", pCellphone)));
+                    personalData.Add(new Chunk(new VerticalPositionMark(), 218, true));
+                    personalData.Add(new Phrase("  (" + ePermitCO + ")                                                     (" + ePermitNOx + ")\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL)));
+
+                    personalData.Add(new Chunk(String.Format("Email: {0}", pEmail)));
+
+                    doc.Add(personalData);
+
+                    ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase("Technician____________________________  Date_____________   "), doc.PageSize.Width, 10, 0);
+                    doc.Add(new Paragraph());
+
+                    Paragraph info = new Paragraph("", hel);
+                    info.SpacingAfter = 30;
+                    ////////////////////////////////////////////////
+                    info.Add(tab1);
+                    info.Add(new Paragraph("PHYSICAL LOCATION", hel));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Operational Area: " + sArea));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Facility Name: " + sFacilty + "\n"));
+                    ////////////////////////////////////////////////
+                    info.Add(tab1);
+                    info.Add(new Paragraph("EQUIPMENT INFORMATION", hel));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Equipment : " + equipment));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Unit #: " + eUnitNumber + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Model: " + eModel));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Serial #: " + eSerialNo + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Service : " + equipment));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Ignition Timing: " + eIgnitionTiming + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Stack Flow: " + eStackFlow));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Stack Temp: " + eStackTemp + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Intake MP Left: " + eIntakeMPL));
+                    info.Add(new Chunk(new VerticalPositionMark(), 150, true));
+                    info.Add(new Phrase("Right: " + eIntakeMPR));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Intake MT Left: " + eIntakeMTL));
+                    info.Add(new Chunk(new VerticalPositionMark(), 400, true));
+                    info.Add(new Phrase("Right: " + eIntakeMTR + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase(String.Format("Stack Height : {0}'{1}" + '"', eStackHeightFT, eStackHeightIN)));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("FuelSG: " + eFuelSG));
+                    info.Add(new Chunk(new VerticalPositionMark(), 400, true));
+                    info.Add(new Phrase("RPM: " + eRPM + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("AF Contoller Make: " + eAFControllerMake));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("AF Contoller Model: " + eAFControllerModel + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Catalytic Converter Make: " + eCatalyticConverterMake));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Catalytic Converter Model :" + eCatalyticConverterModel + "\n"));
+
+                    //info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    //info.Add(new Phrase("Boiler Parameters: ?" + "\n"));
+                    ////////////////////////////////////////////////
+                    info.Add(tab1);
+                    info.Add(new Paragraph("PERMIT INFORMATION", hel));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Permit #: " + ePermitNumber));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Permit Date: " + ePermitDate.ToString("MM/dd/yyyy") + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Permit Equipment #: " + ePermitEquip));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Permit Units: " + eLimitUnit + "\n"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Permit CO Limit: " + ePermitCO));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Permit NOx Limit: " + ePermitNOx + "\n"));
+                    ////////////////////////////////////////////////
+                    info.Add(tab1);
+                    info.Add(new Paragraph("ANALYZER INFORMATION"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    info.Add(new Phrase("Model: J2KN"));
+                    info.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    info.Add(new Phrase("Serial #: " + protocol.vSerialNumber + "\n"));
+                    doc.Add(info);
+                    doc.Add(new Paragraph(""));
+
+                    `
+                    doc.NewPage();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+
+                //string[] arr = names[z].Split('_');
+                try
+                {
+                    var da = new SQLiteDataAdapter("SELECT Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow FROM " + testName + ";", sqlite_conn);
+                    ds1.Clear();
+                    da.Fill(ds1);
+                    bindingSource1.DataSource = ds1;
+                    dataGridView1.DataSource = bindingSource1;
+                    da.Update(ds1);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+                try
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(String.Format("{0} {1} - {2}/{3}/{4}", testName.Split('_')),
+                        new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 15f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)));
+                    cell.Colspan = dataGridView1.ColumnCount;
+                    cell.HorizontalAlignment = 1;//0=Left, 1=Center, 2=Right
+                    PdfPTable dgTable = new PdfPTable(dataGridView1.ColumnCount);
+                    dgTable.WidthPercentage = 100;
+                    dgTable.AddCell(cell);
+
+                    //Add headers from the DGV to the table
+                    for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                    {
+                        dgTable.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10f, iTextSharp.text.Font.BOLD)));
+                    }
+
+                    //Flag First Row as Header
+                    dgTable.HeaderRows = 1;
+
+                    //Add actual rows from DGV to the table
+                    for (int j = 0; j < dataGridView1.Rows.Count; j++)
+                    {
+                        for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                        {
+                            if (dataGridView1[k, j].Value != null)
+                            {
+                                dgTable.AddCell(new Phrase(dataGridView1[k, j].Value.ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)));
+                            }
+                        }
+                    }
+
+                    //Adds table to pdf
+                    doc.Add(dgTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(dataGridView1.ColumnCount.ToString());
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+                for (int l = 0; l < dataGridView1.Rows.Count; l++)
+                {
+                    COsum += Convert.ToDouble(dataGridView1.Rows[l].Cells[2].Value);
+                    NOxsum += Convert.ToDouble(dataGridView1.Rows[l].Cells[5].Value);
+                }
+                int count = dataGridView1.Rows.Count;
+                double COavg = COsum / count;
+                double NOxavg = NOxsum / count;
+                double COmassavg = COMassSum / count;
+                double NOxmassavg = NOxMassSum / count;
+                Paragraph paragraph = new Paragraph("Average CO = " + COavg + "\nAverage NOx = " + NOxavg + "\nAverage COmass = " + COmassavg + "\nAverage NOxmass = " + NOxmassavg);
+                //Adds above created text using different class object to our pdf document.
+                paragraph.SpacingAfter = 10;
+                paragraph.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
+                doc.Add(paragraph);
+
+                doc.Close();//Closes Document
+                System.Diagnostics.Process.Start(sfd.FileName);
+            }
+            sqlite_conn.Close();
+        }
     }
 }
+

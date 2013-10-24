@@ -16,6 +16,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
+        PrintDocs pDocs = new PrintDocs();
         DataTable ds = new DataTable();
         public TestRecords()
         {
@@ -71,7 +72,11 @@ namespace CRS
         }
         private void Print_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dataGridView1.ColumnCount.ToString());
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            {
+                MessageBox.Show(dataGridView1.SelectedRows[i].Cells[0].Value.ToString() + " , " + dataGridView1.SelectedRows[i].Cells[1].Value.ToString() + " , " + dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
+                pDocs.printReport(dataGridView1.SelectedRows[i].Cells[0].Value.ToString(), dataGridView1.SelectedRows[i].Cells[1].Value.ToString(), dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -81,5 +86,6 @@ namespace CRS
             dataGridView1.DataSource = DV;
             
         }
+
     }
 }

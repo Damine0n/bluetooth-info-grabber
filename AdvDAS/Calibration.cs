@@ -15,6 +15,9 @@ namespace CRS
         J2KNProtocol protocol = new J2KNProtocol();
         bool clicked = false;
         int interv = 1000;
+        GasAnalysis gases = new GasAnalysis();
+        string caliName;
+        bool first = true;
         public Calibration()
         {
             InitializeComponent();
@@ -242,10 +245,22 @@ namespace CRS
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (dateTimePicker5.Value<=new DateTime(2013,9,9, 5,0,0))
+            if (dateTimePicker5.Value <= new DateTime(2013, 9, 9, 5, 0, 0))
+            {
+                MessageBox.Show("The Calibration process has finished.");
                 stopIt();
-            else 
-                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-(interv/1000));
+            }
+            else
+            {
+                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-(interv / 1000));
+                if (first)
+                {
+                    caliName = gases.Calibration(protocol);
+                    first = false;
+                }
+                else
+                    gases.Calibration(protocol, caliName);
+            }
         }
 
         private void stopIt()

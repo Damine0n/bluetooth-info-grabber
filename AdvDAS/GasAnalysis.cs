@@ -91,7 +91,60 @@ namespace CRS
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+        public string Calibration(J2KNProtocol protocol)
+        {
+            string tableName = "";
+
+            for (int i = 1; i < 10000; i++)
+            {
+                try
+                {
+                    tableName = "Calibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
+                    //Creates a new table:
+                    sqlite_cmd = sqlite_conn.CreateCommand();
+                    sqlite_cmd.CommandText = "CREATE TABLE " + tableName + " AS SELECT * FROM Calibration WHERE 0;";
+                    sqlite_cmd.ExecuteNonQuery();
+
+                    //Inserts something into our new table:
+                    sqlite_cmd = sqlite_conn.CreateCommand();
+                    sqlite_cmd.CommandText = "INSERT INTO  " + tableName + " (Time, O2, CO, NO, NO2, IFlow) VALUES ('"
+                    + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
+                    + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vIFlow + "');";
+
+                    // And execute this again ;D
+                    sqlite_cmd.ExecuteNonQuery();
+
+                    break;
+                }
+                catch
+                {
+                    continue;
+                }
+
+            }
+            return tableName;
+
+
+        }
+        public void Calibration(J2KNProtocol protocol, string x)
+        {
+            try
+            {
+                //Inserts something into our new table:
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "INSERT INTO  " + x + " (Time, O2, CO, NO, NO2, IFlow) VALUES ('"
+                        + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
+                        + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vIFlow + "');";
+
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message + ex.StackTrace);
             }
@@ -106,9 +159,9 @@ namespace CRS
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
                         + "Losses, ExcessAir, COmass, NOxmass, Notes) VALUES ('"
-                        + timeTaken.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" 
-                        + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','" 
-                        + protocol.vTamb + "','"+ protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
+                        + timeTaken.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','"
+                        + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','"
+                        + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
                         + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "','" + note + "');";
 
                     // And execute this again ;D
@@ -132,7 +185,7 @@ namespace CRS
                             + timeTaken.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','"
                             + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','"
                             + protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
-                            + protocol.vLosses + "','" + protocol.vExcessAir + "','" + note + "','" + timeTaken.ToString("MM/dd/yyyy") + "'," +i+");";
+                            + protocol.vLosses + "','" + protocol.vExcessAir + "','" + note + "','" + timeTaken.ToString("MM/dd/yyyy") + "'," + i + ");";
 
                         // And execute this again ;D
                         sqlite_cmd.ExecuteNonQuery();

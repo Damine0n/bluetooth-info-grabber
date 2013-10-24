@@ -42,17 +42,19 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(624, 275);
+            this.dataGridView1.Size = new System.Drawing.Size(492, 275);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(553, 318);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.Location = new System.Drawing.Point(426, 282);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -62,9 +64,10 @@
             // 
             // tbSearch
             // 
+            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tbSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.tbSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tbSearch.Location = new System.Drawing.Point(54, 296);
+            this.tbSearch.Location = new System.Drawing.Point(54, 284);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(227, 20);
             this.tbSearch.TabIndex = 3;
@@ -72,8 +75,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 299);
+            this.label1.Location = new System.Drawing.Point(4, 287);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 4;
@@ -83,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 343);
+            this.ClientSize = new System.Drawing.Size(504, 307);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.button1);
