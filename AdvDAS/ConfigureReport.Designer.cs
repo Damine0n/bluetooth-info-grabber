@@ -115,10 +115,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(450, 323);
+            this.tabControl1.Size = new System.Drawing.Size(455, 323);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -340,7 +341,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(442, 297);
+            this.tabPage2.Size = new System.Drawing.Size(447, 297);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Report Data";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -416,7 +417,6 @@
             // checkBox37
             // 
             this.checkBox37.AutoSize = true;
-            this.checkBox37.Enabled = false;
             this.checkBox37.Location = new System.Drawing.Point(137, 19);
             this.checkBox37.Name = "checkBox37";
             this.checkBox37.Size = new System.Drawing.Size(47, 17);
@@ -428,7 +428,6 @@
             // checkBox38
             // 
             this.checkBox38.AutoSize = true;
-            this.checkBox38.Enabled = false;
             this.checkBox38.Location = new System.Drawing.Point(17, 42);
             this.checkBox38.Name = "checkBox38";
             this.checkBox38.Size = new System.Drawing.Size(42, 17);
@@ -440,7 +439,6 @@
             // checkBox39
             // 
             this.checkBox39.AutoSize = true;
-            this.checkBox39.Enabled = false;
             this.checkBox39.Location = new System.Drawing.Point(17, 66);
             this.checkBox39.Name = "checkBox39";
             this.checkBox39.Size = new System.Drawing.Size(48, 17);
@@ -452,7 +450,6 @@
             // checkBox40
             // 
             this.checkBox40.AutoSize = true;
-            this.checkBox40.Enabled = false;
             this.checkBox40.Location = new System.Drawing.Point(17, 19);
             this.checkBox40.Name = "checkBox40";
             this.checkBox40.Size = new System.Drawing.Size(41, 17);

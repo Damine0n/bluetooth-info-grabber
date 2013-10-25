@@ -22,12 +22,6 @@ namespace CRS
             // TODO: Complete member initialization
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-           
-            
-        }
 
         private void checkBox10_CheckedChanged(object sender, EventArgs e)
         {
@@ -36,16 +30,16 @@ namespace CRS
                 this.checkBox12.Enabled = false;
                 this.checkBox13.Enabled = false;
                 this.checkBox14.Enabled = false;
-                this.checkBox16.Enabled = false;
                 this.checkBox15.Enabled = false;
+                this.checkBox16.Enabled = false;
             }
             else
             {
-                this.checkBox16.Enabled = true;
                 this.checkBox12.Enabled = true;
                 this.checkBox13.Enabled = true;
                 this.checkBox14.Enabled = true;
                 this.checkBox15.Enabled = true;
+                this.checkBox16.Enabled = true;
             }
         }
 
@@ -53,7 +47,7 @@ namespace CRS
         {
 
         }
-        private int checkCounter;
+        private int checkCounter=10;
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
              
@@ -115,11 +109,10 @@ namespace CRS
                 checkCounter--;
             }
             
-
             // prevent checking
-            if (checkCounter == 10)
+            if (checkCounter > 10)
             {
-                MessageBox.Show("You may only print 9 values.", "Error");
+                MessageBox.Show("You may only print 10 values.", "Error");
                 box.Checked = false;
             }
         }

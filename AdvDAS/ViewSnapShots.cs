@@ -22,6 +22,10 @@ namespace CRS
             InitializeComponent();
             LoadTable();
             AutoCompleteTest();
+            if (MainMenu.equipment.Equals("Equipment: Not Selected"))
+            {
+                button1.Enabled = false;
+            }
         }
 
         private void LoadTable()
@@ -63,25 +67,33 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message+ex.StackTrace);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
             tbSearch.AutoCompleteCustomSource = coll;
         }
         private void Print_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dataGridView1.SelectedRows.ToString());
+            List<string> snapData = new List<string>();
+            for (int j = 0; j < dataGridView1.SelectedRows.Count; j++)
+            {
+                string data="";
+                for (int k = 0; k < dataGridView1.ColumnCount ;k++ )
+                {
+                    
+                    data += dataGridView1.SelectedRows[j].Cells[k].Value.ToString() + " _ ";
+                    //pDocs.printTest(dataGridView1.SelectedRows[i].Cells[0].Value.ToString(), dataGridView1.SelectedRows[i].Cells[1].Value.ToString(), dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
+                }
+                snapData.Add(data);
+                MessageBox.Show(snapData[j]);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DataView DV = new DataView(ds);
-            DV.RowFilter = string.Format("Time LIKE '%{0}%'",tbSearch.Text);
+            DV.RowFilter = string.Format("Time LIKE '%{0}%'", tbSearch.Text);
             dataGridView1.DataSource = DV;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

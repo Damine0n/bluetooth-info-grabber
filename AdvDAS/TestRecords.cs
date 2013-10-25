@@ -72,10 +72,11 @@ namespace CRS
         }
         private void Print_Click(object sender, EventArgs e)
         {
+            
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
                 MessageBox.Show(dataGridView1.SelectedRows[i].Cells[0].Value.ToString() + " , " + dataGridView1.SelectedRows[i].Cells[1].Value.ToString() + " , " + dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
-                pDocs.printReport(dataGridView1.SelectedRows[i].Cells[0].Value.ToString(), dataGridView1.SelectedRows[i].Cells[1].Value.ToString(), dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
+                pDocs.printTest(dataGridView1.SelectedRows[i].Cells[0].Value.ToString(), dataGridView1.SelectedRows[i].Cells[1].Value.ToString(), dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
             }
         }
 

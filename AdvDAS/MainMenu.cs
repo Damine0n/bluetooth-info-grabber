@@ -378,7 +378,7 @@ namespace CRS
 
         private bool testDataMethod()
         {
-
+            resetAll();
             if (tFirst)
             {
                 if (!(tempTestData <= new DateTime(2000, 2, 1, 0, 0, 0)))
