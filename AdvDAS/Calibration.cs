@@ -297,6 +297,14 @@ namespace CRS
                 MessageBox.Show("Must click okay on the 'Calibration Gas Info' tab to proceed.");
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            capZeroO2.Enabled = true;
+            capZeroCO.Enabled = true;
+            capZeroNO.Enabled = true;
+            capZeroNO2.Enabled = true;
+        }
         ////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }

@@ -25,6 +25,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calibration));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.OKbtn = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
@@ -190,7 +191,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -287,6 +289,15 @@
             this.tabPage1.Size = new System.Drawing.Size(840, 426);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Calibration Gas Info.";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(543, 18);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(139, 13);
+            this.label31.TabIndex = 62;
+            this.label31.Text = "Calibration Gas Certificate(s)";
             // 
             // label48
             // 
@@ -872,6 +883,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.label32);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.startTimerButton);
             this.tabPage2.Controls.Add(this.capCalNO);
@@ -913,6 +926,7 @@
             // startTimerButton
             // 
             this.startTimerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startTimerButton.Enabled = false;
             this.startTimerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startTimerButton.Location = new System.Drawing.Point(453, 28);
             this.startTimerButton.Name = "startTimerButton";
@@ -926,6 +940,7 @@
             // 
             this.capCalNO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capCalNO.BackgroundImage")));
             this.capCalNO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capCalNO.Enabled = false;
             this.capCalNO.FlatAppearance.BorderSize = 0;
             this.capCalNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capCalNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -942,6 +957,7 @@
             this.capZeroO2.BackColor = System.Drawing.Color.Transparent;
             this.capZeroO2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroO2.BackgroundImage")));
             this.capZeroO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capZeroO2.Enabled = false;
             this.capZeroO2.FlatAppearance.BorderSize = 0;
             this.capZeroO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -958,6 +974,7 @@
             // 
             this.capZeroNO2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroNO2.BackgroundImage")));
             this.capZeroNO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capZeroNO2.Enabled = false;
             this.capZeroNO2.FlatAppearance.BorderSize = 0;
             this.capZeroNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -974,6 +991,7 @@
             // 
             this.capZeroNO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroNO.BackgroundImage")));
             this.capZeroNO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capZeroNO.Enabled = false;
             this.capZeroNO.FlatAppearance.BorderSize = 0;
             this.capZeroNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -990,6 +1008,7 @@
             // 
             this.capZeroCO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capZeroCO.BackgroundImage")));
             this.capZeroCO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capZeroCO.Enabled = false;
             this.capZeroCO.FlatAppearance.BorderSize = 0;
             this.capZeroCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1006,6 +1025,7 @@
             // 
             this.capCalCO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capCalCO.BackgroundImage")));
             this.capCalCO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capCalCO.Enabled = false;
             this.capCalCO.FlatAppearance.BorderSize = 0;
             this.capCalCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capCalCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1020,6 +1040,7 @@
             // dateTimePicker5
             // 
             this.dateTimePicker5.CustomFormat = "mm:ss";
+            this.dateTimePicker5.Enabled = false;
             this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker5.Location = new System.Drawing.Point(348, 28);
@@ -1138,6 +1159,7 @@
             // 
             this.capCalNO2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("capCalNO2.BackgroundImage")));
             this.capCalNO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.capCalNO2.Enabled = false;
             this.capCalNO2.FlatAppearance.BorderSize = 0;
             this.capCalNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capCalNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -2189,14 +2211,24 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // label31
+            // label32
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(543, 18);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(139, 13);
-            this.label31.TabIndex = 62;
-            this.label31.Text = "Calibration Gas Certificate(s)";
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(8, 5);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(75, 13);
+            this.label32.TabIndex = 22;
+            this.label32.Text = "Pre-Calibration";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(11, 21);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 23;
+            this.button7.Text = "start";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Calibration
             // 
@@ -2445,5 +2477,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label32;
     }
 }

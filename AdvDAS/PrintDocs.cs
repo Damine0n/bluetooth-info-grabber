@@ -132,6 +132,10 @@ namespace CRS
                             dataGridView2.DataSource = bindingSource2;
                             da.Update(ds2);
                         }
+                        catch 
+                        {
+ 
+                        }
                         
                         for (int l = 0; l < dataGridView2.Rows.Count; l++)
                         {
