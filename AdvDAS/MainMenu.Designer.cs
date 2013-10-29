@@ -2459,7 +2459,7 @@ namespace CRS
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1014, 567);
+            this.tabPage2.Size = new System.Drawing.Size(1006, 567);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             // 
@@ -2478,7 +2478,7 @@ namespace CRS
             this.tableLayoutPanel14.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(1008, 561);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1000, 561);
             this.tableLayoutPanel14.TabIndex = 2;
             // 
             // panel1
@@ -2687,7 +2687,7 @@ namespace CRS
             this.trendGraph.Series.Add(series16);
             this.trendGraph.Series.Add(series17);
             this.trendGraph.Series.Add(series18);
-            this.trendGraph.Size = new System.Drawing.Size(720, 553);
+            this.trendGraph.Size = new System.Drawing.Size(712, 553);
             this.trendGraph.TabIndex = 1;
             this.trendGraph.Text = "trendChart";
             // 
@@ -2698,7 +2698,7 @@ namespace CRS
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1014, 567);
+            this.tabPage3.Size = new System.Drawing.Size(1006, 567);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hybrid";
             // 
@@ -2731,7 +2731,7 @@ namespace CRS
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.701F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.1492F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.32538F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1008, 561);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1000, 561);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // panel13
@@ -3084,7 +3084,7 @@ namespace CRS
             this.chart1.Series.Add(series34);
             this.chart1.Series.Add(series35);
             this.chart1.Series.Add(series36);
-            this.chart1.Size = new System.Drawing.Size(537, 555);
+            this.chart1.Size = new System.Drawing.Size(529, 555);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
             // 
@@ -3095,7 +3095,7 @@ namespace CRS
             this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1014, 567);
+            this.tabPage4.Size = new System.Drawing.Size(1006, 567);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Analyzer Control";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -3113,7 +3113,7 @@ namespace CRS
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(1008, 561);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1000, 561);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // panel4
@@ -3126,7 +3126,7 @@ namespace CRS
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(677, 556);
+            this.panel4.Size = new System.Drawing.Size(671, 556);
             this.panel4.TabIndex = 5;
             // 
             // button3
@@ -3149,7 +3149,7 @@ namespace CRS
             this.button16.BackColor = System.Drawing.Color.Transparent;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button16.Location = new System.Drawing.Point(329, 165);
+            this.button16.Location = new System.Drawing.Point(326, 165);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(188, 28);
             this.button16.TabIndex = 1;
@@ -3177,9 +3177,9 @@ namespace CRS
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel7.Controls.Add(this.tableLayoutPanel18);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(686, 3);
+            this.panel7.Location = new System.Drawing.Point(680, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(319, 556);
+            this.panel7.Size = new System.Drawing.Size(317, 556);
             this.panel7.TabIndex = 6;
             // 
             // tableLayoutPanel18
@@ -3222,7 +3222,7 @@ namespace CRS
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(319, 113);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(317, 113);
             this.tableLayoutPanel18.TabIndex = 3;
             // 
             // label27
@@ -3266,7 +3266,7 @@ namespace CRS
             this.serialNO_lbl.Location = new System.Drawing.Point(261, 10);
             this.serialNO_lbl.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.serialNO_lbl.Name = "serialNO_lbl";
-            this.serialNO_lbl.Size = new System.Drawing.Size(55, 17);
+            this.serialNO_lbl.Size = new System.Drawing.Size(54, 17);
             this.serialNO_lbl.TabIndex = 2;
             this.serialNO_lbl.Text = "label26";
             this.serialNO_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3308,7 +3308,7 @@ namespace CRS
             this.operationHrs_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.operationHrs_lbl.Location = new System.Drawing.Point(261, 27);
             this.operationHrs_lbl.Name = "operationHrs_lbl";
-            this.operationHrs_lbl.Size = new System.Drawing.Size(55, 17);
+            this.operationHrs_lbl.Size = new System.Drawing.Size(54, 17);
             this.operationHrs_lbl.TabIndex = 7;
             this.operationHrs_lbl.Text = "label34";
             this.operationHrs_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3350,7 +3350,7 @@ namespace CRS
             this.ProgramVrs_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProgramVrs_lbl.Location = new System.Drawing.Point(261, 44);
             this.ProgramVrs_lbl.Name = "ProgramVrs_lbl";
-            this.ProgramVrs_lbl.Size = new System.Drawing.Size(55, 17);
+            this.ProgramVrs_lbl.Size = new System.Drawing.Size(54, 17);
             this.ProgramVrs_lbl.TabIndex = 11;
             this.ProgramVrs_lbl.Text = "label38";
             this.ProgramVrs_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3444,7 +3444,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox1, 0, 0);
@@ -3476,7 +3476,7 @@ namespace CRS
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(180, 59);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(179, 59);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3487,7 +3487,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.White;
             this.iflowlbl.Location = new System.Drawing.Point(3, 0);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(174, 39);
+            this.iflowlbl.Size = new System.Drawing.Size(173, 39);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3500,7 +3500,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.White;
             this.flowlbl.Location = new System.Drawing.Point(3, 39);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(174, 20);
+            this.flowlbl.Size = new System.Drawing.Size(173, 20);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3522,7 +3522,6 @@ namespace CRS
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = global::CRS.Properties.Resources.wi_fi_btn;
             this.pictureBox1.Location = new System.Drawing.Point(104, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 10, 18, 0);
             this.pictureBox1.Name = "pictureBox1";

@@ -774,6 +774,7 @@ namespace CRS
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
             label13.Text = "Connected";
+            pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
             label23.Text = dgInterval / 1000 + " sec(s)";
             label22.Text = currentCycle + " of " + numOfCycles;
