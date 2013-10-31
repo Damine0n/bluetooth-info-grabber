@@ -68,9 +68,8 @@ namespace CRS
                     DirectoryInfo di = new DirectoryInfo(@"Reports\" + this.siteBox.SelectedItem.ToString());
                     di.Delete();
                 }
-                catch (Exception ex)
+                catch
                 {
-                    //MessageBox.Show(ex.Message);
                 }
                 
             }

@@ -223,51 +223,7 @@ namespace CRS
                 new GasAnalysis(Convert.ToDateTime(time)).SnapShot(protocol, note.snapNote, timer1.Enabled, tableName);
             }
         }
-        //Screen shot code might be unnecessary
-        //private void snapShot_Click(object sender, EventArgs e)
-        //{
-        //    //screenShotBox.Image = ScreenShot();
-        //    //screenShotBox.SizeMode = PictureBoxSizeMode.Zoom;
-        //    //String fileName = "Screenshots/ScreenShot " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss") + ".jpg";
-        //    //screenShotBox.Image.Save(fileName, ImageFormat.Jpeg);
-        //    count++;
-        //    //pDoc.printSnapShot(fileName);
-        //    Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-        //    SaveFileDialog sfd = new SaveFileDialog();
-        //    sfd.Filter = "PDF File|*.pdf";
-        //    sfd.FileName = "Test SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-        //    sfd.Title = "Save SnapShot";
-        //    if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-        //    {
-        //        string path = sfd.FileName;
-        //        PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
-        //        doc.Open();//Open Document To Write
-        //        //Insert Image
-        //        iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(fileName);
-        //        PNG.ScalePercent(50f);
-        //        doc.Add(PNG);
-        //        //Write Some Content
-        //        Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
-        //        //Adds above created text using different class object to our pdf document.
-        //        doc.Add(paragraph);
-        //        doc.Close();//Closes Document
-        //    }
-        //}
-        //public Bitmap ScreenShot()
-        //{
-        //    Bitmap screenShotBMP = new Bitmap(this.Bounds.Width,
-        //    this.Bounds.Height, PixelFormat.Format32bppArgb);
-
-        //    Graphics screenShotGraphics = Graphics.FromImage(screenShotBMP);
-
-        //    screenShotGraphics.CopyFromScreen(new Point(this.Bounds.Left, this.Bounds.Top), Point.Empty, this.Bounds.Size);
-
-        //    screenShotGraphics.Dispose();
-
-        //    return screenShotBMP;
-        //}
-
-        //
+        
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -275,9 +231,9 @@ namespace CRS
             {
                 tupes.Item3.Enabled = false;
             }
+            resetButton.Enabled = false;
             timer1.Interval = dgInterval;
             resetAll();
-            resetButton.Enabled = false;
             if (!numOfCycles.Equals("\u221e"))
             {
                 cycles = Convert.ToInt32(numOfCycles);
@@ -306,6 +262,11 @@ namespace CRS
                 else if (currentCycle.ToString().Equals(numOfCycles))
                 {
                     timer1.Stop();
+                    foreach (Tuple<Label, Label, Button> tupes in lblList1)
+                    {
+                        tupes.Item3.Enabled = true;
+                    }
+                    resetButton.Enabled = true;
                     this.recordSignTimer.Stop();
                     this.recordingSign.Visible = false;
                     protocol.processProtocol("$0F1066 0x20");
@@ -1966,7 +1927,15 @@ namespace CRS
         private void button1_MouseUp(object sender, MouseEventArgs e)
         {
             button1.BackgroundImage = CRS.Properties.Resources.edit_prodedure_btnA;
+        }
 
+        private void tileButton9_EnabledChanged(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            if(run)
+                button.ForeColor = Color.Black;
+            else
+                button.ForeColor = Color.Silver;
         }
     }
 }

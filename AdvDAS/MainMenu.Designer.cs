@@ -522,6 +522,7 @@ namespace CRS
             this.tileButton9.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton9, "Click here to reset average");
             this.tileButton9.UseVisualStyleBackColor = false;
+            this.tileButton9.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton9.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label9
@@ -594,6 +595,7 @@ namespace CRS
             this.tileButton10.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton10, "Click here to reset average");
             this.tileButton10.UseVisualStyleBackColor = false;
+            this.tileButton10.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton10.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label10
@@ -666,6 +668,7 @@ namespace CRS
             this.tileButton11.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton11, "Click here to reset average");
             this.tileButton11.UseVisualStyleBackColor = false;
+            this.tileButton11.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton11.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label11
@@ -738,6 +741,7 @@ namespace CRS
             this.tileButton12.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton12, "Click here to reset average");
             this.tileButton12.UseVisualStyleBackColor = false;
+            this.tileButton12.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton12.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label12
@@ -836,6 +840,7 @@ namespace CRS
             this.tileButton3.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton3, "Click here to reset average");
             this.tileButton3.UseVisualStyleBackColor = false;
+            this.tileButton3.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton3.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // sTile7
@@ -879,6 +884,7 @@ namespace CRS
             this.tileButton8.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton8, "Click here to reset average");
             this.tileButton8.UseVisualStyleBackColor = false;
+            this.tileButton8.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton8.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label8
@@ -951,6 +957,7 @@ namespace CRS
             this.tileButton7.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton7, "Click here to reset average");
             this.tileButton7.UseVisualStyleBackColor = false;
+            this.tileButton7.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton7.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label7
@@ -1023,6 +1030,7 @@ namespace CRS
             this.tileButton6.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton6, "Click here to reset average");
             this.tileButton6.UseVisualStyleBackColor = false;
+            this.tileButton6.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton6.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label6
@@ -1095,6 +1103,7 @@ namespace CRS
             this.tileButton2.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton2, "Click here to reset average");
             this.tileButton2.UseVisualStyleBackColor = false;
+            this.tileButton2.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton2.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label2
@@ -1167,6 +1176,7 @@ namespace CRS
             this.tileButton4.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton4, "Click here to reset average");
             this.tileButton4.UseVisualStyleBackColor = false;
+            this.tileButton4.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton4.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label4
@@ -1239,6 +1249,7 @@ namespace CRS
             this.tileButton5.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton5, "Click here to reset average");
             this.tileButton5.UseVisualStyleBackColor = false;
+            this.tileButton5.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton5.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // label5
@@ -1343,6 +1354,7 @@ namespace CRS
             this.tileButton1.Text = "0.0 AVG";
             this.toolTip1.SetToolTip(this.tileButton1, "Click here to reset average");
             this.tileButton1.UseVisualStyleBackColor = false;
+            this.tileButton1.EnabledChanged += new System.EventHandler(this.tileButton9_EnabledChanged);
             this.tileButton1.Click += new System.EventHandler(this.tileButton_Click);
             // 
             // lTile8
@@ -3444,7 +3456,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox1, 0, 0);
@@ -3469,7 +3481,7 @@ namespace CRS
             this.tableLayoutPanel17.Controls.Add(this.iflowlbl, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.flowlbl, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(215, 10);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(214, 10);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
@@ -3511,7 +3523,7 @@ namespace CRS
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Myriad Pro Light SemiExt", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(52, 52);
+            this.label13.Location = new System.Drawing.Point(51, 52);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 20);
             this.label13.TabIndex = 29;
@@ -3522,7 +3534,7 @@ namespace CRS
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(104, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(103, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 10, 18, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(56, 41);
