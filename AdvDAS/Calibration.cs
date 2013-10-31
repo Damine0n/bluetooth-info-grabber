@@ -18,6 +18,9 @@ namespace CRS
         GasAnalysis gases = new GasAnalysis();
         string caliName;
         bool first = true;
+        bool one = false;
+        bool two = false;
+        bool three = false;
         public Calibration()
         {
             InitializeComponent();
@@ -160,7 +163,7 @@ namespace CRS
             else
             {
                 this.COzeroResponse.ForeColor = Color.Red;
-            } capCalCO.Visible = true;
+            } calCO.Visible = true;
         }
 
         private void capZeroNO_Click(object sender, EventArgs e)
@@ -175,7 +178,7 @@ namespace CRS
             else
             {
                 this.NOzeroResponse.ForeColor = Color.Red;
-            } capCalNO.Visible = true;
+            } calNO.Visible = true;
         }
 
         private void capZeroNO2_Click(object sender, EventArgs e)
@@ -190,7 +193,8 @@ namespace CRS
             else
             {
                 this.NO2zeroResponse.ForeColor = Color.Red;
-            } capCalNO2.Visible = true;
+            } calNO2.Visible = true;
+            
         }
         private void capCalCO_Click(object sender, EventArgs e)
         {
@@ -199,12 +203,12 @@ namespace CRS
                 (Convert.ToDouble(this.COcalResponse.Text) >= (Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))))
             {
                 this.COcalResponse.ForeColor = Color.Green;
-
+one = true;
             }
             else
             {
                 this.COcalResponse.ForeColor = Color.Red;
-            } calCO.Visible = true;
+            } 
         }
 
         private void capCalNO_Click(object sender, EventArgs e)
@@ -214,12 +218,13 @@ namespace CRS
                 Convert.ToDouble(this.NOcalResponse.Text) >= (Convert.ToDouble(textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100))))
             {
                 this.NOcalResponse.ForeColor = Color.Green;
-
+                two = true;
             }
             else
             {
                 this.NOcalResponse.ForeColor = Color.Red;
-            } calNO.Visible = true;
+            }
+            
         }
 
         private void capCalNO2_Click(object sender, EventArgs e)
@@ -229,21 +234,19 @@ namespace CRS
                 Convert.ToDouble(this.NO2calResponse.Text) >= (Convert.ToDouble(textBox3.Text) - (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown3.Value) / 100))))
             {
                 this.NO2calResponse.ForeColor = Color.Green;
-
+                three = true;
             }
             else
             {
                 this.NO2calResponse.ForeColor = Color.Red;
-            } calNO2.Visible = true;
+            } 
         }
 
         private void startTimerButton_Click(object sender, EventArgs e)
         {
             if (!clicked)
             {
-                protocol.processProtocol("$0F1006 0x20");
-                protocol.processProtocol("$0F1004 0x20");
-                
+                timer3.Start();
                 dateTimePicker5.Enabled = false;
                 this.startTimerButton.Text = "Stop";
                 clicked = true;
@@ -256,28 +259,35 @@ namespace CRS
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            if (first)
+            {
+                caliName = gases.Calibration(protocol);
+                first = false;
+            }
+            else
+                if (one && two && three)
+                    timer2.Stop();
+                else
+                    gases.Calibration(protocol, caliName);
+            
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
             if (dateTimePicker5.Value <= new DateTime(2013, 9, 9, 5, 0, 0))
             {
-                MessageBox.Show("The Calibration process has finished.");
                 stopIt();
             }
             else
             {
-                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-(interv / 1000));
-                if (first)
-                {
-                    caliName = gases.Calibration(protocol);
-                    first = false;
-                }
-                else
-                    gases.Calibration(protocol, caliName);
+                dateTimePicker5.Value = dateTimePicker5.Value.AddSeconds(-1);
             }
         }
 
         private void stopIt()
         {
             protocol.processProtocol("$0F1007Meas1");
-            timer2.Stop();
+            timer3.Stop();
             dateTimePicker5.Enabled = true;
             dateTimePicker5.Value = new DateTime(2013, 9, 9, 5, 0, 0);
             this.startTimerButton.Text = "Start";
@@ -312,6 +322,7 @@ namespace CRS
 
         private void calCO_Click(object sender, EventArgs e)
         {
+            capCalCO.Visible = true;
             //Disable Keypad
             protocol.processProtocol("$0F106100000");
             //Return To Normal Mode
@@ -332,6 +343,7 @@ namespace CRS
 
         private void calNO_Click(object sender, EventArgs e)
         {
+            capCalNO.Visible = true;
             //Disable Keypad
             protocol.processProtocol("$0F106100000");
             //Return To Normal Mode
@@ -352,6 +364,7 @@ namespace CRS
 
         private void calNO2_Click(object sender, EventArgs e)
         {
+            capCalNO2.Visible = true;
             //Disable Keypad
             protocol.processProtocol("$0F106100000");
             //Return To Normal Mode
@@ -380,7 +393,7 @@ namespace CRS
         private void capZeroO2_MouseUp(object sender, MouseEventArgs e)
         {
             var button = sender as Button;
-            button.BackgroundImage = Properties.Resources.capture_zero_A;
+            button.BackgroundImage = Properties.Resources.capture_zero_btnA;
         }
 
         private void capCalCO_MouseDown(object sender, MouseEventArgs e)
@@ -441,6 +454,13 @@ namespace CRS
                + "\nTip: Begin calibration by applying NO gas balanced in N2. You can check for air leaks &"
                + " capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            timer2.Stop();
+        }
+
+        
 
 
         //////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\\\

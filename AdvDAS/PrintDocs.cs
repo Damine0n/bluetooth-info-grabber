@@ -729,7 +729,6 @@ namespace CRS
         {
             GasAnalysis.site = site;
             GasAnalysis.equipment = equipment;
-            MessageBox.Show(this.site + " _ "+site+" - "+equipment+" _ " + this.equipment);
             FillVariables();
             double O2sum = 0;
             double COsum = 0;
@@ -771,7 +770,7 @@ namespace CRS
                     LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
                     Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
 
-                    Paragraph heading = new Paragraph("Engine Emissions Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
+                    Paragraph heading = new Paragraph("Calibration Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
                     Paragraph personalData = new Paragraph("", hel);
                     Paragraph date = new Paragraph("Emissions Test Date: " + DateTime.Now.ToString("MM/dd/yyyy"));
                     iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
