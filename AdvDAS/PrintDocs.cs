@@ -501,30 +501,34 @@ namespace CRS
                     doc.Add(heading);
                     doc.Add(date);
                     personalData.Add(new Chunk(String.Format("{0}\n", pEngineer)));
-                    personalData.Add(new Phrase(String.Format("{0}", pCompany)));
-                    personalData.Add(new Chunk(new VerticalPositionMark(), 175, true));
-                    personalData.Add(new Phrase("CO: " + eLimitUnit + "     NOx: " + eLimitUnit + "\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+                    personalData.Add(new Phrase(String.Format("{0}\n", pCompany)));
 
                     personalData.Add(new Chunk(String.Format("{0}\n", pStreet)));
-                    personalData.Add(new Chunk(String.Format("{0}, {1} {2}", new object[] { pCity, pState, pZip })));
-                    personalData.Add(new Chunk(new VerticalPositionMark(), 230, true));
-                    personalData.Add(new Phrase(COmtotal + "                               " + NOxmtotal + "\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+                    personalData.Add(new Chunk(String.Format("{0}, {1} {2}\n", new object[] { pCity, pState, pZip })));
 
-                    personalData.Add(new Chunk(String.Format("Phone: {0}", pPhone)));
-                    personalData.Add(new Chunk(new VerticalPositionMark(), 220, true));
-                    personalData.Add(new Phrase(" " + COLimitStatus + "                                      " + NOxLimitStatus + "\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.NORMAL)));
+                    personalData.Add(new Chunk(String.Format("Phone: {0}\n", pPhone)));
 
-                    personalData.Add(new Chunk(String.Format("Mobile: {0}", pCellphone)));
-                    personalData.Add(new Chunk(new VerticalPositionMark(), 218, true));
-                    personalData.Add(new Phrase("  (" + ePermitCO + ")                                                     (" + ePermitNOx + ")\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL)));
+                    personalData.Add(new Chunk(String.Format("Mobile: {0}\n", pCellphone)));
 
-                    personalData.Add(new Chunk(String.Format("Email: {0}", pEmail)));
-
+                    personalData.Add(new Chunk(String.Format("Email: {0}\n", pEmail)));
+                    personalData.SpacingAfter = -70;
                     doc.Add(personalData);
 
+                    PdfPTable pInfo = new PdfPTable(2);
+                    pInfo.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    pInfo.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    pInfo.AddCell(new Phrase("CO: " + eLimitUnit, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase("NOx: " + eLimitUnit, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase(COmtotal.ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase(NOxmtotal.ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase(COLimitStatus, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase(NOxLimitStatus, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase("(" + ePermitCO + ")", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL)));
+                    pInfo.AddCell(new Phrase("(" + ePermitNOx + ")", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL)));
+                    doc.Add(pInfo);
                     ColumnText.ShowTextAligned(wri.DirectContent, Element.ALIGN_RIGHT, new Phrase("Technician____________________________  Date_____________   "), doc.PageSize.Width, 10, 0);
+                    
                     doc.Add(new Paragraph());
-
                     Paragraph info = new Paragraph("", hel);
                     info.SpacingAfter = 30;
                     ////////////////////////////////////////////////
@@ -731,6 +735,8 @@ namespace CRS
                     paragraph.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
                     doc.Add(paragraph);
                 }
+                NotesForm notes = new NotesForm();
+                notes.ShowDialog();
                 doc.Close();//Closes Document
                 System.Diagnostics.Process.Start(sfd.FileName);
             }

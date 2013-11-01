@@ -83,8 +83,8 @@ namespace CRS
                     clientSocket.ReceiveTimeout = 4000;
                     clientSocket.Receive(receivedBytes);
                     string[] arr = Encoding.ASCII.GetString(receivedBytes).Split(';');
-                    
-                        iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
+
+                    iValue = Convert.ToInt32(arr[3].Substring(2, arr[3].Length - 2), 16);
                     if (iValue >= 32767 || iValue == 0)
                         vO2 = "0.0";
                     else
@@ -154,6 +154,8 @@ namespace CRS
                         vAccu = "0.0";
                     else
                         vAccu = (iValue / 10).ToString("0.0");
+                    double num = Convert.ToDouble(vNO) + Convert.ToDouble(vNO2);
+                    vNOx = num.ToString();
                     clientSocket.Close();
                 }
                 catch
@@ -260,6 +262,8 @@ namespace CRS
                         vAccu = "0.0";
                     else
                         vAccu = (iValue / 10).ToString("0.0");
+                    double num = Convert.ToDouble(vNO) + Convert.ToDouble(vNO2);
+                    vNOx = num.ToString();
 
                 }
                 catch
@@ -274,55 +278,86 @@ namespace CRS
         public void populateCorrection(int index, double num)
         {
             double Emeas, O2meas = Convert.ToDouble(vO2);
-            switch (index)
+            try
             {
-                case 1:
-                    Emeas = Convert.ToDouble(vCO);
-                    tempvCO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                    break;
-                case 2:
-                    Emeas = Convert.ToDouble(vNO);
-                    tempvNO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                    break;
-                case 3:
-                    Emeas = Convert.ToDouble(vNO2);
-                    tempvNO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                    break;
-                case 4:
-                    Emeas = Convert.ToDouble(vNOx);
-                    tempvNOx_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                    break;
-                case 5:
-                    Emeas = Convert.ToDouble(vSO2);
-                    tempvSO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                    break;
-                case 6:
-                    Emeas = Convert.ToDouble(vCxHy);
-                    tempvCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                    break;
+                switch (index)
+                {
+                    case 1:
+                        Emeas = Convert.ToDouble(vCO);
+                        tempvCO_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                        
+                        if (tempvCO_C.Equals("Infinity") || tempvCO_C.Equals("NaN"))
+                            tempvCO_C = "0.0";
+
+                        break;
+                    case 2:
+                        Emeas = Convert.ToDouble(vNO);
+                        tempvNO_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                        if (tempvNO_C.Equals("Infinity") || tempvNO_C.Equals("NaN"))
+                            tempvNO_C = "0.0";
+                        break;
+                    case 3:
+                        Emeas = Convert.ToDouble(vNO2);
+                        tempvNO2_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                        if (tempvNO2_C.Equals("Infinity") || tempvNO2_C.Equals("NaN"))
+                            tempvNO2_C = "0.0";
+                        break;
+                    case 4:
+                        Emeas = Convert.ToDouble(vNOx);
+                        tempvNOx_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                        if (tempvNOx_C.Equals("Infinity") || tempvNOx_C.Equals("NaN"))
+                            tempvNOx_C = "0.0";
+                        break;
+                    case 5:
+                        Emeas = Convert.ToDouble(vSO2);
+                        tempvSO2_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                        if (tempvSO2_C.Equals("Infinity") || tempvSO2_C.Equals("NaN"))
+                            tempvSO2_C = "0.0";
+                        break;
+                    case 6:
+                        Emeas = Convert.ToDouble(vCxHy);
+                        tempvCxHy_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+                        if (tempvCxHy_C.Equals("Infinity") || tempvCxHy_C.Equals("NaN"))
+                            tempvCxHy_C = "0.0";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
         public void populateCorrection(double num)
         {
-            double Emeas, O2meas = Convert.ToDouble(vO2);
+            double Emeas;
+                double O2meas = Convert.ToDouble(vO2);
 
             Emeas = Convert.ToDouble(vCO);
-            vCO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            vCO_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
 
             Emeas = Convert.ToDouble(vNO);
-            vNO_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            vNO_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
 
             Emeas = Convert.ToDouble(vNO2);
-            vNO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            vNO2_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
 
             Emeas = Convert.ToDouble(vNOx);
-            vNOx_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            vNOx_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
 
             Emeas = Convert.ToDouble(vSO2);
-            vSO2_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            vSO2_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
 
             Emeas = Convert.ToDouble(vCxHy);
-            vCxHy_C = (Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            vCxHy_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
+            if (vNO_C.Equals("Infinity") || vNO_C.Equals("NaN"))
+            {
+                vNO_C = "0.0";
+                vCO_C = "0.0";
+                vNO2_C = "0.0";
+                vNOx_C = "0.0";
+                vSO2_C = "0.0";
+                vCxHy_C = "0.0";
+            }
         }
         private static string CalculateChecksum(string dataToCalculate)
         {
@@ -376,14 +411,7 @@ namespace CRS
                     iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
                     vIFlow = (iValue / 100).ToString("0.00");
                 }
-                else if (p.Equals("$0A054E"))
-                {
-                    iValue = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);
-                    if (iValue >= 32767 || iValue == 0)
-                        vNOx = "0.0";
-                    else
-                        vNOx = (iValue).ToString("0.0");
-                }
+
                 else if (p.Equals("$0A0512"))
                 {
                     signalStrength = Convert.ToInt32(arr[1].Substring(2, arr[1].Length - 2), 16);

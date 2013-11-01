@@ -436,6 +436,8 @@ namespace CRS
             {
                 checkBox1.Enabled = true;
             }
+            //////////////////////Calculations\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)

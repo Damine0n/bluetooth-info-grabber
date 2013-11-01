@@ -58,15 +58,17 @@ namespace CRS
                         }
                     }
                 }
-            }else 
+            }
+            else
             {
-                MessageBox.Show("You must select 10 variables or there will be errors");
+                MessageBox.Show("You must select 10 variables or there will be errors in the Report.",
+                    "Important Note", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
-        private int checkCounter=10;
+        private int checkCounter = 10;
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
-             
+
             CheckBox box = (CheckBox)sender;
             if (box.Checked)
             {
@@ -124,7 +126,7 @@ namespace CRS
                 }
                 checkCounter--;
             }
-            
+
             // prevent checking
             if (checkCounter > 10)
             {
@@ -135,7 +137,7 @@ namespace CRS
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

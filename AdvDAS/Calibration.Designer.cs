@@ -98,6 +98,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.startTimerButton = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -157,16 +158,16 @@
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
+            this.calNOB = new System.Windows.Forms.Button();
             this.capZero02B = new System.Windows.Forms.Button();
             this.capZeroNO2B = new System.Windows.Forms.Button();
             this.capZeroNOB = new System.Windows.Forms.Button();
             this.capZeroCOB = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.calCOB = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.dcIFlowlbl = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
+            this.calNO2B = new System.Windows.Forms.Button();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label51 = new System.Windows.Forms.Label();
@@ -210,7 +211,13 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label49 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.label53 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -252,6 +259,8 @@
             this.tableLayoutPanel10.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1104,6 +1113,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(291, 25);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(252, 34);
+            this.button6.TabIndex = 25;
+            this.button6.Text = "Pre- Calibration Finished";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.BackgroundImage = global::CRS.Properties.Resources.flow_btn;
@@ -1112,7 +1133,7 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel12.Controls.Add(this.startTimerButton, 0, 1);
             this.tableLayoutPanel12.Controls.Add(this.panel9, 0, 0);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(705, 17);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(704, 17);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
@@ -1301,7 +1322,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(615, 0);
+            this.label54.Location = new System.Drawing.Point(614, 0);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(219, 16);
             this.label54.TabIndex = 14;
@@ -1880,14 +1901,18 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.tableLayoutPanel13);
+            this.tabPage3.Controls.Add(this.label53);
             this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.label49);
+            this.tabPage3.Controls.Add(this.calNOB);
             this.tabPage3.Controls.Add(this.capZero02B);
             this.tabPage3.Controls.Add(this.capZeroNO2B);
             this.tabPage3.Controls.Add(this.capZeroNOB);
             this.tabPage3.Controls.Add(this.capZeroCOB);
-            this.tabPage3.Controls.Add(this.button12);
+            this.tabPage3.Controls.Add(this.calCOB);
             this.tabPage3.Controls.Add(this.tableLayoutPanel6);
-            this.tabPage3.Controls.Add(this.button13);
+            this.tabPage3.Controls.Add(this.calNO2B);
             this.tabPage3.Controls.Add(this.tableLayoutPanel7);
             this.tabPage3.Controls.Add(this.tableLayoutPanel8);
             this.tabPage3.Controls.Add(this.tableLayoutPanel9);
@@ -1900,20 +1925,23 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Drift Check";
             // 
-            // button5
+            // calNOB
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(426, 251);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(207, 41);
-            this.button5.TabIndex = 30;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
+            this.calNOB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("calNOB.BackgroundImage")));
+            this.calNOB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calNOB.FlatAppearance.BorderSize = 0;
+            this.calNOB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.calNOB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.calNOB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calNOB.Location = new System.Drawing.Point(426, 263);
+            this.calNOB.Name = "calNOB";
+            this.calNOB.Size = new System.Drawing.Size(207, 41);
+            this.calNOB.TabIndex = 30;
+            this.calNOB.UseVisualStyleBackColor = true;
+            this.calNOB.Visible = false;
+            this.calNOB.Click += new System.EventHandler(this.calNOB_Click);
+            this.calNOB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button12_MouseDown);
+            this.calNOB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button12_MouseUp);
             // 
             // capZero02B
             // 
@@ -1931,6 +1959,9 @@
             this.capZero02B.TabIndex = 20;
             this.capZero02B.UseVisualStyleBackColor = false;
             this.capZero02B.Visible = false;
+            this.capZero02B.Click += new System.EventHandler(this.capZero02B_Click);
+            this.capZero02B.MouseDown += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseDown);
+            this.capZero02B.MouseUp += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseUp);
             // 
             // capZeroNO2B
             // 
@@ -1947,6 +1978,9 @@
             this.capZeroNO2B.TabIndex = 26;
             this.capZeroNO2B.UseVisualStyleBackColor = true;
             this.capZeroNO2B.Visible = false;
+            this.capZeroNO2B.Click += new System.EventHandler(this.capZeroNO2B_Click);
+            this.capZeroNO2B.MouseDown += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseDown);
+            this.capZeroNO2B.MouseUp += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseUp);
             // 
             // capZeroNOB
             // 
@@ -1963,6 +1997,9 @@
             this.capZeroNOB.TabIndex = 24;
             this.capZeroNOB.UseVisualStyleBackColor = true;
             this.capZeroNOB.Visible = false;
+            this.capZeroNOB.Click += new System.EventHandler(this.capZeroNOB_Click);
+            this.capZeroNOB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseDown);
+            this.capZeroNOB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseUp);
             // 
             // capZeroCOB
             // 
@@ -1979,21 +2016,27 @@
             this.capZeroCOB.TabIndex = 23;
             this.capZeroCOB.UseVisualStyleBackColor = true;
             this.capZeroCOB.Visible = false;
+            this.capZeroCOB.Click += new System.EventHandler(this.capZeroCOB_Click);
+            this.capZeroCOB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseDown);
+            this.capZeroCOB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.capZero02B_MouseUp);
             // 
-            // button12
+            // calCOB
             // 
-            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(218, 251);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(205, 41);
-            this.button12.TabIndex = 27;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Visible = false;
+            this.calCOB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("calCOB.BackgroundImage")));
+            this.calCOB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calCOB.FlatAppearance.BorderSize = 0;
+            this.calCOB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.calCOB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.calCOB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calCOB.Location = new System.Drawing.Point(218, 263);
+            this.calCOB.Name = "calCOB";
+            this.calCOB.Size = new System.Drawing.Size(205, 41);
+            this.calCOB.TabIndex = 27;
+            this.calCOB.UseVisualStyleBackColor = true;
+            this.calCOB.Visible = false;
+            this.calCOB.Click += new System.EventHandler(this.calCOB_Click);
+            this.calCOB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button12_MouseDown);
+            this.calCOB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button12_MouseUp);
             // 
             // tableLayoutPanel6
             // 
@@ -2037,20 +2080,23 @@
             this.label50.Text = "I. Flow (L/Min)";
             this.label50.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button13
+            // calNO2B
             // 
-            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
-            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(634, 251);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(200, 41);
-            this.button13.TabIndex = 28;
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Visible = false;
+            this.calNO2B.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("calNO2B.BackgroundImage")));
+            this.calNO2B.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calNO2B.FlatAppearance.BorderSize = 0;
+            this.calNO2B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.calNO2B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.calNO2B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calNO2B.Location = new System.Drawing.Point(634, 263);
+            this.calNO2B.Name = "calNO2B";
+            this.calNO2B.Size = new System.Drawing.Size(200, 41);
+            this.calNO2B.TabIndex = 28;
+            this.calNO2B.UseVisualStyleBackColor = true;
+            this.calNO2B.Visible = false;
+            this.calNO2B.Click += new System.EventHandler(this.calNO2B_Click);
+            this.calNO2B.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button12_MouseDown);
+            this.calNO2B.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button12_MouseUp);
             // 
             // tableLayoutPanel7
             // 
@@ -2539,17 +2585,95 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // button6
+            // button5
             // 
-            this.button6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(291, 25);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(252, 34);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "Pre- Calibration Finished";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Visible = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button5.BackgroundImage = global::CRS.Properties.Resources.smaller_start_btnA;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(8, 23);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(72, 37);
+            this.button5.TabIndex = 32;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(5, 7);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(108, 13);
+            this.label49.TabIndex = 31;
+            this.label49.Text = "Post-Test Drift Check";
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel13.BackgroundImage = global::CRS.Properties.Resources.flow_btn;
+            this.tableLayoutPanel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this.button8, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(706, 17);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 2;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.42857F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(127, 70);
+            this.tableLayoutPanel13.TabIndex = 34;
+            // 
+            // button8
+            // 
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.Enabled = false;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(3, 44);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(121, 23);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "TIMER";
+            this.toolTip1.SetToolTip(this.button8, "Click to Start Timer");
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.dateTimePicker6);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(127, 41);
+            this.panel10.TabIndex = 2;
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.CustomFormat = "mm:ss";
+            this.dateTimePicker6.Enabled = false;
+            this.dateTimePicker6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker6.Location = new System.Drawing.Point(25, 5);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.ShowUpDown = true;
+            this.dateTimePicker6.Size = new System.Drawing.Size(81, 35);
+            this.dateTimePicker6.TabIndex = 15;
+            this.dateTimePicker6.Value = new System.DateTime(2013, 9, 9, 5, 5, 0, 0);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.Transparent;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(616, 0);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(219, 16);
+            this.label53.TabIndex = 33;
+            this.label53.Text = "* ECOM recommends 5 min/sensor.";
             // 
             // Calibration
             // 
@@ -2613,6 +2737,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -2632,6 +2757,8 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2773,16 +2900,16 @@
         private System.Windows.Forms.Label RCO;
         private System.Windows.Forms.Label LCO;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button calNOB;
         private System.Windows.Forms.Button capZero02B;
         private System.Windows.Forms.Button capZeroNO2B;
         private System.Windows.Forms.Button capZeroNOB;
         private System.Windows.Forms.Button capZeroCOB;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button calCOB;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label dcIFlowlbl;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button calNO2B;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label51;
@@ -2826,5 +2953,12 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label49;
     }
 }

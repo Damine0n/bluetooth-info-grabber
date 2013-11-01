@@ -142,8 +142,8 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you need to do a Pre-Calibration now? \nSelect yes if you do. Select no if you have already done it or if you do not need a Pre-Calibration.", "Pre-Calibration?", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            DialogResult dialog = MessageBox.Show("Do you need to do a Pre-Calibration now? \n\nSelect YES if you do. \n\nSelect NO if you have already done it or if you do not need a Pre-Calibration.", "Pre-Calibration?", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.No)
             {
 
                 if (!equipment.Equals("Equipment: Not Selected"))
@@ -177,6 +177,8 @@ namespace CRS
                     }
                 }
             }
+            else
+                caliForm.ShowDialog();
         }
         //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
@@ -194,6 +196,7 @@ namespace CRS
             this.button1.Enabled = run;
             this.timer1.Stop();
             this.recordSignTimer.Stop();
+            recordingSign.Visible = false;
             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
             run = false;
             rampUp = new DateTime(2000, 2, 1, 0, 0, 0);
@@ -207,7 +210,7 @@ namespace CRS
             this.stopRecordingButton.Enabled = false;
             if (test)
             {
-                DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
+                DialogResult dialog = MessageBox.Show("Do you want to save your test?", "Save Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
                     PrintDocs pDoc = new PrintDocs();
@@ -712,7 +715,7 @@ namespace CRS
                 elementTable.EndEdit();  //Stop editing of cell.
                 if ((bool)elementTable.Rows[e.RowIndex].Cells[3].Value)//only activates on check
                 {
-                    DialogResult dialogResult = MessageBox.Show("If you select yes your chart's data will restart.", "Are you sure? ", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("If you select yes, your chart's data will restart.", "Are you sure? ", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         foreach (var series in trendGraph.Series)
@@ -758,8 +761,6 @@ namespace CRS
             protocol.processProtocol("$0A053D");
             //get Internal Flow
             protocol.processProtocol("$0A0531");
-            //get Nox Number
-            protocol.processProtocol("$0A054E");
             //get Signal Strength
             protocol.processProtocol("$0A0512");
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
@@ -1942,6 +1943,20 @@ namespace CRS
                 button.ForeColor = Color.Black;
             else
                 button.ForeColor = Color.Silver;
+        }
+
+        private void applyO2CorrectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string CO_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
+            if (CO_C.Equals(""))
+            {
+                ScaleDisplay.correction = 0;
+            }
+            else 
+            {
+                ScaleDisplay.correction = Convert.ToDouble(CO_C);
+            }
+
         }
     }
 }

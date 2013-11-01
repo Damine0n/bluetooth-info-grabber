@@ -194,7 +194,7 @@ namespace CRS
             {
                 this.NO2zeroResponse.ForeColor = Color.Red;
             } calNO2.Visible = true;
-            
+
         }
         private void capCalCO_Click(object sender, EventArgs e)
         {
@@ -203,13 +203,16 @@ namespace CRS
                 (Convert.ToDouble(this.COcalResponse.Text) >= (Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))))
             {
                 this.COcalResponse.ForeColor = Color.Green;
-one = true;
+                one = true;
             }
             else
             {
                 this.COcalResponse.ForeColor = Color.Red;
-            } 
+            }
+            HocusPocus();
         }
+
+       
 
         private void capCalNO_Click(object sender, EventArgs e)
         {
@@ -224,7 +227,7 @@ one = true;
             {
                 this.NOcalResponse.ForeColor = Color.Red;
             }
-            
+            HocusPocus();
         }
 
         private void capCalNO2_Click(object sender, EventArgs e)
@@ -239,7 +242,8 @@ one = true;
             else
             {
                 this.NO2calResponse.ForeColor = Color.Red;
-            } 
+            }
+            HocusPocus();
         }
 
         private void startTimerButton_Click(object sender, EventArgs e)
@@ -269,7 +273,7 @@ one = true;
                     timer2.Stop();
                 else
                     gases.Calibration(protocol, caliName);
-            
+
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -458,12 +462,84 @@ one = true;
         private void button6_Click(object sender, EventArgs e)
         {
             timer2.Stop();
+            
+        }
+        private void HocusPocus()
+        {
+            if (one && two && three)
+                button6.Visible = true;
         }
 
-        
 
 
         //////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\\\
+        private void capZero02B_MouseUp(object sender, MouseEventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundImage = Properties.Resources.capture_zero_btnA;
+        }
+
+        private void capZero02B_MouseDown(object sender, MouseEventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundImage = Properties.Resources.capture_zero_B;
+        }
+
+        private void button12_MouseUp(object sender, MouseEventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundImage = Properties.Resources.capture_cal_response_A;
+        }
+
+        private void button12_MouseDown(object sender, MouseEventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundImage = Properties.Resources.capture_cal_response_B;
+        }
+
+        private void calCOB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calNOB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calNO2B_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void capZero02B_Click(object sender, EventArgs e)
+        {
+            this.O2zeroResponse.Text = dcO2lbl.Text;
+            if (Convert.ToDouble(this.O2zeroResponse.Text) <= ((Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown8.Value) / 100))) &&
+                Convert.ToDouble(this.O2zeroResponse.Text) >= (-(Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown8.Value) / 100))))
+            {
+                this.O2zeroResponse.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.O2zeroResponse.ForeColor = Color.Red;
+            }
+        }
+
+        private void capZeroCOB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void capZeroNOB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void capZeroNO2B_Click(object sender, EventArgs e)
+        {
+
+        }
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }
 }

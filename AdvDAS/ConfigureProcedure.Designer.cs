@@ -154,11 +154,11 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(185, 181);
+            this.label5.Location = new System.Drawing.Point(202, 181);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 13);
+            this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "TOTAL CYCLE TIME:";
+            this.label5.Text = "Total Cycle Time:";
             // 
             // groupBox5
             // 
@@ -200,11 +200,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 21);
+            this.label3.Location = new System.Drawing.Point(202, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 13);
+            this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "TEST DATA TIME:";
+            this.label3.Text = "Test Data Time:";
             // 
             // groupBox6
             // 
@@ -237,11 +237,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(213, 21);
+            this.label8.Location = new System.Drawing.Point(221, 21);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 0;
-            this.label8.Text = "PURGE TIME:";
+            this.label8.Text = "Purge Time:";
             // 
             // checkBox4
             // 
@@ -295,11 +295,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(202, 21);
+            this.label7.Location = new System.Drawing.Point(204, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 13);
+            this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 0;
-            this.label7.Text = "RAMP-UP TIME:";
+            this.label7.Text = "Ramp-Up Time:";
             // 
             // checkBox3
             // 
@@ -374,8 +374,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(324, 26);
             this.label2.TabIndex = 0;
-            this.label2.Text = "This screen allows the user to set up automated test cycles, including Ramp-Up Ti" +
-    "me Measurement Time and Purge Time";
+            this.label2.Text = "This screen allows you to set up automated test cycles including Ramp-Up Time, Me" +
+    "asurement Time, and Purge Time.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button1
