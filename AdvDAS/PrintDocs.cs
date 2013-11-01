@@ -49,9 +49,15 @@ namespace CRS
         private string eAFControllerModel;
         private string eCatalyticConverterMake;
         private string eCatalyticConverterModel;
+        private string units = "Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow";
         public PrintDocs()
         {
             InitializeComponent();
+        }
+        public PrintDocs(string units)
+        {
+            InitializeComponent();
+            this.units = units;
         }
         public OpenFileDialog OFD { get; set; }
         public MainMenu MainMenu { get; set; }
@@ -59,37 +65,39 @@ namespace CRS
 
         public void printGraph(Chart graph)
         {
-            for (int h = 0; h < 3; h++)
-            {
-
-            }
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            FillVariables();
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 25, 25, 10, 10);
             SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
-            sfd.FileName = "Trend " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save Trend Summary";
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
-            //Open Document To Write
-            doc.Open();
-            //Insert image
-            iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(OFD.FileName);
-            LOGO.ScaleToFit(100f, 150f);
-            LOGO.Border = iTextSharp.text.Rectangle.BOX;
-            doc.Add(LOGO);
-            //Write Some Content
-            Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
-            //Adds above created text using different class object to our pdf document.
-            doc.Add(paragraph);
+            sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save Report";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                //Open Document To Write
+                doc.Open();
+                //Insert image
+                iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
+                LOGO.ScaleToFit(100f, 150f);
+                LOGO.Border = iTextSharp.text.Rectangle.BOX;
+                doc.Add(LOGO);
+                //Write Some Content
+                Paragraph paragraph = new Paragraph("This is the test paragraph.\nTestTest Test TEST 1234567890");
+                //Adds above created text using different class object to our pdf document.
+                doc.Add(paragraph);
 
-            //Adds chart to PDF
-            var chartimage = new MemoryStream();
-            graph.SaveImage(chartimage, ChartImageFormat.Png);
-            iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartimage.GetBuffer());
-            Chart_image.ScalePercent(75f);
-            doc.Add(Chart_image);
+                //Adds chart to PDF
+                var chartimage = new MemoryStream();
+                graph.SaveImage(chartimage, ChartImageFormat.Png);
+                iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartimage.GetBuffer());
+                Chart_image.ScaleToFit(75,75);
+                doc.Add(Chart_image);
 
-            doc.Close();//Closes Document
-            System.Diagnostics.Process.Start(sfd.FileName);
+                doc.Close();//Closes Document
+
+                System.Diagnostics.Process.Start(sfd.FileName);
+            }
         }
         public void printSnapShot(List<string> snapShots)
         {
@@ -268,9 +276,9 @@ namespace CRS
                         info.Add(new Chunk(new VerticalPositionMark(), 400, true));
                         info.Add(new Phrase("RPM: " + eRPM + "\n"));
                         info.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                        info.Add(new Phrase("AF Contoller Make: " + eAFControllerMake));
+                        info.Add(new Phrase("A/F Controller Make: " + eAFControllerMake));
                         info.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                        info.Add(new Phrase("AF Contoller Model: " + eAFControllerModel + "\n"));
+                        info.Add(new Phrase("A/F Controller Model: " + eAFControllerModel + "\n"));
                         info.Add(new Chunk(new VerticalPositionMark(), 50, true));
                         info.Add(new Phrase("Catalytic Converter Make: " + eCatalyticConverterMake));
                         info.Add(new Chunk(new VerticalPositionMark(), 300, true));
@@ -304,15 +312,23 @@ namespace CRS
                         doc.Add(new Paragraph(""));
 
                         PdfPTable table = new PdfPTable(5);
+                        table.WidthPercentage=100;
                         table.SpacingBefore = 20;
                         table.HorizontalAlignment = Element.ALIGN_CENTER;
-                        PdfPCell cell = new PdfPCell(new Phrase("Emissions Test Results", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 15f, iTextSharp.text.Font.NORMAL)));
-                        cell.Colspan = 5;
+                        PdfPCell cell = new PdfPCell(new Phrase("SnapShots", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 15f, iTextSharp.text.Font.NORMAL)));
+                        cell.Colspan = units.Split(',').Count();
                         table.AddCell(cell);
                         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                        ///////Row1
-                        table.AddCell(new Phrase("Parameter", hel));
+                        for (int i = 0; i <snapShots.Count; i++)
+                        {
+                            for (int j = 0; j < snapShots[i].Split('_').Count();j++ )
+                            {
+                                string[] value = snapShots[i].Split('_');
+                                MessageBox.Show(value[j]);
+                            }
+                        }
+                            ///////Row1
+                            table.AddCell(new Phrase("Parameter", hel));
                         table.AddCell(new Phrase("Test 1", hel));
                         table.AddCell(new Phrase("Test 2", hel));
                         table.AddCell(new Phrase("Test 3", hel));
@@ -650,7 +666,7 @@ namespace CRS
                     string[] arr = names[z].Split('_');
                     try
                     {
-                        var da = new SQLiteDataAdapter("SELECT Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow FROM " + names[z] + ";", sqlite_conn);
+                        var da = new SQLiteDataAdapter("SELECT "+units+" FROM " + names[z] + ";", sqlite_conn);
                         ds1.Clear();
                         da.Fill(ds1);
                         bindingSource1.DataSource = ds1;
@@ -898,7 +914,7 @@ namespace CRS
                 //string[] arr = names[z].Split('_');
                 try
                 {
-                    var da = new SQLiteDataAdapter("SELECT Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow FROM " + testName + ";", sqlite_conn);
+                    var da = new SQLiteDataAdapter("SELECT "+units+" FROM " + testName + ";", sqlite_conn);
                     ds1.Clear();
                     da.Fill(ds1);
                     bindingSource1.DataSource = ds1;

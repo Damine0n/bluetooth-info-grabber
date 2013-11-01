@@ -131,7 +131,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(442, 297);
+            this.tabPage1.Size = new System.Drawing.Size(447, 297);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Report Output";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -389,6 +389,7 @@
             this.textBox3.Size = new System.Drawing.Size(48, 20);
             this.textBox3.TabIndex = 13;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // checkBox33
             // 

@@ -79,13 +79,12 @@ namespace CRS
                 string data="";
                 for (int k = 0; k < dataGridView1.ColumnCount ;k++ )
                 {
-                    
                     data += dataGridView1.SelectedRows[j].Cells[k].Value.ToString() + " _ ";
-                    //pDocs.printTest(dataGridView1.SelectedRows[i].Cells[0].Value.ToString(), dataGridView1.SelectedRows[i].Cells[1].Value.ToString(), dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
                 }
                 snapData.Add(data);
-                MessageBox.Show(snapData[j]);
             }
+            PrintDocs pdocs = new PrintDocs();
+            pdocs.printSnapShot(snapData);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

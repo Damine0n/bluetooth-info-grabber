@@ -437,7 +437,7 @@ namespace CRS
             this.snapShotButton.TabIndex = 6;
             this.snapShotButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.snapShotButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.snapShotButton, "Stop Recording");
+            this.toolTip1.SetToolTip(this.snapShotButton, "Select Equipment to Snapshot");
             this.snapShotButton.UseVisualStyleBackColor = false;
             this.snapShotButton.Click += new System.EventHandler(this.snapShot_Click);
             // 
@@ -457,7 +457,7 @@ namespace CRS
             this.stopRecordingButton.TabIndex = 5;
             this.stopRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.stopRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.stopRecordingButton, "Pause Recording");
+            this.toolTip1.SetToolTip(this.stopRecordingButton, "Stop Recording");
             this.stopRecordingButton.UseVisualStyleBackColor = false;
             this.stopRecordingButton.Click += new System.EventHandler(this.stopRecordingItem_Click);
             // 
@@ -477,7 +477,7 @@ namespace CRS
             this.startRecordingButton.TabIndex = 4;
             this.startRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.startRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.startRecordingButton, "Start Recording");
+            this.toolTip1.SetToolTip(this.startRecordingButton, "Start/Pause Recording");
             this.startRecordingButton.UseVisualStyleBackColor = false;
             this.startRecordingButton.Click += new System.EventHandler(this.startRecordingItem_Click);
             // 
@@ -3456,7 +3456,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox1, 0, 0);
@@ -3488,7 +3488,7 @@ namespace CRS
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(179, 59);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(178, 59);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3499,7 +3499,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.White;
             this.iflowlbl.Location = new System.Drawing.Point(3, 0);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(173, 39);
+            this.iflowlbl.Size = new System.Drawing.Size(172, 39);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3512,7 +3512,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.White;
             this.flowlbl.Location = new System.Drawing.Point(3, 39);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(173, 20);
+            this.flowlbl.Size = new System.Drawing.Size(172, 20);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

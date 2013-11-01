@@ -45,7 +45,23 @@ namespace CRS
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-
+            if (checkCounter == 10)
+            {
+                foreach (Control gb in this.Controls)
+                {
+                    if (gb is GroupBox)
+                    {
+                        foreach (Control cb in gb.Controls)
+                        {
+                            if (cb is CheckBox)
+                                MessageBox.Show(cb.Text);
+                        }
+                    }
+                }
+            }else 
+            {
+                MessageBox.Show("You must select 10 variables or there will be errors");
+            }
         }
         private int checkCounter=10;
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
@@ -115,6 +131,11 @@ namespace CRS
                 MessageBox.Show("You may only print 10 values.", "Error");
                 box.Checked = false;
             }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

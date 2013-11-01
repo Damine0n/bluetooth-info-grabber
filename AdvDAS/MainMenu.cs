@@ -24,7 +24,6 @@ namespace CRS
     {
         private System.Drawing.Rectangle tabArea;
         private RectangleF tabTextArea;
-        public static PrintDocs pDoc = new PrintDocs();
         public List<ScaleDisplay> scaleDisplays = new List<ScaleDisplay>();
         public List<TableLayoutPanel> tiles = new List<TableLayoutPanel>();
         public List<string> tableNames = new List<string>();
@@ -54,12 +53,13 @@ namespace CRS
         private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
-        public static int dgInterval, cycles,tested;
+        public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
-        public static string cUnit, nUnit, numOfCycles, equipment="Equipment: Not Selected";
+        public static string cUnit, nUnit, numOfCycles, equipment = "Equipment: Not Selected";
         public J2KNProtocol protocol = new J2KNProtocol();
         private string tableName = "";
         private bool run = false;
+        private string units = "Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow";
 
         public MainMenu()
         {
@@ -75,7 +75,7 @@ namespace CRS
             {
                 dataGridTimer.Start();
             }
-            
+
         }
 
         //This method creates the database connection ands populates the element Table on tab2
@@ -142,34 +142,39 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            if (!equipment.Equals("Equipment: Not Selected"))
+            DialogResult dialog = MessageBox.Show("Do you need to do a Pre-Calibration now? \nSelect yes if you do. Select no if you have already done it or if you do not need a Pre-Calibration.", "Pre-Calibration?", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
             {
-                if (!run)
+
+                if (!equipment.Equals("Equipment: Not Selected"))
                 {
-                    if (tempRampUp.ToString("HH:mm:ss").Equals("00:00:00") && tempTestData.ToString("HH:mm:ss").Equals("00:00:00") && tempPurge.ToString("HH:mm:ss").Equals("00:00:00") && numOfCycles == currentCycle.ToString())
+                    if (!run)
                     {
+                        if (tempRampUp.ToString("HH:mm:ss").Equals("00:00:00") && tempTestData.ToString("HH:mm:ss").Equals("00:00:00") && tempPurge.ToString("HH:mm:ss").Equals("00:00:00") && numOfCycles == currentCycle.ToString())
+                        {
+                        }
+                        else
+                        {
+                            protocol.processProtocol("$0F1066 0x20");
+                            this.configureRecordingToolStripMenuItem.Enabled = run;
+                            this.button1.Enabled = run;
+                            run = true;
+                            this.timer1.Start();
+                            this.recordSignTimer.Start();
+                            this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
+                            this.stopRecordingButton.Enabled = run;
+                        }
                     }
                     else
                     {
-                        protocol.processProtocol("$0F1066 0x20");
                         this.configureRecordingToolStripMenuItem.Enabled = run;
                         this.button1.Enabled = run;
-                        run = true;
-                        this.timer1.Start();
-                        this.recordSignTimer.Start();
-                        this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
-                        this.stopRecordingButton.Enabled = run;
+                        run = false;
+                        this.timer1.Stop();
+                        this.recordSignTimer.Stop();
+                        this.recordingSign.Visible = false;
+                        this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
                     }
-                }
-                else
-                {
-                    this.configureRecordingToolStripMenuItem.Enabled = run;
-                    this.button1.Enabled = run;
-                    run = false;
-                    this.timer1.Stop();
-                    this.recordSignTimer.Stop();
-                    this.recordingSign.Visible = false;
-                    this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
                 }
             }
         }
@@ -205,9 +210,9 @@ namespace CRS
                 DialogResult dialog = MessageBox.Show("Do you want to print your test?", "Print Test", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
+                    PrintDocs pDoc = new PrintDocs();
                     pDoc.printReport(tableNames);
                 }
-                pDoc = new PrintDocs();
                 tableNames.Clear();
                 currentCycle = 1;
             }
@@ -215,15 +220,18 @@ namespace CRS
         //Takes Snapshot Recording
         private void snapShot_Click(object sender, EventArgs e)
         {
-            string time=DateTime.Now.ToString();
-            NotesForm note = new NotesForm();
-            DialogResult dialog= note.ShowDialog();
-            if (dialog == DialogResult.OK)
+            if (timer1.Enabled)
             {
-                new GasAnalysis(Convert.ToDateTime(time)).SnapShot(protocol, note.snapNote, timer1.Enabled, tableName);
+                string time = DateTime.Now.ToString();
+                NotesForm note = new NotesForm();
+                DialogResult dialog = note.ShowDialog();
+                if (dialog == DialogResult.OK)
+                {
+                    new GasAnalysis(Convert.ToDateTime(time)).SnapShot(protocol, note.snapNote, timer1.Enabled, tableName);
+                }
             }
         }
-        
+
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -325,7 +333,7 @@ namespace CRS
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    
+
                     return true;
                 }
                 else
@@ -352,11 +360,11 @@ namespace CRS
                     tableName = new GasAnalysis().newEntry(protocol);
                     if (tableName.Equals("Error"))
                     {
-                        MessageBox.Show(tableName +": You must have an equipment selected.");
+                        MessageBox.Show(tableName + ": You must have an equipment selected.");
                         stopIt(false);
                     }
                     else
-                    tableNames.Add(tableName);
+                        tableNames.Add(tableName);
                     return true;
                 }
                 else
@@ -371,7 +379,7 @@ namespace CRS
                     tempTestData = tempTestData.AddSeconds(-(dgInterval / 1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    new GasAnalysis().newEntry(protocol,tableName);
+                    new GasAnalysis().newEntry(protocol, tableName);
                     return true;
                 }
                 else
@@ -435,7 +443,7 @@ namespace CRS
             this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
-            this.label14.Text=tested + " Machines Tested";
+            this.label14.Text = tested + " Machines Tested";
         }
 
         //add question during close
@@ -821,10 +829,7 @@ namespace CRS
 
         private void recordSign_Tick(object sender, EventArgs e)
         {
-            if (recordingSign.Visible.Equals(false))
                 recordingSign.Visible = true;
-            else
-                recordingSign.Visible = false;
         }
 
         private void setupCommunictaionPortsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -993,7 +998,7 @@ namespace CRS
 
             configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
             configProcedure.ShowDialog();
-            
+
         }
 
         private void viewTestRecordsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1898,6 +1903,7 @@ namespace CRS
 
         private void button2_Click(object sender, EventArgs e)
         {
+            PrintDocs pDoc = new PrintDocs();
             pDoc.printGraph(trendGraph);
         }
 
@@ -1932,7 +1938,7 @@ namespace CRS
         private void tileButton9_EnabledChanged(object sender, EventArgs e)
         {
             var button = sender as Button;
-            if(run)
+            if (run)
                 button.ForeColor = Color.Black;
             else
                 button.ForeColor = Color.Silver;
