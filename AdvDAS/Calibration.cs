@@ -16,11 +16,14 @@ namespace CRS
         bool clicked = false;
         int interv = 1000;
         GasAnalysis gases = new GasAnalysis();
-        string caliName;
+        string caliName, caliName2;
         bool first = true;
         bool one = false;
         bool two = false;
         bool three = false;
+        bool four = false;
+        bool five = false;
+        bool six = false;
         public Calibration()
         {
             InitializeComponent();
@@ -28,7 +31,6 @@ namespace CRS
                 timer1.Start();
             ((Control)this.tabPage2).Enabled = false;
             ((Control)this.tabPage3).Enabled = false;
-            ((Control)this.tabPage4).Enabled = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -93,9 +95,18 @@ namespace CRS
                 PrintDocs.calErr1 = numericUpDown1.Value.ToString();
                 PrintDocs.calErr2 = numericUpDown2.Value.ToString();
                 PrintDocs.calErr3 = numericUpDown3.Value.ToString();
+                PrintDocs.calErr4 = numericUpDown4.Value.ToString();
+                PrintDocs.O2zero = numericUpDown8.Value.ToString();
+                PrintDocs.COzero = numericUpDown5.Value.ToString();
+                PrintDocs.NOzero = numericUpDown6.Value.ToString();
+                PrintDocs.NO2zero = numericUpDown7.Value.ToString();
+                PrintDocs.O2poSpan = "20.9";
+                PrintDocs.O2prSpan = "20.9";
+                PrintDocs.O2exp = dateTimePicker4.Value;
+                PrintDocs.COexp = dateTimePicker1.Value;
+                PrintDocs.NOexp = dateTimePicker2.Value;
+                PrintDocs.NO2exp = dateTimePicker3.Value;
                 ((Control)this.tabPage2).Enabled = true;
-                ((Control)this.tabPage3).Enabled = true;
-                ((Control)this.tabPage4).Enabled = true;
                 LCO.Text = (Math.Round(Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)), 1)).ToString();
                 RCO.Text = (Math.Round(Convert.ToDouble(this.textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)), 1)).ToString();
                 LNO.Text = (Math.Round(Convert.ToDouble(this.textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100)), 1)).ToString();
@@ -110,7 +121,6 @@ namespace CRS
                 MessageBox.Show("All Span Gas Values should be entered.");
                 ((Control)this.tabPage2).Enabled = false;
                 ((Control)this.tabPage3).Enabled = false;
-                ((Control)this.tabPage4).Enabled = false;
             }
         }
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -149,6 +159,13 @@ namespace CRS
             {
                 this.O2zeroResponse.ForeColor = Color.Red;
             }
+            PrintDocs.O2prZero = this.O2zeroResponse.Text;
+            calCO.Visible = true;
+            calNO.Visible = true;
+            calNO2.Visible = true;
+            capCalCO.Visible = true;
+            capCalNO.Visible = true;
+            capCalNO2.Visible = true;
         }
 
         private void capZeroCO_Click(object sender, EventArgs e)
@@ -163,7 +180,8 @@ namespace CRS
             else
             {
                 this.COzeroResponse.ForeColor = Color.Red;
-            } calCO.Visible = true;
+            }
+            PrintDocs.COprZero = this.COzeroResponse.Text;
         }
 
         private void capZeroNO_Click(object sender, EventArgs e)
@@ -178,7 +196,8 @@ namespace CRS
             else
             {
                 this.NOzeroResponse.ForeColor = Color.Red;
-            } calNO.Visible = true;
+            }
+            PrintDocs.NOprZero = this.NOzeroResponse.Text;
         }
 
         private void capZeroNO2_Click(object sender, EventArgs e)
@@ -193,8 +212,8 @@ namespace CRS
             else
             {
                 this.NO2zeroResponse.ForeColor = Color.Red;
-            } calNO2.Visible = true;
-
+            }
+            PrintDocs.NO2prZero = this.NO2zeroResponse.Text;
         }
         private void capCalCO_Click(object sender, EventArgs e)
         {
@@ -203,16 +222,19 @@ namespace CRS
                 (Convert.ToDouble(this.COcalResponse.Text) >= (Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))))
             {
                 this.COcalResponse.ForeColor = Color.Green;
-                one = true;
+
             }
             else
             {
                 this.COcalResponse.ForeColor = Color.Red;
             }
+            one = true;
+            PrintDocs.COprSpan = this.COcalResponse.Text;
             HocusPocus();
+
         }
 
-       
+
 
         private void capCalNO_Click(object sender, EventArgs e)
         {
@@ -221,12 +243,14 @@ namespace CRS
                 Convert.ToDouble(this.NOcalResponse.Text) >= (Convert.ToDouble(textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100))))
             {
                 this.NOcalResponse.ForeColor = Color.Green;
-                two = true;
+
             }
             else
             {
                 this.NOcalResponse.ForeColor = Color.Red;
             }
+            two = true;
+            PrintDocs.NOprSpan = this.NOcalResponse.Text;
             HocusPocus();
         }
 
@@ -237,12 +261,14 @@ namespace CRS
                 Convert.ToDouble(this.NO2calResponse.Text) >= (Convert.ToDouble(textBox3.Text) - (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown3.Value) / 100))))
             {
                 this.NO2calResponse.ForeColor = Color.Green;
-                three = true;
+
             }
             else
             {
                 this.NO2calResponse.ForeColor = Color.Red;
             }
+            three = true;
+            PrintDocs.NO2prSpan = this.NO2calResponse.Text;
             HocusPocus();
         }
 
@@ -265,14 +291,11 @@ namespace CRS
         {
             if (first)
             {
-                caliName = gases.Calibration(protocol);
+                caliName = gases.preCalibration(protocol);
                 first = false;
             }
             else
-                if (one && two && three)
-                    timer2.Stop();
-                else
-                    gases.Calibration(protocol, caliName);
+                gases.Calibration(protocol, caliName);
 
         }
 
@@ -326,7 +349,7 @@ namespace CRS
 
         private void calCO_Click(object sender, EventArgs e)
         {
-            capCalCO.Visible = true;
+
             //Disable Keypad
             protocol.processProtocol("$0F106100000");
             //Return To Normal Mode
@@ -347,7 +370,6 @@ namespace CRS
 
         private void calNO_Click(object sender, EventArgs e)
         {
-            capCalNO.Visible = true;
             //Disable Keypad
             protocol.processProtocol("$0F106100000");
             //Return To Normal Mode
@@ -368,7 +390,6 @@ namespace CRS
 
         private void calNO2_Click(object sender, EventArgs e)
         {
-            capCalNO2.Visible = true;
             //Disable Keypad
             protocol.processProtocol("$0F106100000");
             //Return To Normal Mode
@@ -462,14 +483,16 @@ namespace CRS
         private void button6_Click(object sender, EventArgs e)
         {
             timer2.Stop();
-            
+            ((Control)this.tabPage3).Enabled = true;
+            MessageBox.Show("Pre-Calibration Complete.");
         }
         private void HocusPocus()
         {
             if (one && two && three)
                 button6.Visible = true;
+            if (four && five && six)
+                button9.Visible = true;
         }
-
 
 
         //////////////////////DRIFT CHECK-TAB3\\\\\\\\\\\\\\\\\\\\\\\
@@ -499,46 +522,154 @@ namespace CRS
 
         private void calCOB_Click(object sender, EventArgs e)
         {
+            this.COcalResponseB.Text = dcCOlbl.Text;
+            if ((Convert.ToDouble(this.COcalResponseB.Text) <= (Convert.ToDouble(this.textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))) &&
+                (Convert.ToDouble(this.COcalResponseB.Text) >= (Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)))))
+            {
+                this.COcalResponseB.ForeColor = Color.Green;
 
+            }
+            else
+            {
+                this.COcalResponseB.ForeColor = Color.Red;
+            }
+            four = true;
+            PrintDocs.COpoSpan = this.COcalResponseB.Text;
+            HocusPocus();
         }
 
         private void calNOB_Click(object sender, EventArgs e)
         {
+            this.NOcalResponseB.Text = dcNOlbl.Text;
+            if ((Convert.ToDouble(this.NOcalResponseB.Text) <= (Convert.ToDouble(this.textBox2.Text) + (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100)))) &&
+                (Convert.ToDouble(this.NOcalResponseB.Text) >= (Convert.ToDouble(this.textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100)))))
+            {
+                this.NOcalResponseB.ForeColor = Color.Green;
 
+            }
+            else
+            {
+                this.NOcalResponseB.ForeColor = Color.Red;
+            }
+            five = true;
+            PrintDocs.NOpoSpan = this.NOcalResponseB.Text;
+            HocusPocus();
         }
 
         private void calNO2B_Click(object sender, EventArgs e)
         {
+            this.NO2calResponseB.Text = dcNO2lbl.Text;
+            if ((Convert.ToDouble(this.NO2calResponseB.Text) <= (Convert.ToDouble(this.textBox3.Text) + (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown3.Value) / 100)))) &&
+                (Convert.ToDouble(this.NO2calResponseB.Text) >= (Convert.ToDouble(this.textBox3.Text) - (Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown3.Value) / 100)))))
+            {
+                this.NO2calResponseB.ForeColor = Color.Green;
 
+            }
+            else
+            {
+                this.NO2calResponseB.ForeColor = Color.Red;
+            }
+            six = true;
+            PrintDocs.NO2poSpan = this.NO2calResponseB.Text;
+            HocusPocus();
         }
 
         private void capZero02B_Click(object sender, EventArgs e)
         {
-            this.O2zeroResponse.Text = dcO2lbl.Text;
-            if (Convert.ToDouble(this.O2zeroResponse.Text) <= ((Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown8.Value) / 100))) &&
-                Convert.ToDouble(this.O2zeroResponse.Text) >= (-(Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown8.Value) / 100))))
+            this.O2zeroResponseB.Text = dcO2lbl.Text;
+            if (Convert.ToDouble(this.O2zeroResponseB.Text) <= ((Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown8.Value) / 100))) &&
+                Convert.ToDouble(this.O2zeroResponseB.Text) >= (-(Convert.ToDouble(textBox4.Text) * (Convert.ToDouble(numericUpDown8.Value) / 100))))
             {
-                this.O2zeroResponse.ForeColor = Color.Green;
+                this.O2zeroResponseB.ForeColor = Color.Green;
             }
             else
             {
-                this.O2zeroResponse.ForeColor = Color.Red;
+                this.O2zeroResponseB.ForeColor = Color.Red;
             }
+            calCOB.Visible = true;
+            calNOB.Visible = true;
+            calNO2B.Visible = true;
+            PrintDocs.O2poZero = this.O2zeroResponseB.Text;
         }
 
         private void capZeroCOB_Click(object sender, EventArgs e)
         {
-
+            this.COzeroResponseB.Text = dcCOlbl.Text;
+            if (Convert.ToDouble(this.COzeroResponseB.Text) <= ((Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown5.Value) / 100))) &&
+                Convert.ToDouble(this.COzeroResponseB.Text) >= (-(Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown5.Value) / 100))))
+            {
+                this.COzeroResponseB.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.COzeroResponseB.ForeColor = Color.Red;
+            }
+            PrintDocs.COpoZero = this.COzeroResponseB.Text;
         }
 
         private void capZeroNOB_Click(object sender, EventArgs e)
         {
-
+            this.NOzeroResponseB.Text = dcNOlbl.Text;
+            if (Convert.ToDouble(this.NOzeroResponseB.Text) <= ((Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown6.Value) / 100))) &&
+                Convert.ToDouble(this.NOzeroResponseB.Text) >= (-(Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown6.Value) / 100))))
+            {
+                this.NOzeroResponseB.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.NOzeroResponseB.ForeColor = Color.Red;
+            }
+            PrintDocs.NOpoZero = this.NOzeroResponseB.Text;
         }
 
         private void capZeroNO2B_Click(object sender, EventArgs e)
         {
+            this.NO2zeroResponseB.Text = dcNO2lbl.Text;
+            if (Convert.ToDouble(this.NO2zeroResponseB.Text) <= ((Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown7.Value) / 100))) &&
+                Convert.ToDouble(this.NO2zeroResponseB.Text) >= (-(Convert.ToDouble(textBox3.Text) * (Convert.ToDouble(numericUpDown7.Value) / 100))))
+            {
+                this.NO2zeroResponseB.ForeColor = Color.Green;
+            }
+            else
+            {
+                this.NO2zeroResponseB.ForeColor = Color.Red;
+            }
+            PrintDocs.NO2poZero = this.NO2zeroResponseB.Text;
+        }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            timer4.Stop();
+            DialogResult result = MessageBox.Show("Do you want to save this calibration?", "Save Calibration", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                PrintDocs pDocs = new PrintDocs();
+                pDocs.printCalibration(caliName, caliName2);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            first = true;
+            timer4.Start();
+            capZero02B.Visible = true;
+            capZeroCOB.Visible = true;
+            capZeroNOB.Visible = true;
+            capZeroNO2B.Visible = true;                                                                                                                                                                                                                                                                                              //Created By e.0n`
+            dateTimePicker6.Enabled = true;
+            button8.Enabled = true;
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if (first)
+            {
+                caliName2 = gases.postCalibration(protocol);
+                first = false;
+            }
+            else
+                gases.Calibration(protocol, caliName2);
         }
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }

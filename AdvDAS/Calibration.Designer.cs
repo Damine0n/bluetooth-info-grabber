@@ -158,6 +158,13 @@
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.label53 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label49 = new System.Windows.Forms.Label();
             this.calNOB = new System.Windows.Forms.Button();
             this.capZero02B = new System.Windows.Forms.Button();
             this.capZeroNO2B = new System.Windows.Forms.Button();
@@ -211,13 +218,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.button5 = new System.Windows.Forms.Button();
-            this.label49 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.label53 = new System.Windows.Forms.Label();
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -249,6 +250,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -259,8 +262,6 @@
             this.tableLayoutPanel10.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tableLayoutPanel13.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1925,6 +1926,96 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Drift Check";
             // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel13.BackgroundImage = global::CRS.Properties.Resources.flow_btn;
+            this.tableLayoutPanel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this.button8, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(706, 17);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 2;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.42857F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(127, 70);
+            this.tableLayoutPanel13.TabIndex = 34;
+            // 
+            // button8
+            // 
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.Enabled = false;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(3, 44);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(121, 23);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "TIMER";
+            this.toolTip1.SetToolTip(this.button8, "Click to Start Timer");
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.dateTimePicker6);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(127, 41);
+            this.panel10.TabIndex = 2;
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.CustomFormat = "mm:ss";
+            this.dateTimePicker6.Enabled = false;
+            this.dateTimePicker6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker6.Location = new System.Drawing.Point(25, 5);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.ShowUpDown = true;
+            this.dateTimePicker6.Size = new System.Drawing.Size(81, 35);
+            this.dateTimePicker6.TabIndex = 15;
+            this.dateTimePicker6.Value = new System.DateTime(2013, 9, 9, 5, 5, 0, 0);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.Transparent;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(616, 0);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(219, 16);
+            this.label53.TabIndex = 33;
+            this.label53.Text = "* ECOM recommends 5 min/sensor.";
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::CRS.Properties.Resources.smaller_start_btnA;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(8, 23);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(72, 37);
+            this.button5.TabIndex = 32;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(5, 7);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(108, 13);
+            this.label49.TabIndex = 31;
+            this.label49.Text = "Post-Test Drift Check";
+            // 
             // calNOB
             // 
             this.calNOB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("calNOB.BackgroundImage")));
@@ -2585,96 +2676,6 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::CRS.Properties.Resources.smaller_start_btnA;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(8, 23);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(72, 37);
-            this.button5.TabIndex = 32;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(5, 7);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(108, 13);
-            this.label49.TabIndex = 31;
-            this.label49.Text = "Post-Test Drift Check";
-            // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel13.BackgroundImage = global::CRS.Properties.Resources.flow_btn;
-            this.tableLayoutPanel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Controls.Add(this.button8, 0, 1);
-            this.tableLayoutPanel13.Controls.Add(this.panel10, 0, 0);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(706, 17);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 2;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.42857F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(127, 70);
-            this.tableLayoutPanel13.TabIndex = 34;
-            // 
-            // button8
-            // 
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Enabled = false;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(3, 44);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(121, 23);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "TIMER";
-            this.toolTip1.SetToolTip(this.button8, "Click to Start Timer");
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.dateTimePicker6);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(127, 41);
-            this.panel10.TabIndex = 2;
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.CustomFormat = "mm:ss";
-            this.dateTimePicker6.Enabled = false;
-            this.dateTimePicker6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker6.Location = new System.Drawing.Point(25, 5);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.ShowUpDown = true;
-            this.dateTimePicker6.Size = new System.Drawing.Size(81, 35);
-            this.dateTimePicker6.TabIndex = 15;
-            this.dateTimePicker6.Value = new System.DateTime(2013, 9, 9, 5, 5, 0, 0);
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.Transparent;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(616, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(219, 16);
-            this.label53.TabIndex = 33;
-            this.label53.Text = "* ECOM recommends 5 min/sensor.";
-            // 
             // Calibration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2738,6 +2739,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -2757,8 +2760,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2960,5 +2961,6 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Timer timer4;
     }
 }
