@@ -11,7 +11,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-       
+
 
         #region Windows Form Designer generated code
 
@@ -158,6 +158,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.button8 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -177,7 +178,7 @@
             this.calNO2B = new System.Windows.Forms.Button();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label51 = new System.Windows.Forms.Label();
+            this.O2zeroResponseB = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -185,8 +186,8 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.dcNO2lbl = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
+            this.NO2calResponseB = new System.Windows.Forms.Label();
+            this.NO2zeroResponseB = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
@@ -195,8 +196,8 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.dcNOlbl = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
+            this.NOcalResponseB = new System.Windows.Forms.Label();
+            this.NOzeroResponseB = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
@@ -205,15 +206,14 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.dcCOlbl = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
+            this.COcalResponseB = new System.Windows.Forms.Label();
+            this.COzeroResponseB = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -269,7 +269,6 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -352,21 +351,21 @@
             this.tableLayoutPanel11.Controls.Add(this.RNO, 2, 1);
             this.tableLayoutPanel11.Controls.Add(this.RNO2, 2, 2);
             this.tableLayoutPanel11.Controls.Add(this.RO2, 2, 3);
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(6, 23);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(6, 24);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 4;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.04166F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.95833F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.17241F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.86885F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.40984F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.77049F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.55172F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(100, 122);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(100, 121);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // label81
             // 
             this.label81.AutoSize = true;
             this.label81.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label81.Location = new System.Drawing.Point(45, 95);
+            this.label81.Location = new System.Drawing.Point(45, 94);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(12, 13);
             this.label81.TabIndex = 74;
@@ -377,7 +376,7 @@
             // 
             this.label80.AutoSize = true;
             this.label80.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label80.Location = new System.Drawing.Point(45, 59);
+            this.label80.Location = new System.Drawing.Point(45, 65);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(12, 13);
             this.label80.TabIndex = 73;
@@ -388,7 +387,7 @@
             // 
             this.label79.AutoSize = true;
             this.label79.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label79.Location = new System.Drawing.Point(45, 31);
+            this.label79.Location = new System.Drawing.Point(45, 34);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(12, 13);
             this.label79.TabIndex = 72;
@@ -421,7 +420,7 @@
             // 
             this.LNO.AutoSize = true;
             this.LNO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LNO.Location = new System.Drawing.Point(3, 31);
+            this.LNO.Location = new System.Drawing.Point(3, 34);
             this.LNO.Name = "LNO";
             this.LNO.Size = new System.Drawing.Size(36, 13);
             this.LNO.TabIndex = 66;
@@ -432,7 +431,7 @@
             // 
             this.LNO2.AutoSize = true;
             this.LNO2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LNO2.Location = new System.Drawing.Point(3, 59);
+            this.LNO2.Location = new System.Drawing.Point(3, 65);
             this.LNO2.Name = "LNO2";
             this.LNO2.Size = new System.Drawing.Size(36, 13);
             this.LNO2.TabIndex = 68;
@@ -443,7 +442,7 @@
             // 
             this.LO2.AutoSize = true;
             this.LO2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LO2.Location = new System.Drawing.Point(3, 95);
+            this.LO2.Location = new System.Drawing.Point(3, 94);
             this.LO2.Name = "LO2";
             this.LO2.Size = new System.Drawing.Size(36, 13);
             this.LO2.TabIndex = 70;
@@ -464,7 +463,7 @@
             // RNO
             // 
             this.RNO.AutoSize = true;
-            this.RNO.Location = new System.Drawing.Point(63, 31);
+            this.RNO.Location = new System.Drawing.Point(63, 34);
             this.RNO.Name = "RNO";
             this.RNO.Size = new System.Drawing.Size(13, 13);
             this.RNO.TabIndex = 67;
@@ -475,7 +474,7 @@
             // 
             this.RNO2.AutoSize = true;
             this.RNO2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RNO2.Location = new System.Drawing.Point(63, 59);
+            this.RNO2.Location = new System.Drawing.Point(63, 65);
             this.RNO2.Name = "RNO2";
             this.RNO2.Size = new System.Drawing.Size(34, 13);
             this.RNO2.TabIndex = 69;
@@ -486,7 +485,7 @@
             // 
             this.RO2.AutoSize = true;
             this.RO2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RO2.Location = new System.Drawing.Point(63, 95);
+            this.RO2.Location = new System.Drawing.Point(63, 94);
             this.RO2.Name = "RO2";
             this.RO2.Size = new System.Drawing.Size(34, 13);
             this.RO2.TabIndex = 71;
@@ -1902,6 +1901,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.button9);
             this.tabPage3.Controls.Add(this.tableLayoutPanel13);
             this.tabPage3.Controls.Add(this.label53);
             this.tabPage3.Controls.Add(this.button5);
@@ -1925,6 +1925,18 @@
             this.tabPage3.Size = new System.Drawing.Size(840, 426);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Drift Check";
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(244, 25);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(299, 34);
+            this.button9.TabIndex = 35;
+            this.button9.Text = "Post-Test Drift Check Finished";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // tableLayoutPanel13
             // 
@@ -2006,6 +2018,7 @@
             this.button5.Size = new System.Drawing.Size(72, 37);
             this.button5.TabIndex = 32;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label49
             // 
@@ -2137,7 +2150,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.dcIFlowlbl, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label50, 0, 1);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(52, 251);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(42, 263);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
@@ -2210,7 +2223,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.label51);
+            this.panel4.Controls.Add(this.O2zeroResponseB);
             this.panel4.Controls.Add(this.label52);
             this.panel4.Controls.Add(this.label55);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2221,17 +2234,17 @@
             this.panel4.Size = new System.Drawing.Size(105, 112);
             this.panel4.TabIndex = 0;
             // 
-            // label51
+            // O2zeroResponseB
             // 
-            this.label51.AutoSize = true;
-            this.label51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label51.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label51.Location = new System.Drawing.Point(28, 62);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(29, 15);
-            this.label51.TabIndex = 19;
-            this.label51.Text = "N/A";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.O2zeroResponseB.AutoSize = true;
+            this.O2zeroResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.O2zeroResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.O2zeroResponseB.Location = new System.Drawing.Point(28, 62);
+            this.O2zeroResponseB.Name = "O2zeroResponseB";
+            this.O2zeroResponseB.Size = new System.Drawing.Size(29, 15);
+            this.O2zeroResponseB.TabIndex = 19;
+            this.O2zeroResponseB.Text = "N/A";
+            this.O2zeroResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label52
             // 
@@ -2312,8 +2325,8 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.label59);
-            this.panel6.Controls.Add(this.label60);
+            this.panel6.Controls.Add(this.NO2calResponseB);
+            this.panel6.Controls.Add(this.NO2zeroResponseB);
             this.panel6.Controls.Add(this.label61);
             this.panel6.Controls.Add(this.label62);
             this.panel6.Controls.Add(this.label63);
@@ -2326,29 +2339,29 @@
             this.panel6.Size = new System.Drawing.Size(100, 112);
             this.panel6.TabIndex = 0;
             // 
-            // label59
+            // NO2calResponseB
             // 
-            this.label59.AutoSize = true;
-            this.label59.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label59.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label59.Location = new System.Drawing.Point(24, 80);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(29, 15);
-            this.label59.TabIndex = 25;
-            this.label59.Text = "N/A";
-            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NO2calResponseB.AutoSize = true;
+            this.NO2calResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NO2calResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NO2calResponseB.Location = new System.Drawing.Point(24, 80);
+            this.NO2calResponseB.Name = "NO2calResponseB";
+            this.NO2calResponseB.Size = new System.Drawing.Size(29, 15);
+            this.NO2calResponseB.TabIndex = 25;
+            this.NO2calResponseB.Text = "N/A";
+            this.NO2calResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label60
+            // NO2zeroResponseB
             // 
-            this.label60.AutoSize = true;
-            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label60.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label60.Location = new System.Drawing.Point(24, 35);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(29, 15);
-            this.label60.TabIndex = 24;
-            this.label60.Text = "N/A";
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NO2zeroResponseB.AutoSize = true;
+            this.NO2zeroResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NO2zeroResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NO2zeroResponseB.Location = new System.Drawing.Point(24, 35);
+            this.NO2zeroResponseB.Name = "NO2zeroResponseB";
+            this.NO2zeroResponseB.Size = new System.Drawing.Size(29, 15);
+            this.NO2zeroResponseB.TabIndex = 24;
+            this.NO2zeroResponseB.Text = "N/A";
+            this.NO2zeroResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label61
             // 
@@ -2433,8 +2446,8 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.label67);
-            this.panel7.Controls.Add(this.label68);
+            this.panel7.Controls.Add(this.NOcalResponseB);
+            this.panel7.Controls.Add(this.NOzeroResponseB);
             this.panel7.Controls.Add(this.label69);
             this.panel7.Controls.Add(this.label70);
             this.panel7.Controls.Add(this.label71);
@@ -2447,29 +2460,29 @@
             this.panel7.Size = new System.Drawing.Size(104, 111);
             this.panel7.TabIndex = 0;
             // 
-            // label67
+            // NOcalResponseB
             // 
-            this.label67.AutoSize = true;
-            this.label67.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label67.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label67.Location = new System.Drawing.Point(27, 80);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(29, 15);
-            this.label67.TabIndex = 23;
-            this.label67.Text = "N/A";
-            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NOcalResponseB.AutoSize = true;
+            this.NOcalResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NOcalResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NOcalResponseB.Location = new System.Drawing.Point(27, 80);
+            this.NOcalResponseB.Name = "NOcalResponseB";
+            this.NOcalResponseB.Size = new System.Drawing.Size(29, 15);
+            this.NOcalResponseB.TabIndex = 23;
+            this.NOcalResponseB.Text = "N/A";
+            this.NOcalResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label68
+            // NOzeroResponseB
             // 
-            this.label68.AutoSize = true;
-            this.label68.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label68.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label68.Location = new System.Drawing.Point(27, 35);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(29, 15);
-            this.label68.TabIndex = 22;
-            this.label68.Text = "N/A";
-            this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NOzeroResponseB.AutoSize = true;
+            this.NOzeroResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NOzeroResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NOzeroResponseB.Location = new System.Drawing.Point(27, 35);
+            this.NOzeroResponseB.Name = "NOzeroResponseB";
+            this.NOzeroResponseB.Size = new System.Drawing.Size(29, 15);
+            this.NOzeroResponseB.TabIndex = 22;
+            this.NOzeroResponseB.Text = "N/A";
+            this.NOzeroResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label69
             // 
@@ -2555,8 +2568,8 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Controls.Add(this.label76);
-            this.panel8.Controls.Add(this.label77);
+            this.panel8.Controls.Add(this.COcalResponseB);
+            this.panel8.Controls.Add(this.COzeroResponseB);
             this.panel8.Controls.Add(this.label78);
             this.panel8.Controls.Add(this.label82);
             this.panel8.Controls.Add(this.label83);
@@ -2569,29 +2582,29 @@
             this.panel8.Size = new System.Drawing.Size(104, 110);
             this.panel8.TabIndex = 0;
             // 
-            // label76
+            // COcalResponseB
             // 
-            this.label76.AutoSize = true;
-            this.label76.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label76.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label76.Location = new System.Drawing.Point(26, 80);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(29, 15);
-            this.label76.TabIndex = 21;
-            this.label76.Text = "N/A";
-            this.label76.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.COcalResponseB.AutoSize = true;
+            this.COcalResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.COcalResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.COcalResponseB.Location = new System.Drawing.Point(26, 80);
+            this.COcalResponseB.Name = "COcalResponseB";
+            this.COcalResponseB.Size = new System.Drawing.Size(29, 15);
+            this.COcalResponseB.TabIndex = 21;
+            this.COcalResponseB.Text = "N/A";
+            this.COcalResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label77
+            // COzeroResponseB
             // 
-            this.label77.AutoSize = true;
-            this.label77.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label77.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label77.Location = new System.Drawing.Point(27, 35);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(29, 15);
-            this.label77.TabIndex = 20;
-            this.label77.Text = "N/A";
-            this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.COzeroResponseB.AutoSize = true;
+            this.COzeroResponseB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.COzeroResponseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.COzeroResponseB.Location = new System.Drawing.Point(27, 35);
+            this.COzeroResponseB.Name = "COzeroResponseB";
+            this.COzeroResponseB.Size = new System.Drawing.Size(29, 15);
+            this.COzeroResponseB.TabIndex = 20;
+            this.COzeroResponseB.Text = "N/A";
+            this.COzeroResponseB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label78
             // 
@@ -2652,16 +2665,6 @@
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(840, 426);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Interference Check";
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
@@ -2675,6 +2678,10 @@
             // timer3
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // Calibration
             // 
@@ -2824,7 +2831,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown9;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button calNO2;
         private System.Windows.Forms.Button calNO;
         private System.Windows.Forms.Button calCO;
@@ -2913,7 +2919,7 @@
         private System.Windows.Forms.Button calNO2B;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label O2zeroResponseB;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
@@ -2921,8 +2927,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label dcNO2lbl;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label NO2calResponseB;
+        private System.Windows.Forms.Label NO2zeroResponseB;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label63;
@@ -2931,8 +2937,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label dcNOlbl;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label NOcalResponseB;
+        private System.Windows.Forms.Label NOzeroResponseB;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label71;
@@ -2941,8 +2947,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label dcCOlbl;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label COcalResponseB;
+        private System.Windows.Forms.Label COzeroResponseB;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.Label label83;
@@ -2961,6 +2967,7 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Timer timer4;
     }
 }

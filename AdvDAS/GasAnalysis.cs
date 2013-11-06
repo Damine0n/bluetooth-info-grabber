@@ -19,7 +19,11 @@ namespace CRS
         private DateTime timeTaken;
         public GasAnalysis()
         {
-            sqlite_conn.Open();
+            try
+            {
+                sqlite_conn.Open();
+            }
+            catch { }
         }
         public GasAnalysis(DateTime timeTaken)
         {
@@ -96,7 +100,7 @@ namespace CRS
                 System.Windows.Forms.MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        public string Calibration(J2KNProtocol protocol)
+        public string preCalibration(J2KNProtocol protocol)
         {
             string tableName = "";
 
@@ -104,7 +108,42 @@ namespace CRS
             {
                 try
                 {
-                    tableName = "Calibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
+                    tableName = "PreCalibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
+                    //Creates a new table:
+                    sqlite_cmd = sqlite_conn.CreateCommand();
+                    sqlite_cmd.CommandText = "CREATE TABLE " + tableName + " AS SELECT * FROM Calibration WHERE 0;";
+                    sqlite_cmd.ExecuteNonQuery();
+
+                    //Inserts something into our new table:
+                    sqlite_cmd = sqlite_conn.CreateCommand();
+                    sqlite_cmd.CommandText = "INSERT INTO  " + tableName + " (Time, O2, CO, NO, NO2, IFlow) VALUES ('"
+                    + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
+                    + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vIFlow + "');";
+
+                    // And execute this again ;D
+                    sqlite_cmd.ExecuteNonQuery();
+
+                    break;
+                }
+                catch
+                {
+                    continue;
+                }
+
+            }
+            return tableName;
+
+
+        }
+        public string postCalibration(J2KNProtocol protocol)
+        {
+            string tableName = "";
+
+            for (int i = 1; i < 10000; i++)
+            {
+                try
+                {
+                    tableName = "PostCalibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
                     //Creates a new table:
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE " + tableName + " AS SELECT * FROM Calibration WHERE 0;";
