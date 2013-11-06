@@ -533,7 +533,7 @@ namespace CRS
             {
                 this.COcalResponseB.ForeColor = Color.Red;
             }
-            four = true;
+            four = true; 
             PrintDocs.COpoSpan = this.COcalResponseB.Text;
             HocusPocus();
         }
