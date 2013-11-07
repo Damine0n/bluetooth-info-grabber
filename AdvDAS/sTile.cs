@@ -287,7 +287,6 @@ namespace CRS
             protocol.processProtocol("$0A0531");
             protocol.processProtocol("$0A054E");
             protocol.populateCorrection(correction);
-            timer1.Interval = MainMenu.dgInterval;
             now = DateTime.Now;
             switch (elementComboBox.SelectedIndex)
             {
@@ -300,7 +299,6 @@ namespace CRS
 
                     break;
                 case 2:
-
                     valLabel.Text = protocol.vCO_C;
 
                     break;

@@ -13,7 +13,9 @@ namespace CRS
     {
         public string vO2 = "0.0";
         public string vCO = "0.0";
+        public string vCOBtu = "0.0";
         public string vNO = "0.0";
+        public string vNOBtu = "0.0";
         public string vNO2 = "0.0";
         public string vNOx = "0.0";
         public string vSO2 = "0.0";
@@ -75,7 +77,6 @@ namespace CRS
                 {
                     return false;
                 }
-
                 try
                 {
                     sendPacket = Encoding.UTF8.GetBytes(p + CalculateChecksum(p) + vbCr);
@@ -285,7 +286,7 @@ namespace CRS
                     case 1:
                         Emeas = Convert.ToDouble(vCO);
                         tempvCO_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
-                        
+
                         if (tempvCO_C.Equals("Infinity") || tempvCO_C.Equals("NaN"))
                             tempvCO_C = "0.0";
 
@@ -330,7 +331,7 @@ namespace CRS
         public void populateCorrection(double num)
         {
             double Emeas;
-                double O2meas = Convert.ToDouble(vO2);
+            double O2meas = Convert.ToDouble(vO2);
 
             Emeas = Convert.ToDouble(vCO);
             vCO_C = Math.Round(Emeas * ((21 - num) / (21 - O2meas))).ToString();
@@ -357,6 +358,49 @@ namespace CRS
                 vNOx_C = "0.0";
                 vSO2_C = "0.0";
                 vCxHy_C = "0.0";
+            }
+        }
+        public void massEmissions(int type)
+        {
+            double value;
+            switch (type)
+            {
+                case 0:
+                    value = Convert.ToDouble(vCO) * (7.271 * (10 ^ -8)) * 9190 * (20.9/(20.9-Convert.ToDouble(vO2)));
+                    vCOBtu = value.ToString();
+                    value = Convert.ToDouble(vNO) * (7.271 * (10 ^ -8)) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vNOBtu = value.ToString();
+                    break;
+                case 1:
+                    value = Convert.ToDouble(vCO) * (7.271 * (10 ^ -8)) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vCOBtu = value.ToString();
+                    value = Convert.ToDouble(vNO) * (7.271 * (10 ^ -8)) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vNOBtu = value.ToString();
+                    break;
+                case 2:
+                    value = Convert.ToDouble(vCO) * (7.271 * (10 ^ -8)) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vCOBtu = value.ToString();
+                    value = Convert.ToDouble(vNO) * (7.271 * (10 ^ -8)) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vNOBtu = value.ToString();
+                    break;
+                case 3:
+                    value = Convert.ToDouble(vCO) * (7.271 * (10 ^ -8)) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vCOBtu = value.ToString();
+                    value = Convert.ToDouble(vNO) * (7.271 * (10 ^ -8)) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vNOBtu = value.ToString();
+                    break;
+                case 4:
+                    value = Convert.ToDouble(vCO) * (7.271 * (10 ^ -8)) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vCOBtu = value.ToString();
+                    value = Convert.ToDouble(vNO) * (7.271 * (10 ^ -8)) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vNOBtu = value.ToString();
+                    break;
+                case 5:
+                    value = Convert.ToDouble(vCO) * (7.271 * (10 ^ -8)) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vCOBtu = value.ToString();
+                    value = Convert.ToDouble(vNO) * (7.271 * (10 ^ -8)) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2)));
+                    vNOBtu = value.ToString();
+                    break;
             }
         }
         private static string CalculateChecksum(string dataToCalculate)

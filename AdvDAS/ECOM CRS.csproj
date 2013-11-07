@@ -44,21 +44,20 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\32feet.NET\NET\InTheHand.Net.Personal.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>.\itextsharp.dll</HintPath>
+      <HintPath>bin\Debug\ext\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.pdfa">
-      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+      <HintPath>bin\Debug\ext\itextsharp.pdfa.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.xtra">
-      <HintPath>.\itextsharp.xtra.dll</HintPath>
+      <HintPath>bin\Debug\ext\itextsharp.xtra.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Daymen\Source\Repos\bluetooth-info-grabber\AdvDAS\bin\Debug\SQLite.NET.dll</HintPath>
+    <Reference Include="SQLite.NET">
+      <HintPath>bin\Debug\ext\SQLite.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -290,7 +289,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Panels\flow-black-blu.png" />

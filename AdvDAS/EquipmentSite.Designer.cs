@@ -115,6 +115,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -128,7 +129,6 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -974,6 +974,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emmisions Values Included In Report ";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(378, 43);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(210, 20);
+            this.textBox3.TabIndex = 14;
+            // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
@@ -1045,15 +1052,15 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Coal: Anthracite",
-            "Coal: Bituminus",
-            "Coal: Lignite",
             "Residual Oil",
             "Distillate Oil",
             "Diesel",
             "Gas: Natural",
             "Gas: Propane",
             "Gas: Butane",
+            "Coal: Anthracite",
+            "Coal: Bituminus",
+            "Coal: Lignite",
             "Wood",
             "Wood Bark"});
             this.comboBox1.Location = new System.Drawing.Point(189, 63);
@@ -1098,13 +1105,6 @@
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(378, 43);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 20);
-            this.textBox3.TabIndex = 14;
             // 
             // EquipmentSite
             // 

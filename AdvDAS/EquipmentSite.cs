@@ -71,7 +71,7 @@ namespace CRS
                 catch
                 {
                 }
-                
+
             }
             else
                 return;
@@ -520,7 +520,7 @@ namespace CRS
             label36.Enabled = false;
             label37.Enabled = false;
             /////////////////////////////////////
-            
+
             checkBox2.Enabled = true;
             checkBox3.Enabled = true;
             checkBox4.Enabled = true;
@@ -574,34 +574,42 @@ namespace CRS
 
         private void cbFuelType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox1.Items.Clear();
             switch (cbFuelType.SelectedIndex)
             {
                 case 0:
                     checkBox1.Enabled = false;
                     checkBox1.Checked = false;
+                    comboBox1.Items.AddRange(new string[]{"Residual Oil","Distillate Oil","Diesel","Gas: Natural","Gas: Propane","Gas: Butane",
+                        "Coal: Anthracite","Coal: Bituminus","Coal: Lignite","Wood","Wood Bark"});
                     break;
                 case 1:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
+                    comboBox1.Items.AddRange(new string[]{"Residual Oil","Distillate Oil","Diesel","Gas: Natural","Gas: Propane","Gas: Butane"});
                     break;
                 case 2:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
+                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
                     break;
                 case 3:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
+                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
                     break;
                 case 4:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
+                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
                     break;
                 case 5:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
+                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
                     break;
             }
-            
+
         }
     }
 }
