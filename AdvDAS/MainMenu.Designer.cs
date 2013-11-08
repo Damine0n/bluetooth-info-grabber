@@ -1389,7 +1389,7 @@ namespace CRS
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 53);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 31);
             // 
             // toolStripComboBox1
             // 
@@ -3491,7 +3491,7 @@ namespace CRS
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox1, 0, 0);
@@ -3523,7 +3523,7 @@ namespace CRS
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(177, 59);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(176, 59);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3534,7 +3534,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.White;
             this.iflowlbl.Location = new System.Drawing.Point(3, 0);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(171, 39);
+            this.iflowlbl.Size = new System.Drawing.Size(170, 39);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3547,7 +3547,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.White;
             this.flowlbl.Location = new System.Drawing.Point(3, 39);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(171, 20);
+            this.flowlbl.Size = new System.Drawing.Size(170, 20);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
