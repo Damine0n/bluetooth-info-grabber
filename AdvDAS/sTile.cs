@@ -24,6 +24,7 @@ namespace CRS
         public static double correction;
         public J2KNProtocol protocol = new J2KNProtocol();
         DateTime now;
+        private DateTime start;
 
         public ScaleDisplay(Tuple<Label, Label, Button> tuple)
         {
@@ -62,6 +63,8 @@ namespace CRS
                 protocol.processProtocol();
                 protocol.processProtocol("$0A0531");
                 protocol.processProtocol("$0A054E");
+                protocol.massEmissions(3);
+                start = DateTime.Now;
             }
             switch (elementComboBox.SelectedIndex)
             {
@@ -98,6 +101,8 @@ namespace CRS
                 case 5:
                     break;
                 case 6:
+                    valLabel.Text = protocol.vCOBtu;
+                    this.lbl2.Text = protocol.vCOBtu;
                     break;
                 case 7:
                     this.lbl1.Text = elementComboBox.Text;
@@ -267,7 +272,6 @@ namespace CRS
                 average = nums.Average().ToString("0.0");
                 aveLabel.Text = average;
                 btn.Text = average + " AVG";
-                chart1.Titles[0].Text=DateTime.Now.ToString("HH:mm:ss");
             }
             catch (Exception)
             {
@@ -309,6 +313,7 @@ namespace CRS
                 case 5:
                     break;
                 case 6:
+                    valLabel.Text = protocol.vCOBtu;
                     break;
                 case 7:
                     valLabel.Text = protocol.vCO2;
@@ -405,6 +410,8 @@ namespace CRS
                 aveLabel.Text = average;
                 this.btn.Text = average + " AVG";
                 chartIt(valLabel.Text, average);
+                chart1.Titles[0].Text = "Start Time:  " + start.ToString("T") + "   -   " + DateTime.Now.ToString("T");
+
             }
             catch (Exception ex)
             {

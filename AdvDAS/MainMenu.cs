@@ -763,6 +763,8 @@ namespace CRS
             protocol.processProtocol("$0A0531");
             //get Signal Strength
             protocol.processProtocol("$0A0512");
+            //
+            protocol.massEmissions(3);
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);

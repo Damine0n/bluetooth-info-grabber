@@ -2034,7 +2034,7 @@ namespace CRS
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 450F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 449F));
             this.tableLayoutPanel2.Controls.Add(this.panel12, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tabControl1, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel16, 1, 0);
@@ -2071,7 +2071,7 @@ namespace CRS
             this.recordingSign.Location = new System.Drawing.Point(395, 0);
             this.recordingSign.Margin = new System.Windows.Forms.Padding(0);
             this.recordingSign.Name = "recordingSign";
-            this.recordingSign.Size = new System.Drawing.Size(192, 41);
+            this.recordingSign.Size = new System.Drawing.Size(179, 41);
             this.recordingSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.recordingSign.TabIndex = 8;
             this.recordingSign.TabStop = false;
@@ -3491,19 +3491,19 @@ namespace CRS
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(570, 0);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(571, 0);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel2.SetRowSpan(this.tableLayoutPanel16, 2);
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.22222F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.77778F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(450, 72);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(449, 72);
             this.tableLayoutPanel16.TabIndex = 24;
             // 
             // tableLayoutPanel17
@@ -3516,14 +3516,14 @@ namespace CRS
             this.tableLayoutPanel17.Controls.Add(this.iflowlbl, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.flowlbl, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(212, 10);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(211, 10);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel16.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(176, 59);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(175, 59);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // iflowlbl
@@ -3534,7 +3534,7 @@ namespace CRS
             this.iflowlbl.ForeColor = System.Drawing.Color.White;
             this.iflowlbl.Location = new System.Drawing.Point(3, 0);
             this.iflowlbl.Name = "iflowlbl";
-            this.iflowlbl.Size = new System.Drawing.Size(170, 39);
+            this.iflowlbl.Size = new System.Drawing.Size(169, 39);
             this.iflowlbl.TabIndex = 0;
             this.iflowlbl.Text = "0.0";
             this.iflowlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3547,7 +3547,7 @@ namespace CRS
             this.flowlbl.ForeColor = System.Drawing.Color.White;
             this.flowlbl.Location = new System.Drawing.Point(3, 39);
             this.flowlbl.Name = "flowlbl";
-            this.flowlbl.Size = new System.Drawing.Size(170, 20);
+            this.flowlbl.Size = new System.Drawing.Size(169, 20);
             this.flowlbl.TabIndex = 1;
             this.flowlbl.Text = "I.Flow (L/min)";
             this.flowlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3558,7 +3558,7 @@ namespace CRS
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Myriad Pro Light SemiExt", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(49, 52);
+            this.label13.Location = new System.Drawing.Point(48, 52);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 20);
             this.label13.TabIndex = 29;
@@ -3569,7 +3569,7 @@ namespace CRS
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(101, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(100, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 10, 18, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(56, 41);
