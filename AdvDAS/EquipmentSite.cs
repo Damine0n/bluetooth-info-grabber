@@ -370,7 +370,7 @@ namespace CRS
                         textBox5.Text = NOxLimit;
                         radioButton1.Checked = true;
                         break;
-                    case "LB/HR":
+                    case "lb/hr":
                         textBox6.Text = COLimit;
                         textBox7.Text = NOxLimit;
                         radioButton2.Checked = true;
@@ -380,7 +380,7 @@ namespace CRS
                         textBox9.Text = NOxLimit;
                         radioButton3.Checked = true;
                         break;
-                    case "LB/MMBTU":
+                    case "lb/mmBTU":
                         textBox10.Text = COLimit;
                         textBox11.Text = NOxLimit;
                         radioButton4.Checked = true;
