@@ -1116,11 +1116,11 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(291, 25);
+            this.button6.Location = new System.Drawing.Point(181, 28);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(252, 34);
+            this.button6.Size = new System.Drawing.Size(424, 34);
             this.button6.TabIndex = 25;
-            this.button6.Text = "Pre- Calibration Finished";
+            this.button6.Text = "Click Here to Complete Pre- Calibration.";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Visible = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -1929,11 +1929,11 @@
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(244, 25);
+            this.button9.Location = new System.Drawing.Point(156, 27);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(299, 34);
+            this.button9.Size = new System.Drawing.Size(493, 34);
             this.button9.TabIndex = 35;
-            this.button9.Text = "Post-Test Drift Check Finished";
+            this.button9.Text = "Click Here to Complete Post-Test Drift Check. ";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Visible = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);

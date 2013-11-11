@@ -25,6 +25,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         DataTable ds1 = new DataTable();
         DataTable ds2 = new DataTable();
+        DataTable ds3 = new DataTable();
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         protected string equipment = "", site = "";
@@ -37,7 +38,7 @@ namespace CRS
             O2prZero, O2poZero, COprZero, COpoZero, NOprZero, NOpoZero, NO2prZero, NO2poZero,
             O2prSpan, O2poSpan, COprSpan, COpoSpan, NOprSpan, NOpoSpan, NO2prSpan, NO2poSpan;
 
-        string finalTemp,startTemp;
+        string finalTemp, startTemp;
         List<double> COTavg, NOxTavg, NOmassTavg, COmassTavg;
         public static DateTime O2exp, COexp, NOexp, NO2exp;
         DateTime ePermitDate;
@@ -729,54 +730,60 @@ namespace CRS
                         MessageBox.Show(dataGridView1.ColumnCount.ToString());
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
-                    try
-                    {
-                        var da = new SQLiteDataAdapter("SELECT CO, NO, COma,  FROM " + names[z] + ";", sqlite_conn);
-                        ds1.Clear();
-                        da.Fill(ds1);
-                        bindingSource1.DataSource = ds1;
-                        dataGridView1.DataSource = bindingSource1;
-                        da.Update(ds1);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message + ex.StackTrace);
-                    }
-                    for (int l = 0; l < dataGridView1.Rows.Count; l++)
-                    {
-                        COsum += Convert.ToDouble(dataGridView1.Rows[l].Cells[2].Value);
-                        NOxsum += Convert.ToDouble(dataGridView1.Rows[l].Cells[5].Value);
-                    }
-                    int count = dataGridView1.Rows.Count;
-                    COTavg.Add(COsum / count);
-                    NOxTavg.Add(NOxsum / count);
-                    COmassTavg.Add(COMassSum / count);
-                    NOmassTavg.Add(NOxMassSum / count);
-                    double COavg = COTavg[z];
-                    double NOxavg = NOxTavg[z];
-                    double COmassavg = COmassTavg[z];
-                    double NOxmassavg = NOmassTavg[z];
-                    Paragraph paragraph = new Paragraph("Average CO = " + COavg + "\nAverage NOx = " + NOxavg + "\nAverage COmass = " + COmassavg + "\nAverage NOxmass = " + NOxmassavg+"\n");
-                    //Adds above created text using different class object to our pdf document.
-                    paragraph.SpacingAfter = 10;
-                    paragraph.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
-                    doc.Add(paragraph);
-                }
-                Paragraph totalAverageSummary = new Paragraph("Total Average CO = " + COTavg.Average() + "\nTotal Average NOx = " + NOxTavg.Average() + "\nTotal Average COmass = " + COmassTavg.Average() + "\nTotal Average NOxmass = " + NOmassTavg.Average());
-                //Adds above created text using different class object to our pdf document.
-                totalAverageSummary.SpacingAfter = 10;
-                totalAverageSummary.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
-                doc.Add(totalAverageSummary);
-                NotesForm notes = new NotesForm();
-                notes.ShowDialog();
-                Paragraph newNotes = new Paragraph(notes.snapNote);
+                    //    try
+                    //    {
 
-                doc.Add(newNotes);
-                doc.Close();//Closes Document
-                System.Diagnostics.Process.Start(sfd.FileName);
+                    //        var da = new SQLiteDataAdapter("SELECT CO, NO, COmass, NOxmass FROM " + names[z] + ";", sqlite_conn);
+                    //        ds3.Clear();
+                    //        da.Fill(ds3);
+                    //        bindingSource3.DataSource = ds3;
+                    //        dataGridView3.DataSource = bindingSource3;
+                    //        da.Update(ds3);
+
+                    //        for (int l = 0; l < dataGridView3.Rows.Count - 2; l++)
+                    //        {
+                    //            COsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[0].Value.ToString());
+                    //            NOxsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[1].Value.ToString());
+                    //            COMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[2].Value.ToString());
+                    //            NOxMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[3].Value.ToString());
+                    //        }
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        MessageBox.Show(ex.Message + ex.StackTrace);
+                    //    }
+                    //    int count = dataGridView3.Rows.Count-1;
+                    //    COTavg.Add(Convert.ToDouble(COsum / count));
+                    //    NOxTavg.Add(Convert.ToDouble(NOxsum / count));
+                    //    COmassTavg.Add(Convert.ToDouble(COMassSum / count));
+                    //    NOmassTavg.Add(Convert.ToDouble(NOxMassSum / count));
+                    //    double COavg = COTavg[z];
+                    //    double NOxavg = NOxTavg[z];
+                    //    double COmassavg = COmassTavg[z];
+                    //    double NOxmassavg = NOmassTavg[z];
+                    //    Paragraph paragraph = new Paragraph("Average CO = " + COavg + "\nAverage NOx = " + NOxavg + "\nAverage COmass = " + COmassavg + "\nAverage NOxmass = " + NOxmassavg + "\n");
+                    //    //Adds above created text using different class object to our pdf document.
+                    //    paragraph.SpacingAfter = 10;
+                    //    paragraph.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
+                    //    doc.Add(paragraph);
+                    //}
+                    //Paragraph totalAverageSummary = new Paragraph("Total Average CO = " + COTavg.Average() + "\nTotal Average NOx = " + NOxTavg.Average() + "\nTotal Average COmass = " + COmassTavg.Average() + "\nTotal Average NOxmass = " + NOmassTavg.Average());
+                    ////Adds above created text using different class object to our pdf document.
+                    //totalAverageSummary.SpacingAfter = 10;
+                    //totalAverageSummary.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
+                    //doc.Add(totalAverageSummary);
+                }
+                    NotesForm notes = new NotesForm();
+                    notes.ShowDialog();
+                    Paragraph newNotes = new Paragraph(notes.snapNote);
+
+                    doc.Add(newNotes);
+                    doc.Close();//Closes Document
+                    System.Diagnostics.Process.Start(sfd.FileName);
+                }
+                sqlite_conn.Close();
             }
-            sqlite_conn.Close();
-        }
+       
 
 
 

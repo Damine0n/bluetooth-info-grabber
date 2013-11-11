@@ -157,6 +157,8 @@ namespace CRS
                         vAccu = (iValue / 10).ToString("0.0");
                     double num = Convert.ToDouble(vNO) + Convert.ToDouble(vNO2);
                     vNOx = num.ToString();
+                    vCOmass = "0.0";
+                    vNOxmass = "0.0";
                     clientSocket.Close();
                 }
                 catch

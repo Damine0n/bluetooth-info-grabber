@@ -55,7 +55,7 @@ namespace CRS
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
         public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
-        public static string cUnit, nUnit, numOfCycles, equipment = "Equipment: Not Selected";
+        public static string cUnit, nUnit, numOfCycles, equipment = "Equipment: Not Selected\n ";
         public J2KNProtocol protocol = new J2KNProtocol();
         private string tableName = "";
         private bool run = false;
@@ -245,7 +245,7 @@ namespace CRS
             resetButton.Enabled = false;
             timer1.Interval = dgInterval;
             resetAll();
-            if (!numOfCycles.Equals("\u221e"))
+            if (!numOfCycles.Equals("-1"))
             {
                 cycles = Convert.ToInt32(numOfCycles);
                 label22.Text = currentCycle + " of " + numOfCycles;
@@ -446,7 +446,7 @@ namespace CRS
             this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
-            this.label14.Text = tested + " Machines Tested";
+            this.label14.Text = "\n"+tested + " Machines Tested\nSince Last Calibration\n ";
         }
 
         //add question during close
@@ -749,7 +749,10 @@ namespace CRS
             pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
             label23.Text = dgInterval / 1000 + " sec(s)";
-            label22.Text = currentCycle + " of " + numOfCycles;
+            if (numOfCycles.Equals("-1"))
+                label22.Text = currentCycle + " of " + numOfCycles;
+            else
+                label22.Text = currentCycle + " of " + "\u221e";
 
             //get all values
             protocol.processProtocol();
@@ -832,7 +835,7 @@ namespace CRS
 
         private void recordSign_Tick(object sender, EventArgs e)
         {
-                recordingSign.Visible = true;
+            recordingSign.Visible = true;
         }
 
         private void setupCommunictaionPortsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -858,18 +861,21 @@ namespace CRS
                 this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
-            //label21.ForeColor = Color.Black;
-            //label23.ForeColor = Color.Black;
-            //cycleLabel.ForeColor = Color.Black;
-            //label22.ForeColor = Color.Black;
-            //rlbl.ForeColor = Color.Black;
-            //tlbl.ForeColor = Color.Black;
-            //plbl.ForeColor = Color.Black;
-            //rTimelbl.ForeColor = Color.Black;
-            //tTimelbl.ForeColor = Color.Black;
-            //pTimelbl.ForeColor = Color.Black;
-            //label14.ForeColor = Color.Black;
-            //clock_lbl.ForeColor = Color.Black;
+            label21.ForeColor = Color.Black;
+            label23.ForeColor = Color.Black;
+            cycleLabel.ForeColor = Color.Black;
+            label22.ForeColor = Color.Black;
+            rlbl.ForeColor = Color.Black;
+            tlbl.ForeColor = Color.Black;
+            plbl.ForeColor = Color.Black;
+            rTimelbl.ForeColor = Color.Black;
+            tTimelbl.ForeColor = Color.Black;
+            pTimelbl.ForeColor = Color.Black;
+            label14.ForeColor = Color.Black;
+            clock_lbl.ForeColor = Color.Black;
+            label16.ForeColor = Color.Black;
+            label15.ForeColor = Color.Black;
+            recordTimeLabel.ForeColor = Color.Black;
 
         }
         private void blue50GrayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -894,18 +900,21 @@ namespace CRS
                 this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
                 i++;
             }
-            //label21.ForeColor = Color.White;
-            //label23.ForeColor = Color.White;
-            //cycleLabel.ForeColor = Color.Black;
-            //label22.ForeColor = Color.Black;
-            //rlbl.ForeColor = Color.Black;
-            //tlbl.ForeColor = Color.Black;
-            //plbl.ForeColor = Color.Black;
-            //rTimelbl.ForeColor = Color.Black;
-            //tTimelbl.ForeColor = Color.Black;
-            //pTimelbl.ForeColor = Color.Black;
-            //label14.ForeColor = Color.Black;
-            //clock_lbl.ForeColor = Color.Black;
+            label21.ForeColor = Color.Black;
+            label23.ForeColor = Color.Black;
+            cycleLabel.ForeColor = Color.Black;
+            label22.ForeColor = Color.Black;
+            rlbl.ForeColor = Color.Black;
+            tlbl.ForeColor = Color.Black;
+            plbl.ForeColor = Color.Black;
+            rTimelbl.ForeColor = Color.Black;
+            tTimelbl.ForeColor = Color.Black;
+            pTimelbl.ForeColor = Color.Black;
+            label14.ForeColor = Color.Black;
+            clock_lbl.ForeColor = Color.Black;
+            label16.ForeColor = Color.Black;
+            label15.ForeColor = Color.Black;
+            recordTimeLabel.ForeColor = Color.Black;
         }
         private void blueBlackToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -917,18 +926,21 @@ namespace CRS
                 this.tabPage1.BackColor = Color.Black;
                 i++;
             }
-            //label21.ForeColor = Color.White;
-            //label23.ForeColor = Color.White;
-            //cycleLabel.ForeColor = Color.White;
-            //label22.ForeColor = Color.White;
-            //rlbl.ForeColor = Color.White;
-            //tlbl.ForeColor = Color.White;
-            //plbl.ForeColor = Color.White;
-            //rTimelbl.ForeColor = Color.White;
-            //tTimelbl.ForeColor = Color.White;
-            //pTimelbl.ForeColor = Color.White;
-            //label14.ForeColor = Color.White;
-            //clock_lbl.ForeColor = Color.White;
+            label21.ForeColor = Color.White;
+            label23.ForeColor = Color.White;
+            cycleLabel.ForeColor = Color.White;
+            label22.ForeColor = Color.White;
+            rlbl.ForeColor = Color.White;
+            tlbl.ForeColor = Color.White;
+            plbl.ForeColor = Color.White;
+            rTimelbl.ForeColor = Color.White;
+            tTimelbl.ForeColor = Color.White;
+            pTimelbl.ForeColor = Color.White;
+            label14.ForeColor = Color.White;
+            clock_lbl.ForeColor = Color.White;
+            label16.ForeColor = Color.White;
+            label15.ForeColor = Color.White;
+            recordTimeLabel.ForeColor = Color.White;
 
 
         }
@@ -1954,13 +1966,21 @@ namespace CRS
             {
                 ScaleDisplay.correction = 0;
             }
-            else 
+            else
             {
                 ScaleDisplay.correction = Convert.ToDouble(CO_C);
             }
 
         }
-
+        private void Button1_EnabledChanged(object sender, System.EventArgs e)
+        {
+            var button = sender as Button;
+            for (int i = 0; i < 12; i++)
+            {
+                lblList1[i].Item3.ForeColor = button.Enabled == false ? Color.Blue : Color.Red;
+                //lblList1[0].Item3.BackColor = Color.AliceBlue;
+            }
+        }
 
     }
 }

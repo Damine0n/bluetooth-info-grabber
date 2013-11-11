@@ -39,7 +39,7 @@ namespace CRS
             this.purge = purge;
             this.sampleRate = sampleRate / 1000;
             this.cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(rampUp.ToString("HH:mm:ss")) + TimeSpan.Parse(testData.ToString("HH:mm:ss")) + TimeSpan.Parse(purge.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
-            if (numOfCycles.Equals("\u221e"))
+            if (numOfCycles.Equals("-1"))
             {
                 this.numericUpDown1.Value = 1;
                 checkBox1.CheckState = CheckState.Checked;
@@ -52,7 +52,7 @@ namespace CRS
         private void populate()
         {
             numericUpDown2.Value = sampleRate;
-            if (!numOfCycles.Equals("\u221e"))
+            if (!numOfCycles.Equals("-1"))
             {
                 numericUpDown1.Value = Convert.ToInt32(numOfCycles);
             }
@@ -67,7 +67,7 @@ namespace CRS
                 this.numericUpDown1.Value = 1;
                 this.numericUpDown1.Enabled = false;
                 MessageBox.Show("Once the function is initiated, the analyzer will cycle continuously until the user stops the measurement.");
-                this.numOfCycles = "\u221e";
+                this.numOfCycles = "-1";
             }
             else
             {

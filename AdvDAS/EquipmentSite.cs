@@ -392,7 +392,7 @@ namespace CRS
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
             GasAnalysis.site = this.siteBox.Text.ToString();
-            MainMenu.equipment = "Equipment: " + this.equipBox.Text.ToString();
+            MainMenu.equipment = "Equipment: " + this.equipBox.Text.ToString()+"\n ";
         }
 
         private void button1_Click(object sender, EventArgs e)
