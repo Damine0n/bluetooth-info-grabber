@@ -142,16 +142,19 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you need to do a Pre-Calibration now? \n\nSelect YES if you do. \n\nSelect NO if you have already done it or if you do not need a Pre-Calibration.", "Pre-Calibration?", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.No)
+            if (!equipment.Equals("Equipment: Not Selected\n "))
             {
-
-                if (!equipment.Equals("Equipment: Not Selected"))
+                if (!run)
                 {
-                    if (!run)
+                    if (tempRampUp.ToString("HH:mm:ss").Equals("00:00:00") && tempTestData.ToString("HH:mm:ss").Equals("00:00:00") && tempPurge.ToString("HH:mm:ss").Equals("00:00:00") && numOfCycles == currentCycle.ToString())
                     {
-                        if (tempRampUp.ToString("HH:mm:ss").Equals("00:00:00") && tempTestData.ToString("HH:mm:ss").Equals("00:00:00") && tempPurge.ToString("HH:mm:ss").Equals("00:00:00") && numOfCycles == currentCycle.ToString())
+                    }
+                    else
+                    {
+                        DialogResult dialog = MessageBox.Show("Do you need to do a Pre-Calibration now? \n\nSelect YES if you do. \n\nSelect NO if you have already done it or if you do not need a Pre-Calibration.", "Pre-Calibration?", MessageBoxButtons.YesNo);
+                        if (dialog == DialogResult.Yes)
                         {
+                            caliForm.ShowDialog();
                         }
                         else
                         {
@@ -165,21 +168,21 @@ namespace CRS
                             this.stopRecordingButton.Enabled = run;
                         }
                     }
-                    else
-                    {
-                        this.configureRecordingToolStripMenuItem.Enabled = run;
-                        this.button1.Enabled = run;
-                        run = false;
-                        this.timer1.Stop();
-                        this.recordSignTimer.Stop();
-                        this.recordingSign.Visible = false;
-                        this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
-                    }
+                }
+                else
+                {
+                    this.configureRecordingToolStripMenuItem.Enabled = run;
+                    this.button1.Enabled = run;
+                    run = false;
+                    this.timer1.Stop();
+                    this.recordSignTimer.Stop();
+                    this.recordingSign.Visible = false;
+                    this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
                 }
             }
-            else
-                caliForm.ShowDialog();
         }
+
+
         //Stops recording
         private void stopRecordingItem_Click(object sender, EventArgs e)
         {
@@ -446,7 +449,7 @@ namespace CRS
             this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
-            this.label14.Text = "\n"+tested + " Machines Tested\nSince Last Calibration\n ";
+            this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
         }
 
         //add question during close
@@ -750,9 +753,9 @@ namespace CRS
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
             label23.Text = dgInterval / 1000 + " sec(s)";
             if (numOfCycles.Equals("-1"))
-                label22.Text = currentCycle + " of " + numOfCycles;
-            else
                 label22.Text = currentCycle + " of " + "\u221e";
+            else
+                label22.Text = currentCycle + " of " + numOfCycles;
 
             //get all values
             protocol.processProtocol();

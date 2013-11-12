@@ -108,7 +108,7 @@ namespace CRS
             {
                 try
                 {
-                    tableName = "PreCalibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
+                    tableName = "Pre_Test_Calibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
                     //Creates a new table:
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE " + tableName + " AS SELECT * FROM Calibration WHERE 0;";
@@ -143,7 +143,7 @@ namespace CRS
             {
                 try
                 {
-                    tableName = "PostCalibration_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
+                    tableName = "Post_Test_Drift_Check_" + i + "_" + DateTime.Now.ToString("MM_dd_yy");
                     //Creates a new table:
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE " + tableName + " AS SELECT * FROM Calibration WHERE 0;";

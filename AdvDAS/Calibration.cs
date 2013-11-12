@@ -29,7 +29,6 @@ namespace CRS
             InitializeComponent();
             if (protocol.processProtocol())
                 timer1.Start();
-            ((Control)this.tabPage2).Enabled = false;
             ((Control)this.tabPage3).Enabled = false;
         }
 
@@ -106,7 +105,14 @@ namespace CRS
                 PrintDocs.COexp = dateTimePicker1.Value;
                 PrintDocs.NOexp = dateTimePicker2.Value;
                 PrintDocs.NO2exp = dateTimePicker3.Value;
-                ((Control)this.tabPage2).Enabled = true;
+                PrintDocs.upload1=textBox10.Text;
+                PrintDocs.upload2=textBox9.Text;
+                PrintDocs.upload3=textBox5.Text;
+                PrintDocs.upload4=textBox6.Text;
+                PrintDocs.spanDCO=numericUpDown13.Value.ToString();
+                PrintDocs.spanDNO=numericUpDown12.Value.ToString();
+                PrintDocs.spanDNO2=numericUpDown11.Value.ToString();
+                PrintDocs.spanDO2=numericUpDown10.Value.ToString();
                 LCO.Text = (Math.Round(Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)), 1)).ToString();
                 RCO.Text = (Math.Round(Convert.ToDouble(this.textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)), 1)).ToString();
                 LNO.Text = (Math.Round(Convert.ToDouble(this.textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100)), 1)).ToString();
@@ -119,7 +125,6 @@ namespace CRS
             else
             {
                 MessageBox.Show("All Span Gas Values should be entered.");
-                ((Control)this.tabPage2).Enabled = false;
                 ((Control)this.tabPage3).Enabled = false;
             }
         }
@@ -469,17 +474,6 @@ namespace CRS
             button.BackgroundImage = Properties.Resources.CALIBRATE_NO2_A;
         }
 
-        private void Calibration_HelpButtonClicked(object sender, CancelEventArgs e)
-        {
-            MessageBox.Show("*Always check for air leaks prior to calibration."
-               + "\n1. Apply cal gas and begin timer."
-               + "\n2. Once timer stops, verify that the sensor response is within the cal error limit."
-               + "\n    Click 'Capture Cal Response'."
-               + "\n3. Click 'Calibrate Sensor'."
-               + "\nTip: Begin calibration by applying NO gas balanced in N2. You can check for air leaks &"
-               + " capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             timer2.Stop();
@@ -670,6 +664,17 @@ namespace CRS
             }
             else
                 gases.Calibration(protocol, caliName2);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("*Always check for air leaks prior to calibration."
+               + "\n1. Apply cal gas and begin timer."
+               + "\n2. Once timer stops, verify that the sensor response is within the cal error limit."
+               + "\n    Click 'Capture Cal Response'."
+               + "\n3. Click 'Calibrate Sensor'."
+               + "\nTip: Begin calibration by applying NO gas balanced in N2. You can check for air leaks &"
+               + " capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
         }
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }
