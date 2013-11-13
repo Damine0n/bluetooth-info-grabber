@@ -40,7 +40,10 @@ namespace CRS
             spanDO2, spanDCO, spanDNO, spanDNO2, upload1, upload2, upload3, upload4;
 
         string finalTemp, startTemp;
-        List<double> COTavg=new List<double>();
+        List<double> O2Tavg = new List<double>();
+        List<double> COTavg = new List<double>();
+        List<double> NOTavg = new List<double>();
+        List<double> NO2Tavg = new List<double>();
         List<double> NOxTavg = new List<double>();
         List<double> NOmassTavg = new List<double>();
         List<double> COmassTavg = new List<double>();
@@ -120,7 +123,7 @@ namespace CRS
             sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save Report";
+            sfd.Title = "Save SnaspShot Report";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = sfd.FileName;
@@ -402,6 +405,8 @@ namespace CRS
             FillVariables();
             double O2sum = 0;
             double COsum = 0;
+            double NOsum = 0;
+            double NO2sum = 0;
             double NOxsum = 0;
             double COMassSum = 0;
             double NOxMassSum = 0;
@@ -410,6 +415,8 @@ namespace CRS
             bool stop = false;
             List<Tuple<string, string, string, string, string>> averages = new List<Tuple<string, string, string, string, string>>();
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 25, 25, 10, 10);
+            LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
+            Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
@@ -497,8 +504,7 @@ namespace CRS
                 {
                     iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
                     //Write Some Content
-                    LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
-                    Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
+                    
 
                     Paragraph heading = new Paragraph("Engine Emissions Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
                     Paragraph personalData = new Paragraph("", hel);
@@ -736,8 +742,21 @@ namespace CRS
                     }
                     try
                     {
-
-                        var da = new SQLiteDataAdapter("SELECT O2, CO, NO, NO2, NOx, COmass, NOxmass FROM " + names[z] + ";", sqlite_conn);
+                        string masses;
+                        if (eLimitUnit.Equals("lb/mmBTU"))
+                        {
+                            masses="COmmbtu, NOxmmbtu";
+                        }else if(eLimitUnit.Equals("TPY"))
+                        {
+                            masses="COtpy, NOxtpy";
+                        }else if(eLimitUnit.Equals("lb/hr"))
+                        {
+                            masses="COhr, NOxhr";
+                        }else
+                        {
+                            masses="CObhp, NOxbhp";
+                        }
+                        var da = new SQLiteDataAdapter("SELECT O2, CO, NO, NO2, NOx, "+masses+" FROM " + names[z] + ";", sqlite_conn);
                         ds3.Clear();
                         da.Fill(ds3);
                         bindingSource3.DataSource = ds3;
@@ -746,10 +765,13 @@ namespace CRS
 
                         for (int l = 0; l < dataGridView3.Rows.Count - 2; l++)
                         {
-                            COsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[0].Value.ToString());
-                            NOxsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[1].Value.ToString());
-                            COMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[2].Value.ToString());
-                            NOxMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[3].Value.ToString());
+                            O2sum += Convert.ToDouble(dataGridView3.Rows[l].Cells[0].Value.ToString());
+                            COsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[1].Value.ToString());
+                            NOsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[2].Value.ToString());
+                            NO2sum += Convert.ToDouble(dataGridView3.Rows[l].Cells[3].Value.ToString());
+                            NOxsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[4].Value.ToString());
+                            COMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[5].Value.ToString());
+                            NOxMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[6].Value.ToString());
                         }
                     }
                     catch (Exception ex)
@@ -757,28 +779,41 @@ namespace CRS
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
                     double count = dataGridView3.Rows.Count - 1;
-                    double quotient = COsum / count;
-                    MessageBox.Show(quotient.ToString());
-                    if (quotient == 0)
-                        COTavg.Add(quotient);
+                    O2Tavg.Add(O2sum / count);
+                    COTavg.Add(COsum / count);
+                    NOTavg.Add(NOsum / count);
+                    NO2Tavg.Add(NO2sum / count);
                     NOxTavg.Add(NOxsum / count);
                     COmassTavg.Add(COMassSum / count);
                     NOmassTavg.Add(NOxMassSum / count);
+                    double O2avg =O2Tavg[z];
                     double COavg = COTavg[z];
+                    double NOavg=NOTavg[z];
+                    double NO2avg=NO2Tavg[z];
                     double NOxavg = NOxTavg[z];
                     double COmassavg = COmassTavg[z];
                     double NOxmassavg = NOmassTavg[z];
                     Paragraph paragraph = new Paragraph();
-                    paragraph.Add(new Phrase("Average CO = " + COavg + "\n"));
-                    paragraph.Add(new Phrase("Average NOx = " + NOxavg + "\n"));
-                    paragraph.Add(new Phrase("Average COmass = " + COmassavg + "\n"));
-                    paragraph.Add(new Phrase("Average NOxmass = " + NOxmassavg + "\n"));
+                    paragraph.Add(new Phrase("Average O2 = " + O2avg + "%"));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    paragraph.Add(new Phrase("Average NOx = " + NOxavg + "ppm\n"));
+                    paragraph.Add(new Phrase("Average CO = " + COavg + "ppm"));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    paragraph.Add(new Phrase("Average COmass = " + COmassavg + " " + eLimitUnit + "\n"));
+                    paragraph.Add(new Phrase("Average NO = " + NOavg + "ppm"));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                    paragraph.Add(new Phrase("Average NOxmass = " + NOxmassavg + " " + eLimitUnit + "\n"));
+                    paragraph.Add(new Phrase("Average NO2 = " + NO2avg + "ppm\n"));
+                    
+                    
+                    
 
                     //Adds above created text using different class object to our pdf document.
                     paragraph.SpacingAfter = 10;
                     paragraph.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
                     doc.Add(paragraph);
                 }
+                doc.Add(tab1);
                 Paragraph totalAverageSummary = new Paragraph("Total Average CO = " + COTavg.Average() + "\nTotal Average NOx = " + NOxTavg.Average() + "\nTotal Average COmass = " + COmassTavg.Average() + "\nTotal Average NOxmass = " + NOmassTavg.Average());
                 //Adds above created text using different class object to our pdf document.
                 totalAverageSummary.SpacingAfter = 10;
@@ -788,7 +823,7 @@ namespace CRS
                 NotesForm notes = new NotesForm();
                 notes.ShowDialog();
                 Paragraph newNotes = new Paragraph(notes.snapNote);
-
+                doc.Add(tab1);
                 doc.Add(newNotes);
                 doc.Close();//Closes Document
                 System.Diagnostics.Process.Start(sfd.FileName);
@@ -804,6 +839,8 @@ namespace CRS
             FillVariables();
             double O2sum = 0;
             double COsum = 0;
+            double NOsum = 0;
+            double NO2sum = 0;
             double NOxsum = 0;
             double COMassSum = 0;
             double NOxMassSum = 0;

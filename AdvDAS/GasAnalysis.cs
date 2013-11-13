@@ -52,11 +52,13 @@ namespace CRS
                         //Inserts something into our new table:
                         sqlite_cmd = sqlite_conn.CreateCommand();
                         sqlite_cmd.CommandText = "INSERT INTO  " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                        + "Losses, ExcessAir, COmass, NOxmass) VALUES ('"
+                        + "Losses, ExcessAir, COmmbtu, NOxmmbtu, COtpy, NOxtpy, COhr, NOxhr, CObhp, NOxbhp) VALUES ('"
                         + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
                         + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','"
                         + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','"
-                        + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "');";
+                        + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOBtu + "','"
+                        + protocol.vNOxBtu + "','" + protocol.vCOTPY + "','" + protocol.vNOxTPY + "','" + protocol.vCOHr + "','" + protocol.vNOxHr + "','" 
+                        + protocol.vCOBhp + "','" + protocol.vNOxBhp + "');";
 
                         // And execute this again ;D
                         sqlite_cmd.ExecuteNonQuery();
@@ -86,11 +88,13 @@ namespace CRS
                 //Inserts something into our new table:
                 sqlite_cmd = sqlite_conn.CreateCommand();
                 sqlite_cmd.CommandText = "INSERT INTO  " + x + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                + "Losses, ExcessAir, COmass, NOxmass) VALUES ('"
+                + "Losses, ExcessAir, COmmbtu, NOxmmbtu, COtpy, NOxtpy, COhr, NOxhr, CObhp, NOxbhp) VALUES ('"
                 + DateTime.Now.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','"
                 + protocol.vCO2 + "','" + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','"
                 + protocol.vCxHy + "','" + protocol.vTgas + "','" + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','"
-                + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "');";
+                + protocol.vIFlow + "','" + protocol.vDraft + "','" + protocol.vLosses + "','" + protocol.vExcessAir + "','"
+                + protocol.vCOBtu + "','" + protocol.vNOxBtu + "','" + protocol.vCOTPY + "','" + protocol.vNOxTPY + "','" + protocol.vCOHr + "','" +
+                protocol.vNOxHr + "','" + protocol.vCOBhp + "','" + protocol.vNOxBhp + "');";
 
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -197,11 +201,13 @@ namespace CRS
                 {
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO " + tableName + " (Time, O2, CO, CO2, NO, NO2, NOx, SO2, CxHy, Tgas, Tamb, Tcell, Efficiency, IFlow, Draft,"
-                        + "Losses, ExcessAir, COmass, NOxmass, Notes) VALUES ('"
+                        + "Losses, ExcessAir, COmmbtu, NOxmmbtu, COtpy, NOxtpy, COhr, NOxhr, CObhp, NOxbhp Notes) VALUES ('"
                         + timeTaken.ToString("HH:mm:ss") + "','" + protocol.vO2 + "','" + protocol.vCO + "','" + protocol.vCO2 + "','"
                         + protocol.vNO + "','" + protocol.vNO2 + "','" + protocol.vNOx + "','" + protocol.vSO2 + "','" + protocol.vCxHy + "','" + protocol.vTgas + "','"
                         + protocol.vTamb + "','" + protocol.vTcell + "','" + protocol.vEfficiency + "','" + protocol.vIFlow + "','" + protocol.vDraft + "','"
-                        + protocol.vLosses + "','" + protocol.vExcessAir + "','" + protocol.vCOmass + "','" + protocol.vNOxmass + "','" + note + "');";
+                        + protocol.vLosses + "','" + protocol.vExcessAir + "','"
+                        + protocol.vCOBtu + "','" + protocol.vNOxBtu + "','" + protocol.vCOTPY + "','" + protocol.vNOxTPY + "','" + protocol.vCOHr + "','"
+                        + protocol.vNOxHr + "','" + protocol.vCOBhp + "','" + protocol.vNOxBhp + "','" + note + "');";
 
                     // And execute this again ;D
                     sqlite_cmd.ExecuteNonQuery();

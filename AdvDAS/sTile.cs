@@ -176,6 +176,8 @@ namespace CRS
                 case 16:
                     break;
                 case 17:
+                    valLabel.Text = protocol.vNOxBtu;
+                    this.lbl2.Text = protocol.vNOxBtu;
                     break;
                 case 18:
                     this.lbl1.Text = elementComboBox.Text;
