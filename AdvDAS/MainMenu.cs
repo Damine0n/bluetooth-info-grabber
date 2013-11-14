@@ -37,6 +37,7 @@ namespace CRS
         private PersonalData personalData = new PersonalData();
         private Calibration caliForm = new Calibration();
         private Customer customer = new Customer();
+        public static EquipmentSite eSite;
         private Form2 forming = new Form2();
         private List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
         private List<Tuple<Label, Label, Label, Button>> lblList2 = new List<Tuple<Label, Label, Label, Button>>();
@@ -2009,5 +2010,19 @@ namespace CRS
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            customer.ShowDialog();
+        }
+
+        private void button4_MouseDown(object sender, MouseEventArgs e)
+        {
+            button4.BackgroundImage = CRS.Properties.Resources.edit_site_B;
+        }
+
+        private void button4_MouseUp(object sender, MouseEventArgs e)
+        {
+            button4.BackgroundImage = CRS.Properties.Resources.edit_site_A;
+        }
     }
 }

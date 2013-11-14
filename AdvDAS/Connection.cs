@@ -49,6 +49,7 @@ namespace CRS
         {
             if (checkBox1.Checked)
                 comboBox1.Enabled = false;
+                //MainMenu.pictureBox1.Image = Properties.Resources.wi_fi_btn;
             else
                 comboBox1.Enabled = true;
         }

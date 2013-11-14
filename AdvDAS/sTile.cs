@@ -71,13 +71,11 @@ namespace CRS
                 case 0:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vO2;
-
                     this.lbl2.Text = protocol.vO2;
                     break;
                 case 1:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCO;
-
                     this.lbl2.Text = protocol.vCO;
                     break;
                 case 2:
@@ -91,29 +89,36 @@ namespace CRS
                     else
                         protocol.populateCorrection(1, 0);
                     valLabel.Text = protocol.tempvCO_C;
-
                     this.lbl2.Text = protocol.vCO_C;
                     break;
                 case 3:
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCOBhp;
+                    this.lbl2.Text = protocol.vCOBhp;
                     break;
                 case 4:
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCOTPY;
+                    this.lbl2.Text = protocol.vCOTPY;
                     break;
                 case 5:
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vCOHr;
+                    this.lbl2.Text = protocol.vCOHr;
                     break;
                 case 6:
+                    this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCOBtu;
                     this.lbl2.Text = protocol.vCOBtu;
                     break;
                 case 7:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCO2;
-
                     this.lbl2.Text = protocol.vCO2;
                     break;
                 case 8:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNO;
-
                     this.lbl2.Text = protocol.vNO;
                     break;
                 case 9:
@@ -127,13 +132,11 @@ namespace CRS
                     else
                         protocol.populateCorrection(2, 0);
                     valLabel.Text = protocol.vNO_C;
-
                     this.lbl2.Text = protocol.vNO_C;
                     break;
                 case 10:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNO2;
-
                     this.lbl2.Text = protocol.vNO2;
                     break;
                 case 11:
@@ -147,13 +150,11 @@ namespace CRS
                     else
                         protocol.populateCorrection(3, 0);
                     valLabel.Text = protocol.vNO2_C;
-
                     this.lbl2.Text = protocol.vNO2_C;
                     break;
                 case 12:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNOx;
-
                     this.lbl2.Text = protocol.vNOx;
                     break;
                 case 13:
@@ -170,19 +171,28 @@ namespace CRS
                     this.lbl2.Text = protocol.vNOx_C;
                     break;
                 case 14:
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNOxBhp;
+                    this.lbl2.Text = protocol.vNOxBhp;
                     break;
                 case 15:
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNOxTPY;
+                    this.lbl2.Text = protocol.vNOxTPY;
                     break;
-                case 16:
+                case 16: 
+                    this.lbl1.Text = elementComboBox.Text;
+                    valLabel.Text = protocol.vNOxHr;
+                    this.lbl2.Text = protocol.vNOxHr;
                     break;
                 case 17:
+                    this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNOxBtu;
                     this.lbl2.Text = protocol.vNOxBtu;
                     break;
                 case 18:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vSO2;
-
                     this.lbl2.Text = protocol.vSO2;
                     break;
                 case 19:
@@ -201,13 +211,11 @@ namespace CRS
                 case 20:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vCxHy;
-
                     this.lbl2.Text = protocol.vCxHy;
                     break;
                 case 21:
                     this.lbl1.Text = elementComboBox.Text;
                     string CxHy_C = Microsoft.VisualBasic.Interaction.InputBox("Enter the percentage number for O2 Correction. ", "O2 Correction");
-
                     if (!CxHy_C.Equals(""))
                     {
                         correction = Convert.ToDouble(CxHy_C);
@@ -216,49 +224,41 @@ namespace CRS
                     else
                         protocol.populateCorrection(6, 0);
                     valLabel.Text = protocol.vCxHy_C;
-
                     this.lbl2.Text = protocol.vCxHy_C;
                     break;
                 case 22:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vTgas;
-
                     this.lbl2.Text = protocol.vTgas;
                     break;
                 case 23:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vTamb;
-
                     this.lbl2.Text = protocol.vTamb;
                     break;
                 case 24:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vTcell;
-
                     this.lbl2.Text = protocol.vTcell;
                     break;
                 case 25:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vEfficiency;
-
                     this.lbl2.Text = protocol.vEfficiency;
                     break;
                 case 26:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vIFlow;
-
                     this.lbl2.Text = protocol.vIFlow;
                     break;
                 case 27:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vDraft;
-
                     this.lbl2.Text = protocol.vDraft;
                     break;
                 case 28:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vLosses;
-
                     this.lbl2.Text = protocol.vLosses;
                     break;
                 case 29:
@@ -279,7 +279,7 @@ namespace CRS
             {
                 resetAverage();
             }
-            
+
         }
 
         public void resetAverage()
@@ -298,107 +298,90 @@ namespace CRS
             {
                 case 0:
                     valLabel.Text = protocol.vO2;
-
                     break;
                 case 1:
                     valLabel.Text = protocol.vCO;
-
                     break;
                 case 2:
                     valLabel.Text = protocol.vCO_C;
-
                     break;
                 case 3:
+                    valLabel.Text = protocol.vCOBhp;
                     break;
                 case 4:
+                    valLabel.Text = protocol.vCOTPY;
                     break;
                 case 5:
+                    valLabel.Text = protocol.vCOHr;
                     break;
                 case 6:
                     valLabel.Text = protocol.vCOBtu;
                     break;
                 case 7:
                     valLabel.Text = protocol.vCO2;
-
                     break;
                 case 8:
                     valLabel.Text = protocol.vNO;
-
                     break;
                 case 9:
-
                     valLabel.Text = protocol.vNO_C;
                     break;
                 case 10:
                     valLabel.Text = protocol.vNO2;
-
                     break;
                 case 11:
-
                     valLabel.Text = protocol.vNO2_C;
-
                     break;
                 case 12:
                     valLabel.Text = protocol.vNOx;
-
                     break;
                 case 13:
                     valLabel.Text = protocol.vNOx_C;
-
                     break;
                 case 14:
+                    valLabel.Text = protocol.vNOxBhp;
                     break;
                 case 15:
+                    valLabel.Text = protocol.vNOxTPY;
                     break;
                 case 16:
+                    valLabel.Text = protocol.vNOxHr;
                     break;
                 case 17:
+                    valLabel.Text = protocol.vNOxBtu;
                     break;
                 case 18:
-
                     valLabel.Text = protocol.vSO2;
-
                     break;
                 case 19:
-
                     valLabel.Text = protocol.vSO2_C;
-
                     break;
                 case 20:
                     valLabel.Text = protocol.vCxHy;
-
                     break;
                 case 21:
                     valLabel.Text = protocol.vCxHy_C;
-
                     break;
                 case 22:
                     valLabel.Text = protocol.vTgas;
-
                     break;
                 case 23:
                     valLabel.Text = protocol.vTamb;
-
                     break;
                 case 24:
                     valLabel.Text = protocol.vTcell;
-
                     break;
                 case 25:
                     valLabel.Text = protocol.vEfficiency;
-
                     break;
                 case 26:
                     valLabel.Text = protocol.vIFlow;
-
                     break;
                 case 27:
                     valLabel.Text = protocol.vDraft;
-
                     break;
                 case 28:
                     valLabel.Text = protocol.vLosses;
-
                     break;
                 case 29:
                     valLabel.Text = protocol.vExcessAir;
@@ -415,7 +398,7 @@ namespace CRS
                 chart1.Titles[0].Text = "Start Time:  " + start.ToString("T") + "   -   " + DateTime.Now.ToString("T");
 
             }
-            catch (Exception ex)
+            catch
             {
             }
         }

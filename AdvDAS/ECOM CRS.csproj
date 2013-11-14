@@ -351,6 +351,10 @@
     <None Include="Buttons\capture-zero-B.png" />
     <None Include="Buttons\edit-prodedure-btnA.png" />
     <None Include="Buttons\edit-prodedure-btnB.png" />
+    <None Include="Buttons\edit-site-A.png" />
+    <None Include="Buttons\edit-site-B.png" />
+    <None Include="Buttons\print-graph-A.png" />
+    <None Include="Buttons\print-graph-B.png" />
     <Content Include="Ecom.ico" />
   </ItemGroup>
   <ItemGroup>

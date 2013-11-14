@@ -121,11 +121,26 @@
   <data name="ecomblu_50graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\ecomblu-50graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="capture_zero_btnB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\capture-zero-btnB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="recording_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\recording-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="capture_cal_response_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\capture-cal-response-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="snapshot_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\snapshot-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CALIBRATE_CO_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\CALIBRATE-CO-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecomblu_blackbox_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-blackbox-black.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CALIBRATE_NO_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\CALIBRATE-NO-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stop_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\stop-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,14 +148,17 @@
   <data name="calibration-button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\calibration-button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="capture_cal_response_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\capture-cal-response-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="analyzer-tab-right-panel-blue-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\analyzer-tab-right-panel-blue-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="start_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\start-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pause_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\pause-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reset-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\reset-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usb-btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\usb-btn.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +175,14 @@
   <data name="stop_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\stop-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reset-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\reset-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="analyzer-tab-right-panel-blu-gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\analyzer-tab-right-panel-blu-gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pause_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\pause-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="smaller-start-btnA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\smaller-start-btnA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="capture_zero_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\capture-zero-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="smaller-start-btnB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\smaller-start-btnB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,23 +202,32 @@
   <data name="rec_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\rec-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rec_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\rec-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ecomblu_whitebox_25gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\ecomblu-whitebox-25gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="main-tab-right-panel-blu-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\main-tab-right-panel-blu-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="analyzer-tab-right-panel-black-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\analyzer-tab-right-panel-black-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pause_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\pause-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ecomblu_whitebox_25gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\ecomblu-whitebox-25gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rec_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\rec-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CALIBRATE_NO2_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\CALIBRATE-NO2-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CALIBRATE_NO2_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\CALIBRATE-NO2-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flow-btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\flow-btn.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="capture_zero_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\capture-zero-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flow-black-blu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\flow-black-blu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calibration-cal-btnblu-gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\calibration-cal-btnblu-gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,8 +235,14 @@
   <data name="dashboard_mass_blue_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\dashboard-mass-blue-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="capture_zero_btnA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\capture-zero-btnA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="start_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\start-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="analyzer-tab-right-panel-blu-gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\analyzer-tab-right-panel-blu-gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ecomblu_25graybox_25grayback" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Panels\ecomblu-25graybox-25grayback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,55 +250,34 @@
   <data name="recording_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\recording-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ecomblu_blackbox_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\ecomblu-blackbox-black.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snapshot_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\snapshot-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flow-black-blu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Panels\flow-black-blu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CALIBRATE_CO_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\CALIBRATE-CO-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CALIBRATE_CO_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\CALIBRATE-CO-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CALIBRATE_NO2_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\CALIBRATE-NO2-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CALIBRATE_NO2_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\CALIBRATE-NO2-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="CALIBRATE_NO_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\CALIBRATE-NO-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CALIBRATE_NO_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\CALIBRATE-NO-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="capture_cal_response_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\capture-cal-response-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="capture_cal_response_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\capture-cal-response-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="capture_zero_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\capture-zero-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="capture_zero_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\capture-zero-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="capture_zero_btnA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\capture-zero-btnA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="capture_zero_btnB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\capture-zero-btnB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit_prodedure_btnB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\edit-prodedure-btnB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_prodedure_btnA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Buttons\edit-prodedure-btnA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_prodedure_btnB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Buttons\edit-prodedure-btnB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CALIBRATE_CO_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\CALIBRATE-CO-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="analyzer-tab-right-panel-black-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Panels\analyzer-tab-right-panel-black-white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snapshot_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\snapshot-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit-site-A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\edit-site-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit-site-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\edit-site-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print-graph-A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\print-graph-A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print-graph-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Buttons\print-graph-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
