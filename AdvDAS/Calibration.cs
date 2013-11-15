@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Finisar.SQLite;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,8 @@ namespace CRS
 {
     public partial class Calibration : Form
     {
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
+        private SQLiteCommand sqlite_cmd;
         J2KNProtocol protocol = new J2KNProtocol();
         bool clicked = false;
         int interv = 1000;
@@ -30,6 +33,7 @@ namespace CRS
             if (protocol.processProtocol())
                 timer1.Start();
             ((Control)this.tabPage3).Enabled = false;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -86,8 +90,10 @@ namespace CRS
         }
         private void OKbtn_Click(object sender, EventArgs e)
         {
+
             if (!textBox1.Text.Equals("") && !textBox2.Text.Equals("") && !textBox3.Text.Equals(""))
             {
+                button7.Enabled = true;
                 PrintDocs.COspan = textBox1.Text;
                 PrintDocs.NOspan = textBox2.Text;
                 PrintDocs.NO2span = textBox3.Text;
@@ -105,14 +111,14 @@ namespace CRS
                 PrintDocs.COexp = dateTimePicker1.Value;
                 PrintDocs.NOexp = dateTimePicker2.Value;
                 PrintDocs.NO2exp = dateTimePicker3.Value;
-                PrintDocs.upload1=textBox10.Text;
-                PrintDocs.upload2=textBox9.Text;
-                PrintDocs.upload3=textBox5.Text;
-                PrintDocs.upload4=textBox6.Text;
-                PrintDocs.spanDCO=numericUpDown13.Value.ToString();
-                PrintDocs.spanDNO=numericUpDown12.Value.ToString();
-                PrintDocs.spanDNO2=numericUpDown11.Value.ToString();
-                PrintDocs.spanDO2=numericUpDown10.Value.ToString();
+                PrintDocs.upload1 = textBox10.Text;
+                PrintDocs.upload2 = textBox9.Text;
+                PrintDocs.upload3 = textBox5.Text;
+                PrintDocs.upload4 = textBox6.Text;
+                PrintDocs.spanDCO = numericUpDown13.Value.ToString();
+                PrintDocs.spanDNO = numericUpDown12.Value.ToString();
+                PrintDocs.spanDNO2 = numericUpDown11.Value.ToString();
+                PrintDocs.spanDO2 = numericUpDown10.Value.ToString();
                 LCO.Text = (Math.Round(Convert.ToDouble(this.textBox1.Text) - (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)), 1)).ToString();
                 RCO.Text = (Math.Round(Convert.ToDouble(this.textBox1.Text) + (Convert.ToDouble(textBox1.Text) * (Convert.ToDouble(numericUpDown1.Value) / 100)), 1)).ToString();
                 LNO.Text = (Math.Round(Convert.ToDouble(this.textBox2.Text) - (Convert.ToDouble(textBox2.Text) * (Convert.ToDouble(numericUpDown2.Value) / 100)), 1)).ToString();
@@ -127,6 +133,7 @@ namespace CRS
                 MessageBox.Show("All Span Gas Values should be entered.");
                 ((Control)this.tabPage3).Enabled = false;
             }
+
         }
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -342,14 +349,19 @@ namespace CRS
 
         private void button7_Click(object sender, EventArgs e)
         {
-            timer1.Start();
-            timer2.Start();
-            capZeroO2.Visible = true;
-            capZeroCO.Visible = true;
-            capZeroNO.Visible = true;
-            capZeroNO2.Visible = true;
-            dateTimePicker5.Enabled = true;
-            startTimerButton.Enabled = true;
+            if (!MainMenu.equipment.Equals("Equipment: Not Selected\n "))
+            {
+                timer1.Start();
+                timer2.Start();
+                capZeroO2.Visible = true;
+                capZeroCO.Visible = true;
+                capZeroNO.Visible = true;
+                capZeroNO2.Visible = true;
+                dateTimePicker5.Enabled = true;
+                startTimerButton.Enabled = true;
+            }
+            else
+                MessageBox.Show("Must select equipment first.");
         }
 
         private void calCO_Click(object sender, EventArgs e)
@@ -633,12 +645,23 @@ namespace CRS
 
         private void button9_Click(object sender, EventArgs e)
         {
-            timer4.Stop();
-            DialogResult result = MessageBox.Show("Do you want to save this calibration?", "Save Calibration", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                PrintDocs pDocs = new PrintDocs();
-                pDocs.printCalibration(caliName, caliName2);
+                timer4.Stop();
+                DialogResult result = MessageBox.Show("Do you want to save this calibration?", "Save Calibration", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    PrintDocs pDocs = new PrintDocs();
+                    pDocs.printCalibration(caliName, caliName2);
+                }
+                sqlite_conn.Open();
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "DELETE FROM Test_Tables;";
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
         }
 

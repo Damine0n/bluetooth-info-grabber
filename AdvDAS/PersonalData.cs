@@ -58,17 +58,9 @@ namespace CRS
         {
             // [snip] - As C# is purely object-oriented the following lines must be put into a class:
 
-            // We use these three SQLite objects:
+            //// We use these three SQLite objects:
             sqlite_conn.Open();
 
-            // create a new SQL command:
-            sqlite_cmd = sqlite_conn.CreateCommand();
-
-            // Let the SQLiteCommand object know our SQL-Query:
-            //sqlite_cmd.CommandText = "CREATE TABLE Customers (CustomerID integer primary key, Company VARCHAR(255), Contact VARCHAR(255), Phone integer, Street VARCHAR(255), Zip integer, City VARCHAR(255), Fax integer, CellPhone integer, Email VARCHAR(255), Notes VARCHAR(2000));";
-
-            // Now lets execute the SQL ;D
-            sqlite_cmd.ExecuteNonQuery();
 
             try
             {
@@ -87,12 +79,14 @@ namespace CRS
                 textBox8.DataBindings.Add("Text", bindingSource1, "CellPhone");
                 textBox9.DataBindings.Add("Text", bindingSource1, "Email");
                 textBox10.DataBindings.Add("Text", bindingSource1, "HomePage");
+                analyzerBox.DataBindings.Add("Text", bindingSource1, "Analyzer");
+                serialNoBox.DataBindings.Add("Text", bindingSource1, "SerialNo");
                 sqlite_cmd = new SQLiteCommand("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
 
                 while (sqlite_datareader.Read())
                 {
-                    picPath = sqlite_datareader[12].ToString();
+                    picPath = sqlite_datareader[14].ToString();
                 }
                 pictureBox1.ImageLocation = picPath;
             }
@@ -113,7 +107,8 @@ namespace CRS
                 sqlite_cmd.CommandText = "UPDATE Personal_Data SET Engineer = '" + textBox1.Text + "', Company = '" + textBox2.Text
                         + "', Phone = '" + textBox3.Text + "', State = '" + comboBox1.Text + "', Street = '" + textBox4.Text + "', Zip = '" + textBox5.Text
                         + "', City = '" + textBox6.Text + "', Fax = '" + textBox7.Text + "', CellPhone = '" + textBox8.Text
-                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', LOGO = '" + picPath + "';";
+                        + "', Email = '" + textBox9.Text + "', HomePage = '" + textBox10.Text + "', Analyzer = '" + analyzerBox.Text
+                        + "', SerialNo = '" + serialNoBox.Text + "', LOGO = '" + picPath + "';";
 
                 // And execute this again ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -124,15 +119,5 @@ namespace CRS
             }
         }
 
-        //private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    char ch = e.KeyChar;
-        //    if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-        //    {
-        //        e.Handled = true;
-        //        MessageBox.Show("Please enter numerical digits only.");
-        //    }
-
-        //}
     }
 }

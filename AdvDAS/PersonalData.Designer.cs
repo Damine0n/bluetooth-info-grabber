@@ -57,6 +57,10 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.analyzerBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.serialNoBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 292);
+            this.label1.Location = new System.Drawing.Point(91, 354);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 15);
             this.label1.TabIndex = 0;
@@ -73,7 +77,7 @@
             // 
             // btnLogo
             // 
-            this.btnLogo.Location = new System.Drawing.Point(10, 292);
+            this.btnLogo.Location = new System.Drawing.Point(10, 354);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(75, 23);
             this.btnLogo.TabIndex = 12;
@@ -236,7 +240,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(10, 321);
+            this.btnClear.Location = new System.Drawing.Point(10, 383);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 13;
@@ -247,7 +251,7 @@
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(10, 348);
+            this.btnAccept.Location = new System.Drawing.Point(10, 410);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 14;
@@ -274,7 +278,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(141, 292);
+            this.pictureBox1.Location = new System.Drawing.Point(141, 354);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -349,12 +353,57 @@
             this.comboBox1.Size = new System.Drawing.Size(155, 21);
             this.comboBox1.TabIndex = 26;
             // 
+            // analyzerBox
+            // 
+            this.analyzerBox.FormattingEnabled = true;
+            this.analyzerBox.Items.AddRange(new object[] {
+            "J2KN Standard",
+            "J2KN Industrial",
+            "J2KN Pro Easy",
+            "J2KN Pro Industrial",
+            "EN2",
+            "EN2F"});
+            this.analyzerBox.Location = new System.Drawing.Point(103, 292);
+            this.analyzerBox.Name = "analyzerBox";
+            this.analyzerBox.Size = new System.Drawing.Size(155, 21);
+            this.analyzerBox.TabIndex = 27;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 295);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Analyzer Type:";
+            // 
+            // serialNoBox
+            // 
+            this.serialNoBox.Location = new System.Drawing.Point(103, 319);
+            this.serialNoBox.MaxLength = 255;
+            this.serialNoBox.Name = "serialNoBox";
+            this.serialNoBox.Size = new System.Drawing.Size(155, 20);
+            this.serialNoBox.TabIndex = 30;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 322);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "Serial No.";
+            // 
             // PersonalData
             // 
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 374);
+            this.ClientSize = new System.Drawing.Size(261, 436);
+            this.Controls.Add(this.serialNoBox);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.analyzerBox);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox3);
@@ -424,5 +473,9 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox analyzerBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox serialNoBox;
+        private System.Windows.Forms.Label label14;
     }
 }

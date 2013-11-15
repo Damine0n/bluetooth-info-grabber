@@ -1905,6 +1905,8 @@ namespace CRS
             this.stopRecordingButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.stopRecordingButton.Enabled = false;
             this.stopRecordingButton.FlatAppearance.BorderSize = 0;
+            this.stopRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.stopRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stopRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.stopRecordingButton.Location = new System.Drawing.Point(138, 0);
@@ -1924,6 +1926,8 @@ namespace CRS
             this.startRecordingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.startRecordingButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.startRecordingButton.FlatAppearance.BorderSize = 0;
+            this.startRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.startRecordingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.startRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startRecordingButton.ForeColor = System.Drawing.Color.Transparent;
             this.startRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;

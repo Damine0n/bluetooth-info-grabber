@@ -29,7 +29,7 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         protected string equipment = "", site = "";
-        private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, pLogo,
+        private string pEngineer, pCompany, pPhone, pState, pStreet, pCity, pEmail, pHomePage, pZip, pFax, pCellphone, pLogo, pAnalyzer, pSerialNo,
             sFacilty, sArea, eModel, eUnitNumber, eSerialNo, ePermitNumber, ePermitEquip, ePermitCO, ePermitNOx, eLimitUnit, aModel, eService;
         /// <summary>
         /// Calibration Variables
@@ -88,8 +88,8 @@ namespace CRS
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
-            sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save Report";
+            sfd.FileName = "Graph File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save Graph";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
@@ -123,8 +123,8 @@ namespace CRS
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
-            sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save SnaspShot Report";
+            sfd.FileName = "SnapShot File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            sfd.Title = "Save SnapShot Report";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = sfd.FileName;
@@ -420,6 +420,7 @@ namespace CRS
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 25, 25, 10, 10);
             LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
             Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
+            iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
@@ -506,9 +507,6 @@ namespace CRS
                 doc.Open();//Open Document To Write
                 try
                 {
-                    iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
-                    //Write Some Content
-
 
                     Paragraph heading = new Paragraph("Engine Emissions Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
                     Paragraph personalData = new Paragraph("", hel);
@@ -624,11 +622,11 @@ namespace CRS
                     info.Add(new Phrase("Permit NOx Limit: " + ePermitNOx + "\n"));
                     ////////////////////////////////////////////////
                     info.Add(tab1);
-                    info.Add(new Paragraph("ANALYZER INFORMATION"));
+                    info.Add(new Paragraph("ANALYZER INFORMATION",hel));
                     info.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    info.Add(new Phrase("Model: J2KN"));
+                    info.Add(new Phrase("Model: "+ pAnalyzer));
                     info.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    info.Add(new Phrase("Serial #: " + protocol.vSerialNumber + "\n"));
+                    info.Add(new Phrase("Serial #: " + pSerialNo + "\n"));
                     doc.Add(info);
                     doc.Add(new Paragraph(""));
 
@@ -691,7 +689,13 @@ namespace CRS
                 }
                 for (int z = 0; z < names.Count; z++)
                 {
-
+                    O2sum = 0;
+                    COsum = 0;
+                    NOsum = 0;
+                    NO2sum = 0;
+                    NOxsum = 0;
+                    COMassSum = 0;
+                    NOxMassSum = 0;
                     string[] arr = names[z].Split('_');
                     try
                     {
@@ -785,16 +789,20 @@ namespace CRS
                     double COmassavg = COmassTavg[z];
                     double NOxmassavg = NOmassTavg[z];
                     Paragraph paragraph = new Paragraph();
-                    paragraph.Add(new Phrase("Average O2 = " + O2avg + "%"));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    paragraph.Add(new Phrase("Average O2 = " + O2avg + " %", hel));
                     paragraph.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    paragraph.Add(new Phrase("Average NOx = " + NOxavg + "ppm\n"));
-                    paragraph.Add(new Phrase("Average CO = " + COavg + "ppm"));
+                    paragraph.Add(new Phrase("Average NOx = " + NOxavg + " ppm\n", hel));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    paragraph.Add(new Phrase("Average CO = " + COavg + " ppm", hel));
                     paragraph.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    paragraph.Add(new Phrase("Average COmass = " + COmassavg + " " + eLimitUnit + "\n"));
-                    paragraph.Add(new Phrase("Average NO = " + NOavg + "ppm"));
+                    paragraph.Add(new Phrase("Average COmass = " + COmassavg + " " + eLimitUnit + "\n", hel));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    paragraph.Add(new Phrase("Average NO = " + NOavg + " ppm", hel));
                     paragraph.Add(new Chunk(new VerticalPositionMark(), 300, true));
-                    paragraph.Add(new Phrase("Average NOxmass = " + NOxmassavg + " " + eLimitUnit + "\n"));
-                    paragraph.Add(new Phrase("Average NO2 = " + NO2avg + "ppm\n"));
+                    paragraph.Add(new Phrase("Average NOxmass = " + NOxmassavg + " " + eLimitUnit + "\n", hel));
+                    paragraph.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                    paragraph.Add(new Phrase("Average NO2 = " + NO2avg + " ppm\n", hel));
 
 
                     //Adds above created text using different class object to our pdf document.
@@ -803,7 +811,22 @@ namespace CRS
                     doc.Add(paragraph);
                 }
                 doc.Add(tab1);
-                Paragraph totalAverageSummary = new Paragraph("Total Average CO = " + COTavg.Average() + "\nTotal Average NOx = " + NOxTavg.Average() + "\nTotal Average COmass = " + COmassTavg.Average() + "\nTotal Average NOxmass = " + NOmassTavg.Average());
+                Paragraph totalAverageSummary = new Paragraph();
+                totalAverageSummary.Add(new Paragraph("ANALYZER INFORMATION", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                totalAverageSummary.Add(new Phrase("Total Average O2 = " + O2Tavg.Average() + " %", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                totalAverageSummary.Add(new Phrase("Total Average NOx = " + NOxTavg.Average() + " ppm\n", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                totalAverageSummary.Add(new Phrase("Total Average CO = " + COTavg.Average() + " ppm", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                totalAverageSummary.Add(new Phrase("Total Average COmass = " + COmassTavg.Average() + " " + eLimitUnit + "\n", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                totalAverageSummary.Add(new Phrase("Total Average NO = " + NOTavg.Average() + " ppm", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 300, true));
+                totalAverageSummary.Add(new Phrase("Total Average NOxmass = " + NOmassTavg.Average() + " " + eLimitUnit + "\n", hel));
+                totalAverageSummary.Add(new Chunk(new VerticalPositionMark(), 50, true));
+                totalAverageSummary.Add(new Phrase("Total Average NO2 = " + NO2Tavg.Average() + " ppm\n", hel));
                 //Adds above created text using different class object to our pdf document.
                 totalAverageSummary.SpacingAfter = 10;
                 totalAverageSummary.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
@@ -812,7 +835,7 @@ namespace CRS
                 NotesForm notes = new NotesForm();
                 notes.ShowDialog();
                 doc.Add(tab1);
-                Paragraph noteHeader = new Paragraph("Notes:");
+                Paragraph noteHeader = new Paragraph("NOTES:",hel);
                 doc.Add(noteHeader);
                 Paragraph newNotes = new Paragraph(notes.snapNote);
                 doc.Add(newNotes);
@@ -1218,7 +1241,9 @@ namespace CRS
                     pCellphone = sqlite_datareader[9].ToString();
                     pEmail = sqlite_datareader[10].ToString();
                     pHomePage = sqlite_datareader[11].ToString();
-                    pLogo = sqlite_datareader[12].ToString();
+                    pAnalyzer = sqlite_datareader[12].ToString();
+                    pSerialNo = sqlite_datareader[13].ToString();
+                    pLogo = sqlite_datareader[14].ToString();
                 }
                 equipment = GasAnalysis.equipment;
                 site = GasAnalysis.site;
@@ -1569,6 +1594,7 @@ namespace CRS
                     table.AddCell(new Phrase(NO2prSpan, hel));
                     table.AddCell(new Phrase(NO2poSpan, hel));
                     drift = Math.Abs((((Convert.ToDouble(NO2poSpan) - Convert.ToDouble(NO2prSpan))) * 100) / Convert.ToDouble(NO2prSpan));
+                    if(drift.ToString().Equals())
                     table.AddCell(new Phrase(drift.ToString(), hel));
                     if (Math.Abs(Convert.ToDouble(NO2prSpan) - Convert.ToDouble(NO2poSpan)) < Convert.ToDouble(spanDNO2))
                         spanStatus = "Pass";
