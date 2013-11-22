@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using Finisar.SQLite;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace CRS
 {
     public partial class Calibration : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         J2KNProtocol protocol = new J2KNProtocol();
         bool clicked = false;
@@ -383,6 +384,8 @@ namespace CRS
             protocol.processProtocol("$0F1006 0x20");
             //Enable Keypad
             protocol.processProtocol("$0F106100001");
+            //Beep
+            protocol.processProtocol("$0F1066 0x20");
         }
 
         private void calNO_Click(object sender, EventArgs e)
@@ -403,6 +406,8 @@ namespace CRS
             protocol.processProtocol("$0F1006 0x20");
             //Enable Keypad
             protocol.processProtocol("$0F106100001");
+            //Beep
+            protocol.processProtocol("$0F1066 0x20");
         }
 
         private void calNO2_Click(object sender, EventArgs e)
@@ -423,6 +428,8 @@ namespace CRS
             protocol.processProtocol("$0F1006 0x20");
             //Enable Keypad
             protocol.processProtocol("$0F106100001");
+            //Beep
+            protocol.processProtocol("$0F1066 0x20");
 
         }
 

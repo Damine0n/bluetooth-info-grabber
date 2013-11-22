@@ -53,7 +53,8 @@ namespace CRS
         private DateTime tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
         private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection();
+        private SQLiteCommand sqlite_cmd;
         public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
         public static string cUnit, nUnit, numOfCycles, equipment = "Equipment: Not Selected\n ";
@@ -66,6 +67,72 @@ namespace CRS
         {
             InitializeComponent();
             createScaleDisplays();
+            try
+            {
+                sqlite_conn.ConnectionString = "Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;";
+            }
+            catch
+            {
+                sqlite_conn.ConnectionString = "Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;New=True;Compress=True;";
+                sqlite_conn.Open();
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [CaliInfo] ([SpanGasCO] TEXT  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Calibration] ([Time] TEXT  NULL,[O2] TEXT  NULL,[CO] TEXT  NULL,[NO] TEXT  NULL,[NO2] TEXT  NULL,[IFlow] TEXT  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Customers] ([CustomerID] TEXT  NULL PRIMARY KEY,[Company] TEXT  NULL,[Contact] TEXT  NULL,"
+                    + "[Phone] integer  NULL,[Street] TEXT  NULL,[Zip] integer  NULL,[City] TEXT  NULL,"
+                    + "[Fax] integer  NULL,[CellPhone] integer  NULL,[Email] TEXT  NULL,[Notes] TEXT  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Equipments] ([owner] TEXT  NULL,[equipment] TEXT  NULL,[unitNum] TEXT  NULL,[model] TEXT  NULL,"
+                    + "[serialNum] TEXT  NULL,[service] TEXT  NULL,[ignitionTiming] TEXT  NULL,[stackFlow] TEXT  NULL,[stackTemp] TEXT  NULL,[intakeMPL] TEXT  NULL,"
+                    + "[intakeMPR] TEXT  NULL,[intakeMTL] TEXT  NULL,[intakeMTR] TEXT  NULL,[stackHeightFT] TEXT  NULL,[stackHeightIN] TEXT  NULL,[fuelSG] TEXT  NULL,"
+                    + "[RPM] TEXT  NULL,[AFControllerMake] TEXT  NULL,[AFControllerModel] TEXT  NULL,[catalyticConverterMake] TEXT  NULL,[catalyticConverterModel] TEXT  NULL,"
+                    + "[AirPermit] TEXT  NULL,[permitDate] TEXT  NULL,[permitEquip] TEXT  NULL,[COLimit] TEXT  NULL,[NOxLimit] TEXT  NULL,[LimitUnit] TEXT  NULL,PRIMARY KEY ([owner],[equipment]));";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Personal_Data] ([PData] INTEGER  PRIMARY KEY NULL,[Engineer] TEXT  NULL,[Company] TEXT  NULL,"
+                    +"[Phone] TEXT  NULL,[State] TEXT  NULL,[Street] TEXT  NULL,[Zip] TEXT  NULL,[City] TEXT  NULL,[Fax] TEXT  NULL,[CellPhone] TEXT  NULL,"
+                    +"[Email] TEXT  NULL,[HomePage] TEXT  NULL,[Analyzer] TEXT  NULL,[SerialNo] TEXT  NULL,[LOGO] TEXT  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [RAW_DATA] ([DATE_TIME] TIMESTAMP  PRIMARY KEY NULL,[O2] REAL  NULL,[ppmCO] REAL  NULL,"
+                    + "[ppmNOx] REAL  NULL,[ppmNO] REAL  NULL,[ppmNO2] REAL  NULL,[Pump] REAL  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Readings] ([Time] TEXT DEFAULT '''''''''''''''''''''''''''''''CURRENT_TIME''''''''''''''''''''''''''''''' NOT NULL,"
+                    +"[O2] TEXT  NULL,[CO] TEXT  NULL,[CO2] TEXT  NULL,[NO] TEXT  NULL,[NO2] TEXT  NULL,[NOx] TEXT  NULL,[SO2] TEXT  NULL,[CxHy] TEXT  NULL,"
+                    +"[Tgas] TEXT  NULL,[Tamb] TEXT  NULL,[Tcell] TEXT  NULL,[Efficiency] TEXT  NULL,[IFlow] TEXT  NULL,[Draft] TEXT  NULL,"
+                    +"[Losses] TEXT  NULL,[ExcessAir] TEXT  NULL,[Notes] TEXT  NULL,[COtpy] TEXT  NULL,[NOxtpy] TEXT  NULL,[CObhp] TEXT  NULL,"
+                    +"[NOxbhp] TEXT  NULL,[COmmbtu] TEXT  NULL,[NOxmmbtu] TEXT  NULL,[COhr] TEXT  NULL,[NOxhr] TEXT  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Sites] ([Site] TEXT  NULL,[Area] TEXT  NULL,[Facility] TEXT  NULL,[Customer] TEXT  NULL,PRIMARY KEY ([Site],[Customer]));";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [SnapShots] ("
+                    +"[Time] TEXT DEFAULT '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' NOT NULL,"
+                    +"[O2] TEXT  NULL,[CO] TEXT  NULL,[CO2] TEXT  NULL,[NO] TEXT  NULL,[NO2] TEXT  NULL,[NOx] TEXT  NULL,[SO2] TEXT  NULL,[CxHy] TEXT  NULL,"
+                    +"[Tgas] TEXT  NULL,[Tamb] TEXT  NULL,[Tcell] TEXT  NULL,[Efficiency] TEXT  NULL,[IFlow] TEXT  NULL,[Draft] TEXT  NULL,[Losses] TEXT  NULL,"
+                    +"[ExcessAir] TEXT  NULL,[Notes] TEXT  NULL,[Date] TEXT  NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE [Test_Tables] ([Site] TEXT  NOT NULL,[Equipment] TEXT  NOT NULL,[Test] TEXT  PRIMARY KEY NOT NULL);";
+                sqlite_cmd.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////
+            }
             timer2.Start();
             filltable();
             dgInterval = 1000;
@@ -76,6 +143,7 @@ namespace CRS
             {
                 dataGridTimer.Start();
             }
+
 
         }
 
@@ -214,14 +282,20 @@ namespace CRS
             this.stopRecordingButton.Enabled = false;
             if (test)
             {
-                DialogResult dialog = MessageBox.Show("Do you want to save your test?", "Save Test", MessageBoxButtons.YesNo);
-                if (dialog == DialogResult.Yes)
+                DialogResult dialog1 = MessageBox.Show("Do you want to save your test?", "Save Test", MessageBoxButtons.YesNo);
+                if (dialog1 == DialogResult.Yes)
                 {
                     PrintDocs pDoc = new PrintDocs();
                     pDoc.printReport(tableNames);
                 }
                 tableNames.Clear();
                 currentCycle = 1;
+
+                DialogResult dialog2 = MessageBox.Show("Do you need to do a post drift check now?", "Post Test Drift Check?", MessageBoxButtons.YesNo);
+                if (dialog2 == DialogResult.Yes)
+                {
+                    caliForm.ShowDialog();
+                }
             }
         }
         //Takes Snapshot Recording
@@ -253,6 +327,7 @@ namespace CRS
             {
                 cycles = Convert.ToInt32(numOfCycles);
                 label22.Text = currentCycle + " of " + numOfCycles;
+                label48.Text = currentCycle + " of " + numOfCycles;
                 if (rampUpMethod())
                 {
 
@@ -292,6 +367,7 @@ namespace CRS
             else
             {
                 label22.Text = currentCycle + " of " + "\u221e";
+                label48.Text = currentCycle + " of " + "\u221e";
                 if (rampUpMethod())
                 {
 
@@ -325,6 +401,7 @@ namespace CRS
                     rFirst = false;
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                    rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     return true;
                 }
@@ -339,6 +416,7 @@ namespace CRS
                 {
                     tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                    rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
 
                     return true;
@@ -363,6 +441,7 @@ namespace CRS
                     tFirst = false;
                     tempTestData = testData.AddSeconds(-(dgInterval / 1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                    tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     tableName = new GasAnalysis().newEntry(protocol);
                     if (tableName.Equals("Error"))
@@ -385,6 +464,7 @@ namespace CRS
                 {
                     tempTestData = tempTestData.AddSeconds(-(dgInterval / 1000));
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                    tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     new GasAnalysis().newEntry(protocol, tableName);
                     return true;
@@ -408,6 +488,7 @@ namespace CRS
                     pFirst = false;
                     tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                    pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     return true;
                 }
@@ -422,6 +503,7 @@ namespace CRS
                 {
                     tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                    pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
                     return true;
                 }
@@ -449,8 +531,13 @@ namespace CRS
             this.pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
             this.tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+            this.recordTimeLabelB.Text = testTime.ToString("HH:mm:ss");
+            this.pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
+            this.tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
+            this.rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
+
         }
 
         //add question during close
@@ -759,10 +846,17 @@ namespace CRS
             pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
             label23.Text = dgInterval / 1000 + " sec(s)";
+            label43.Text = dgInterval / 1000 + " sec(s)";
             if (numOfCycles.Equals("-1"))
+            {
                 label22.Text = currentCycle + " of " + "\u221e";
+                label48.Text = currentCycle + " of " + "\u221e";
+            }
             else
+            {
                 label22.Text = currentCycle + " of " + numOfCycles;
+                label48.Text = currentCycle + " of " + numOfCycles;
+            }
 
             //get all values
             protocol.processProtocol();
@@ -853,6 +947,11 @@ namespace CRS
             this.serialNO_lbl.Text = protocol.vSerialNumber;
             this.iflowlbl.Text = protocol.vIFlow;
             this.Firmware_lbl.Text = protocol.vFirmware;
+            //if (!lblList1[0].Item3.Enabled)
+            //{
+            //    for (int i = 0; i < lblList1.Count; i++)
+            //        lblList1[i].Item3. = Color.Green;
+            //}
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -864,12 +963,6 @@ namespace CRS
         private void recordSign_Tick(object sender, EventArgs e)
         {
             recordingSign.Visible = true;
-        }
-
-        private void setupCommunictaionPortsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Connection connectForm = new Connection(this);
-            connectForm.ShowDialog();
         }
 
         private void aboutAdvDASToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2023,6 +2116,17 @@ namespace CRS
         private void button4_MouseUp(object sender, MouseEventArgs e)
         {
             button4.BackgroundImage = CRS.Properties.Resources.edit_site_A;
+        }
+
+        private void saveReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Connection connectForm = new Connection(this);
+            connectForm.ShowDialog();
+        }
+
+        private void testConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            protocol.processProtocol("$0F1066 0x20");
         }
     }
 }

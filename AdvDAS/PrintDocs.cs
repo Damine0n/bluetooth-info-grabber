@@ -22,7 +22,7 @@ namespace CRS
 
     public partial class PrintDocs : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source="+Directory.GetCurrentDirectory()+"\\database1.db;Version=3;");
         DataTable ds1 = new DataTable();
         DataTable ds2 = new DataTable();
         DataTable ds3 = new DataTable();
@@ -412,8 +412,8 @@ namespace CRS
             double COMassSum = 0;
             double NOxMassSum = 0;
             double O2total = 0, COtotal = 0, NOxtotal = 0, COmtotal = 0, NOxmtotal = 0;
-            
-            
+
+
             int num = 0;
             bool stop = false;
             List<Tuple<string, string, string, string, string>> averages = new List<Tuple<string, string, string, string, string>>();
@@ -422,7 +422,7 @@ namespace CRS
             Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
             iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
+            sfd.InitialDirectory = Directory.GetCurrentDirectory() + "\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
             sfd.Title = "Save Report";
@@ -622,9 +622,9 @@ namespace CRS
                     info.Add(new Phrase("Permit NOx Limit: " + ePermitNOx + "\n"));
                     ////////////////////////////////////////////////
                     info.Add(tab1);
-                    info.Add(new Paragraph("ANALYZER INFORMATION",hel));
+                    info.Add(new Paragraph("ANALYZER INFORMATION", hel));
                     info.Add(new Chunk(new VerticalPositionMark(), 50, true));
-                    info.Add(new Phrase("Model: "+ pAnalyzer));
+                    info.Add(new Phrase("Model: " + pAnalyzer));
                     info.Add(new Chunk(new VerticalPositionMark(), 300, true));
                     info.Add(new Phrase("Serial #: " + pSerialNo + "\n"));
                     doc.Add(info);
@@ -835,7 +835,7 @@ namespace CRS
                 NotesForm notes = new NotesForm();
                 notes.ShowDialog();
                 doc.Add(tab1);
-                Paragraph noteHeader = new Paragraph("NOTES:",hel);
+                Paragraph noteHeader = new Paragraph("NOTES:", hel);
                 doc.Add(noteHeader);
                 Paragraph newNotes = new Paragraph(notes.snapNote);
                 doc.Add(newNotes);
@@ -1097,15 +1097,29 @@ namespace CRS
                 doc.Add(sop);
                 doc.Close();//Closes Document
                 System.Diagnostics.Process.Start(sfd.FileName);
+                uploadPrinter();
             }
             sqlite_conn.Close();
+        }
+
+        private void uploadPrinter()
+        {
+            if (!upload1.Equals(""))
+                System.Diagnostics.Process.Start(upload1);
+            if (!upload2.Equals(""))
+                System.Diagnostics.Process.Start(upload2);
+            if (!upload3.Equals(""))
+                System.Diagnostics.Process.Start(upload3);
+            if (!upload4.Equals(""))
+                System.Diagnostics.Process.Start(upload4);
+
         }
         private void FillVariables()
         {
             fillPersonalData();
             fillSite();
             fillEquipment();
-            if(eLimitUnit.Equals("lb/mmBTU"))
+            if (eLimitUnit.Equals("lb/mmBTU"))
             {
                 masses = "COmmbtu, NOxmmbtu";
             }
@@ -1272,7 +1286,7 @@ namespace CRS
             LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
             Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.InitialDirectory = "C:\\Users\\Daymen\\Source\\Repos\\bluetooth-info-grabber\\AdvDAS\\bin\\Debug\\Reports\\" + site + "\\" + equipment;
+            sfd.InitialDirectory = Directory.GetCurrentDirectory() + "\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Calibration File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
             sfd.Title = "Save Report";
@@ -1289,7 +1303,7 @@ namespace CRS
                     O2sum = 0; COsum = 0; NOxsum = 0;
                     try
                     {
-                        var da = new SQLiteDataAdapter("SELECT O2, CO, NOx, "+masses+" FROM " + caliName + ";", sqlite_conn);
+                        var da = new SQLiteDataAdapter("SELECT O2, CO, NOx, " + masses + " FROM " + caliName + ";", sqlite_conn);
                         ds2.Clear();
                         da.Fill(ds2);
                         bindingSource2.DataSource = ds2;
@@ -1355,7 +1369,7 @@ namespace CRS
                 {
                     iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
                     //Write Some Content
-                    
+
 
                     Paragraph heading = new Paragraph("Pre & Post Calibration Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
                     Paragraph personalData = new Paragraph("", hel);
@@ -1542,6 +1556,8 @@ namespace CRS
                     table.AddCell(new Phrase(O2prSpan, hel));
                     table.AddCell(new Phrase(O2poSpan, hel));
                     drift = Math.Abs((((Convert.ToDouble(O2poSpan) - Convert.ToDouble(O2prSpan))) * 100) / Convert.ToDouble(O2prSpan));
+                    if (drift.ToString().Equals("NaN"))
+                        drift = 0;
                     table.AddCell(new Phrase(drift.ToString(), hel));
                     if (Math.Abs(Convert.ToDouble(O2prSpan) - Convert.ToDouble(O2poSpan)) < Convert.ToDouble(spanDO2))
                         spanStatus = "Pass";
@@ -1560,6 +1576,8 @@ namespace CRS
                     table.AddCell(new Phrase(COprSpan, hel));
                     table.AddCell(new Phrase(COpoSpan, hel));
                     drift = Math.Abs((((Convert.ToDouble(COpoSpan) - Convert.ToDouble(COprSpan))) * 100) / Convert.ToDouble(COprSpan));
+                    if (drift.ToString().Equals("NaN"))
+                        drift = 0;
                     table.AddCell(new Phrase(drift.ToString(), hel));
                     if (Math.Abs(Convert.ToDouble(COprSpan) - Convert.ToDouble(COpoSpan)) < Convert.ToDouble(spanDCO))
                         spanStatus = "Pass";
@@ -1577,6 +1595,8 @@ namespace CRS
                     table.AddCell(new Phrase(NOprSpan, hel));
                     table.AddCell(new Phrase(NOpoSpan, hel));
                     drift = Math.Abs((((Convert.ToDouble(NOpoSpan) - Convert.ToDouble(NOprSpan))) * 100) / Convert.ToDouble(NOprSpan));
+                    if (drift.ToString().Equals("NaN"))
+                        drift = 0;
                     table.AddCell(new Phrase(drift.ToString(), hel));
                     if (Math.Abs(Convert.ToDouble(NOprSpan) - Convert.ToDouble(NOpoSpan)) < Convert.ToDouble(spanDNO))
                         spanStatus = "Pass";
@@ -1594,8 +1614,9 @@ namespace CRS
                     table.AddCell(new Phrase(NO2prSpan, hel));
                     table.AddCell(new Phrase(NO2poSpan, hel));
                     drift = Math.Abs((((Convert.ToDouble(NO2poSpan) - Convert.ToDouble(NO2prSpan))) * 100) / Convert.ToDouble(NO2prSpan));
-                    if(drift.ToString().Equals())
-                    table.AddCell(new Phrase(drift.ToString(), hel));
+                    if (drift.ToString().Equals("NaN"))
+                        drift = 0;
+                    table.AddCell(new Phrase(drift.ToString("0.0"), hel));
                     if (Math.Abs(Convert.ToDouble(NO2prSpan) - Convert.ToDouble(NO2poSpan)) < Convert.ToDouble(spanDNO2))
                         spanStatus = "Pass";
                     table.AddCell(new Phrase(spanStatus, hel));

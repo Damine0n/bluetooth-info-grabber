@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Data.SQLite;
+using System.IO;
 using Finisar.SQLite;
 namespace CRS
 {
     public partial class TestRecords : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=database1.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         PrintDocs pDocs = new PrintDocs();

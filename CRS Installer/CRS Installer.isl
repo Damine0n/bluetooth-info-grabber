@@ -341,6 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>ECOM_CRS.Localized_resources</td><td>{32DD76E7-B46F-4746-9ED6-044FF4F4F624}</td><td>ECOM_CRS</td><td>2</td><td/><td>ecom_crs.localized_resources</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ECOM_CRS.Primary_output2</td><td>{4C194C74-5059-41DA-BED0-A7F3921DF9A0}</td><td>ECOM_CRS</td><td>2</td><td/><td>ecom_crs.primary_output2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{3D91BBA5-D7DD-4A96-AB21-401D26F7E515}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{85CBDC9B-1BB0-4856-8A54-45D4AE1528D2}</td><td>DATABASEDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -348,6 +349,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{C5BB3FE0-A102-4C4A-8B20-D60EFCAC54D1}</td><td>AppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{3C93F06D-883A-45E7-B7D9-39F65086E2FA}</td><td>ECOM_CRS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{82B7CE0C-58C2-4494-8A9C-06BCB32931E7}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NewComponent2</td><td>{18DE7E76-C24D-495C-9532-87CFD8C07BAF}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SQLite.NET.dll</td><td>{2D8CA7EF-D5AE-4C2A-9ED7-9906B39DFF1A}</td><td>ECOM_CRS</td><td>2</td><td/><td>sqlite.net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SQLite.dll</td><td>{D6D5E12D-8192-469A-A105-64B54588F969}</td><td>ECOM_CRS</td><td>2</td><td/><td>sqlite.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SQLite3.dll</td><td>{4DF1E409-7F93-4AA6-A5CE-4CE6B991D1FB}</td><td>ECOM_CRS</td><td>2</td><td/><td>sqlite3.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1066,8 +1068,10 @@
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>CommonFilesFolder</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>DATABASEDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>ECOM_CRS</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>NewComponent1</td></row>
+		<row><td>INSTALLDIR</td><td>NewComponent2</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1189,6 +1193,8 @@
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>crsins_1_crs_installer</td><td>ecomam_1_ecom_america_ltd</td><td>CRSINS~1|CRS Installer</td><td/><td>1</td><td/></row>
+		<row><td>crsins_1_crs_installer1</td><td>ecom</td><td>CRSINS~1|CRS Installer</td><td/><td>1</td><td/></row>
+		<row><td>ecom</td><td>ProgramMenuFolder</td><td>ECOM</td><td/><td>1</td><td/></row>
 		<row><td>ecomam_1_ecom_america_ltd</td><td>ProgramMenuFolder</td><td>ECOMAM~1|Ecom America LTD</td><td/><td>1</td><td/></row>
 	</table>
 
@@ -1881,6 +1887,7 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>ECOM_CRS.Localized_resources</td></row>
 		<row><td>AlwaysInstall</td><td>ECOM_CRS.Primary_output2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
@@ -1888,6 +1895,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 		<row><td>AlwaysInstall</td><td>NewComponent1</td></row>
+		<row><td>AlwaysInstall</td><td>NewComponent2</td></row>
 		<row><td>AlwaysInstall</td><td>SQLite.NET.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SQLite.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SQLite3.dll</td></row>
@@ -1908,7 +1916,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>database1.db2</td><td>ISX_DEFAULTCOMPONENT6</td><td>DATABA~1.DB|database1.db</td><td>0</td><td/><td/><td>0</td><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\database1.db</td><td>1</td><td/></row>
+		<row><td>ecom_crs.localized_resources</td><td>ECOM_CRS.Localized_resources</td><td>ECOM CRS.Localized resources</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ECOM CRS&gt;|LocalizedResourceDlls</td><td>3</td><td/></row>
 		<row><td>ecom_crs.primary_output2</td><td>ECOM_CRS.Primary_output2</td><td>ECOM CRS.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ECOM CRS&gt;|Built</td><td>3</td><td/></row>
 		<row><td>itextsharp.dll</td><td>itextsharp.dll</td><td>ITEXTS~1.DLL|itextsharp.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.dll</td><td>1</td><td/></row>
 		<row><td>itextsharp.pdfa.dll</td><td>itextsharp.pdfa.dll</td><td>ITEXTS~1.DLL|itextsharp.pdfa.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.pdfa.dll</td><td>1</td><td/></row>
@@ -1933,7 +1941,7 @@
 		<col def="S255">Data</col>
 		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
 		<row><td>PROJECT_ASSISTANT_FEATURES</td><td>NonSelectable</td></row>
-		<row><td>RegistryPageEnabled</td><td>No</td></row>
+		<row><td>RegistryPageEnabled</td><td>Yes</td></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -2060,6 +2068,7 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>ECOM_CRS.Localized_resources</td><td/><td/><td>_3C16B1A1_A8AB_4688_A8B2_19DF3F1301DD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ECOM_CRS.Primary_output2</td><td/><td/><td>_532B7DB1_FF08_4E1E_BB92_ED1A4105B886_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_FBF6D5B2_F71E_4C6A_A39F_A789EBB523EF_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_CA52920E_FB3A_4F74_91A1_A9E004533692_FILTER</td><td/><td/><td/><td/></row>
@@ -2067,6 +2076,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_3B131486_DA7C_4324_BFA2_1495C47F2D43_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_5555114E_62CD_4E81_B629_45E946FDC2BE_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NewComponent1</td><td/><td/><td>_277D4277_7014_4BDD_8D8C_C5D46280B370_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NewComponent2</td><td/><td/><td>_42632ACE_C450_49E3_9AEB_2DD8AFFB01B4_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SQLite.NET.dll</td><td/><td/><td>_6FB60B57_B18D_47B3_812C_D833EB14FA58_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SQLite.dll</td><td/><td/><td>_BA70BCDB_B5E4_4F45_A7BA_A74D39E213D1_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SQLite3.dll</td><td/><td/><td>_10CB3B5B_17BC_4760_8C14_518A6CF1C88C_FILTER</td><td/><td/><td/><td/></row>
@@ -3509,6 +3519,9 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>LAUNCH~1.EXE|Launch setup.exe</td><td>0</td><td/><td>1033972526</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td>LAUNCH~1.EXE|Launch dotNetFx40_Full_setup.exe</td><td>0</td><td/><td>1033976654</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME6</td><td>1033</td><td>CRS</td><td>0</td><td/><td>1168227880</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME7</td><td>1033</td><td>CRS System</td><td>0</td><td/><td>-1516119695</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>1033</td><td>CRS</td><td>0</td><td/><td>-1381919892</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>1033</td><td>Uninstall CRS</td><td>0</td><td/><td>-1381905556</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>899804462</td></row>
@@ -3801,6 +3814,8 @@
 		<row><td>ID_STRING2</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>1168209482</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>899751632</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>CRS</td><td>0</td><td/><td>1168229928</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Uninstall CRS</td><td>0</td><td/><td>-1516164751</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-1381934228</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>899804462</td></row>
 	</table>
 
@@ -3909,7 +3924,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
-		<row><td>UNINST_Uninstall_C_BDDD9B6C0F504CC7BF82620003F4DF09.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>UNINST_Uninstall_C_E52430A919AA4A24989BDB2E04FF20D1.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 		<row><td>dotNetFx40_Full_se_17E4D67A06444787B69E66E62BAFA78A.exe</td><td/><td>C:\Users\Damin_000\Downloads\dotNetFx40_Full_setup.exe</td><td>0</td></row>
 		<row><td>dotNetFx40_Full_se_AF749A76D2494357BD8D42E3C9FCABF0.exe</td><td/><td>C:\Users\Damin_000\Downloads\dotNetFx40_Full_setup.exe</td><td>0</td></row>
 		<row><td>setup.exe_09037247832D47948A24F5C160140BDD.exe</td><td/><td>C:\Users\Damin_000\Downloads\32feet.NET 3.5\setup.exe</td><td>0</td></row>
@@ -4045,7 +4060,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{A4785E93-70A9-4856-9A7D-77BE1E74F70D}</td></row>
 		<row><td>ISUSSignature</td><td>{E4942518-2293-4ECC-A5FB-2D07BC15427C}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewAppFiles,viewFileExtensions,viewUI</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewAppFiles,viewFileExtensions,viewUI,viewISToday,viewShortcuts</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4390,7 +4405,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>IS_SQLSERVER_SERVER</td><td/><td/></row>
 		<row><td>IS_SQLSERVER_USERNAME</td><td>sa</td><td/></row>
 		<row><td>InstallChoice</td><td>AR</td><td/></row>
-		<row><td>LAUNCHPROGRAM</td><td>1</td><td/></row>
 		<row><td>LAUNCHPROGRAMCOMPCODE</td><td>{7AA9FB9E-CD38-43F0-89BE-E97A13C0D351}</td><td/></row>
 		<row><td>LAUNCHPROGRAMFILEKEY</td><td>ecom_crs.primary_output</td><td/></row>
 		<row><td>LAUNCHREADME</td><td>1</td><td/></row>
@@ -4435,7 +4449,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SHOWLAUNCHPROGRAM</td><td>-1</td><td/></row>
+		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
 		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
@@ -4492,6 +4506,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>Registry1</td><td>1</td><td>CRS Key</td><td>License Key</td><td/><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
 	</table>
 
 	<table name="RemoveFile">
@@ -4500,8 +4515,10 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>UNINST_Uninstall_CRS_Installer</td><td>NewComponent1</td><td/><td>crsins_1_crs_installer</td><td>2</td></row>
-		<row><td>_Built</td><td>ECOM_CRS.Primary_output2</td><td/><td>crsins_1_crs_installer</td><td>2</td></row>
+		<row><td>FileKey1</td><td>ECOM_CRS.Primary_output2</td><td/><td>ecom</td><td>2</td></row>
+		<row><td>FileKey2</td><td>ECOM_CRS.Primary_output2</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
+		<row><td>UNINST_Uninstall_CRS_Installer</td><td>NewComponent2</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
+		<row><td>_Built</td><td>ECOM_CRS.Primary_output2</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4587,9 +4604,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>UNINST_Uninstall_CRS_Installer</td><td>crsins_1_crs_installer</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {D18E8E05-3EC7-4A2A-B047-764AE8418B92}</td><td/><td/><td>UNINST_Uninstall_C_BDDD9B6C0F504CC7BF82620003F4DF09.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built</td><td>crsins_1_crs_installer</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>ECOM_CRS.Primary_output2</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>ECOM_CRS.Primary_output2</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>UNINST_Uninstall_CRS_Installer</td><td>crsins_1_crs_installer1</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>NewComponent2</td><td>[SystemFolder]msiexec.exe</td><td>/x {D18E8E05-3EC7-4A2A-B047-764AE8418B92}</td><td/><td/><td>UNINST_Uninstall_C_E52430A919AA4A24989BDB2E04FF20D1.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>crsins_1_crs_installer1</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>ECOM_CRS.Primary_output2</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>3</td><td>ECOM_CRS</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>ECOM_CRS.Primary_output2</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
