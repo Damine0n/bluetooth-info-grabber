@@ -17,7 +17,6 @@ namespace CRS
     {
 
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
-        
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         DataTable ds = new DataTable();
@@ -27,6 +26,7 @@ namespace CRS
         {
             InitializeComponent();
             PersonalData_Load();
+
         }
 
         private void button1_Click(object sender, EventArgs e)

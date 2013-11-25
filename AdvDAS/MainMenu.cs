@@ -22,7 +22,7 @@ namespace CRS
 {
     public partial class MainMenu : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;"); 
         private SQLiteCommand sqlite_cmd;
         private System.Drawing.Rectangle tabArea;
         private RectangleF tabTextArea;
@@ -36,9 +36,8 @@ namespace CRS
         private SetUpReport configReport = new SetUpReport();
         private SetUpProcedure configProcedure;
         TestRecords tRecords = new TestRecords();
-        private PersonalData personalData = new PersonalData();
+        
         private Calibration caliForm = new Calibration();
-        private Customer customer = new Customer();
         public static EquipmentSite eSite;
         private Form2 forming = new Form2();
         private List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
@@ -66,8 +65,6 @@ namespace CRS
 
         public MainMenu()
         {
-            
-            
             InitializeComponent();
             createScaleDisplays();
             timer2.Start();
@@ -80,7 +77,6 @@ namespace CRS
             {
                 dataGridTimer.Start();
             }
-
 
         }
 
@@ -509,12 +505,15 @@ namespace CRS
         //Opens Personal Data Window
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PersonalData personalData = new PersonalData();
             personalData.ShowDialog();
         }
 
         //Opens Custome Window
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Customer customer = new Customer();
+
             customer.ShowDialog();
         }
 
@@ -2042,6 +2041,8 @@ namespace CRS
 
         private void button4_Click(object sender, EventArgs e)
         {
+                    Customer customer = new Customer();
+
             customer.ShowDialog();
         }
 
