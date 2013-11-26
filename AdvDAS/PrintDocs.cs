@@ -22,7 +22,7 @@ namespace CRS
 
     public partial class PrintDocs : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source="+Directory.GetCurrentDirectory()+"\\database1.db;Version=3;");
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         DataTable ds1 = new DataTable();
         DataTable ds2 = new DataTable();
         DataTable ds3 = new DataTable();
@@ -1378,7 +1378,8 @@ namespace CRS
                     LOGO.ScaleToFit(100f, 150f);
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
-                    heading.Add(LOGO);
+                    if (!LOGO.Equals(null))
+                        heading.Add(LOGO);
                     heading.Alignment = 1;
                     heading.SpacingAfter = -75;
                     date.Alignment = 1;
@@ -1750,6 +1751,7 @@ namespace CRS
             }
             sqlite_conn.Close();
         }
+
     }
 }
 

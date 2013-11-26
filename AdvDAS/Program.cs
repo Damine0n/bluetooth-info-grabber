@@ -82,6 +82,19 @@ namespace CRS
                     sqlite_cmd.CommandText = "CREATE TABLE [Test_Tables] ([Site] TEXT  NOT NULL,[Equipment] TEXT  NOT NULL,[Test] TEXT  PRIMARY KEY NOT NULL);";
                     sqlite_cmd.ExecuteNonQuery();
                     ////////////////////////////////////////////////////////////////
+                    sqlite_cmd = sqlite_conn.CreateCommand();
+                    try
+                    {
+                        // Lets insert something into our new table:
+                        sqlite_cmd.CommandText = "INSERT INTO Personal_Data (PData) Values(1)";
+
+                        // And execute this again ;D
+                        sqlite_cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + ex.StackTrace);
+                    }
                     MessageBox.Show("It Worked!!!!!!");
                 }
                 catch (Exception ex)
@@ -101,7 +114,7 @@ namespace CRS
             else
             {
                 Application.EnableVisualStyles();
-                //Application.SetCompatibleTextRenderingDefault(false);
+                Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainMenu());
             }
             

@@ -36,7 +36,7 @@ namespace CRS
         private SetUpReport configReport = new SetUpReport();
         private SetUpProcedure configProcedure;
         TestRecords tRecords = new TestRecords();
-        
+        Customer customer = new Customer();
         private Calibration caliForm = new Calibration();
         public static EquipmentSite eSite;
         private Form2 forming = new Form2();
@@ -73,10 +73,10 @@ namespace CRS
             numOfCycles = "1";
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
-            if (protocol.processProtocol(true))
-            {
-                dataGridTimer.Start();
-            }
+            //if (protocol.processProtocol(true))
+            //{
+            //    dataGridTimer.Start();
+            //}
 
         }
 
@@ -470,6 +470,9 @@ namespace CRS
             this.rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
+            if (protocol.processProtocol())
+                dataGridTimer.Start();
+            
 
         }
 
@@ -512,8 +515,6 @@ namespace CRS
         //Opens Custome Window
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-
             customer.ShowDialog();
         }
 
@@ -778,6 +779,7 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
+            
             label13.Text = "Connected";
             pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
@@ -2064,6 +2066,7 @@ namespace CRS
 
         private void testConnectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Beep
             protocol.processProtocol("$0F1066 0x20");
         }
     }

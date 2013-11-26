@@ -341,7 +341,6 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>ECOM_CRS.Localized_resources</td><td>{32DD76E7-B46F-4746-9ED6-044FF4F4F624}</td><td>ECOM_CRS</td><td>2</td><td/><td>ecom_crs.localized_resources</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ECOM_CRS.Primary_output2</td><td>{4C194C74-5059-41DA-BED0-A7F3921DF9A0}</td><td>ECOM_CRS</td><td>2</td><td/><td>ecom_crs.primary_output2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{3D91BBA5-D7DD-4A96-AB21-401D26F7E515}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{85CBDC9B-1BB0-4856-8A54-45D4AE1528D2}</td><td>DATABASEDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1887,7 +1886,6 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>AlwaysInstall</td><td>ECOM_CRS.Localized_resources</td></row>
 		<row><td>AlwaysInstall</td><td>ECOM_CRS.Primary_output2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
@@ -1916,7 +1914,6 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>ecom_crs.localized_resources</td><td>ECOM_CRS.Localized_resources</td><td>ECOM CRS.Localized resources</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ECOM CRS&gt;|LocalizedResourceDlls</td><td>3</td><td/></row>
 		<row><td>ecom_crs.primary_output2</td><td>ECOM_CRS.Primary_output2</td><td>ECOM CRS.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ECOM CRS&gt;|Built</td><td>3</td><td/></row>
 		<row><td>itextsharp.dll</td><td>itextsharp.dll</td><td>ITEXTS~1.DLL|itextsharp.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.dll</td><td>1</td><td/></row>
 		<row><td>itextsharp.pdfa.dll</td><td>itextsharp.pdfa.dll</td><td>ITEXTS~1.DLL|itextsharp.pdfa.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.pdfa.dll</td><td>1</td><td/></row>
@@ -2068,7 +2065,6 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>ECOM_CRS.Localized_resources</td><td/><td/><td>_3C16B1A1_A8AB_4688_A8B2_19DF3F1301DD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ECOM_CRS.Primary_output2</td><td/><td/><td>_532B7DB1_FF08_4E1E_BB92_ED1A4105B886_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_FBF6D5B2_F71E_4C6A_A39F_A789EBB523EF_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_CA52920E_FB3A_4F74_91A1_A9E004533692_FILTER</td><td/><td/><td/><td/></row>
@@ -2700,7 +2696,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>1168209482</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>-845079443</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>899782223</td></row>
@@ -3810,8 +3806,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.ECOMusa.com</td><td>0</td><td/><td>1168217674</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>1168209482</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.ECOM.com</td><td>0</td><td/><td>-845079443</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>-845079443</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>899751632</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>CRS</td><td>0</td><td/><td>1168229928</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>Uninstall CRS</td><td>0</td><td/><td>-1516164751</td></row>

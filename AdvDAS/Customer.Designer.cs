@@ -76,7 +76,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnEditCustomer = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -90,7 +89,7 @@
             // 
             this.btnAddCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddCustomer.AutoSize = true;
-            this.btnAddCustomer.Location = new System.Drawing.Point(4, 331);
+            this.btnAddCustomer.Location = new System.Drawing.Point(10, 331);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(95, 23);
             this.btnAddCustomer.TabIndex = 47;
@@ -220,7 +219,7 @@
             // 
             this.btnDeleteCustomer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDeleteCustomer.AutoSize = true;
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(206, 331);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(124, 331);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteCustomer.TabIndex = 53;
@@ -519,33 +518,20 @@
             // 
             this.btnEditCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditCustomer.AutoSize = true;
-            this.btnEditCustomer.Location = new System.Drawing.Point(105, 331);
+            this.btnEditCustomer.Location = new System.Drawing.Point(588, 332);
             this.btnEditCustomer.Name = "btnEditCustomer";
             this.btnEditCustomer.Size = new System.Drawing.Size(95, 23);
             this.btnEditCustomer.TabIndex = 56;
-            this.btnEditCustomer.Text = "Edit Customer";
+            this.btnEditCustomer.Text = "Accept";
             this.toolTip1.SetToolTip(this.btnEditCustomer, "Add Customer to Database");
             this.btnEditCustomer.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(588, 332);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 22);
-            this.button1.TabIndex = 55;
-            this.button1.Text = "Accept";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Customer
             // 
-            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 382);
             this.Controls.Add(this.btnEditCustomer);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.bindingNavigator1);
@@ -615,7 +601,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEditCustomer;
         public System.Windows.Forms.TextBox tbCustomerID;
         private System.Windows.Forms.Button btnSite;

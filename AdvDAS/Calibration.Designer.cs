@@ -25,6 +25,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calibration));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.label81 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
             this.OKbtn = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -109,20 +111,10 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CaliNote = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.button10 = new System.Windows.Forms.Button();
-            this.CaliNote = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.startTimerButton = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -179,6 +171,10 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.button8 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -232,7 +228,12 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label48 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -255,7 +256,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -268,6 +268,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -342,6 +343,16 @@
             this.tabPage1.Size = new System.Drawing.Size(840, 426);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Calibration Gas Info.";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(90, 217);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 64;
+            this.button10.Text = "Help";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -653,6 +664,17 @@
             this.label31.Size = new System.Drawing.Size(139, 13);
             this.label31.TabIndex = 62;
             this.label31.Text = "Calibration Gas Certificate(s)";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Enabled = false;
+            this.label48.Location = new System.Drawing.Point(8, 184);
+            this.label48.MaximumSize = new System.Drawing.Size(250, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(247, 26);
+            this.label48.TabIndex = 36;
+            this.label48.Text = "Click Save to save cal gas concentrations in order to continue with calibration.";
             // 
             // OKbtn
             // 
@@ -1258,6 +1280,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
+            // CaliNote
+            // 
+            this.CaliNote.AutoSize = true;
+            this.CaliNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CaliNote.Location = new System.Drawing.Point(240, 387);
+            this.CaliNote.Name = "CaliNote";
+            this.CaliNote.Size = new System.Drawing.Size(370, 16);
+            this.CaliNote.TabIndex = 26;
+            this.CaliNote.Text = "Note: Remote must be in the cradle throughout the calibration.";
+            // 
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1289,104 +1321,6 @@
             this.label54.Size = new System.Drawing.Size(219, 16);
             this.label54.TabIndex = 14;
             this.label54.Text = "* ECOM recommends 5 min/sensor.";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.button9);
-            this.tabPage3.Controls.Add(this.label53);
-            this.tabPage3.Controls.Add(this.label49);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel13);
-            this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.calNOB);
-            this.tabPage3.Controls.Add(this.capZero02B);
-            this.tabPage3.Controls.Add(this.capZeroNO2B);
-            this.tabPage3.Controls.Add(this.capZeroNOB);
-            this.tabPage3.Controls.Add(this.capZeroCOB);
-            this.tabPage3.Controls.Add(this.calCOB);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel6);
-            this.tabPage3.Controls.Add(this.calNO2B);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel7);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel8);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel9);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel10);
-            this.tabPage3.Controls.Add(this.pictureBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(840, 426);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Drift Check";
-            // 
-            // button9
-            // 
-            this.button9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(156, 27);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(493, 34);
-            this.button9.TabIndex = 35;
-            this.button9.Text = "Click Here to Complete Post-Test Drift Check. ";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Visible = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.Transparent;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(616, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(219, 16);
-            this.label53.TabIndex = 33;
-            this.label53.Text = "* ECOM recommends 5 min/sensor.";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(5, 7);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(108, 13);
-            this.label49.TabIndex = 31;
-            this.label49.Text = "Post-Test Drift Check";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(90, 217);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 64;
-            this.button10.Text = "Help";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // CaliNote
-            // 
-            this.CaliNote.AutoSize = true;
-            this.CaliNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaliNote.Location = new System.Drawing.Point(240, 387);
-            this.CaliNote.Name = "CaliNote";
-            this.CaliNote.Size = new System.Drawing.Size(370, 16);
-            this.CaliNote.TabIndex = 26;
-            this.CaliNote.Text = "Note: Remote must be in the cradle throughout the calibration.";
             // 
             // tableLayoutPanel12
             // 
@@ -2143,6 +2077,66 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.label53);
+            this.tabPage3.Controls.Add(this.label49);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel13);
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.calNOB);
+            this.tabPage3.Controls.Add(this.capZero02B);
+            this.tabPage3.Controls.Add(this.capZeroNO2B);
+            this.tabPage3.Controls.Add(this.capZeroNOB);
+            this.tabPage3.Controls.Add(this.capZeroCOB);
+            this.tabPage3.Controls.Add(this.calCOB);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel6);
+            this.tabPage3.Controls.Add(this.calNO2B);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel7);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel8);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel9);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel10);
+            this.tabPage3.Controls.Add(this.pictureBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(840, 426);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Drift Check";
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(156, 27);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(493, 34);
+            this.button9.TabIndex = 35;
+            this.button9.Text = "Click Here to Complete Post-Test Drift Check. ";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.Transparent;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(616, 0);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(219, 16);
+            this.label53.TabIndex = 33;
+            this.label53.Text = "* ECOM recommends 5 min/sensor.";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(5, 7);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(108, 13);
+            this.label49.TabIndex = 31;
+            this.label49.Text = "Post-Test Drift Check";
+            // 
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.BackColor = System.Drawing.Color.Transparent;
@@ -2177,6 +2171,7 @@
             this.button8.Text = "TIMER";
             this.toolTip1.SetToolTip(this.button8, "Click to Start Timer");
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel10
             // 
@@ -2850,16 +2845,30 @@
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
             // 
-            // label48
+            // timer1
             // 
-            this.label48.AutoSize = true;
-            this.label48.Enabled = false;
-            this.label48.Location = new System.Drawing.Point(8, 184);
-            this.label48.MaximumSize = new System.Drawing.Size(250, 0);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(249, 26);
-            this.label48.TabIndex = 36;
-            this.label48.Text = "Click OK to save cal gas concentrations in order to continue with calibration.";
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 1000;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Interval = 1000;
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
             // Calibration
             // 
@@ -2905,8 +2914,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tableLayoutPanel12.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -2928,6 +2935,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tableLayoutPanel13.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -3165,5 +3174,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label CaliNote;
         private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Timer timer5;
     }
 }

@@ -329,9 +329,11 @@ namespace CRS
             protocol.processProtocol("$0F1007Meas1");
             timer3.Stop();
             dateTimePicker5.Enabled = true;
-            dateTimePicker5.Value = new DateTime(2013, 9, 9, 5, 0, 0);
+            dateTimePicker5.Value = new DateTime(2013, 9, 9, 5, 5, 0);
             this.startTimerButton.Text = "Start";
             clicked = false;
+            //Beep
+            protocol.processProtocol("$0F1066 0x20");
         }
 
         private void Calibration_Load(object sender, EventArgs e)
@@ -344,14 +346,14 @@ namespace CRS
         {
             if (!button7.Enabled)
             {
-                MessageBox.Show("Must click okay on the 'Calibration Gas Info' tab to proceed.");
+                MessageBox.Show("Must click Save on the 'Calibration Gas Info' tab to proceed.");
             }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (!MainMenu.equipment.Equals("Equipment: Not Selected\n "))
-            {
+            //if (!MainMenu.equipment.Equals("Equipment: Not Selected\n "))
+            //{
                 timer1.Start();
                 timer2.Start();
                 capZeroO2.Visible = true;
@@ -360,9 +362,9 @@ namespace CRS
                 capZeroNO2.Visible = true;
                 dateTimePicker5.Enabled = true;
                 startTimerButton.Enabled = true;
-            }
-            else
-                MessageBox.Show("Must select equipment first.");
+            //}
+            //else
+            //    MessageBox.Show("Must select equipment first.");
         }
 
         private void calCO_Click(object sender, EventArgs e)
@@ -705,6 +707,45 @@ namespace CRS
                + "\n3. Click 'Calibrate Sensor'."
                + "\nTip: Begin calibration by applying NO gas balanced in N2. You can check for air leaks &"
                + " capture zero response of 02 sensor while calibrating the NO sensor (3 birds, 1 stone).");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (!clicked)
+            {
+                timer5.Start();
+                dateTimePicker6.Enabled = false;
+                this.button8.Text = "Stop";
+                clicked = true;
+            }
+            else
+            {
+                stopItB();
+            }
+        }
+
+        private void stopItB()
+        {
+            protocol.processProtocol("$0F1007Meas1");
+            timer5.Stop();
+            dateTimePicker6.Enabled = true;
+            dateTimePicker6.Value = new DateTime(2013, 9, 9, 5, 5, 0);
+            this.button8.Text = "Start";
+            clicked = false;
+            //Beep
+            protocol.processProtocol("$0F1066 0x20");
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            if (dateTimePicker6.Value <= new DateTime(2013, 9, 9, 5, 0, 0))
+            {
+                stopItB();
+            }
+            else
+            {
+                dateTimePicker6.Value = dateTimePicker6.Value.AddSeconds(-1);
+            }
         }
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }

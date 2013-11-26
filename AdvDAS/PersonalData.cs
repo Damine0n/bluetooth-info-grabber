@@ -26,7 +26,6 @@ namespace CRS
         {
             InitializeComponent();
             PersonalData_Load();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

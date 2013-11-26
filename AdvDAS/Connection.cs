@@ -27,7 +27,7 @@ namespace CRS
         private void button1_Click(object sender, EventArgs e)
         {
             protocol.ipAddress = comboBox1.Text;
-            if (!protocol.processProtocol().Equals(conn))
+            if (!protocol.processProtocol())
             {
                 conn = true;
                 main.dataGridTimer.Start();
