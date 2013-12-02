@@ -758,7 +758,7 @@ namespace CRS
                         dataGridView3.DataSource = bindingSource3;
                         da.Update(ds3);
 
-                        for (int l = 0; l < dataGridView3.Rows.Count - 2; l++)
+                        for (int l = 0; l < dataGridView3.Rows.Count - 1; l++)
                         {
                             O2sum += Convert.ToDouble(dataGridView3.Rows[l].Cells[0].Value.ToString());
                             COsum += Convert.ToDouble(dataGridView3.Rows[l].Cells[1].Value.ToString());
@@ -768,12 +768,13 @@ namespace CRS
                             COMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[5].Value.ToString());
                             NOxMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[6].Value.ToString());
                         }
+                        MessageBox.Show(O2sum.ToString());
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
-                    double count = dataGridView3.Rows.Count - 1;
+                    double count = dataGridView3.Rows.Count-1;
                     O2Tavg.Add(O2sum / count);
                     COTavg.Add(COsum / count);
                     NOTavg.Add(NOsum / count);

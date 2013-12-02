@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finisar.SQLite;
 using System.IO;
+using log4net;
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
 namespace CRS
 {
      static class Program
     {
+         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
          private static SQLiteConnection sqlite_conn;//= new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         private static SQLiteCommand sqlite_cmd;
         /// <summary>
@@ -18,16 +21,20 @@ namespace CRS
         [STAThread]
          static void Main ()
         {
+            
+            log.Debug("Application Starting");
             if (!File.Exists(@"" + Directory.GetCurrentDirectory() + "\\database1.db"))
             {
-                MessageBox.Show("Doesn't Exist");
+                log.Debug("Creating Database1");
                 sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;New=True;");
                 try
                 {
                     sqlite_conn.Open();
+                    log.Debug("Opened Connection");
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE [CaliInfo] ([SpanGasCO] TEXT  NULL);";
                     sqlite_cmd.ExecuteNonQuery();
+                    log.Debug("Creates CaliInfo");
                     ////////////////////////////////////////////////////////////////
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE [Calibration] ([Time] TEXT  NULL,[O2] TEXT  NULL,[CO] TEXT  NULL,[NO] TEXT  NULL,[NO2] TEXT  NULL,[IFlow] TEXT  NULL);";
@@ -93,17 +100,17 @@ namespace CRS
                     }
                     catch (Exception ex)
                     {
+                        log.Debug(ex.Message + ex.StackTrace +"A");
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
-                    MessageBox.Show("It Worked!!!!!!");
                 }
                 catch (Exception ex)
                 {
+                    log.Debug(ex.Message + ex.StackTrace + "B");
                     MessageBox.Show(ex.StackTrace + ex.Message);
                 }
             }
-            else
-                MessageBox.Show("Exists");
+            
             
             DateTime now =  DateTime.Now;
             if (new DateTime(now.Year, now.Month, now.Day)>=new DateTime(2013, 12, 31))
@@ -113,9 +120,20 @@ namespace CRS
             }
             else
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainMenu());
+                try
+                {
+                    log.Debug("Start Application Portion");
+                    Application.EnableVisualStyles();
+                    log.Debug("Application.EnableVisualStyles()");
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    log.Debug("Application.SetCompatibleTextRenderingDefault(false)");
+                    Application.Run(new MainMenu());
+                    log.Debug("Main Menu Running");
+                }
+                catch (Exception ex)
+                {
+                    log.Debug(ex.Message + ex.StackTrace);
+                }
             }
             
         }

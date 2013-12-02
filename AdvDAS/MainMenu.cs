@@ -16,6 +16,8 @@ using System.IO;
 //using System.Data.SQLite;
 using Finisar.SQLite;
 using System.Drawing.Drawing2D;
+using log4net;
+//[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
 
 namespace CRS
@@ -54,7 +56,7 @@ namespace CRS
         private DateTime tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
         private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
         List<Facts> elements = new List<Facts>();
-        
+        public static bool purged;
         public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
         public static string cUnit, nUnit, numOfCycles, equipment = "Equipment: Not Selected\n ";
@@ -62,21 +64,27 @@ namespace CRS
         private string tableName = "";
         private bool run = false;
         private string units = "Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow";
-
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public MainMenu()
         {
             InitializeComponent();
+            log.Debug("Initialized");
             createScaleDisplays();
+            log.Debug("Created Displays");
             timer2.Start();
+            log.Debug("timer2");
             filltable();
+            log.Debug("filltable");
             dgInterval = 1000;
             numOfCycles = "1";
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
-            //if (protocol.processProtocol(true))
-            //{
-            //    dataGridTimer.Start();
-            //}
+            if (protocol.processProtocol(true))
+            {
+                log.Debug("protocol.processProtocol()");
+                dataGridTimer.Start();
+                log.Debug("dataGridTimer.Start()");
+            }
 
         }
 
@@ -165,7 +173,6 @@ namespace CRS
                             this.button1.Enabled = run;
                             run = true;
                             this.timer1.Start();
-                            this.recordSignTimer.Start();
                             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.pause_A;
                             this.stopRecordingButton.Enabled = run;
                         }
@@ -177,7 +184,6 @@ namespace CRS
                     this.button1.Enabled = run;
                     run = false;
                     this.timer1.Stop();
-                    this.recordSignTimer.Stop();
                     this.recordingSign.Visible = false;
                     this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
                 }
@@ -200,7 +206,6 @@ namespace CRS
             this.configureRecordingToolStripMenuItem.Enabled = run;
             this.button1.Enabled = run;
             this.timer1.Stop();
-            this.recordSignTimer.Stop();
             recordingSign.Visible = false;
             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
             run = false;
@@ -249,12 +254,13 @@ namespace CRS
         //Timer makes all the test numbers tick
         private void timer1_Tick(object sender, EventArgs e)
         {
+            recordingSign.Visible = true;
             foreach (Tuple<Label, Label, Button> tupes in lblList1)
             {
                 tupes.Item3.Enabled = false;
             }
             resetButton.Enabled = false;
-            timer1.Interval = dgInterval;
+            recordData.Interval = dgInterval;
             resetAll();
             if (!numOfCycles.Equals("-1"))
             {
@@ -290,7 +296,6 @@ namespace CRS
                         tupes.Item3.Enabled = true;
                     }
                     resetButton.Enabled = true;
-                    this.recordSignTimer.Stop();
                     this.recordingSign.Visible = false;
                     protocol.processProtocol("$0F1066 0x20");
                     this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
@@ -332,7 +337,7 @@ namespace CRS
                 {
                     protocol.processProtocol("$0F1066 0x20");
                     rFirst = false;
-                    tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
+                    tempRampUp = tempRampUp.AddSeconds(-1);
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
                     rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
@@ -347,7 +352,7 @@ namespace CRS
             {
                 if (!(tempRampUp <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
-                    tempRampUp = tempRampUp.AddSeconds(-(dgInterval / 1000));
+                    tempRampUp = tempRampUp.AddSeconds(-1);
                     rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
                     rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
@@ -372,7 +377,7 @@ namespace CRS
                 {
                     protocol.processProtocol("$0F1066 0x20");
                     tFirst = false;
-                    tempTestData = testData.AddSeconds(-(dgInterval / 1000));
+                    tempTestData = testData.AddSeconds(-1);
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
@@ -395,16 +400,17 @@ namespace CRS
             {
                 if (!(tempTestData <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
-                    tempTestData = tempTestData.AddSeconds(-(dgInterval / 1000));
+                    tempTestData = tempTestData.AddSeconds(-1);
                     tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
                     tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
-                    new GasAnalysis().newEntry(protocol, tableName);
+                    recordData.Start();
                     return true;
                 }
                 else
                 {
                     tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
+                    recordData.Stop(); 
                     return false;
                 }
             }
@@ -419,7 +425,7 @@ namespace CRS
                     protocol.processProtocol("$0F1066 0x20");
                     protocol.processProtocol("$0F1050 0x20");
                     pFirst = false;
-                    tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
+                    tempPurge = tempPurge.AddSeconds(-1);
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
                     pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
@@ -434,7 +440,7 @@ namespace CRS
             {
                 if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
-                    tempPurge = tempPurge.AddSeconds(-(dgInterval / 1000));
+                    tempPurge = tempPurge.AddSeconds(-1);
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
                     pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
                     running = running.AddSeconds(1);
@@ -469,6 +475,8 @@ namespace CRS
             this.tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
             this.label16.Text = equipment;
+            this.label23.Text = dgInterval / 1000 + " sec(s)";
+            this.label43.Text = dgInterval / 1000 + " sec(s)";
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
             if (protocol.processProtocol())
                 dataGridTimer.Start();
@@ -783,8 +791,7 @@ namespace CRS
             label13.Text = "Connected";
             pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
-            label23.Text = dgInterval / 1000 + " sec(s)";
-            label43.Text = dgInterval / 1000 + " sec(s)";
+            
             if (numOfCycles.Equals("-1"))
             {
                 label22.Text = currentCycle + " of " + "\u221e";
@@ -900,7 +907,7 @@ namespace CRS
 
         private void recordSign_Tick(object sender, EventArgs e)
         {
-            recordingSign.Visible = true;
+            
         }
 
         private void aboutAdvDASToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2068,6 +2075,11 @@ namespace CRS
         {
             //Beep
             protocol.processProtocol("$0F1066 0x20");
+        }
+
+        private void recordData_Tick(object sender, EventArgs e)
+        {
+            new GasAnalysis().newEntry(protocol, tableName);
         }
     }
 }

@@ -369,70 +369,80 @@ namespace CRS
 
         private void calCO_Click(object sender, EventArgs e)
         {
-
-            //Disable Keypad
-            protocol.processProtocol("$0F106100000");
-            //Return To Normal Mode
-            protocol.processProtocol("$0F1007Meas2");
-            //Enter control Mode
-            protocol.processProtocol("$0F1006 0x20");
-            //Enter Cal CO Mode
-            protocol.processProtocol("$0F1010 0x20");
-            //CAL CO to II
-            protocol.processProtocol("$0F1011" + Convert.ToDouble(textBox1.Text).ToString("00000"));
-            //Enter Button
-            protocol.processProtocol("$0F1004 0x20");
-            //Enter control Mode
-            protocol.processProtocol("$0F1006 0x20");
-            //Enable Keypad
-            protocol.processProtocol("$0F106100001");
-            //Beep
-            protocol.processProtocol("$0F1066 0x20");
+            for (int i = 0; i < 5; i++)
+            {
+                //Disable Keypad
+                protocol.processProtocol("$0F106100000");
+                //Return To Normal Mode
+                protocol.processProtocol("$0F1007Meas2");
+                //Enter control Mode
+                protocol.processProtocol("$0F1006 0x20");
+                //Enter Cal CO Mode
+                protocol.processProtocol("$0F1010 0x20");
+                //CAL CO to II
+                protocol.processProtocol("$0F1011" + Convert.ToDouble(textBox1.Text).ToString("00000"));
+                //Enter Button
+                protocol.processProtocol("$0F1004 0x20");
+                //Enter control Mode
+                protocol.processProtocol("$0F1006 0x20");
+                //Enable Keypad
+                protocol.processProtocol("$0F106100001");
+                //Beep
+                protocol.processProtocol("$0F1066 0x20");
+            }
+            //MessageBox.Show("Now, swipe magnet.");
         }
+
 
         private void calNO_Click(object sender, EventArgs e)
         {
-            //Disable Keypad
-            protocol.processProtocol("$0F106100000");
-            //Return To Normal Mode
-            protocol.processProtocol("$0F1007Meas2");
-            //Enter control Mode
-            protocol.processProtocol("$0F1006 0x20");
-            //Enter Cal NO Mode
-            protocol.processProtocol("$0F1014 0x20");
-            //CAL NO to II
-            protocol.processProtocol("$0F1015" + Convert.ToDouble(textBox2.Text).ToString("00000"));
-            //Enter Button
-            protocol.processProtocol("$0F1004 0x20");
-            //Enter control Mode
-            protocol.processProtocol("$0F1006 0x20");
-            //Enable Keypad
-            protocol.processProtocol("$0F106100001");
-            //Beep
-            protocol.processProtocol("$0F1066 0x20");
+            for (int i = 0; i < 5; i++)
+            {
+                //Disable Keypad
+                protocol.processProtocol("$0F106100000");
+                //Return To Normal Mode
+                protocol.processProtocol("$0F1007Meas2");
+                //Enter control Mode
+                protocol.processProtocol("$0F1006 0x20");
+                //Enter Cal NO Mode
+                protocol.processProtocol("$0F1014 0x20");
+                //CAL NO to II
+                protocol.processProtocol("$0F1015" + Convert.ToDouble(textBox2.Text).ToString("00000"));
+                //Enter Button
+                protocol.processProtocol("$0F1004 0x20");
+                //Enter control Mode
+                protocol.processProtocol("$0F1006 0x20");
+                //Enable Keypad
+                protocol.processProtocol("$0F106100001");
+                //Beep
+                protocol.processProtocol("$0F1066 0x20");
+            }
+            //MessageBox.Show("Now, swipe magnet.");
         }
-
         private void calNO2_Click(object sender, EventArgs e)
         {
-            //Disable Keypad
-            protocol.processProtocol("$0F106100000");
-            //Return To Normal Mode
-            protocol.processProtocol("$0F1007Meas2");
-            //Enter control Mode
-            protocol.processProtocol("$0F1006 0x20");
-            //Enter Cal NO2 Mode
-            protocol.processProtocol("$0F1018 0x20");
-            //CAL NO2 to II
-            protocol.processProtocol("$0F1019" + Convert.ToDouble(textBox3.Text).ToString("00000"));
-            //Enter Button
-            protocol.processProtocol("$0F1004 0x20");
-            //Enter control Mode
-            protocol.processProtocol("$0F1006 0x20");
-            //Enable Keypad
-            protocol.processProtocol("$0F106100001");
-            //Beep
-            protocol.processProtocol("$0F1066 0x20");
-
+            for (int i = 0; i < 5; i++)
+            {
+                //Disable Keypad
+                protocol.processProtocol("$0F106100000");
+                //Return To Normal Mode
+                protocol.processProtocol("$0F1007Meas2");
+                //Enter control Mode
+                protocol.processProtocol("$0F1006 0x20");
+                //Enter Cal NO2 Mode
+                protocol.processProtocol("$0F1018 0x20");
+                //CAL NO2 to II
+                protocol.processProtocol("$0F1019" + Convert.ToDouble(textBox3.Text).ToString("00000"));
+                //Enter Button
+                protocol.processProtocol("$0F1004 0x20");
+                //Enter control Mode
+                protocol.processProtocol("$0F1006 0x20");
+                //Enable Keypad
+                protocol.processProtocol("$0F106100001");
+                //Beep
+                protocol.processProtocol("$0F1066 0x20");
+            }
+            //MessageBox.Show("Now, swipe magnet.");
         }
 
         private void capZeroO2_MouseDown(object sender, MouseEventArgs e)

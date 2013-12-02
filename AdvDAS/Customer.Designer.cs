@@ -518,6 +518,7 @@
             // 
             this.btnEditCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditCustomer.AutoSize = true;
+            this.btnEditCustomer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEditCustomer.Location = new System.Drawing.Point(588, 332);
             this.btnEditCustomer.Name = "btnEditCustomer";
             this.btnEditCustomer.Size = new System.Drawing.Size(95, 23);
@@ -528,6 +529,7 @@
             // 
             // Customer
             // 
+            this.AcceptButton = this.btnEditCustomer;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 382);

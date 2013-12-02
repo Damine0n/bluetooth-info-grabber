@@ -168,7 +168,7 @@ namespace CRS
                 MainMenu.testTime = this.totalCycle;
             }
             MainMenu.numOfCycles = this.numOfCycles;
-
+            MainMenu.dgInterval = sampleRate * 1000;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -206,7 +206,6 @@ namespace CRS
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             sampleRate = (int)numericUpDown2.Value;
-            MainMenu.dgInterval = sampleRate * 1000;
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

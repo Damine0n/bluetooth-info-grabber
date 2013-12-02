@@ -352,6 +352,7 @@
 		<row><td>SQLite.NET.dll</td><td>{2D8CA7EF-D5AE-4C2A-9ED7-9906B39DFF1A}</td><td>ECOM_CRS</td><td>2</td><td/><td>sqlite.net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SQLite.dll</td><td>{D6D5E12D-8192-469A-A105-64B54588F969}</td><td>ECOM_CRS</td><td>2</td><td/><td>sqlite.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SQLite3.dll</td><td>{4DF1E409-7F93-4AA6-A5CE-4CE6B991D1FB}</td><td>ECOM_CRS</td><td>2</td><td/><td>sqlite3.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>VisualBasicPowerPacksSetup.exe</td><td>{7350B411-70FF-4EBA-B0A7-02E7F144CC86}</td><td>ECOM_CRS</td><td>2</td><td/><td>visualbasicpowerpackssetup.e</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>itextsharp.dll</td><td>{185B3EF5-39AE-410C-881F-BDBA58389DF0}</td><td>ECOM_CRS</td><td>2</td><td/><td>itextsharp.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>itextsharp.pdfa.dll</td><td>{941FEACC-5BC4-4994-9361-3C0EA2DF07C0}</td><td>ECOM_CRS</td><td>2</td><td/><td>itextsharp.pdfa.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>itextsharp.xtra.dll</td><td>{20D12CCC-BEC0-40CC-BEE1-830CA8DE2858}</td><td>ECOM_CRS</td><td>2</td><td/><td>itextsharp.xtra.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1897,6 +1898,7 @@
 		<row><td>AlwaysInstall</td><td>SQLite.NET.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SQLite.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SQLite3.dll</td></row>
+		<row><td>AlwaysInstall</td><td>VisualBasicPowerPacksSetup.exe</td></row>
 		<row><td>AlwaysInstall</td><td>itextsharp.dll</td></row>
 		<row><td>AlwaysInstall</td><td>itextsharp.pdfa.dll</td></row>
 		<row><td>AlwaysInstall</td><td>itextsharp.xtra.dll</td></row>
@@ -1921,6 +1923,7 @@
 		<row><td>sqlite.dll</td><td>SQLite.dll</td><td>SQLite.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\SQLite.dll</td><td>1</td><td/></row>
 		<row><td>sqlite.net.dll</td><td>SQLite.NET.dll</td><td>SQLITE~1.DLL|SQLite.NET.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\SQLite.NET.dll</td><td>1</td><td/></row>
 		<row><td>sqlite3.dll</td><td>SQLite3.dll</td><td>SQLite3.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\SQLite3.dll</td><td>1</td><td/></row>
+		<row><td>visualbasicpowerpackssetup.e</td><td>VisualBasicPowerPacksSetup.exe</td><td>VISUAL~1.EXE|VisualBasicPowerPacksSetup.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Downloads\VisualBasicPowerPacksSetup.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2076,6 +2079,7 @@
 		<row><td>SQLite.NET.dll</td><td/><td/><td>_6FB60B57_B18D_47B3_812C_D833EB14FA58_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SQLite.dll</td><td/><td/><td>_BA70BCDB_B5E4_4F45_A7BA_A74D39E213D1_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SQLite3.dll</td><td/><td/><td>_10CB3B5B_17BC_4760_8C14_518A6CF1C88C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>VisualBasicPowerPacksSetup.exe</td><td/><td/><td>_F7604F8F_5B63_455D_AB46_B7491EA4D94D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>itextsharp.dll</td><td/><td/><td>_F5383FDA_EA04_4231_B3CF_DF9A0C59CFE1_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>itextsharp.pdfa.dll</td><td/><td/><td>_25CAFF86_747C_4F84_9C14_5E8BFCF0DA63_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>itextsharp.xtra.dll</td><td/><td/><td>_AC18B539_74D7_4A29_BC71_F929D093FA46_FILTER</td><td/><td/><td/><td/></row>
@@ -2696,7 +2700,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>-845079443</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>371301036</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>899782223</td></row>
@@ -3510,6 +3514,8 @@
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>CRS Installer</td><td>0</td><td/><td>899797233</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>1033</td><td>LAUNCH~1.EXE|Launch VisualBasicPowerPacks3Setup.exe</td><td>0</td><td/><td>371262156</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>1033</td><td>LAUNCH~1.EXE|Launch VisualBasicPowerPacksSetup.exe</td><td>0</td><td/><td>371318412</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>Uninstall CRS</td><td>0</td><td/><td>899750161</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>LAUNCH~1.EXE|Launch dotNetFx40_Full_setup.exe</td><td>0</td><td/><td>1033989741</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>LAUNCH~1.EXE|Launch setup.exe</td><td>0</td><td/><td>1033972526</td></row>
@@ -3806,8 +3812,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>899804462</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.ECOM.com</td><td>0</td><td/><td>-845079443</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>-845079443</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.ECOM.com</td><td>0</td><td/><td>371301036</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>ECOM</td><td>0</td><td/><td>371301036</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>899751632</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>CRS</td><td>0</td><td/><td>1168229928</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>Uninstall CRS</td><td>0</td><td/><td>-1516164751</td></row>
@@ -3921,6 +3927,8 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
 		<row><td>UNINST_Uninstall_C_E52430A919AA4A24989BDB2E04FF20D1.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>VisualBasicPowerPa_65F22040552E4F3BB11DAFEF28474D2B.exe</td><td/><td>C:\Users\Damin_000\Downloads\VisualBasicPowerPacksSetup.exe</td><td>0</td></row>
+		<row><td>VisualBasicPowerPa_6F8F62723BF24358A192FEB320C86EA6.exe</td><td/><td>C:\Users\Damin_000\Downloads\VisualBasicPowerPacks3Setup.exe</td><td>0</td></row>
 		<row><td>dotNetFx40_Full_se_17E4D67A06444787B69E66E62BAFA78A.exe</td><td/><td>C:\Users\Damin_000\Downloads\dotNetFx40_Full_setup.exe</td><td>0</td></row>
 		<row><td>dotNetFx40_Full_se_AF749A76D2494357BD8D42E3C9FCABF0.exe</td><td/><td>C:\Users\Damin_000\Downloads\dotNetFx40_Full_setup.exe</td><td>0</td></row>
 		<row><td>setup.exe_09037247832D47948A24F5C160140BDD.exe</td><td/><td>C:\Users\Damin_000\Downloads\32feet.NET 3.5\setup.exe</td><td>0</td></row>
@@ -4514,6 +4522,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>FileKey1</td><td>ECOM_CRS.Primary_output2</td><td/><td>ecom</td><td>2</td></row>
 		<row><td>FileKey2</td><td>ECOM_CRS.Primary_output2</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
 		<row><td>UNINST_Uninstall_CRS_Installer</td><td>NewComponent2</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
+		<row><td>VisualBasicPowerPacksSetup.exe</td><td>VisualBasicPowerPacksSetup.exe</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
 		<row><td>_Built</td><td>ECOM_CRS.Primary_output2</td><td/><td>crsins_1_crs_installer1</td><td>2</td></row>
 	</table>
 
@@ -4601,6 +4610,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>UNINST_Uninstall_CRS_Installer</td><td>crsins_1_crs_installer1</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>NewComponent2</td><td>[SystemFolder]msiexec.exe</td><td>/x {D18E8E05-3EC7-4A2A-B047-764AE8418B92}</td><td/><td/><td>UNINST_Uninstall_C_E52430A919AA4A24989BDB2E04FF20D1.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>VisualBasicPowerPacksSetup.exe</td><td>crsins_1_crs_installer1</td><td>##IDS_SHORTCUT_DISPLAY_NAME11##</td><td>VisualBasicPowerPacksSetup.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>VisualBasicPowerPa_65F22040552E4F3BB11DAFEF28474D2B.exe</td><td>1</td><td>1</td><td>ECOM_CRS</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built</td><td>crsins_1_crs_installer1</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>ECOM_CRS.Primary_output2</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>3</td><td>ECOM_CRS</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>ECOM_CRS.Primary_output2</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>

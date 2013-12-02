@@ -119,5 +119,30 @@ namespace CRS
             }
         }
 
+        private void analyzerBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (analyzerBox.SelectedIndex)
+            {
+                case 0:
+                    MessageBox.Show("You must purge manually.");
+                    break;
+                case 1:
+                    MessageBox.Show("You must purge manually.");
+                    break;
+                case 2:
+                    MessageBox.Show("You must purge manually.");
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+                    MessageBox.Show("You must purge manually.");
+                    break;
+                case 5:
+                    MessageBox.Show("You must purge manually.");
+                    break;
+            }
+        }
+
     }
 }

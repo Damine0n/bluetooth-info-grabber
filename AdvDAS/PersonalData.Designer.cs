@@ -367,6 +367,7 @@
             this.analyzerBox.Name = "analyzerBox";
             this.analyzerBox.Size = new System.Drawing.Size(155, 21);
             this.analyzerBox.TabIndex = 27;
+            this.analyzerBox.SelectedIndexChanged += new System.EventHandler(this.analyzerBox_SelectedIndexChanged);
             // 
             // label13
             // 
