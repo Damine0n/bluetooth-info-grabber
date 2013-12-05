@@ -173,12 +173,8 @@ namespace CRS
                 this.O2zeroResponse.ForeColor = Color.Red;
             }
             PrintDocs.O2prZero = this.O2zeroResponse.Text;
-            calCO.Visible = true;
-            calNO.Visible = true;
-            calNO2.Visible = true;
-            capCalCO.Visible = true;
-            capCalNO.Visible = true;
-            capCalNO2.Visible = true;
+            
+            
         }
 
         private void capZeroCO_Click(object sender, EventArgs e)
@@ -360,6 +356,9 @@ namespace CRS
                 capZeroCO.Visible = true;
                 capZeroNO.Visible = true;
                 capZeroNO2.Visible = true;
+                calCO.Visible = true;
+                calNO.Visible = true;
+                calNO2.Visible = true;
                 dateTimePicker5.Enabled = true;
                 startTimerButton.Enabled = true;
             //}
@@ -371,8 +370,6 @@ namespace CRS
         {
             for (int i = 0; i < 5; i++)
             {
-                //Disable Keypad
-                protocol.processProtocol("$0F106100000");
                 //Return To Normal Mode
                 protocol.processProtocol("$0F1007Meas2");
                 //Enter control Mode
@@ -385,11 +382,11 @@ namespace CRS
                 protocol.processProtocol("$0F1004 0x20");
                 //Enter control Mode
                 protocol.processProtocol("$0F1006 0x20");
-                //Enable Keypad
-                protocol.processProtocol("$0F106100001");
+            }
                 //Beep
                 protocol.processProtocol("$0F1066 0x20");
-            }
+                capCalCO.Visible = true;
+                
             //MessageBox.Show("Now, swipe magnet.");
         }
 
@@ -398,8 +395,6 @@ namespace CRS
         {
             for (int i = 0; i < 5; i++)
             {
-                //Disable Keypad
-                protocol.processProtocol("$0F106100000");
                 //Return To Normal Mode
                 protocol.processProtocol("$0F1007Meas2");
                 //Enter control Mode
@@ -412,19 +407,17 @@ namespace CRS
                 protocol.processProtocol("$0F1004 0x20");
                 //Enter control Mode
                 protocol.processProtocol("$0F1006 0x20");
-                //Enable Keypad
-                protocol.processProtocol("$0F106100001");
-                //Beep
-                protocol.processProtocol("$0F1066 0x20");
             }
+            //Beep
+                protocol.processProtocol("$0F1066 0x20");
+                capCalNO.Visible = true;
+                
             //MessageBox.Show("Now, swipe magnet.");
         }
         private void calNO2_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 5; i++)
             {
-                //Disable Keypad
-                protocol.processProtocol("$0F106100000");
                 //Return To Normal Mode
                 protocol.processProtocol("$0F1007Meas2");
                 //Enter control Mode
@@ -437,11 +430,10 @@ namespace CRS
                 protocol.processProtocol("$0F1004 0x20");
                 //Enter control Mode
                 protocol.processProtocol("$0F1006 0x20");
-                //Enable Keypad
-                protocol.processProtocol("$0F106100001");
-                //Beep
-                protocol.processProtocol("$0F1066 0x20");
             }
+            //Beep
+                protocol.processProtocol("$0F1066 0x20");
+                capCalNO2.Visible = true;
             //MessageBox.Show("Now, swipe magnet.");
         }
 
@@ -757,6 +749,13 @@ namespace CRS
                 dateTimePicker6.Value = dateTimePicker6.Value.AddSeconds(-1);
             }
         }
+
+        private void stopRecordingButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Calibration aborted.");
+            timer2.Stop();
+        }
+
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\
     }
 }

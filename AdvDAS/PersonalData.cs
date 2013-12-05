@@ -124,22 +124,27 @@ namespace CRS
             switch (analyzerBox.SelectedIndex)
             {
                 case 0:
-                    MessageBox.Show("You must purge manually.");
+                    MainMenu.purged = true;
                     break;
                 case 1:
                     MessageBox.Show("You must purge manually.");
+                    MainMenu.purged = false;
                     break;
                 case 2:
                     MessageBox.Show("You must purge manually.");
+                    MainMenu.purged = false;
                     break;
                 case 3:
-
+                    MessageBox.Show("You must purge manually.");
+                    MainMenu.purged = false;
                     break;
                 case 4:
                     MessageBox.Show("You must purge manually.");
+                    MainMenu.purged = false;
                     break;
                 case 5:
                     MessageBox.Show("You must purge manually.");
+                    MainMenu.purged = false;
                     break;
             }
         }

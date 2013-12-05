@@ -10,18 +10,18 @@ using log4net;
 
 namespace CRS
 {
-     static class Program
+    static class Program
     {
-         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-         private static SQLiteConnection sqlite_conn;//= new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static SQLiteConnection sqlite_conn;//= new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         private static SQLiteCommand sqlite_cmd;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-         static void Main ()
+        static void Main()
         {
-            
+
             log.Debug("Application Starting");
             if (!File.Exists(@"" + Directory.GetCurrentDirectory() + "\\database1.db"))
             {
@@ -51,7 +51,8 @@ namespace CRS
                         + "[serialNum] TEXT  NULL,[service] TEXT  NULL,[ignitionTiming] TEXT  NULL,[stackFlow] TEXT  NULL,[stackTemp] TEXT  NULL,[intakeMPL] TEXT  NULL,"
                         + "[intakeMPR] TEXT  NULL,[intakeMTL] TEXT  NULL,[intakeMTR] TEXT  NULL,[stackHeightFT] TEXT  NULL,[stackHeightIN] TEXT  NULL,[fuelSG] TEXT  NULL,"
                         + "[RPM] TEXT  NULL,[AFControllerMake] TEXT  NULL,[AFControllerModel] TEXT  NULL,[catalyticConverterMake] TEXT  NULL,[catalyticConverterModel] TEXT  NULL,"
-                        + "[AirPermit] TEXT  NULL,[permitDate] TEXT  NULL,[permitEquip] TEXT  NULL,[COLimit] TEXT  NULL,[NOxLimit] TEXT  NULL,[LimitUnit] TEXT  NULL,PRIMARY KEY ([owner],[equipment]));";
+                        + "[AirPermit] TEXT  NULL,[permitDate] TEXT  NULL,[permitEquip] TEXT  NULL,[COLimit] TEXT  NULL,[NOxLimit] TEXT  NULL,[LimitUnit] TEXT  NULL,"
+                        + "[Heat] TEXT DEFAULT '1.26'  NULL,[SCF] TEXT  NULL,[HorsePower] TEXT DEFAULT '500' NULL,[FuelType] REAL  NULL,[EquipType] REAL  NULL,PRIMARY KEY ([owner],[equipment]));";
                     sqlite_cmd.ExecuteNonQuery();
                     ////////////////////////////////////////////////////////////////
                     sqlite_cmd = sqlite_conn.CreateCommand();
@@ -100,7 +101,7 @@ namespace CRS
                     }
                     catch (Exception ex)
                     {
-                        log.Debug(ex.Message + ex.StackTrace +"A");
+                        log.Debug(ex.Message + ex.StackTrace + "A");
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
                 }
@@ -110,10 +111,10 @@ namespace CRS
                     MessageBox.Show(ex.StackTrace + ex.Message);
                 }
             }
-            
-            
-            DateTime now =  DateTime.Now;
-            if (new DateTime(now.Year, now.Month, now.Day)>=new DateTime(2013, 12, 31))
+
+
+            DateTime now = DateTime.Now;
+            if (new DateTime(now.Year, now.Month, now.Day) >= new DateTime(2013, 12, 31))
             {
                 MessageBox.Show("The BETA portion has ended. Thank you for all your help.\n We truly appreciated it.");
                 Application.Exit();
@@ -135,7 +136,7 @@ namespace CRS
                     log.Debug(ex.Message + ex.StackTrace);
                 }
             }
-            
+
         }
     }
 }

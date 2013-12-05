@@ -123,8 +123,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbFuelType = new System.Windows.Forms.ComboBox();
+            this.cbEquipType = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -964,8 +964,8 @@
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.cbFuelType);
+            this.groupBox3.Controls.Add(this.cbEquipType);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
@@ -1023,7 +1023,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(378, 19);
+            this.button2.Location = new System.Drawing.Point(377, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 23);
             this.button2.TabIndex = 9;
@@ -1048,10 +1048,10 @@
             this.label23.TabIndex = 7;
             this.label23.Text = "Equip:";
             // 
-            // comboBox1
+            // cbFuelType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbFuelType.FormattingEnabled = true;
+            this.cbFuelType.Items.AddRange(new object[] {
             "Residual Oil",
             "Distillate Oil",
             "Diesel",
@@ -1063,26 +1063,26 @@
             "Coal: Lignite",
             "Wood",
             "Wood Bark"});
-            this.comboBox1.Location = new System.Drawing.Point(189, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // cbFuelType
-            // 
-            this.cbFuelType.FormattingEnabled = true;
-            this.cbFuelType.Items.AddRange(new object[] {
-            "Boiler/Heater",
-            "Engine 0--500hp w/o fuel meter",
-            "Engine 0--500hp with fuel meter",
-            "Engine 500hp+ w/o fuel meter",
-            "Engine 500hp+ with fuel meter",
-            "Turbine"});
-            this.cbFuelType.Location = new System.Drawing.Point(189, 20);
+            this.cbFuelType.Location = new System.Drawing.Point(189, 63);
             this.cbFuelType.Name = "cbFuelType";
             this.cbFuelType.Size = new System.Drawing.Size(183, 21);
-            this.cbFuelType.TabIndex = 5;
-            this.cbFuelType.SelectedIndexChanged += new System.EventHandler(this.cbFuelType_SelectedIndexChanged);
+            this.cbFuelType.TabIndex = 6;
+            // 
+            // cbEquipType
+            // 
+            this.cbEquipType.FormattingEnabled = true;
+            this.cbEquipType.Items.AddRange(new object[] {
+            "Boiler/Heater",
+            "Engine 0--500hp with fuel meter",
+            "Engine 500hp++ with fuel meter",
+            "Engine 0--500hp w/o fuel meter",
+            "Engine 500hp++ w/o fuel meter",
+            "Turbine"});
+            this.cbEquipType.Location = new System.Drawing.Point(189, 20);
+            this.cbEquipType.Name = "cbEquipType";
+            this.cbEquipType.Size = new System.Drawing.Size(183, 21);
+            this.cbEquipType.TabIndex = 5;
+            this.cbEquipType.SelectedIndexChanged += new System.EventHandler(this.cbEquipType_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -1200,12 +1200,12 @@
         private System.Windows.Forms.TextBox tbIntakeMTL;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox cbFuelType;
+        private System.Windows.Forms.ComboBox cbEquipType;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFuelType;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox10;

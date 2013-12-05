@@ -111,6 +111,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.stopRecordingButton = new System.Windows.Forms.Button();
             this.CaliNote = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -668,7 +669,6 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Enabled = false;
             this.label48.Location = new System.Drawing.Point(8, 184);
             this.label48.MaximumSize = new System.Drawing.Size(250, 0);
             this.label48.Name = "label48";
@@ -1251,6 +1251,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.stopRecordingButton);
             this.tabPage2.Controls.Add(this.CaliNote);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.label32);
@@ -1280,11 +1281,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
+            // stopRecordingButton
+            // 
+            this.stopRecordingButton.BackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stopRecordingButton.BackgroundImage")));
+            this.stopRecordingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.stopRecordingButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopRecordingButton.Enabled = false;
+            this.stopRecordingButton.FlatAppearance.BorderSize = 0;
+            this.stopRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.stopRecordingButton.Location = new System.Drawing.Point(100, 26);
+            this.stopRecordingButton.Name = "stopRecordingButton";
+            this.stopRecordingButton.Size = new System.Drawing.Size(98, 37);
+            this.stopRecordingButton.TabIndex = 27;
+            this.stopRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stopRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.stopRecordingButton, "Stop Recording");
+            this.stopRecordingButton.UseVisualStyleBackColor = false;
+            this.stopRecordingButton.Click += new System.EventHandler(this.stopRecordingButton_Click);
+            // 
             // CaliNote
             // 
             this.CaliNote.AutoSize = true;
             this.CaliNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaliNote.Location = new System.Drawing.Point(240, 387);
+            this.CaliNote.Location = new System.Drawing.Point(464, 5);
             this.CaliNote.Name = "CaliNote";
             this.CaliNote.Size = new System.Drawing.Size(370, 16);
             this.CaliNote.TabIndex = 26;
@@ -1294,7 +1317,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(181, 28);
+            this.button6.Location = new System.Drawing.Point(307, 376);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(424, 34);
             this.button6.TabIndex = 25;
@@ -1306,9 +1329,10 @@
             // label32
             // 
             this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(8, 5);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(75, 13);
+            this.label32.Size = new System.Drawing.Size(97, 16);
             this.label32.TabIndex = 22;
             this.label32.Text = "Pre-Calibration";
             // 
@@ -1316,7 +1340,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(614, 0);
+            this.label54.Location = new System.Drawing.Point(6, 394);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(219, 16);
             this.label54.TabIndex = 14;
@@ -1330,7 +1354,7 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel12.Controls.Add(this.startTimerButton, 0, 1);
             this.tableLayoutPanel12.Controls.Add(this.panel9, 0, 0);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(704, 17);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(42, 313);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
@@ -1352,7 +1376,7 @@
             this.startTimerButton.Name = "startTimerButton";
             this.startTimerButton.Size = new System.Drawing.Size(121, 23);
             this.startTimerButton.TabIndex = 1;
-            this.startTimerButton.Text = "TIMER";
+            this.startTimerButton.Text = "Timer";
             this.toolTip1.SetToolTip(this.startTimerButton, "Click to Start Timer");
             this.startTimerButton.UseVisualStyleBackColor = true;
             this.startTimerButton.Click += new System.EventHandler(this.startTimerButton_Click);
@@ -1387,9 +1411,9 @@
             this.button7.Enabled = false;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(11, 21);
+            this.button7.Location = new System.Drawing.Point(11, 26);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(72, 37);
+            this.button7.Size = new System.Drawing.Size(86, 37);
             this.button7.TabIndex = 23;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -1402,7 +1426,7 @@
             this.capCalNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capCalNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capCalNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capCalNO.Location = new System.Drawing.Point(426, 322);
+            this.capCalNO.Location = new System.Drawing.Point(426, 303);
             this.capCalNO.Name = "capCalNO";
             this.capCalNO.Size = new System.Drawing.Size(207, 41);
             this.capCalNO.TabIndex = 17;
@@ -1421,7 +1445,7 @@
             this.capZeroO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroO2.Location = new System.Drawing.Point(8, 205);
+            this.capZeroO2.Location = new System.Drawing.Point(8, 186);
             this.capZeroO2.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroO2.Name = "capZeroO2";
             this.capZeroO2.Size = new System.Drawing.Size(205, 41);
@@ -1440,7 +1464,7 @@
             this.capZeroNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroNO2.Location = new System.Drawing.Point(634, 205);
+            this.capZeroNO2.Location = new System.Drawing.Point(634, 186);
             this.capZeroNO2.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroNO2.Name = "capZeroNO2";
             this.capZeroNO2.Size = new System.Drawing.Size(200, 41);
@@ -1459,7 +1483,7 @@
             this.capZeroNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroNO.Location = new System.Drawing.Point(426, 205);
+            this.capZeroNO.Location = new System.Drawing.Point(426, 186);
             this.capZeroNO.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroNO.Name = "capZeroNO";
             this.capZeroNO.Size = new System.Drawing.Size(205, 41);
@@ -1478,7 +1502,7 @@
             this.capZeroCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroCO.Location = new System.Drawing.Point(218, 205);
+            this.capZeroCO.Location = new System.Drawing.Point(218, 186);
             this.capZeroCO.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroCO.Name = "capZeroCO";
             this.capZeroCO.Size = new System.Drawing.Size(205, 41);
@@ -1497,7 +1521,7 @@
             this.capCalCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capCalCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capCalCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capCalCO.Location = new System.Drawing.Point(218, 322);
+            this.capCalCO.Location = new System.Drawing.Point(218, 303);
             this.capCalCO.Name = "capCalCO";
             this.capCalCO.Size = new System.Drawing.Size(205, 41);
             this.capCalCO.TabIndex = 6;
@@ -1515,7 +1539,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.cIFlowlbl, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label47, 0, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(42, 262);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(42, 234);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
@@ -1540,7 +1564,7 @@
             // 
             this.label47.AutoSize = true;
             this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Font = new System.Drawing.Font("Myriad Pro SemiExt", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.Location = new System.Drawing.Point(3, 46);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(121, 24);
@@ -1556,7 +1580,7 @@
             this.calNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.calNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.calNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calNO2.Location = new System.Drawing.Point(634, 262);
+            this.calNO2.Location = new System.Drawing.Point(634, 243);
             this.calNO2.Name = "calNO2";
             this.calNO2.Size = new System.Drawing.Size(200, 42);
             this.calNO2.TabIndex = 10;
@@ -1574,7 +1598,7 @@
             this.calNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.calNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.calNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calNO.Location = new System.Drawing.Point(426, 262);
+            this.calNO.Location = new System.Drawing.Point(426, 243);
             this.calNO.Name = "calNO";
             this.calNO.Size = new System.Drawing.Size(207, 42);
             this.calNO.TabIndex = 9;
@@ -1592,7 +1616,7 @@
             this.calCO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.calCO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.calCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calCO.Location = new System.Drawing.Point(218, 262);
+            this.calCO.Location = new System.Drawing.Point(218, 243);
             this.calCO.Name = "calCO";
             this.calCO.Size = new System.Drawing.Size(205, 42);
             this.calCO.TabIndex = 8;
@@ -1610,7 +1634,7 @@
             this.capCalNO2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capCalNO2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capCalNO2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capCalNO2.Location = new System.Drawing.Point(634, 322);
+            this.capCalNO2.Location = new System.Drawing.Point(634, 303);
             this.capCalNO2.Name = "capCalNO2";
             this.capCalNO2.Size = new System.Drawing.Size(200, 41);
             this.capCalNO2.TabIndex = 7;
@@ -1630,7 +1654,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label22, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.cO2lbl, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 88);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 69);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -1719,7 +1743,7 @@
             this.tableLayoutPanel4.Controls.Add(this.cNO2lbl, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label29, 0, 1);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(634, 88);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(634, 69);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -1837,7 +1861,7 @@
             this.tableLayoutPanel3.Controls.Add(this.cNOlbl, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label24, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(426, 89);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(426, 70);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -1956,7 +1980,7 @@
             this.tableLayoutPanel2.Controls.Add(this.cCOlbl, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label23, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(218, 88);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(218, 69);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -2070,7 +2094,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CRS.Properties.Resources.calibration_btn_black_blu;
-            this.pictureBox1.Location = new System.Drawing.Point(218, 88);
+            this.pictureBox1.Location = new System.Drawing.Point(218, 69);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(207, 112);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -3175,5 +3199,6 @@
         private System.Windows.Forms.Label CaliNote;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Timer timer5;
+        private System.Windows.Forms.Button stopRecordingButton;
     }
 }

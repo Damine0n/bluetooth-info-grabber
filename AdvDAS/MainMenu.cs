@@ -59,7 +59,7 @@ namespace CRS
         public static bool purged;
         public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
-        public static string cUnit, nUnit, numOfCycles, equipment = "Equipment: Not Selected\n ";
+        public static string cUnit, nUnit, numOfCycles,site, equipment = "Not Selected";
         public J2KNProtocol protocol = new J2KNProtocol();
         private string tableName = "";
         private bool run = false;
@@ -152,7 +152,7 @@ namespace CRS
         //Start recording
         private void startRecordingItem_Click(object sender, EventArgs e)
         {
-            if (!equipment.Equals("Equipment: Not Selected\n "))
+            if (!equipment.Equals("Not Selected"))
             {
                 if (!run)
                 {
@@ -418,8 +418,15 @@ namespace CRS
 
         private bool purgeMethod()
         {
+            
             if (pFirst)
             {
+                if (purged.Equals(false))
+                {
+                    timer1.Stop();
+                    MessageBox.Show("Remove the sample line from the analyzer to purge with fresh air, then click ok.");
+                    timer1.Start();
+                }
                 if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
                     protocol.processProtocol("$0F1066 0x20");
@@ -474,7 +481,7 @@ namespace CRS
             this.pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
             this.tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
-            this.label16.Text = equipment;
+            this.label16.Text = "Equipment: "+equipment+"\n";
             this.label23.Text = dgInterval / 1000 + " sec(s)";
             this.label43.Text = dgInterval / 1000 + " sec(s)";
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
@@ -816,7 +823,7 @@ namespace CRS
             //get Signal Strength
             protocol.processProtocol("$0A0512");
             //
-            protocol.massEmissions(3);
+            protocol.massEmissions(equipment,site);
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);

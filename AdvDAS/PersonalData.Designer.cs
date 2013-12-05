@@ -357,10 +357,10 @@
             // 
             this.analyzerBox.FormattingEnabled = true;
             this.analyzerBox.Items.AddRange(new object[] {
-            "J2KN Standard",
-            "J2KN Industrial",
-            "J2KN Pro Easy",
             "J2KN Pro Industrial",
+            "J2KN Industrial",
+            "J2KN Standard",
+            "J2KN Pro Easy",
             "EN2",
             "EN2F"});
             this.analyzerBox.Location = new System.Drawing.Point(103, 292);

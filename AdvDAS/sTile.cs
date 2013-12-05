@@ -63,7 +63,6 @@ namespace CRS
                 protocol.processProtocol();
                 protocol.processProtocol("$0A0531");
                 protocol.processProtocol("$0A054E");
-                protocol.massEmissions(3);
                 start = DateTime.Now;
             }
             switch (elementComboBox.SelectedIndex)
@@ -293,6 +292,7 @@ namespace CRS
             protocol.processProtocol("$0A0531");
             protocol.processProtocol("$0A054E");
             protocol.populateCorrection(correction);
+            protocol.massEmissions(MainMenu.equipment, MainMenu.site);
             now = DateTime.Now;
             switch (elementComboBox.SelectedIndex)
             {

@@ -20,15 +20,15 @@ namespace CRS
         private SQLiteCommand sqlite_cmd;
         private SQLiteDataReader sqlite_datareader;
         DataSet ds = new DataSet();
-        private MassEBC ebc = new MassEBC();
+        public static int EquipType;
         public string Customer = "", LimitUnit, COLimit, NOxLimit;
+        public static string heat, specificFC, HP;
         J2KNProtocol protocol = new J2KNProtocol();
         public EquipmentSite()
         {
             // TODO: Complete member initialization
             InitializeComponent();
             sqlite_conn.Open();
-
         }
         void Fillcombo()
         {
@@ -50,6 +50,7 @@ namespace CRS
             {
                 MessageBox.Show("Please, create site and equipment");
             }
+           
         }
 
         private void btnDeleteSite_Click(object sender, EventArgs e)
@@ -206,7 +207,8 @@ namespace CRS
                     + this.tbRPM.Text + "', AFControllerMake = '" + this.AFControllerMake.Text + "', AFControllerModel = '" + this.AFControllerModel.Text + "', catalyticConverterMake = '"
                     + this.tbCatalyticConverterMake.Text + "', catalyticConverterModeL = '" + this.tbCatalyticConverterModel.Text + "', AirPermit = '"
                     + this.tbAirPermit.Text + "', permitDate = '" + this.tbPermitDate.Value.ToString("MM/dd/yyyy") + "', permitEquip = '" + this.tbPermitEquip.Text
-                    + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+                    + "', EquipType = " + this.cbEquipType.SelectedIndex + ", FuelType = " + this.cbFuelType.SelectedIndex
+                    + "  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
                 // Execute the SQL 
                 sqlite_cmd.ExecuteNonQuery();
 
@@ -238,10 +240,16 @@ namespace CRS
                     // Now lets execute the SQL ;D
                 }
                 sqlite_cmd.ExecuteNonQuery();
+
+                sqlite_cmd.CommandText = "UPDATE Equipments SET COLimit = '" + textBox10.Text + "', NOxLimit = '" + textBox11.Text + "', LimitUnit = '" + label37.Text
+                        + "'  WHERE equipment = '" + this.equipBox.Text + "' AND owner = '" + this.siteBox.Text + "';";
+
+                sqlite_cmd.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
         }
 
@@ -354,6 +362,12 @@ namespace CRS
                     NOxLimit = sqlite_datareader[25].ToString();
 
                     LimitUnit = sqlite_datareader[26].ToString();
+
+                    cbFuelType.SelectedIndex = Convert.ToInt32(sqlite_datareader[30].ToString());
+
+                    cbEquipType.SelectedIndex = Convert.ToInt32(sqlite_datareader[31].ToString());
+
+
                 }
                 sqlite_datareader.Close();
             }
@@ -392,12 +406,27 @@ namespace CRS
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
             GasAnalysis.site = this.siteBox.Text.ToString();
-            MainMenu.equipment = "Equipment: " + this.equipBox.Text.ToString()+"\n ";
+            MainMenu.equipment = this.equipBox.Text.ToString();
+            MainMenu.site = this.siteBox.Text.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ebc.ShowDialog();
+            if (cbEquipType.SelectedIndex == 0)
+            {
+                MassEBCc ebc1 = new MassEBCc(this.equipBox.Text.ToString(), this.siteBox.Text.ToString());
+                ebc1.ShowDialog();
+            }
+            else if (cbEquipType.SelectedIndex > 2)
+            {
+                MassEBCa ebc2 = new MassEBCa(this.equipBox.Text.ToString(), this.siteBox.Text.ToString());
+                ebc2.ShowDialog();
+            }
+            else
+            {
+                MassEBCb ebc3 = new MassEBCb(this.equipBox.Text.ToString(), this.siteBox.Text.ToString());
+                ebc3.ShowDialog();
+            }
         }
         private void checkBoxes_CheckedChanged(object sender, EventArgs e)
         {
@@ -432,7 +461,7 @@ namespace CRS
             checkBox2.Enabled = true;
             checkBox3.Enabled = true;
             checkBox4.Enabled = false;
-            if (!(cbFuelType.SelectedIndex == 0))
+            if (!(cbEquipType.SelectedIndex == 0))
             {
                 checkBox1.Enabled = true;
             }
@@ -464,7 +493,7 @@ namespace CRS
             checkBox2.Enabled = true;
             checkBox3.Enabled = false;
             checkBox4.Enabled = true;
-            if (!(cbFuelType.SelectedIndex == 0))
+            if (!(cbEquipType.SelectedIndex == 0))
             {
                 checkBox1.Enabled = true;
             }
@@ -494,7 +523,7 @@ namespace CRS
             checkBox2.Enabled = false;
             checkBox3.Enabled = true;
             checkBox4.Enabled = true;
-            if (!(cbFuelType.SelectedIndex == 0))
+            if (!(cbEquipType.SelectedIndex == 0))
             {
                 checkBox1.Enabled = true;
             }
@@ -524,7 +553,7 @@ namespace CRS
             checkBox2.Enabled = true;
             checkBox3.Enabled = true;
             checkBox4.Enabled = true;
-            if (!(cbFuelType.SelectedIndex == 0))
+            if (!(cbEquipType.SelectedIndex == 0))
             {
                 checkBox1.Checked = true;
                 checkBox1.Enabled = true;
@@ -572,44 +601,46 @@ namespace CRS
             Fillcombo();
         }
 
-        private void cbFuelType_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbEquipType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
-            switch (cbFuelType.SelectedIndex)
+            cbFuelType.Items.Clear();
+            switch (cbEquipType.SelectedIndex)
             {
                 case 0:
                     checkBox1.Enabled = false;
                     checkBox1.Checked = false;
-                    comboBox1.Items.AddRange(new string[]{"Residual Oil","Distillate Oil","Diesel","Gas: Natural","Gas: Propane","Gas: Butane",
+                    cbFuelType.Items.AddRange(new string[]{"Residual Oil","Distillate Oil","Diesel","Gas: Natural","Gas: Propane","Gas: Butane",
                         "Coal: Anthracite","Coal: Bituminus","Coal: Lignite","Wood","Wood Bark"});
                     break;
                 case 1:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
-                    comboBox1.Items.AddRange(new string[]{"Residual Oil","Distillate Oil","Diesel","Gas: Natural","Gas: Propane","Gas: Butane"});
+                    cbFuelType.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane" });
                     break;
                 case 2:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
-                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
+                    cbFuelType.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane" });
                     break;
                 case 3:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
-                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
+                    cbFuelType.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane" });
                     break;
                 case 4:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
-                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
+                    cbFuelType.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane" });
                     break;
                 case 5:
                     checkBox1.Enabled = true;
                     checkBox1.Checked = true;
-                    comboBox1.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane"});
+                    cbFuelType.Items.AddRange(new string[] { "Residual Oil", "Distillate Oil", "Diesel", "Gas: Natural", "Gas: Propane", "Gas: Butane" });
                     break;
             }
-
+            EquipType = cbEquipType.SelectedIndex;
+            cbFuelType.SelectedIndex = 0;
         }
+
     }
 }
