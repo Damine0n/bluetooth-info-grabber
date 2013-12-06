@@ -21,6 +21,7 @@ namespace CRS
         int interv = 1000;
         GasAnalysis gases = new GasAnalysis();
         string caliName, caliName2;
+        DateTime timer = new DateTime(2013, 9, 9, 0, 0, 0);
         bool first = true;
         bool one = false;
         bool two = false;
@@ -305,7 +306,7 @@ namespace CRS
             }
             else
                 gases.Calibration(protocol, caliName);
-
+            
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -352,6 +353,7 @@ namespace CRS
             //{
                 timer1.Start();
                 timer2.Start();
+                timer6.Start();
                 capZeroO2.Visible = true;
                 capZeroCO.Visible = true;
                 capZeroNO.Visible = true;
@@ -361,6 +363,8 @@ namespace CRS
                 calNO2.Visible = true;
                 dateTimePicker5.Enabled = true;
                 startTimerButton.Enabled = true;
+                button7.Enabled = false;
+                stopRecordingButton.Enabled = true;
             //}
             //else
             //    MessageBox.Show("Must select equipment first.");
@@ -703,7 +707,7 @@ namespace CRS
         private void button10_Click(object sender, EventArgs e)
         {
             MessageBox.Show("*Always check for air leaks prior to calibration."
-               + "\n1. Apply cal gas and begin timer."
+               + "\n1. Apply cal gas and begin timer. Note: the timer is simply a tool and does not affect the calibration recording."
                + "\n2. Once timer stops, verify that the sensor response is within the cal error limit."
                + "\n    Click 'Capture Cal Response'."
                + "\n3. Click 'Calibrate Sensor'."
@@ -754,6 +758,17 @@ namespace CRS
         {
             MessageBox.Show("Calibration aborted.");
             timer2.Stop();
+            timer6.Stop();
+            timer = new DateTime(2013, 9, 9, 0, 0, 0);
+            recordTimer.Text = "Not Recording";
+            stopRecordingButton.Enabled = false;
+            button7.Enabled = true;
+        }
+
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+            timer=timer.AddSeconds(1);
+            recordTimer.Text = timer.ToString("HH:mm:ss");
         }
 
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\

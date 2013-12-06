@@ -58,7 +58,7 @@ namespace CRS
         public string tempvCxHy_C;
         private string equipment, site;
         public int numFuel, numEquip;
-        public string heat, scf, hp;
+        public string heat = "0", scf = "0", hp = "0";
         public int signalStrength = 0;
         public J2KNProtocol()
         {
@@ -373,214 +373,233 @@ namespace CRS
 
         public void massEmissions(string equipment, string site)
         {
-
+            this.equipment = equipment;
+            this.site = site;
             processProtocol();
+
+            if (this.equipment.Equals("Not Selected"))
+                return;
             getEmissions();
             double value;
             if (numEquip == 0)
+            {
                 switch (numFuel)
                 {
                     case 0:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
-                        vCOHr = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
-                        vNOxHr = value.ToString();
+                        vNOxBtu = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        value = Math.Abs(Convert.ToDouble(vCOBtu)  * Convert.ToDouble(heat));
+                        vCOHr = value.ToString("F");
+                        value = Math.Abs(Convert.ToDouble(vNOxBtu) * Convert.ToDouble(heat));
+                        vNOxHr = value.ToString("F");
+
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 1:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
-                        vCOHr = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
-                        vNOxHr = value.ToString();
+                        vNOxBtu = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
+                        vCOHr = value.ToString("F");
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
+                        vNOxHr = value.ToString("F");
+
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 2:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
-                        vCOHr = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
-                        vNOxHr = value.ToString();
+                        vNOxBtu = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
+                        vCOHr = value.ToString("F");
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
+                        vNOxHr = value.ToString("F");
+
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 3:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 4:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 5:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 6:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 10100 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 10100 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 10100 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 10100 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 7:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9780 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9780 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9780 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9780 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 8:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9860 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9860 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9860 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9860 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 9:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9240 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9240 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9240 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9240 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 10:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9600 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9600 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9600 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9600 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                 }
-            if (numEquip > 2)
+            }
+            else if (numEquip > 2)
+            {
                 switch (numFuel)
                 {
                     case 0:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOHr = value.ToString("F");
+                        MessageBox.Show(vCOHr + " , " + numEquip + " , " + numFuel + " , " + heat + "A");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 1:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 2:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 3:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
@@ -593,164 +612,175 @@ namespace CRS
                         vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 4:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
                         vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 5:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
                         vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
-
                 }
+            }
             else
+            {
                 switch (numFuel)
                 {
                     case 0:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000);
-                        vCOHr = value.ToString();
+                        vCOHr = value.ToString("F");
+                        MessageBox.Show(vCOHr + " , " + numEquip + " , " + numFuel + " , " + heat + "B");
+
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000);
-                        vNOxHr = value.ToString();
+                        vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);;
-                        vNOxHr = value.ToString();
+                        vCOBhp = value.ToString("F");
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp); ;
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 1:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 2:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000);
-                        vCOHr = value.ToString();
+                        vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000);
-                        vNOxHr = value.ToString();
+                        vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 3:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000);
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000);
                         vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 4:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000);
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000);
                         vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                     case 5:
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vCOBtu = value.ToString();
+                        vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
-                        vNOxBtu = value.ToString();
+                        vNOxBtu = value.ToString("F");
+
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000);
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000);
                         vNOxHr = value.ToString("F");
 
                         value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vCOHr = value.ToString();
+                        vCOBhp = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
-                        vNOxHr = value.ToString();
+                        vNOxBhp = value.ToString("F");
 
-                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString();
-                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString();
+                        vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
+                        vNOxTPY = (Convert.ToDouble(vNOxHr) * 4.3829).ToString("F");
                         break;
                 }
+            }
         }
 
         private void getEmissions()
@@ -762,24 +792,24 @@ namespace CRS
             try
             {
 
-                sqlite_cmd = new SQLiteCommand("SELECT EquipType, FuelType, Heat, SCF, HorsePower FROM Equipments WHERE owner = '" + this.site
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Equipments WHERE owner = '" + this.site
                     + "' AND equipment = '" + this.equipment + "';", sqlite_conn);
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
 
                 while (sqlite_datareader.Read())
                 {
 
-                    string equip = sqlite_datareader[0].ToString();
+                    string equip = sqlite_datareader[31].ToString();
                     numEquip = Convert.ToInt32(equip);
 
-                    string fuel = sqlite_datareader[1].ToString();
+                    string fuel = sqlite_datareader[30].ToString();
                     numFuel = Convert.ToInt32(fuel);
 
-                    heat = sqlite_datareader[2].ToString();
+                    heat = sqlite_datareader[27].ToString();
 
-                    scf = sqlite_datareader[3].ToString();
+                    scf = sqlite_datareader[28].ToString();
 
-                    hp = sqlite_datareader[4].ToString();
+                    hp = sqlite_datareader[29].ToString();
 
                 }
                 sqlite_datareader.Close();

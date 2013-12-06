@@ -24,7 +24,7 @@ namespace CRS
 {
     public partial class MainMenu : Form
     {
-        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;"); 
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
         private System.Drawing.Rectangle tabArea;
         private RectangleF tabTextArea;
@@ -59,7 +59,7 @@ namespace CRS
         public static bool purged;
         public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
-        public static string cUnit, nUnit, numOfCycles,site, equipment = "Not Selected";
+        public static string cUnit, nUnit, numOfCycles, site, equipment = "Not Selected";
         public J2KNProtocol protocol = new J2KNProtocol();
         private string tableName = "";
         private bool run = false;
@@ -410,7 +410,7 @@ namespace CRS
                 else
                 {
                     tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
-                    recordData.Stop(); 
+                    recordData.Stop();
                     return false;
                 }
             }
@@ -418,7 +418,7 @@ namespace CRS
 
         private bool purgeMethod()
         {
-            
+
             if (pFirst)
             {
                 if (purged.Equals(false))
@@ -481,13 +481,13 @@ namespace CRS
             this.pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
             this.tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
-            this.label16.Text = "Equipment: "+equipment+"\n";
+            this.label16.Text = "Equipment: " + equipment + "\n";
             this.label23.Text = dgInterval / 1000 + " sec(s)";
             this.label43.Text = dgInterval / 1000 + " sec(s)";
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
             if (protocol.processProtocol())
                 dataGridTimer.Start();
-            
+
 
         }
 
@@ -640,68 +640,76 @@ namespace CRS
                 {
                     // Get the control that is displaying this context menu
                     Control sourceControl = owner.SourceControl;
-                    switch (sourceControl.Name)
+                    try
                     {
-                        case "sTile0":
-                            scaleDisplays[0].Index = scaleDisplays[0].elementComboBox.SelectedIndex;
-                            scaleDisplays[0].source = sourceControl;
-                            scaleDisplays[0].ShowDialog(this);
-                            break;
-                        case "sTile1":
-                            scaleDisplays[1].Index = scaleDisplays[1].elementComboBox.SelectedIndex;
-                            scaleDisplays[1].source = sourceControl;
-                            scaleDisplays[1].ShowDialog(this);
-                            break;
-                        case "sTile2":
-                            scaleDisplays[2].Index = scaleDisplays[2].elementComboBox.SelectedIndex;
-                            scaleDisplays[2].source = sourceControl;
-                            scaleDisplays[2].ShowDialog(this);
-                            break;
-                        case "sTile3":
-                            scaleDisplays[3].Index = scaleDisplays[3].elementComboBox.SelectedIndex;
-                            scaleDisplays[3].source = sourceControl;
-                            scaleDisplays[3].ShowDialog(this);
-                            break;
-                        case "sTile4":
-                            scaleDisplays[4].Index = scaleDisplays[4].elementComboBox.SelectedIndex;
-                            scaleDisplays[4].source = sourceControl;
-                            scaleDisplays[4].ShowDialog(this);
-                            break;
-                        case "sTile5":
-                            scaleDisplays[5].Index = scaleDisplays[5].elementComboBox.SelectedIndex;
-                            scaleDisplays[5].source = sourceControl;
-                            scaleDisplays[5].ShowDialog(this);
-                            break;
-                        case "sTile6":
-                            scaleDisplays[6].Index = scaleDisplays[6].elementComboBox.SelectedIndex;
-                            scaleDisplays[6].source = sourceControl;
-                            scaleDisplays[6].ShowDialog(this);
-                            break;
-                        case "sTile7":
-                            scaleDisplays[7].Index = scaleDisplays[7].elementComboBox.SelectedIndex;
-                            scaleDisplays[7].source = sourceControl;
-                            scaleDisplays[7].ShowDialog(this);
-                            break;
-                        case "sTile8":
-                            scaleDisplays[8].Index = scaleDisplays[8].elementComboBox.SelectedIndex;
-                            scaleDisplays[8].source = sourceControl;
-                            scaleDisplays[8].ShowDialog(this);
-                            break;
-                        case "sTile9":
-                            scaleDisplays[9].Index = scaleDisplays[9].elementComboBox.SelectedIndex;
-                            scaleDisplays[9].source = sourceControl;
-                            scaleDisplays[9].ShowDialog(this);
-                            break;
-                        case "sTile10":
-                            scaleDisplays[10].Index = scaleDisplays[10].elementComboBox.SelectedIndex;
-                            scaleDisplays[10].source = sourceControl;
-                            scaleDisplays[10].ShowDialog(this);
-                            break;
-                        case "sTile11":
-                            scaleDisplays[11].Index = scaleDisplays[11].elementComboBox.SelectedIndex;
-                            scaleDisplays[11].source = sourceControl;
-                            scaleDisplays[11].ShowDialog(this);
-                            break;
+                        switch (sourceControl.Name)
+                        {
+                            case "sTile0":
+                                scaleDisplays[0].Index = scaleDisplays[0].elementComboBox.SelectedIndex;
+                                scaleDisplays[0].source = sourceControl;
+                                scaleDisplays[0].ShowDialog();
+                                break;
+                            case "sTile1":
+                                scaleDisplays[1].Index = scaleDisplays[1].elementComboBox.SelectedIndex;
+                                scaleDisplays[1].source = sourceControl;
+                                scaleDisplays[1].ShowDialog();
+                                break;
+                            case "sTile2":
+                                scaleDisplays[2].Index = scaleDisplays[2].elementComboBox.SelectedIndex;
+                                scaleDisplays[2].source = sourceControl;
+                                scaleDisplays[2].ShowDialog();
+                                break;
+                            case "sTile3":
+                                scaleDisplays[3].Index = scaleDisplays[3].elementComboBox.SelectedIndex;
+                                scaleDisplays[3].source = sourceControl;
+                                scaleDisplays[3].ShowDialog();
+                                break;
+                            case "sTile4":
+                                scaleDisplays[4].Index = scaleDisplays[4].elementComboBox.SelectedIndex;
+                                scaleDisplays[4].source = sourceControl;
+                                scaleDisplays[4].ShowDialog();
+                                break;
+                            case "sTile5":
+                                scaleDisplays[5].Index = scaleDisplays[5].elementComboBox.SelectedIndex;
+                                scaleDisplays[5].source = sourceControl;
+                                scaleDisplays[5].ShowDialog();
+                                break;
+                            case "sTile6":
+                                scaleDisplays[6].Index = scaleDisplays[6].elementComboBox.SelectedIndex;
+                                scaleDisplays[6].source = sourceControl;
+                                scaleDisplays[6].ShowDialog();
+                                break;
+                            case "sTile7":
+                                scaleDisplays[7].Index = scaleDisplays[7].elementComboBox.SelectedIndex;
+                                scaleDisplays[7].source = sourceControl;
+                                scaleDisplays[7].ShowDialog();
+                                break;
+                            case "sTile8":
+                                scaleDisplays[8].Index = scaleDisplays[8].elementComboBox.SelectedIndex;
+                                scaleDisplays[8].source = sourceControl;
+                                scaleDisplays[8].ShowDialog();
+                                break;
+                            case "sTile9":
+                                scaleDisplays[9].Index = scaleDisplays[9].elementComboBox.SelectedIndex;
+                                scaleDisplays[9].source = sourceControl;
+                                scaleDisplays[9].ShowDialog();
+                                break;
+                            case "sTile10":
+                                scaleDisplays[10].Index = scaleDisplays[10].elementComboBox.SelectedIndex;
+                                scaleDisplays[10].source = sourceControl;
+                                scaleDisplays[10].ShowDialog();
+                                break;
+                            case "sTile11":
+                                scaleDisplays[11].Index = scaleDisplays[11].elementComboBox.SelectedIndex;
+                                scaleDisplays[11].source = sourceControl;
+                                scaleDisplays[11].ShowDialog();
+                                break;
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
                     }
                 }
             }
@@ -823,7 +831,8 @@ namespace CRS
             //get Signal Strength
             protocol.processProtocol("$0A0512");
             //
-            protocol.massEmissions(equipment,site);
+            if(!equipment.Equals("Not Selected"))
+                protocol.massEmissions(equipment,site);
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
@@ -914,7 +923,7 @@ namespace CRS
 
         private void recordSign_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void aboutAdvDASToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1102,6 +1111,7 @@ namespace CRS
         }
         private void toolStripComboBox1_SelectedItemChanged(object sender, EventArgs e)
         {
+            protocol.massEmissions(MainMenu.equipment,MainMenu.site);
             ToolStripComboBox menuItem = sender as ToolStripComboBox;
             if (menuItem != null)
             {
@@ -1126,15 +1136,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1154,15 +1168,19 @@ namespace CRS
                                     break;
                                 case 10:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNOxHr;
                                     break;
                                 case 11:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNOxTPY;
                                     break;
                                 case 12:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNOxBhp;
                                     break;
                                 case 13:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel0.Text = protocol.vNOxBtu;
                                     break;
                                 case 14:
                                     lTileLabel0.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1219,15 +1237,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel1.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel1.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1312,15 +1334,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel2.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel2.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1405,15 +1431,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel3.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel3.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1498,15 +1528,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel4.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel4.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1591,15 +1625,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel5.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel5.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1684,15 +1722,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel6.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel6.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1777,15 +1819,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel7.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel7.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1870,15 +1916,19 @@ namespace CRS
                                     break;
                                 case 2:
                                     lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCOHr;
                                     break;
                                 case 3:
                                     lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCOTPY;
                                     break;
                                 case 4:
                                     lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCOBhp;
                                     break;
                                 case 5:
                                     lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
+                                    lLabel8.Text = protocol.vCOBtu;
                                     break;
                                 case 6:
                                     lTileLabel8.Text = toolStripComboBox1.SelectedItem.ToString();
@@ -1955,10 +2005,6 @@ namespace CRS
             }
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void browseReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2057,7 +2103,7 @@ namespace CRS
 
         private void button4_Click(object sender, EventArgs e)
         {
-                    Customer customer = new Customer();
+            Customer customer = new Customer();
 
             customer.ShowDialog();
         }
@@ -2088,5 +2134,6 @@ namespace CRS
         {
             new GasAnalysis().newEntry(protocol, tableName);
         }
+
     }
 }

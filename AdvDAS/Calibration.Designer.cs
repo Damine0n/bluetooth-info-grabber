@@ -25,7 +25,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calibration));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.label81 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
@@ -111,6 +110,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
             this.stopRecordingButton = new System.Windows.Forms.Button();
             this.CaliNote = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
@@ -235,6 +235,8 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.recordTimer = new System.Windows.Forms.Label();
+            this.timer6 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -300,7 +302,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.button10);
             this.tabPage1.Controls.Add(this.tableLayoutPanel11);
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.label31);
@@ -344,16 +345,6 @@
             this.tabPage1.Size = new System.Drawing.Size(840, 426);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Calibration Gas Info.";
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(90, 217);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 64;
-            this.button10.Text = "Help";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -1251,6 +1242,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.recordTimer);
+            this.tabPage2.Controls.Add(this.button10);
             this.tabPage2.Controls.Add(this.stopRecordingButton);
             this.tabPage2.Controls.Add(this.CaliNote);
             this.tabPage2.Controls.Add(this.button6);
@@ -1281,6 +1274,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(745, 385);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 65;
+            this.button10.Text = "Help";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // stopRecordingButton
             // 
             this.stopRecordingButton.BackColor = System.Drawing.Color.Transparent;
@@ -1289,7 +1292,7 @@
             this.stopRecordingButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.stopRecordingButton.Enabled = false;
             this.stopRecordingButton.FlatAppearance.BorderSize = 0;
-            this.stopRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.stopRecordingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.stopRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stopRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -1305,6 +1308,7 @@
             // 
             // CaliNote
             // 
+            this.CaliNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CaliNote.AutoSize = true;
             this.CaliNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaliNote.Location = new System.Drawing.Point(464, 5);
@@ -1410,6 +1414,7 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Enabled = false;
             this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(11, 26);
             this.button7.Name = "button7";
@@ -2894,6 +2899,24 @@
             this.timer5.Interval = 1000;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
+            // recordTimer
+            // 
+            this.recordTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.recordTimer.AutoSize = true;
+            this.recordTimer.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordTimer.Location = new System.Drawing.Point(641, 26);
+            this.recordTimer.Name = "recordTimer";
+            this.recordTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.recordTimer.Size = new System.Drawing.Size(193, 33);
+            this.recordTimer.TabIndex = 66;
+            this.recordTimer.Text = "Not Recording";
+            this.recordTimer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // timer6
+            // 
+            this.timer6.Interval = 1000;
+            this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
+            // 
             // Calibration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3195,10 +3218,12 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label CaliNote;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Button stopRecordingButton;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label recordTimer;
+        private System.Windows.Forms.Timer timer6;
     }
 }

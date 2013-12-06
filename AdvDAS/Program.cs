@@ -52,7 +52,7 @@ namespace CRS
                         + "[intakeMPR] TEXT  NULL,[intakeMTL] TEXT  NULL,[intakeMTR] TEXT  NULL,[stackHeightFT] TEXT  NULL,[stackHeightIN] TEXT  NULL,[fuelSG] TEXT  NULL,"
                         + "[RPM] TEXT  NULL,[AFControllerMake] TEXT  NULL,[AFControllerModel] TEXT  NULL,[catalyticConverterMake] TEXT  NULL,[catalyticConverterModel] TEXT  NULL,"
                         + "[AirPermit] TEXT  NULL,[permitDate] TEXT  NULL,[permitEquip] TEXT  NULL,[COLimit] TEXT  NULL,[NOxLimit] TEXT  NULL,[LimitUnit] TEXT  NULL,"
-                        + "[Heat] TEXT DEFAULT '1.26'  NULL,[SCF] TEXT  NULL,[HorsePower] TEXT DEFAULT '500' NULL,[FuelType] REAL  NULL,[EquipType] REAL  NULL,PRIMARY KEY ([owner],[equipment]));";
+                        + "[Heat] TEXT DEFAULT '1.26'  NULL,[SCF] TEXT  NULL,[HorsePower] TEXT DEFAULT '500' NULL,[FuelType] REAL DEFAULT '0' NULL,[EquipType] REAL DEFAULT '0' NULL,PRIMARY KEY ([owner],[equipment]));";
                     sqlite_cmd.ExecuteNonQuery();
                     ////////////////////////////////////////////////////////////////
                     sqlite_cmd = sqlite_conn.CreateCommand();

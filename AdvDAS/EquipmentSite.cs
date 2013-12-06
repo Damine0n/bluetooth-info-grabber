@@ -187,6 +187,8 @@ namespace CRS
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            MainMenu.equipment = this.equipBox.Text.ToString();
+            MainMenu.site = this.siteBox.Text.ToString(); 
             try
             {
                 sqlite_cmd = sqlite_conn.CreateCommand();
@@ -251,8 +253,10 @@ namespace CRS
             {
                 MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
+            protocol.massEmissions(equipBox.Text,siteBox.Text);
+            MessageBox.Show("heat = " + protocol.heat + ", scf = " + protocol.scf + ", hp = " + protocol.hp + ", equip num = " + protocol.numEquip + ", CO mmbtu = " + protocol.vCOBtu + ", CO lb/hr = " + protocol.numFuel + ", fuel num = " + protocol.vCOHr);
         }
-
+        
         private void siteBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -406,8 +410,7 @@ namespace CRS
             }
             GasAnalysis.equipment = this.equipBox.Text.ToString();
             GasAnalysis.site = this.siteBox.Text.ToString();
-            MainMenu.equipment = this.equipBox.Text.ToString();
-            MainMenu.site = this.siteBox.Text.ToString();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
