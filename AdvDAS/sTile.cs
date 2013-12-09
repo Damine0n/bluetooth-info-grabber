@@ -279,6 +279,11 @@ namespace CRS
             {
                 resetAverage();
             }
+            if (this.lbl2.Text.Length > 5)
+            {
+                this.lbl2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }else
+                this.lbl2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
         }
 

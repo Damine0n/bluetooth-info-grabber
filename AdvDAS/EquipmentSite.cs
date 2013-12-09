@@ -254,7 +254,10 @@ namespace CRS
                 MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
             protocol.massEmissions(equipBox.Text,siteBox.Text);
-            MessageBox.Show("heat = " + protocol.heat + ", scf = " + protocol.scf + ", hp = " + protocol.hp + ", equip num = " + protocol.numEquip + ", CO mmbtu = " + protocol.vCOBtu + ", CO lb/hr = " + protocol.numFuel + ", fuel num = " + protocol.vCOHr);
+            MessageBox.Show("heat = " + protocol.heat + ", scf = " + protocol.scf + ", hp = " + protocol.hp
+                + "\n CO mmbtu = " + protocol.vCOBtu + ", CO lb/hr = " + protocol.vCOHr + ", CO gr/bhp = " + protocol.vCOBhp
+                + "\n NOx mmbtu = " + protocol.vNOxBtu + ", NOx lb/hr = " + protocol.vNOxHr + ", NOx gr/bhp = " + protocol.vNOxBhp 
+                + "\n Equip num = " + protocol.numEquip + ", Fuel num = " + protocol.numFuel);
         }
         
         private void siteBox_SelectedIndexChanged(object sender, EventArgs e)

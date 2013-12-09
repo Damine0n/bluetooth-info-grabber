@@ -1050,6 +1050,7 @@
             // 
             // cbFuelType
             // 
+            this.cbFuelType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFuelType.FormattingEnabled = true;
             this.cbFuelType.Items.AddRange(new object[] {
             "Residual Oil",
@@ -1070,6 +1071,7 @@
             // 
             // cbEquipType
             // 
+            this.cbEquipType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEquipType.FormattingEnabled = true;
             this.cbEquipType.Items.AddRange(new object[] {
             "Boiler/Heater",

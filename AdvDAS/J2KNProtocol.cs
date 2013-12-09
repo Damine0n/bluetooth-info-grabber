@@ -391,7 +391,7 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCOBtu)  * Convert.ToDouble(heat));
+                        value = Math.Abs(Convert.ToDouble(vCOBtu) * Convert.ToDouble(heat));
                         vCOHr = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOxBtu) * Convert.ToDouble(heat));
                         vNOxHr = value.ToString("F");
@@ -551,15 +551,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        MessageBox.Show(vCOHr + " , " + numEquip + " , " + numFuel + " , " + heat + "A");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -570,14 +569,15 @@ namespace CRS
                         vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -588,14 +588,15 @@ namespace CRS
                         vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+
+                        value = Math.Abs(Convert.ToDouble(vCOBtu) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -606,14 +607,14 @@ namespace CRS
                         vCOBtu = value.ToString("F");
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -625,14 +626,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -644,14 +645,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * Convert.ToDouble(scf) * (.000001) * 453.5924 );
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -669,16 +670,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf) * (.000001));
                         vCOHr = value.ToString("F");
-                        MessageBox.Show(vCOHr + " , " + numEquip + " , " + numFuel + " , " + heat + "B");
-
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf) * (.000001));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp); ;
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 150000 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -690,14 +689,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf) * (.000001) * Convert.ToInt32(hp));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 140000 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -709,14 +708,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vCOBtu) * 137000 * Convert.ToDouble(scf) * (.000001));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf) * (.000001));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 9190 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 137000 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -728,14 +727,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf) * (.000001));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf) * (.000001));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 1040 * Convert.ToDouble(scf) * (.000001) * 453.5924 *(1 / Convert.ToDouble(hp)));
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -747,14 +746,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf) * (.000001));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf) * (.000001));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf) * (.000001) * 453.5924  *(1 / Convert.ToDouble(hp)));
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 2315 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
@@ -766,14 +765,14 @@ namespace CRS
                         value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))));
                         vNOxBtu = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf) * (.000001));
                         vCOHr = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf) * (.000001));
                         vNOxHr = value.ToString("F");
 
-                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vCO) * 7.271 * Math.Pow(10, -8) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vCOBhp = value.ToString("F");
-                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf)) * (1 / 1000000) * 453.5924 * Convert.ToInt32(hp);
+                        value = Math.Abs(Convert.ToDouble(vNOx) * 1.194 * Math.Pow(10, -7) * 8710 * (20.9 / (20.9 - Convert.ToDouble(vO2))) * 3011 * Convert.ToDouble(scf) * (.000001) * 453.5924 * (1 / Convert.ToDouble(hp)));
                         vNOxBhp = value.ToString("F");
 
                         vCOTPY = (Convert.ToDouble(vCOHr) * 4.3829).ToString("F");
