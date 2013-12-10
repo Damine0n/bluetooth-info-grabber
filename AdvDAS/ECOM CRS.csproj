@@ -77,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bogus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bogus.Designer.cs">
+      <DependentUpon>Bogus.cs</DependentUpon>
+    </Compile>
     <Compile Include="BTooth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <Compile Include="TestRecords.Designer.cs">
       <DependentUpon>TestRecords.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bogus.resx">
+      <DependentUpon>Bogus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BTooth.resx">
       <DependentUpon>BTooth.cs</DependentUpon>
     </EmbeddedResource>

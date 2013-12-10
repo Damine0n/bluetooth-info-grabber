@@ -114,7 +114,7 @@ namespace CRS
 
 
             DateTime now = DateTime.Now;
-            if (new DateTime(now.Year, now.Month, now.Day) >= new DateTime(2013, 12, 31))
+            if (new DateTime(now.Year, now.Month, now.Day) >= new DateTime(2014, 1, 31))
             {
                 MessageBox.Show("The BETA portion has ended. Thank you for all your help.\n We truly appreciated it.");
                 Application.Exit();

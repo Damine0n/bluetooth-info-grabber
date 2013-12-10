@@ -9,6 +9,8 @@ using Finisar.SQLite;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net;
+//[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
 namespace CRS
 {
@@ -29,6 +31,11 @@ namespace CRS
         bool four = false;
         bool five = false;
         bool six = false;
+        int attempt;
+        private bool pop = true;
+        private int caliNum = 6;
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Calibration()
         {
             InitializeComponent();
@@ -158,6 +165,7 @@ namespace CRS
         {
             interv = Convert.ToInt32(numericUpDown9.Value) * 1000;
             timer2.Interval = interv;
+            timer4.Interval = interv;
         }
         ////////////////////CALIBRATION-TAB2\\\\\\\\\\\\\\\\\\\\\
 
@@ -174,8 +182,8 @@ namespace CRS
                 this.O2zeroResponse.ForeColor = Color.Red;
             }
             PrintDocs.O2prZero = this.O2zeroResponse.Text;
-            
-            
+
+
         }
 
         private void capZeroCO_Click(object sender, EventArgs e)
@@ -306,7 +314,7 @@ namespace CRS
             }
             else
                 gases.Calibration(protocol, caliName);
-            
+
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -351,20 +359,20 @@ namespace CRS
         {
             //if (!MainMenu.equipment.Equals("Equipment: Not Selected\n "))
             //{
-                timer1.Start();
-                timer2.Start();
-                timer6.Start();
-                capZeroO2.Visible = true;
-                capZeroCO.Visible = true;
-                capZeroNO.Visible = true;
-                capZeroNO2.Visible = true;
-                calCO.Visible = true;
-                calNO.Visible = true;
-                calNO2.Visible = true;
-                dateTimePicker5.Enabled = true;
-                startTimerButton.Enabled = true;
-                button7.Enabled = false;
-                stopRecordingButton.Enabled = true;
+            timer1.Start();
+            timer2.Start();
+            timer6.Start();
+            capZeroO2.Visible = true;
+            capZeroCO.Visible = true;
+            capZeroNO.Visible = true;
+            capZeroNO2.Visible = true;
+            calCO.Visible = true;
+            calNO.Visible = true;
+            calNO2.Visible = true;
+            dateTimePicker5.Enabled = true;
+            startTimerButton.Enabled = true;
+            button7.Enabled = false;
+            stopRecordingButton.Enabled = true;
             //}
             //else
             //    MessageBox.Show("Must select equipment first.");
@@ -372,73 +380,101 @@ namespace CRS
 
         private void calCO_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                //Return To Normal Mode
-                protocol.processProtocol("$0F1007Meas2");
-                //Enter control Mode
-                protocol.processProtocol("$0F1006 0x20");
-                //Enter Cal CO Mode
-                protocol.processProtocol("$0F1010 0x20");
-                //CAL CO to II
-                protocol.processProtocol("$0F1011" + Convert.ToDouble(textBox1.Text).ToString("00000"));
-                //Enter Button
-                protocol.processProtocol("$0F1004 0x20");
-                //Enter control Mode
-                protocol.processProtocol("$0F1006 0x20");
-            }
-                //Beep
-                protocol.processProtocol("$0F1066 0x20");
-                capCalCO.Visible = true;
-                
+            for (int i = 0; i < 5;i++ )
+                calibrateCO();
+            caliNum = 0;
+
+            //Beep
+            protocol.processProtocol("$0F1066 0x20");
+            capCalCO.Visible = true;
+
             //MessageBox.Show("Now, swipe magnet.");
+        }
+
+        private void calibrateCO()
+        {
+            //Return To Normal Mode
+            protocol.processProtocol("$0F1007Meas2");
+
+            //Enter control Mode
+            protocol.processProtocol("$0F1006 0x20");
+
+            //Enter Cal CO Mode
+            protocol.processProtocol("$0F1010 0x20");
+
+            //CAL CO to II
+            protocol.processProtocol("$0F1011" + Convert.ToDouble(textBox1.Text).ToString("00000"));
+
+            //Enter Button
+            protocol.processProtocol("$0F1004 0x20");
+
+            //Enter control Mode
+            protocol.processProtocol("$0F1006 0x20");
+
+            //Return To Normal Mode
+            protocol.processProtocol("$0F1007Meas2");
+
         }
 
 
         private void calNO_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                //Return To Normal Mode
-                protocol.processProtocol("$0F1007Meas2");
-                //Enter control Mode
-                protocol.processProtocol("$0F1006 0x20");
-                //Enter Cal NO Mode
-                protocol.processProtocol("$0F1014 0x20");
-                //CAL NO to II
-                protocol.processProtocol("$0F1015" + Convert.ToDouble(textBox2.Text).ToString("00000"));
-                //Enter Button
-                protocol.processProtocol("$0F1004 0x20");
-                //Enter control Mode
-                protocol.processProtocol("$0F1006 0x20");
-            }
+            for (int i = 0; i < 5; i++) 
+                calibrateNO();
             //Beep
-                protocol.processProtocol("$0F1066 0x20");
-                capCalNO.Visible = true;
-                
+            protocol.processProtocol("$0F1066 0x20");
+            capCalNO.Visible = true;
+
             //MessageBox.Show("Now, swipe magnet.");
+        }
+
+        private void calibrateNO()
+        {
+
+            //Return To Normal Mode
+            protocol.processProtocol("$0F1007Meas2");
+            //Enter control Mode
+            protocol.processProtocol("$0F1006 0x20");
+            //Enter Cal NO Mode
+            protocol.processProtocol("$0F1014 0x20");
+            //CAL NO to II
+            protocol.processProtocol("$0F1015" + Convert.ToDouble(textBox2.Text).ToString("00000"));
+            //Enter Button
+            protocol.processProtocol("$0F1004 0x20");
+            //Enter control Mode
+            protocol.processProtocol("$0F1006 0x20");
+            //Return To Normal Mode
+            protocol.processProtocol("$0F1007Meas2");
+
         }
         private void calNO2_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                //Return To Normal Mode
-                protocol.processProtocol("$0F1007Meas2");
-                //Enter control Mode
-                protocol.processProtocol("$0F1006 0x20");
-                //Enter Cal NO2 Mode
-                protocol.processProtocol("$0F1018 0x20");
-                //CAL NO2 to II
-                protocol.processProtocol("$0F1019" + Convert.ToDouble(textBox3.Text).ToString("00000"));
-                //Enter Button
-                protocol.processProtocol("$0F1004 0x20");
-                //Enter control Mode
-                protocol.processProtocol("$0F1006 0x20");
-            }
+            for (int i = 0; i < 5; i++) 
+                calibrateNO2();
             //Beep
-                protocol.processProtocol("$0F1066 0x20");
-                capCalNO2.Visible = true;
+            protocol.processProtocol("$0F1066 0x20");
+            capCalNO2.Visible = true;
             //MessageBox.Show("Now, swipe magnet.");
+        }
+
+        private void calibrateNO2()
+        {
+
+            //Return To Normal Mode
+            protocol.processProtocol("$0F1007Meas2");
+            //Enter control Mode
+            protocol.processProtocol("$0F1006 0x20");
+            //Enter Cal NO2 Mode
+            protocol.processProtocol("$0F1018 0x20");
+            //CAL NO2 to II
+            protocol.processProtocol("$0F1019" + Convert.ToDouble(textBox3.Text).ToString("00000"));
+            //Enter Button
+            protocol.processProtocol("$0F1004 0x20");
+            //Enter control Mode
+            protocol.processProtocol("$0F1006 0x20");
+            //Return To Normal Mode
+            protocol.processProtocol("$0F1007Meas2");
+
         }
 
         private void capZeroO2_MouseDown(object sender, MouseEventArgs e)
@@ -767,8 +803,28 @@ namespace CRS
 
         private void timer6_Tick(object sender, EventArgs e)
         {
-            timer=timer.AddSeconds(1);
-            recordTimer.Text = timer.ToString("HH:mm:ss");
+            if (pop)
+            {
+                timer = timer.AddSeconds(1);
+                recordTimer.Text = timer.ToString("HH:mm:ss");
+            }
+            else
+            {
+                timer = timer.AddSeconds(1);
+                recordTimerb.Text = timer.ToString("HH:mm:ss");
+            }
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Calibration aborted.");
+            timer2.Stop();
+            timer6.Stop();
+            timer = new DateTime(2013, 9, 9, 0, 0, 0);
+            recordTimer.Text = "Not Recording";
+            stopRecordingButton.Enabled = false;
+            button5.Enabled = true;
         }
 
         ////////////////////INTERFACE CHECK-TAB4\\\\\\\\\\\\\\\\\\\\\

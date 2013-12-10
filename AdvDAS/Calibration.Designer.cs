@@ -110,12 +110,25 @@
             this.label25 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.recordTimer = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.stopRecordingButton = new System.Windows.Forms.Button();
             this.CaliNote = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.timer7 = new System.Windows.Forms.Timer(this.components);
+            this.stopRecordingButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.startTimerButton = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -172,10 +185,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.button8 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -229,14 +238,9 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.recordTimer = new System.Windows.Forms.Label();
-            this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.button11 = new System.Windows.Forms.Button();
+            this.label75 = new System.Windows.Forms.Label();
+            this.recordTimerb = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -259,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -271,7 +276,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage3.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -1274,6 +1278,19 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
+            // recordTimer
+            // 
+            this.recordTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.recordTimer.AutoSize = true;
+            this.recordTimer.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordTimer.Location = new System.Drawing.Point(641, 26);
+            this.recordTimer.Name = "recordTimer";
+            this.recordTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.recordTimer.Size = new System.Drawing.Size(193, 33);
+            this.recordTimer.TabIndex = 66;
+            this.recordTimer.Text = "Not Recording";
+            this.recordTimer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(745, 385);
@@ -1283,28 +1300,6 @@
             this.button10.Text = "Help";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // stopRecordingButton
-            // 
-            this.stopRecordingButton.BackColor = System.Drawing.Color.Transparent;
-            this.stopRecordingButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stopRecordingButton.BackgroundImage")));
-            this.stopRecordingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.stopRecordingButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopRecordingButton.Enabled = false;
-            this.stopRecordingButton.FlatAppearance.BorderSize = 0;
-            this.stopRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.stopRecordingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.stopRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stopRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.stopRecordingButton.Location = new System.Drawing.Point(100, 26);
-            this.stopRecordingButton.Name = "stopRecordingButton";
-            this.stopRecordingButton.Size = new System.Drawing.Size(98, 37);
-            this.stopRecordingButton.TabIndex = 27;
-            this.stopRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.stopRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.stopRecordingButton, "Stop Recording");
-            this.stopRecordingButton.UseVisualStyleBackColor = false;
-            this.stopRecordingButton.Click += new System.EventHandler(this.stopRecordingButton_Click);
             // 
             // CaliNote
             // 
@@ -1349,6 +1344,125 @@
             this.label54.Size = new System.Drawing.Size(219, 16);
             this.label54.TabIndex = 14;
             this.label54.Text = "* ECOM recommends 5 min/sensor.";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.recordTimerb);
+            this.tabPage3.Controls.Add(this.label75);
+            this.tabPage3.Controls.Add(this.button11);
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.label53);
+            this.tabPage3.Controls.Add(this.label49);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel13);
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.calNOB);
+            this.tabPage3.Controls.Add(this.capZero02B);
+            this.tabPage3.Controls.Add(this.capZeroNO2B);
+            this.tabPage3.Controls.Add(this.capZeroNOB);
+            this.tabPage3.Controls.Add(this.capZeroCOB);
+            this.tabPage3.Controls.Add(this.calCOB);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel6);
+            this.tabPage3.Controls.Add(this.calNO2B);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel7);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel8);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel9);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel10);
+            this.tabPage3.Controls.Add(this.pictureBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(840, 426);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Drift Check";
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(294, 344);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(493, 34);
+            this.button9.TabIndex = 35;
+            this.button9.Text = "Click Here to Complete Post-Test Drift Check. ";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.Transparent;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(6, 400);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(219, 16);
+            this.label53.TabIndex = 33;
+            this.label53.Text = "* ECOM recommends 5 min/sensor.";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(5, 7);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(108, 13);
+            this.label49.TabIndex = 31;
+            this.label49.Text = "Post-Test Drift Check";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 1000;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Interval = 1000;
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
+            // timer6
+            // 
+            this.timer6.Interval = 1000;
+            this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
+            // 
+            // timer7
+            // 
+            this.timer7.Interval = 2000;
+            // 
+            // stopRecordingButton
+            // 
+            this.stopRecordingButton.BackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stopRecordingButton.BackgroundImage")));
+            this.stopRecordingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.stopRecordingButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopRecordingButton.Enabled = false;
+            this.stopRecordingButton.FlatAppearance.BorderSize = 0;
+            this.stopRecordingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.stopRecordingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.stopRecordingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopRecordingButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.stopRecordingButton.Location = new System.Drawing.Point(100, 26);
+            this.stopRecordingButton.Name = "stopRecordingButton";
+            this.stopRecordingButton.Size = new System.Drawing.Size(98, 37);
+            this.stopRecordingButton.TabIndex = 27;
+            this.stopRecordingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stopRecordingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.stopRecordingButton, "Stop Recording");
+            this.stopRecordingButton.UseVisualStyleBackColor = false;
+            this.stopRecordingButton.Click += new System.EventHandler(this.stopRecordingButton_Click);
             // 
             // tableLayoutPanel12
             // 
@@ -2106,66 +2220,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.button9);
-            this.tabPage3.Controls.Add(this.label53);
-            this.tabPage3.Controls.Add(this.label49);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel13);
-            this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.calNOB);
-            this.tabPage3.Controls.Add(this.capZero02B);
-            this.tabPage3.Controls.Add(this.capZeroNO2B);
-            this.tabPage3.Controls.Add(this.capZeroNOB);
-            this.tabPage3.Controls.Add(this.capZeroCOB);
-            this.tabPage3.Controls.Add(this.calCOB);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel6);
-            this.tabPage3.Controls.Add(this.calNO2B);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel7);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel8);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel9);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel10);
-            this.tabPage3.Controls.Add(this.pictureBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(840, 426);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Drift Check";
-            // 
-            // button9
-            // 
-            this.button9.Font = new System.Drawing.Font("Myriad Pro SemiExt", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(156, 27);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(493, 34);
-            this.button9.TabIndex = 35;
-            this.button9.Text = "Click Here to Complete Post-Test Drift Check. ";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Visible = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.Transparent;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(616, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(219, 16);
-            this.label53.TabIndex = 33;
-            this.label53.Text = "* ECOM recommends 5 min/sensor.";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(5, 7);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(108, 13);
-            this.label49.TabIndex = 31;
-            this.label49.Text = "Post-Test Drift Check";
-            // 
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.BackColor = System.Drawing.Color.Transparent;
@@ -2175,7 +2229,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.Controls.Add(this.button8, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.panel10, 0, 0);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(706, 17);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(42, 327);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
@@ -2233,7 +2287,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(8, 23);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(72, 37);
+            this.button5.Size = new System.Drawing.Size(101, 37);
             this.button5.TabIndex = 32;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -2246,7 +2300,7 @@
             this.calNOB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.calNOB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.calNOB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calNOB.Location = new System.Drawing.Point(426, 263);
+            this.calNOB.Location = new System.Drawing.Point(426, 249);
             this.calNOB.Name = "calNOB";
             this.calNOB.Size = new System.Drawing.Size(207, 41);
             this.calNOB.TabIndex = 30;
@@ -2265,7 +2319,7 @@
             this.capZero02B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZero02B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZero02B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZero02B.Location = new System.Drawing.Point(8, 205);
+            this.capZero02B.Location = new System.Drawing.Point(8, 191);
             this.capZero02B.Margin = new System.Windows.Forms.Padding(0);
             this.capZero02B.Name = "capZero02B";
             this.capZero02B.Size = new System.Drawing.Size(205, 41);
@@ -2284,7 +2338,7 @@
             this.capZeroNO2B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO2B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroNO2B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroNO2B.Location = new System.Drawing.Point(634, 205);
+            this.capZeroNO2B.Location = new System.Drawing.Point(634, 191);
             this.capZeroNO2B.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroNO2B.Name = "capZeroNO2B";
             this.capZeroNO2B.Size = new System.Drawing.Size(200, 41);
@@ -2303,7 +2357,7 @@
             this.capZeroNOB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroNOB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroNOB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroNOB.Location = new System.Drawing.Point(426, 205);
+            this.capZeroNOB.Location = new System.Drawing.Point(426, 191);
             this.capZeroNOB.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroNOB.Name = "capZeroNOB";
             this.capZeroNOB.Size = new System.Drawing.Size(205, 41);
@@ -2322,7 +2376,7 @@
             this.capZeroCOB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.capZeroCOB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.capZeroCOB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capZeroCOB.Location = new System.Drawing.Point(218, 205);
+            this.capZeroCOB.Location = new System.Drawing.Point(218, 191);
             this.capZeroCOB.Margin = new System.Windows.Forms.Padding(0);
             this.capZeroCOB.Name = "capZeroCOB";
             this.capZeroCOB.Size = new System.Drawing.Size(205, 41);
@@ -2341,7 +2395,7 @@
             this.calCOB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.calCOB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.calCOB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calCOB.Location = new System.Drawing.Point(218, 263);
+            this.calCOB.Location = new System.Drawing.Point(218, 249);
             this.calCOB.Name = "calCOB";
             this.calCOB.Size = new System.Drawing.Size(205, 41);
             this.calCOB.TabIndex = 27;
@@ -2359,7 +2413,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.dcIFlowlbl, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label50, 0, 1);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(42, 263);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(42, 249);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
@@ -2401,7 +2455,7 @@
             this.calNO2B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.calNO2B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.calNO2B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calNO2B.Location = new System.Drawing.Point(634, 263);
+            this.calNO2B.Location = new System.Drawing.Point(634, 249);
             this.calNO2B.Name = "calNO2B";
             this.calNO2B.Size = new System.Drawing.Size(200, 41);
             this.calNO2B.TabIndex = 28;
@@ -2421,7 +2475,7 @@
             this.tableLayoutPanel7.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.label56, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.dcO2lbl, 0, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(8, 88);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(8, 74);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -2510,7 +2564,7 @@
             this.tableLayoutPanel8.Controls.Add(this.dcNO2lbl, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.label65, 0, 1);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(634, 88);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(634, 74);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -2631,7 +2685,7 @@
             this.tableLayoutPanel9.Controls.Add(this.dcNOlbl, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.label74, 0, 1);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(426, 89);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(426, 75);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -2753,7 +2807,7 @@
             this.tableLayoutPanel10.Controls.Add(this.dcCOlbl, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.panel8, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.label85, 0, 1);
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(218, 88);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(218, 74);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -2867,55 +2921,58 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::CRS.Properties.Resources.calibration_btn_black_blu;
-            this.pictureBox2.Location = new System.Drawing.Point(218, 88);
+            this.pictureBox2.Location = new System.Drawing.Point(218, 74);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(207, 112);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
             // 
-            // timer1
+            // button11
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.Enabled = false;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button11.Location = new System.Drawing.Point(115, 23);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(110, 37);
+            this.button11.TabIndex = 36;
+            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button11, "Stop Recording");
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // timer2
+            // label75
             // 
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.label75.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(464, 7);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(370, 16);
+            this.label75.TabIndex = 37;
+            this.label75.Text = "Note: Remote must be in the cradle throughout the calibration.";
             // 
-            // timer3
+            // recordTimerb
             // 
-            this.timer3.Interval = 1000;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Interval = 1000;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // timer5
-            // 
-            this.timer5.Interval = 1000;
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
-            // recordTimer
-            // 
-            this.recordTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.recordTimer.AutoSize = true;
-            this.recordTimer.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordTimer.Location = new System.Drawing.Point(641, 26);
-            this.recordTimer.Name = "recordTimer";
-            this.recordTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.recordTimer.Size = new System.Drawing.Size(193, 33);
-            this.recordTimer.TabIndex = 66;
-            this.recordTimer.Text = "Not Recording";
-            this.recordTimer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // timer6
-            // 
-            this.timer6.Interval = 1000;
-            this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
+            this.recordTimerb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.recordTimerb.AutoSize = true;
+            this.recordTimerb.Font = new System.Drawing.Font("Myriad Pro SemiExt", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordTimerb.Location = new System.Drawing.Point(639, 27);
+            this.recordTimerb.Name = "recordTimerb";
+            this.recordTimerb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.recordTimerb.Size = new System.Drawing.Size(193, 33);
+            this.recordTimerb.TabIndex = 67;
+            this.recordTimerb.Text = "Not Recording";
+            this.recordTimerb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Calibration
             // 
@@ -2961,6 +3018,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tableLayoutPanel12.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -2982,8 +3041,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tableLayoutPanel13.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -3225,5 +3282,9 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label recordTimer;
         private System.Windows.Forms.Timer timer6;
+        private System.Windows.Forms.Timer timer7;
+        private System.Windows.Forms.Label recordTimerb;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Button button11;
     }
 }

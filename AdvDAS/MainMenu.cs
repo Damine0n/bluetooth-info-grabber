@@ -481,7 +481,7 @@ namespace CRS
             this.pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
             this.tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
             this.rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
-            this.label16.Text = "Equipment: " + equipment + "\n";
+            this.label16.Text = "Equipment: " + equipment + "\n ";
             this.label23.Text = dgInterval / 1000 + " sec(s)";
             this.label43.Text = dgInterval / 1000 + " sec(s)";
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
