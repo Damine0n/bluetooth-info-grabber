@@ -18,7 +18,7 @@ namespace CRS
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
         private SQLiteCommand sqlite_cmd;
-        J2KNProtocol protocol = new J2KNProtocol();
+        J2KNProtocolw protocol = new J2KNProtocolw();
         bool clicked = false;
         int interv = 1000;
         GasAnalysis gases = new GasAnalysis();
@@ -34,12 +34,13 @@ namespace CRS
         int attempt;
         private bool pop = true;
         private int caliNum = 6;
+        private Bogus wait = new Bogus();
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public Calibration()
         {
             InitializeComponent();
-            if (protocol.processProtocol())
+            if (J2KNProtocolw.start)
                 timer1.Start();
             ((Control)this.tabPage3).Enabled = false;
 
@@ -357,25 +358,26 @@ namespace CRS
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //if (!MainMenu.equipment.Equals("Equipment: Not Selected\n "))
-            //{
-            timer1.Start();
-            timer2.Start();
-            timer6.Start();
-            capZeroO2.Visible = true;
-            capZeroCO.Visible = true;
-            capZeroNO.Visible = true;
-            capZeroNO2.Visible = true;
-            calCO.Visible = true;
-            calNO.Visible = true;
-            calNO2.Visible = true;
-            dateTimePicker5.Enabled = true;
-            startTimerButton.Enabled = true;
-            button7.Enabled = false;
-            stopRecordingButton.Enabled = true;
-            //}
-            //else
-            //    MessageBox.Show("Must select equipment first.");
+            if (J2KNProtocolw.start)
+            {
+                pop = true;
+                timer1.Start();
+                timer2.Start();
+                timer6.Start();
+                capZeroO2.Visible = true;
+                capZeroCO.Visible = true;
+                capZeroNO.Visible = true;
+                capZeroNO2.Visible = true;
+                calCO.Visible = true;
+                calNO.Visible = true;
+                calNO2.Visible = true;
+                dateTimePicker5.Enabled = true;
+                startTimerButton.Enabled = true;
+                button7.Enabled = false;
+                stopRecordingButton.Enabled = true;
+            }
+            else
+                MessageBox.Show("Must connect to analyzer.");
         }
 
         private void calCO_Click(object sender, EventArgs e)
@@ -407,6 +409,8 @@ namespace CRS
 
             //Enter Button
             protocol.processProtocol("$0F1004 0x20");
+
+            //wait.ShowDialog();
 
             //Enter control Mode
             protocol.processProtocol("$0F1006 0x20");
@@ -441,6 +445,9 @@ namespace CRS
             protocol.processProtocol("$0F1015" + Convert.ToDouble(textBox2.Text).ToString("00000"));
             //Enter Button
             protocol.processProtocol("$0F1004 0x20");
+            
+            //wait.ShowDialog();
+            
             //Enter control Mode
             protocol.processProtocol("$0F1006 0x20");
             //Return To Normal Mode
@@ -470,6 +477,9 @@ namespace CRS
             protocol.processProtocol("$0F1019" + Convert.ToDouble(textBox3.Text).ToString("00000"));
             //Enter Button
             protocol.processProtocol("$0F1004 0x20");
+
+            //wait.ShowDialog();
+
             //Enter control Mode
             protocol.processProtocol("$0F1006 0x20");
             //Return To Normal Mode
@@ -540,6 +550,7 @@ namespace CRS
         private void button6_Click(object sender, EventArgs e)
         {
             timer2.Stop();
+            timer6.Stop();
             ((Control)this.tabPage3).Enabled = true;
             MessageBox.Show("Pre-Calibration Complete.");
         }
@@ -698,6 +709,7 @@ namespace CRS
         {
             try
             {
+                timer6.Stop();
                 timer4.Stop();
                 DialogResult result = MessageBox.Show("Do you want to save this calibration?", "Save Calibration", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
@@ -719,7 +731,9 @@ namespace CRS
         private void button5_Click(object sender, EventArgs e)
         {
             timer1.Start();
+            pop = false;
             first = true;
+            timer6.Start();
             timer4.Start();
             capZero02B.Visible = true;
             capZeroCOB.Visible = true;
@@ -819,7 +833,7 @@ namespace CRS
         private void button11_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Calibration aborted.");
-            timer2.Stop();
+            timer4.Stop();
             timer6.Stop();
             timer = new DateTime(2013, 9, 9, 0, 0, 0);
             recordTimer.Text = "Not Recording";

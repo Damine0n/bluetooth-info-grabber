@@ -40,6 +40,7 @@
             // 
             // serialPort1
             // 
+            this.serialPort1.BaudRate = 38400;
             this.serialPort1.PortName = "COM4";
             // 
             // btnSend
@@ -98,8 +99,9 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(388, 20);
             this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "$0F1066 0x20";
             // 
-            // Form1
+            // SerialSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +112,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnINIT);
             this.Controls.Add(this.btnSend);
-            this.Name = "Form1";
+            this.Name = "SerialSearch";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

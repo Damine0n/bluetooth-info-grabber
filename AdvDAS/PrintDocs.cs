@@ -51,7 +51,7 @@ namespace CRS
         public static DateTime O2exp, COexp, NOexp, NO2exp;
         DateTime ePermitDate;
         public iTextSharp.text.Image picture;
-        J2KNProtocol protocol = new J2KNProtocol();
+        J2KNProtocolw protocol = new J2KNProtocolw();
         private string eIgnitionTiming;
         private string eStackFlow;
         private string eStackTemp;
@@ -219,9 +219,12 @@ namespace CRS
                         LOGO.ScaleToFit(100f, 150f);
                         LOGO.Border = iTextSharp.text.Rectangle.BOX;
                         //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
-                        heading.Add(LOGO);
-                        heading.Alignment = 1;
-                        heading.SpacingAfter = -75;
+                        if (!LOGO.Equals(null))
+                        {
+                            heading.Add(LOGO);
+                            heading.Alignment = 1;
+                            heading.SpacingAfter = -75;
+                        }
                         date.Alignment = 1;
                         date.SpacingAfter = 27;
                         doc.Add(heading);
@@ -421,17 +424,19 @@ namespace CRS
             LineSeparator UNDERLINE = new LineSeparator(1, 98, null, Element.ALIGN_CENTER, -2);
             Chunk tab1 = new Chunk(UNDERLINE, doc.PageSize.Width - (doc.RightMargin * 2), true);
             iTextSharp.text.Font hel = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL);
+
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.InitialDirectory = Directory.GetCurrentDirectory() + "\\" + site + "\\" + equipment;
+            sfd.InitialDirectory = Directory.GetCurrentDirectory() + "\\Reports" + "\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
-            sfd.FileName = "Report File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save Report";
+            sfd.FileName = "Report File " + DateTime.Now.ToString("dd-MM-yyyy ss-mm-HH");
+            sfd.Title = "Save Test Report";
 
             sqlite_conn.Open();
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 
                 string path = sfd.FileName;
+
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 for (int z = 0; z < 3; z++)
@@ -512,12 +517,15 @@ namespace CRS
                     Paragraph personalData = new Paragraph("", hel);
                     Paragraph date = new Paragraph("Emissions Test Date: " + DateTime.Now.ToString("MM/dd/yyyy"));
                     iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
-                    LOGO.ScaleToFit(100f, 150f);
+                    LOGO.ScaleAbsolute(100f, 70f);
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
-                    heading.Add(LOGO);
-                    heading.Alignment = 1;
-                    heading.SpacingAfter = -75;
+                    if (!LOGO.Equals(null))
+                    {
+                        heading.Add(LOGO);
+                        heading.Alignment = 1;
+                        heading.SpacingAfter = -75;
+                    }
                     date.Alignment = 1;
                     date.SpacingAfter = 27;
                     doc.Add(heading);
@@ -556,7 +564,7 @@ namespace CRS
                     info.SpacingAfter = 30;
                     ////////////////////////////////////////////////
                     info.Add(tab1);
-                    info.Add(new Paragraph("PHYSICAL LOCATION", hel));
+                    info.Add(new Paragraph("PHYSICAL LOCATION", hel));                                                                                                                                                                                                                                                                                                                                            //Stephen Daymen White
                     info.Add(new Chunk(new VerticalPositionMark(), 50, true));
                     info.Add(new Phrase("Operational Area: " + sArea));
                     info.Add(new Chunk(new VerticalPositionMark(), 300, true));
@@ -768,13 +776,12 @@ namespace CRS
                             COMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[5].Value.ToString());
                             NOxMassSum += Convert.ToDouble(dataGridView3.Rows[l].Cells[6].Value.ToString());
                         }
-                        MessageBox.Show(O2sum.ToString());
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message + ex.StackTrace);
                     }
-                    double count = dataGridView3.Rows.Count-1;
+                    double count = dataGridView3.Rows.Count - 1;
                     O2Tavg.Add(O2sum / count);
                     COTavg.Add(COsum / count);
                     NOTavg.Add(NOsum / count);
@@ -841,7 +848,7 @@ namespace CRS
                 Paragraph newNotes = new Paragraph(notes.snapNote);
                 doc.Add(newNotes);
                 doc.Close();//Closes Document
-                System.Diagnostics.Process.Start(sfd.FileName);
+                System.Diagnostics.Process.Start(path);
             }
             sqlite_conn.Close();
         }
@@ -901,9 +908,12 @@ namespace CRS
                     LOGO.ScaleToFit(100f, 150f);
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
-                    heading.Add(LOGO);
-                    heading.Alignment = 1;
-                    heading.SpacingAfter = -75;
+                    if (!LOGO.Equals(null))
+                    {
+                        heading.Add(LOGO);
+                        heading.Alignment = 1;
+                        heading.SpacingAfter = -75;
+                    }
                     date.Alignment = 1;
                     date.SpacingAfter = 27;
                     doc.Add(heading);
@@ -1290,7 +1300,7 @@ namespace CRS
             sfd.InitialDirectory = Directory.GetCurrentDirectory() + "\\" + site + "\\" + equipment;
             sfd.Filter = "PDF File|*.pdf";
             sfd.FileName = "Calibration File " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            sfd.Title = "Save Report";
+            sfd.Title = "Save Calibration Report";
 
             sqlite_conn.Open();
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -1372,7 +1382,7 @@ namespace CRS
                     //Write Some Content
 
 
-                    Paragraph heading = new Paragraph("Pre & Post Calibration Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 25, iTextSharp.text.Font.NORMAL));
+                    Paragraph heading = new Paragraph("Pre & Post Calibration Test Report", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20, iTextSharp.text.Font.NORMAL));
                     Paragraph personalData = new Paragraph("", hel);
                     Paragraph date = new Paragraph("Calibration Test Date: " + DateTime.Now.ToString("MM/dd/yyyy"));
                     iTextSharp.text.Image LOGO = iTextSharp.text.Image.GetInstance(pLogo);
@@ -1380,9 +1390,11 @@ namespace CRS
                     LOGO.Border = iTextSharp.text.Rectangle.BOX;
                     //doc.Add(new Chunk(new VerticalPositionMark(), doc.PageSize.Width, true));
                     if (!LOGO.Equals(null))
+                    {
                         heading.Add(LOGO);
-                    heading.Alignment = 1;
-                    heading.SpacingAfter = -75;
+                        heading.Alignment = 1;
+                        heading.SpacingAfter = -75;
+                    }
                     date.Alignment = 1;
                     date.SpacingAfter = 27;
                     doc.Add(heading);

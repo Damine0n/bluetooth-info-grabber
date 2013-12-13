@@ -30,7 +30,7 @@ namespace CRS
             this.timeTaken = timeTaken;
             sqlite_conn.Open();
         }
-        public string newEntry(J2KNProtocol protocol)
+        public string newEntry(J2KNProtocolw protocol)
         {
             string tableName = "";
             if (equipment.Equals(""))
@@ -81,7 +81,7 @@ namespace CRS
 
 
         }
-        public void newEntry(J2KNProtocol protocol, string x)
+        public void newEntry(J2KNProtocolw protocol, string x)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace CRS
                 System.Windows.Forms.MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        public string preCalibration(J2KNProtocol protocol)
+        public string preCalibration(J2KNProtocolw protocol)
         {
             string tableName = "";
 
@@ -139,7 +139,7 @@ namespace CRS
 
 
         }
-        public string postCalibration(J2KNProtocol protocol)
+        public string postCalibration(J2KNProtocolw protocol)
         {
             string tableName = "";
 
@@ -174,7 +174,7 @@ namespace CRS
 
 
         }
-        public void Calibration(J2KNProtocol protocol, string x)
+        public void Calibration(J2KNProtocolw protocol, string x)
         {
             try
             {
@@ -192,7 +192,7 @@ namespace CRS
                 System.Windows.Forms.MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        public void SnapShot(J2KNProtocol protocol, string note, bool testing, string tableName)
+        public void SnapShot(J2KNProtocolw protocol, string note, bool testing, string tableName)
         {
             if (testing)
             {

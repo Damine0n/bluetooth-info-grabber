@@ -18,7 +18,7 @@ namespace CRS
         private Button btn;
         private string unit;
         private int index;
-        J2KNProtocol protocol = new J2KNProtocol();
+        J2KNProtocolw protocol = new J2KNProtocolw();
         public hTile(Tuple<Label, Label, Label, Button> tuple, string unit)
         {
             // TODO: Complete member initialization

@@ -107,6 +107,7 @@
     <Compile Include="Connection.Designer.cs">
       <DependentUpon>Connection.cs</DependentUpon>
     </Compile>
+    <Compile Include="J2KNProtocolb.cs" />
     <Compile Include="MassEBCb.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,7 +162,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="J2KNProtocol.cs" />
+    <Compile Include="J2KNProtocolw.cs" />
     <Compile Include="PersonalInfo.cs" />
     <Compile Include="ConfigureReport.cs">
       <SubType>Form</SubType>
@@ -326,6 +327,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Logos\ECOM Main Logo Files\logo.png" />
+    <None Include="Resources\defaultLogo.bmp" />
     <None Include="Panels\flow-black-blu.png" />
     <None Include="Panels\hybrid-box.jpg" />
     <None Include="Panels\main-tab-right-panel-blu-white.jpg" />

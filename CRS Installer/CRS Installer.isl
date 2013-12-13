@@ -1068,7 +1068,6 @@
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>CommonFilesFolder</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>DATABASEDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
-		<row><td>ECOM_CRS</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>NewComponent1</td></row>
 		<row><td>INSTALLDIR</td><td>NewComponent2</td></row>
@@ -1917,6 +1916,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>ecom_crs.primary_output2</td><td>ECOM_CRS.Primary_output2</td><td>ECOM CRS.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ECOM CRS&gt;|Built</td><td>3</td><td/></row>
+		<row><td>ecom_logo.jpg</td><td>ISX_DEFAULTCOMPONENT6</td><td>ECOMLO~1.JPG|Ecom Logo.jpg</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\Logos\ECOM Main Logo Files\Ecom Logo.jpg</td><td>1</td><td/></row>
 		<row><td>itextsharp.dll</td><td>itextsharp.dll</td><td>ITEXTS~1.DLL|itextsharp.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.dll</td><td>1</td><td/></row>
 		<row><td>itextsharp.pdfa.dll</td><td>itextsharp.pdfa.dll</td><td>ITEXTS~1.DLL|itextsharp.pdfa.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.pdfa.dll</td><td>1</td><td/></row>
 		<row><td>itextsharp.xtra.dll</td><td>itextsharp.xtra.dll</td><td>ITEXTS~1.DLL|itextsharp.xtra.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Damin_000\Source\Repos\bluetooth-info-grabber2\AdvDAS\bin\Debug\ext\itextsharp.xtra.dll</td><td>1</td><td/></row>

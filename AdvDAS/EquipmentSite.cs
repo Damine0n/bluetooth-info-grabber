@@ -23,7 +23,7 @@ namespace CRS
         public static int EquipType;
         public string Customer = "", LimitUnit, COLimit, NOxLimit;
         public static string heat, specificFC, HP;
-        J2KNProtocol protocol = new J2KNProtocol();
+        J2KNProtocolw protocol = new J2KNProtocolw();
         public EquipmentSite()
         {
             // TODO: Complete member initialization
@@ -48,7 +48,7 @@ namespace CRS
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Please, create site and equipment");
+                MessageBox.Show("Please create site and equipment");
             }
            
         }
@@ -254,10 +254,10 @@ namespace CRS
                 MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
             protocol.massEmissions(equipBox.Text,siteBox.Text);
-            MessageBox.Show("heat = " + protocol.heat + ", scf = " + protocol.scf + ", hp = " + protocol.hp
-                + "\n CO mmbtu = " + protocol.vCOBtu + ", CO lb/hr = " + protocol.vCOHr + ", CO gr/bhp = " + protocol.vCOBhp
-                + "\n NOx mmbtu = " + protocol.vNOxBtu + ", NOx lb/hr = " + protocol.vNOxHr + ", NOx gr/bhp = " + protocol.vNOxBhp 
-                + "\n Equip num = " + protocol.numEquip + ", Fuel num = " + protocol.numFuel);
+            //MessageBox.Show("heat = " + protocol.heat + ", scf = " + protocol.scf + ", hp = " + protocol.hp
+            //    + "\n CO mmbtu = " + protocol.vCOBtu + ", CO lb/hr = " + protocol.vCOHr + ", CO gr/bhp = " + protocol.vCOBhp
+            //    + "\n NOx mmbtu = " + protocol.vNOxBtu + ", NOx lb/hr = " + protocol.vNOxHr + ", NOx gr/bhp = " + protocol.vNOxBhp 
+            //    + "\n Equip num = " + protocol.numEquip + ", Fuel num = " + protocol.numFuel);
         }
         
         private void siteBox_SelectedIndexChanged(object sender, EventArgs e)

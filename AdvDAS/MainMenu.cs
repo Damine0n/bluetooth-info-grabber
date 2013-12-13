@@ -16,6 +16,7 @@ using System.IO;
 //using System.Data.SQLite;
 using Finisar.SQLite;
 using System.Drawing.Drawing2D;
+using BTooth_tutorial;
 using log4net;
 //[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
@@ -60,17 +61,30 @@ namespace CRS
         public static int dgInterval, cycles, tested;
         public static int currentCycle = 1;
         public static string cUnit, nUnit, numOfCycles, site, equipment = "Not Selected";
-        public J2KNProtocol protocol = new J2KNProtocol();
+        public J2KNProtocolw protocol = new J2KNProtocolw();
         private string tableName = "";
         private bool run = false;
         private string units = "Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow";
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        public Connection connectForm;
         public MainMenu()
         {
             InitializeComponent();
+            connectForm = new Connection(this);
             log.Debug("Initialized");
+            if (protocol.processProtocol())
+            {
+                log.Debug("protocol.processProtocol()");
+                dataGridTimer.Start();
+                log.Debug("dataGridTimer.Start()");
+            }
+            else
+            {
+                J2KNProtocolw.start = false;
+            }
             createScaleDisplays();
             log.Debug("Created Displays");
+
             timer2.Start();
             log.Debug("timer2");
             filltable();
@@ -79,12 +93,6 @@ namespace CRS
             numOfCycles = "1";
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
-            if (protocol.processProtocol(true))
-            {
-                log.Debug("protocol.processProtocol()");
-                dataGridTimer.Start();
-                log.Debug("dataGridTimer.Start()");
-            }
 
         }
 
@@ -421,14 +429,14 @@ namespace CRS
 
             if (pFirst)
             {
-                if (purged.Equals(false))
-                {
-                    timer1.Stop();
-                    MessageBox.Show("Remove the sample line from the analyzer to purge with fresh air, then click ok.");
-                    timer1.Start();
-                }
                 if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
                 {
+                    if (purged.Equals(false))
+                    {
+                        timer1.Stop();
+                        MessageBox.Show("Remove the sample line from the analyzer to purge with fresh air, then click ok.");
+                        timer1.Start();
+                    }
                     protocol.processProtocol("$0F1066 0x20");
                     protocol.processProtocol("$0F1050 0x20");
                     pFirst = false;
@@ -485,8 +493,10 @@ namespace CRS
             this.label23.Text = dgInterval / 1000 + " sec(s)";
             this.label43.Text = dgInterval / 1000 + " sec(s)";
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
-            if (protocol.processProtocol())
-                dataGridTimer.Start();
+            //if (protocol.processProtocol())
+            //{
+            //    //dataGridTimer.Start();
+            //}
 
 
         }
@@ -802,11 +812,11 @@ namespace CRS
 
         private void dataGridTimer_Tick(object sender, EventArgs e)
         {
-            
+
             label13.Text = "Connected";
             pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
-            
+            J2KNProtocolw.start = true;
             if (numOfCycles.Equals("-1"))
             {
                 label22.Text = currentCycle + " of " + "\u221e";
@@ -831,8 +841,8 @@ namespace CRS
             //get Signal Strength
             protocol.processProtocol("$0A0512");
             //
-            if(!equipment.Equals("Not Selected"))
-                protocol.massEmissions(equipment,site);
+            if (!equipment.Equals("Not Selected"))
+                protocol.massEmissions(equipment, site);
             elementTable.Rows[0].Cells[1].Value = protocol.vO2;
             trendGraph.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
             chart1.Series[0].Points.AddY(elementTable.Rows[0].Cells[1].Value);
@@ -905,9 +915,9 @@ namespace CRS
             elementTable.Rows[23].Cells[1].Value = protocol.vNOxBhp;
             trendGraph.Series[23].Points.AddY(elementTable.Rows[23].Cells[1].Value);
             chart1.Series[23].Points.AddY(elementTable.Rows[23].Cells[1].Value);
-            this.serialNO_lbl.Text = protocol.vSerialNumber;
+            //this.serialNO_lbl.Text = protocol.vSerialNumber;
             this.iflowlbl.Text = protocol.vIFlow;
-            this.Firmware_lbl.Text = protocol.vFirmware;
+            //this.Firmware_lbl.Text = protocol.vFirmware;
             //if (!lblList1[0].Item3.Enabled)
             //{
             //    for (int i = 0; i < lblList1.Count; i++)
@@ -1111,7 +1121,7 @@ namespace CRS
         }
         private void toolStripComboBox1_SelectedItemChanged(object sender, EventArgs e)
         {
-            protocol.massEmissions(MainMenu.equipment,MainMenu.site);
+            protocol.massEmissions(MainMenu.equipment, MainMenu.site);
             ToolStripComboBox menuItem = sender as ToolStripComboBox;
             if (menuItem != null)
             {
@@ -2120,7 +2130,7 @@ namespace CRS
 
         private void saveReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Connection connectForm = new Connection(this);
+
             connectForm.ShowDialog();
         }
 
@@ -2133,6 +2143,17 @@ namespace CRS
         private void recordData_Tick(object sender, EventArgs e)
         {
             new GasAnalysis().newEntry(protocol, tableName);
+        }
+
+        private void checkUpgradeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bToothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BTooth tooth = new BTooth();
+            tooth.ShowDialog();
         }
 
     }

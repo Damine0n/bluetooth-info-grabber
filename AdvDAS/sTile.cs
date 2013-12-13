@@ -22,7 +22,7 @@ namespace CRS
         private List<double> nums = new List<double>();
         string average;
         public static double correction;
-        public J2KNProtocol protocol = new J2KNProtocol();
+        public J2KNProtocolw protocol = new J2KNProtocolw();
         DateTime now;
         private DateTime start;
 
@@ -33,10 +33,8 @@ namespace CRS
             this.lbl1 = tuple.Item1;
             this.lbl2 = tuple.Item2;
             this.btn = tuple.Item3;
-            if (protocol.processProtocol())
-            {
-                timer1.Start();
-            }
+            timer1.Start();
+            
         }
         public int Index
         {
@@ -58,7 +56,7 @@ namespace CRS
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (protocol.processProtocol().Equals(true))
+            if (J2KNProtocolw.start)
             {
                 protocol.processProtocol();
                 protocol.processProtocol("$0A0531");
@@ -294,118 +292,122 @@ namespace CRS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            protocol.processProtocol();
-            protocol.processProtocol("$0A0531");
-            protocol.processProtocol("$0A054E");
-            protocol.populateCorrection(correction);
-            protocol.massEmissions(MainMenu.equipment, MainMenu.site);
-            now = DateTime.Now;
-            switch (elementComboBox.SelectedIndex)
+            if (J2KNProtocolw.start)
             {
-                case 0:
-                    valLabel.Text = protocol.vO2;
-                    break;
-                case 1:
-                    valLabel.Text = protocol.vCO;
-                    break;
-                case 2:
-                    valLabel.Text = protocol.vCO_C;
-                    break;
-                case 3:
-                    valLabel.Text = protocol.vCOBhp;
-                    break;
-                case 4:
-                    valLabel.Text = protocol.vCOTPY;
-                    break;
-                case 5:
-                    valLabel.Text = protocol.vCOHr;
-                    break;
-                case 6:
-                    valLabel.Text = protocol.vCOBtu;
-                    break;
-                case 7:
-                    valLabel.Text = protocol.vCO2;
-                    break;
-                case 8:
-                    valLabel.Text = protocol.vNO;
-                    break;
-                case 9:
-                    valLabel.Text = protocol.vNO_C;
-                    break;
-                case 10:
-                    valLabel.Text = protocol.vNO2;
-                    break;
-                case 11:
-                    valLabel.Text = protocol.vNO2_C;
-                    break;
-                case 12:
-                    valLabel.Text = protocol.vNOx;
-                    break;
-                case 13:
-                    valLabel.Text = protocol.vNOx_C;
-                    break;
-                case 14:
-                    valLabel.Text = protocol.vNOxBhp;
-                    break;
-                case 15:
-                    valLabel.Text = protocol.vNOxTPY;
-                    break;
-                case 16:
-                    valLabel.Text = protocol.vNOxHr;
-                    break;
-                case 17:
-                    valLabel.Text = protocol.vNOxBtu;
-                    break;
-                case 18:
-                    valLabel.Text = protocol.vSO2;
-                    break;
-                case 19:
-                    valLabel.Text = protocol.vSO2_C;
-                    break;
-                case 20:
-                    valLabel.Text = protocol.vCxHy;
-                    break;
-                case 21:
-                    valLabel.Text = protocol.vCxHy_C;
-                    break;
-                case 22:
-                    valLabel.Text = protocol.vTgas;
-                    break;
-                case 23:
-                    valLabel.Text = protocol.vTamb;
-                    break;
-                case 24:
-                    valLabel.Text = protocol.vTcell;
-                    break;
-                case 25:
-                    valLabel.Text = protocol.vEfficiency;
-                    break;
-                case 26:
-                    valLabel.Text = protocol.vIFlow;
-                    break;
-                case 27:
-                    valLabel.Text = protocol.vDraft;
-                    break;
-                case 28:
-                    valLabel.Text = protocol.vLosses;
-                    break;
-                case 29:
-                    valLabel.Text = protocol.vExcessAir;
-                    break;
-            }
-            try
-            {
-                this.lbl2.Text = valLabel.Text;
-                nums.Add(Convert.ToDouble(valLabel.Text));
-                average = nums.Average().ToString("0.0");
-                aveLabel.Text = average;
-                this.btn.Text = average + " AVG";
-                chartIt(valLabel.Text, average);
-                chart1.Titles[0].Text = "Start Time:  " + start.ToString("T") + "   -   " + DateTime.Now.ToString("T");
+                protocol.processProtocol();
+                protocol.processProtocol("$0A0531");
+                protocol.processProtocol("$0A054E");
+                protocol.populateCorrection(correction);
+                protocol.massEmissions(MainMenu.equipment, MainMenu.site);
 
-            }
-            catch
-            {
+                now = DateTime.Now;
+                switch (elementComboBox.SelectedIndex)
+                {
+                    case 0:
+                        valLabel.Text = protocol.vO2;
+                        break;
+                    case 1:
+                        valLabel.Text = protocol.vCO;
+                        break;
+                    case 2:
+                        valLabel.Text = protocol.vCO_C;
+                        break;
+                    case 3:
+                        valLabel.Text = protocol.vCOBhp;
+                        break;
+                    case 4:
+                        valLabel.Text = protocol.vCOTPY;
+                        break;
+                    case 5:
+                        valLabel.Text = protocol.vCOHr;
+                        break;
+                    case 6:
+                        valLabel.Text = protocol.vCOBtu;
+                        break;
+                    case 7:
+                        valLabel.Text = protocol.vCO2;
+                        break;
+                    case 8:
+                        valLabel.Text = protocol.vNO;
+                        break;
+                    case 9:
+                        valLabel.Text = protocol.vNO_C;
+                        break;
+                    case 10:
+                        valLabel.Text = protocol.vNO2;
+                        break;
+                    case 11:
+                        valLabel.Text = protocol.vNO2_C;
+                        break;
+                    case 12:
+                        valLabel.Text = protocol.vNOx;
+                        break;
+                    case 13:
+                        valLabel.Text = protocol.vNOx_C;
+                        break;
+                    case 14:
+                        valLabel.Text = protocol.vNOxBhp;
+                        break;
+                    case 15:
+                        valLabel.Text = protocol.vNOxTPY;
+                        break;
+                    case 16:
+                        valLabel.Text = protocol.vNOxHr;
+                        break;
+                    case 17:
+                        valLabel.Text = protocol.vNOxBtu;
+                        break;
+                    case 18:
+                        valLabel.Text = protocol.vSO2;
+                        break;
+                    case 19:
+                        valLabel.Text = protocol.vSO2_C;
+                        break;
+                    case 20:
+                        valLabel.Text = protocol.vCxHy;
+                        break;
+                    case 21:
+                        valLabel.Text = protocol.vCxHy_C;
+                        break;
+                    case 22:
+                        valLabel.Text = protocol.vTgas;
+                        break;
+                    case 23:
+                        valLabel.Text = protocol.vTamb;
+                        break;
+                    case 24:
+                        valLabel.Text = protocol.vTcell;
+                        break;
+                    case 25:
+                        valLabel.Text = protocol.vEfficiency;
+                        break;
+                    case 26:
+                        valLabel.Text = protocol.vIFlow;
+                        break;
+                    case 27:
+                        valLabel.Text = protocol.vDraft;
+                        break;
+                    case 28:
+                        valLabel.Text = protocol.vLosses;
+                        break;
+                    case 29:
+                        valLabel.Text = protocol.vExcessAir;
+                        break;
+                }
+                try
+                {
+                    this.lbl2.Text = valLabel.Text;
+                    nums.Add(Convert.ToDouble(valLabel.Text));
+                    average = nums.Average().ToString("0.0");
+                    aveLabel.Text = average;
+                    this.btn.Text = average + " AVG";
+                    chartIt(valLabel.Text, average);
+                    chart1.Titles[0].Text = "Start Time:  " + start.ToString("T") + "   -   " + DateTime.Now.ToString("T");
+
+                }
+                catch
+                {
+                }
             }
         }
 

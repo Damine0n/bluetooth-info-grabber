@@ -11,7 +11,7 @@ using System.IO;
 
 namespace CRS
 {
-    public class J2KNProtocol
+    class J2KNProtocolb
     {
         public string vO2 = "0.0";
         public string vCO = "0.0";
@@ -60,7 +60,7 @@ namespace CRS
         public int numFuel, numEquip;
         public string heat = "0", scf = "0", hp = "0";
         public int signalStrength = 0;
-        public J2KNProtocol()
+        public J2KNProtocolb()
         {
         }
         public void disconnect()

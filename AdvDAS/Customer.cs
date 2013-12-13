@@ -30,6 +30,7 @@ namespace CRS
         }
         private void load_table()
         {
+            dataGridView1.Rows.Clear();
             // We use these three SQLite objects:
             sqlite_conn.Open();
             try
@@ -46,7 +47,7 @@ namespace CRS
                 tbStreet.DataBindings.Add("Text", bindingSource1, "Street");
                 tbZip.DataBindings.Add("Text", bindingSource1, "Zip");
                 tbCity.DataBindings.Add("Text", bindingSource1, "City");
-                tbFax.DataBindings.Add("Text", bindingSource1, "Fax");
+                comboBox1.DataBindings.Add("Text", bindingSource1, "Fax");
                 tbCellPhone.DataBindings.Add("Text", bindingSource1, "CellPhone");
                 tbEmail.DataBindings.Add("Text", bindingSource1, "Email");
                 tbNotes.DataBindings.Add("Text", bindingSource1, "Notes");
@@ -69,11 +70,12 @@ namespace CRS
                     // Lets insert something into our new table:
                     sqlite_cmd.CommandText = "INSERT INTO Customers (CustomerID, Company, Contact, Phone, Street, Zip, City, Fax, CellPhone, Email, Notes) VALUES ('" 
                         + tbCustomerID.Text + "','" + tbCompany.Text + "','" + tbContact.Text + "','" + tbPhone.Text + "','" 
-                        + tbStreet.Text + "','" + tbZip.Text + "','" + tbCity.Text + "','" + tbFax.Text + "','" 
+                        + tbStreet.Text + "','" + tbZip.Text + "','" + tbCity.Text + "','" + comboBox1.Text + "','" 
                         + tbCellPhone.Text + "','" + tbEmail.Text + "','" + tbNotes.Text + "');";
 
                     // And execute this again ;D
                     sqlite_cmd.ExecuteNonQuery();
+                    load_table();
                 }
                 else
                 {
@@ -101,7 +103,7 @@ namespace CRS
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text 
                     + "', Contact = '" + this.tbContact.Text + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text 
-                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text + "', CellPhone = '" + this.tbCellPhone.Text 
+                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.comboBox1.Text + "', CellPhone = '" + this.tbCellPhone.Text 
                     + "', Email = '" + this.tbEmail.Text + "', Notes = '" + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -144,7 +146,7 @@ namespace CRS
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text + "', Contact = '" + this.tbContact.Text
                     + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text
-                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text + "', CellPhone = '" + this.tbCellPhone.Text
+                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.comboBox1.Text + "', CellPhone = '" + this.tbCellPhone.Text
                     + "', Email = '" + this.tbEmail.Text + "', Notes = '" + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();
@@ -163,7 +165,7 @@ namespace CRS
                 // Let the SQLiteCommand object know our SQL-Query:
                 sqlite_cmd.CommandText = "Update Customers SET CustomerID = '" + this.tbCustomerID.Text + "', Company = '" + this.tbCompany.Text + "', Contact = '" + this.tbContact.Text
                     + "', Phone = '" + this.tbPhone.Text + "', Street = '" + this.tbStreet.Text + "', Zip = '" + this.tbZip.Text
-                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.tbFax.Text + "', CellPhone = '" + this.tbCellPhone.Text
+                    + "', City = '" + this.tbCity.Text + "', Fax = '" + this.comboBox1.Text + "', CellPhone = '" + this.tbCellPhone.Text
                     + "', Email = '" + this.tbEmail.Text + "', Notes = '" + this.tbNotes.Text + "' WHERE CustomerID = '" + this.tbCustomerID.Text + "';";
                 // Now lets execute the SQL ;D
                 sqlite_cmd.ExecuteNonQuery();

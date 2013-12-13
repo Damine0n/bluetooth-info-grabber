@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finisar.SQLite;
 using System.IO;
+using genericSerial;
 using log4net;
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
@@ -21,7 +22,7 @@ namespace CRS
         [STAThread]
         static void Main()
         {
-
+            string logo = Directory.GetCurrentDirectory() + "\\Ecom Logo.jpg";
             log.Debug("Application Starting");
             if (!File.Exists(@"" + Directory.GetCurrentDirectory() + "\\database1.db"))
             {
@@ -58,7 +59,7 @@ namespace CRS
                     sqlite_cmd = sqlite_conn.CreateCommand();
                     sqlite_cmd.CommandText = "CREATE TABLE [Personal_Data] ([PData] INTEGER  PRIMARY KEY NULL,[Engineer] TEXT  NULL,[Company] TEXT  NULL,"
                         + "[Phone] TEXT  NULL,[State] TEXT  NULL,[Street] TEXT  NULL,[Zip] TEXT  NULL,[City] TEXT  NULL,[Fax] TEXT  NULL,[CellPhone] TEXT  NULL,"
-                        + "[Email] TEXT  NULL,[HomePage] TEXT  NULL,[Analyzer] TEXT  NULL,[SerialNo] TEXT  NULL,[LOGO] TEXT  NULL);";
+                        + "[Email] TEXT  NULL,[HomePage] TEXT  NULL,[Analyzer] TEXT  NULL,[SerialNo] TEXT  NULL,[LOGO] TEXT DEFAULT '"+logo+"'NULL);";
                     sqlite_cmd.ExecuteNonQuery();
                     ////////////////////////////////////////////////////////////////
                     sqlite_cmd = sqlite_conn.CreateCommand();
@@ -128,6 +129,7 @@ namespace CRS
                     log.Debug("Application.EnableVisualStyles()");
                     Application.SetCompatibleTextRenderingDefault(false);
                     log.Debug("Application.SetCompatibleTextRenderingDefault(false)");
+                    //Application.Run(new SerialSearch());
                     Application.Run(new MainMenu());
                     log.Debug("Main Menu Running");
                 }

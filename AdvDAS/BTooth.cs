@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using genericSerial;
 using InTheHand;
 using InTheHand.Net.Bluetooth;
 using InTheHand.Net.Ports;
@@ -197,6 +198,12 @@ namespace BTooth_tutorial
                 ready=true;
                 tbText.Clear();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SerialSearch search = new SerialSearch();
+            search.ShowDialog();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace CRS
 {
     public partial class Connection : Form
     {
-        public static J2KNProtocol protocol = new J2KNProtocol();
+        public static J2KNProtocolw protocol = new J2KNProtocolw();
         MainMenu main;
         bool conn = false;
         public Connection(MainMenu main)
@@ -26,22 +26,32 @@ namespace CRS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            protocol.ipAddress = comboBox1.Text;
-            if (!protocol.processProtocol())
+            if (!checkBox1.Checked)
             {
-                conn = true;
-                main.dataGridTimer.Start();
-                for (int i = 0; i < 10; i++)
-                    main.scaleDisplays[i].timer1.Start();
-                button1.Text = "Disconnect";
+                protocol.ipAddress = comboBox1.Text;
+                if (protocol.processProtocol())
+                {
+                    conn = true;
+                    J2KNProtocolw.start = true;
+                    main.dataGridTimer.Start();
+                    for (int i = 0; i <= 11; i++)
+                        main.scaleDisplays[i].timer1.Start();
+                    button1.Text = "Disconnect";
+                }
+                else
+                {
+                    conn = false;
+                    J2KNProtocolw.start = false;
+                    main.dataGridTimer.Stop();
+                    for (int i = 0; i < 10; i++)
+                        main.scaleDisplays[i].timer1.Stop();
+                    
+                    button1.Text = "Connect";
+                }
             }
-            else
+            else 
             {
-                conn = false;
-                main.dataGridTimer.Stop();
-                for (int i = 0; i < 10; i++)
-                    main.scaleDisplays[i].timer1.Stop();
-                button1.Text = "Connect";
+ 
             }
         }
 

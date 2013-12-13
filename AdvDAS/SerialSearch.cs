@@ -26,10 +26,16 @@ namespace genericSerial
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            string text = textBox1.Text;
+            byte[] sendPacket = new byte[256];
+            string vbCr = "\r";
+            byte[] receivedBytes = new byte[256];
             if(serialPort1.IsOpen)
             {
-                string text = textBox1.Text;
-                serialPort1.WriteLine(text);
+                sendPacket = Encoding.UTF8.GetBytes(text + CalculateChecksum(text) + vbCr);
+
+                serialPort1.WriteLine(text + CalculateChecksum(text) + vbCr);
+                richTextBox1.Text+="/n"+ serialPort1.ReadLine();
             }
         }
 
@@ -61,6 +67,17 @@ namespace genericSerial
 
 
             }
+        }
+        private static string CalculateChecksum(string dataToCalculate)
+        {
+            byte[] byteToCalculate = Encoding.ASCII.GetBytes(dataToCalculate);
+            int checksum = 0;
+            foreach (byte chData in byteToCalculate)
+            {
+                checksum += chData;
+            }
+            checksum &= 0xff;
+            return checksum.ToString("X2");
         }
     }
 }
