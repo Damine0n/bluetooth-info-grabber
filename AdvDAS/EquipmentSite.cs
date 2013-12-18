@@ -152,7 +152,7 @@ namespace CRS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
             string path = @"Reports\" + x;
             try

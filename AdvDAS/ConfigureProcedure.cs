@@ -21,6 +21,10 @@ namespace CRS
 {
     public partial class SetUpProcedure : Form
     {
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
+        private SQLiteCommand sqlite_cmd;
+        private SQLiteDataReader sqlite_datareader;
+        DataTable ds = new DataTable();
         private DateTime rampUp;
         private DateTime testData;
         private DateTime purge;
@@ -28,16 +32,18 @@ namespace CRS
         private DateTime cycle;
         private int sampleRate;
         private string numOfCycles;
-        public SetUpProcedure(DateTime rampUp, DateTime testData, DateTime purge, string numOfCycles, int sampleRate)
+        public SetUpProcedure()
         {
             InitializeComponent();
-            dateTimePicker1.Value = rampUp;
-            dateTimePicker2.Value = testData;
-            dateTimePicker3.Value = purge;
-            this.rampUp = rampUp;
-            this.testData = testData;
-            this.purge = purge;
-            this.sampleRate = sampleRate / 1000;
+            try
+            {
+                populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
             this.cycle = Convert.ToDateTime(cycle.Add(TimeSpan.Parse(rampUp.ToString("HH:mm:ss")) + TimeSpan.Parse(testData.ToString("HH:mm:ss")) + TimeSpan.Parse(purge.ToString("HH:mm:ss"))).ToString("HH:mm:ss"));
             if (numOfCycles.Equals("-1"))
             {
@@ -46,21 +52,52 @@ namespace CRS
             }
             else
                 this.numOfCycles = numOfCycles;
-            populate();
+
         }
 
         private void populate()
         {
-            numericUpDown2.Value = sampleRate;
-            if (!numOfCycles.Equals("-1"))
+            sqlite_conn.Open();
+
+            try
             {
-                numericUpDown1.Value = Convert.ToInt32(numOfCycles);
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Configurations WHERE NUM = 0 ;", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                while (sqlite_datareader.Read())
+                {
+                    numOfCycles = sqlite_datareader[1].ToString();
+                    if (!numOfCycles.Equals("-1"))
+                        numericUpDown1.Value = Convert.ToInt32(numOfCycles);
+
+                    sampleRate = Convert.ToInt32(sqlite_datareader[2].ToString());
+                    numericUpDown2.Value = sampleRate;
+
+                    rampUp = Convert.ToDateTime(sqlite_datareader[3].ToString());
+                    dateTimePicker1.Value = rampUp;
+
+                    testData = Convert.ToDateTime(sqlite_datareader[4].ToString());
+                    dateTimePicker2.Value = testData;
+
+                    purge = Convert.ToDateTime(sqlite_datareader[5].ToString());
+                    dateTimePicker3.Value = purge;
+
+                }
+                sqlite_datareader.Close();
+
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Configure Procedure Error: " + ex.Message + ex.StackTrace);
+            }
+
+
+
 
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+
             if (checkBox1.Checked.Equals(true))
             {
                 this.label6.Enabled = false;
@@ -169,6 +206,25 @@ namespace CRS
             }
             MainMenu.numOfCycles = this.numOfCycles;
             MainMenu.dgInterval = sampleRate * 1000;
+
+            ////////////////////////////////Database Upload///////////////////////////
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            try
+            {
+                // Lets insert something into our new table:
+                sqlite_cmd.CommandText = "UPDATE Configurations SET NOC = " + numOfCycles + ", SPS = " + sampleRate
+                        + ", Ramp = '" + dateTimePicker1.Text + "', Measurement = '" + dateTimePicker2.Text + "', Purge = '" + dateTimePicker3.Text + "', TTT = '" + this.totalCycle + "';";
+
+                // And execute this again ;D
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+            MainMenu.recordA = checkBox3.Checked;
+            MainMenu.recordB = checkBox3.Checked;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)

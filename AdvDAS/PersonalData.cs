@@ -82,8 +82,8 @@ namespace CRS
                 analyzerBox.DataBindings.Add("Text", bindingSource1, "Analyzer");
                 serialNoBox.DataBindings.Add("Text", bindingSource1, "SerialNo");
                 sqlite_cmd = new SQLiteCommand("SELECT * FROM Personal_Data WHERE PData = 1;", sqlite_conn);
-                sqlite_datareader = sqlite_cmd.ExecuteReader();
 
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
                 while (sqlite_datareader.Read())
                 {
                     picPath = sqlite_datareader[14].ToString();

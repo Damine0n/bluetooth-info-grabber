@@ -26,6 +26,7 @@ namespace CRS
     public partial class MainMenu : Form
     {
         private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
+        private SQLiteDataReader sqlite_datareader;
         private SQLiteCommand sqlite_cmd;
         private System.Drawing.Rectangle tabArea;
         private RectangleF tabTextArea;
@@ -41,6 +42,7 @@ namespace CRS
         TestRecords tRecords = new TestRecords();
         Customer customer = new Customer();
         private Calibration caliForm = new Calibration();
+        private PersonalData personalData = new PersonalData();
         public static EquipmentSite eSite;
         private Form2 forming = new Form2();
         private List<Tuple<Label, Label, Button>> lblList1 = new List<Tuple<Label, Label, Button>>();
@@ -50,12 +52,12 @@ namespace CRS
         private bool pFirst = true;
         private DateTime running = new DateTime();
         public static DateTime testTime;
-        public static DateTime rampUp = new DateTime(2000, 2, 1, 0, 0, 0);
-        public static DateTime testData = new DateTime(2000, 2, 1, 0, 0, 0);
-        public static DateTime purge = new DateTime(2000, 2, 1, 0, 0, 0);
-        private DateTime tempRampUp = new DateTime(2000, 2, 1, 0, 0, 0);
-        private DateTime tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
-        private DateTime tempPurge = new DateTime(2000, 2, 2, 0, 0, 0);
+        public static DateTime rampUp;
+        public static DateTime testData;
+        public static DateTime purge;
+        private DateTime tempRampUp;
+        private DateTime tempTestData;
+        private DateTime tempPurge;
         List<Facts> elements = new List<Facts>();
         public static bool purged;
         public static int dgInterval, cycles, tested;
@@ -67,9 +69,12 @@ namespace CRS
         private string units = "Time, O2, CO, CO2, NO, NO2, NOx, Tgas, Tamb, Tcell, IFlow";
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Connection connectForm;
+        public static bool recordA, recordB;
+        private DateTime now = DateTime.Now;
         public MainMenu()
         {
             InitializeComponent();
+            sqlite_conn.Open();
             connectForm = new Connection(this);
             log.Debug("Initialized");
             if (protocol.processProtocol())
@@ -82,6 +87,7 @@ namespace CRS
             {
                 J2KNProtocolw.start = false;
             }
+
             createScaleDisplays();
             log.Debug("Created Displays");
 
@@ -89,10 +95,40 @@ namespace CRS
             log.Debug("timer2");
             filltable();
             log.Debug("filltable");
-            dgInterval = 1000;
             numOfCycles = "1";
             cUnit = "g/bhp-hr";
             nUnit = "g/bhp-hr";
+            Recover();
+
+        }
+
+        private void Recover()
+        {
+            try
+            {
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Configurations WHERE NUM = 0 ;", sqlite_conn);
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                while (sqlite_datareader.Read())
+                {
+                    numOfCycles = sqlite_datareader[1].ToString();
+
+                    dgInterval = Convert.ToInt32(sqlite_datareader[2].ToString())*1000;
+                    
+                    rampUp = Convert.ToDateTime(sqlite_datareader[3].ToString());
+
+                    testData = Convert.ToDateTime(sqlite_datareader[4].ToString());
+
+                    purge = Convert.ToDateTime(sqlite_datareader[5].ToString());
+
+                    testTime = Convert.ToDateTime(sqlite_datareader[6].ToString());
+                }
+                sqlite_datareader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Recovery Error: " + ex.Message + ex.StackTrace);
+            }
 
         }
 
@@ -139,7 +175,7 @@ namespace CRS
             //this loop adds all the popup displays to a list
             for (int i = 0; i <= 11; i++)
             {
-                scaleDisplays.Add(new ScaleDisplay(lblList1[i]));
+                scaleDisplays.Add(new ScaleDisplay(lblList1[i], i));
                 scaleDisplays[i].elementComboBox.SelectedItem = lblList1[i].Item1.Text;
             }
 
@@ -207,6 +243,7 @@ namespace CRS
 
         private void stopIt(bool test)
         {
+            run = true;
             foreach (Tuple<Label, Label, Button> tupes in lblList1)
             {
                 tupes.Item3.Enabled = true;
@@ -217,13 +254,11 @@ namespace CRS
             recordingSign.Visible = false;
             this.startRecordingButton.BackgroundImage = CRS.Properties.Resources.start_A;
             run = false;
-            rampUp = new DateTime(2000, 2, 1, 0, 0, 0);
-            testData = new DateTime(2000, 2, 1, 0, 0, 0);
-            purge = new DateTime(2000, 2, 1, 0, 0, 0);
             rFirst = true;
             tFirst = true;
             pFirst = true;
-            testTime = new DateTime(2000, 1, 1, 0, 0, 0);
+            //Recover();
+            //testTime = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             this.startRecordingButton.Enabled = true;
             this.stopRecordingButton.Enabled = false;
             if (test)
@@ -266,6 +301,7 @@ namespace CRS
             foreach (Tuple<Label, Label, Button> tupes in lblList1)
             {
                 tupes.Item3.Enabled = false;
+                tupes.Item3.ForeColor = Color.Black;
             }
             resetButton.Enabled = false;
             recordData.Interval = dgInterval;
@@ -275,26 +311,113 @@ namespace CRS
                 cycles = Convert.ToInt32(numOfCycles);
                 label22.Text = currentCycle + " of " + numOfCycles;
                 label48.Text = currentCycle + " of " + numOfCycles;
-                if (rampUpMethod())
-                {
 
-                }
-                else if (testDataMethod())
+                ////////////////////////Ramp - Up////////////////////////////
+                if (!(tempRampUp <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
                 {
+                    if (rFirst)
+                    {
+                        protocol.processProtocol("$0F1066 0x20");
+                        rFirst = false;
+                        tempRampUp = tempRampUp.AddSeconds(-1);
+                        rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                        rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
+                    else if (tempRampUp <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0))
+                    {
+                        tempRampUp = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                    }
+                    else
+                    {
 
+                        tempRampUp = tempRampUp.AddSeconds(-1);
+                        rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                        rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
                 }
-                else if (purgeMethod())
+
+                /////////////////////////////////Test Time///////////////////////////////
+
+                else if (!(tempTestData <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
                 {
-
+                    resetAll();
+                    if (tFirst)
+                    {
+                        protocol.processProtocol("$0F1066 0x20");
+                        tFirst = false;
+                        tempTestData = testData.AddSeconds(-1);
+                        tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                        tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                        tableName = new GasAnalysis().newEntry(protocol);
+                        if (tableName.Equals("Error"))
+                        {
+                            MessageBox.Show(tableName + ": You must have an equipment selected.");
+                            stopIt(false);
+                        }
+                        else
+                            tableNames.Add(tableName);
+                        recordData.Start();
+                    }
+                    else if (tempTestData <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0))
+                    {
+                        tempTestData = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                        recordData.Stop();
+                    }
+                    else
+                    {
+                        tempTestData = tempTestData.AddSeconds(-1);
+                        tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                        tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
                 }
+
+                /////////////////////////////////Purge///////////////////////////////////
+
+                else if (!(tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
+                {
+                    if (pFirst)
+                    {
+                        if (purged.Equals(false))
+                        {
+                            timer1.Stop();
+                            MessageBox.Show("Remove the sample line from the analyzer to purge with fresh air, then click ok.");
+                            timer1.Start();
+                        }
+                        protocol.processProtocol("$0F1066 0x20");
+                        protocol.processProtocol("$0F1050 0x20");
+                        pFirst = false;
+                        tempPurge = tempPurge.AddSeconds(-1);
+                        pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                        pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
+                    else if ((tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
+                    {
+                        protocol.processProtocol("$0F1051 0x20");
+                        tempPurge = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                    }
+                    else
+                    {
+                        if (!(tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
+                        {
+                            tempPurge = tempPurge.AddSeconds(-1);
+                            pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                            pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
+                            running = running.AddSeconds(1);
+                        }
+                    }
+                }
+                /////////////////////////////////Cycles//////////////////////////////////
                 else if (!currentCycle.ToString().Equals(numOfCycles))
                 {
                     currentCycle++;
                     rFirst = true;
                     tFirst = true;
                     pFirst = true;
-                    resetAll();
-                    protocol.processProtocol("$0F1066 0x20");
                 }
                 else if (currentCycle.ToString().Equals(numOfCycles))
                 {
@@ -314,18 +437,109 @@ namespace CRS
             {
                 label22.Text = currentCycle + " of " + "\u221e";
                 label48.Text = currentCycle + " of " + "\u221e";
-                if (rampUpMethod())
-                {
 
-                }
-                else if (testDataMethod())
+                ////////////////////////Ramp - Up////////////////////////////
+                if (!(tempRampUp <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
                 {
+                    if (rFirst)
+                    {
+                        protocol.processProtocol("$0F1066 0x20");
+                        rFirst = false;
+                        tempRampUp = tempRampUp.AddSeconds(-1);
+                        rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                        rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
+                    else if (tempRampUp <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0))
+                    {
+                        tempRampUp = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                        resetAll();
+                    }
+                    else
+                    {
 
+                        tempRampUp = tempRampUp.AddSeconds(-1);
+                        rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
+                        rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
                 }
-                else if (purgeMethod())
+
+                /////////////////////////////////Test Time///////////////////////////////
+
+                else if (!(tempTestData <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
                 {
-
+                    resetAll();
+                    if (tFirst)
+                    {
+                        protocol.processProtocol("$0F1066 0x20");
+                        tFirst = false;
+                        tempTestData = testData.AddSeconds(-1);
+                        tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                        tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                        tableName = new GasAnalysis().newEntry(protocol);
+                        if (tableName.Equals("Error"))
+                        {
+                            MessageBox.Show(tableName + ": You must have an equipment selected.");
+                            stopIt(false);
+                        }
+                        else
+                            tableNames.Add(tableName);
+                        recordData.Start();
+                    }
+                    else if (tempTestData <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0))
+                    {
+                        tempTestData = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                        recordData.Stop();
+                    }
+                    else
+                    {
+                        tempTestData = tempTestData.AddSeconds(-1);
+                        tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
+                        tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
                 }
+
+                /////////////////////////////////Purge///////////////////////////////////
+
+                else if (!(tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
+                {
+                    if (pFirst)
+                    {
+                        if (purged.Equals(false))
+                        {
+                            timer1.Stop();
+                            MessageBox.Show("Remove the sample line from the analyzer to purge with fresh air, then click ok.");
+                            timer1.Start();
+                        }
+                        protocol.processProtocol("$0F1066 0x20");
+                        protocol.processProtocol("$0F1050 0x20");
+                        pFirst = false;
+                        tempPurge = tempPurge.AddSeconds(-1);
+                        pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                        pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
+                        running = running.AddSeconds(1);
+                    }
+                    else if ((tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
+                    {
+                        protocol.processProtocol("$0F1051 0x20");
+                        tempPurge = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                    }
+                    else
+                    {
+                        if (!(tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
+                        {
+                            tempPurge = tempPurge.AddSeconds(-1);
+                            pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
+                            pTimelblB.Text = tempPurge.ToString("HH:mm:ss");
+                            running = running.AddSeconds(1);
+                        }
+                    }
+                }
+
+                ////////////////////////////////Cycles/////////////////////////
                 else if (!currentCycle.ToString().Equals(numOfCycles))
                 {
                     currentCycle++;
@@ -337,99 +551,13 @@ namespace CRS
                 }
             }
         }
-        private bool rampUpMethod()
-        {
-            if (rFirst)
-            {
-                if (!(tempRampUp <= new DateTime(2000, 2, 1, 0, 0, 0)))
-                {
-                    protocol.processProtocol("$0F1066 0x20");
-                    rFirst = false;
-                    tempRampUp = tempRampUp.AddSeconds(-1);
-                    rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
-                    rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
-                    running = running.AddSeconds(1);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!(tempRampUp <= new DateTime(2000, 2, 1, 0, 0, 0)))
-                {
-                    tempRampUp = tempRampUp.AddSeconds(-1);
-                    rTimelbl.Text = tempRampUp.ToString("HH:mm:ss");
-                    rTimelblB.Text = tempRampUp.ToString("HH:mm:ss");
-                    running = running.AddSeconds(1);
-
-                    return true;
-                }
-                else
-                {
-                    tempRampUp = new DateTime(2000, 2, 1, 0, 0, 0);
-                    resetAll();
-                    return false;
-                }
-            }
-        }
-
-        private bool testDataMethod()
-        {
-            resetAll();
-            if (tFirst)
-            {
-                if (!(tempTestData <= new DateTime(2000, 2, 1, 0, 0, 0)))
-                {
-                    protocol.processProtocol("$0F1066 0x20");
-                    tFirst = false;
-                    tempTestData = testData.AddSeconds(-1);
-                    tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
-                    tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
-                    running = running.AddSeconds(1);
-                    tableName = new GasAnalysis().newEntry(protocol);
-                    if (tableName.Equals("Error"))
-                    {
-                        MessageBox.Show(tableName + ": You must have an equipment selected.");
-                        stopIt(false);
-                    }
-                    else
-                        tableNames.Add(tableName);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!(tempTestData <= new DateTime(2000, 2, 1, 0, 0, 0)))
-                {
-                    tempTestData = tempTestData.AddSeconds(-1);
-                    tTimelbl.Text = tempTestData.ToString("HH:mm:ss");
-                    tTimelblB.Text = tempTestData.ToString("HH:mm:ss");
-                    running = running.AddSeconds(1);
-                    recordData.Start();
-                    return true;
-                }
-                else
-                {
-                    tempTestData = new DateTime(2000, 2, 1, 0, 0, 0);
-                    recordData.Stop();
-                    return false;
-                }
-            }
-        }
 
         private bool purgeMethod()
         {
 
             if (pFirst)
             {
-                if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
+                if (!(tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
                 {
                     if (purged.Equals(false))
                     {
@@ -453,7 +581,7 @@ namespace CRS
             }
             else
             {
-                if (!(tempPurge <= new DateTime(2000, 2, 1, 0, 0, 0)))
+                if (!(tempPurge <= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0)))
                 {
                     tempPurge = tempPurge.AddSeconds(-1);
                     pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
@@ -464,7 +592,7 @@ namespace CRS
                 else
                 {
                     protocol.processProtocol("$0F1051 0x20");
-                    tempPurge = new DateTime(2000, 2, 1, 0, 0, 0);
+                    tempPurge = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
                     return false;
                 }
             }
@@ -479,7 +607,7 @@ namespace CRS
                 tempTestData = testData;
             if (pFirst)
                 tempPurge = purge;
-            DateTime now = DateTime.Now;
+            
             this.clock_lbl.Text = now.ToString();
             this.recordTimeLabel.Text = testTime.ToString("HH:mm:ss");
             this.pTimelbl.Text = tempPurge.ToString("HH:mm:ss");
@@ -493,10 +621,16 @@ namespace CRS
             this.label23.Text = dgInterval / 1000 + " sec(s)";
             this.label43.Text = dgInterval / 1000 + " sec(s)";
             this.label14.Text = "\n" + tested + " Machines Tested\nSince Last Calibration\n ";
-            //if (protocol.processProtocol())
-            //{
-            //    //dataGridTimer.Start();
-            //}
+            if (numOfCycles.Equals("-1"))
+            {
+                label22.Text = currentCycle + " of " + "\u221e";
+                label48.Text = currentCycle + " of " + "\u221e";
+            }
+            else
+            {
+                label22.Text = currentCycle + " of " + numOfCycles;
+                label48.Text = currentCycle + " of " + numOfCycles;
+            }
 
 
         }
@@ -526,14 +660,14 @@ namespace CRS
         //Opens recording Window
         private void configureRecordingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
+            configProcedure = new SetUpProcedure();
             configProcedure.ShowDialog();
         }
 
         //Opens Personal Data Window
         private void personalDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PersonalData personalData = new PersonalData();
+            personalData = new PersonalData();
             personalData.ShowDialog();
         }
 
@@ -817,19 +951,17 @@ namespace CRS
             pictureBox1.Image = Properties.Resources.wi_fi_btn;
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(175)))));
             J2KNProtocolw.start = true;
-            if (numOfCycles.Equals("-1"))
-            {
-                label22.Text = currentCycle + " of " + "\u221e";
-                label48.Text = currentCycle + " of " + "\u221e";
-            }
-            else
-            {
-                label22.Text = currentCycle + " of " + numOfCycles;
-                label48.Text = currentCycle + " of " + numOfCycles;
-            }
+            
 
             //get all values
-            protocol.processProtocol();
+            if (protocol.processProtocol().Equals(false))
+            {
+                label13.Text = "Not Connected";
+                pictureBox1.Image = Properties.Resources.wi_fi_btn;
+                label13.ForeColor = Color.Red;
+                J2KNProtocolw.start = true;
+                dataGridTimer.Stop();
+            }
             //get Serial Number
             protocol.processProtocol("$0A0514");
             //get Firmware ID
@@ -1103,7 +1235,7 @@ namespace CRS
         private void button1_Click(object sender, EventArgs e)
         {
 
-            configProcedure = new SetUpProcedure(rampUp, testData, purge, numOfCycles, dgInterval);
+            configProcedure = new SetUpProcedure();
             configProcedure.ShowDialog();
 
         }
@@ -1119,6 +1251,12 @@ namespace CRS
             snaps.ShowDialog();
 
         }
+
+        private void setLTiles()
+        {
+            throw new NotImplementedException();
+        }
+
         private void toolStripComboBox1_SelectedItemChanged(object sender, EventArgs e)
         {
             protocol.massEmissions(MainMenu.equipment, MainMenu.site);

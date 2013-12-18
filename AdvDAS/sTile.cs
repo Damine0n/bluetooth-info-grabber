@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Finisar.SQLite;
+using System.IO;
 using Microsoft.VisualBasic;
 
 namespace CRS
@@ -18,24 +20,32 @@ namespace CRS
         public Control source;
         private Label lbl1, lbl2;
         public Button btn;
-        private int index;
+        private int index, type;
         private List<double> nums = new List<double>();
         string average;
         public static double correction;
         public J2KNProtocolw protocol = new J2KNProtocolw();
         DateTime now;
         private DateTime start;
+        private SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\database1.db;Version=3;");
+        private SQLiteCommand sqlite_cmd;
+        private SQLiteDataReader sqlite_datareader;
+        DataTable ds = new DataTable();
 
-        public ScaleDisplay(Tuple<Label, Label, Button> tuple)
+        public ScaleDisplay(Tuple<Label, Label, Button> tuple, int type)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.lbl1 = tuple.Item1;
             this.lbl2 = tuple.Item2;
             this.btn = tuple.Item3;
+            this.type = type;
             timer1.Start();
-            
+            sqlite_conn.Open();
+            loadTile();
+
         }
+
         public int Index
         {
             get { return index; }
@@ -45,7 +55,49 @@ namespace CRS
         {
             this.lbl1.Text = elementComboBox.Text;
             this.lbl2.Text = valLabel.Text;
+            setTile(elementComboBox.SelectedIndex);
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void loadTile()
+        {
+            
+            try
+            {
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Tiles WHERE NUM = 0 ;", sqlite_conn);
+                
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                //MessageBox.Show(index.ToString());
+                while (sqlite_datareader.Read())
+                {
+                   this.index = Convert.ToInt32(sqlite_datareader[type].ToString());
+                   
+                }
+                sqlite_datareader.Close();
+                elementComboBox.SelectedIndex = index;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Autosave retrieve error");
+            }
+            
+        }
+
+        private void setTile(int num)
+        {
+            string name = "tile" + type;
+            try
+            {
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                // Let the SQLiteCommand object know our SQL-Query:
+                sqlite_cmd.CommandText = "UPDATE Tiles SET "+name+" = '" + num + "';";
+                // And execute this again 
+                sqlite_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -178,7 +230,7 @@ namespace CRS
                     valLabel.Text = protocol.vNOxTPY;
                     this.lbl2.Text = protocol.vNOxTPY;
                     break;
-                case 16: 
+                case 16:
                     this.lbl1.Text = elementComboBox.Text;
                     valLabel.Text = protocol.vNOxHr;
                     this.lbl2.Text = protocol.vNOxHr;
@@ -280,9 +332,9 @@ namespace CRS
             if (this.lbl2.Text.Length > 5)
             {
                 this.lbl2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            }else
+            }
+            else
                 this.lbl2.Font = new System.Drawing.Font("Myriad Pro SemiExt", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
         }
 
         public void resetAverage()
